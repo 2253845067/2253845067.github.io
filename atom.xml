@@ -1,34 +1,76 @@
 <?xml version="1.0" encoding="utf-8"?>
 <feed xmlns="http://www.w3.org/2005/Atom">
-  <title>与亓的Blog</title>
+  <title>与亓のBlog</title>
   
   
-  <link href="http://yuqi.gitee.io/atom.xml" rel="self"/>
+  <link href="http://yuqi.fun/atom.xml" rel="self"/>
   
-  <link href="http://yuqi.gitee.io/"/>
-  <updated>2023-02-25T14:17:55.672Z</updated>
-  <id>http://yuqi.gitee.io/</id>
+  <link href="http://yuqi.fun/"/>
+  <updated>2023-02-26T12:59:47.660Z</updated>
+  <id>http://yuqi.fun/</id>
   
   <author>
-    <name>John Doe</name>
+    <name>与亓</name>
     
   </author>
   
   <generator uri="https://hexo.io/">Hexo</generator>
   
   <entry>
-    <title>Hello World</title>
-    <link href="http://yuqi.gitee.io/2023/02/25/hello-world/"/>
-    <id>http://yuqi.gitee.io/2023/02/25/hello-world/</id>
-    <published>2023-02-25T14:17:55.672Z</published>
-    <updated>2023-02-25T14:17:55.672Z</updated>
+    <title></title>
+    <link href="http://yuqi.fun/2023/02/26/5G21%E7%AC%AC%E4%BA%8C%E6%89%B9%E5%88%B7%E6%9C%BA%E4%BB%A5%E5%8F%8A%E4%B8%8D%E5%90%8C%E4%BD%9C%E8%80%85%E9%97%B4%E7%9A%84%E5%9B%BA%E4%BB%B6%E5%88%87%E6%8D%A2/"/>
+    <id>http://yuqi.fun/2023/02/26/5G21%E7%AC%AC%E4%BA%8C%E6%89%B9%E5%88%B7%E6%9C%BA%E4%BB%A5%E5%8F%8A%E4%B8%8D%E5%90%8C%E4%BD%9C%E8%80%85%E9%97%B4%E7%9A%84%E5%9B%BA%E4%BB%B6%E5%88%87%E6%8D%A2/</id>
+    <published>2023-02-26T13:22:16.562Z</published>
+    <updated>2023-02-26T12:59:47.660Z</updated>
     
-    <content type="html"><![CDATA[<p>Welcome to <a href="https://hexo.io/">Hexo</a>! This is your very first post. Check <a href="https://hexo.io/docs/">documentation</a> for more info. If you get any problems when using Hexo, you can find the answer in <a href="https://hexo.io/docs/troubleshooting.html">troubleshooting</a> or you can ask me on <a href="https://github.com/hexojs/hexo/issues">GitHub</a>.</p><h2 id="Quick-Start"><a href="#Quick-Start" class="headerlink" title="Quick Start"></a>Quick Start</h2><h3 id="Create-a-new-post"><a href="#Create-a-new-post" class="headerlink" title="Create a new post"></a>Create a new post</h3><figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">$ hexo new <span class="string">&quot;My New Post&quot;</span></span><br></pre></td></tr></table></figure><p>More info: <a href="https://hexo.io/docs/writing.html">Writing</a></p><h3 id="Run-server"><a href="#Run-server" class="headerlink" title="Run server"></a>Run server</h3><figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">$ hexo server</span><br></pre></td></tr></table></figure><p>More info: <a href="https://hexo.io/docs/server.html">Server</a></p><h3 id="Generate-static-files"><a href="#Generate-static-files" class="headerlink" title="Generate static files"></a>Generate static files</h3><figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">$ hexo generate</span><br></pre></td></tr></table></figure><p>More info: <a href="https://hexo.io/docs/generating.html">Generating</a></p><h3 id="Deploy-to-remote-sites"><a href="#Deploy-to-remote-sites" class="headerlink" title="Deploy to remote sites"></a>Deploy to remote sites</h3><figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">$ hexo deploy</span><br></pre></td></tr></table></figure><p>More info: <a href="https://hexo.io/docs/one-command-deployment.html">Deployment</a></p>]]></content>
+    <content type="html"><![CDATA[<p>lean的q-wrt可以进行webui直接更新 进入webui后依次点击系统-服务&#x2F;备份-刷写新的固件上传固件后升级。切记不要勾选保留配置。<br>切换到志平或狂风固件请使用winscp等工具上传到tmp目录后，ssh输入以下的命令，记得先cd到tmp目录。</p><figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">sysupgrade -F -n xxx.bin</span><br></pre></td></tr></table></figure><p>或者使用以下命令强刷</p><figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">sysupgrade -F -n -v xxx.bin</span><br></pre></td></tr></table></figure><p>xxx为固件名字</p>]]></content>
     
     
       
       
-    <summary type="html">&lt;p&gt;Welcome to &lt;a href=&quot;https://hexo.io/&quot;&gt;Hexo&lt;/a&gt;! This is your very first post. Check &lt;a href=&quot;https://hexo.io/docs/&quot;&gt;documentation&lt;/a&gt; for</summary>
+    <summary type="html">&lt;p&gt;lean的q-wrt可以进行webui直接更新 进入webui后依次点击系统-服务&amp;#x2F;备份-刷写新的固件上传固件后升级。切记不要勾选保留配置。&lt;br&gt;切换到志平或狂风固件请使用winscp等工具上传到tmp目录后，ssh输入以下的命令，记得先cd到tmp目录。&lt;/p</summary>
+      
+    
+    
+    
+    
+  </entry>
+  
+  <entry>
+    <title></title>
+    <link href="http://yuqi.fun/2023/02/26/OnlyFans%20%E5%85%AC%E5%85%B1%E5%AD%98%E6%A1%A3%E5%99%A8%20%E5%85%8D%E8%B4%B9%E6%9F%A5%E7%9C%8BOnlyFans%E4%BB%98%E8%B4%B9%E5%86%85%E5%AE%B9-Coomer/"/>
+    <id>http://yuqi.fun/2023/02/26/OnlyFans%20%E5%85%AC%E5%85%B1%E5%AD%98%E6%A1%A3%E5%99%A8%20%E5%85%8D%E8%B4%B9%E6%9F%A5%E7%9C%8BOnlyFans%E4%BB%98%E8%B4%B9%E5%86%85%E5%AE%B9-Coomer/</id>
+    <published>2023-02-26T13:22:16.554Z</published>
+    <updated>2023-02-26T12:59:15.511Z</updated>
+    
+    <content type="html"><![CDATA[<p>Coomer，一个OnlyFans 公共存档器，可以免费查看OnlyFans付费内容，上面所以内容都由网友搬运、贡献的OnlyFans付费内容，想要查看哪位艺术家、作者的付费内容，直接搜索名字即可免费查看OnlyFans上的付费内容，当然你也可以共享你的。</p><p>地址：<a href="https://coomer.party/">https://coomer.party/</a></p><p>可以尝试点击&gt;creators&gt;然后搜索 ‘hongkongdoll’ ，‘juneliu’；</p><p>更多的关键词待你挖掘</p>]]></content>
+    
+    
+      
+      
+    <summary type="html">&lt;p&gt;Coomer，一个OnlyFans 公共存档器，可以免费查看OnlyFans付费内容，上面所以内容都由网友搬运、贡献的OnlyFans付费内容，想要查看哪位艺术家、作者的付费内容，直接搜索名字即可免费查看OnlyFans上的付费内容，当然你也可以共享你的。&lt;/p&gt;
+&lt;p&gt;地</summary>
+      
+    
+    
+    
+    
+  </entry>
+  
+  <entry>
+    <title></title>
+    <link href="http://yuqi.fun/2023/02/26/%E4%B8%AD%E6%98%9F%E5%BE%AE%E9%9A%8F%E8%BA%ABWifi%E5%8E%BB%E5%90%8E%E9%97%A8%E5%88%B7%E5%85%A8%E5%8A%9F%E8%83%BD%E5%90%8E%E5%8F%B0/"/>
+    <id>http://yuqi.fun/2023/02/26/%E4%B8%AD%E6%98%9F%E5%BE%AE%E9%9A%8F%E8%BA%ABWifi%E5%8E%BB%E5%90%8E%E9%97%A8%E5%88%B7%E5%85%A8%E5%8A%9F%E8%83%BD%E5%90%8E%E5%8F%B0/</id>
+    <published>2023-02-26T13:22:16.554Z</published>
+    <updated>2023-02-21T02:25:22.241Z</updated>
+    
+    <content type="html"><![CDATA[<h1 id="前言"><a href="#前言" class="headerlink" title="前言"></a>前言</h1><p>买到棒子先不要插自己卡，需要进行屏蔽操作防止被远程操作，这里我买的是狗东某沃中星微。</p><h1 id="刷入全功能后台"><a href="#刷入全功能后台" class="headerlink" title="刷入全功能后台"></a>刷入全功能后台</h1><p>首先开启ADB<br>插到电脑上电 192.168.0.1 访问成功 密码admin<br>通电后用工具捅USB插头的小孔 灯灭会自动重启，重启完成即可进入ADB模式</p><h1 id="下载工具"><a href="#下载工具" class="headerlink" title="下载工具"></a>下载工具</h1><p>链接：<a href="https://pan.baidu.com/s/1lCwsg7kMmHVNbWOP7KRT3Q">https://pan.baidu.com/s/1lCwsg7kMmHVNbWOP7KRT3Q</a><br>提取码：8888 </p><h1 id="使用方法"><a href="#使用方法" class="headerlink" title="使用方法"></a>使用方法</h1><p>先执行 【1：中兴微通用备份】 对棒子进行备份<br>然后执行 【2：中兴微通用后台刷入】 刷入全功能后台</p><p>去除远程控制</p><p>执行 8：打开CMD终端</p><p>进入shell进行操作，以下均在cmd窗口内进行</p><figure class="highlight shell"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">adb shell</span><br></pre></td></tr></table></figure><p>可查看所有参数 再进行修改</p><figure class="highlight shell"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">nv show</span><br></pre></td></tr></table></figure><p>下面第一条有的新版本有这个参数，有的没有，可以执行没啥问题，最好去执行上一条命令查看所有参数再修改。</p><figure class="highlight shell"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">nv set mqtt_host=127.0.0.1</span><br></pre></td></tr></table></figure><p>禁止固件下载</p><figure class="highlight shell"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">nv set fota_updateMode=0</span><br></pre></td></tr></table></figure><p>禁止系统网址</p><figure class="highlight shell"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">nv set os_url=http://127.0.0.1</span><br></pre></td></tr></table></figure><p>禁止内置卡服务</p><figure class="highlight shell"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">nv set lpa_trigger_host=127.0.1</span><br></pre></td></tr></table></figure><p>禁止定位</p><figure class="highlight shell"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">nv set safecare_hostname=127.0.0.1</span><br></pre></td></tr></table></figure><p>禁用云服务</p><figure class="highlight shell"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">nv set safecare_mobsite=http://127.0.0.1</span><br></pre></td></tr></table></figure><p>禁用云服务</p><figure class="highlight shell"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">nv set TM_SERVER_NAME=127.0.0.1</span><br></pre></td></tr></table></figure><p>修改一些网页目录为根目录,防止未知访问</p><figure class="highlight shell"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><span class="line">nv set lpa_trigger_updata_url=/</span><br><span class="line">nv set lpa_trigger_event_url=/</span><br><span class="line">nv set URI_FIELD=/</span><br></pre></td></tr></table></figure><p>未知服务修改掉再说有影响还原 原参数 hostName&#x3D;dm.wo.com.cn</p><figure class="highlight shell"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">nv set hostName=127.0.0.1</span><br></pre></td></tr></table></figure><p>未知服务修改掉再说有影响还原 原参数 HOST_FIELD&#x3D;Host: mt.chenjiariji.top</p><figure class="highlight shell"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">nv set HOST_FIELD=&#x27;Host: 127.0.0.1&#x27;</span><br></pre></td></tr></table></figure><p>保存设置以上所有设置</p><figure class="highlight shell"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">nv save</span><br></pre></td></tr></table></figure><p>进阶设置</p><p>设置root密码 这里默认vps333 自己设置复杂一点</p><figure class="highlight shell"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">nv set root_Password=vps333</span><br></pre></td></tr></table></figure><p>保存设置</p><figure class="highlight shell"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">nv save</span><br></pre></td></tr></table></figure><p>到这里可以屏蔽与云服务相关的连接了,输入reboot进行重启</p><p>进行设置<br>先进入后台去修改掉imei为其他的不要为默认的imei,修改后重启一遍看看是否是修改的emei<br>然后登录 访问以下网址获取解锁sim卡槽密码</p><p><a href="http://192.168.0.1/goform/goform_get_cmd_process?cmd=unlock_network_code">http://192.168.0.1/goform/goform_get_cmd_process?cmd=unlock_network_code</a></p><p>开启ADB命令 这里我没有使用</p><p><a href="http://192.168.0.1/goform/goform_set_cmd_process?goformId=SET_DEVICE_MODE&debug_enable=1">http://192.168.0.1/goform/goform_set_cmd_process?goformId=SET_DEVICE_MODE&amp;debug_enable=1</a></p><p>获取到这这个密码输入到解锁sim卡服务的地方即可。<br>解锁后再拔掉开机，看到SIM已解锁。<br>然后插入SIM 就可以上网了，如果恢复出厂需要再执行以上操作。</p>]]></content>
+    
+    
+      
+      
+    <summary type="html">&lt;h1 id=&quot;前言&quot;&gt;&lt;a href=&quot;#前言&quot; class=&quot;headerlink&quot; title=&quot;前言&quot;&gt;&lt;/a&gt;前言&lt;/h1&gt;&lt;p&gt;买到棒子先不要插自己卡，需要进行屏蔽操作防止被远程操作，这里我买的是狗东某沃中星微。&lt;/p&gt;
+&lt;h1 id=&quot;刷入全功能后台&quot;&gt;&lt;a hre</summary>
       
     
     
