@@ -6,7 +6,7 @@
   <link href="http://yuqi.fun/atom.xml" rel="self"/>
   
   <link href="http://yuqi.fun/"/>
-  <updated>2023-03-02T06:13:48.923Z</updated>
+  <updated>2023-03-03T00:49:25.666Z</updated>
   <id>http://yuqi.fun/</id>
   
   <author>
@@ -21,14 +21,14 @@
     <link href="http://yuqi.fun/2023/02/28/AI%E7%BB%98%E7%94%BB/"/>
     <id>http://yuqi.fun/2023/02/28/AI%E7%BB%98%E7%94%BB/</id>
     <published>2023-02-28T10:38:19.553Z</published>
-    <updated>2023-03-02T06:13:48.923Z</updated>
+    <updated>2023-03-03T00:49:25.666Z</updated>
     
-    <content type="html"><![CDATA[<h1 id="准备环境"><a href="#准备环境" class="headerlink" title="准备环境"></a>准备环境</h1><h2 id="安装pychon"><a href="#安装pychon" class="headerlink" title="安装pychon"></a>安装pychon</h2><p>直接点击下方按钮下载安装</p><a class="btn-beautify green larger" href="https://www.python.org/ftp/python/3.11.2/python-3.11.2-amd64.exe"   title="点击下载"><i class="far fa-hand-point-right"></i><span>点击下载</span></a><p>打开安装即可，注意勾选上安装页面的的选项</p><p><img src="https://yuqi-1256456111.cos.ap-shanghai.myqcloud.com/img/202302281848503.png"></p><p>然后点击下面的选项，就安装完成了。</p><p><img src="https://yuqi-1256456111.cos.ap-shanghai.myqcloud.com/img/202302281850492.png"></p>]]></content>
+    <content type="html"><![CDATA[<h1 id="准备环境"><a href="#准备环境" class="headerlink" title="准备环境"></a>准备环境</h1><h2 id="pychon的下载及安装"><a href="#pychon的下载及安装" class="headerlink" title="pychon的下载及安装"></a>pychon的下载及安装</h2><p>直接点击下方按钮下载安装</p><a class="btn-beautify green larger" href="https://www.python.org/ftp/python/3.11.2/python-3.11.2-amd64.exe"   title="点击下载"><i class="far fa-hand-point-right"></i><span>点击下载</span></a><p>打开安装即可，注意勾选上安装页面的的选项</p><p><img src="https://yuqi-1256456111.cos.ap-shanghai.myqcloud.com/img/202302281848503.png"></p><p>然后点击下面的选项，就安装完成了。</p><p><img src="https://yuqi-1256456111.cos.ap-shanghai.myqcloud.com/img/202302281850492.png"></p><h2 id="cuda的下载及安装"><a href="#cuda的下载及安装" class="headerlink" title="cuda的下载及安装"></a>cuda的下载及安装</h2><h3 id="查看适合的cuda版本"><a href="#查看适合的cuda版本" class="headerlink" title="查看适合的cuda版本"></a>查看适合的cuda版本</h3><p><img src="https://yuqi-1256456111.cos.ap-shanghai.myqcloud.com/img/202303030811620.png"></p><p><img src="https://yuqi-1256456111.cos.ap-shanghai.myqcloud.com/img/202303030811238.png"></p><p><img src="https://yuqi-1256456111.cos.ap-shanghai.myqcloud.com/img/202303030812926.png"></p><p>这里看到我电脑上支持的cuda是11.7的</p><h3 id="cuda-toolkit-下载"><a href="#cuda-toolkit-下载" class="headerlink" title="cuda  toolkit  下载"></a>cuda  toolkit  下载</h3><p>进入下面网页，找到适合的cuda</p><a class="btn-beautify green larger" href="https://developer.nvidia.com/cuda-toolkit-archive"   title="点击进入"><i class="far fa-hand-point-right"></i><span>点击进入</span></a><p><img src="https://yuqi-1256456111.cos.ap-shanghai.myqcloud.com/img/202303030815008.png"></p><p><img src="https://yuqi-1256456111.cos.ap-shanghai.myqcloud.com/img/202303030816433.png"></p><p>Version是选系统的，win10就选10，win11就选11，选好后点击下载</p><h3 id="cuda-toolkit-安装"><a href="#cuda-toolkit-安装" class="headerlink" title="cuda  toolkit  安装"></a>cuda  toolkit  安装</h3><p>双击exe文件进行安装即可</p><p>一直下一步，直到安装完成。</p><h2 id="Git的下载及安装"><a href="#Git的下载及安装" class="headerlink" title="Git的下载及安装"></a>Git的下载及安装</h2><p>进入下面网页</p><a class="btn-beautify green larger" href="https://git-scm.com/download/win"   title="点击进入"><i class="far fa-hand-point-right"></i><span>点击进入</span></a><p><img src="https://yuqi-1256456111.cos.ap-shanghai.myqcloud.com/img/202303030830575.png"></p><p>点击下载</p><p>下载完成后，双击exe文件进行安装即可</p><p>一直下一步，直到安装完成。</p><h1 id="webui的下载及启动"><a href="#webui的下载及启动" class="headerlink" title="webui的下载及启动"></a>webui的下载及启动</h1><a class="btn-beautify green larger" href="https://pan.baidu.com/s/1dj9Dglfh7th9jE-ZDvuMIA?pwd=yuqi"   title="点击下载"><i class="far fa-hand-point-right"></i><span>点击下载</span></a><p>下载完成后，将novelai-webui-aki-v3解压出来</p><p>然后将sd-webui启动器文件夹里面的启动器运行依赖安装一下</p><p><img src="https://yuqi-1256456111.cos.ap-shanghai.myqcloud.com/img/202303030835622.png"></p><p>如果提示这个，则不用再安装</p><p>最后将sd-webui启动器压缩包里面的文件全部放进解压好的novelai-webui-aki-v3文件夹里面</p><p><img src="https://yuqi-1256456111.cos.ap-shanghai.myqcloud.com/img/202303030837999.png"></p><p>双击启动即可，第一次打开会自动下载依赖。</p><p><img src="https://yuqi-1256456111.cos.ap-shanghai.myqcloud.com/img/202303030840462.png"></p><p>启动器会自动生成启动参数，直接一键启动</p><p>然后按照提示阅读并同意用户协议，再次点击一键启动</p><p><img src="https://yuqi-1256456111.cos.ap-shanghai.myqcloud.com/img/202303030843786.png"></p><p>最后进入到这个自动打开的网页就大功告成了</p><h1 id="webui的其他操作"><a href="#webui的其他操作" class="headerlink" title="webui的其他操作"></a>webui的其他操作</h1><h2 id="添加模型"><a href="#添加模型" class="headerlink" title="添加模型"></a>添加模型</h2><p>一开始我们下载的文件里面就自带了一个模型，可以把它拖放到如图的文件夹里面，如果你还有其他的模型也可以放在这个文件夹里面进行使用</p><p><img src="https://yuqi-1256456111.cos.ap-shanghai.myqcloud.com/img/202303030839190.png"></p><p><a href="https://civitai.com/">https://civitai.com/</a></p><p>上面的网站就有很多模型，可以根据自己喜好进行下载添加</p>]]></content>
     
     
       
       
-    <summary type="html">&lt;h1 id=&quot;准备环境&quot;&gt;&lt;a href=&quot;#准备环境&quot; class=&quot;headerlink&quot; title=&quot;准备环境&quot;&gt;&lt;/a&gt;准备环境&lt;/h1&gt;&lt;h2 id=&quot;安装pychon&quot;&gt;&lt;a href=&quot;#安装pychon&quot; class=&quot;headerlink&quot; title=&quot;安</summary>
+    <summary type="html">&lt;h1 id=&quot;准备环境&quot;&gt;&lt;a href=&quot;#准备环境&quot; class=&quot;headerlink&quot; title=&quot;准备环境&quot;&gt;&lt;/a&gt;准备环境&lt;/h1&gt;&lt;h2 id=&quot;pychon的下载及安装&quot;&gt;&lt;a href=&quot;#pychon的下载及安装&quot; class=&quot;headerlink&quot; </summary>
       
     
     
@@ -65,30 +65,6 @@
   </entry>
   
   <entry>
-    <title>OnlyFans 公共存档器 免费查看OnlyFans付费内容-Coomer</title>
-    <link href="http://yuqi.fun/2023/02/26/OnlyFans%20%E5%85%AC%E5%85%B1%E5%AD%98%E6%A1%A3%E5%99%A8%20%E5%85%8D%E8%B4%B9%E6%9F%A5%E7%9C%8BOnlyFans%E4%BB%98%E8%B4%B9%E5%86%85%E5%AE%B9-Coomer/"/>
-    <id>http://yuqi.fun/2023/02/26/OnlyFans%20%E5%85%AC%E5%85%B1%E5%AD%98%E6%A1%A3%E5%99%A8%20%E5%85%8D%E8%B4%B9%E6%9F%A5%E7%9C%8BOnlyFans%E4%BB%98%E8%B4%B9%E5%86%85%E5%AE%B9-Coomer/</id>
-    <published>2023-02-26T13:22:16.554Z</published>
-    <updated>2023-03-02T06:13:48.920Z</updated>
-    
-    <content type="html"><![CDATA[<p>Coomer，一个 OnlyFans 公共存档器，可以免费查看 OnlyFans 付费内容，上面所以内容都由网友搬运、贡献的 OnlyFans 付费内容，想要查看哪位艺术家、作者的付费内容，直接搜索名字即可免费查看 OnlyFans 上的付费内容，当然你也可以共享你的。</p><p>地址：<a href="https://coomer.party/">https://coomer.party/</a></p><p>可以尝试点击&gt;creators&gt;然后搜索 ‘hongkongdoll’ ，‘juneliu’；</p><p>更多的关键词待你挖掘</p>]]></content>
-    
-    
-      
-      
-    <summary type="html">&lt;p&gt;Coomer，一个 OnlyFans 公共存档器，可以免费查看 OnlyFans 付费内容，上面所以内容都由网友搬运、贡献的 OnlyFans 付费内容，想要查看哪位艺术家、作者的付费内容，直接搜索名字即可免费查看 OnlyFans 上的付费内容，当然你也可以共享你的。&lt;/</summary>
-      
-    
-    
-    
-    <category term="其他" scheme="http://yuqi.fun/categories/%E5%85%B6%E4%BB%96/"/>
-    
-    
-    <category term="其他" scheme="http://yuqi.fun/tags/%E5%85%B6%E4%BB%96/"/>
-    
-  </entry>
-  
-  <entry>
     <title>中星微随身Wifi去后门刷全功能后台</title>
     <link href="http://yuqi.fun/2023/02/26/%E4%B8%AD%E6%98%9F%E5%BE%AE%E9%9A%8F%E8%BA%ABWifi%E5%8E%BB%E5%90%8E%E9%97%A8%E5%88%B7%E5%85%A8%E5%8A%9F%E8%83%BD%E5%90%8E%E5%8F%B0/"/>
     <id>http://yuqi.fun/2023/02/26/%E4%B8%AD%E6%98%9F%E5%BE%AE%E9%9A%8F%E8%BA%ABWifi%E5%8E%BB%E5%90%8E%E9%97%A8%E5%88%B7%E5%85%A8%E5%8A%9F%E8%83%BD%E5%90%8E%E5%8F%B0/</id>
@@ -110,6 +86,30 @@
     
     
     <category term="随身WiFi" scheme="http://yuqi.fun/tags/%E9%9A%8F%E8%BA%ABWiFi/"/>
+    
+  </entry>
+  
+  <entry>
+    <title>OnlyFans 公共存档器 免费查看OnlyFans付费内容-Coomer</title>
+    <link href="http://yuqi.fun/2023/02/26/OnlyFans%20%E5%85%AC%E5%85%B1%E5%AD%98%E6%A1%A3%E5%99%A8%20%E5%85%8D%E8%B4%B9%E6%9F%A5%E7%9C%8BOnlyFans%E4%BB%98%E8%B4%B9%E5%86%85%E5%AE%B9-Coomer/"/>
+    <id>http://yuqi.fun/2023/02/26/OnlyFans%20%E5%85%AC%E5%85%B1%E5%AD%98%E6%A1%A3%E5%99%A8%20%E5%85%8D%E8%B4%B9%E6%9F%A5%E7%9C%8BOnlyFans%E4%BB%98%E8%B4%B9%E5%86%85%E5%AE%B9-Coomer/</id>
+    <published>2023-02-26T13:22:16.554Z</published>
+    <updated>2023-03-02T06:13:48.920Z</updated>
+    
+    <content type="html"><![CDATA[<p>Coomer，一个 OnlyFans 公共存档器，可以免费查看 OnlyFans 付费内容，上面所以内容都由网友搬运、贡献的 OnlyFans 付费内容，想要查看哪位艺术家、作者的付费内容，直接搜索名字即可免费查看 OnlyFans 上的付费内容，当然你也可以共享你的。</p><p>地址：<a href="https://coomer.party/">https://coomer.party/</a></p><p>可以尝试点击&gt;creators&gt;然后搜索 ‘hongkongdoll’ ，‘juneliu’；</p><p>更多的关键词待你挖掘</p>]]></content>
+    
+    
+      
+      
+    <summary type="html">&lt;p&gt;Coomer，一个 OnlyFans 公共存档器，可以免费查看 OnlyFans 付费内容，上面所以内容都由网友搬运、贡献的 OnlyFans 付费内容，想要查看哪位艺术家、作者的付费内容，直接搜索名字即可免费查看 OnlyFans 上的付费内容，当然你也可以共享你的。&lt;/</summary>
+      
+    
+    
+    
+    <category term="其他" scheme="http://yuqi.fun/categories/%E5%85%B6%E4%BB%96/"/>
+    
+    
+    <category term="其他" scheme="http://yuqi.fun/tags/%E5%85%B6%E4%BB%96/"/>
     
   </entry>
   
