@@ -45,7 +45,7 @@
       
         <tags>
             
-            <tag> Hexo </tag>
+            <tag> hexo </tag>
             
         </tags>
       
@@ -170,7 +170,7 @@
       
         <tags>
             
-            <tag> Hexo </tag>
+            <tag> hexo </tag>
             
         </tags>
       
@@ -197,7 +197,7 @@
             
             <tag> Butterfly </tag>
             
-            <tag> Hexo </tag>
+            <tag> hexo </tag>
             
         </tags>
       
@@ -222,7 +222,7 @@
       
         <tags>
             
-            <tag> Hexo </tag>
+            <tag> hexo </tag>
             
         </tags>
       
@@ -276,7 +276,7 @@
       
         <tags>
             
-            <tag> Hexo </tag>
+            <tag> hexo </tag>
             
         </tags>
       
@@ -335,6 +335,17 @@
     
     
     <entry>
+      <title>归档</title>
+      <link href="/archives/index.html"/>
+      <url>/archives/index.html</url>
+      
+        <content type="html"><![CDATA[]]></content>
+      
+    </entry>
+    
+    
+    
+    <entry>
       <title>留言板</title>
       <link href="/comment/index.html"/>
       <url>/comment/index.html</url>
@@ -360,17 +371,6 @@
       <title>标签</title>
       <link href="/tags/index.html"/>
       <url>/tags/index.html</url>
-      
-        <content type="html"><![CDATA[]]></content>
-      
-    </entry>
-    
-    
-    
-    <entry>
-      <title>归档</title>
-      <link href="/archives/index.html"/>
-      <url>/archives/index.html</url>
       
         <content type="html"><![CDATA[]]></content>
       
