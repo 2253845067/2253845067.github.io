@@ -6,7 +6,7 @@
   <link href="http://yuqi.fun/atom.xml" rel="self"/>
   
   <link href="http://yuqi.fun/"/>
-  <updated>2023-03-04T02:57:35.447Z</updated>
+  <updated>2023-03-04T05:14:23.076Z</updated>
   <id>http://yuqi.fun/</id>
   
   <author>
@@ -15,6 +15,61 @@
   </author>
   
   <generator uri="https://hexo.io/">Hexo</generator>
+  
+  <entry>
+    <title>SICK区扫调试步骤</title>
+    <link href="http://yuqi.fun/posts/af80d2f7.html"/>
+    <id>http://yuqi.fun/posts/af80d2f7.html</id>
+    <published>2023-03-04T05:12:31.766Z</published>
+    <updated>2023-03-04T05:14:23.076Z</updated>
+    
+    <content type="html"><![CDATA[<div class="row">    <embed src="/pdf/SICK区扫调试步骤.pdf" width="100%" height="550" type="application/pdf"></div>]]></content>
+    
+    
+      
+      
+    <summary type="html">
+
+	&lt;div class=&quot;row&quot;&gt;
+    &lt;embed src=&quot;/pdf/SICK区扫调试步骤.pdf&quot; width=&quot;100%&quot; height=&quot;550&quot; type=&quot;application/pdf&quot;&gt;
+	&lt;/div&gt;
+
+
+</summary>
+      
+    
+    
+    
+    <category term="教程" scheme="http://yuqi.fun/categories/%E6%95%99%E7%A8%8B/"/>
+    
+    
+    <category term="SICK" scheme="http://yuqi.fun/tags/SICK/"/>
+    
+  </entry>
+  
+  <entry>
+    <title>hexo中插入PDF</title>
+    <link href="http://yuqi.fun/posts/4cd4322f.html"/>
+    <id>http://yuqi.fun/posts/4cd4322f.html</id>
+    <published>2023-03-04T05:09:38.897Z</published>
+    <updated>2023-03-04T05:14:23.076Z</updated>
+    
+    <content type="html"><![CDATA[<h2 id="安装hexo-pdf"><a href="#安装hexo-pdf" class="headerlink" title="安装hexo-pdf"></a>安装hexo-pdf</h2><figure class="highlight text"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">npm install --save hexo-pdf</span><br></pre></td></tr></table></figure><h2 id="本地PDF引用"><a href="#本地PDF引用" class="headerlink" title="本地PDF引用"></a>本地PDF引用</h2><p>最简单的引用方法：把相应pdf文件存到<strong>source文件夹</strong>下，引用格式为：</p><figure class="highlight text"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">&#123;% pdf /引用文档名字.pdf %&#125;</span><br></pre></td></tr></table></figure><p>当然，你也可以新建一个文件夹方便管理PDF文档（）在这里我主要参考了<a href="https://link.zhihu.com/?target=https://www.jianshu.com/p/cccc7058a08c">https://www.jianshu.com/p/cccc7058a08c</a>，但是它并没有解决问题orz经过苦逼的尝试发现缺少&#x2F;</p><p><strong>也就是说，方法为：</strong></p><p>在source文件夹下创建一个叫pdf的文件夹，把xxx.pdf文件放在这里，然后在_post文件夹中的xxx.md直接使用</p><figure class="highlight text"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">&#123;% pdf /pdf/xxx.pdf %&#125;</span><br></pre></td></tr></table></figure><p>尝试后可以看到，hexo-pdf对PDF文档展示效果非常不错lol</p>]]></content>
+    
+    
+      
+      
+    <summary type="html">&lt;h2 id=&quot;安装hexo-pdf&quot;&gt;&lt;a href=&quot;#安装hexo-pdf&quot; class=&quot;headerlink&quot; title=&quot;安装hexo-pdf&quot;&gt;&lt;/a&gt;安装hexo-pdf&lt;/h2&gt;&lt;figure class=&quot;highlight text&quot;&gt;&lt;table&gt;&lt;tr</summary>
+      
+    
+    
+    
+    <category term="教程" scheme="http://yuqi.fun/categories/%E6%95%99%E7%A8%8B/"/>
+    
+    
+    <category term="hexo" scheme="http://yuqi.fun/tags/hexo/"/>
+    
+  </entry>
   
   <entry>
     <title>SEW-MDX61B变频器定位控制调试流程</title>
@@ -114,30 +169,6 @@
   </entry>
   
   <entry>
-    <title>OnlyFans 公共存档器 免费查看OnlyFans付费内容-Coomer</title>
-    <link href="http://yuqi.fun/posts/6468.html"/>
-    <id>http://yuqi.fun/posts/6468.html</id>
-    <published>2023-02-26T13:22:16.554Z</published>
-    <updated>2023-03-02T06:13:48.920Z</updated>
-    
-    <content type="html"><![CDATA[<p>Coomer，一个 OnlyFans 公共存档器，可以免费查看 OnlyFans 付费内容，上面所以内容都由网友搬运、贡献的 OnlyFans 付费内容，想要查看哪位艺术家、作者的付费内容，直接搜索名字即可免费查看 OnlyFans 上的付费内容，当然你也可以共享你的。</p><p>地址：<a href="https://coomer.party/">https://coomer.party/</a></p><p>可以尝试点击&gt;creators&gt;然后搜索 ‘hongkongdoll’ ，‘juneliu’；</p><p>更多的关键词待你挖掘</p>]]></content>
-    
-    
-      
-      
-    <summary type="html">&lt;p&gt;Coomer，一个 OnlyFans 公共存档器，可以免费查看 OnlyFans 付费内容，上面所以内容都由网友搬运、贡献的 OnlyFans 付费内容，想要查看哪位艺术家、作者的付费内容，直接搜索名字即可免费查看 OnlyFans 上的付费内容，当然你也可以共享你的。&lt;/</summary>
-      
-    
-    
-    
-    <category term="其他" scheme="http://yuqi.fun/categories/%E5%85%B6%E4%BB%96/"/>
-    
-    
-    <category term="其他" scheme="http://yuqi.fun/tags/%E5%85%B6%E4%BB%96/"/>
-    
-  </entry>
-  
-  <entry>
     <title>中星微随身Wifi去后门刷全功能后台</title>
     <link href="http://yuqi.fun/posts/33289.html"/>
     <id>http://yuqi.fun/posts/33289.html</id>
@@ -159,6 +190,30 @@
     
     
     <category term="随身WiFi" scheme="http://yuqi.fun/tags/%E9%9A%8F%E8%BA%ABWiFi/"/>
+    
+  </entry>
+  
+  <entry>
+    <title>OnlyFans 公共存档器 免费查看OnlyFans付费内容-Coomer</title>
+    <link href="http://yuqi.fun/posts/6468.html"/>
+    <id>http://yuqi.fun/posts/6468.html</id>
+    <published>2023-02-26T13:22:16.554Z</published>
+    <updated>2023-03-02T06:13:48.920Z</updated>
+    
+    <content type="html"><![CDATA[<p>Coomer，一个 OnlyFans 公共存档器，可以免费查看 OnlyFans 付费内容，上面所以内容都由网友搬运、贡献的 OnlyFans 付费内容，想要查看哪位艺术家、作者的付费内容，直接搜索名字即可免费查看 OnlyFans 上的付费内容，当然你也可以共享你的。</p><p>地址：<a href="https://coomer.party/">https://coomer.party/</a></p><p>可以尝试点击&gt;creators&gt;然后搜索 ‘hongkongdoll’ ，‘juneliu’；</p><p>更多的关键词待你挖掘</p>]]></content>
+    
+    
+      
+      
+    <summary type="html">&lt;p&gt;Coomer，一个 OnlyFans 公共存档器，可以免费查看 OnlyFans 付费内容，上面所以内容都由网友搬运、贡献的 OnlyFans 付费内容，想要查看哪位艺术家、作者的付费内容，直接搜索名字即可免费查看 OnlyFans 上的付费内容，当然你也可以共享你的。&lt;/</summary>
+      
+    
+    
+    
+    <category term="其他" scheme="http://yuqi.fun/categories/%E5%85%B6%E4%BB%96/"/>
+    
+    
+    <category term="其他" scheme="http://yuqi.fun/tags/%E5%85%B6%E4%BB%96/"/>
     
   </entry>
   
