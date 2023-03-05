@@ -4,6 +4,31 @@
   
     
     <entry>
+      <title>git每次操作提示输入密码问题解决</title>
+      <link href="/posts/21c693ea.html"/>
+      <url>/posts/21c693ea.html</url>
+      
+        <content type="html"><![CDATA[<p><strong>提示：git每次pull提示需要密码</strong></p><hr><h1 id="错误提示"><a href="#错误提示" class="headerlink" title="错误提示"></a>错误提示</h1><figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><span class="line">Administrator@DEEP MINGW64 /f/code/xxx-service (master)</span><br><span class="line">$ git pull</span><br><span class="line">git@gitlab.xxx.com&#x27;s password:</span><br></pre></td></tr></table></figure><h1 id="原因"><a href="#原因" class="headerlink" title="原因"></a>原因</h1><p>只提示输入密码的情况，一般是秘钥验证失败。二种情况</p><hr><h1 id="1、公钥验证错误"><a href="#1、公钥验证错误" class="headerlink" title="1、公钥验证错误"></a>1、公钥验证错误</h1><p>  解决方法如下，以github为例</p><p>  在<a href="https://github.com/settings/keys">https://github.com/settings/keys</a> 界面，将生成的<a href="https://so.csdn.net/so/search?q=%E5%85%AC%E9%92%A5&spm=1001.2101.3001.7020">公钥</a>添加到SSH keys项中</p><p>  如没有则使用<a href="https://so.csdn.net/so/search?q=ssh-keygen&spm=1001.2101.3001.7020">ssh-keygen</a>命令生成</p><figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">ssh-keygen -t rsa -C &quot;Your Email Address&quot; -f &quot;~/.ssh/gitlab_id_rsa&quot;</span><br></pre></td></tr></table></figure><h1 id="2、私钥验证错误"><a href="#2、私钥验证错误" class="headerlink" title="2、私钥验证错误"></a>2、私钥验证错误</h1><p>git拉取代码时没有配置私钥认证</p><p>使用以下命令添加认证到ssh</p><figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">ssh-add ~/.ssh/gitlab_id_rsa</span><br></pre></td></tr></table></figure><p>使用以上命令，只能对当前环境生效，重启或新开终端会继续提示输入密码</p><p>永久解决：在<code>~/.ssh/config</code>文件中（没有则新建），指定对应git服务使用的认证秘钥文件即可</p><figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br></pre></td><td class="code"><pre><span class="line"># GitLab.com 密钥</span><br><span class="line">Host github.com</span><br><span class="line">  Preferredauthentications publickey</span><br><span class="line">  IdentityFile ~/.ssh/github_id_rsa</span><br><span class="line"># GitLab.com 密钥</span><br><span class="line">Host gitlab.xxx.com</span><br><span class="line">  Preferredauthentications publickey</span><br><span class="line">  IdentityFile ~/.ssh/gitlab_id_rsa</span><br></pre></td></tr></table></figure><hr><h1 id="总结"><a href="#总结" class="headerlink" title="总结"></a>总结</h1><ol><li>直接提示输入密码的，为秘钥认证失败，使用以上方法即可解决</li><li>提示输入账号和密码的，为账号认证失败，使用<code>git config --global credential.helper store</code>命令，可输入一次密码后永久存储</li></ol>]]></content>
+      
+      
+      <categories>
+          
+          <category> 教程 </category>
+          
+      </categories>
+      
+      
+        <tags>
+            
+            <tag> git </tag>
+            
+        </tags>
+      
+    </entry>
+    
+    
+    
+    <entry>
       <title>SICK区扫调试步骤</title>
       <link href="/posts/af80d2f7.html"/>
       <url>/posts/af80d2f7.html</url>
@@ -33,7 +58,7 @@
       <link href="/posts/4cd4322f.html"/>
       <url>/posts/4cd4322f.html</url>
       
-        <content type="html"><![CDATA[<h2 id="安装-hexo-pdf"><a href="#安装-hexo-pdf" class="headerlink" title="安装 hexo-pdf"></a>安装 hexo-pdf</h2><figure class="highlight text"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">npm install --save hexo-pdf</span><br></pre></td></tr></table></figure><h2 id="本地-PDF-引用"><a href="#本地-PDF-引用" class="headerlink" title="本地 PDF 引用"></a>本地 PDF 引用</h2><p>最简单的引用方法：把相应 pdf 文件存到<strong>source 文件夹</strong>下，引用格式为：</p><figure class="highlight text"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">&#123;% pdf /引用文档名字.pdf %&#125;</span><br></pre></td></tr></table></figure><p>当然，你也可以新建一个文件夹方便管理 PDF 文档（）在这里我主要参考了<a href="https://link.zhihu.com/?target=https://www.jianshu.com/p/cccc7058a08c">https://www.jianshu.com/p/cccc7058a08c</a>，但是它并没有解决问题 orz 经过苦逼的尝试发现缺少&#x2F;</p><p><strong>也就是说，方法为：</strong></p><p>在 source 文件夹下创建一个叫 pdf 的文件夹，把 xxx.pdf 文件放在这里，然后在_post 文件夹中的 xxx.md 直接使用</p><figure class="highlight text"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">&#123;% pdf /pdf/xxx.pdf %&#125;</span><br></pre></td></tr></table></figure><p>尝试后可以看到，hexo-pdf 对 PDF 文档展示效果非常不错 lol</p>]]></content>
+        <content type="html"><![CDATA[<h2 id="安装-hexo-pdf"><a href="#安装-hexo-pdf" class="headerlink" title="安装 hexo-pdf"></a>安装 hexo-pdf</h2><figure class="highlight text"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">npm install --save hexo-pdf</span><br></pre></td></tr></table></figure><h2 id="本地-PDF-引用"><a href="#本地-PDF-引用" class="headerlink" title="本地 PDF 引用"></a>本地 PDF 引用</h2><p>最简单的引用方法：把相应 pdf 文件存到<strong>source 文件夹</strong>下，引用格式为：</p><figure class="highlight text"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">&#123;% pdf /引用文档名字.pdf %&#125;</span><br></pre></td></tr></table></figure><p>当然，你也可以新建一个文件夹方便管理 PDF 文档（）在这里我主要参考了<a href="https://link.zhihu.com/?target=https://www.jianshu.com/p/cccc7058a08c">https://www.jianshu.com/p/cccc7058a08c</a>，但是它并没有解决问题 orz 经过苦逼的尝试发现缺少&#x2F;</p><p><strong>也就是说，方法为：</strong></p><p>xxxxxxxxxx .md 文件中的 HTML 代码要用  和  包起来，使其能正确编译里面的代码。markdown</p><figure class="highlight text"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">&#123;% pdf /pdf/xxx.pdf %&#125;</span><br></pre></td></tr></table></figure><p>尝试后可以看到，hexo-pdf 对 PDF 文档展示效果非常不错 lol</p>]]></content>
       
       
       <categories>
