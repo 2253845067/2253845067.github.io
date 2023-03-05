@@ -255,9 +255,9 @@
     <category term="教程" scheme="http://yuqi.fun/categories/%E6%95%99%E7%A8%8B/"/>
     
     
-    <category term="hexo" scheme="http://yuqi.fun/tags/hexo/"/>
-    
     <category term="Butterfly" scheme="http://yuqi.fun/tags/Butterfly/"/>
+    
+    <category term="hexo" scheme="http://yuqi.fun/tags/hexo/"/>
     
   </entry>
   
