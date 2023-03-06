@@ -179,31 +179,6 @@
     
     
     <entry>
-      <title>中星微随身Wifi去后门刷全功能后台</title>
-      <link href="/posts/f9dbe722.html"/>
-      <url>/posts/f9dbe722.html</url>
-      
-        <content type="html"><![CDATA[<h1 id="前言"><a href="#前言" class="headerlink" title="前言"></a>前言</h1><p>买到棒子先不要插自己卡，需要进行屏蔽操作防止被远程操作，这里我买的是狗东某沃中星微。</p><h1 id="刷入全功能后台"><a href="#刷入全功能后台" class="headerlink" title="刷入全功能后台"></a>刷入全功能后台</h1><p>首先开启 ADB<br>插到电脑上电 192.168.0.1 访问成功 密码 admin<br>通电后用工具捅 USB 插头的小孔 灯灭会自动重启，重启完成即可进入 ADB 模式</p><h2 id="下载工具"><a href="#下载工具" class="headerlink" title="下载工具"></a>下载工具</h2><p>链接：<a href="https://pan.baidu.com/s/1lCwsg7kMmHVNbWOP7KRT3Q">https://pan.baidu.com/s/1lCwsg7kMmHVNbWOP7KRT3Q</a><br>提取码：8888</p><h2 id="刷入步骤"><a href="#刷入步骤" class="headerlink" title="刷入步骤"></a>刷入步骤</h2><p>先执行 【1：中兴微通用备份】 对棒子进行备份<br>然后执行 【2：中兴微通用后台刷入】 刷入全功能后台</p><h1 id="去除远程控制"><a href="#去除远程控制" class="headerlink" title="去除远程控制"></a>去除远程控制</h1><p>执行 8：打开 CMD 终端</p><p>进入 shell 进行操作，以下均在 cmd 窗口内进行</p><figure class="highlight shell"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">adb shell</span><br></pre></td></tr></table></figure><p>可查看所有参数 再进行修改</p><figure class="highlight shell"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">nv show</span><br></pre></td></tr></table></figure><p>下面第一条有的新版本有这个参数，有的没有，可以执行没啥问题，最好去执行上一条命令查看所有参数再修改。</p><figure class="highlight shell"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">nv set mqtt_host=127.0.0.1</span><br></pre></td></tr></table></figure><p>禁止固件下载</p><figure class="highlight shell"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">nv set fota_updateMode=0</span><br></pre></td></tr></table></figure><p>禁止系统网址</p><figure class="highlight shell"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">nv set os_url=http://127.0.0.1</span><br></pre></td></tr></table></figure><p>禁止内置卡服务</p><figure class="highlight shell"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">nv set lpa_trigger_host=127.0.1</span><br></pre></td></tr></table></figure><p>禁止定位</p><figure class="highlight shell"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">nv set safecare_hostname=127.0.0.1</span><br></pre></td></tr></table></figure><p>禁用云服务</p><figure class="highlight shell"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">nv set safecare_mobsite=http://127.0.0.1</span><br></pre></td></tr></table></figure><p>禁用云服务</p><figure class="highlight shell"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">nv set TM_SERVER_NAME=127.0.0.1</span><br></pre></td></tr></table></figure><p>修改一些网页目录为根目录,防止未知访问</p><figure class="highlight shell"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><span class="line">nv set lpa_trigger_updata_url=/</span><br><span class="line">nv set lpa_trigger_event_url=/</span><br><span class="line">nv set URI_FIELD=/</span><br></pre></td></tr></table></figure><p>未知服务修改掉再说有影响还原 原参数 hostName&#x3D;dm.wo.com.cn</p><figure class="highlight shell"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">nv set hostName=127.0.0.1</span><br></pre></td></tr></table></figure><p>未知服务修改掉再说有影响还原 原参数 HOST_FIELD&#x3D;Host: mt.chenjiariji.top</p><figure class="highlight shell"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">nv set HOST_FIELD=&#x27;Host: 127.0.0.1&#x27;</span><br></pre></td></tr></table></figure><p>保存设置以上所有设置</p><figure class="highlight shell"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">nv save</span><br></pre></td></tr></table></figure><p>进阶设置</p><p>设置 root 密码 这里默认 vps333 自己设置复杂一点</p><figure class="highlight shell"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">nv set root_Password=vps333</span><br></pre></td></tr></table></figure><p>保存设置</p><figure class="highlight shell"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">nv save</span><br></pre></td></tr></table></figure><p>到这里可以屏蔽与云服务相关的连接了,输入 reboot 进行重启</p><h1 id="其他设置"><a href="#其他设置" class="headerlink" title="其他设置"></a>其他设置</h1><p>先进入后台去修改掉 imei 为其他的不要为默认的 imei,修改后重启一遍看看是否是修改的 emei<br>然后登录 访问以下网址获取解锁 sim 卡槽密码</p><p><a href="http://192.168.0.1/goform/goform_get_cmd_process?cmd=unlock_network_code">http://192.168.0.1/goform/goform_get_cmd_process?cmd=unlock_network_code</a></p><p>开启 ADB 命令 这里我没有使用</p><p><a href="http://192.168.0.1/goform/goform_set_cmd_process?goformId=SET_DEVICE_MODE&debug_enable=1">http://192.168.0.1/goform/goform_set_cmd_process?goformId=SET_DEVICE_MODE&amp;debug_enable=1</a></p><p>获取到这这个密码输入到解锁 sim 卡服务的地方即可。<br>解锁后再拔掉开机，看到 SIM 已解锁。<br>然后插入 SIM 就可以上网了，如果恢复出厂需要再执行以上操作。</p>]]></content>
-      
-      
-      <categories>
-          
-          <category> 教程 </category>
-          
-      </categories>
-      
-      
-        <tags>
-            
-            <tag> 随身WiFi </tag>
-            
-        </tags>
-      
-    </entry>
-    
-    
-    
-    <entry>
       <title>OnlyFans 公共存档器 免费查看OnlyFans付费内容-Coomer</title>
       <link href="/posts/1082bb6d.html"/>
       <url>/posts/1082bb6d.html</url>
@@ -221,6 +196,31 @@
         <tags>
             
             <tag> 其他 </tag>
+            
+        </tags>
+      
+    </entry>
+    
+    
+    
+    <entry>
+      <title>中星微随身Wifi去后门刷全功能后台</title>
+      <link href="/posts/f9dbe722.html"/>
+      <url>/posts/f9dbe722.html</url>
+      
+        <content type="html"><![CDATA[<h1 id="前言"><a href="#前言" class="headerlink" title="前言"></a>前言</h1><p>买到棒子先不要插自己卡，需要进行屏蔽操作防止被远程操作，这里我买的是狗东某沃中星微。</p><h1 id="刷入全功能后台"><a href="#刷入全功能后台" class="headerlink" title="刷入全功能后台"></a>刷入全功能后台</h1><p>首先开启 ADB<br>插到电脑上电 192.168.0.1 访问成功 密码 admin<br>通电后用工具捅 USB 插头的小孔 灯灭会自动重启，重启完成即可进入 ADB 模式</p><h2 id="下载工具"><a href="#下载工具" class="headerlink" title="下载工具"></a>下载工具</h2><p>链接：<a href="https://pan.baidu.com/s/1lCwsg7kMmHVNbWOP7KRT3Q">https://pan.baidu.com/s/1lCwsg7kMmHVNbWOP7KRT3Q</a><br>提取码：8888</p><h2 id="刷入步骤"><a href="#刷入步骤" class="headerlink" title="刷入步骤"></a>刷入步骤</h2><p>先执行 【1：中兴微通用备份】 对棒子进行备份<br>然后执行 【2：中兴微通用后台刷入】 刷入全功能后台</p><h1 id="去除远程控制"><a href="#去除远程控制" class="headerlink" title="去除远程控制"></a>去除远程控制</h1><p>执行 8：打开 CMD 终端</p><p>进入 shell 进行操作，以下均在 cmd 窗口内进行</p><figure class="highlight shell"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">adb shell</span><br></pre></td></tr></table></figure><p>可查看所有参数 再进行修改</p><figure class="highlight shell"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">nv show</span><br></pre></td></tr></table></figure><p>下面第一条有的新版本有这个参数，有的没有，可以执行没啥问题，最好去执行上一条命令查看所有参数再修改。</p><figure class="highlight shell"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">nv set mqtt_host=127.0.0.1</span><br></pre></td></tr></table></figure><p>禁止固件下载</p><figure class="highlight shell"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">nv set fota_updateMode=0</span><br></pre></td></tr></table></figure><p>禁止系统网址</p><figure class="highlight shell"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">nv set os_url=http://127.0.0.1</span><br></pre></td></tr></table></figure><p>禁止内置卡服务</p><figure class="highlight shell"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">nv set lpa_trigger_host=127.0.1</span><br></pre></td></tr></table></figure><p>禁止定位</p><figure class="highlight shell"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">nv set safecare_hostname=127.0.0.1</span><br></pre></td></tr></table></figure><p>禁用云服务</p><figure class="highlight shell"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">nv set safecare_mobsite=http://127.0.0.1</span><br></pre></td></tr></table></figure><p>禁用云服务</p><figure class="highlight shell"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">nv set TM_SERVER_NAME=127.0.0.1</span><br></pre></td></tr></table></figure><p>修改一些网页目录为根目录,防止未知访问</p><figure class="highlight shell"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><span class="line">nv set lpa_trigger_updata_url=/</span><br><span class="line">nv set lpa_trigger_event_url=/</span><br><span class="line">nv set URI_FIELD=/</span><br></pre></td></tr></table></figure><p>未知服务修改掉再说有影响还原 原参数 hostName&#x3D;dm.wo.com.cn</p><figure class="highlight shell"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">nv set hostName=127.0.0.1</span><br></pre></td></tr></table></figure><p>未知服务修改掉再说有影响还原 原参数 HOST_FIELD&#x3D;Host: mt.chenjiariji.top</p><figure class="highlight shell"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">nv set HOST_FIELD=&#x27;Host: 127.0.0.1&#x27;</span><br></pre></td></tr></table></figure><p>保存设置以上所有设置</p><figure class="highlight shell"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">nv save</span><br></pre></td></tr></table></figure><p>进阶设置</p><p>设置 root 密码 这里默认 vps333 自己设置复杂一点</p><figure class="highlight shell"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">nv set root_Password=vps333</span><br></pre></td></tr></table></figure><p>保存设置</p><figure class="highlight shell"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">nv save</span><br></pre></td></tr></table></figure><p>到这里可以屏蔽与云服务相关的连接了,输入 reboot 进行重启</p><h1 id="其他设置"><a href="#其他设置" class="headerlink" title="其他设置"></a>其他设置</h1><p>先进入后台去修改掉 imei 为其他的不要为默认的 imei,修改后重启一遍看看是否是修改的 emei<br>然后登录 访问以下网址获取解锁 sim 卡槽密码</p><p><a href="http://192.168.0.1/goform/goform_get_cmd_process?cmd=unlock_network_code">http://192.168.0.1/goform/goform_get_cmd_process?cmd=unlock_network_code</a></p><p>开启 ADB 命令 这里我没有使用</p><p><a href="http://192.168.0.1/goform/goform_set_cmd_process?goformId=SET_DEVICE_MODE&debug_enable=1">http://192.168.0.1/goform/goform_set_cmd_process?goformId=SET_DEVICE_MODE&amp;debug_enable=1</a></p><p>获取到这这个密码输入到解锁 sim 卡服务的地方即可。<br>解锁后再拔掉开机，看到 SIM 已解锁。<br>然后插入 SIM 就可以上网了，如果恢复出厂需要再执行以上操作。</p>]]></content>
+      
+      
+      <categories>
+          
+          <category> 教程 </category>
+          
+      </categories>
+      
+      
+        <tags>
+            
+            <tag> 随身WiFi </tag>
             
         </tags>
       
