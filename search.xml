@@ -4,6 +4,31 @@
   
     
     <entry>
+      <title>谷歌浏览器设置关闭搜索记录</title>
+      <link href="/posts/42e51b95.html"/>
+      <url>/posts/42e51b95.html</url>
+      
+        <content type="html"><![CDATA[<p><strong>将 Chrome 的 History 文件设置为可读即可。</strong><br>操作方法：<br>1 、在 Chrome 浏览器地址栏中输入</p><figure class="highlight html"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">chrome://version/</span><br></pre></td></tr></table></figure><p>2 、复制<strong>个人资料路径</strong>，关闭 Chrome 浏览器并到资源管理器中打开刚才复制的“个人资料路径”</p><p><img src="https://yuqi-1256456111.cos.ap-shanghai.myqcloud.com/img/202303062045271.png" alt="image-20230306204551884"></p><p>3 、找到History文件并删除，然后新建一个History文件，对History文件，右键—属性，勾选只读。</p><p><img src="https://yuqi-1256456111.cos.ap-shanghai.myqcloud.com/img/202303062048179.png" alt="image-20230306204804357"></p>]]></content>
+      
+      
+      <categories>
+          
+          <category> 教程 </category>
+          
+      </categories>
+      
+      
+        <tags>
+            
+            <tag> Google浏览器 </tag>
+            
+        </tags>
+      
+    </entry>
+    
+    
+    
+    <entry>
       <title>Hexo博客部署到云服务器</title>
       <link href="/posts/bda2f0d3.html"/>
       <url>/posts/bda2f0d3.html</url>
