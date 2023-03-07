@@ -6,7 +6,7 @@
   <link href="http://yuqi.fun/atom.xml" rel="self"/>
   
   <link href="http://yuqi.fun/"/>
-  <updated>2023-03-06T12:48:11.470Z</updated>
+  <updated>2023-03-06T12:51:11.534Z</updated>
   <id>http://yuqi.fun/</id>
   
   <author>
@@ -21,7 +21,7 @@
     <link href="http://yuqi.fun/posts/42e51b95.html"/>
     <id>http://yuqi.fun/posts/42e51b95.html</id>
     <published>2023-03-06T12:41:05.348Z</published>
-    <updated>2023-03-06T12:48:11.470Z</updated>
+    <updated>2023-03-06T12:51:11.534Z</updated>
     
     <content type="html"><![CDATA[<p><strong>将 Chrome 的 History 文件设置为可读即可。</strong><br>操作方法：<br>1 、在 Chrome 浏览器地址栏中输入</p><figure class="highlight html"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">chrome://version/</span><br></pre></td></tr></table></figure><p>2 、复制<strong>个人资料路径</strong>，关闭 Chrome 浏览器并到资源管理器中打开刚才复制的“个人资料路径”</p><p><img src="https://yuqi-1256456111.cos.ap-shanghai.myqcloud.com/img/202303062045271.png" alt="image-20230306204551884"></p><p>3 、找到History文件并删除，然后新建一个History文件，对History文件，右键—属性，勾选只读。</p><p><img src="https://yuqi-1256456111.cos.ap-shanghai.myqcloud.com/img/202303062048179.png" alt="image-20230306204804357"></p>]]></content>
     
