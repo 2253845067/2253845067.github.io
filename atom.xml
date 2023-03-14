@@ -6,7 +6,7 @@
   <link href="http://yuqi.fun/atom.xml" rel="self"/>
   
   <link href="http://yuqi.fun/"/>
-  <updated>2023-03-06T12:51:11.534Z</updated>
+  <updated>2023-03-14T09:30:32.871Z</updated>
   <id>http://yuqi.fun/</id>
   
   <author>
@@ -15,6 +15,30 @@
   </author>
   
   <generator uri="https://hexo.io/">Hexo</generator>
+  
+  <entry>
+    <title>电脑谷歌浏览器糖心使用教程</title>
+    <link href="http://yuqi.fun/posts/77efc3f1.html"/>
+    <id>http://yuqi.fun/posts/77efc3f1.html</id>
+    <published>2023-03-14T09:26:31.286Z</published>
+    <updated>2023-03-14T09:30:32.871Z</updated>
+    
+    <content type="html"><![CDATA[<p>电脑谷歌浏览器糖心使用教程<br>1、先安装油猴插件<br><a href="https://greasyfork.org/scripts/461743-%E7%B3%96%E5%BF%83/code/%E7%B3%96%E5%BF%83.user.js">油猴插件</a><br>2、安装更改ua插件（挂梯子扶墙，打开chrome应用商店安装）<br><a href="https://chrome.google.com/webstore/detail/user-agent-switcher-and-m/bhchdcejhohfmigjafbampogmaanbfkg">https://chrome.google.com/webstore/detail/user-agent-switcher-and-m/bhchdcejhohfmigjafbampogmaanbfkg</a><br>3、按照这个教程(使用拓展插件进行修改)设置ua<br><a href="https://blog.csdn.net/m0_46665077/article/details/125713310#22__31">https://blog.csdn.net/m0_46665077/article/details/125713310#22__31</a><br>下面是UA：</p><figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">Mozilla/5.0(iPhone;CPUiPhoneOS11_4_1likeMacOSX)AppleWebKit/537.36(KHTML,likeGecko)Chrome/77.0.3865.116MobileSafari/11.0Mobile/58.0Firefox/12F70Safari/537.36Quark/3.8.4.128UCBrowser/12.0.4.985baiduboxapp/3.2.5.10MQQBrowser/7.2.1.2965XiaoMi/MiuiBrowser/11.9.2SearchCraft/2.0.0ALiSearchApp/2.4AliApp(TB/9.5.6)BingWeb/6.2TBS/537.36Weiyun/6.9.37(Android)Weiyun(zh-Hans)/537.36</span><br></pre></td></tr></table></figure><p>4、最后打开网址<a href="https://txh016.com/">https://txh016.com</a>奔放</p>]]></content>
+    
+    
+      
+      
+    <summary type="html">&lt;p&gt;电脑谷歌浏览器糖心使用教程&lt;br&gt;1、先安装油猴插件&lt;br&gt;&lt;a href=&quot;https://greasyfork.org/scripts/461743-%E7%B3%96%E5%BF%83/code/%E7%B3%96%E5%BF%83.user.js&quot;&gt;油猴插件&lt;/a&gt;</summary>
+      
+    
+    
+    
+    <category term="教程" scheme="http://yuqi.fun/categories/%E6%95%99%E7%A8%8B/"/>
+    
+    
+    <category term="18+" scheme="http://yuqi.fun/tags/18/"/>
+    
+  </entry>
   
   <entry>
     <title>谷歌浏览器设置关闭搜索记录</title>
