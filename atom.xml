@@ -6,7 +6,7 @@
   <link href="http://yuqi.fun/atom.xml" rel="self"/>
   
   <link href="http://yuqi.fun/"/>
-  <updated>2023-04-09T00:33:39.882Z</updated>
+  <updated>2023-04-09T04:18:02.547Z</updated>
   <id>http://yuqi.fun/</id>
   
   <author>
@@ -17,11 +17,37 @@
   <generator uri="https://hexo.io/">Hexo</generator>
   
   <entry>
+    <title>李跳跳2.2正式版</title>
+    <link href="http://yuqi.fun/posts/f5caf0fa.html"/>
+    <id>http://yuqi.fun/posts/f5caf0fa.html</id>
+    <published>2023-04-09T04:12:42.245Z</published>
+    <updated>2023-04-09T04:18:02.547Z</updated>
+    
+    <content type="html"><![CDATA[<p><strong>无论你是哪个版本的李跳跳，都建议更新啊喂。</strong></p><h1 id="更新日志："><a href="#更新日志：" class="headerlink" title="更新日志："></a>更新日志：</h1><p>1.省电优化。</p><p>2.响应速度优化。</p><p>3.内置算法优化。</p><p>4.适配更多APP。</p><p>5.修复已知BUG。</p><p>6.修复用户反馈的问题。</p><p>7.适配圆形倒计时广告。</p><p>8.优化微信自动勾选原图。</p><p>9.新增无障碍服务异常检测。</p><p>10.自定义规则优化，支持关闭任意个连续弹窗。</p><p>11.自定义规则优化，支持同一弹窗点击多个位置。</p><p>12.自定义规则优化，遇到流氓弹窗容易误点广告的问题。</p><p>13.优化短时间内弹出多个弹窗无法全部关闭的问题。</p><p>14.过滤一些不合理输入，减少系统资源损耗。</p><p>15.自定义规则支持CheckBox状态判断。</p><p>16.修复华为系统下的特定BUG。</p><p>17.适配华为系统下的特定广告。</p><p>18.特定APP新增特定算法。</p><p>19.适配特定系统的优化。</p><p>20.支持自定义点击序列。</p><p>21.优化节点过滤逻辑。</p><p>22.支持覆盖内置规则。</p><p>23.无障碍标签完善。</p><p>24.优化部分文案。</p><p>25.更换新图标。</p><p>26.更换包名(无奈之举)。</p><h1 id="下载地址"><a href="#下载地址" class="headerlink" title="下载地址"></a>下载地址</h1><p>免登陆下载：<a href="https://www.123pan.com/s/bAORVv-QGQl.html">https://www.123pan.com/s/bAORVv-QGQl.html</a></p><p><img src="https://yuqi-1256456111.cos.ap-shanghai.myqcloud.com/img/202304091214921.png" alt="image-20230409121412470"></p>]]></content>
+    
+    
+      
+      
+    <summary type="html">&lt;p&gt;&lt;strong&gt;无论你是哪个版本的李跳跳，都建议更新啊喂。&lt;/strong&gt;&lt;/p&gt;
+&lt;h1 id=&quot;更新日志：&quot;&gt;&lt;a href=&quot;#更新日志：&quot; class=&quot;headerlink&quot; title=&quot;更新日志：&quot;&gt;&lt;/a&gt;更新日志：&lt;/h1&gt;&lt;p&gt;1.省电优化。&lt;/p&gt;
+</summary>
+      
+    
+    
+    
+    <category term="软件分享" scheme="http://yuqi.fun/categories/%E8%BD%AF%E4%BB%B6%E5%88%86%E4%BA%AB/"/>
+    
+    
+    <category term="安卓软件" scheme="http://yuqi.fun/tags/%E5%AE%89%E5%8D%93%E8%BD%AF%E4%BB%B6/"/>
+    
+  </entry>
+  
+  <entry>
     <title>Xray最新协议Reality搭建</title>
     <link href="http://yuqi.fun/posts/428849a6.html"/>
     <id>http://yuqi.fun/posts/428849a6.html</id>
     <published>2023-04-09T00:30:39.464Z</published>
-    <updated>2023-04-09T00:33:39.882Z</updated>
+    <updated>2023-04-09T00:38:35.469Z</updated>
     
     <content type="html"><![CDATA[<p>为了应对 TLS in TLS 和指纹识别等阻断或封禁的风险，Xray-core 团队推出了 Vision 和 Reality 两种新颖的技术方案。它们能够有效地隐藏和保护流量的特征，提高安全性和稳定性。</p><p><a href="https://github.com/XTLS/Xray-core/discussions/1295#discussion-4523044">Vision原理</a></p><p><a href="https://www.v2ray-agent.com/archives/1679292836379">Reality原理</a></p><p>如果你和我一样小白，那我用我的理解方式给大家解释一下，不一定准确，但方便理解。</p><p>1.之前TLS或者XTLS已经被墙识别，所以有了阻断或者封你443端口的情况，也就是所谓的TLS in TLS阻断</p><p>2、后面Vision 的协议，能解决TLS in TLS阻断，但还不够完美。</p><p>3、Xray1.80版本推出了最新的Reality协议，再配合之前的Vision协议，组合成了目前最牛的协议“<strong>VLESS-Vision-uTLS-REALITY”</strong></p><p><strong>VLESS-Vision-uTLS-REALITY优势</strong></p><p>1、新协议不容易被阻断或封锁</p><p>2、可以省去一个域名，也不用配置ssl证书</p><p><strong>VLESS-Vision-uTLS-REALITY劣势</strong></p><p>1、软件端也必须升级到xray1.80版本，VPS也要是xray1.80版本，否则不能正常使用。</p><p>2、部分软件目前（截至2023年4月7日）还不支持此种协议，例如Shadowrocket，passwall等插件，如果没更新，在一键导入的时候也会BUG。</p><p>3、理论上完美，但还未经历过实战，例如开XX大会。</p><p>4、Reality不支持CDN</p><p>搭建开始</p><p>老规矩，用<a href="https://www.v2ray-agent.com/">mack-a</a>大佬的八合一的一键脚本，这里只演示无域名的安装方式，因为这个也是<strong>VLESS-Vision-uTLS-REALITY</strong>的核心亮点</p><p>PS:如果你之前用过mack-a大佬八合一脚本，在执行下面这个命令后，<strong>先选择删除脚本，再重新安装</strong></p><figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">wget -P /root -N --no-check-certificate &quot;https://raw.githubusercontent.com/mack-a/v2ray-agent/master/install.sh&quot; &amp;&amp; chmod 700 /root/install.sh &amp;&amp; /root/install.sh</span><br></pre></td></tr></table></figure><p>开始安装</p><p>vasma-&gt;执行脚本后-&gt;直接选择**[5.REALITY管理]**</p><p>1、端口直接输入<strong>443</strong></p><p>2、生成配置回落的域名，参考以下域名，结尾必须加 :443</p><blockquote><p># 域名推荐<br>gateway.icloud.com<br>itunes.apple.com<br>download-installer.cdn.mozilla.net<br>airbnb【这个不同的区有不同的域名建议自己搜索】<br>addons.mozilla.org<br><a href="http://www.microsoft.com/">www.microsoft.com</a><br><a href="http://www.lovelive-anime.jp/">www.lovelive-anime.jp</a></p><p># CDN<br>Apple:<br>swdist.apple.com<br>swcdn.apple.com<br>updates.cdn-apple.com<br>mensura.cdn-apple.com<br>osxapps.itunes.apple.com<br>aod.itunes.apple.com</p><p>Microsoft:<br>cdn-dynmedia-1.microsoft.com<br>update.microsoft<br>software.download.prss.microsoft.com</p><p>Amazon:<br>s0.awsstatic.com<br>d1.awsstatic.com<br>images-na.ssl-images-amazon.com<br>m.media-amazon.com<br>player.live-video.net</p><p>Google:<br>dl.google.com</p></blockquote><p>3、然后重复一次你刚才输入的那个域名，然后一路回车即可。</p><h3 id="客户端配置"><a href="#客户端配置" class="headerlink" title="客户端配置"></a>客户端配置</h3><h2 id="v2rayN"><a href="#v2rayN" class="headerlink" title="v2rayN"></a>v2rayN</h2><ul><li><p><strong>支持windows</strong></p></li><li><p><a href="https://github.com/2dust/v2rayN/releases"><strong>点击下载</strong></a></p></li></ul><p><img src="https://yuqi-1256456111.cos.ap-shanghai.myqcloud.com/img/202304090833804.png" alt="img"></p><p>最后最后需要强调的</p><p><strong>1、不是用了这个协议就一定不会被封，世界上没有100%的事情</strong></p><p>2、本教程来源为<a href="https://www.v2ray-agent.com/">mack-a</a> 的教程，<a href="https://www.v2ray-agent.com/archives/1680104902581">原文链接</a></p>]]></content>
     
@@ -483,30 +509,6 @@
     
     
     <category term="hexo" scheme="http://yuqi.fun/tags/hexo/"/>
-    
-  </entry>
-  
-  <entry>
-    <title>AList搭建</title>
-    <link href="http://yuqi.fun/posts/1f49e4a4.html"/>
-    <id>http://yuqi.fun/posts/1f49e4a4.html</id>
-    <published>2022-05-31T16:00:00.000Z</published>
-    <updated>2022-06-01T16:00:00.000Z</updated>
-    
-    <content type="html"><![CDATA[<h1 id="一、项目展示"><a href="#一、项目展示" class="headerlink" title="一、项目展示"></a>一、项目展示</h1><p>GitHub 项目地址：<a href="https://github.com/Xhofe/alist">https://github.com/Xhofe/alist</a></p><p>Demo：<a href="https://alist.nn.ci/">https://alist.nn.ci</a></p><p>Alist 文档地址：<a href="https://alist-doc.nn.ci/en/">https://alist-doc.nn.ci/en/</a></p><p><img src="https://yuqi-1256456111.cos.ap-shanghai.myqcloud.com/img/202303040811308.png" alt="成品预览"></p><h1 id="二、搭建环境"><a href="#二、搭建环境" class="headerlink" title="二、搭建环境"></a>二、搭建环境</h1><p>服务器：阿里云香港轻量应用服务器 24 元&#x2F;月 VPS 一台（最好是选非大陆的服务器，无需备案）</p><p>系统：Centos7</p><p>域名一枚，并做好解析到服务器上</p><h1 id="三、搭建方式"><a href="#三、搭建方式" class="headerlink" title="三、搭建方式"></a>三、搭建方式</h1><h2 id="1、一键脚本安装（本次使用）"><a href="#1、一键脚本安装（本次使用）" class="headerlink" title="1、一键脚本安装（本次使用）"></a>1、一键脚本安装（本次使用）</h2><p>仅支持 Linux-x86_64&#x2F;aarch64 平台。</p><p>》》<strong>安装</strong></p><figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">curl -fsSL <span class="string">&quot;https://nn.ci/alist.sh&quot;</span> | bash -s install</span><br></pre></td></tr></table></figure><p>注意：</p><p>已经安装过再次执行安装会删除之前的数据，更新请使用更新命令。</p><p>》》<strong>更新</strong></p><figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">curl -fsSL <span class="string">&quot;https://nn.ci/alist.sh&quot;</span> | bash -s update</span><br></pre></td></tr></table></figure><p>》》<strong>卸载</strong></p><figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">curl -fsSL <span class="string">&quot;https://nn.ci/alist.sh&quot;</span> | bash -s uninstall</span><br></pre></td></tr></table></figure><p>》》<strong>自定义路径</strong></p><figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">curl -fsSL <span class="string">&quot;https://nn.ci/alist.sh&quot;</span> | bash -s install</span><br></pre></td></tr></table></figure><p>默认安装在&#x2F;opt&#x2F;alist，要自定义安装路径，添加安装路径为第二个参数，必须是绝对路径（路径以 alist 结尾时直接安装到给定路径，否则会安装在给定路径 alist 目录下），如安装到&#x2F;root：</p><figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br></pre></td><td class="code"><pre><span class="line"><span class="comment"># 安装</span></span><br><span class="line"></span><br><span class="line">curl -fsSL <span class="string">&quot;https://nn.ci/alist.sh&quot;</span> | bash -s install /root</span><br><span class="line"></span><br><span class="line"><span class="comment"># 更新</span></span><br><span class="line"></span><br><span class="line">curl -fsSL <span class="string">&quot;https://nn.ci/alist.sh&quot;</span> | bash -s update /root</span><br><span class="line"></span><br><span class="line"><span class="comment"># 卸载</span></span><br><span class="line"></span><br><span class="line">curl -fsSL <span class="string">&quot;https://nn.ci/alist.sh&quot;</span> | bash -s uninstall /root</span><br></pre></td></tr></table></figure><h2 id="2、手动搭建"><a href="#2、手动搭建" class="headerlink" title="2、手动搭建"></a>2、手动搭建</h2><p>参考文档：<a href="https://alist-doc.nn.ci/docs/install/manual">https://alist-doc.nn.ci/docs/install/manual</a></p><h2 id="3、Docker"><a href="#3、Docker" class="headerlink" title="3、Docker"></a>3、Docker</h2><p>参考文档：<a href="https://alist-doc.nn.ci/docs/install/docker">https://alist-doc.nn.ci/docs/install/docker</a></p><h1 id="四、开始搭建（以一键脚本安装为例子）"><a href="#四、开始搭建（以一键脚本安装为例子）" class="headerlink" title="四、开始搭建（以一键脚本安装为例子）"></a>四、开始搭建（以一键脚本安装为例子）</h1><h2 id="1、运行安装代码"><a href="#1、运行安装代码" class="headerlink" title="1、运行安装代码"></a>1、运行安装代码</h2><p>》》<strong>输入以下命令等待自动安装</strong></p><figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">curl -fsSL <span class="string">&quot;https://nn.ci/alist.sh&quot;</span> | bash -s install</span><br></pre></td></tr></table></figure><p>注意：安装完成会输出默认后台密码。</p><h2 id="2、放行相关端口"><a href="#2、放行相关端口" class="headerlink" title="2、放行相关端口"></a>2、放行相关端口</h2><p>遇到访问不了，请在宝塔面板的防火墙和服务商的后台防火墙里打开对应端口。</p><h2 id="3、配置反向代理"><a href="#3、配置反向代理" class="headerlink" title="3、配置反向代理"></a>3、配置反向代理</h2><p>以宝塔为例，新建一个网站，域名使用你自己的域名，在配置文件里面注释掉 Nginx 配置文件中的这部分内容：</p><figure class="highlight c#"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br></pre></td><td class="code"><pre><span class="line">location ~ .*\.(gif|jpg|jpeg|png|bmp|swf)$</span><br><span class="line">&#123;</span><br><span class="line">    expires      <span class="number">30</span>d;</span><br><span class="line">    error_log /dev/<span class="literal">null</span>;</span><br><span class="line">    access_log off;</span><br><span class="line">&#125;</span><br><span class="line"></span><br><span class="line">location ~ .*\.(js|css)?$</span><br><span class="line">&#123;</span><br><span class="line">    expires      <span class="number">12</span>h;</span><br><span class="line">    error_log /dev/<span class="literal">null</span>;</span><br><span class="line">    access_log off;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure><p>然后再下面粘贴这段代码：</p><figure class="highlight c#"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br></pre></td><td class="code"><pre><span class="line">location / &#123;</span><br><span class="line">    proxy_pass http:<span class="comment">//127.0.0.1:5244/;</span></span><br><span class="line">    rewrite ^/(.*)$ /$<span class="number">1</span> <span class="keyword">break</span>;</span><br><span class="line">    proxy_redirect off;</span><br><span class="line">    proxy_set_header Host $host;</span><br><span class="line">    proxy_set_header X-Forwarded-Proto $scheme;</span><br><span class="line">    proxy_set_header X-Real-IP $remote_addr;</span><br><span class="line">    proxy_set_header X-Forwarded-For $proxy_add_x_forwarded_for;</span><br><span class="line">    proxy_set_header Upgrade-Insecure-Requests <span class="number">1</span>;</span><br><span class="line">    proxy_set_header X-Forwarded-Proto https;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure><h2 id="4、访问域名配置账号"><a href="#4、访问域名配置账号" class="headerlink" title="4、访问域名配置账号"></a>4、访问域名配置账号</h2><p>此时，输入反向代理的域名就能正常访问网站了，输入刚刚安装完成之后终端输出的密码就能正常登陆后台了。为了方便起见，建议更改一个自己能记住的密码。</p><h1 id="五、结束"><a href="#五、结束" class="headerlink" title="五、结束"></a>五、结束</h1><p>祝大家用得开心，有问题可以去 GitHub 提 <a href="https://github.com/Xhofe/alist/issues">Issues</a>，也可以在评论区互相交流探讨。</p>]]></content>
-    
-    
-      
-      
-    <summary type="html">&lt;h1 id=&quot;一、项目展示&quot;&gt;&lt;a href=&quot;#一、项目展示&quot; class=&quot;headerlink&quot; title=&quot;一、项目展示&quot;&gt;&lt;/a&gt;一、项目展示&lt;/h1&gt;&lt;p&gt;GitHub 项目地址：&lt;a href=&quot;https://github.com/Xhofe/alist&quot;&gt;h</summary>
-      
-    
-    
-    
-    <category term="教程" scheme="http://yuqi.fun/categories/%E6%95%99%E7%A8%8B/"/>
-    
-    
-    <category term="Alist" scheme="http://yuqi.fun/tags/Alist/"/>
     
   </entry>
   
