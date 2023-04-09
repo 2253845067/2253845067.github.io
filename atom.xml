@@ -6,7 +6,7 @@
   <link href="http://yuqi.fun/atom.xml" rel="self"/>
   
   <link href="http://yuqi.fun/"/>
-  <updated>2023-03-30T00:08:13.464Z</updated>
+  <updated>2023-04-09T00:33:39.882Z</updated>
   <id>http://yuqi.fun/</id>
   
   <author>
@@ -15,6 +15,31 @@
   </author>
   
   <generator uri="https://hexo.io/">Hexo</generator>
+  
+  <entry>
+    <title>Xray最新协议Reality搭建</title>
+    <link href="http://yuqi.fun/posts/428849a6.html"/>
+    <id>http://yuqi.fun/posts/428849a6.html</id>
+    <published>2023-04-09T00:30:39.464Z</published>
+    <updated>2023-04-09T00:33:39.882Z</updated>
+    
+    <content type="html"><![CDATA[<p>为了应对 TLS in TLS 和指纹识别等阻断或封禁的风险，Xray-core 团队推出了 Vision 和 Reality 两种新颖的技术方案。它们能够有效地隐藏和保护流量的特征，提高安全性和稳定性。</p><p><a href="https://github.com/XTLS/Xray-core/discussions/1295#discussion-4523044">Vision原理</a></p><p><a href="https://www.v2ray-agent.com/archives/1679292836379">Reality原理</a></p><p>如果你和我一样小白，那我用我的理解方式给大家解释一下，不一定准确，但方便理解。</p><p>1.之前TLS或者XTLS已经被墙识别，所以有了阻断或者封你443端口的情况，也就是所谓的TLS in TLS阻断</p><p>2、后面Vision 的协议，能解决TLS in TLS阻断，但还不够完美。</p><p>3、Xray1.80版本推出了最新的Reality协议，再配合之前的Vision协议，组合成了目前最牛的协议“<strong>VLESS-Vision-uTLS-REALITY”</strong></p><p><strong>VLESS-Vision-uTLS-REALITY优势</strong></p><p>1、新协议不容易被阻断或封锁</p><p>2、可以省去一个域名，也不用配置ssl证书</p><p><strong>VLESS-Vision-uTLS-REALITY劣势</strong></p><p>1、软件端也必须升级到xray1.80版本，VPS也要是xray1.80版本，否则不能正常使用。</p><p>2、部分软件目前（截至2023年4月7日）还不支持此种协议，例如Shadowrocket，passwall等插件，如果没更新，在一键导入的时候也会BUG。</p><p>3、理论上完美，但还未经历过实战，例如开XX大会。</p><p>4、Reality不支持CDN</p><p>搭建开始</p><p>老规矩，用<a href="https://www.v2ray-agent.com/">mack-a</a>大佬的八合一的一键脚本，这里只演示无域名的安装方式，因为这个也是<strong>VLESS-Vision-uTLS-REALITY</strong>的核心亮点</p><p>PS:如果你之前用过mack-a大佬八合一脚本，在执行下面这个命令后，<strong>先选择删除脚本，再重新安装</strong></p><figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">wget -P /root -N --no-check-certificate &quot;https://raw.githubusercontent.com/mack-a/v2ray-agent/master/install.sh&quot; &amp;&amp; chmod 700 /root/install.sh &amp;&amp; /root/install.sh</span><br></pre></td></tr></table></figure><p>开始安装</p><p>vasma-&gt;执行脚本后-&gt;直接选择**[5.REALITY管理]**</p><p>1、端口直接输入<strong>443</strong></p><p>2、生成配置回落的域名，参考以下域名，结尾必须加 :443</p><blockquote><p># 域名推荐<br>gateway.icloud.com<br>itunes.apple.com<br>download-installer.cdn.mozilla.net<br>airbnb【这个不同的区有不同的域名建议自己搜索】<br>addons.mozilla.org<br><a href="http://www.microsoft.com/">www.microsoft.com</a><br><a href="http://www.lovelive-anime.jp/">www.lovelive-anime.jp</a></p><p># CDN<br>Apple:<br>swdist.apple.com<br>swcdn.apple.com<br>updates.cdn-apple.com<br>mensura.cdn-apple.com<br>osxapps.itunes.apple.com<br>aod.itunes.apple.com</p><p>Microsoft:<br>cdn-dynmedia-1.microsoft.com<br>update.microsoft<br>software.download.prss.microsoft.com</p><p>Amazon:<br>s0.awsstatic.com<br>d1.awsstatic.com<br>images-na.ssl-images-amazon.com<br>m.media-amazon.com<br>player.live-video.net</p><p>Google:<br>dl.google.com</p></blockquote><p>3、然后重复一次你刚才输入的那个域名，然后一路回车即可。</p><h3 id="客户端配置"><a href="#客户端配置" class="headerlink" title="客户端配置"></a>客户端配置</h3><h2 id="v2rayN"><a href="#v2rayN" class="headerlink" title="v2rayN"></a>v2rayN</h2><ul><li><p><strong>支持windows</strong></p></li><li><p><a href="https://github.com/2dust/v2rayN/releases"><strong>点击下载</strong></a></p></li></ul><p><img src="https://yuqi-1256456111.cos.ap-shanghai.myqcloud.com/img/202304090833804.png" alt="img"></p><p>最后最后需要强调的</p><p><strong>1、不是用了这个协议就一定不会被封，世界上没有100%的事情</strong></p><p>2、本教程来源为<a href="https://www.v2ray-agent.com/">mack-a</a> 的教程，<a href="https://www.v2ray-agent.com/archives/1680104902581">原文链接</a></p>]]></content>
+    
+    
+      
+      
+    <summary type="html">&lt;p&gt;为了应对 TLS in TLS 和指纹识别等阻断或封禁的风险，Xray-core 团队推出了 Vision 和 Reality 两种新颖的技术方案。它们能够有效地隐藏和保护流量的特征，提高安全性和稳定性。&lt;/p&gt;
+&lt;p&gt;&lt;a href=&quot;https://github.com</summary>
+      
+    
+    
+    
+    <category term="教程" scheme="http://yuqi.fun/categories/%E6%95%99%E7%A8%8B/"/>
+    
+    
+    <category term="VPS" scheme="http://yuqi.fun/tags/VPS/"/>
+    
+  </entry>
   
   <entry>
     <title>短信转发神器,合宙 Air780E,700E 开发板刷机教程</title>
