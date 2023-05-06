@@ -6,7 +6,7 @@
   <link href="http://yuqi.fun/atom.xml" rel="self"/>
   
   <link href="http://yuqi.fun/"/>
-  <updated>2023-05-05T08:21:04.417Z</updated>
+  <updated>2023-05-05T08:21:19.132Z</updated>
   <id>http://yuqi.fun/</id>
   
   <author>
@@ -21,7 +21,7 @@
     <link href="http://yuqi.fun/posts/3117353a.html"/>
     <id>http://yuqi.fun/posts/3117353a.html</id>
     <published>2023-05-05T08:15:21.435Z</published>
-    <updated>2023-05-05T08:21:04.417Z</updated>
+    <updated>2023-05-05T08:21:19.132Z</updated>
     
     <content type="html"><![CDATA[<p>tmux多路后台会话功能 即使SSH断开程序也可以在内置会话中执行 实现后台稳定运行<br><img src="https://yuqi-1256456111.cos.ap-shanghai.myqcloud.com/img/202305051618430.png"></p><p>有长时间任务或者后台程序运行需求大家可以使用tmux，比如编译程序，推流直播，SSH连接不稳定等等场景需求。你可以把这些程序存放到一个独立会话中，让他自己运作，完全不影响SSH主会话。</p><p>即使SSH断了，你在tmux中的程序也不会断连。</p><p>安装</p><figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">apt update -y &amp;&amp; apt install -y tmux</span><br></pre></td></tr></table></figure><p>创建一个会话进入（可多开N个后台会话）</p><figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">tmux new -s my1</span><br></pre></td></tr></table></figure><p><img src="https://yuqi-1256456111.cos.ap-shanghai.myqcloud.com/img/202305051620536.png"></p><p>退出会话不中断 Crl+b然后d</p><p>重新进入会话</p><figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">tmux attach-session -t my1</span><br></pre></td></tr></table></figure><p>查看所有tmux会话</p><figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">tmux list-sessions</span><br></pre></td></tr></table></figure><p>删除会话</p><figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line">tmux kill-session -t my1</span><br><span class="line">crl+d</span><br></pre></td></tr></table></figure>]]></content>
     
@@ -45,7 +45,7 @@
     <link href="http://yuqi.fun/posts/2419758f.html"/>
     <id>http://yuqi.fun/posts/2419758f.html</id>
     <published>2023-05-05T08:08:29.899Z</published>
-    <updated>2023-05-05T08:15:50.859Z</updated>
+    <updated>2023-05-05T08:21:19.130Z</updated>
     
     <content type="html"><![CDATA[<p><img src="https://yuqi-1256456111.cos.ap-shanghai.myqcloud.com/img/202305051611537.png"></p><p><strong>一键脚本</strong></p><figure class="highlight shell"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br></pre></td><td class="code"><pre><span class="line">apt update -y &amp;&amp; apt install -y wget sudo</span><br><span class="line"></span><br><span class="line">wget --no-check-certificate -O tcpx.sh https://raw.githubusercontent.com/ylx2016/Linux-NetSpeed/master/tcpx.sh</span><br><span class="line"></span><br><span class="line">chmod +x tcpx.sh</span><br><span class="line"></span><br><span class="line">./tcpx.sh</span><br></pre></td></tr></table></figure><p><strong>以后运行</strong>**</p><figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">./tcpx.sh</span><br></pre></td></tr></table></figure><p><strong>注意</strong></p><p>更新内核需要谨慎 使用后台运行模式最稳妥，我在SSH自动中断后失联了一台服务器。</p><p>推荐使用tmux后台工具</p>]]></content>
     
