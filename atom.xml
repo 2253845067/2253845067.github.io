@@ -6,7 +6,7 @@
   <link href="http://yuqi.fun/atom.xml" rel="self"/>
   
   <link href="http://yuqi.fun/"/>
-  <updated>2023-05-05T08:21:19.132Z</updated>
+  <updated>2023-09-28T01:16:24.956Z</updated>
   <id>http://yuqi.fun/</id>
   
   <author>
@@ -15,6 +15,30 @@
   </author>
   
   <generator uri="https://hexo.io/">Hexo</generator>
+  
+  <entry>
+    <title>MT7981B安博通ABT_ASR3000刷机指南</title>
+    <link href="http://yuqi.fun/posts/2c4b11e5.html"/>
+    <id>http://yuqi.fun/posts/2c4b11e5.html</id>
+    <published>2023-09-28T00:54:45.206Z</published>
+    <updated>2023-09-28T01:16:24.956Z</updated>
+    
+    <content type="html"><![CDATA[<h1 id="刷机方法"><a href="#刷机方法" class="headerlink" title="刷机方法"></a>刷机方法</h1><h2 id="一："><a href="#一：" class="headerlink" title="一："></a>一：</h2><p>下载附件e-202306161250-cfg.tar.gz，原厂系统：系统工具&#x3D;&gt;配置管理&#x3D;&gt;导入配置，重启；</p><h2 id="二："><a href="#二：" class="headerlink" title="二："></a>二：</h2><p>开机后原来的wifi密码和后台密码不变，进入系统提示root无密码，不要搭理，<strong>系统工具&#x3D;&gt;重启&#x3D;&gt;立即重启</strong>；</p><h2 id="三："><a href="#三：" class="headerlink" title="三："></a>三：</h2><p>重启后已开启telnet,使用putty或其它工具登录telnet，用户名root，无密码；</p><h2 id="四："><a href="#四：" class="headerlink" title="四："></a>四：</h2><p>路由器联网，逐条运行以下命令开启SSH：</p><figure class="highlight shell"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br></pre></td><td class="code"><pre><span class="line">echo arch aarch64_cortex-a53 300 &gt;&gt; /etc/opkg.conf</span><br><span class="line">cd /tmp</span><br><span class="line">wget https://downloads.openwrt.org/re ... ch64_cortex-a53.ipk</span><br><span class="line">opkg install ./dropbear_2019.78-2_aarch64_cortex-a53.ipk -f /etc/opkg.conf --force-depends</span><br><span class="line">/etc/init.d/dropbear enable</span><br><span class="line">/etc/init.d/dropbear start</span><br></pre></td></tr></table></figure><h2 id="五："><a href="#五：" class="headerlink" title="五："></a>五：</h2><p>winscp连接路由器，putty里逐条运行以下命令备份原厂固件（注意：mtd0备份之后应立即下载到本地并删除路由器里的文件，然后再继续备份mtd1-8，否则会爆内存重启）：</p><figure class="highlight shell"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br></pre></td><td class="code"><pre><span class="line">dd if=/dev/mtd0 | gzip &gt;/tmp/mtd0_spi0.0.bin.gz</span><br><span class="line">dd if=/dev/mtd1 of=/tmp/mtd1_BL2.bin</span><br><span class="line">dd if=/dev/mtd2 of=/tmp/mtd2_u-boot-env.bin</span><br><span class="line">dd if=/dev/mtd3 of=/tmp/mtd3_art.bin</span><br><span class="line">dd if=/dev/mtd4 of=/tmp/mtd4_Factory.bin</span><br><span class="line">dd if=/dev/mtd5 of=/tmp/mtd5_FIP.bin</span><br><span class="line">dd if=/dev/mtd6 of=/tmp/mtd6_ubi.bin</span><br><span class="line">dd if=/dev/mtd7 of=/tmp/mtd7_ubi_backup.bin</span><br><span class="line">dd if=/dev/mtd8 of=/tmp/mtd8_Config_backup.bin</span><br></pre></td></tr></table></figure><h2 id="六："><a href="#六：" class="headerlink" title="六："></a>六：</h2><p>winscp进入路由器tmp文件夹，上传uboot：mt7981_abt-asr3000-fip-fixed-parts.bin，逐条运行以下命令刷入大分区uboot：</p><figure class="highlight shell"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br></pre></td><td class="code"><pre><span class="line">cd /tmp</span><br><span class="line">md5sum mt7981_abt-asr3000-fip-fixed-parts.bin</span><br><span class="line">mtd write mt7981_abt-asr3000-fip-fixed-parts.bin FIP</span><br><span class="line">mtd verify mt7981_abt-asr3000-fip-fixed-parts.bin FIP</span><br></pre></td></tr></table></figure><p>看到结果显示success后拔电</p><p>当然也可以不校验MD5直接刷：</p><figure class="highlight shell"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line">cd /tmp</span><br><span class="line">mtd write mt7981_abt-asr3000-fip-fixed-parts.bin FIP</span><br></pre></td></tr></table></figure><h2 id="七："><a href="#七：" class="headerlink" title="七："></a>七：</h2><p><strong>按住路由器MESH键插电</strong>，电脑网卡设置IP：192.168.1.100，网线插路由器LAN口，登录192.168.1.1进入uboot webui，刷入asr3000-squashfs-factory.bin，重启；wifi密码：无；后台192.168.1.1，密码：password</p><h1 id="附件"><a href="#附件" class="headerlink" title="附件"></a>附件</h1><h2 id="固件及原厂dts如下："><a href="#固件及原厂dts如下：" class="headerlink" title="固件及原厂dts如下："></a>固件及原厂dts如下：</h2><p><a href="https://cloud.189.cn/t/U7rqaqmINJ3e">https://cloud.189.cn/t/U7rqaqmINJ3e</a> （访问码：4snw）</p><h1 id="转载于恩山无线论坛"><a href="#转载于恩山无线论坛" class="headerlink" title="转载于恩山无线论坛"></a>转载于恩山无线论坛</h1><p><a href="https://www.right.com.cn/forum/thread-8302537-1-1.html">https://www.right.com.cn/forum/thread-8302537-1-1.html</a></p>]]></content>
+    
+    
+      
+      
+    <summary type="html">&lt;h1 id=&quot;刷机方法&quot;&gt;&lt;a href=&quot;#刷机方法&quot; class=&quot;headerlink&quot; title=&quot;刷机方法&quot;&gt;&lt;/a&gt;刷机方法&lt;/h1&gt;&lt;h2 id=&quot;一：&quot;&gt;&lt;a href=&quot;#一：&quot; class=&quot;headerlink&quot; title=&quot;一：&quot;&gt;&lt;/a&gt;一：&lt;/h</summary>
+      
+    
+    
+    
+    <category term="教程" scheme="http://yuqi.fun/categories/%E6%95%99%E7%A8%8B/"/>
+    
+    
+    <category term="路由器" scheme="http://yuqi.fun/tags/%E8%B7%AF%E7%94%B1%E5%99%A8/"/>
+    
+  </entry>
   
   <entry>
     <title>tmux后台工具使用方法</title>
@@ -485,30 +509,6 @@
     
     
     <category term="路由器" scheme="http://yuqi.fun/tags/%E8%B7%AF%E7%94%B1%E5%99%A8/"/>
-    
-  </entry>
-  
-  <entry>
-    <title>OnlyFans 公共存档器 免费查看OnlyFans付费内容-Coomer</title>
-    <link href="http://yuqi.fun/posts/1082bb6d.html"/>
-    <id>http://yuqi.fun/posts/1082bb6d.html</id>
-    <published>2023-02-26T13:22:16.554Z</published>
-    <updated>2023-03-04T05:18:07.457Z</updated>
-    
-    <content type="html"><![CDATA[<p>Coomer，一个 OnlyFans 公共存档器，可以免费查看 OnlyFans 付费内容，上面所以内容都由网友搬运、贡献的 OnlyFans 付费内容，想要查看哪位艺术家、作者的付费内容，直接搜索名字即可免费查看 OnlyFans 上的付费内容，当然你也可以共享你的。</p><p>地址：<a href="https://coomer.party/">https://coomer.party/</a></p><p>可以尝试点击&gt;creators&gt;然后搜索 ‘hongkongdoll’ ，‘juneliu’；</p><p>更多的关键词待你挖掘</p>]]></content>
-    
-    
-      
-      
-    <summary type="html">&lt;p&gt;Coomer，一个 OnlyFans 公共存档器，可以免费查看 OnlyFans 付费内容，上面所以内容都由网友搬运、贡献的 OnlyFans 付费内容，想要查看哪位艺术家、作者的付费内容，直接搜索名字即可免费查看 OnlyFans 上的付费内容，当然你也可以共享你的。&lt;/</summary>
-      
-    
-    
-    
-    <category term="其他" scheme="http://yuqi.fun/categories/%E5%85%B6%E4%BB%96/"/>
-    
-    
-    <category term="其他" scheme="http://yuqi.fun/tags/%E5%85%B6%E4%BB%96/"/>
     
   </entry>
   
