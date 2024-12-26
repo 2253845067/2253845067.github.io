@@ -1,0 +1,282 @@
+<!DOCTYPE html><html lang="zh-CN" data-theme="light"><head><meta charset="UTF-8"><meta http-equiv="X-UA-Compatible" content="IE=edge"><meta name="viewport" content="width=device-width, initial-scale=1.0,viewport-fit=cover"><title>PVE安装iStoreOS | 与亓のBlog</title><meta name="author" content="与亓"><meta name="copyright" content="与亓"><meta name="format-detection" content="telephone=no"><meta name="theme-color" content="#ffffff"><meta name="description" content="首先X86机器已经安装好PVE机器，且能正常联网； 这里不提供X86机器安装pve教程，自行科普。  下载固件 固件下载(opens new window) 固件下载-EFI(opens new window)  越后面的版本越新，下载最新的版本。下载完成之后不需要解压。 在PVE里新建虚拟机； 进入PVE系统管理界面，右上角“新建虚拟机”；    只填写名称，VM ID即为虚拟机ID，自动排序的">
+<meta property="og:type" content="article">
+<meta property="og:title" content="PVE安装iStoreOS">
+<meta property="og:url" content="http://blog.051515.xyz/undefined/d167335e.html">
+<meta property="og:site_name" content="与亓のBlog">
+<meta property="og:description" content="首先X86机器已经安装好PVE机器，且能正常联网； 这里不提供X86机器安装pve教程，自行科普。  下载固件 固件下载(opens new window) 固件下载-EFI(opens new window)  越后面的版本越新，下载最新的版本。下载完成之后不需要解压。 在PVE里新建虚拟机； 进入PVE系统管理界面，右上角“新建虚拟机”；    只填写名称，VM ID即为虚拟机ID，自动排序的">
+<meta property="og:locale" content="zh_CN">
+<meta property="og:image" content="https://pan.yuqi.fun/d/%E5%A4%A9%E7%BF%BC%E4%BA%91%E7%9B%98/img/202312031654056.jpg">
+<meta property="article:published_time" content="2023-12-02T16:00:00.000Z">
+<meta property="article:modified_time" content="2023-12-02T16:00:00.000Z">
+<meta property="article:author" content="与亓">
+<meta property="article:tag" content="路由器">
+<meta name="twitter:card" content="summary">
+<meta name="twitter:image" content="https://pan.yuqi.fun/d/%E5%A4%A9%E7%BF%BC%E4%BA%91%E7%9B%98/img/202312031654056.jpg"><link rel="shortcut icon" href="https://pan.yuqi.fun/d/天翼云盘/img/202302272018985.jpg"><link rel="canonical" href="http://blog.051515.xyz/undefined/d167335e.html"><link rel="preconnect" href="//cdn.jsdelivr.net"/><link rel="preconnect" href="//busuanzi.ibruce.info"/><link rel="stylesheet" href="/css/index.css"><link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/@fortawesome/fontawesome-free/css/all.min.css"><script>
+    (() => {
+      
+    const saveToLocal = {
+      set: (key, value, ttl) => {
+        if (!ttl) return
+        const expiry = Date.now() + ttl * 86400000
+        localStorage.setItem(key, JSON.stringify({ value, expiry }))
+      },
+      get: key => {
+        const itemStr = localStorage.getItem(key)
+        if (!itemStr) return undefined
+        const { value, expiry } = JSON.parse(itemStr)
+        if (Date.now() > expiry) {
+          localStorage.removeItem(key)
+          return undefined
+        }
+        return value
+      }
+    }
+
+    window.btf = {
+      saveToLocal,
+      getScript: (url, attr = {}) => new Promise((resolve, reject) => {
+        const script = document.createElement('script')
+        script.src = url
+        script.async = true
+        Object.entries(attr).forEach(([key, val]) => script.setAttribute(key, val))
+        script.onload = script.onreadystatechange = () => {
+          if (!script.readyState || /loaded|complete/.test(script.readyState)) resolve()
+        }
+        script.onerror = reject
+        document.head.appendChild(script)
+      }),
+      getCSS: (url, id) => new Promise((resolve, reject) => {
+        const link = document.createElement('link')
+        link.rel = 'stylesheet'
+        link.href = url
+        if (id) link.id = id
+        link.onload = link.onreadystatechange = () => {
+          if (!link.readyState || /loaded|complete/.test(link.readyState)) resolve()
+        }
+        link.onerror = reject
+        document.head.appendChild(link)
+      }),
+      addGlobalFn: (key, fn, name = false, parent = window) => {
+        if (!false && key.startsWith('pjax')) return
+        const globalFn = parent.globalFn || {}
+        globalFn[key] = globalFn[key] || {}
+        globalFn[key][name || Object.keys(globalFn[key]).length] = fn
+        parent.globalFn = globalFn
+      }
+    }
+  
+      
+      const activateDarkMode = () => {
+        document.documentElement.setAttribute('data-theme', 'dark')
+        if (document.querySelector('meta[name="theme-color"]') !== null) {
+          document.querySelector('meta[name="theme-color"]').setAttribute('content', '#0d0d0d')
+        }
+      }
+      const activateLightMode = () => {
+        document.documentElement.setAttribute('data-theme', 'light')
+        if (document.querySelector('meta[name="theme-color"]') !== null) {
+          document.querySelector('meta[name="theme-color"]').setAttribute('content', '#ffffff')
+        }
+      }
+
+      btf.activateDarkMode = activateDarkMode
+      btf.activateLightMode = activateLightMode
+
+      const theme = saveToLocal.get('theme')
+    
+          theme === 'dark' ? activateDarkMode() : theme === 'light' ? activateLightMode() : null
+        
+      
+      const asideStatus = saveToLocal.get('aside-status')
+      if (asideStatus !== undefined) {
+        document.documentElement.classList.toggle('hide-aside', asideStatus === 'hide')
+      }
+    
+      
+    const detectApple = () => {
+      if (/iPad|iPhone|iPod|Macintosh/.test(navigator.userAgent)) {
+        document.documentElement.classList.add('apple')
+      }
+    }
+    detectApple()
+  
+    })()
+  </script><script>const GLOBAL_CONFIG = {
+  root: '/',
+  algolia: undefined,
+  localSearch: undefined,
+  translate: undefined,
+  highlight: {"plugin":"highlight.js","highlightCopy":true,"highlightLang":true,"highlightHeightLimit":false,"highlightFullpage":false,"highlightMacStyle":false},
+  copy: {
+    success: '复制成功',
+    error: '复制失败',
+    noSupport: '浏览器不支持'
+  },
+  relativeDate: {
+    homepage: false,
+    post: false
+  },
+  runtime: '',
+  dateSuffix: {
+    just: '刚刚',
+    min: '分钟前',
+    hour: '小时前',
+    day: '天前',
+    month: '个月前'
+  },
+  copyright: undefined,
+  lightbox: 'null',
+  Snackbar: undefined,
+  infinitegrid: {
+    js: 'https://cdn.jsdelivr.net/npm/@egjs/infinitegrid/dist/infinitegrid.min.js',
+    buttonText: '加载更多'
+  },
+  isPhotoFigcaption: false,
+  islazyload: false,
+  isAnchor: false,
+  percent: {
+    toc: true,
+    rightside: false,
+  },
+  autoDarkmode: false
+}</script><script id="config-diff">var GLOBAL_CONFIG_SITE = {
+  title: 'PVE安装iStoreOS',
+  isPost: true,
+  isHome: false,
+  isHighlightShrink: false,
+  isToc: true,
+  isShuoshuo: false
+}</script><meta name="generator" content="Hexo 7.3.0"><link rel="alternate" href="/atom.xml" title="与亓のBlog" type="application/atom+xml">
+</head><body><div id="sidebar"><div id="menu-mask"></div><div id="sidebar-menus"><div class="avatar-img text-center"><img src="https://pan.yuqi.fun/d/天翼云盘/img/202302272017976.jpg" onerror="onerror=null;src='/img/friend_404.gif'" alt="avatar"/></div><div class="site-data text-center"><a href="/archives/"><div class="headline">文章</div><div class="length-num">41</div></a><a href="/tags/"><div class="headline">标签</div><div class="length-num">30</div></a><a href="/categories/"><div class="headline">分类</div><div class="length-num">5</div></a></div><div class="menus_items"><div class="menus_item"><a class="site-page" href="/"><i class="fa-fw fa fa-home"></i><span> 主页</span></a></div><div class="menus_item"><span class="site-page group"><i class="fa-fw fa fa-graduation-cap"></i><span> 博文</span><i class="fas fa-chevron-down"></i></span><ul class="menus_item_child"><li><a class="site-page child" href="/archives/"><i class="fa-fw fa fa-folder-open"></i><span> 归档</span></a></li><li><a class="site-page child" href="/categories/"><i class="fa-fw fa fa-archive"></i><span> 分类</span></a></li><li><a class="site-page child" href="/tags/"><i class="fa-fw fa fa-tags"></i><span> 标签</span></a></li></ul></div><div class="menus_item"><a class="site-page" target="_blank" rel="noopener" href="https://pan.yuqi.fun"><i class="fa-fw fas fa-cloud"></i><span> 与亓云盘</span></a></div><div class="menus_item"><a class="site-page" href="/link/"><i class="fa-fw fa fa-link"></i><span> 友链</span></a></div><div class="menus_item"><a class="site-page" href="/comment/"><i class="fa-fw fa fa-paper-plane"></i><span> 留言板</span></a></div><div class="menus_item"><a class="site-page" href="/about/"><i class="fa-fw fa fa-heart"></i><span> 关于</span></a></div></div></div></div><div class="post" id="body-wrap"><header class="post-bg" id="page-header" style="background-image: url(https://pan.yuqi.fun/d/天翼云盘/img/202312031653018.jpg);"><nav id="nav"><span id="blog-info"><a class="nav-site-title" href="/"><span class="site-name">与亓のBlog</span></a><a class="nav-page-title" href="/"><span class="site-name">PVE安装iStoreOS</span></a></span><div id="menus"><div class="menus_items"><div class="menus_item"><a class="site-page" href="/"><i class="fa-fw fa fa-home"></i><span> 主页</span></a></div><div class="menus_item"><span class="site-page group"><i class="fa-fw fa fa-graduation-cap"></i><span> 博文</span><i class="fas fa-chevron-down"></i></span><ul class="menus_item_child"><li><a class="site-page child" href="/archives/"><i class="fa-fw fa fa-folder-open"></i><span> 归档</span></a></li><li><a class="site-page child" href="/categories/"><i class="fa-fw fa fa-archive"></i><span> 分类</span></a></li><li><a class="site-page child" href="/tags/"><i class="fa-fw fa fa-tags"></i><span> 标签</span></a></li></ul></div><div class="menus_item"><a class="site-page" target="_blank" rel="noopener" href="https://pan.yuqi.fun"><i class="fa-fw fas fa-cloud"></i><span> 与亓云盘</span></a></div><div class="menus_item"><a class="site-page" href="/link/"><i class="fa-fw fa fa-link"></i><span> 友链</span></a></div><div class="menus_item"><a class="site-page" href="/comment/"><i class="fa-fw fa fa-paper-plane"></i><span> 留言板</span></a></div><div class="menus_item"><a class="site-page" href="/about/"><i class="fa-fw fa fa-heart"></i><span> 关于</span></a></div></div><div id="toggle-menu"><span class="site-page"><i class="fas fa-bars fa-fw"></i></span></div></div></nav><div id="post-info"><h1 class="post-title">PVE安装iStoreOS</h1><div id="post-meta"><div class="meta-firstline"><span class="post-meta-date"><i class="far fa-calendar-alt fa-fw post-meta-icon"></i><span class="post-meta-label">发表于</span><time class="post-meta-date-created" datetime="2023-12-02T16:00:00.000Z" title="发表于 2023-12-03 00:00:00">2023-12-03</time><span class="post-meta-separator">|</span><i class="fas fa-history fa-fw post-meta-icon"></i><span class="post-meta-label">更新于</span><time class="post-meta-date-updated" datetime="2023-12-02T16:00:00.000Z" title="更新于 2023-12-03 00:00:00">2023-12-03</time></span><span class="post-meta-categories"><span class="post-meta-separator">|</span><i class="fas fa-inbox fa-fw post-meta-icon"></i><a class="post-meta-categories" href="/categories/%E6%95%99%E7%A8%8B/">教程</a></span></div><div class="meta-secondline"><span class="post-meta-separator">|</span><span class="post-meta-pv-cv" id="" data-flag-title=""><i class="far fa-eye fa-fw post-meta-icon"></i><span class="post-meta-label">浏览量:</span><span id="busuanzi_value_page_pv"><i class="fa-solid fa-spinner fa-spin"></i></span></span></div></div></div></header><main class="layout" id="content-inner"><div id="post"><article class="container post-content" id="article-container"><h1 id="首先X86机器已经安装好PVE机器，且能正常联网；"><a href="#首先X86机器已经安装好PVE机器，且能正常联网；" class="headerlink" title="首先X86机器已经安装好PVE机器，且能正常联网；"></a>首先X86机器已经安装好PVE机器，且能正常联网；</h1><ul>
+<li>这里不提供X86机器安装pve教程，自行科普。</li>
+</ul>
+<h1 id="下载固件"><a href="#下载固件" class="headerlink" title="下载固件"></a>下载固件</h1><ul>
+<li><a target="_blank" rel="noopener" href="https://fw.koolcenter.com/iStoreOS/x86_64/">固件下载(opens new window)</a></li>
+<li><a target="_blank" rel="noopener" href="https://fw.koolcenter.com/iStoreOS/x86_64_efi/">固件下载-EFI(opens new window)</a></li>
+</ul>
+<p>越后面的版本越新，下载最新的版本。下载完成之后不需要解压。</p>
+<h1 id="在PVE里新建虚拟机；"><a href="#在PVE里新建虚拟机；" class="headerlink" title="在PVE里新建虚拟机；"></a>在PVE里新建虚拟机；</h1><ul>
+<li>进入PVE系统管理界面，右上角“新建虚拟机”；</li>
+</ul>
+<p><img src="https://pan.yuqi.fun/d/%E5%A4%A9%E7%BF%BC%E4%BA%91%E7%9B%98/img/202312031646065.jpeg"></p>
+<ul>
+<li>只填写名称，VM ID即为虚拟机ID，自动排序的，也可自定义，其余不管，下一步：</li>
+</ul>
+<p><img src="https://pan.yuqi.fun/d/%E5%A4%A9%E7%BF%BC%E4%BA%91%E7%9B%98/img/202312031646686.jpeg"></p>
+<ul>
+<li>勾选“不使用任何介质”，其余不管，下一步；</li>
+</ul>
+<p><img src="https://pan.yuqi.fun/d/%E5%A4%A9%E7%BF%BC%E4%BA%91%E7%9B%98/img/202312031646138.jpeg"></p>
+<ul>
+<li>如果是下载的EFI固件，BIOS选择“OVMF(UEFI)”，EFI存储选择PVE的虚拟盘，其余不管，下一步：</li>
+</ul>
+<p><img src="https://pan.yuqi.fun/d/%E5%A4%A9%E7%BF%BC%E4%BA%91%E7%9B%98/img/202312031646135.jpeg"></p>
+<p>如果下载的非EFI固件，此页面不用管，直接下一步；</p>
+<p><img src="https://pan.yuqi.fun/d/%E5%A4%A9%E7%BF%BC%E4%BA%91%E7%9B%98/img/202312031646944.jpeg"></p>
+<ul>
+<li>磁盘，不需要创建，直接删掉，下一步；</li>
+</ul>
+<p><img src="https://pan.yuqi.fun/d/%E5%A4%A9%E7%BF%BC%E4%BA%91%E7%9B%98/img/202312031646104.jpeg"></p>
+<ul>
+<li>CPU核心，根据你的实机CPU核设置(比如实机是6核12线程，大于等于1且小于等于12都成)，类别建议选host；</li>
+</ul>
+<p><img src="https://pan.yuqi.fun/d/%E5%A4%A9%E7%BF%BC%E4%BA%91%E7%9B%98/img/202312031646942.jpeg"></p>
+<ul>
+<li>内存根据实际需求设置；</li>
+</ul>
+<p><img src="https://pan.yuqi.fun/d/%E5%A4%A9%E7%BF%BC%E4%BA%91%E7%9B%98/img/202312031646040.jpg" alt="download"></p>
+<ul>
+<li>网络默认即可，默认已经选了PVE的虚拟LAN；</li>
+</ul>
+<p><img src="https://pan.yuqi.fun/d/%E5%A4%A9%E7%BF%BC%E4%BA%91%E7%9B%98/img/202312031646342.jpeg"></p>
+<ul>
+<li>完成，等待虚拟机创建好。</li>
+</ul>
+<p><img src="https://pan.yuqi.fun/d/%E5%A4%A9%E7%BF%BC%E4%BA%91%E7%9B%98/img/202312031647835.jpeg"></p>
+<h1 id="往刚创建的虚拟机里写入固件；"><a href="#往刚创建的虚拟机里写入固件；" class="headerlink" title="往刚创建的虚拟机里写入固件；"></a>往刚创建的虚拟机里写入固件；</h1><ul>
+<li>利用WinSCP等工具，把下载好的固件(教程用的EFI固件)和img2kvm工具放入root目录下；</li>
+<li><a target="_blank" rel="noopener" href="https://fw.koolcenter.com/binary/other-tools/">img2kvm工具下载(opens new window)</a></li>
+<li>终端登录PVE系统后台，终端输入命令：<code>chmod 777 ./img2kvm</code></li>
+<li>继续终端输入：<code>./img2kvm 固件完整名 虚拟机ID</code></li>
+</ul>
+<p>比如教程所示的虚拟机ID是104，下载的固件完整名：istoreos-21.02.3-2022092019-x86-64-squashfs-combined-efi.img.gz</p>
+<p>所以输入的命令就是：</p>
+<figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">./img2kvm istoreos-21.02.3-2022092019-x86-64-squashfs-combined-efi.img.gz 104</span><br></pre></td></tr></table></figure>
+
+<p><img src="https://pan.yuqi.fun/d/%E5%A4%A9%E7%BF%BC%E4%BA%91%E7%9B%98/img/202312031647302.jpeg"></p>
+<p>然后看PVE虚拟机104的硬件界面，会出现一个未添加的硬盘，双击添加：</p>
+<p><img src="https://pan.yuqi.fun/d/%E5%A4%A9%E7%BF%BC%E4%BA%91%E7%9B%98/img/202312031647806.jpeg"></p>
+<p>不用设置直接添加：</p>
+<p><img src="https://pan.yuqi.fun/d/%E5%A4%A9%E7%BF%BC%E4%BA%91%E7%9B%98/img/202312031647609.jpeg"></p>
+<p>添加完成，会出现一个硬盘：</p>
+<p><img src="https://pan.yuqi.fun/d/%E5%A4%A9%E7%BF%BC%E4%BA%91%E7%9B%98/img/202312031647016.jpeg"></p>
+<p>选项——引导顺序，双击进入编辑：</p>
+<p><img src="https://pan.yuqi.fun/d/%E5%A4%A9%E7%BF%BC%E4%BA%91%E7%9B%98/img/202312031647797.jpeg"></p>
+<p>把刚添加的硬盘作为第一启动：</p>
+<p><img src="https://pan.yuqi.fun/d/%E5%A4%A9%E7%BF%BC%E4%BA%91%E7%9B%98/img/202312031647908.jpeg"></p>
+<p><img src="https://pan.yuqi.fun/d/%E5%A4%A9%E7%BF%BC%E4%BA%91%E7%9B%98/img/202312031647362.jpeg"></p>
+<ul>
+<li>把EFI磁盘删掉，若BIOS不是UEFI，无此项设置；</li>
+</ul>
+<p><img src="https://pan.yuqi.fun/d/%E5%A4%A9%E7%BF%BC%E4%BA%91%E7%9B%98/img/202312031647310.jpeg"></p>
+<h1 id="启动iStoreOS："><a href="#启动iStoreOS：" class="headerlink" title="启动iStoreOS："></a>启动iStoreOS：</h1><p><img src="https://pan.yuqi.fun/d/%E5%A4%A9%E7%BF%BC%E4%BA%91%E7%9B%98/img/202312031648006.jpeg"></p>
+<ul>
+<li>如果前面的步骤没出错，是能正常启动的：</li>
+</ul>
+<p><img src="https://pan.yuqi.fun/d/%E5%A4%A9%E7%BF%BC%E4%BA%91%E7%9B%98/img/202312031648517.jpeg"></p>
+<ul>
+<li>等系统启动一两分钟，然后点击此虚拟机——控制台(右上角控制台也可)：</li>
+</ul>
+<p><img src="https://pan.yuqi.fun/d/%E5%A4%A9%E7%BF%BC%E4%BA%91%E7%9B%98/img/202312031648522.jpeg"></p>
+<p>鼠标点在此界面，键盘回车：就会出现终端入口：</p>
+<p><img src="https://pan.yuqi.fun/d/%E5%A4%A9%E7%BF%BC%E4%BA%91%E7%9B%98/img/202312031648241.jpeg"></p>
+<p><img src="https://pan.yuqi.fun/d/%E5%A4%A9%E7%BF%BC%E4%BA%91%E7%9B%98/img/202312031648418.jpeg"></p>
+<p>输入：<code>quickstart</code>，利用键盘“上下键”选择2，回车：</p>
+<p>输入要分配给iStoreOS的LAN口的ip(必须是PVE虚拟LAN的IP段，比如PVE的管理IP是192.168.2.88，那么此处的IP就必须是192.168.2.XXX)，回车生效；</p>
+<p><img src="https://pan.yuqi.fun/d/%E5%A4%A9%E7%BF%BC%E4%BA%91%E7%9B%98/img/202312031648082.jpeg"></p>
+<p>要求输入掩码(mask)，照着填：255.255.255.0，回车生效：</p>
+<p><img src="https://pan.yuqi.fun/d/%E5%A4%A9%E7%BF%BC%E4%BA%91%E7%9B%98/img/202312031648554.jpeg"></p>
+<p>然后选择QUIT退出此界面：</p>
+<p><img src="https://pan.yuqi.fun/d/%E5%A4%A9%E7%BF%BC%E4%BA%91%E7%9B%98/img/202312031648466.jpeg"></p>
+<ul>
+<li>输入：<code>reboot</code>重启iStoreOS，这样浏览器输入我们设置的IP，就进入iStoreOS界面了。</li>
+</ul>
+<p><img src="https://pan.yuqi.fun/d/%E5%A4%A9%E7%BF%BC%E4%BA%91%E7%9B%98/img/202312031648602.jpeg"></p>
+<p>iStoreOS默认登录密码是：password</p>
+<p><img src="https://pan.yuqi.fun/d/%E5%A4%A9%E7%BF%BC%E4%BA%91%E7%9B%98/img/202312031648519.jpeg"></p>
+<h1 id="配置iStoreOS："><a href="#配置iStoreOS：" class="headerlink" title="配置iStoreOS："></a>配置iStoreOS：</h1><p>此刻我们进入iStoreOS，但是目前iStoreOS是个单臂路由状态，只有一个LAN口。</p>
+<ul>
+<li>如果PVE里已有主路由系统，需要把iStoreOS配置为旁路由，在“网络向导”里配置“旁路由”即可。</li>
+</ul>
+<p><img src="https://pan.yuqi.fun/d/%E5%A4%A9%E7%BF%BC%E4%BA%91%E7%9B%98/img/202312031649861.jpeg"></p>
+<ul>
+<li>如果需要将iStoreOS作为主路由系统，就需要添加网口：</li>
+</ul>
+<p>首先在PVE里关闭iStoreOS虚拟机，然后硬件——添加一个PVE的网口作为WAN口；</p>
+<p><img src="https://pan.yuqi.fun/d/%E5%A4%A9%E7%BF%BC%E4%BA%91%E7%9B%98/img/202312031649410.jpeg"></p>
+<ul>
+<li>然后再确认2个IP，首先确认：PVE的虚拟LAN管理IP，比如是192.168.2.88，那么就必须把iStoreOS的IP改成192.168.2.1~192.168.2.77之间，比如把PVE的IP放在iStoreOS主路由LAN口IP之后，不然PVE无法联网。</li>
+<li>然后启动iStoreOS虚拟机，进入iStoreOS后，在“网络向导”里配置联网即可。</li>
+</ul>
+<h1 id="安装离线插件："><a href="#安装离线插件：" class="headerlink" title="安装离线插件："></a>安装离线插件：</h1><p><strong>注意，上述软件包安装，部分依赖依然要通过opkg软件源在线安装。如果安装失败，检查路由器自身的网络情况，特别是旁路由模式下最容易出现网络问题。</strong><br><strong>再三注意需要路由器自身联网正常</strong></p>
+<ul>
+<li><p>下载地址</p>
+<p><a target="_blank" rel="noopener" href="https://github.com/bcseputetto/Are-u-ok">https://github.com/bcseputetto/Are-u-ok</a></p>
+</li>
+<li><p>如何安装<br>下载后，来到iStore应用商店页面，点击手动安装，点击选择上传或者直接拖放文件<br><img src="https://pan.yuqi.fun/d/%E5%A4%A9%E7%BF%BC%E4%BA%91%E7%9B%98/img/202312031649689.png"></p>
+</li>
+</ul>
+<p>对于没有iStore应用商店的OpenWrt也可以使用以下方法。<br>将 .run 文件上传到路由器上，然后在终端环境执行</p>
+<figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">sh 包名.run</span><br></pre></td></tr></table></figure>
+
+
+
+<p>例</p>
+<figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">sh PassWall4.71-2_x86_all_sdk_22.03.5.run</span><br></pre></td></tr></table></figure>
+
+
+
+<p>如果文件不在当前路径记得填写路径，下例</p>
+<figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">sh /tmp/upload/PassWall4.71-2_x86_all_sdk_22.03.5.run</span><br></pre></td></tr></table></figure>
+
+</article><div class="post-copyright"><div class="post-copyright__author"><span class="post-copyright-meta"><i class="fas fa-circle-user fa-fw"></i>文章作者: </span><span class="post-copyright-info"><a href="http://blog.051515.xyz">与亓</a></span></div><div class="post-copyright__type"><span class="post-copyright-meta"><i class="fas fa-square-arrow-up-right fa-fw"></i>文章链接: </span><span class="post-copyright-info"><a href="http://blog.051515.xyz/undefined/d167335e.html">http://blog.051515.xyz/undefined/d167335e.html</a></span></div><div class="post-copyright__notice"><span class="post-copyright-meta"><i class="fas fa-circle-exclamation fa-fw"></i>版权声明: </span><span class="post-copyright-info">本博客所有文章除特别声明外，均采用 <a href="https://creativecommons.org/licenses/by-nc-sa/4.0/" target="_blank">CC BY-NC-SA 4.0</a> 许可协议。转载请注明来源 <a href="http://blog.051515.xyz" target="_blank">与亓のBlog</a>！</span></div></div><div class="tag_share"><div class="post-meta__tag-list"><a class="post-meta__tags" href="/tags/%E8%B7%AF%E7%94%B1%E5%99%A8/">路由器</a></div><div class="post-share"><div class="social-share" data-image="https://pan.yuqi.fun/d/天翼云盘/img/202312031654056.jpg" data-sites="facebook,twitter,wechat,weibo,qq"></div><link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/butterfly-extsrc/sharejs/dist/css/share.min.css" media="print" onload="this.media='all'"><script src="https://cdn.jsdelivr.net/npm/butterfly-extsrc/sharejs/dist/js/social-share.min.js" defer></script></div></div><nav class="pagination-post" id="pagination"><a class="pagination-related" href="/undefined/d604b8c7.html" title="R探长 甲骨文云开机脚本"><img class="cover" src="https://pan.yuqi.fun/d/天翼云盘/img/202312080927811.jpg" onerror="onerror=null;src='/img/404.jpg'" alt="cover of previous post"><div class="info"><div class="info-1"><div class="info-item-1">上一篇</div><div class="info-item-2">R探长 甲骨文云开机脚本</div></div><div class="info-2"><div class="info-item-1">原作者地址https://github.com/semicons/java_oci_manage/blob/main/md/install.md debian12先要装依赖1sudo nano /etc/apt/sources.list  123deb http://deb.debian.org/debian bullseye maindeb-src http://deb.debian.org/debian bullseye main    123apt updateapt install openjdk-17-jdk      更新环境1apt update -y &amp;&amp; apt install -y curl wget sudo      安装R探长123cd /home &amp;&amp; mkdir rbot &amp;&amp; cd rbotwget -O gz_client_bot.tar.gz...</div></div></div></a><a class="pagination-related" href="/undefined/f2a576c2.html" title="Butterfly主题添加本地搜索功能"><img class="cover" src="https://pan.yuqi.fun/d/天翼云盘/img/202311301711683.jpg" onerror="onerror=null;src='/img/404.jpg'" alt="cover of next post"><div class="info text-right"><div class="info-1"><div class="info-item-1">下一篇</div><div class="info-item-2">Butterfly主题添加本地搜索功能</div></div><div class="info-2"><div class="info-item-1">安装插件： 1npm install hexo-generator-search --save  修改_config.yml文件，添加以下内容 123456# 添加本地搜索search:  path: search.xml  field: post  content: true  format: html  修改_config.butterfly.yml文件，添加以下内容 12345678910# Local searchlocal_search:  enable: true  # Preload the search data when the page loads.  preload: false  # Show top n results per article, show all results by setting to -1  top_n_per_article: 1  # Unescape html strings to the readable one.  unescape: false  CDN:  </div></div></div></a></nav><div class="relatedPosts"><div class="headline"><i class="fas fa-thumbs-up fa-fw"></i><span>相关推荐</span></div><div class="relatedPosts-list"><a class="pagination-related" href="/undefined/7ae0e921.html" title="5G21第二批刷机以及不同作者间的固件切换"><img class="cover" src="https://pan.yuqi.fun/d/天翼云盘/img/202302271934507.jpg" alt="cover"><div class="info text-center"><div class="info-1"><div class="info-item-1"><i class="far fa-calendar-alt fa-fw"></i> 2023-02-26</div><div class="info-item-2">5G21第二批刷机以及不同作者间的固件切换</div></div><div class="info-2"><div class="info-item-1">lean 的 q-wrt 可以进行 webui 直接更新 进入 webui 后依次点击系统-服务&#x2F;备份-刷写新的固件上传固件后升级。切记不要勾选保留配置。切换到志平或狂风固件请使用 winscp 等工具上传到 tmp 目录后，ssh 输入以下的命令，记得先 cd 到 tmp 目录。 1sysupgrade -F -n xxx.bin  或者使用以下命令强刷 1sysupgrade -F -n -v xxx.bin  xxx 为固件名字 </div></div></div></a><a class="pagination-related" href="/undefined/2c4b11e5.html" title="MT7981B安博通ABT_ASR3000刷机指南"><img class="cover" src="https://pan.yuqi.fun/d/天翼云盘/img/202311061036324.jpg" alt="cover"><div class="info text-center"><div class="info-1"><div class="info-item-1"><i class="far fa-calendar-alt fa-fw"></i> 2023-09-28</div><div class="info-item-2">MT7981B安博通ABT_ASR3000刷机指南</div></div><div class="info-2"><div class="info-item-1">刷机方法一：下载附件e-202306161250-cfg.tar.gz，原厂系统：系统工具&#x3D;&gt;配置管理&#x3D;&gt;导入配置，重启； 二：开机后原来的wifi密码和后台密码不变，进入系统提示root无密码，不要搭理，系统工具&#x3D;&gt;重启&#x3D;&gt;立即重启； 三：重启后已开启telnet,使用putty或其它工具登录telnet，用户名root，无密码； 四：路由器联网，逐条运行以下命令开启SSH： 123456echo arch aarch64_cortex-a53 300 &gt;&gt; /etc/opkg.confcd /tmpwget https://downloads.openwrt.org/releases/packages-19.07/aarch64_cortex-a53/base/dropbear_2019.78-2_aarch64_cortex-a53.ipkopkg install ./dropbear_2019.78-2_aarch64_cortex-a53.ipk -f /etc/opkg.conf...</div></div></div></a></div></div></div><div class="aside-content" id="aside-content"><div class="card-widget card-info text-center"><div class="avatar-img"><img src="https://pan.yuqi.fun/d/天翼云盘/img/202302272017976.jpg" onerror="this.onerror=null;this.src='/img/friend_404.gif'" alt="avatar"/></div><div class="author-info-name">与亓</div><div class="author-info-description"></div><div class="site-data"><a href="/archives/"><div class="headline">文章</div><div class="length-num">41</div></a><a href="/tags/"><div class="headline">标签</div><div class="length-num">30</div></a><a href="/categories/"><div class="headline">分类</div><div class="length-num">5</div></a></div><a id="card-info-btn" target="_blank" rel="noopener" href="https://github.com/xxxxxx"><i class="fab fa-github"></i><span>Follow Me</span></a><div class="card-info-social-icons"><a class="social-icon" href="https://github.com/2253845067" target="_blank" title="Github"><i class="fab fa-github"></i></a><a class="social-icon" href="mailto:2253845067@qq.com" target="_blank" title="Email"><i class="fas fa-envelope"></i></a></div></div><div class="card-widget card-announcement"><div class="item-headline"><i class="fas fa-bullhorn fa-shake"></i><span>公告</span></div><div class="announcement_content">This is my Blog</div></div><div class="sticky_layout"><div class="card-widget" id="card-toc"><div class="item-headline"><i class="fas fa-stream"></i><span>目录</span><span class="toc-percentage"></span></div><div class="toc-content"><ol class="toc"><li class="toc-item toc-level-1"><a class="toc-link" href="#%E9%A6%96%E5%85%88X86%E6%9C%BA%E5%99%A8%E5%B7%B2%E7%BB%8F%E5%AE%89%E8%A3%85%E5%A5%BDPVE%E6%9C%BA%E5%99%A8%EF%BC%8C%E4%B8%94%E8%83%BD%E6%AD%A3%E5%B8%B8%E8%81%94%E7%BD%91%EF%BC%9B"><span class="toc-number">1.</span> <span class="toc-text">首先X86机器已经安装好PVE机器，且能正常联网；</span></a></li><li class="toc-item toc-level-1"><a class="toc-link" href="#%E4%B8%8B%E8%BD%BD%E5%9B%BA%E4%BB%B6"><span class="toc-number">2.</span> <span class="toc-text">下载固件</span></a></li><li class="toc-item toc-level-1"><a class="toc-link" href="#%E5%9C%A8PVE%E9%87%8C%E6%96%B0%E5%BB%BA%E8%99%9A%E6%8B%9F%E6%9C%BA%EF%BC%9B"><span class="toc-number">3.</span> <span class="toc-text">在PVE里新建虚拟机；</span></a></li><li class="toc-item toc-level-1"><a class="toc-link" href="#%E5%BE%80%E5%88%9A%E5%88%9B%E5%BB%BA%E7%9A%84%E8%99%9A%E6%8B%9F%E6%9C%BA%E9%87%8C%E5%86%99%E5%85%A5%E5%9B%BA%E4%BB%B6%EF%BC%9B"><span class="toc-number">4.</span> <span class="toc-text">往刚创建的虚拟机里写入固件；</span></a></li><li class="toc-item toc-level-1"><a class="toc-link" href="#%E5%90%AF%E5%8A%A8iStoreOS%EF%BC%9A"><span class="toc-number">5.</span> <span class="toc-text">启动iStoreOS：</span></a></li><li class="toc-item toc-level-1"><a class="toc-link" href="#%E9%85%8D%E7%BD%AEiStoreOS%EF%BC%9A"><span class="toc-number">6.</span> <span class="toc-text">配置iStoreOS：</span></a></li><li class="toc-item toc-level-1"><a class="toc-link" href="#%E5%AE%89%E8%A3%85%E7%A6%BB%E7%BA%BF%E6%8F%92%E4%BB%B6%EF%BC%9A"><span class="toc-number">7.</span> <span class="toc-text">安装离线插件：</span></a></li></ol></div></div><div class="card-widget card-recent-post"><div class="item-headline"><i class="fas fa-history"></i><span>最新文章</span></div><div class="aside-list"><div class="aside-list-item no-cover"><div class="content"><a class="title" href="/undefined/0.html" title="无标题">无标题</a><time datetime="2024-12-26T03:39:32.253Z" title="发表于 2024-12-26 11:39:32">2024-12-26</time></div></div><div class="aside-list-item no-cover"><div class="content"><a class="title" href="/undefined/a580ef34.html" title="安装了VMware Tools，但无法实现文件的拖拽和复制粘贴---解决方案">安装了VMware Tools，但无法实现文件的拖拽和复制粘贴---解决方案</a><time datetime="2024-04-04T16:00:00.000Z" title="发表于 2024-04-05 00:00:00">2024-04-05</time></div></div><div class="aside-list-item"><a class="thumbnail" href="/undefined/af89448b.html" title="在WSL2中使用Clash Verge代理连接"><img src="https://pan.yuqi.fun/d/天翼云盘/img/202312131055743.jpg" onerror="this.onerror=null;this.src='/img/404.jpg'" alt="在WSL2中使用Clash Verge代理连接"/></a><div class="content"><a class="title" href="/undefined/af89448b.html" title="在WSL2中使用Clash Verge代理连接">在WSL2中使用Clash Verge代理连接</a><time datetime="2023-12-12T16:00:00.000Z" title="发表于 2023-12-13 00:00:00">2023-12-13</time></div></div><div class="aside-list-item"><a class="thumbnail" href="/undefined/97aa67fb.html" title="Clash Verge规则配置"><img src="https://pan.yuqi.fun/d/天翼云盘/img/202312120920244.jpg" onerror="this.onerror=null;this.src='/img/404.jpg'" alt="Clash Verge规则配置"/></a><div class="content"><a class="title" href="/undefined/97aa67fb.html" title="Clash Verge规则配置">Clash Verge规则配置</a><time datetime="2023-12-11T16:00:00.000Z" title="发表于 2023-12-12 00:00:00">2023-12-12</time></div></div><div class="aside-list-item"><a class="thumbnail" href="/undefined/ee2e5bab.html" title="利用CF Workers搭建Github加速服务"><img src="https://pan.yuqi.fun/d/天翼云盘/img/202312120906990.jpg" onerror="this.onerror=null;this.src='/img/404.jpg'" alt="利用CF Workers搭建Github加速服务"/></a><div class="content"><a class="title" href="/undefined/ee2e5bab.html" title="利用CF Workers搭建Github加速服务">利用CF Workers搭建Github加速服务</a><time datetime="2023-12-11T16:00:00.000Z" title="发表于 2023-12-12 00:00:00">2023-12-12</time></div></div></div></div></div></div></main><footer id="footer"><div id="footer-wrap"><div class="copyright">&copy;2019 - 2024 By 与亓</div><div class="framework-info"><span>框架 </span><a target="_blank" rel="noopener" href="https://hexo.io">Hexo</a><span class="footer-separator">|</span><span>主题 </span><a target="_blank" rel="noopener" href="https://github.com/jerryc127/hexo-theme-butterfly">Butterfly</a></div></div></footer></div><div id="rightside"><div id="rightside-config-hide"><button id="readmode" type="button" title="阅读模式"><i class="fas fa-book-open"></i></button><button id="darkmode" type="button" title="日间和夜间模式切换"><i class="fas fa-adjust"></i></button><button id="hide-aside-btn" type="button" title="单栏和双栏切换"><i class="fas fa-arrows-alt-h"></i></button></div><div id="rightside-config-show"><button id="rightside-config" type="button" title="设置"><i class="fas fa-cog fa-spin"></i></button><button class="close" id="mobile-toc-button" type="button" title="目录"><i class="fas fa-list-ul"></i></button><button id="go-up" type="button" title="回到顶部"><span class="scroll-percent"></span><i class="fas fa-arrow-up"></i></button></div></div><div><script src="/js/utils.js"></script><script src="/js/main.js"></script><div class="js-pjax"></div><script async data-pjax src="//busuanzi.ibruce.info/busuanzi/2.3/busuanzi.pure.mini.js"></script></div></body></html>
