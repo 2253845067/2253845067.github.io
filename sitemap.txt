@@ -1,9 +1,9 @@
-http://blog.051515.xyz/about/index.html
-http://blog.051515.xyz/archives/index.html
 http://blog.051515.xyz/categories/index.html
 http://blog.051515.xyz/comment/index.html
 http://blog.051515.xyz/link/index.html
 http://blog.051515.xyz/tags/index.html
+http://blog.051515.xyz/about/index.html
+http://blog.051515.xyz/archives/index.html
 http://blog.051515.xyz/undefined/0.html
 http://blog.051515.xyz/undefined/a580ef34.html
 http://blog.051515.xyz/undefined/af89448b.html
