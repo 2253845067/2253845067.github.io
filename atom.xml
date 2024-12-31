@@ -3,11 +3,11 @@
   <title>与亓のBlog</title>
   
   
-  <link href="http://blog.051515.xyz/atom.xml" rel="self"/>
+  <link href="http://yuqi.fun/atom.xml" rel="self"/>
   
-  <link href="http://blog.051515.xyz/"/>
-  <updated>2024-12-29T00:00:00.000Z</updated>
-  <id>http://blog.051515.xyz/</id>
+  <link href="http://yuqi.fun/"/>
+  <updated>2024-12-31T00:00:00.000Z</updated>
+  <id>http://yuqi.fun/</id>
   
   <author>
     <name>与亓</name>
@@ -17,9 +17,30 @@
   <generator uri="https://hexo.io/">Hexo</generator>
   
   <entry>
+    <title>常用VPS脚本</title>
+    <link href="http://yuqi.fun/undefined/6469b43f.html"/>
+    <id>http://yuqi.fun/undefined/6469b43f.html</id>
+    <published>2024-12-31T00:00:00.000Z</published>
+    <updated>2024-12-31T00:00:00.000Z</updated>
+    
+    <content type="html"><![CDATA[<h2 id="1、DD重装脚本"><a href="#1、DD重装脚本" class="headerlink" title="1、DD重装脚本"></a>1、DD重装脚本</h2><p>史上最强脚本</p><figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">wget --no-check-certificate -qO InstallNET.sh &#x27;https://raw.githubusercontent.com/leitbogioro/Tools/master/Linux_reinstall/InstallNET.sh&#x27; &amp;&amp; chmod a+x InstallNET.sh &amp;&amp; bash InstallNET.sh -debian 12 -pwd &#x27;password&#x27;</span><br></pre></td></tr></table></figure><p>萌咖大佬的脚本</p><figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">bash &lt;(wget --no-check-certificate -qO- &#x27;https://raw.githubusercontent.com/MoeClub/Note/master/InstallNET.sh&#x27;) -d 11 -v 64 -p 密码 -port 端口 -a -firmware</span><br></pre></td></tr></table></figure><p>beta.gs大佬的脚本</p><figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">wget --no-check-certificate -O NewReinstall.sh https://raw.githubusercontent.com/fcurrk/reinstall/master/NewReinstall.sh &amp;&amp; chmod a+x NewReinstall.sh &amp;&amp; bash NewReinstall.sh</span><br></pre></td></tr></table></figure><p>DD windows（使用史上最强DD脚本）</p><figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">bash &lt;(curl -sSL https://raw.githubusercontent.com/leitbogioro/Tools/master/Linux_reinstall/InstallNET.sh) -windows 10  -lang &quot;cn&quot;</span><br></pre></td></tr></table></figure><figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line">账户：Administrator</span><br><span class="line">密码：Teddysun.com</span><br></pre></td></tr></table></figure><h2 id="2、综合测试脚本"><a href="#2、综合测试脚本" class="headerlink" title="2、综合测试脚本"></a>2、综合测试脚本</h2><p>LemonBench</p><figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">wget -qO- https://raw.githubusercontent.com/LemonBench/LemonBench/main/LemonBench.sh | bash -s -- --fast</span><br></pre></td></tr></table></figure><p>融合怪</p><figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">bash &lt;(wget -qO- --no-check-certificate https://gitlab.com/spiritysdx/za/-/raw/main/ecs.sh)</span><br></pre></td></tr></table></figure><p>NodeBench</p><figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">bash &lt;(curl -sL https://raw.githubusercontent.com/LloydAsp/NodeBench/main/NodeBench.sh)</span><br></pre></td></tr></table></figure><h2 id="3、性能测试"><a href="#3、性能测试" class="headerlink" title="3、性能测试"></a>3、性能测试</h2><p>GB6 跑分脚本，附带宽测试：</p><figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">curl -sL yabs.sh | bash</span><br></pre></td></tr></table></figure><p>GB6 剔除带宽测试，因为都是国外节点测试，国内跑没多大意义：</p><figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">curl -sL yabs.sh | bash -s -- -i</span><br></pre></td></tr></table></figure><p>GB5 跑分脚本，附带宽测试：</p><figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">curl -sL yabs.sh | bash -5</span><br></pre></td></tr></table></figure><p>GB5 剔除带宽测试：</p><figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">curl -sL yabs.sh | bash -s -- -i -5</span><br></pre></td></tr></table></figure><h2 id="4、流媒体及IP质量测试"><a href="#4、流媒体及IP质量测试" class="headerlink" title="4、流媒体及IP质量测试"></a>4、流媒体及IP质量测试</h2><p>最常用版本</p><figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">bash &lt;(curl -L -s check.unlock.media)</span><br></pre></td></tr></table></figure><p>原生检测脚本</p><figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">bash &lt;(curl -sL Media.Check.Place)</span><br></pre></td></tr></table></figure><p>准确度最高</p><figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">bash &lt;(curl -L -s https://github.com/1-stream/RegionRestrictionCheck/raw/main/check.sh)</span><br></pre></td></tr></table></figure><p>IP质量体检脚本</p><figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">bash &lt;(curl -sL IP.Check.Place)</span><br></pre></td></tr></table></figure><h2 id="5、测速脚本"><a href="#5、测速脚本" class="headerlink" title="5、测速脚本"></a>5、测速脚本</h2><p>Speedtest</p><figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">bash &lt;(curl -sL bash.icu/speedtest)</span><br></pre></td></tr></table></figure><p>Taier</p><figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">bash &lt;(curl -sL res.yserver.ink/taier.sh)</span><br></pre></td></tr></table></figure><p>hyperspeed</p><figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">bash &lt;(curl -Lso- https://bench.im/hyperspeed)</span><br></pre></td></tr></table></figure><p>全球测速</p><figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">curl -sL network-speed.xyz | bash</span><br></pre></td></tr></table></figure><h2 id="6、回程测试"><a href="#6、回程测试" class="headerlink" title="6、回程测试"></a>6、回程测试</h2><p>直接显示回程（小白用这个）</p><figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">curl https://raw.githubusercontent.com/ludashi2020/backtrace/main/install.sh -sSf | sh</span><br></pre></td></tr></table></figure><p>回程详细测试（推荐）</p><figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">wget -N --no-check-certificate https://raw.githubusercontent.com/Chennhaoo/Shell_Bash/master/AutoTrace.sh &amp;&amp; chmod +x AutoTrace.sh &amp;&amp; bash AutoTrace.sh</span><br></pre></td></tr></table></figure><figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">wget https://ghproxy.com/https://raw.githubusercontent.com/vpsxb/testrace/main/testrace.sh -O testrace.sh &amp;&amp; bash testrace.sh</span><br></pre></td></tr></table></figure><h2 id="7、功能脚本"><a href="#7、功能脚本" class="headerlink" title="7、功能脚本"></a>7、功能脚本</h2><p>添加SWAP</p><figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">wget https://www.moerats.com/usr/shell/swap.sh &amp;&amp; bash swap.sh</span><br></pre></td></tr></table></figure><p>Fail2ban</p><figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">wget --no-check-certificate https://raw.githubusercontent.com/FunctionClub/Fail2ban/master/fail2ban.sh &amp;&amp; bash fail2ban.sh 2&gt;&amp;1 | tee fail2ban.log</span><br></pre></td></tr></table></figure><p>一键开启BBR，适用于较新的Debian、Ubuntu</p><figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br></pre></td><td class="code"><pre><span class="line">echo &quot;net.core.default_qdisc=fq&quot; &gt;&gt; /etc/sysctl.conf</span><br><span class="line">echo &quot;net.ipv4.tcp_congestion_control=bbr&quot; &gt;&gt; /etc/sysctl.conf</span><br><span class="line">sysctl -p</span><br><span class="line">sysctl net.ipv4.tcp_available_congestion_control</span><br><span class="line">lsmod | grep bbr</span><br></pre></td></tr></table></figure><p>多功能BBR安装脚本</p><figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">wget -N --no-check-certificate &quot;https://gist.github.com/zeruns/a0ec603f20d1b86de6a774a8ba27588f/raw/4f9957ae23f5efb2bb7c57a198ae2cffebfb1c56/tcp.sh&quot; &amp;&amp; chmod +x tcp.sh &amp;&amp; ./tcp.sh</span><br></pre></td></tr></table></figure><p>锐速&#x2F;BBRPLUS&#x2F;BBR2&#x2F;BBR3</p><figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">wget -O tcpx.sh &quot;https://github.com/ylx2016/Linux-NetSpeed/raw/master/tcpx.sh&quot; &amp;&amp; chmod +x tcpx.sh &amp;&amp; ./tcpx.sh</span><br></pre></td></tr></table></figure><p>TCP窗口调优</p><figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">wget http://sh.nekoneko.cloud/tools.sh -O tools.sh &amp;&amp; bash tools.sh</span><br></pre></td></tr></table></figure><p>添加warp</p><figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">wget -N https://gitlab.com/fscarmen/warp/-/raw/main/menu.sh &amp;&amp; bash menu.sh [option] [lisence/url/token]</span><br></pre></td></tr></table></figure><p>25端口开放测试</p><figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">telnet smtp.aol.com 25</span><br></pre></td></tr></table></figure><h2 id="8、一键安装常用环境及软件"><a href="#8、一键安装常用环境及软件" class="headerlink" title="8、一键安装常用环境及软件"></a>8、一键安装常用环境及软件</h2><p>docker</p><figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">curl -sSL https://get.daocloud.io/docker | sh</span><br></pre></td></tr></table></figure><p>Python</p><figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">curl -O https://raw.githubusercontent.com/lx969788249/lxspacepy/master/pyinstall.sh &amp;&amp; chmod +x pyinstall.sh &amp;&amp; ./pyinstall.sh</span><br></pre></td></tr></table></figure><p>iperf3</p><figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">apt install iperf3</span><br></pre></td></tr></table></figure><p>realm</p><figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">bash &lt;(curl -L https://raw.githubusercontent.com/zhouh047/realm-oneclick-install/main/realm.sh) -i</span><br></pre></td></tr></table></figure><p>gost</p><figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">wget --no-check-certificate -O gost.sh https://raw.githubusercontent.com/qqrrooty/EZgost/main/gost.sh &amp;&amp; chmod +x gost.sh &amp;&amp; ./gost.sh</span><br></pre></td></tr></table></figure><p>极光面板</p><figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">bash &lt;(curl -fsSL https://raw.githubusercontent.com/Aurora-Admin-Panel/deploy/main/install.sh)</span><br></pre></td></tr></table></figure><p>哪吒监控</p><figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">curl -L https://raw.githubusercontent.com/naiba/nezha/master/script/install.sh  -o nezha.sh &amp;&amp; chmod +x nezha.sh &amp;&amp; sudo ./nezha.sh</span><br></pre></td></tr></table></figure><p>WARP</p><figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">wget -N https://gitlab.com/fscarmen/warp/-/raw/main/menu.sh &amp;&amp; bash menu.sh</span><br></pre></td></tr></table></figure><p>Aria2</p><figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">wget -N git.io/aria2.sh &amp;&amp; chmod +x aria2.sh &amp;&amp; ./aria2.sh</span><br></pre></td></tr></table></figure><p>宝塔</p><figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">wget -O install.sh http://v7.hostcli.com/install/install-ubuntu_6.0.sh &amp;&amp; sudo bash install.sh</span><br></pre></td></tr></table></figure><p>PVE虚拟化</p><figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">bash &lt;(wget -qO- --no-check-certificate https://raw.githubusercontent.com/oneclickvirt/pve/main/scripts/build_backend.sh)</span><br></pre></td></tr></table></figure><p>Argox</p><figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">bash &lt;(wget -qO- https://raw.githubusercontent.com/fscarmen/argox/main/argox.sh)</span><br></pre></td></tr></table></figure><h2 id="9、综合功能脚本"><a href="#9、综合功能脚本" class="headerlink" title="9、综合功能脚本"></a>9、综合功能脚本</h2><p>科技lion</p><figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><span class="line">apt update -y  &amp;&amp; apt install -y curl</span><br><span class="line"></span><br><span class="line">bash &lt;(curl -sL kejilion.sh)</span><br></pre></td></tr></table></figure><p>SKY-BOX</p><figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">wget -O box.sh https://raw.githubusercontent.com/BlueSkyXN/SKY-BOX/main/box.sh &amp;&amp; chmod +x box.sh &amp;&amp; clear &amp;&amp; ./box.sh</span><br></pre></td></tr></table></figure>]]></content>
+    
+    
+      
+      
+    <summary type="html">&lt;h2 id=&quot;1、DD重装脚本&quot;&gt;&lt;a href=&quot;#1、DD重装脚本&quot; class=&quot;headerlink&quot; title=&quot;1、DD重装脚本&quot;&gt;&lt;/a&gt;1、DD重装脚本&lt;/h2&gt;&lt;p&gt;史上最强脚本&lt;/p&gt;
+&lt;figure class=&quot;highlight plaintext&quot;</summary>
+      
+    
+    
+    
+    
+  </entry>
+  
+  <entry>
     <title>Qexo 一个美观、强大的在线 静态博客 管理器</title>
-    <link href="http://blog.051515.xyz/undefined/8277e0e6.html"/>
-    <id>http://blog.051515.xyz/undefined/8277e0e6.html</id>
+    <link href="http://yuqi.fun/undefined/8277e0e6.html"/>
+    <id>http://yuqi.fun/undefined/8277e0e6.html</id>
     <published>2024-12-29T00:00:00.000Z</published>
     <updated>2024-12-29T00:00:00.000Z</updated>
     
@@ -38,8 +59,8 @@
   
   <entry>
     <title>贵阳吉利程序解析</title>
-    <link href="http://blog.051515.xyz/undefined/57946227.html"/>
-    <id>http://blog.051515.xyz/undefined/57946227.html</id>
+    <link href="http://yuqi.fun/undefined/57946227.html"/>
+    <id>http://yuqi.fun/undefined/57946227.html</id>
     <published>2024-11-28T00:00:00.000Z</published>
     <updated>2024-12-28T05:34:56.377Z</updated>
     
@@ -55,8 +76,8 @@
   
   <entry>
     <title>安装了VMware Tools，但无法实现文件的拖拽和复制粘贴---解决方案</title>
-    <link href="http://blog.051515.xyz/undefined/a580ef34.html"/>
-    <id>http://blog.051515.xyz/undefined/a580ef34.html</id>
+    <link href="http://yuqi.fun/undefined/a580ef34.html"/>
+    <id>http://yuqi.fun/undefined/a580ef34.html</id>
     <published>2024-04-05T00:00:00.000Z</published>
     <updated>2024-04-05T00:00:00.000Z</updated>
     
@@ -73,17 +94,17 @@
     
     
     
-    <category term="教程" scheme="http://blog.051515.xyz/categories/%E6%95%99%E7%A8%8B/"/>
+    <category term="教程" scheme="http://yuqi.fun/categories/%E6%95%99%E7%A8%8B/"/>
     
     
-    <category term="虚拟机" scheme="http://blog.051515.xyz/tags/%E8%99%9A%E6%8B%9F%E6%9C%BA/"/>
+    <category term="虚拟机" scheme="http://yuqi.fun/tags/%E8%99%9A%E6%8B%9F%E6%9C%BA/"/>
     
   </entry>
   
   <entry>
     <title>在WSL2中使用Clash Verge代理连接</title>
-    <link href="http://blog.051515.xyz/undefined/af89448b.html"/>
-    <id>http://blog.051515.xyz/undefined/af89448b.html</id>
+    <link href="http://yuqi.fun/undefined/af89448b.html"/>
+    <id>http://yuqi.fun/undefined/af89448b.html</id>
     <published>2023-12-13T00:00:00.000Z</published>
     <updated>2024-01-12T00:00:00.000Z</updated>
     
@@ -101,17 +122,17 @@
     
     
     
-    <category term="教程" scheme="http://blog.051515.xyz/categories/%E6%95%99%E7%A8%8B/"/>
+    <category term="教程" scheme="http://yuqi.fun/categories/%E6%95%99%E7%A8%8B/"/>
     
     
-    <category term="科学上网" scheme="http://blog.051515.xyz/tags/%E7%A7%91%E5%AD%A6%E4%B8%8A%E7%BD%91/"/>
+    <category term="科学上网" scheme="http://yuqi.fun/tags/%E7%A7%91%E5%AD%A6%E4%B8%8A%E7%BD%91/"/>
     
   </entry>
   
   <entry>
     <title>Clash Verge规则配置</title>
-    <link href="http://blog.051515.xyz/undefined/97aa67fb.html"/>
-    <id>http://blog.051515.xyz/undefined/97aa67fb.html</id>
+    <link href="http://yuqi.fun/undefined/97aa67fb.html"/>
+    <id>http://yuqi.fun/undefined/97aa67fb.html</id>
     <published>2023-12-12T00:00:00.000Z</published>
     <updated>2023-12-12T00:00:00.000Z</updated>
     
@@ -126,17 +147,17 @@
     
     
     
-    <category term="教程" scheme="http://blog.051515.xyz/categories/%E6%95%99%E7%A8%8B/"/>
+    <category term="教程" scheme="http://yuqi.fun/categories/%E6%95%99%E7%A8%8B/"/>
     
     
-    <category term="科学上网" scheme="http://blog.051515.xyz/tags/%E7%A7%91%E5%AD%A6%E4%B8%8A%E7%BD%91/"/>
+    <category term="科学上网" scheme="http://yuqi.fun/tags/%E7%A7%91%E5%AD%A6%E4%B8%8A%E7%BD%91/"/>
     
   </entry>
   
   <entry>
     <title>利用CF Workers搭建Github加速服务</title>
-    <link href="http://blog.051515.xyz/undefined/ee2e5bab.html"/>
-    <id>http://blog.051515.xyz/undefined/ee2e5bab.html</id>
+    <link href="http://yuqi.fun/undefined/ee2e5bab.html"/>
+    <id>http://yuqi.fun/undefined/ee2e5bab.html</id>
     <published>2023-12-12T00:00:00.000Z</published>
     <updated>2023-12-12T00:00:00.000Z</updated>
     
@@ -150,17 +171,17 @@
     
     
     
-    <category term="教程" scheme="http://blog.051515.xyz/categories/%E6%95%99%E7%A8%8B/"/>
+    <category term="教程" scheme="http://yuqi.fun/categories/%E6%95%99%E7%A8%8B/"/>
     
     
-    <category term="网站" scheme="http://blog.051515.xyz/tags/%E7%BD%91%E7%AB%99/"/>
+    <category term="网站" scheme="http://yuqi.fun/tags/%E7%BD%91%E7%AB%99/"/>
     
   </entry>
   
   <entry>
     <title>ABPLC通过Modbus TCP读取设备压力值</title>
-    <link href="http://blog.051515.xyz/undefined/3529204a.html"/>
-    <id>http://blog.051515.xyz/undefined/3529204a.html</id>
+    <link href="http://yuqi.fun/undefined/3529204a.html"/>
+    <id>http://yuqi.fun/undefined/3529204a.html</id>
     <published>2023-12-11T00:00:00.000Z</published>
     <updated>2023-12-11T00:00:00.000Z</updated>
     
@@ -174,17 +195,17 @@
     
     
     
-    <category term="教程" scheme="http://blog.051515.xyz/categories/%E6%95%99%E7%A8%8B/"/>
+    <category term="教程" scheme="http://yuqi.fun/categories/%E6%95%99%E7%A8%8B/"/>
     
     
-    <category term="PLC" scheme="http://blog.051515.xyz/tags/PLC/"/>
+    <category term="PLC" scheme="http://yuqi.fun/tags/PLC/"/>
     
   </entry>
   
   <entry>
     <title>R探长 甲骨文云开机脚本</title>
-    <link href="http://blog.051515.xyz/undefined/d604b8c7.html"/>
-    <id>http://blog.051515.xyz/undefined/d604b8c7.html</id>
+    <link href="http://yuqi.fun/undefined/d604b8c7.html"/>
+    <id>http://yuqi.fun/undefined/d604b8c7.html</id>
     <published>2023-12-08T00:00:00.000Z</published>
     <updated>2023-12-08T00:00:00.000Z</updated>
     
@@ -198,17 +219,17 @@
     
     
     
-    <category term="教程" scheme="http://blog.051515.xyz/categories/%E6%95%99%E7%A8%8B/"/>
+    <category term="教程" scheme="http://yuqi.fun/categories/%E6%95%99%E7%A8%8B/"/>
     
     
-    <category term="服务器" scheme="http://blog.051515.xyz/tags/%E6%9C%8D%E5%8A%A1%E5%99%A8/"/>
+    <category term="服务器" scheme="http://yuqi.fun/tags/%E6%9C%8D%E5%8A%A1%E5%99%A8/"/>
     
   </entry>
   
   <entry>
     <title>PVE安装iStoreOS</title>
-    <link href="http://blog.051515.xyz/undefined/d167335e.html"/>
-    <id>http://blog.051515.xyz/undefined/d167335e.html</id>
+    <link href="http://yuqi.fun/undefined/d167335e.html"/>
+    <id>http://yuqi.fun/undefined/d167335e.html</id>
     <published>2023-12-03T00:00:00.000Z</published>
     <updated>2023-12-03T00:00:00.000Z</updated>
     
@@ -222,17 +243,17 @@
     
     
     
-    <category term="教程" scheme="http://blog.051515.xyz/categories/%E6%95%99%E7%A8%8B/"/>
+    <category term="教程" scheme="http://yuqi.fun/categories/%E6%95%99%E7%A8%8B/"/>
     
     
-    <category term="路由器" scheme="http://blog.051515.xyz/tags/%E8%B7%AF%E7%94%B1%E5%99%A8/"/>
+    <category term="路由器" scheme="http://yuqi.fun/tags/%E8%B7%AF%E7%94%B1%E5%99%A8/"/>
     
   </entry>
   
   <entry>
     <title>Butterfly主题添加本地搜索功能</title>
-    <link href="http://blog.051515.xyz/undefined/f2a576c2.html"/>
-    <id>http://blog.051515.xyz/undefined/f2a576c2.html</id>
+    <link href="http://yuqi.fun/undefined/f2a576c2.html"/>
+    <id>http://yuqi.fun/undefined/f2a576c2.html</id>
     <published>2023-11-30T00:00:00.000Z</published>
     <updated>2023-11-30T00:00:00.000Z</updated>
     
@@ -247,19 +268,19 @@
     
     
     
-    <category term="教程" scheme="http://blog.051515.xyz/categories/%E6%95%99%E7%A8%8B/"/>
+    <category term="教程" scheme="http://yuqi.fun/categories/%E6%95%99%E7%A8%8B/"/>
     
     
-    <category term="Butterfly" scheme="http://blog.051515.xyz/tags/Butterfly/"/>
+    <category term="Butterfly" scheme="http://yuqi.fun/tags/Butterfly/"/>
     
-    <category term="hexo" scheme="http://blog.051515.xyz/tags/hexo/"/>
+    <category term="hexo" scheme="http://yuqi.fun/tags/hexo/"/>
     
   </entry>
   
   <entry>
     <title>安卓14 + HttpCanary 抓包设置</title>
-    <link href="http://blog.051515.xyz/undefined/5fb4c97d.html"/>
-    <id>http://blog.051515.xyz/undefined/5fb4c97d.html</id>
+    <link href="http://yuqi.fun/undefined/5fb4c97d.html"/>
+    <id>http://yuqi.fun/undefined/5fb4c97d.html</id>
     <published>2023-11-13T00:00:00.000Z</published>
     <updated>2023-11-13T00:00:00.000Z</updated>
     
@@ -273,17 +294,17 @@
     
     
     
-    <category term="教程" scheme="http://blog.051515.xyz/categories/%E6%95%99%E7%A8%8B/"/>
+    <category term="教程" scheme="http://yuqi.fun/categories/%E6%95%99%E7%A8%8B/"/>
     
     
-    <category term="手机" scheme="http://blog.051515.xyz/tags/%E6%89%8B%E6%9C%BA/"/>
+    <category term="手机" scheme="http://yuqi.fun/tags/%E6%89%8B%E6%9C%BA/"/>
     
   </entry>
   
   <entry>
     <title>x-ui最稳妥的魔术面板</title>
-    <link href="http://blog.051515.xyz/undefined/af28068c.html"/>
-    <id>http://blog.051515.xyz/undefined/af28068c.html</id>
+    <link href="http://yuqi.fun/undefined/af28068c.html"/>
+    <id>http://yuqi.fun/undefined/af28068c.html</id>
     <published>2023-11-06T00:00:00.000Z</published>
     <updated>2023-11-06T00:00:00.000Z</updated>
     
@@ -298,17 +319,17 @@
     
     
     
-    <category term="教程" scheme="http://blog.051515.xyz/categories/%E6%95%99%E7%A8%8B/"/>
+    <category term="教程" scheme="http://yuqi.fun/categories/%E6%95%99%E7%A8%8B/"/>
     
     
-    <category term="VPN" scheme="http://blog.051515.xyz/tags/VPN/"/>
+    <category term="VPN" scheme="http://yuqi.fun/tags/VPN/"/>
     
   </entry>
   
   <entry>
     <title>一键DD纯净系统脚本 CentOS/Debian/Ubuntu</title>
-    <link href="http://blog.051515.xyz/undefined/7db8067.html"/>
-    <id>http://blog.051515.xyz/undefined/7db8067.html</id>
+    <link href="http://yuqi.fun/undefined/7db8067.html"/>
+    <id>http://yuqi.fun/undefined/7db8067.html</id>
     <published>2023-11-06T00:00:00.000Z</published>
     <updated>2023-11-06T00:00:00.000Z</updated>
     
@@ -325,17 +346,17 @@
     
     
     
-    <category term="教程" scheme="http://blog.051515.xyz/categories/%E6%95%99%E7%A8%8B/"/>
+    <category term="教程" scheme="http://yuqi.fun/categories/%E6%95%99%E7%A8%8B/"/>
     
     
-    <category term="服务器" scheme="http://blog.051515.xyz/tags/%E6%9C%8D%E5%8A%A1%E5%99%A8/"/>
+    <category term="服务器" scheme="http://yuqi.fun/tags/%E6%9C%8D%E5%8A%A1%E5%99%A8/"/>
     
   </entry>
   
   <entry>
     <title>最佳免费NPV方式-workers搭建vless使用</title>
-    <link href="http://blog.051515.xyz/undefined/1b7388f.html"/>
-    <id>http://blog.051515.xyz/undefined/1b7388f.html</id>
+    <link href="http://yuqi.fun/undefined/1b7388f.html"/>
+    <id>http://yuqi.fun/undefined/1b7388f.html</id>
     <published>2023-10-26T00:00:00.000Z</published>
     <updated>2023-10-26T00:00:00.000Z</updated>
     
@@ -349,17 +370,17 @@
     
     
     
-    <category term="教程" scheme="http://blog.051515.xyz/categories/%E6%95%99%E7%A8%8B/"/>
+    <category term="教程" scheme="http://yuqi.fun/categories/%E6%95%99%E7%A8%8B/"/>
     
     
-    <category term="NPV" scheme="http://blog.051515.xyz/tags/NPV/"/>
+    <category term="NPV" scheme="http://yuqi.fun/tags/NPV/"/>
     
   </entry>
   
   <entry>
     <title>hysteria2与reality共存安装</title>
-    <link href="http://blog.051515.xyz/undefined/756577dc.html"/>
-    <id>http://blog.051515.xyz/undefined/756577dc.html</id>
+    <link href="http://yuqi.fun/undefined/756577dc.html"/>
+    <id>http://yuqi.fun/undefined/756577dc.html</id>
     <published>2023-10-06T00:00:00.000Z</published>
     <updated>2023-10-06T00:00:00.000Z</updated>
     
@@ -373,17 +394,17 @@
     
     
     
-    <category term="教程" scheme="http://blog.051515.xyz/categories/%E6%95%99%E7%A8%8B/"/>
+    <category term="教程" scheme="http://yuqi.fun/categories/%E6%95%99%E7%A8%8B/"/>
     
     
-    <category term="服务器" scheme="http://blog.051515.xyz/tags/%E6%9C%8D%E5%8A%A1%E5%99%A8/"/>
+    <category term="服务器" scheme="http://yuqi.fun/tags/%E6%9C%8D%E5%8A%A1%E5%99%A8/"/>
     
   </entry>
   
   <entry>
     <title>MT7981B安博通ABT_ASR3000刷机指南</title>
-    <link href="http://blog.051515.xyz/undefined/2c4b11e5.html"/>
-    <id>http://blog.051515.xyz/undefined/2c4b11e5.html</id>
+    <link href="http://yuqi.fun/undefined/2c4b11e5.html"/>
+    <id>http://yuqi.fun/undefined/2c4b11e5.html</id>
     <published>2023-09-28T00:00:00.000Z</published>
     <updated>2023-09-28T00:00:00.000Z</updated>
     
@@ -397,17 +418,17 @@
     
     
     
-    <category term="教程" scheme="http://blog.051515.xyz/categories/%E6%95%99%E7%A8%8B/"/>
+    <category term="教程" scheme="http://yuqi.fun/categories/%E6%95%99%E7%A8%8B/"/>
     
     
-    <category term="路由器" scheme="http://blog.051515.xyz/tags/%E8%B7%AF%E7%94%B1%E5%99%A8/"/>
+    <category term="路由器" scheme="http://yuqi.fun/tags/%E8%B7%AF%E7%94%B1%E5%99%A8/"/>
     
   </entry>
   
   <entry>
     <title>VPS一键脚本分享</title>
-    <link href="http://blog.051515.xyz/undefined/2419758f.html"/>
-    <id>http://blog.051515.xyz/undefined/2419758f.html</id>
+    <link href="http://yuqi.fun/undefined/2419758f.html"/>
+    <id>http://yuqi.fun/undefined/2419758f.html</id>
     <published>2023-05-05T00:00:00.000Z</published>
     <updated>2023-05-05T00:00:00.000Z</updated>
     
@@ -423,17 +444,17 @@
     
     
     
-    <category term="教程" scheme="http://blog.051515.xyz/categories/%E6%95%99%E7%A8%8B/"/>
+    <category term="教程" scheme="http://yuqi.fun/categories/%E6%95%99%E7%A8%8B/"/>
     
     
-    <category term="服务器" scheme="http://blog.051515.xyz/tags/%E6%9C%8D%E5%8A%A1%E5%99%A8/"/>
+    <category term="服务器" scheme="http://yuqi.fun/tags/%E6%9C%8D%E5%8A%A1%E5%99%A8/"/>
     
   </entry>
   
   <entry>
     <title>tmux后台工具使用方法</title>
-    <link href="http://blog.051515.xyz/undefined/3117353a.html"/>
-    <id>http://blog.051515.xyz/undefined/3117353a.html</id>
+    <link href="http://yuqi.fun/undefined/3117353a.html"/>
+    <id>http://yuqi.fun/undefined/3117353a.html</id>
     <published>2023-05-05T00:00:00.000Z</published>
     <updated>2023-05-05T00:00:00.000Z</updated>
     
@@ -447,17 +468,17 @@
     
     
     
-    <category term="教程" scheme="http://blog.051515.xyz/categories/%E6%95%99%E7%A8%8B/"/>
+    <category term="教程" scheme="http://yuqi.fun/categories/%E6%95%99%E7%A8%8B/"/>
     
     
-    <category term="服务器" scheme="http://blog.051515.xyz/tags/%E6%9C%8D%E5%8A%A1%E5%99%A8/"/>
+    <category term="服务器" scheme="http://yuqi.fun/tags/%E6%9C%8D%E5%8A%A1%E5%99%A8/"/>
     
   </entry>
   
   <entry>
     <title>Openwrt编译</title>
-    <link href="http://blog.051515.xyz/undefined/72c5b323.html"/>
-    <id>http://blog.051515.xyz/undefined/72c5b323.html</id>
+    <link href="http://yuqi.fun/undefined/72c5b323.html"/>
+    <id>http://yuqi.fun/undefined/72c5b323.html</id>
     <published>2023-04-28T00:00:00.000Z</published>
     <updated>2023-04-28T00:00:00.000Z</updated>
     
@@ -474,38 +495,10 @@
     
     
     
-    <category term="教程" scheme="http://blog.051515.xyz/categories/%E6%95%99%E7%A8%8B/"/>
+    <category term="教程" scheme="http://yuqi.fun/categories/%E6%95%99%E7%A8%8B/"/>
     
     
-    <category term="Openwrt" scheme="http://blog.051515.xyz/tags/Openwrt/"/>
-    
-  </entry>
-  
-  <entry>
-    <title>神秘模块入门教程（Android端）</title>
-    <link href="http://blog.051515.xyz/undefined/d7b14abe.html"/>
-    <id>http://blog.051515.xyz/undefined/d7b14abe.html</id>
-    <published>2023-04-22T00:00:00.000Z</published>
-    <updated>2023-04-22T00:00:00.000Z</updated>
-    
-    <content type="html"><![CDATA[<p><strong>使用前提</strong><br>1.已经安装Magisk或KernelSU的安卓设备</p><p>2.安卓6.0以上</p><h1 id="一-安装node"><a href="#一-安装node" class="headerlink" title="一 安装node"></a>一 安装node</h1><h2 id="下载Tetmux"><a href="#下载Tetmux" class="headerlink" title="下载Tetmux"></a>下载Tetmux</h2><p><a href="https://github.com/termux/termux-app/releases">https://github.com/termux/termux-app/releases</a></p><p><img src="https://pan.yuqi.fun/d/%E5%A4%A9%E7%BF%BC%E4%BA%91%E7%9B%98/img/202304220807195.jpeg" alt="img"></p><p>默认下第2个，其他根据自己的系统架构选择</p><h2 id="设置国内镜像"><a href="#设置国内镜像" class="headerlink" title="设置国内镜像"></a>设置国内镜像</h2><p>命令行输入</p><figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">termux-change-repo</span><br></pre></td></tr></table></figure><p><img src="https://pan.yuqi.fun/d/%E5%A4%A9%E7%BF%BC%E4%BA%91%E7%9B%98/img/202304220920955.jpg"></p><p><img src="https://pan.yuqi.fun/d/%E5%A4%A9%E7%BF%BC%E4%BA%91%E7%9B%98/img/202304220920451.jpg"></p><h2 id="apt更新所有包"><a href="#apt更新所有包" class="headerlink" title="apt更新所有包"></a>apt更新所有包</h2><p>apt update &amp;&amp; apt upgrade</p><p><img src="https://pan.yuqi.fun/d/%E5%A4%A9%E7%BF%BC%E4%BA%91%E7%9B%98/img/202304220921028.jpg"></p><p>看到输入Y</p><h2 id="重新设置国内镜像"><a href="#重新设置国内镜像" class="headerlink" title="重新设置国内镜像"></a>重新设置国内镜像</h2><p>termux-change-repo</p><p><img src="https://pan.yuqi.fun/d/%E5%A4%A9%E7%BF%BC%E4%BA%91%E7%9B%98/img/202304220922420.jpg"></p><p><img src="https://pan.yuqi.fun/d/%E5%A4%A9%E7%BF%BC%E4%BA%91%E7%9B%98/img/202304220922620.jpg"></p><h2 id="安装node"><a href="#安装node" class="headerlink" title="安装node"></a>安装node</h2><p>apt install nodejs</p><p><img src="https://pan.yuqi.fun/d/%E5%A4%A9%E7%BF%BC%E4%BA%91%E7%9B%98/img/202304220923571.jpg"></p><p>看到输入Y</p><h2 id="检查node"><a href="#检查node" class="headerlink" title="检查node"></a>检查node</h2><p>node -v</p><p><img src="https://pan.yuqi.fun/d/%E5%A4%A9%E7%BF%BC%E4%BA%91%E7%9B%98/img/202304220923747.jpg"></p><p>返回版本号就安装成功了</p><h1 id="第二步-模块刷入"><a href="#第二步-模块刷入" class="headerlink" title="第二步 模块刷入"></a>第二步 模块刷入</h1><p>在发布页下载最新的神秘模块 一般其名称应为 神秘_android_发布时间.zip </p><p><img src="https://pan.yuqi.fun/d/%E5%A4%A9%E7%BF%BC%E4%BA%91%E7%9B%98/img/202304220923727.jpg"></p><p>TG群组链接：<a href="https://t.me/blowh2o">https://t.me/blowh2o</a></p><p>123云盘下载链接：<a href="https://www.123pan.com/s/bAORVv-8XQl.html">https://www.123pan.com/s/bAORVv-8XQl.html</a></p><h2 id="安装模块"><a href="#安装模块" class="headerlink" title="安装模块"></a>安装模块</h2><p><img src="https://pan.yuqi.fun/d/%E5%A4%A9%E7%BF%BC%E4%BA%91%E7%9B%98/img/202304220924515.jpg"></p><h2 id="进入面板"><a href="#进入面板" class="headerlink" title="进入面板"></a>进入面板</h2><p>打开<a href="http://127.0.0.1:23333/">127.0.0.1:23333</a></p><p><img src="https://pan.yuqi.fun/d/%E5%A4%A9%E7%BF%BC%E4%BA%91%E7%9B%98/img/202304220924533.jpg"></p><h1 id="配置神秘"><a href="#配置神秘" class="headerlink" title="配置神秘"></a>配置神秘</h1><h2 id="第一步-选择-涂涂改改"><a href="#第一步-选择-涂涂改改" class="headerlink" title="第一步 选择 涂涂改改"></a>第一步 选择 <strong>涂涂改改</strong></h2><p><img src="https://pan.yuqi.fun/d/%E5%A4%A9%E7%BF%BC%E4%BA%91%E7%9B%98/img/202304220924025.jpg"></p><h2 id="第二步-选择星盘"><a href="#第二步-选择星盘" class="headerlink" title="第二步 选择星盘"></a>第二步 选择<strong>星盘</strong></h2><p><img src="https://pan.yuqi.fun/d/%E5%A4%A9%E7%BF%BC%E4%BA%91%E7%9B%98/img/202304220924598.jpg"></p><p>新建<strong>星盘</strong></p><p><img src="https://pan.yuqi.fun/d/%E5%A4%A9%E7%BF%BC%E4%BA%91%E7%9B%98/img/202304220925165.jpg"></p><p>选<strong>召唤类星盘</strong></p><p><img src="https://pan.yuqi.fun/d/%E5%A4%A9%E7%BF%BC%E4%BA%91%E7%9B%98/img/202304220925718.jpg"></p><p>填 <strong>星盘名称</strong> <strong>召唤法阵</strong>其他看需求的</p><p><img src="https://pan.yuqi.fun/d/%E5%A4%A9%E7%BF%BC%E4%BA%91%E7%9B%98/img/202304220925292.jpg"></p><h2 id="第三步-在涂涂改改-传送阵"><a href="#第三步-在涂涂改改-传送阵" class="headerlink" title="第三步 在涂涂改改-传送阵"></a>第三步 在<strong>涂涂改改-传送阵</strong></h2><p>新建<strong>传送阵</strong></p><p><img src="https://pan.yuqi.fun/d/%E5%A4%A9%E7%BF%BC%E4%BA%91%E7%9B%98/img/202304220925886.jpg"></p><p>选择<strong>定向司南</strong></p><p><img src="https://pan.yuqi.fun/d/%E5%A4%A9%E7%BF%BC%E4%BA%91%E7%9B%98/img/202304220925674.jpg"></p><p>选择创建的<strong>星盘</strong></p><p><img src="https://pan.yuqi.fun/d/%E5%A4%A9%E7%BF%BC%E4%BA%91%E7%9B%98/img/202304220926756.jpg"></p><h2 id="第四步-自动测速（非必选）"><a href="#第四步-自动测速（非必选）" class="headerlink" title="第四步 自动测速（非必选）"></a>第四步 自动测速（非必选）</h2><p>新建<strong>传送阵</strong></p><p><img src="https://pan.yuqi.fun/d/%E5%A4%A9%E7%BF%BC%E4%BA%91%E7%9B%98/img/202304220926790.jpg"></p><p>选择<strong>随缘司南</strong></p><p><img src="https://pan.yuqi.fun/d/%E5%A4%A9%E7%BF%BC%E4%BA%91%E7%9B%98/img/202304220926064.jpg"></p><p>选择想<strong>自动测速</strong>的<strong>星盘</strong></p><p><img src="https://pan.yuqi.fun/d/%E5%A4%A9%E7%BF%BC%E4%BA%91%E7%9B%98/img/202304220926035.jpg"></p><h2 id="第五步-传送阵套娃"><a href="#第五步-传送阵套娃" class="headerlink" title="第五步 传送阵套娃"></a>第五步 传送阵套娃</h2><p>根据<strong>传送阵</strong>选择合适的<strong>传送阵套娃</strong></p><p>国外选择proxy，国内选择domestic</p><p><img src="https://pan.yuqi.fun/d/%E5%A4%A9%E7%BF%BC%E4%BA%91%E7%9B%98/img/202304220926822.jpg"></p><p>选择你想<strong>套娃</strong>的<strong>传送阵</strong></p><p><img src="https://pan.yuqi.fun/d/%E5%A4%A9%E7%BF%BC%E4%BA%91%E7%9B%98/img/202304220926289.jpg"></p><h2 id="第六步-更新"><a href="#第六步-更新" class="headerlink" title="第六步 更新"></a>第六步 更新</h2><p>选择你想更新的<strong>星盘</strong>当然可以全部更新</p><p><img src="https://pan.yuqi.fun/d/%E5%A4%A9%E7%BF%BC%E4%BA%91%E7%9B%98/img/202304220927381.jpg"></p><p>提示处理完成就成功更新了</p><p><img src="https://pan.yuqi.fun/d/%E5%A4%A9%E7%BF%BC%E4%BA%91%E7%9B%98/img/202304220927523.jpg"></p><h2 id="第七步-使用"><a href="#第七步-使用" class="headerlink" title="第七步 使用"></a>第七步 使用</h2><p>选择查<strong>星盘</strong></p><p><img src="https://pan.yuqi.fun/d/%E5%A4%A9%E7%BF%BC%E4%BA%91%E7%9B%98/img/202304220927279.jpg"></p><p>左边选择代理</p><p><img src="https://pan.yuqi.fun/d/%E5%A4%A9%E7%BF%BC%E4%BA%91%E7%9B%98/img/202304220927139.jpg"></p><p>找到<strong>传送阵套娃名称</strong>选<strong>传送阵</strong>最好自动测<strong>速</strong></p><p><img src="https://pan.yuqi.fun/d/%E5%A4%A9%E7%BF%BC%E4%BA%91%E7%9B%98/img/202304220927912.jpg"></p><h1 id="第三步-国内外分流-基础正则使用"><a href="#第三步-国内外分流-基础正则使用" class="headerlink" title="第三步 国内外分流&amp;基础正则使用"></a>第三步 <strong>国内外分流&amp;基础正则使用</strong></h1><p>注:一般一个机场都是国内国外节点混合，我们要用正则进行过滤</p><h2 id="1-新建传送阵"><a href="#1-新建传送阵" class="headerlink" title="1.新建传送阵"></a>1.新建<strong>传送阵</strong></h2><p><img src="https://pan.yuqi.fun/d/%E5%A4%A9%E7%BF%BC%E4%BA%91%E7%9B%98/img/202304220928845.jpg"></p><p>注:名称不要同名</p><p><strong>传送阵类型</strong>选择<strong>定向司南</strong></p><p><img src="https://pan.yuqi.fun/d/%E5%A4%A9%E7%BF%BC%E4%BA%91%E7%9B%98/img/202304220928143.jpg"></p><p>选择你要筛选的<strong>星盘</strong></p><p>例:cn|深圳 筛选CN和深圳的节点名称</p><p>“|”进行分隔，切记请不要“|”后面空白，否则将筛选全部</p><p><img src="https://pan.yuqi.fun/d/%E5%A4%A9%E7%BF%BC%E4%BA%91%E7%9B%98/img/202304220928466.jpg"></p><h2 id="2-自动测速（非必选）"><a href="#2-自动测速（非必选）" class="headerlink" title="2.自动测速（非必选）"></a>2.自动测速（非必选）</h2><p>新建个<strong>传送阵</strong>，<strong>传送阵</strong>类型选择<strong>随缘司</strong>南</p><p><img src="https://pan.yuqi.fun/d/%E5%A4%A9%E7%BF%BC%E4%BA%91%E7%9B%98/img/202304220928724.jpg"></p><p>正则如上</p><p>选择你要筛选的<strong>星盘</strong></p><p><img src="https://pan.yuqi.fun/d/%E5%A4%A9%E7%BF%BC%E4%BA%91%E7%9B%98/img/202304220928156.png"></p><p>注:只选填红框内，其他无管</p><p>根据<strong>传送阵</strong>选择合适的<strong>传送阵套娃</strong></p><p>国外选择proxy，国内选择domestic</p><p><img src="https://pan.yuqi.fun/d/%E5%A4%A9%E7%BF%BC%E4%BA%91%E7%9B%98/img/202304220929488.jpg"></p><p>选择合适的<strong>传送阵</strong></p><p><img src="https://pan.yuqi.fun/d/%E5%A4%A9%E7%BF%BC%E4%BA%91%E7%9B%98/img/202304220929174.jpg"></p><h1 id="第四步-热点模式"><a href="#第四步-热点模式" class="headerlink" title="第四步 热点模式"></a>第四步 <strong>热点模式</strong></h1><p><strong>热点模式</strong>和<strong>兼容模式</strong>打开</p><p><img src="https://pan.yuqi.fun/d/%E5%A4%A9%E7%BF%BC%E4%BA%91%E7%9B%98/img/202304220929159.jpg"></p><h1 id="第五步-常见问题（非必选）"><a href="#第五步-常见问题（非必选）" class="headerlink" title="第五步 常见问题（非必选）"></a>第五步 <strong>常见问题（非必选）</strong></h1><p>正在施工中</p><h1 id="第六步-神秘文字解释（非必选）"><a href="#第六步-神秘文字解释（非必选）" class="headerlink" title="第六步 神秘文字解释（非必选）"></a>第六步 神秘文字解释（非必选）</h1><p><strong>1.神秘面板主页</strong></p><p><strong>不唱了</strong>→<strong>停止</strong></p><p><strong>歇一会</strong>→<strong>重启</strong></p><p>查<strong>星盘</strong>→查看<strong>yacd面板</strong>&amp;<strong>神秘实验室面板</strong></p><p><strong>涂涂改改</strong>→<strong>设置</strong></p><p><strong>召唤</strong>→<strong>单独更新订阅</strong></p><p><strong>全部施法</strong>→<strong>更新所有订阅</strong></p><p><strong>2.涂涂改改（设置）</strong></p><p><strong>一.星盘（订阅）</strong></p><p><strong>星盘类型</strong> <strong>召唤类星盘</strong>→<strong>订阅链接</strong></p><p><strong>献祭类星盘</strong>→<strong>本地文件</strong></p><p><strong>召唤星盘时查询星盘法力剩余→查询订阅链接的流量详情</strong></p><p><strong>二.传送阵（出站）</strong></p><p><strong>传送阵类型</strong> <strong>定向司南</strong>→<strong>分组</strong></p><p><strong>随缘司南</strong>→<strong>自动测速分组</strong></p><p><strong>传送阵套娃</strong>→<strong>引用传送阵</strong></p><p><strong>我不是什么星盘都用的</strong>→<strong>引用订阅类型</strong></p><p><strong>对类型挑食</strong>→<strong>保留匹配的协议</strong></p><p><strong>对端口挑食</strong>→<strong>保留匹配的端口</strong></p><h1 id="其他"><a href="#其他" class="headerlink" title="其他"></a>其他</h1><p><strong>三.子星图（未知）</strong></p><p><strong>四.星图（未知）</strong></p><p><strong>五.书之灵（未知）</strong></p><p><strong>六.神秘（设置）</strong></p><p><strong>神秘领域</strong>→<strong>访问神秘</strong> </p><p><strong>仅本机→仅本机访问神秘</strong> </p><p><strong>全领域→所有可访问神秘</strong></p><p><strong>神秘咒语</strong>→<strong>访问密码</strong></p><p><strong>切换唱法</strong>→<strong>模式</strong></p><p><strong>看情况</strong>→<strong>分流</strong></p><p><strong>学院派</strong>→<strong>全局</strong></p><p><strong>大白嗓</strong>→<strong>直连</strong></p><p><strong>七.朝圣池（未知）</strong></p><p><strong>八.辅助灵（未知）</strong></p><p><strong>九.日记（日志）</strong></p><p><strong>十.时之锚（Ntp时间校准）</strong></p><h1 id="订阅转换-机场推荐"><a href="#订阅转换-机场推荐" class="headerlink" title="订阅转换&amp;机场推荐"></a>订阅转换&amp;机场推荐</h1><p>免流骚订阅转换<a href="http://zhuan.mlsao.ml/">http://zhuan.mlsao.ml/</a></p><p>记得订阅转换为第二个选项clash的</p><p>魔法学院转换<a href="https://sub.v2.lu/">https://sub.v2.lu/</a></p><p>中国国际机场<a href="https://cnnic.pub/#/register?code=gr8guOWR">https://cnnic.pub/#/register?code=gr8guOWR</a></p>]]></content>
-    
-    
-      
-      
-    <summary type="html">&lt;p&gt;&lt;strong&gt;使用前提&lt;/strong&gt;&lt;br&gt;1.已经安装Magisk或KernelSU的安卓设备&lt;/p&gt;
-&lt;p&gt;2.安卓6.0以上&lt;/p&gt;
-&lt;h1 id=&quot;一-安装node&quot;&gt;&lt;a href=&quot;#一-安装node&quot; class=&quot;headerlink&quot; title=&quot;</summary>
-      
-    
-    
-    
-    <category term="教程" scheme="http://blog.051515.xyz/categories/%E6%95%99%E7%A8%8B/"/>
-    
-    
-    <category term="免流" scheme="http://blog.051515.xyz/tags/%E5%85%8D%E6%B5%81/"/>
-    
-    <category term="CFM" scheme="http://blog.051515.xyz/tags/CFM/"/>
+    <category term="Openwrt" scheme="http://yuqi.fun/tags/Openwrt/"/>
     
   </entry>
   
