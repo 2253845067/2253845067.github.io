@@ -1490,6 +1490,18 @@
       </tags>
   </entry>
   <entry>
+    <title>SEW Scope曲线监控</title>
+    <url>/undefined/c4294855.html</url>
+    <content><![CDATA[<h3 id="打开备份的SEW文件，点击Scope"><a href="#打开备份的SEW文件，点击Scope" class="headerlink" title="打开备份的SEW文件，点击Scope"></a>打开备份的SEW文件，点击Scope</h3><p><img src="https://pan.yuqi.fun/d/%E5%A4%A9%E7%BF%BC%E4%BA%91%E7%9B%98/img/202501051439031.png" alt="image-20250105143536600"></p>
+<h3 id="进入Scope界面"><a href="#进入Scope界面" class="headerlink" title="进入Scope界面"></a>进入Scope界面</h3><p><img src="https://pan.yuqi.fun/d/%E5%A4%A9%E7%BF%BC%E4%BA%91%E7%9B%98/img/202501051439072.png" alt="image-20250105143550152"></p>
+<h3 id="在菜单栏中点击新建文件按钮，并新创建一个模板"><a href="#在菜单栏中点击新建文件按钮，并新创建一个模板" class="headerlink" title="在菜单栏中点击新建文件按钮，并新创建一个模板"></a>在菜单栏中点击新建文件按钮，并新创建一个模板</h3><p><img src="https://pan.yuqi.fun/d/%E5%A4%A9%E7%BF%BC%E4%BA%91%E7%9B%98/img/202501051439108.png" alt="image-20250105143632298"></p>
+<h3 id="模板中设置好监控选项，并保存为名称为Scope的-sct文件"><a href="#模板中设置好监控选项，并保存为名称为Scope的-sct文件" class="headerlink" title="模板中设置好监控选项，并保存为名称为Scope的.sct文件"></a>模板中设置好监控选项，并保存为名称为Scope的.sct文件</h3><p><img src="https://pan.yuqi.fun/d/%E5%A4%A9%E7%BF%BC%E4%BA%91%E7%9B%98/img/202501051439154.png" alt="image-20250105143656071"></p>
+<h3 id="再次在Scope菜单栏中点击新建，在模板中选择我们创建的Scope模板，然后点OK，进入Scope监控界面"><a href="#再次在Scope菜单栏中点击新建，在模板中选择我们创建的Scope模板，然后点OK，进入Scope监控界面" class="headerlink" title="再次在Scope菜单栏中点击新建，在模板中选择我们创建的Scope模板，然后点OK，进入Scope监控界面"></a>再次在Scope菜单栏中点击新建，在模板中选择我们创建的Scope模板，然后点OK，进入Scope监控界面</h3><p><img src="https://pan.yuqi.fun/d/%E5%A4%A9%E7%BF%BC%E4%BA%91%E7%9B%98/img/202501051439188.png" alt="image-20250105143719967"></p>
+<h3 id="进入Scope界面后点击记录设置，出现我们刚才设置的模板，点击Start按钮准备记录Scope曲线。在HMI上手动操作滑台动作就会自动触发记录运行曲线"><a href="#进入Scope界面后点击记录设置，出现我们刚才设置的模板，点击Start按钮准备记录Scope曲线。在HMI上手动操作滑台动作就会自动触发记录运行曲线" class="headerlink" title="进入Scope界面后点击记录设置，出现我们刚才设置的模板，点击Start按钮准备记录Scope曲线。在HMI上手动操作滑台动作就会自动触发记录运行曲线"></a>进入Scope界面后点击记录设置，出现我们刚才设置的模板，点击Start按钮准备记录Scope曲线。在HMI上手动操作滑台动作就会自动触发记录运行曲线</h3><p><strong>注意：根据模板里面的设置，最大记录时间为40.96s，因此来回滑动的时间需要控制在40s以内，否则超时的那部分运行曲线无法获取。如果需要调整最大记录时间，可以调整Sample Time。</strong></p>
+<p><img src="https://pan.yuqi.fun/d/%E5%A4%A9%E7%BF%BC%E4%BA%91%E7%9B%98/img/202501051439213.png" alt="image-20250105143805277"></p>
+]]></content>
+  </entry>
+  <entry>
     <title>SEW-MDX61B变频器定位控制调试流程</title>
     <url>/undefined/e4c152dc.html</url>
     <content><![CDATA[<h1 id="一、-调试准备"><a href="#一、-调试准备" class="headerlink" title="一、 调试准备"></a>一、 调试准备</h1><h2 id="操作系统及调试软件"><a href="#操作系统及调试软件" class="headerlink" title="操作系统及调试软件"></a>操作系统及调试软件</h2><p>操作系统：Windows 7 64 位操作系统</p>

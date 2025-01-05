@@ -6,7 +6,7 @@
   <link href="http://yuqi.fun/atom.xml" rel="self"/>
   
   <link href="http://yuqi.fun/"/>
-  <updated>2025-01-03T00:00:00.000Z</updated>
+  <updated>2025-01-05T00:00:00.000Z</updated>
   <id>http://yuqi.fun/</id>
   
   <author>
@@ -15,6 +15,26 @@
   </author>
   
   <generator uri="https://hexo.io/">Hexo</generator>
+  
+  <entry>
+    <title>SEW Scope曲线监控</title>
+    <link href="http://yuqi.fun/undefined/c4294855.html"/>
+    <id>http://yuqi.fun/undefined/c4294855.html</id>
+    <published>2025-01-05T00:00:00.000Z</published>
+    <updated>2025-01-05T00:00:00.000Z</updated>
+    
+    <content type="html"><![CDATA[<h3 id="打开备份的SEW文件，点击Scope"><a href="#打开备份的SEW文件，点击Scope" class="headerlink" title="打开备份的SEW文件，点击Scope"></a>打开备份的SEW文件，点击Scope</h3><p><img src="https://pan.yuqi.fun/d/%E5%A4%A9%E7%BF%BC%E4%BA%91%E7%9B%98/img/202501051439031.png" alt="image-20250105143536600"></p><h3 id="进入Scope界面"><a href="#进入Scope界面" class="headerlink" title="进入Scope界面"></a>进入Scope界面</h3><p><img src="https://pan.yuqi.fun/d/%E5%A4%A9%E7%BF%BC%E4%BA%91%E7%9B%98/img/202501051439072.png" alt="image-20250105143550152"></p><h3 id="在菜单栏中点击新建文件按钮，并新创建一个模板"><a href="#在菜单栏中点击新建文件按钮，并新创建一个模板" class="headerlink" title="在菜单栏中点击新建文件按钮，并新创建一个模板"></a>在菜单栏中点击新建文件按钮，并新创建一个模板</h3><p><img src="https://pan.yuqi.fun/d/%E5%A4%A9%E7%BF%BC%E4%BA%91%E7%9B%98/img/202501051439108.png" alt="image-20250105143632298"></p><h3 id="模板中设置好监控选项，并保存为名称为Scope的-sct文件"><a href="#模板中设置好监控选项，并保存为名称为Scope的-sct文件" class="headerlink" title="模板中设置好监控选项，并保存为名称为Scope的.sct文件"></a>模板中设置好监控选项，并保存为名称为Scope的.sct文件</h3><p><img src="https://pan.yuqi.fun/d/%E5%A4%A9%E7%BF%BC%E4%BA%91%E7%9B%98/img/202501051439154.png" alt="image-20250105143656071"></p><h3 id="再次在Scope菜单栏中点击新建，在模板中选择我们创建的Scope模板，然后点OK，进入Scope监控界面"><a href="#再次在Scope菜单栏中点击新建，在模板中选择我们创建的Scope模板，然后点OK，进入Scope监控界面" class="headerlink" title="再次在Scope菜单栏中点击新建，在模板中选择我们创建的Scope模板，然后点OK，进入Scope监控界面"></a>再次在Scope菜单栏中点击新建，在模板中选择我们创建的Scope模板，然后点OK，进入Scope监控界面</h3><p><img src="https://pan.yuqi.fun/d/%E5%A4%A9%E7%BF%BC%E4%BA%91%E7%9B%98/img/202501051439188.png" alt="image-20250105143719967"></p><h3 id="进入Scope界面后点击记录设置，出现我们刚才设置的模板，点击Start按钮准备记录Scope曲线。在HMI上手动操作滑台动作就会自动触发记录运行曲线"><a href="#进入Scope界面后点击记录设置，出现我们刚才设置的模板，点击Start按钮准备记录Scope曲线。在HMI上手动操作滑台动作就会自动触发记录运行曲线" class="headerlink" title="进入Scope界面后点击记录设置，出现我们刚才设置的模板，点击Start按钮准备记录Scope曲线。在HMI上手动操作滑台动作就会自动触发记录运行曲线"></a>进入Scope界面后点击记录设置，出现我们刚才设置的模板，点击Start按钮准备记录Scope曲线。在HMI上手动操作滑台动作就会自动触发记录运行曲线</h3><p><strong>注意：根据模板里面的设置，最大记录时间为40.96s，因此来回滑动的时间需要控制在40s以内，否则超时的那部分运行曲线无法获取。如果需要调整最大记录时间，可以调整Sample Time。</strong></p><p><img src="https://pan.yuqi.fun/d/%E5%A4%A9%E7%BF%BC%E4%BA%91%E7%9B%98/img/202501051439213.png" alt="image-20250105143805277"></p>]]></content>
+    
+    
+      
+      
+    <summary type="html">&lt;h3 id=&quot;打开备份的SEW文件，点击Scope&quot;&gt;&lt;a href=&quot;#打开备份的SEW文件，点击Scope&quot; class=&quot;headerlink&quot; title=&quot;打开备份的SEW文件，点击Scope&quot;&gt;&lt;/a&gt;打开备份的SEW文件，点击Scope&lt;/h3&gt;&lt;p&gt;&lt;img s</summary>
+      
+    
+    
+    
+    
+  </entry>
   
   <entry>
     <title>1panel面板部署哪吒监控v1</title>
@@ -461,30 +481,6 @@
     <summary type="html">&lt;p&gt;&lt;img src=&quot;https://pan.yuqi.fun/d/%E5%A4%A9%E7%BF%BC%E4%BA%91%E7%9B%98/img/202305051611537.png&quot;&gt;&lt;/p&gt;
 &lt;p&gt;&lt;strong&gt;一键脚本&lt;/strong&gt;&lt;/p&gt;
 &lt;figure </summary>
-      
-    
-    
-    
-    <category term="教程" scheme="http://yuqi.fun/categories/%E6%95%99%E7%A8%8B/"/>
-    
-    
-    <category term="服务器" scheme="http://yuqi.fun/tags/%E6%9C%8D%E5%8A%A1%E5%99%A8/"/>
-    
-  </entry>
-  
-  <entry>
-    <title>tmux后台工具使用方法</title>
-    <link href="http://yuqi.fun/undefined/3117353a.html"/>
-    <id>http://yuqi.fun/undefined/3117353a.html</id>
-    <published>2023-05-05T00:00:00.000Z</published>
-    <updated>2023-05-05T00:00:00.000Z</updated>
-    
-    <content type="html"><![CDATA[<p>tmux多路后台会话功能 即使SSH断开程序也可以在内置会话中执行 实现后台稳定运行<br><img src="https://pan.yuqi.fun/d/%E5%A4%A9%E7%BF%BC%E4%BA%91%E7%9B%98/img/202305051618430.png"></p><p>有长时间任务或者后台程序运行需求大家可以使用tmux，比如编译程序，推流直播，SSH连接不稳定等等场景需求。你可以把这些程序存放到一个独立会话中，让他自己运作，完全不影响SSH主会话。</p><p>即使SSH断了，你在tmux中的程序也不会断连。</p><p>安装</p><figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">apt update -y &amp;&amp; apt install -y tmux</span><br></pre></td></tr></table></figure><p>创建一个会话进入（可多开N个后台会话）</p><figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">tmux new -s my1</span><br></pre></td></tr></table></figure><p><img src="https://pan.yuqi.fun/d/%E5%A4%A9%E7%BF%BC%E4%BA%91%E7%9B%98/img/202305051620536.png"></p><p>退出会话不中断 Crl+b然后d</p><p>重新进入会话</p><figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">tmux attach-session -t my1</span><br></pre></td></tr></table></figure><p>查看所有tmux会话</p><figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">tmux list-sessions</span><br></pre></td></tr></table></figure><p>删除会话</p><figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line">tmux kill-session -t my1</span><br><span class="line">crl+d</span><br></pre></td></tr></table></figure>]]></content>
-    
-    
-      
-      
-    <summary type="html">&lt;p&gt;tmux多路后台会话功能 即使SSH断开程序也可以在内置会话中执行 实现后台稳定运行&lt;br&gt;&lt;img src=&quot;https://pan.yuqi.fun/d/%E5%A4%A9%E7%BF%BC%E4%BA%91%E7%9B%98/img/202305051618430.p</summary>
       
     
     
