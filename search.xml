@@ -70,42 +70,6 @@
       </tags>
   </entry>
   <entry>
-    <title>Butterfly主题添加一图流背景与顶部图修改</title>
-    <url>/undefined/f7d3fad8.html</url>
-    <content><![CDATA[<h2 id="介绍"><a href="#介绍" class="headerlink" title="介绍"></a>介绍</h2><p>本文将会详细介绍一图流背景与顶部图的修改过程。</p>
-<h2 id="设置图片"><a href="#设置图片" class="headerlink" title="设置图片"></a>设置图片</h2><p>这个是 <a href="https://butterfly.js.org/">Butterfly</a> 自带的功能，修改主题的配置文件 <code>_config.butterfly.yml</code>。</p>
-<p>编辑 <code>index_img</code>、<code>background</code>、<code>footer_bg</code> 选项。<br>设置网站背景，并将主页顶部图和页脚背景改为透明。<br>(需要将以下示例地址替换为自己的图片地址。)</p>
-<figure class="highlight yaml"><table><tr><td class="code"><pre><span class="line"><span class="comment"># Image (圖片設置)</span></span><br><span class="line"><span class="comment"># --------------------------------------</span></span><br><span class="line"></span><br><span class="line"><span class="comment"># The banner image of home page</span></span><br><span class="line"><span class="attr">index_img:</span> <span class="string">transparent</span></span><br><span class="line"></span><br><span class="line"><span class="comment"># Beautify/Effect (美化/效果)</span></span><br><span class="line"><span class="comment"># --------------------------------------</span></span><br><span class="line"></span><br><span class="line"><span class="comment"># Website Background (設置網站背景)</span></span><br><span class="line"><span class="comment"># can set it to color or image (可設置圖片 或者 顔色)</span></span><br><span class="line"><span class="comment"># The formal of image: url(http://xxxxxx.com/xxx.jpg)</span></span><br><span class="line"><span class="attr">background:</span> <span class="string">url(https://example.com/img/background.jpg)</span></span><br><span class="line"></span><br><span class="line"><span class="comment"># Footer Background</span></span><br><span class="line"><span class="attr">footer_bg:</span> <span class="string">transparent</span></span><br></pre></td></tr></table></figure>
-
-<h2 id="引入相关样式"><a href="#引入相关样式" class="headerlink" title="引入相关样式"></a>引入相关样式</h2><p>新建一个文件，位于 <code>source/css/modify.styl</code>，并增加以下内容。<br>(此处只是举例，也可以使用自己已有的样式文件。)</p>
-<figure class="highlight styl"><table><tr><td class="code"><pre><span class="line"><span class="keyword">@import</span> <span class="string">&#x27;nib&#x27;</span></span><br><span class="line"></span><br><span class="line"><span class="comment">// 顶部图</span></span><br><span class="line"><span class="selector-id">#page-header</span></span><br><span class="line">  &amp;, <span class="selector-pseudo">&amp;:before</span></span><br><span class="line">    <span class="attribute">background</span>: transparent <span class="meta">!important</span></span><br><span class="line">  &amp;<span class="selector-class">.post-bg</span>, &amp;<span class="selector-class">.not-home-page</span></span><br><span class="line">    <span class="attribute">height</span>: <span class="number">280px</span> <span class="meta">!important</span></span><br><span class="line">  <span class="selector-id">#post-info</span></span><br><span class="line">    <span class="attribute">bottom</span>: <span class="number">40px</span> <span class="meta">!important</span></span><br><span class="line">  <span class="selector-id">#page-site-info</span></span><br><span class="line">    <span class="attribute">top</span>: <span class="number">140px</span> <span class="meta">!important</span></span><br><span class="line"></span><br><span class="line">  <span class="keyword">@media</span> screen <span class="keyword">and</span> (<span class="attribute">max-width</span>: <span class="number">768px</span>)</span><br><span class="line">    &amp;.not-home-page</span><br><span class="line">      <span class="attribute">height</span>: <span class="number">200px</span> !important</span><br><span class="line">    #post-info</span><br><span class="line">      bottom: <span class="number">10px</span> !important</span><br><span class="line">    #page-site-info</span><br><span class="line">      top: <span class="number">100px</span> !important</span><br><span class="line"></span><br><span class="line">.top-img</span><br><span class="line">  <span class="attribute">height</span>: <span class="number">250px</span></span><br><span class="line">  margin: -<span class="number">50px</span> -<span class="number">40px</span> <span class="number">50px</span></span><br><span class="line">  border-top-left-radius: inherit</span><br><span class="line">  border-top-right-radius: inherit</span><br><span class="line">  background-position: center center</span><br><span class="line">  background-size: cover</span><br><span class="line">  transition: all <span class="number">0.3s</span></span><br><span class="line"></span><br><span class="line">  @media screen <span class="keyword">and</span> (<span class="attribute">max-width</span>: <span class="number">768px</span>)</span><br><span class="line">    <span class="attribute">height</span>: <span class="number">230px</span></span><br><span class="line">    margin: -<span class="number">36px</span> -<span class="number">14px</span> <span class="number">36px</span></span><br><span class="line"></span><br><span class="line">  [data-theme=&#x27;dark&#x27;] &amp;</span><br><span class="line">    filter: brightness(<span class="number">0.8</span>)</span><br><span class="line"></span><br><span class="line">// 页脚</span><br><span class="line">#footer:before</span><br><span class="line">  background-color: alpha(#FFF, .<span class="number">5</span>)</span><br><span class="line"></span><br><span class="line">  [data-theme=&#x27;dark&#x27;] &amp;</span><br><span class="line">    background-color: alpha(#<span class="number">000</span>, .<span class="number">5</span>)</span><br><span class="line"></span><br><span class="line">#footer-wrap, #footer-wrap a</span><br><span class="line">  <span class="attribute">color</span>: #<span class="number">111</span></span><br><span class="line">  transition: unset</span><br><span class="line"></span><br><span class="line">  [data-theme=&#x27;dark&#x27;] &amp;</span><br><span class="line">    <span class="attribute">color</span>: var(--light-grey)</span><br></pre></td></tr></table></figure>
-
-<p>在主题配置文件 <code>_config.butterfly.yml</code> 的 <code>inject.head</code> 引入样式。</p>
-<figure class="highlight yaml"><table><tr><td class="code"><pre><span class="line"><span class="comment"># other (其他)</span></span><br><span class="line"><span class="comment"># --------------------------------------</span></span><br><span class="line"></span><br><span class="line"><span class="comment"># Inject</span></span><br><span class="line"><span class="comment"># Insert the code to head (before &#x27;&lt;/head&gt;&#x27; tag) and the bottom (before &#x27;&lt;/body&gt;&#x27; tag)</span></span><br><span class="line"><span class="comment"># 插入代码到头部 &lt;/head&gt; 之前 和 底部 &lt;/body&gt; 之前</span></span><br><span class="line"><span class="attr">inject:</span></span><br><span class="line">  <span class="attr">head:</span></span><br><span class="line">    <span class="bullet">-</span> <span class="string">&lt;link</span> <span class="string">rel=&quot;stylesheet&quot;</span> <span class="string">href=&quot;/css/modify.css&quot;&gt;</span></span><br></pre></td></tr></table></figure>
-
-<p><code>modify.styl</code> 会被 Hexo 渲染成 <code>modify.css</code> 文件，所以此处应为 <code>modify.css</code>。</p>
-<h2 id="增加插件脚本"><a href="#增加插件脚本" class="headerlink" title="增加插件脚本"></a>增加插件脚本</h2><p>因为使用了 <code>cheerio</code> 来解析 HTML，所以需要先安装此依赖。</p>
-<figure class="highlight cmd"><table><tr><td class="code"><pre><span class="line">npm install cheerio</span><br></pre></td></tr></table></figure>
-
-<p>新建一个文件，位于 <code>scripts/modify.js</code>，并增加以下内容。<br>(此处只是举例，也可以使用自己已有的插件脚本文件。)</p>
-<figure class="highlight js"><table><tr><td class="code"><pre><span class="line"><span class="meta">&quot;use strict&quot;</span>;</span><br><span class="line"><span class="keyword">const</span> cheerio = <span class="built_in">require</span>(<span class="string">&quot;cheerio&quot;</span>);</span><br><span class="line"></span><br><span class="line"><span class="comment">/**</span></span><br><span class="line"><span class="comment"> * 在页面插入新顶部图</span></span><br><span class="line"><span class="comment"> * <span class="doctag">@param</span> &#123;<span class="type">cheerio.Root</span>&#125; $ Root</span></span><br><span class="line"><span class="comment"> */</span></span><br><span class="line"><span class="keyword">function</span> <span class="title function_">insertTopImg</span>(<span class="params">$</span>) &#123;</span><br><span class="line">  <span class="keyword">let</span> header = $(<span class="string">&quot;#page-header&quot;</span>);</span><br><span class="line">  <span class="keyword">if</span> (header.<span class="property">length</span> === <span class="number">0</span>) <span class="keyword">return</span>;</span><br><span class="line">  <span class="keyword">let</span> background = header.<span class="title function_">css</span>(<span class="string">&quot;background-image&quot;</span>);</span><br><span class="line">  <span class="keyword">if</span> (!background) <span class="keyword">return</span>;</span><br><span class="line">  $(<span class="string">&quot;#post, #page, #archive, #tag, #category&quot;</span>).<span class="title function_">prepend</span>(</span><br><span class="line">    <span class="string">`&lt;div class=&quot;top-img&quot; style=&quot;background-image: <span class="subst">$&#123;background&#125;</span>;&quot;&gt;&lt;/div&gt;`</span></span><br><span class="line">  );</span><br><span class="line">&#125;</span><br><span class="line"></span><br><span class="line">hexo.<span class="property">extend</span>.<span class="property">filter</span>.<span class="title function_">register</span>(<span class="string">&quot;after_render:html&quot;</span>, <span class="keyword">function</span> (<span class="params">str, data</span>) &#123;</span><br><span class="line">  <span class="keyword">let</span> $ = cheerio.<span class="title function_">load</span>(str, &#123;</span><br><span class="line">    <span class="attr">decodeEntities</span>: <span class="literal">false</span>,</span><br><span class="line">  &#125;);</span><br><span class="line">  <span class="title function_">insertTopImg</span>($);</span><br><span class="line">  <span class="keyword">return</span> $.<span class="title function_">html</span>();</span><br><span class="line">&#125;);</span><br></pre></td></tr></table></figure>
-
-<h2 id="大功告成"><a href="#大功告成" class="headerlink" title="大功告成"></a>大功告成</h2><p>👏 恭喜你完成了修改，可以使用以下命令进行预览。</p>
-<figure class="highlight cmd"><table><tr><td class="code"><pre><span class="line">hexo cl</span><br><span class="line">hexo g</span><br><span class="line">hexo s</span><br></pre></td></tr></table></figure>
-
-<h2 id="后记"><a href="#后记" class="headerlink" title="后记"></a>后记</h2><p>其实在早些时候，有篇最终效果差不多的修改教程。<br><a href="https://www.nesxc.com/">@Nesxc</a> 大佬写的<a href="https://www.nesxc.com/60/">butterfly 文章页美化教程</a>。<br>是通过直接修改主题源文件的方式实现的。<br>而本文的修改方式是使用了 Hexo 的<a href="https://hexo.io/zh-cn/docs/plugins">插件</a>系统实现的。</p>
-<p>插件版的优点是更新主题时，只要结构变化不大，便无需任何操作即可继续使用。并且在管理上比较方便。<br>源文件版的优点是效率会略高一点，毕竟是直接修改的主题源文件。</p>
-<p>如果像我一样，不想每次升级主题都可能要重新改一遍，或是为了方便管理，则可以选择插件版。<br>如果是本来就修改了源文件，也不介意再多修改这一个，则可以选择源文件版。</p>
-]]></content>
-      <categories>
-        <category>教程</category>
-      </categories>
-      <tags>
-        <tag>Butterfly</tag>
-        <tag>hexo</tag>
-      </tags>
-  </entry>
-  <entry>
     <title>ABPLC通过Modbus TCP读取设备压力值</title>
     <url>/undefined/3529204a.html</url>
     <content><![CDATA[<h1 id="ABPLC通过Modbus-TCP读取设备压力值"><a href="#ABPLC通过Modbus-TCP读取设备压力值" class="headerlink" title="ABPLC通过Modbus TCP读取设备压力值"></a>ABPLC通过Modbus TCP读取设备压力值</h1><p>使用罗克韦尔（AB）-PLC以客户端形式通过Modbus TCP于设备通讯，并读取压力值。</p>
@@ -386,6 +350,42 @@
       </tags>
   </entry>
   <entry>
+    <title>Butterfly主题添加一图流背景与顶部图修改</title>
+    <url>/undefined/f7d3fad8.html</url>
+    <content><![CDATA[<h2 id="介绍"><a href="#介绍" class="headerlink" title="介绍"></a>介绍</h2><p>本文将会详细介绍一图流背景与顶部图的修改过程。</p>
+<h2 id="设置图片"><a href="#设置图片" class="headerlink" title="设置图片"></a>设置图片</h2><p>这个是 <a href="https://butterfly.js.org/">Butterfly</a> 自带的功能，修改主题的配置文件 <code>_config.butterfly.yml</code>。</p>
+<p>编辑 <code>index_img</code>、<code>background</code>、<code>footer_bg</code> 选项。<br>设置网站背景，并将主页顶部图和页脚背景改为透明。<br>(需要将以下示例地址替换为自己的图片地址。)</p>
+<figure class="highlight yaml"><table><tr><td class="code"><pre><span class="line"><span class="comment"># Image (圖片設置)</span></span><br><span class="line"><span class="comment"># --------------------------------------</span></span><br><span class="line"></span><br><span class="line"><span class="comment"># The banner image of home page</span></span><br><span class="line"><span class="attr">index_img:</span> <span class="string">transparent</span></span><br><span class="line"></span><br><span class="line"><span class="comment"># Beautify/Effect (美化/效果)</span></span><br><span class="line"><span class="comment"># --------------------------------------</span></span><br><span class="line"></span><br><span class="line"><span class="comment"># Website Background (設置網站背景)</span></span><br><span class="line"><span class="comment"># can set it to color or image (可設置圖片 或者 顔色)</span></span><br><span class="line"><span class="comment"># The formal of image: url(http://xxxxxx.com/xxx.jpg)</span></span><br><span class="line"><span class="attr">background:</span> <span class="string">url(https://example.com/img/background.jpg)</span></span><br><span class="line"></span><br><span class="line"><span class="comment"># Footer Background</span></span><br><span class="line"><span class="attr">footer_bg:</span> <span class="string">transparent</span></span><br></pre></td></tr></table></figure>
+
+<h2 id="引入相关样式"><a href="#引入相关样式" class="headerlink" title="引入相关样式"></a>引入相关样式</h2><p>新建一个文件，位于 <code>source/css/modify.styl</code>，并增加以下内容。<br>(此处只是举例，也可以使用自己已有的样式文件。)</p>
+<figure class="highlight styl"><table><tr><td class="code"><pre><span class="line"><span class="keyword">@import</span> <span class="string">&#x27;nib&#x27;</span></span><br><span class="line"></span><br><span class="line"><span class="comment">// 顶部图</span></span><br><span class="line"><span class="selector-id">#page-header</span></span><br><span class="line">  &amp;, <span class="selector-pseudo">&amp;:before</span></span><br><span class="line">    <span class="attribute">background</span>: transparent <span class="meta">!important</span></span><br><span class="line">  &amp;<span class="selector-class">.post-bg</span>, &amp;<span class="selector-class">.not-home-page</span></span><br><span class="line">    <span class="attribute">height</span>: <span class="number">280px</span> <span class="meta">!important</span></span><br><span class="line">  <span class="selector-id">#post-info</span></span><br><span class="line">    <span class="attribute">bottom</span>: <span class="number">40px</span> <span class="meta">!important</span></span><br><span class="line">  <span class="selector-id">#page-site-info</span></span><br><span class="line">    <span class="attribute">top</span>: <span class="number">140px</span> <span class="meta">!important</span></span><br><span class="line"></span><br><span class="line">  <span class="keyword">@media</span> screen <span class="keyword">and</span> (<span class="attribute">max-width</span>: <span class="number">768px</span>)</span><br><span class="line">    &amp;.not-home-page</span><br><span class="line">      <span class="attribute">height</span>: <span class="number">200px</span> !important</span><br><span class="line">    #post-info</span><br><span class="line">      bottom: <span class="number">10px</span> !important</span><br><span class="line">    #page-site-info</span><br><span class="line">      top: <span class="number">100px</span> !important</span><br><span class="line"></span><br><span class="line">.top-img</span><br><span class="line">  <span class="attribute">height</span>: <span class="number">250px</span></span><br><span class="line">  margin: -<span class="number">50px</span> -<span class="number">40px</span> <span class="number">50px</span></span><br><span class="line">  border-top-left-radius: inherit</span><br><span class="line">  border-top-right-radius: inherit</span><br><span class="line">  background-position: center center</span><br><span class="line">  background-size: cover</span><br><span class="line">  transition: all <span class="number">0.3s</span></span><br><span class="line"></span><br><span class="line">  @media screen <span class="keyword">and</span> (<span class="attribute">max-width</span>: <span class="number">768px</span>)</span><br><span class="line">    <span class="attribute">height</span>: <span class="number">230px</span></span><br><span class="line">    margin: -<span class="number">36px</span> -<span class="number">14px</span> <span class="number">36px</span></span><br><span class="line"></span><br><span class="line">  [data-theme=&#x27;dark&#x27;] &amp;</span><br><span class="line">    filter: brightness(<span class="number">0.8</span>)</span><br><span class="line"></span><br><span class="line">// 页脚</span><br><span class="line">#footer:before</span><br><span class="line">  background-color: alpha(#FFF, .<span class="number">5</span>)</span><br><span class="line"></span><br><span class="line">  [data-theme=&#x27;dark&#x27;] &amp;</span><br><span class="line">    background-color: alpha(#<span class="number">000</span>, .<span class="number">5</span>)</span><br><span class="line"></span><br><span class="line">#footer-wrap, #footer-wrap a</span><br><span class="line">  <span class="attribute">color</span>: #<span class="number">111</span></span><br><span class="line">  transition: unset</span><br><span class="line"></span><br><span class="line">  [data-theme=&#x27;dark&#x27;] &amp;</span><br><span class="line">    <span class="attribute">color</span>: var(--light-grey)</span><br></pre></td></tr></table></figure>
+
+<p>在主题配置文件 <code>_config.butterfly.yml</code> 的 <code>inject.head</code> 引入样式。</p>
+<figure class="highlight yaml"><table><tr><td class="code"><pre><span class="line"><span class="comment"># other (其他)</span></span><br><span class="line"><span class="comment"># --------------------------------------</span></span><br><span class="line"></span><br><span class="line"><span class="comment"># Inject</span></span><br><span class="line"><span class="comment"># Insert the code to head (before &#x27;&lt;/head&gt;&#x27; tag) and the bottom (before &#x27;&lt;/body&gt;&#x27; tag)</span></span><br><span class="line"><span class="comment"># 插入代码到头部 &lt;/head&gt; 之前 和 底部 &lt;/body&gt; 之前</span></span><br><span class="line"><span class="attr">inject:</span></span><br><span class="line">  <span class="attr">head:</span></span><br><span class="line">    <span class="bullet">-</span> <span class="string">&lt;link</span> <span class="string">rel=&quot;stylesheet&quot;</span> <span class="string">href=&quot;/css/modify.css&quot;&gt;</span></span><br></pre></td></tr></table></figure>
+
+<p><code>modify.styl</code> 会被 Hexo 渲染成 <code>modify.css</code> 文件，所以此处应为 <code>modify.css</code>。</p>
+<h2 id="增加插件脚本"><a href="#增加插件脚本" class="headerlink" title="增加插件脚本"></a>增加插件脚本</h2><p>因为使用了 <code>cheerio</code> 来解析 HTML，所以需要先安装此依赖。</p>
+<figure class="highlight cmd"><table><tr><td class="code"><pre><span class="line">npm install cheerio</span><br></pre></td></tr></table></figure>
+
+<p>新建一个文件，位于 <code>scripts/modify.js</code>，并增加以下内容。<br>(此处只是举例，也可以使用自己已有的插件脚本文件。)</p>
+<figure class="highlight js"><table><tr><td class="code"><pre><span class="line"><span class="meta">&quot;use strict&quot;</span>;</span><br><span class="line"><span class="keyword">const</span> cheerio = <span class="built_in">require</span>(<span class="string">&quot;cheerio&quot;</span>);</span><br><span class="line"></span><br><span class="line"><span class="comment">/**</span></span><br><span class="line"><span class="comment"> * 在页面插入新顶部图</span></span><br><span class="line"><span class="comment"> * <span class="doctag">@param</span> &#123;<span class="type">cheerio.Root</span>&#125; $ Root</span></span><br><span class="line"><span class="comment"> */</span></span><br><span class="line"><span class="keyword">function</span> <span class="title function_">insertTopImg</span>(<span class="params">$</span>) &#123;</span><br><span class="line">  <span class="keyword">let</span> header = $(<span class="string">&quot;#page-header&quot;</span>);</span><br><span class="line">  <span class="keyword">if</span> (header.<span class="property">length</span> === <span class="number">0</span>) <span class="keyword">return</span>;</span><br><span class="line">  <span class="keyword">let</span> background = header.<span class="title function_">css</span>(<span class="string">&quot;background-image&quot;</span>);</span><br><span class="line">  <span class="keyword">if</span> (!background) <span class="keyword">return</span>;</span><br><span class="line">  $(<span class="string">&quot;#post, #page, #archive, #tag, #category&quot;</span>).<span class="title function_">prepend</span>(</span><br><span class="line">    <span class="string">`&lt;div class=&quot;top-img&quot; style=&quot;background-image: <span class="subst">$&#123;background&#125;</span>;&quot;&gt;&lt;/div&gt;`</span></span><br><span class="line">  );</span><br><span class="line">&#125;</span><br><span class="line"></span><br><span class="line">hexo.<span class="property">extend</span>.<span class="property">filter</span>.<span class="title function_">register</span>(<span class="string">&quot;after_render:html&quot;</span>, <span class="keyword">function</span> (<span class="params">str, data</span>) &#123;</span><br><span class="line">  <span class="keyword">let</span> $ = cheerio.<span class="title function_">load</span>(str, &#123;</span><br><span class="line">    <span class="attr">decodeEntities</span>: <span class="literal">false</span>,</span><br><span class="line">  &#125;);</span><br><span class="line">  <span class="title function_">insertTopImg</span>($);</span><br><span class="line">  <span class="keyword">return</span> $.<span class="title function_">html</span>();</span><br><span class="line">&#125;);</span><br></pre></td></tr></table></figure>
+
+<h2 id="大功告成"><a href="#大功告成" class="headerlink" title="大功告成"></a>大功告成</h2><p>👏 恭喜你完成了修改，可以使用以下命令进行预览。</p>
+<figure class="highlight cmd"><table><tr><td class="code"><pre><span class="line">hexo cl</span><br><span class="line">hexo g</span><br><span class="line">hexo s</span><br></pre></td></tr></table></figure>
+
+<h2 id="后记"><a href="#后记" class="headerlink" title="后记"></a>后记</h2><p>其实在早些时候，有篇最终效果差不多的修改教程。<br><a href="https://www.nesxc.com/">@Nesxc</a> 大佬写的<a href="https://www.nesxc.com/60/">butterfly 文章页美化教程</a>。<br>是通过直接修改主题源文件的方式实现的。<br>而本文的修改方式是使用了 Hexo 的<a href="https://hexo.io/zh-cn/docs/plugins">插件</a>系统实现的。</p>
+<p>插件版的优点是更新主题时，只要结构变化不大，便无需任何操作即可继续使用。并且在管理上比较方便。<br>源文件版的优点是效率会略高一点，毕竟是直接修改的主题源文件。</p>
+<p>如果像我一样，不想每次升级主题都可能要重新改一遍，或是为了方便管理，则可以选择插件版。<br>如果是本来就修改了源文件，也不介意再多修改这一个，则可以选择源文件版。</p>
+]]></content>
+      <categories>
+        <category>教程</category>
+      </categories>
+      <tags>
+        <tag>Butterfly</tag>
+        <tag>hexo</tag>
+      </tags>
+  </entry>
+  <entry>
     <title>Butterfly主题添加本地搜索功能</title>
     <url>/undefined/f2a576c2.html</url>
     <content><![CDATA[<p>安装插件：</p>
@@ -404,6 +404,78 @@
       <tags>
         <tag>Butterfly</tag>
         <tag>hexo</tag>
+      </tags>
+  </entry>
+  <entry>
+    <title>Clash Verge规则配置</title>
+    <url>/undefined/97aa67fb.html</url>
+    <content><![CDATA[<h1 id="下载Clash-Meta内核客户端"><a href="#下载Clash-Meta内核客户端" class="headerlink" title="下载Clash.Meta内核客户端"></a>下载Clash.Meta内核客户端</h1><ul>
+<li><a href="https://github.com/zzzgydi/clash-verge">Clash Verge 下载地址</a></li>
+</ul>
+<h1 id="本地配置（推荐）"><a href="#本地配置（推荐）" class="headerlink" title="本地配置（推荐）"></a>本地配置（推荐）</h1><blockquote>
+<p>以处<code>Clash Verge</code>为例</p>
+</blockquote>
+<h4 id="0-设置内核为-Clash-Meta"><a href="#0-设置内核为-Clash-Meta" class="headerlink" title="0.设置内核为 Clash.Meta"></a>0.设置内核为 <code>Clash.Meta</code></h4><p><img src="https://pan.yuqi.fun/d/%E5%A4%A9%E7%BF%BC%E4%BA%91%E7%9B%98/img/202312120915849.png" alt="0"></p>
+<h2 id="下载配置文件ClashVerge-yaml文件到本地"><a href="#下载配置文件ClashVerge-yaml文件到本地" class="headerlink" title="下载配置文件ClashVerge.yaml文件到本地"></a>下载配置文件<code>ClashVerge.yaml</code>文件到本地</h2><ul>
+<li>ClashVerge.yaml</li>
+</ul>
+<ul>
+<li><input checked="" disabled="" type="checkbox"> 地区分流（香港、美国、日本、台湾、新加坡）</li>
+<li><input checked="" disabled="" type="checkbox"> 苹果、谷歌、微软、电报、推特分流</li>
+<li><input checked="" disabled="" type="checkbox"> 流媒体（不支持单独分流）</li>
+<li><input checked="" disabled="" type="checkbox"> 自动选择最低延迟</li>
+<li><input disabled="" type="checkbox"> 负载均衡</li>
+<li><input checked="" disabled="" type="checkbox"> 故障转移</li>
+<li><input checked="" disabled="" type="checkbox"> 广告屏蔽</li>
+</ul>
+<figure class="highlight plaintext"><table><tr><td class="code"><pre><span class="line">https://raw.githubusercontent.com/Repcz/Tool/X/Clash/Meta/ClashVerge.yaml</span><br></pre></td></tr></table></figure>
+
+<h2 id="修改配置-proxy-providers-中的机场订阅地址"><a href="#修改配置-proxy-providers-中的机场订阅地址" class="headerlink" title="修改配置 proxy-providers 中的机场订阅地址"></a>修改配置 <code>proxy-providers</code> 中的机场订阅地址</h2><ul>
+<li>请自行将 <code>proxy-providers</code> 中的 <code>机场订阅</code> 替换为机场订阅地址</li>
+</ul>
+<p><img src="https://pan.yuqi.fun/d/%E5%A4%A9%E7%BF%BC%E4%BA%91%E7%9B%98/img/202312120915850.png" alt="1"></p>
+<figure class="highlight yaml"><table><tr><td class="code"><pre><span class="line"><span class="attr">proxy-providers:</span></span><br><span class="line">  <span class="attr">Subscribe:</span> &#123;<span class="string">&lt;&lt;:</span> <span class="string">*p</span>, <span class="attr">path:</span> <span class="string">./all.yaml</span>, <span class="attr">url:</span> <span class="string">机场订阅</span>&#125;</span><br><span class="line">    <span class="comment"># Meta支持机场通用订阅</span></span><br></pre></td></tr></table></figure>
+
+
+<h2 id="Clash-Verge-中导入-配置"><a href="#Clash-Verge-中导入-配置" class="headerlink" title="Clash Verge 中导入 配置"></a>Clash Verge 中导入 <strong>配置</strong></h2><ul>
+<li>打开Clash Verge，点击 <strong>配置</strong>，点击右上角<strong>新建</strong></li>
+<li>类型选择<strong>Local</strong>，点击下方 <strong>选择文件</strong>，选择修改好的文件</li>
+<li>选择导入的配置，右键-启用</li>
+<li>点击 <strong>代理</strong> ，设置分流</li>
+</ul>
+<p><img src="https://pan.yuqi.fun/d/%E5%A4%A9%E7%BF%BC%E4%BA%91%E7%9B%98/img/202312120915851.png" alt="5"></p>
+<h2 id="策略组修改为手动选择节点"><a href="#策略组修改为手动选择节点" class="headerlink" title="策略组修改为手动选择节点"></a>策略组修改为手动选择节点</h2><blockquote>
+<p>默认为自动选择延迟最低节点，<strong>按需</strong> 修改为手动选择</p>
+</blockquote>
+<ul>
+<li>在自定义策略下的分流策略组中选择需要的地区节点，此处以 <strong>国外网站</strong> 举例，选择 <strong>香港节点</strong></li>
+<li>下拉到下方的 <strong>香港节点</strong> 策略组，此时该策略组以 <code>url-test</code> 运行，即按最低延迟选择节点</li>
+<li>如果要修改为手动选择节点，则需要编辑配置文件，在 <strong>配置</strong> ，右键需要修改的配置文件，点击 <strong>编辑</strong></li>
+<li>找到<code> - &#123;name: 🇭🇰 香港节点, &lt;&lt;: *auto, filter: ....&quot;&#125;</code>，将 <code>*auto</code> 修改为 <code>*select</code></li>
+<li>在 <strong>香港节点</strong> 策略组中选择需要的节点，则 <strong>国外网站</strong> 策略组走 <strong>香港节点</strong> 中选择的节点</li>
+</ul>
+<p>eg:</p>
+<figure class="highlight yaml"><table><tr><td class="code"><pre><span class="line"><span class="string">...</span></span><br><span class="line"></span><br><span class="line">  <span class="bullet">-</span> &#123;<span class="attr">name:</span> <span class="string">🇭🇰</span> <span class="string">香港节点</span>, <span class="string">&lt;&lt;:</span> <span class="string">*auto</span>, <span class="attr">filter:</span> <span class="string">&quot;^(?=.*((?i)🇭🇰|香港|(\b(HK|Hong)\b)))(?!.*((?i)回国|校园|游戏|(\b(GAME)\b))).*$&quot;</span>&#125;</span><br><span class="line"></span><br><span class="line"><span class="string">👇</span></span><br><span class="line"></span><br><span class="line">  <span class="bullet">-</span> &#123;<span class="attr">name:</span> <span class="string">🇭🇰</span> <span class="string">香港节点</span>, <span class="string">&lt;&lt;:</span> <span class="string">*select</span>, <span class="attr">filter:</span> <span class="string">&quot;^(?=.*((?i)🇭🇰|香港|(\b(HK|Hong)\b)))(?!.*((?i)回国|校园|游戏|(\b(GAME)\b))).*$&quot;</span>&#125;</span><br><span class="line"></span><br><span class="line"><span class="string">...</span></span><br><span class="line"></span><br></pre></td></tr></table></figure>
+
+<h1 id="订阅转换（懒人方法）"><a href="#订阅转换（懒人方法）" class="headerlink" title="订阅转换（懒人方法）"></a>订阅转换（懒人方法）</h1><h2 id="在线订阅转换"><a href="#在线订阅转换" class="headerlink" title="在线订阅转换"></a>在线订阅转换</h2><p>在线订阅转换可能出现订阅泄露</p>
+<h2 id="打开ACL4SSR"><a href="#打开ACL4SSR" class="headerlink" title="打开ACL4SSR"></a>打开<a href="https://acl4ssr-sub.github.io/">ACL4SSR</a></h2><h2 id="填入-机场订阅-和-远程配置"><a href="#填入-机场订阅-和-远程配置" class="headerlink" title="填入 机场订阅 和 远程配置"></a>填入 <strong>机场订阅</strong> 和 <strong>远程配置</strong></h2><p><strong><em>自用 多流媒体分组 自动测速 配置</em></strong></p>
+<figure class="highlight plaintext"><table><tr><td class="code"><pre><span class="line">https://raw.githubusercontent.com/Repcz/Tool/X/Clash/Meta/Online_Full_Auto.ini</span><br></pre></td></tr></table></figure>
+<h2 id="选择后端地址并生成订阅"><a href="#选择后端地址并生成订阅" class="headerlink" title="选择后端地址并生成订阅"></a>选择后端地址并生成订阅</h2><ul>
+<li>强烈建议使用自建后端，自建后端订阅转换可以有效防止订阅泄露以及规则下载不全等问题，具体方法见<a href="https://github.com/Repcz/Tool/tree/X/subconverter">自建subconverter订阅转换</a></li>
+</ul>
+<p><img src="https://pan.yuqi.fun/d/%E5%A4%A9%E7%BF%BC%E4%BA%91%E7%9B%98/img/202312120915852.png" alt="4"></p>
+<h2 id="本地后端订阅转换（推荐）"><a href="#本地后端订阅转换（推荐）" class="headerlink" title="本地后端订阅转换（推荐）"></a>本地后端订阅转换（推荐）</h2><p>详细使用方法见<a href="https://github.com/Repcz/Tool/tree/X/subconverter">自建subconverter订阅转换</a></p>
+<h2 id="导入Clash-Verge"><a href="#导入Clash-Verge" class="headerlink" title="导入Clash Verge"></a>导入Clash Verge</h2><ul>
+<li>打开Clash Verge，点击 <strong>配置</strong>，导入<strong>订阅转换</strong>后的链接</li>
+<li>点击 <strong>代理</strong> ，设置分流</li>
+</ul>
+<h1 id="项目地址"><a href="#项目地址" class="headerlink" title="项目地址"></a>项目地址</h1><p><a href="https://github.com/Repcz/Tool">https://github.com/Repcz/Tool</a></p>
+]]></content>
+      <categories>
+        <category>教程</category>
+      </categories>
+      <tags>
+        <tag>科学上网</tag>
       </tags>
   </entry>
   <entry>
@@ -801,6 +873,28 @@
       </tags>
   </entry>
   <entry>
+    <title>hexo中插入PDF</title>
+    <url>/undefined/4cd4322f.html</url>
+    <content><![CDATA[<h2 id="安装-hexo-pdf"><a href="#安装-hexo-pdf" class="headerlink" title="安装 hexo-pdf"></a>安装 hexo-pdf</h2><figure class="highlight text"><table><tr><td class="code"><pre><span class="line">npm install --save hexo-pdf</span><br></pre></td></tr></table></figure>
+
+<h2 id="本地-PDF-引用"><a href="#本地-PDF-引用" class="headerlink" title="本地 PDF 引用"></a>本地 PDF 引用</h2><p>最简单的引用方法：把相应 pdf 文件存到<strong>source 文件夹</strong>下，引用格式为：</p>
+<figure class="highlight text"><table><tr><td class="code"><pre><span class="line">&#123;% pdf /引用文档名字.pdf %&#125;</span><br></pre></td></tr></table></figure>
+
+<p>当然，你也可以新建一个文件夹方便管理 PDF 文档（）在这里我主要参考了<a href="https://link.zhihu.com/?target=https://www.jianshu.com/p/cccc7058a08c">https://www.jianshu.com/p/cccc7058a08c</a>，但是它并没有解决问题 orz 经过苦逼的尝试发现缺少&#x2F;</p>
+<p><strong>也就是说，方法为：</strong></p>
+<p>xxxxxxxxxx .md 文件中的 HTML 代码要用  和  包起来，使其能正确编译里面的代码。markdown</p>
+<figure class="highlight text"><table><tr><td class="code"><pre><span class="line">&#123;% pdf /pdf/xxx.pdf %&#125;</span><br></pre></td></tr></table></figure>
+
+<p>尝试后可以看到，hexo-pdf 对 PDF 文档展示效果非常不错 lol</p>
+]]></content>
+      <categories>
+        <category>教程</category>
+      </categories>
+      <tags>
+        <tag>hexo</tag>
+      </tags>
+  </entry>
+  <entry>
     <title>Hexo博客部署到云服务器</title>
     <url>/undefined/bda2f0d3.html</url>
     <content><![CDATA[<h1 id="将Hexo部署到云服务器"><a href="#将Hexo部署到云服务器" class="headerlink" title="将Hexo部署到云服务器"></a>将<code>Hexo</code>部署到云服务器</h1><p>为了解决<code>Hexo</code>部署到 <a href="https://github.com/">GitHub</a> 访问速度慢的问题，我们可以将<code>Hexo</code>部署到云服务器上。</p>
@@ -879,19 +973,15 @@
       </tags>
   </entry>
   <entry>
-    <title>hexo中插入PDF</title>
-    <url>/undefined/4cd4322f.html</url>
-    <content><![CDATA[<h2 id="安装-hexo-pdf"><a href="#安装-hexo-pdf" class="headerlink" title="安装 hexo-pdf"></a>安装 hexo-pdf</h2><figure class="highlight text"><table><tr><td class="code"><pre><span class="line">npm install --save hexo-pdf</span><br></pre></td></tr></table></figure>
+    <title>Hexo建立一个独立的HTML页面</title>
+    <url>/undefined/12482e7.html</url>
+    <content><![CDATA[<p>Hexo 是一个轻量、快速，简单和强大的博客框架，当我们需要发布博文的时候，只需要将写好的文章（MarkDown 文件）放入本地的 <code>\source\_posts</code> 文件夹，然后再推送上去就行了，原理就是当我们在执行 <code>hexo g</code> 命令时，<code>.md</code> 文件就会被转化成 HTML 文件，但是有时候我们需要新建一个独立的页面，这个页面不使用主题的渲染，具有自己独立的样式，可以放一些自己的作品，相册什么的，以下就介绍这种独立页面的实现方法。</p>
+<h1 id="方法一："><a href="#方法一：" class="headerlink" title="方法一："></a>方法一：</h1><p>使用 Hexo 提供的跳过渲染配置，在博客根目录的配置文件 <code>_config.yml</code> 里找到 <code>skip_render</code> 关键字，在后面添加想要跳过渲染的页面，比如我们创建 <code>\source\about\index.html</code>， 配置文件填写：<code>skip_render: about\**</code>，那么就表示 <code>\source\about</code> 里所有的文件将跳过渲染，里面的文件将会被直接复制到 public 文件夹，此时就会得到一个独立的 about 页面；官方文档：<a href="https://hexo.io/docs/configuration">https://hexo.io/docs/configuration</a></p>
+<h1 id="方法-2"><a href="#方法-2" class="headerlink" title="方法 2"></a>方法 2</h1><p>在文章头部的 Front-matter 里添加配置 <code>layout: false</code> 来跳过渲染配置，比如我们要使 about 页面跳过渲染，创建 <code>\source\about\index.md</code>，将这个页面的相关 HTML 代码写进<code>.md</code>文件并保存，然后在 <code>index.md</code> 的头部写入：</p>
+<figure class="highlight markdown"><table><tr><td class="code"><pre><span class="line">---</span><br><span class="line"><span class="section">layout: false</span></span><br><span class="line"><span class="section">---</span></span><br><span class="line"></span><br><span class="line">&#123;% raw %&#125;</span><br><span class="line">xxxxxxxxxxxxx</span><br><span class="line">xx HTML 代码 xx</span><br><span class="line">xxxxxxxxxxxxx</span><br><span class="line">&#123;% endraw %&#125;</span><br></pre></td></tr></table></figure>
 
-<h2 id="本地-PDF-引用"><a href="#本地-PDF-引用" class="headerlink" title="本地 PDF 引用"></a>本地 PDF 引用</h2><p>最简单的引用方法：把相应 pdf 文件存到<strong>source 文件夹</strong>下，引用格式为：</p>
-<figure class="highlight text"><table><tr><td class="code"><pre><span class="line">&#123;% pdf /引用文档名字.pdf %&#125;</span><br></pre></td></tr></table></figure>
-
-<p>当然，你也可以新建一个文件夹方便管理 PDF 文档（）在这里我主要参考了<a href="https://link.zhihu.com/?target=https://www.jianshu.com/p/cccc7058a08c">https://www.jianshu.com/p/cccc7058a08c</a>，但是它并没有解决问题 orz 经过苦逼的尝试发现缺少&#x2F;</p>
-<p><strong>也就是说，方法为：</strong></p>
-<p>xxxxxxxxxx .md 文件中的 HTML 代码要用  和  包起来，使其能正确编译里面的代码。markdown</p>
-<figure class="highlight text"><table><tr><td class="code"><pre><span class="line">&#123;% pdf /pdf/xxx.pdf %&#125;</span><br></pre></td></tr></table></figure>
-
-<p>尝试后可以看到，hexo-pdf 对 PDF 文档展示效果非常不错 lol</p>
+<p>PS：Front-matter 是 <code>.md</code> 文件最上方以 — 分隔的区域，用于指定个别文件的变量，官方文档：<a href="https://hexo.io/docs/front-matter">https://hexo.io/docs/front-matter</a></p>
+<figure class="highlight markdown"><table><tr><td class="code"><pre><span class="line">.md 文件中的 HTML 代码要用 &#123;% raw %&#125; 和 &#123;% endraw %&#125; 包起来，使其能正确编译里面的代码。</span><br></pre></td></tr></table></figure>
 ]]></content>
       <categories>
         <category>教程</category>
@@ -993,111 +1083,6 @@
       </tags>
   </entry>
   <entry>
-    <title>Clash Verge规则配置</title>
-    <url>/undefined/97aa67fb.html</url>
-    <content><![CDATA[<h1 id="下载Clash-Meta内核客户端"><a href="#下载Clash-Meta内核客户端" class="headerlink" title="下载Clash.Meta内核客户端"></a>下载Clash.Meta内核客户端</h1><ul>
-<li><a href="https://github.com/zzzgydi/clash-verge">Clash Verge 下载地址</a></li>
-</ul>
-<h1 id="本地配置（推荐）"><a href="#本地配置（推荐）" class="headerlink" title="本地配置（推荐）"></a>本地配置（推荐）</h1><blockquote>
-<p>以处<code>Clash Verge</code>为例</p>
-</blockquote>
-<h4 id="0-设置内核为-Clash-Meta"><a href="#0-设置内核为-Clash-Meta" class="headerlink" title="0.设置内核为 Clash.Meta"></a>0.设置内核为 <code>Clash.Meta</code></h4><p><img src="https://pan.yuqi.fun/d/%E5%A4%A9%E7%BF%BC%E4%BA%91%E7%9B%98/img/202312120915849.png" alt="0"></p>
-<h2 id="下载配置文件ClashVerge-yaml文件到本地"><a href="#下载配置文件ClashVerge-yaml文件到本地" class="headerlink" title="下载配置文件ClashVerge.yaml文件到本地"></a>下载配置文件<code>ClashVerge.yaml</code>文件到本地</h2><ul>
-<li>ClashVerge.yaml</li>
-</ul>
-<ul>
-<li><input checked="" disabled="" type="checkbox"> 地区分流（香港、美国、日本、台湾、新加坡）</li>
-<li><input checked="" disabled="" type="checkbox"> 苹果、谷歌、微软、电报、推特分流</li>
-<li><input checked="" disabled="" type="checkbox"> 流媒体（不支持单独分流）</li>
-<li><input checked="" disabled="" type="checkbox"> 自动选择最低延迟</li>
-<li><input disabled="" type="checkbox"> 负载均衡</li>
-<li><input checked="" disabled="" type="checkbox"> 故障转移</li>
-<li><input checked="" disabled="" type="checkbox"> 广告屏蔽</li>
-</ul>
-<figure class="highlight plaintext"><table><tr><td class="code"><pre><span class="line">https://raw.githubusercontent.com/Repcz/Tool/X/Clash/Meta/ClashVerge.yaml</span><br></pre></td></tr></table></figure>
-
-<h2 id="修改配置-proxy-providers-中的机场订阅地址"><a href="#修改配置-proxy-providers-中的机场订阅地址" class="headerlink" title="修改配置 proxy-providers 中的机场订阅地址"></a>修改配置 <code>proxy-providers</code> 中的机场订阅地址</h2><ul>
-<li>请自行将 <code>proxy-providers</code> 中的 <code>机场订阅</code> 替换为机场订阅地址</li>
-</ul>
-<p><img src="https://pan.yuqi.fun/d/%E5%A4%A9%E7%BF%BC%E4%BA%91%E7%9B%98/img/202312120915850.png" alt="1"></p>
-<figure class="highlight yaml"><table><tr><td class="code"><pre><span class="line"><span class="attr">proxy-providers:</span></span><br><span class="line">  <span class="attr">Subscribe:</span> &#123;<span class="string">&lt;&lt;:</span> <span class="string">*p</span>, <span class="attr">path:</span> <span class="string">./all.yaml</span>, <span class="attr">url:</span> <span class="string">机场订阅</span>&#125;</span><br><span class="line">    <span class="comment"># Meta支持机场通用订阅</span></span><br></pre></td></tr></table></figure>
-
-
-<h2 id="Clash-Verge-中导入-配置"><a href="#Clash-Verge-中导入-配置" class="headerlink" title="Clash Verge 中导入 配置"></a>Clash Verge 中导入 <strong>配置</strong></h2><ul>
-<li>打开Clash Verge，点击 <strong>配置</strong>，点击右上角<strong>新建</strong></li>
-<li>类型选择<strong>Local</strong>，点击下方 <strong>选择文件</strong>，选择修改好的文件</li>
-<li>选择导入的配置，右键-启用</li>
-<li>点击 <strong>代理</strong> ，设置分流</li>
-</ul>
-<p><img src="https://pan.yuqi.fun/d/%E5%A4%A9%E7%BF%BC%E4%BA%91%E7%9B%98/img/202312120915851.png" alt="5"></p>
-<h2 id="策略组修改为手动选择节点"><a href="#策略组修改为手动选择节点" class="headerlink" title="策略组修改为手动选择节点"></a>策略组修改为手动选择节点</h2><blockquote>
-<p>默认为自动选择延迟最低节点，<strong>按需</strong> 修改为手动选择</p>
-</blockquote>
-<ul>
-<li>在自定义策略下的分流策略组中选择需要的地区节点，此处以 <strong>国外网站</strong> 举例，选择 <strong>香港节点</strong></li>
-<li>下拉到下方的 <strong>香港节点</strong> 策略组，此时该策略组以 <code>url-test</code> 运行，即按最低延迟选择节点</li>
-<li>如果要修改为手动选择节点，则需要编辑配置文件，在 <strong>配置</strong> ，右键需要修改的配置文件，点击 <strong>编辑</strong></li>
-<li>找到<code> - &#123;name: 🇭🇰 香港节点, &lt;&lt;: *auto, filter: ....&quot;&#125;</code>，将 <code>*auto</code> 修改为 <code>*select</code></li>
-<li>在 <strong>香港节点</strong> 策略组中选择需要的节点，则 <strong>国外网站</strong> 策略组走 <strong>香港节点</strong> 中选择的节点</li>
-</ul>
-<p>eg:</p>
-<figure class="highlight yaml"><table><tr><td class="code"><pre><span class="line"><span class="string">...</span></span><br><span class="line"></span><br><span class="line">  <span class="bullet">-</span> &#123;<span class="attr">name:</span> <span class="string">🇭🇰</span> <span class="string">香港节点</span>, <span class="string">&lt;&lt;:</span> <span class="string">*auto</span>, <span class="attr">filter:</span> <span class="string">&quot;^(?=.*((?i)🇭🇰|香港|(\b(HK|Hong)\b)))(?!.*((?i)回国|校园|游戏|(\b(GAME)\b))).*$&quot;</span>&#125;</span><br><span class="line"></span><br><span class="line"><span class="string">👇</span></span><br><span class="line"></span><br><span class="line">  <span class="bullet">-</span> &#123;<span class="attr">name:</span> <span class="string">🇭🇰</span> <span class="string">香港节点</span>, <span class="string">&lt;&lt;:</span> <span class="string">*select</span>, <span class="attr">filter:</span> <span class="string">&quot;^(?=.*((?i)🇭🇰|香港|(\b(HK|Hong)\b)))(?!.*((?i)回国|校园|游戏|(\b(GAME)\b))).*$&quot;</span>&#125;</span><br><span class="line"></span><br><span class="line"><span class="string">...</span></span><br><span class="line"></span><br></pre></td></tr></table></figure>
-
-<h1 id="订阅转换（懒人方法）"><a href="#订阅转换（懒人方法）" class="headerlink" title="订阅转换（懒人方法）"></a>订阅转换（懒人方法）</h1><h2 id="在线订阅转换"><a href="#在线订阅转换" class="headerlink" title="在线订阅转换"></a>在线订阅转换</h2><p>在线订阅转换可能出现订阅泄露</p>
-<h2 id="打开ACL4SSR"><a href="#打开ACL4SSR" class="headerlink" title="打开ACL4SSR"></a>打开<a href="https://acl4ssr-sub.github.io/">ACL4SSR</a></h2><h2 id="填入-机场订阅-和-远程配置"><a href="#填入-机场订阅-和-远程配置" class="headerlink" title="填入 机场订阅 和 远程配置"></a>填入 <strong>机场订阅</strong> 和 <strong>远程配置</strong></h2><p><strong><em>自用 多流媒体分组 自动测速 配置</em></strong></p>
-<figure class="highlight plaintext"><table><tr><td class="code"><pre><span class="line">https://raw.githubusercontent.com/Repcz/Tool/X/Clash/Meta/Online_Full_Auto.ini</span><br></pre></td></tr></table></figure>
-<h2 id="选择后端地址并生成订阅"><a href="#选择后端地址并生成订阅" class="headerlink" title="选择后端地址并生成订阅"></a>选择后端地址并生成订阅</h2><ul>
-<li>强烈建议使用自建后端，自建后端订阅转换可以有效防止订阅泄露以及规则下载不全等问题，具体方法见<a href="https://github.com/Repcz/Tool/tree/X/subconverter">自建subconverter订阅转换</a></li>
-</ul>
-<p><img src="https://pan.yuqi.fun/d/%E5%A4%A9%E7%BF%BC%E4%BA%91%E7%9B%98/img/202312120915852.png" alt="4"></p>
-<h2 id="本地后端订阅转换（推荐）"><a href="#本地后端订阅转换（推荐）" class="headerlink" title="本地后端订阅转换（推荐）"></a>本地后端订阅转换（推荐）</h2><p>详细使用方法见<a href="https://github.com/Repcz/Tool/tree/X/subconverter">自建subconverter订阅转换</a></p>
-<h2 id="导入Clash-Verge"><a href="#导入Clash-Verge" class="headerlink" title="导入Clash Verge"></a>导入Clash Verge</h2><ul>
-<li>打开Clash Verge，点击 <strong>配置</strong>，导入<strong>订阅转换</strong>后的链接</li>
-<li>点击 <strong>代理</strong> ，设置分流</li>
-</ul>
-<h1 id="项目地址"><a href="#项目地址" class="headerlink" title="项目地址"></a>项目地址</h1><p><a href="https://github.com/Repcz/Tool">https://github.com/Repcz/Tool</a></p>
-]]></content>
-      <categories>
-        <category>教程</category>
-      </categories>
-      <tags>
-        <tag>科学上网</tag>
-      </tags>
-  </entry>
-  <entry>
-    <title>Hexo建立一个独立的HTML页面</title>
-    <url>/undefined/12482e7.html</url>
-    <content><![CDATA[<p>Hexo 是一个轻量、快速，简单和强大的博客框架，当我们需要发布博文的时候，只需要将写好的文章（MarkDown 文件）放入本地的 <code>\source\_posts</code> 文件夹，然后再推送上去就行了，原理就是当我们在执行 <code>hexo g</code> 命令时，<code>.md</code> 文件就会被转化成 HTML 文件，但是有时候我们需要新建一个独立的页面，这个页面不使用主题的渲染，具有自己独立的样式，可以放一些自己的作品，相册什么的，以下就介绍这种独立页面的实现方法。</p>
-<h1 id="方法一："><a href="#方法一：" class="headerlink" title="方法一："></a>方法一：</h1><p>使用 Hexo 提供的跳过渲染配置，在博客根目录的配置文件 <code>_config.yml</code> 里找到 <code>skip_render</code> 关键字，在后面添加想要跳过渲染的页面，比如我们创建 <code>\source\about\index.html</code>， 配置文件填写：<code>skip_render: about\**</code>，那么就表示 <code>\source\about</code> 里所有的文件将跳过渲染，里面的文件将会被直接复制到 public 文件夹，此时就会得到一个独立的 about 页面；官方文档：<a href="https://hexo.io/docs/configuration">https://hexo.io/docs/configuration</a></p>
-<h1 id="方法-2"><a href="#方法-2" class="headerlink" title="方法 2"></a>方法 2</h1><p>在文章头部的 Front-matter 里添加配置 <code>layout: false</code> 来跳过渲染配置，比如我们要使 about 页面跳过渲染，创建 <code>\source\about\index.md</code>，将这个页面的相关 HTML 代码写进<code>.md</code>文件并保存，然后在 <code>index.md</code> 的头部写入：</p>
-<figure class="highlight markdown"><table><tr><td class="code"><pre><span class="line">---</span><br><span class="line"><span class="section">layout: false</span></span><br><span class="line"><span class="section">---</span></span><br><span class="line"></span><br><span class="line">&#123;% raw %&#125;</span><br><span class="line">xxxxxxxxxxxxx</span><br><span class="line">xx HTML 代码 xx</span><br><span class="line">xxxxxxxxxxxxx</span><br><span class="line">&#123;% endraw %&#125;</span><br></pre></td></tr></table></figure>
-
-<p>PS：Front-matter 是 <code>.md</code> 文件最上方以 — 分隔的区域，用于指定个别文件的变量，官方文档：<a href="https://hexo.io/docs/front-matter">https://hexo.io/docs/front-matter</a></p>
-<figure class="highlight markdown"><table><tr><td class="code"><pre><span class="line">.md 文件中的 HTML 代码要用 &#123;% raw %&#125; 和 &#123;% endraw %&#125; 包起来，使其能正确编译里面的代码。</span><br></pre></td></tr></table></figure>
-]]></content>
-      <categories>
-        <category>教程</category>
-      </categories>
-      <tags>
-        <tag>hexo</tag>
-      </tags>
-  </entry>
-  <entry>
-    <title>OnlyFans 公共存档器 免费查看OnlyFans付费内容-Coomer</title>
-    <url>/undefined/1082bb6d.html</url>
-    <content><![CDATA[<p>Coomer，一个 OnlyFans 公共存档器，可以免费查看 OnlyFans 付费内容，上面所以内容都由网友搬运、贡献的 OnlyFans 付费内容，想要查看哪位艺术家、作者的付费内容，直接搜索名字即可免费查看 OnlyFans 上的付费内容，当然你也可以共享你的。</p>
-<p>地址：<a href="https://coomer.party/">https://coomer.party/</a></p>
-<p>可以尝试点击&gt;creators&gt;然后搜索 ‘hongkongdoll’ ，‘juneliu’；</p>
-<p>更多的关键词待你挖掘</p>
-]]></content>
-      <categories>
-        <category>其他</category>
-      </categories>
-      <tags>
-        <tag>其他</tag>
-      </tags>
-  </entry>
-  <entry>
     <title>MT7981B安博通ABT_ASR3000刷机指南</title>
     <url>/undefined/2c4b11e5.html</url>
     <content><![CDATA[<h1 id="刷机方法"><a href="#刷机方法" class="headerlink" title="刷机方法"></a>刷机方法</h1><h2 id="一："><a href="#一：" class="headerlink" title="一："></a>一：</h2><p>下载附件e-202306161250-cfg.tar.gz，原厂系统：系统工具&#x3D;&gt;配置管理&#x3D;&gt;导入配置，重启；</p>
@@ -1125,6 +1110,88 @@
       </categories>
       <tags>
         <tag>路由器</tag>
+      </tags>
+  </entry>
+  <entry>
+    <title>OnlyFans 公共存档器 免费查看OnlyFans付费内容-Coomer</title>
+    <url>/undefined/1082bb6d.html</url>
+    <content><![CDATA[<p>Coomer，一个 OnlyFans 公共存档器，可以免费查看 OnlyFans 付费内容，上面所以内容都由网友搬运、贡献的 OnlyFans 付费内容，想要查看哪位艺术家、作者的付费内容，直接搜索名字即可免费查看 OnlyFans 上的付费内容，当然你也可以共享你的。</p>
+<p>地址：<a href="https://coomer.party/">https://coomer.party/</a></p>
+<p>可以尝试点击&gt;creators&gt;然后搜索 ‘hongkongdoll’ ，‘juneliu’；</p>
+<p>更多的关键词待你挖掘</p>
+]]></content>
+      <categories>
+        <category>其他</category>
+      </categories>
+      <tags>
+        <tag>其他</tag>
+      </tags>
+  </entry>
+  <entry>
+    <title>Openwrt编译</title>
+    <url>/undefined/72c5b323.html</url>
+    <content><![CDATA[<h1 id="注意"><a href="#注意" class="headerlink" title="注意"></a>注意</h1><ol>
+<li><strong>不要用 root 用户进行编译</strong></li>
+<li>国内用户编译前最好准备好梯子</li>
+<li>默认登陆 IP 192.168.1.1 密码 password</li>
+</ol>
+<h1 id="编译命令"><a href="#编译命令" class="headerlink" title="编译命令"></a>编译命令</h1><ol>
+<li><p>首先装好 Linux 系统，推荐 Debian 11 或 Ubuntu LTS</p>
+</li>
+<li><p>安装编译依赖</p>
+</li>
+</ol>
+<figure class="highlight bash"><table><tr><td class="code"><pre><span class="line"><span class="built_in">sudo</span> apt update -y</span><br><span class="line"><span class="built_in">sudo</span> apt full-upgrade -y</span><br><span class="line"><span class="built_in">sudo</span> apt install -y ack antlr3 asciidoc autoconf automake autopoint binutils bison build-essential \</span><br><span class="line">bzip2 ccache cmake cpio curl device-tree-compiler fastjar flex gawk gettext gcc-multilib g++-multilib \</span><br><span class="line">git gperf haveged help2man intltool libc6-dev-i386 libelf-dev libglib2.0-dev libgmp3-dev libltdl-dev \</span><br><span class="line">libmpc-dev libmpfr-dev libncurses5-dev libncursesw5-dev libreadline-dev libssl-dev libtool lrzsz \</span><br><span class="line">mkisofs msmtp nano ninja-build p7zip p7zip-full patch pkgconf python2.7 python3 python3-pyelftools \</span><br><span class="line">libpython3-dev qemu-utils rsync scons squashfs-tools subversion swig texinfo uglifyjs upx-ucl unzip \</span><br><span class="line">vim wget xmlto xxd zlib1g-dev</span><br></pre></td></tr></table></figure>
+
+<ol start="3">
+<li>下载源代码，更新 feeds 并选择配置<br>lede源：<a href="https://github.com/coolsnowwolf/lede">https://github.com/coolsnowwolf/lede</a><br>插件库：<a href="https://github.com/kenzok8/small-package">https://github.com/kenzok8/small-package</a><br>西瓜皮：<a href="https://github.com/6ang996/lede/tree/rk356x-xgp_support">https://github.com/6ang996/lede/tree/rk356x-xgp_support</a><br>克隆指定分支：git clone -b 分支 源</li>
+</ol>
+<figure class="highlight bash"><table><tr><td class="code"><pre><span class="line">git <span class="built_in">clone</span> https://github.com/coolsnowwolf/lede</span><br><span class="line"><span class="built_in">cd</span> lede</span><br><span class="line"><span class="built_in">echo</span> <span class="string">&#x27;src-git small8 https://github.com/kenzok8/small-package&#x27;</span> &gt;&gt;feeds.conf.default</span><br><span class="line">./scripts/feeds update -a</span><br><span class="line">./scripts/feeds install -a</span><br><span class="line">make menuconfig</span><br></pre></td></tr></table></figure>
+
+<ol start="4">
+<li>下载 dl 库，编译固件<br>（-j 后面是线程数，第一次编译推荐用单线程）</li>
+</ol>
+ <figure class="highlight bash"><table><tr><td class="code"><pre><span class="line">make download -j8</span><br><span class="line">make V=s -j1</span><br><span class="line"><span class="keyword">time</span> make V=s -j$(<span class="built_in">nproc</span>)可以看到编译用时</span><br></pre></td></tr></table></figure>
+
+<p>本套代码保证肯定可以编译成功。里面包括了 R23 所有源代码，包括 IPK 的。</p>
+<p>你可以自由使用，但源码编译二次发布请注明我的 GitHub 仓库链接。谢谢合作！</p>
+<p>二次编译：</p>
+<figure class="highlight bash"><table><tr><td class="code"><pre><span class="line"><span class="built_in">cd</span> lede</span><br><span class="line">git pull</span><br><span class="line">./scripts/feeds update -a</span><br><span class="line">./scripts/feeds install -a</span><br><span class="line">make defconfig</span><br><span class="line">make download -j8</span><br><span class="line">make V=s -j$(<span class="built_in">nproc</span>)</span><br></pre></td></tr></table></figure>
+
+<p>如果需要重新配置：</p>
+<figure class="highlight bash"><table><tr><td class="code"><pre><span class="line"><span class="built_in">rm</span> -rf ./tmp &amp;&amp; <span class="built_in">rm</span> -rf .config</span><br><span class="line">make menuconfig</span><br><span class="line">make V=s -j$(<span class="built_in">nproc</span>)</span><br></pre></td></tr></table></figure>
+
+<p>编译完成后输出路径：bin&#x2F;targets</p>
+<h2 id="如果你使用-WSL-WSL2-进行编译"><a href="#如果你使用-WSL-WSL2-进行编译" class="headerlink" title="如果你使用 WSL&#x2F;WSL2 进行编译"></a>如果你使用 WSL&#x2F;WSL2 进行编译</h2><p>由于 WSL 的 PATH 中包含带有空格的 Windows 路径，有可能会导致编译失败，请在 <code>make</code> 前面加上：</p>
+<figure class="highlight bash"><table><tr><td class="code"><pre><span class="line">PATH=/usr/local/sbin:/usr/local/bin:/usr/sbin:/usr/bin:/sbin:/bin</span><br></pre></td></tr></table></figure>
+
+<h2 id="macOS-原生系统进行编译"><a href="#macOS-原生系统进行编译" class="headerlink" title="macOS 原生系统进行编译"></a>macOS 原生系统进行编译</h2><ol>
+<li><p>在 AppStore 中安装 Xcode</p>
+</li>
+<li><p>安装 Homebrew：</p>
+</li>
+</ol>
+<figure class="highlight bash"><table><tr><td class="code"><pre><span class="line">/usr/bin/ruby -e <span class="string">&quot;<span class="subst">$(curl -fsSL https://raw.githubusercontent.com/Homebrew/install/master/install)</span>&quot;</span></span><br></pre></td></tr></table></figure>
+
+<ol start="3">
+<li>使用 Homebrew 安装工具链、依赖与基础软件包:</li>
+</ol>
+<figure class="highlight bash"><table><tr><td class="code"><pre><span class="line">brew <span class="built_in">unlink</span> awk</span><br><span class="line">brew install coreutils diffutils findutils gawk gnu-getopt gnu-tar grep make ncurses pkg-config wget quilt xz</span><br><span class="line">brew install gcc@11</span><br></pre></td></tr></table></figure>
+
+<ol start="4">
+<li>然后输入以下命令，添加到系统环境变量中：</li>
+</ol>
+<figure class="highlight bash"><table><tr><td class="code"><pre><span class="line"><span class="built_in">echo</span> <span class="string">&#x27;export PATH=&quot;/usr/local/opt/coreutils/libexec/gnubin:$PATH&quot;&#x27;</span> &gt;&gt; ~/.bashrc</span><br><span class="line"><span class="built_in">echo</span> <span class="string">&#x27;export PATH=&quot;/usr/local/opt/findutils/libexec/gnubin:$PATH&quot;&#x27;</span> &gt;&gt; ~/.bashrc</span><br><span class="line"><span class="built_in">echo</span> <span class="string">&#x27;export PATH=&quot;/usr/local/opt/gnu-getopt/bin:$PATH&quot;&#x27;</span> &gt;&gt; ~/.bashrc</span><br><span class="line"><span class="built_in">echo</span> <span class="string">&#x27;export PATH=&quot;/usr/local/opt/gnu-tar/libexec/gnubin:$PATH&quot;&#x27;</span> &gt;&gt; ~/.bashrc</span><br><span class="line"><span class="built_in">echo</span> <span class="string">&#x27;export PATH=&quot;/usr/local/opt/grep/libexec/gnubin:$PATH&quot;&#x27;</span> &gt;&gt; ~/.bashrc</span><br><span class="line"><span class="built_in">echo</span> <span class="string">&#x27;export PATH=&quot;/usr/local/opt/gnu-sed/libexec/gnubin:$PATH&quot;&#x27;</span> &gt;&gt; ~/.bashrc</span><br><span class="line"><span class="built_in">echo</span> <span class="string">&#x27;export PATH=&quot;/usr/local/opt/make/libexec/gnubin:$PATH&quot;&#x27;</span> &gt;&gt; ~/.bashrc</span><br></pre></td></tr></table></figure>
+
+<ol start="5">
+<li>重新加载一下 shell 启动文件 <code>source ~/.bashrc</code>，然后输入 <code>bash</code> 进入 bash shell，就可以和 Linux 一样正常编译了</li>
+</ol>
+]]></content>
+      <categories>
+        <category>教程</category>
+      </categories>
+      <tags>
+        <tag>Openwrt</tag>
       </tags>
   </entry>
   <entry>
@@ -1271,144 +1338,6 @@
       </tags>
   </entry>
   <entry>
-    <title>R探长 甲骨文云开机脚本</title>
-    <url>/undefined/d604b8c7.html</url>
-    <content><![CDATA[<h1 id="原作者地址"><a href="#原作者地址" class="headerlink" title="原作者地址"></a>原作者地址</h1><p><a href="https://github.com/semicons/java_oci_manage/blob/main/md/install.md">https://github.com/semicons/java_oci_manage/blob/main/md/install.md</a></p>
-<h1 id="debian12先要装依赖"><a href="#debian12先要装依赖" class="headerlink" title="debian12先要装依赖"></a>debian12先要装依赖</h1><figure class="highlight shell"><table><tr><td class="code"><pre><span class="line">sudo nano /etc/apt/sources.list</span><br></pre></td></tr></table></figure>
-
-<figure class="highlight shell"><table><tr><td class="code"><pre><span class="line">deb http://deb.debian.org/debian bullseye main</span><br><span class="line"></span><br><span class="line">deb-src http://deb.debian.org/debian bullseye main</span><br></pre></td></tr></table></figure>
-
-
-
-<figure class="highlight shell"><table><tr><td class="code"><pre><span class="line">apt update</span><br><span class="line"></span><br><span class="line">apt install openjdk-17-jdk</span><br></pre></td></tr></table></figure>
-
-
-
-
-
-<h1 id="更新环境"><a href="#更新环境" class="headerlink" title="更新环境"></a>更新环境</h1><figure class="highlight shell"><table><tr><td class="code"><pre><span class="line">apt update -y &amp;&amp; apt install -y curl wget sudo</span><br></pre></td></tr></table></figure>
-
-
-
-
-
-<h1 id="安装R探长"><a href="#安装R探长" class="headerlink" title="安装R探长"></a>安装R探长</h1><figure class="highlight shell"><table><tr><td class="code"><pre><span class="line">cd /home &amp;&amp; mkdir rbot &amp;&amp; cd rbot</span><br><span class="line"></span><br><span class="line">wget -O gz_client_bot.tar.gz https://github.com/semicons/java_oci_manage/releases/latest/download/gz_client_bot.tar.gz &amp;&amp; tar -zxvf gz_client_bot.tar.gz --exclude=client_config &amp;&amp; tar -zxvf gz_client_bot.tar.gz --skip-old-files client_config &amp;&amp; chmod +x sh_client_bot.sh</span><br></pre></td></tr></table></figure>
-
-
-
-
-
-
-
-<h1 id="下载配置client-config模板"><a href="#下载配置client-config模板" class="headerlink" title="下载配置client_config模板"></a>下载配置client_config模板</h1><p><a href="https://github.com/kejilion/sh/blob/main/client_config">https://github.com/kejilion/sh/blob/main/client_config</a></p>
-<h1 id="到甲骨文云下载API证书并获取API信息"><a href="#到甲骨文云下载API证书并获取API信息" class="headerlink" title="到甲骨文云下载API证书并获取API信息"></a>到甲骨文云下载API证书并获取API信息</h1><p><a href="https://cloud.oracle.com/">https://cloud.oracle.com/</a></p>
-<p><img src="https://pan.yuqi.fun/d/%E5%A4%A9%E7%BF%BC%E4%BA%91%E7%9B%98/img/202312080925335.png"></p>
-<p><img src="https://pan.yuqi.fun/d/%E5%A4%A9%E7%BF%BC%E4%BA%91%E7%9B%98/img/202312080925572.png"></p>
-<p><img src="https://pan.yuqi.fun/d/%E5%A4%A9%E7%BF%BC%E4%BA%91%E7%9B%98/img/202312080925945.png"></p>
-<p><img src="https://pan.yuqi.fun/d/%E5%A4%A9%E7%BF%BC%E4%BA%91%E7%9B%98/img/202312080925124.png"></p>
-<p><img src="https://pan.yuqi.fun/d/%E5%A4%A9%E7%BF%BC%E4%BA%91%E7%9B%98/img/202312080925243.png"></p>
-<p><img src="https://pan.yuqi.fun/d/%E5%A4%A9%E7%BF%BC%E4%BA%91%E7%9B%98/img/202312080925743.png"></p>
-<p><img src="https://pan.yuqi.fun/d/%E5%A4%A9%E7%BF%BC%E4%BA%91%E7%9B%98/img/202312080926332.png"></p>
-<h1 id="key存放路径"><a href="#key存放路径" class="headerlink" title="key存放路径"></a>key存放路径</h1><p>key_file&#x3D;&#x2F;home&#x2F;rbot&#x2F;key.pem</p>
-<h1 id="关注R探长频道和机器人"><a href="#关注R探长频道和机器人" class="headerlink" title="关注R探长频道和机器人"></a>关注R探长频道和机器人</h1><p>R探长频道：<a href="https://t.me/agentONE_R">https://t.me/agentONE_R</a></p>
-<p>R探长机器人：<a href="https://t.me/radiance_helper_bot">https://t.me/radiance_helper_bot</a></p>
-<h1 id="和机器人对话获取随机用户名和密码"><a href="#和机器人对话获取随机用户名和密码" class="headerlink" title="和机器人对话获取随机用户名和密码"></a>和机器人对话获取随机用户名和密码</h1><p>&#x2F;raninfo</p>
-<h1 id="填写示例"><a href="#填写示例" class="headerlink" title="填写示例"></a>填写示例</h1><p><img src="https://pan.yuqi.fun/d/%E5%A4%A9%E7%BF%BC%E4%BA%91%E7%9B%98/img/202312080926509.png"></p>
-<p>填写完成后</p>
-<p>把<strong>client_config.txtclient_config.txt</strong>改为<strong>client_config</strong></p>
-<p>把下载的pem文件改为<strong>key.pem</strong></p>
-<p>然后上传到**&#x2F;home&#x2F;rbot&#x2F;**目录</p>
-<h1 id="启动或重启"><a href="#启动或重启" class="headerlink" title="启动或重启"></a>启动或重启</h1><figure class="highlight shell"><table><tr><td class="code"><pre><span class="line">bash sh_client_bot.sh </span><br></pre></td></tr></table></figure>
-
-
-
-<h1 id="查看日志-ctrl-c退出日志"><a href="#查看日志-ctrl-c退出日志" class="headerlink" title="查看日志(ctrl + c退出日志)"></a>查看日志(ctrl + c退出日志)</h1><figure class="highlight shell"><table><tr><td class="code"><pre><span class="line">tail -f log_r_client.log </span><br></pre></td></tr></table></figure>
-
-
-
-<h1 id="终止程序"><a href="#终止程序" class="headerlink" title="终止程序"></a>终止程序</h1><figure class="highlight shell"><table><tr><td class="code"><pre><span class="line">ps -ef | grep r_client.jar | grep -v grep | awk &#x27;&#123;print $2&#125;&#x27; | xargs kill -9 </span><br></pre></td></tr></table></figure>
-
-
-
-<h1 id="卸载程序"><a href="#卸载程序" class="headerlink" title="卸载程序"></a>卸载程序</h1><figure class="highlight shell"><table><tr><td class="code"><pre><span class="line">rm -rf gz_client_bot.tar.gz client_config r_client.jar sh_client_bot.sh log_r_client.log debug-.log </span><br></pre></td></tr></table></figure>
-
-<p>如也不需要JDK也可卸载：</p>
-<figure class="highlight shell"><table><tr><td class="code"><pre><span class="line">apt-get remove openjdk*</span><br></pre></td></tr></table></figure>
-
-]]></content>
-      <categories>
-        <category>教程</category>
-      </categories>
-      <tags>
-        <tag>服务器</tag>
-      </tags>
-  </entry>
-  <entry>
-    <title>Openwrt编译</title>
-    <url>/undefined/72c5b323.html</url>
-    <content><![CDATA[<h1 id="注意"><a href="#注意" class="headerlink" title="注意"></a>注意</h1><ol>
-<li><strong>不要用 root 用户进行编译</strong></li>
-<li>国内用户编译前最好准备好梯子</li>
-<li>默认登陆 IP 192.168.1.1 密码 password</li>
-</ol>
-<h1 id="编译命令"><a href="#编译命令" class="headerlink" title="编译命令"></a>编译命令</h1><ol>
-<li><p>首先装好 Linux 系统，推荐 Debian 11 或 Ubuntu LTS</p>
-</li>
-<li><p>安装编译依赖</p>
-</li>
-</ol>
-<figure class="highlight bash"><table><tr><td class="code"><pre><span class="line"><span class="built_in">sudo</span> apt update -y</span><br><span class="line"><span class="built_in">sudo</span> apt full-upgrade -y</span><br><span class="line"><span class="built_in">sudo</span> apt install -y ack antlr3 asciidoc autoconf automake autopoint binutils bison build-essential \</span><br><span class="line">bzip2 ccache cmake cpio curl device-tree-compiler fastjar flex gawk gettext gcc-multilib g++-multilib \</span><br><span class="line">git gperf haveged help2man intltool libc6-dev-i386 libelf-dev libglib2.0-dev libgmp3-dev libltdl-dev \</span><br><span class="line">libmpc-dev libmpfr-dev libncurses5-dev libncursesw5-dev libreadline-dev libssl-dev libtool lrzsz \</span><br><span class="line">mkisofs msmtp nano ninja-build p7zip p7zip-full patch pkgconf python2.7 python3 python3-pyelftools \</span><br><span class="line">libpython3-dev qemu-utils rsync scons squashfs-tools subversion swig texinfo uglifyjs upx-ucl unzip \</span><br><span class="line">vim wget xmlto xxd zlib1g-dev</span><br></pre></td></tr></table></figure>
-
-<ol start="3">
-<li>下载源代码，更新 feeds 并选择配置<br>lede源：<a href="https://github.com/coolsnowwolf/lede">https://github.com/coolsnowwolf/lede</a><br>插件库：<a href="https://github.com/kenzok8/small-package">https://github.com/kenzok8/small-package</a><br>西瓜皮：<a href="https://github.com/6ang996/lede/tree/rk356x-xgp_support">https://github.com/6ang996/lede/tree/rk356x-xgp_support</a><br>克隆指定分支：git clone -b 分支 源</li>
-</ol>
-<figure class="highlight bash"><table><tr><td class="code"><pre><span class="line">git <span class="built_in">clone</span> https://github.com/coolsnowwolf/lede</span><br><span class="line"><span class="built_in">cd</span> lede</span><br><span class="line"><span class="built_in">echo</span> <span class="string">&#x27;src-git small8 https://github.com/kenzok8/small-package&#x27;</span> &gt;&gt;feeds.conf.default</span><br><span class="line">./scripts/feeds update -a</span><br><span class="line">./scripts/feeds install -a</span><br><span class="line">make menuconfig</span><br></pre></td></tr></table></figure>
-
-<ol start="4">
-<li>下载 dl 库，编译固件<br>（-j 后面是线程数，第一次编译推荐用单线程） <figure class="highlight bash"><table><tr><td class="code"><pre><span class="line">make download -j8</span><br><span class="line">make V=s -j1</span><br><span class="line"><span class="keyword">time</span> make V=s -j$(<span class="built_in">nproc</span>)可以看到编译用时</span><br></pre></td></tr></table></figure></li>
-</ol>
-<p>本套代码保证肯定可以编译成功。里面包括了 R23 所有源代码，包括 IPK 的。</p>
-<p>你可以自由使用，但源码编译二次发布请注明我的 GitHub 仓库链接。谢谢合作！</p>
-<p>二次编译：</p>
-<figure class="highlight bash"><table><tr><td class="code"><pre><span class="line"><span class="built_in">cd</span> lede</span><br><span class="line">git pull</span><br><span class="line">./scripts/feeds update -a</span><br><span class="line">./scripts/feeds install -a</span><br><span class="line">make defconfig</span><br><span class="line">make download -j8</span><br><span class="line">make V=s -j$(<span class="built_in">nproc</span>)</span><br></pre></td></tr></table></figure>
-
-<p>如果需要重新配置：</p>
-<figure class="highlight bash"><table><tr><td class="code"><pre><span class="line"><span class="built_in">rm</span> -rf ./tmp &amp;&amp; <span class="built_in">rm</span> -rf .config</span><br><span class="line">make menuconfig</span><br><span class="line">make V=s -j$(<span class="built_in">nproc</span>)</span><br></pre></td></tr></table></figure>
-
-<p>编译完成后输出路径：bin&#x2F;targets</p>
-<h2 id="如果你使用-WSL-WSL2-进行编译"><a href="#如果你使用-WSL-WSL2-进行编译" class="headerlink" title="如果你使用 WSL&#x2F;WSL2 进行编译"></a>如果你使用 WSL&#x2F;WSL2 进行编译</h2><p>由于 WSL 的 PATH 中包含带有空格的 Windows 路径，有可能会导致编译失败，请在 <code>make</code> 前面加上：</p>
-<figure class="highlight bash"><table><tr><td class="code"><pre><span class="line">PATH=/usr/local/sbin:/usr/local/bin:/usr/sbin:/usr/bin:/sbin:/bin</span><br></pre></td></tr></table></figure>
-
-<h2 id="macOS-原生系统进行编译"><a href="#macOS-原生系统进行编译" class="headerlink" title="macOS 原生系统进行编译"></a>macOS 原生系统进行编译</h2><ol>
-<li><p>在 AppStore 中安装 Xcode</p>
-</li>
-<li><p>安装 Homebrew：</p>
-</li>
-</ol>
-<figure class="highlight bash"><table><tr><td class="code"><pre><span class="line">/usr/bin/ruby -e <span class="string">&quot;<span class="subst">$(curl -fsSL https://raw.githubusercontent.com/Homebrew/install/master/install)</span>&quot;</span></span><br></pre></td></tr></table></figure>
-
-<ol start="3">
-<li>使用 Homebrew 安装工具链、依赖与基础软件包:</li>
-</ol>
-<figure class="highlight bash"><table><tr><td class="code"><pre><span class="line">brew <span class="built_in">unlink</span> awk</span><br><span class="line">brew install coreutils diffutils findutils gawk gnu-getopt gnu-tar grep make ncurses pkg-config wget quilt xz</span><br><span class="line">brew install gcc@11</span><br></pre></td></tr></table></figure>
-
-<ol start="4">
-<li>然后输入以下命令，添加到系统环境变量中：</li>
-</ol>
-<figure class="highlight bash"><table><tr><td class="code"><pre><span class="line"><span class="built_in">echo</span> <span class="string">&#x27;export PATH=&quot;/usr/local/opt/coreutils/libexec/gnubin:$PATH&quot;&#x27;</span> &gt;&gt; ~/.bashrc</span><br><span class="line"><span class="built_in">echo</span> <span class="string">&#x27;export PATH=&quot;/usr/local/opt/findutils/libexec/gnubin:$PATH&quot;&#x27;</span> &gt;&gt; ~/.bashrc</span><br><span class="line"><span class="built_in">echo</span> <span class="string">&#x27;export PATH=&quot;/usr/local/opt/gnu-getopt/bin:$PATH&quot;&#x27;</span> &gt;&gt; ~/.bashrc</span><br><span class="line"><span class="built_in">echo</span> <span class="string">&#x27;export PATH=&quot;/usr/local/opt/gnu-tar/libexec/gnubin:$PATH&quot;&#x27;</span> &gt;&gt; ~/.bashrc</span><br><span class="line"><span class="built_in">echo</span> <span class="string">&#x27;export PATH=&quot;/usr/local/opt/grep/libexec/gnubin:$PATH&quot;&#x27;</span> &gt;&gt; ~/.bashrc</span><br><span class="line"><span class="built_in">echo</span> <span class="string">&#x27;export PATH=&quot;/usr/local/opt/gnu-sed/libexec/gnubin:$PATH&quot;&#x27;</span> &gt;&gt; ~/.bashrc</span><br><span class="line"><span class="built_in">echo</span> <span class="string">&#x27;export PATH=&quot;/usr/local/opt/make/libexec/gnubin:$PATH&quot;&#x27;</span> &gt;&gt; ~/.bashrc</span><br></pre></td></tr></table></figure>
-
-<ol start="5">
-<li>重新加载一下 shell 启动文件 <code>source ~/.bashrc</code>，然后输入 <code>bash</code> 进入 bash shell，就可以和 Linux 一样正常编译了</li>
-</ol>
-]]></content>
-      <categories>
-        <category>教程</category>
-      </categories>
-      <tags>
-        <tag>Openwrt</tag>
-      </tags>
-  </entry>
-  <entry>
     <title>Qexo 一个美观、强大的在线 静态博客 管理器</title>
     <url>/undefined/8277e0e6.html</url>
     <content><![CDATA[<h1 id="前言"><a href="#前言" class="headerlink" title="前言"></a>前言</h1><p><strong>Hexo</strong> 是一款快速、高效的静态博客框架。通过 <a href="http://daringfireball.net/projects/markdown/">Markdown</a> 语法，只需几秒便可生成高质量的静态网页。</p>
@@ -1488,6 +1417,79 @@
 <p><a href="https://13fe9ff.webp.li/2024/11/2fa7cd4b16b469345b8e628d88affae2.png"><img src="https://pan.yuqi.fun/d/%E5%A4%A9%E7%BF%BC%E4%BA%91%E7%9B%98/img/202412291104441.png" alt="img"></a></p>
 <p><a href="https://13fe9ff.webp.li/2024/11/6a16b8185a435cf9b807dbcc894d92e1.png"><img src="https://pan.yuqi.fun/d/%E5%A4%A9%E7%BF%BC%E4%BA%91%E7%9B%98/img/202412291104466.png" alt="img"></a></p>
 <h1 id=""><a href="#" class="headerlink" title=""></a></h1>]]></content>
+  </entry>
+  <entry>
+    <title>R探长 甲骨文云开机脚本</title>
+    <url>/undefined/d604b8c7.html</url>
+    <content><![CDATA[<h1 id="原作者地址"><a href="#原作者地址" class="headerlink" title="原作者地址"></a>原作者地址</h1><p><a href="https://github.com/semicons/java_oci_manage/blob/main/md/install.md">https://github.com/semicons/java_oci_manage/blob/main/md/install.md</a></p>
+<h1 id="debian12先要装依赖"><a href="#debian12先要装依赖" class="headerlink" title="debian12先要装依赖"></a>debian12先要装依赖</h1><figure class="highlight shell"><table><tr><td class="code"><pre><span class="line">sudo nano /etc/apt/sources.list</span><br></pre></td></tr></table></figure>
+
+<figure class="highlight shell"><table><tr><td class="code"><pre><span class="line">deb http://deb.debian.org/debian bullseye main</span><br><span class="line"></span><br><span class="line">deb-src http://deb.debian.org/debian bullseye main</span><br></pre></td></tr></table></figure>
+
+
+
+<figure class="highlight shell"><table><tr><td class="code"><pre><span class="line">apt update</span><br><span class="line"></span><br><span class="line">apt install openjdk-17-jdk</span><br></pre></td></tr></table></figure>
+
+
+
+
+
+<h1 id="更新环境"><a href="#更新环境" class="headerlink" title="更新环境"></a>更新环境</h1><figure class="highlight shell"><table><tr><td class="code"><pre><span class="line">apt update -y &amp;&amp; apt install -y curl wget sudo</span><br></pre></td></tr></table></figure>
+
+
+
+
+
+<h1 id="安装R探长"><a href="#安装R探长" class="headerlink" title="安装R探长"></a>安装R探长</h1><figure class="highlight shell"><table><tr><td class="code"><pre><span class="line">cd /home &amp;&amp; mkdir rbot &amp;&amp; cd rbot</span><br><span class="line"></span><br><span class="line">wget -O gz_client_bot.tar.gz https://github.com/semicons/java_oci_manage/releases/latest/download/gz_client_bot.tar.gz &amp;&amp; tar -zxvf gz_client_bot.tar.gz --exclude=client_config &amp;&amp; tar -zxvf gz_client_bot.tar.gz --skip-old-files client_config &amp;&amp; chmod +x sh_client_bot.sh</span><br></pre></td></tr></table></figure>
+
+
+
+
+
+
+
+<h1 id="下载配置client-config模板"><a href="#下载配置client-config模板" class="headerlink" title="下载配置client_config模板"></a>下载配置client_config模板</h1><p><a href="https://github.com/kejilion/sh/blob/main/client_config">https://github.com/kejilion/sh/blob/main/client_config</a></p>
+<h1 id="到甲骨文云下载API证书并获取API信息"><a href="#到甲骨文云下载API证书并获取API信息" class="headerlink" title="到甲骨文云下载API证书并获取API信息"></a>到甲骨文云下载API证书并获取API信息</h1><p><a href="https://cloud.oracle.com/">https://cloud.oracle.com/</a></p>
+<p><img src="https://pan.yuqi.fun/d/%E5%A4%A9%E7%BF%BC%E4%BA%91%E7%9B%98/img/202312080925335.png"></p>
+<p><img src="https://pan.yuqi.fun/d/%E5%A4%A9%E7%BF%BC%E4%BA%91%E7%9B%98/img/202312080925572.png"></p>
+<p><img src="https://pan.yuqi.fun/d/%E5%A4%A9%E7%BF%BC%E4%BA%91%E7%9B%98/img/202312080925945.png"></p>
+<p><img src="https://pan.yuqi.fun/d/%E5%A4%A9%E7%BF%BC%E4%BA%91%E7%9B%98/img/202312080925124.png"></p>
+<p><img src="https://pan.yuqi.fun/d/%E5%A4%A9%E7%BF%BC%E4%BA%91%E7%9B%98/img/202312080925243.png"></p>
+<p><img src="https://pan.yuqi.fun/d/%E5%A4%A9%E7%BF%BC%E4%BA%91%E7%9B%98/img/202312080925743.png"></p>
+<p><img src="https://pan.yuqi.fun/d/%E5%A4%A9%E7%BF%BC%E4%BA%91%E7%9B%98/img/202312080926332.png"></p>
+<h1 id="key存放路径"><a href="#key存放路径" class="headerlink" title="key存放路径"></a>key存放路径</h1><p>key_file&#x3D;&#x2F;home&#x2F;rbot&#x2F;key.pem</p>
+<h1 id="关注R探长频道和机器人"><a href="#关注R探长频道和机器人" class="headerlink" title="关注R探长频道和机器人"></a>关注R探长频道和机器人</h1><p>R探长频道：<a href="https://t.me/agentONE_R">https://t.me/agentONE_R</a></p>
+<p>R探长机器人：<a href="https://t.me/radiance_helper_bot">https://t.me/radiance_helper_bot</a></p>
+<h1 id="和机器人对话获取随机用户名和密码"><a href="#和机器人对话获取随机用户名和密码" class="headerlink" title="和机器人对话获取随机用户名和密码"></a>和机器人对话获取随机用户名和密码</h1><p>&#x2F;raninfo</p>
+<h1 id="填写示例"><a href="#填写示例" class="headerlink" title="填写示例"></a>填写示例</h1><p><img src="https://pan.yuqi.fun/d/%E5%A4%A9%E7%BF%BC%E4%BA%91%E7%9B%98/img/202312080926509.png"></p>
+<p>填写完成后</p>
+<p>把<strong>client_config.txtclient_config.txt</strong>改为<strong>client_config</strong></p>
+<p>把下载的pem文件改为<strong>key.pem</strong></p>
+<p>然后上传到**&#x2F;home&#x2F;rbot&#x2F;**目录</p>
+<h1 id="启动或重启"><a href="#启动或重启" class="headerlink" title="启动或重启"></a>启动或重启</h1><figure class="highlight shell"><table><tr><td class="code"><pre><span class="line">bash sh_client_bot.sh </span><br></pre></td></tr></table></figure>
+
+
+
+<h1 id="查看日志-ctrl-c退出日志"><a href="#查看日志-ctrl-c退出日志" class="headerlink" title="查看日志(ctrl + c退出日志)"></a>查看日志(ctrl + c退出日志)</h1><figure class="highlight shell"><table><tr><td class="code"><pre><span class="line">tail -f log_r_client.log </span><br></pre></td></tr></table></figure>
+
+
+
+<h1 id="终止程序"><a href="#终止程序" class="headerlink" title="终止程序"></a>终止程序</h1><figure class="highlight shell"><table><tr><td class="code"><pre><span class="line">ps -ef | grep r_client.jar | grep -v grep | awk &#x27;&#123;print $2&#125;&#x27; | xargs kill -9 </span><br></pre></td></tr></table></figure>
+
+
+
+<h1 id="卸载程序"><a href="#卸载程序" class="headerlink" title="卸载程序"></a>卸载程序</h1><figure class="highlight shell"><table><tr><td class="code"><pre><span class="line">rm -rf gz_client_bot.tar.gz client_config r_client.jar sh_client_bot.sh log_r_client.log debug-.log </span><br></pre></td></tr></table></figure>
+
+<p>如也不需要JDK也可卸载：</p>
+<figure class="highlight shell"><table><tr><td class="code"><pre><span class="line">apt-get remove openjdk*</span><br></pre></td></tr></table></figure>
+
+]]></content>
+      <categories>
+        <category>教程</category>
+      </categories>
+      <tags>
+        <tag>服务器</tag>
+      </tags>
   </entry>
   <entry>
     <title>SEW Scope曲线监控</title>
@@ -1725,6 +1727,31 @@
       </tags>
   </entry>
   <entry>
+    <title>VPS一键脚本分享</title>
+    <url>/undefined/2419758f.html</url>
+    <content><![CDATA[<p><img src="https://pan.yuqi.fun/d/%E5%A4%A9%E7%BF%BC%E4%BA%91%E7%9B%98/img/202305051611537.png"></p>
+<p><strong>一键脚本</strong></p>
+<figure class="highlight shell"><table><tr><td class="code"><pre><span class="line">apt update -y &amp;&amp; apt install -y wget sudo</span><br><span class="line"></span><br><span class="line">wget --no-check-certificate -O tcpx.sh https://raw.githubusercontent.com/ylx2016/Linux-NetSpeed/master/tcpx.sh</span><br><span class="line"></span><br><span class="line">chmod +x tcpx.sh</span><br><span class="line"></span><br><span class="line">./tcpx.sh</span><br></pre></td></tr></table></figure>
+
+
+
+<p><strong>以后运行</strong>**</p>
+<figure class="highlight plaintext"><table><tr><td class="code"><pre><span class="line">./tcpx.sh</span><br></pre></td></tr></table></figure>
+
+
+
+<p><strong>注意</strong></p>
+<p>更新内核需要谨慎 使用后台运行模式最稳妥，我在SSH自动中断后失联了一台服务器。</p>
+<p>推荐使用tmux后台工具</p>
+]]></content>
+      <categories>
+        <category>教程</category>
+      </categories>
+      <tags>
+        <tag>服务器</tag>
+      </tags>
+  </entry>
+  <entry>
     <title>Xray最新协议Reality搭建</title>
     <url>/undefined/428849a6.html</url>
     <content><![CDATA[<h1 id="简介"><a href="#简介" class="headerlink" title="简介"></a>简介</h1><p>为了应对 TLS in TLS 和指纹识别等阻断或封禁的风险，Xray-core 团队推出了 Vision 和 Reality 两种新颖的技术方案。它们能够有效地隐藏和保护流量的特征，提高安全性和稳定性。</p>
@@ -1758,7 +1785,7 @@
 <p>Google:<br>dl.google.com</p>
 </blockquote>
 <p>3、然后重复一次你刚才输入的那个域名，然后一路回车即可。</p>
-<p><strong>PS：</strong>本教程来源为<a href="https://www.v2ray-agent.com/">mack-a</a> 的教程，<a href="https://www.v2ray-agent.com/archives/1680104902581">原文链接</a></p>
+<p>**PS：**本教程来源为<a href="https://www.v2ray-agent.com/">mack-a</a> 的教程，<a href="https://www.v2ray-agent.com/archives/1680104902581">原文链接</a></p>
 <h2 id="方法二：X-UI面板搭建"><a href="#方法二：X-UI面板搭建" class="headerlink" title="方法二：X-UI面板搭建"></a>方法二：X-UI面板搭建</h2><p>作者地址 <a href="https://github.com/FranzKafkaYu/x-ui/">https://github.com/FranzKafkaYu/x-ui/</a></p>
 <p>x-ui原理比较简单，有个面板，可以随意折腾各种协议</p>
 <p>1、安装面板</p>
@@ -1823,60 +1850,6 @@
       </tags>
   </entry>
   <entry>
-    <title>VPS一键脚本分享</title>
-    <url>/undefined/2419758f.html</url>
-    <content><![CDATA[<p><img src="https://pan.yuqi.fun/d/%E5%A4%A9%E7%BF%BC%E4%BA%91%E7%9B%98/img/202305051611537.png"></p>
-<p><strong>一键脚本</strong></p>
-<figure class="highlight shell"><table><tr><td class="code"><pre><span class="line">apt update -y &amp;&amp; apt install -y wget sudo</span><br><span class="line"></span><br><span class="line">wget --no-check-certificate -O tcpx.sh https://raw.githubusercontent.com/ylx2016/Linux-NetSpeed/master/tcpx.sh</span><br><span class="line"></span><br><span class="line">chmod +x tcpx.sh</span><br><span class="line"></span><br><span class="line">./tcpx.sh</span><br></pre></td></tr></table></figure>
-
-
-
-<p><strong>以后运行</strong>**</p>
-<figure class="highlight plaintext"><table><tr><td class="code"><pre><span class="line">./tcpx.sh</span><br></pre></td></tr></table></figure>
-
-
-
-<p><strong>注意</strong></p>
-<p>更新内核需要谨慎 使用后台运行模式最稳妥，我在SSH自动中断后失联了一台服务器。</p>
-<p>推荐使用tmux后台工具</p>
-]]></content>
-      <categories>
-        <category>教程</category>
-      </categories>
-      <tags>
-        <tag>服务器</tag>
-      </tags>
-  </entry>
-  <entry>
-    <title>tmux后台工具使用方法</title>
-    <url>/undefined/3117353a.html</url>
-    <content><![CDATA[<p>tmux多路后台会话功能 即使SSH断开程序也可以在内置会话中执行 实现后台稳定运行<br><img src="https://pan.yuqi.fun/d/%E5%A4%A9%E7%BF%BC%E4%BA%91%E7%9B%98/img/202305051618430.png"></p>
-<p>有长时间任务或者后台程序运行需求大家可以使用tmux，比如编译程序，推流直播，SSH连接不稳定等等场景需求。你可以把这些程序存放到一个独立会话中，让他自己运作，完全不影响SSH主会话。</p>
-<p>即使SSH断了，你在tmux中的程序也不会断连。</p>
-<p>安装</p>
-<figure class="highlight plaintext"><table><tr><td class="code"><pre><span class="line">apt update -y &amp;&amp; apt install -y tmux</span><br></pre></td></tr></table></figure>
-
-<p>创建一个会话进入（可多开N个后台会话）</p>
-<figure class="highlight plaintext"><table><tr><td class="code"><pre><span class="line">tmux new -s my1</span><br></pre></td></tr></table></figure>
-<p><img src="https://pan.yuqi.fun/d/%E5%A4%A9%E7%BF%BC%E4%BA%91%E7%9B%98/img/202305051620536.png"></p>
-<p>退出会话不中断 Crl+b然后d</p>
-<p>重新进入会话</p>
-<figure class="highlight plaintext"><table><tr><td class="code"><pre><span class="line">tmux attach-session -t my1</span><br></pre></td></tr></table></figure>
-
-<p>查看所有tmux会话</p>
-<figure class="highlight plaintext"><table><tr><td class="code"><pre><span class="line">tmux list-sessions</span><br></pre></td></tr></table></figure>
-
-<p>删除会话</p>
-<figure class="highlight plaintext"><table><tr><td class="code"><pre><span class="line">tmux kill-session -t my1</span><br><span class="line">crl+d</span><br></pre></td></tr></table></figure>
-]]></content>
-      <categories>
-        <category>教程</category>
-      </categories>
-      <tags>
-        <tag>服务器</tag>
-      </tags>
-  </entry>
-  <entry>
     <title>hysteria2与reality共存安装</title>
     <url>/undefined/756577dc.html</url>
     <content><![CDATA[<h1 id="前言"><a href="#前言" class="headerlink" title="前言"></a>前言</h1><p>1.目前伪装最好的两种协议，一个代表tcp协议（reality）的目前巅峰，一个新型UDP协议（hysteria2）的宠儿。<br>2.这次用的sing-box搭建 <a href="https://sing-box.sagernet.org/zh">https://sing-box.sagernet.org/zh</a> 因为简单。之前一直用八合一，最大的问题就是各种伪装后，机器就只能拿来科学上网了，因为安装Nginx，搭建个网页啥的都很麻烦。<br>3.教程亮点，无需自备域名。<br>3.passwall发现没有类似的设置教程，所以出一个。</p>
@@ -1920,6 +1893,35 @@
 <p>【遥遥领先】黑科技！垃圾VPS线路网速大幅提升！第二代hysteria节点搭建教程，歇斯底里为什么可以提升网速？windows&#x2F;ios&#x2F;android手机移动端使用方式，sing-box配置hy2方式：<a href="https://youtu.be/CXj-ID33MhU?si=bgcrlIpW5BwOc9uL">https://youtu.be/CXj-ID33MhU?si=bgcrlIpW5BwOc9uL</a></p>
 <h2 id="文档参考"><a href="#文档参考" class="headerlink" title="文档参考"></a>文档参考</h2><p>视频1：<a href="https://ybfl.xyz/sites/283.html">https://ybfl.xyz/sites/283.html</a></p>
 <p>视频2：<a href="https://bulianglin.com/archives/hysteria2.html">https://bulianglin.com/archives/hysteria2.html</a></p>
+]]></content>
+      <categories>
+        <category>教程</category>
+      </categories>
+      <tags>
+        <tag>服务器</tag>
+      </tags>
+  </entry>
+  <entry>
+    <title>tmux后台工具使用方法</title>
+    <url>/undefined/3117353a.html</url>
+    <content><![CDATA[<p>tmux多路后台会话功能 即使SSH断开程序也可以在内置会话中执行 实现后台稳定运行<br><img src="https://pan.yuqi.fun/d/%E5%A4%A9%E7%BF%BC%E4%BA%91%E7%9B%98/img/202305051618430.png"></p>
+<p>有长时间任务或者后台程序运行需求大家可以使用tmux，比如编译程序，推流直播，SSH连接不稳定等等场景需求。你可以把这些程序存放到一个独立会话中，让他自己运作，完全不影响SSH主会话。</p>
+<p>即使SSH断了，你在tmux中的程序也不会断连。</p>
+<p>安装</p>
+<figure class="highlight plaintext"><table><tr><td class="code"><pre><span class="line">apt update -y &amp;&amp; apt install -y tmux</span><br></pre></td></tr></table></figure>
+
+<p>创建一个会话进入（可多开N个后台会话）</p>
+<figure class="highlight plaintext"><table><tr><td class="code"><pre><span class="line">tmux new -s my1</span><br></pre></td></tr></table></figure>
+<p><img src="https://pan.yuqi.fun/d/%E5%A4%A9%E7%BF%BC%E4%BA%91%E7%9B%98/img/202305051620536.png"></p>
+<p>退出会话不中断 Crl+b然后d</p>
+<p>重新进入会话</p>
+<figure class="highlight plaintext"><table><tr><td class="code"><pre><span class="line">tmux attach-session -t my1</span><br></pre></td></tr></table></figure>
+
+<p>查看所有tmux会话</p>
+<figure class="highlight plaintext"><table><tr><td class="code"><pre><span class="line">tmux list-sessions</span><br></pre></td></tr></table></figure>
+
+<p>删除会话</p>
+<figure class="highlight plaintext"><table><tr><td class="code"><pre><span class="line">tmux kill-session -t my1</span><br><span class="line">crl+d</span><br></pre></td></tr></table></figure>
 ]]></content>
       <categories>
         <category>教程</category>
@@ -1982,40 +1984,6 @@
       </tags>
   </entry>
   <entry>
-    <title>利用CF Workers搭建Github加速服务</title>
-    <url>/undefined/ee2e5bab.html</url>
-    <content><![CDATA[<h1 id="利用CF-Workers搭建GH-Proxy服务"><a href="#利用CF-Workers搭建GH-Proxy服务" class="headerlink" title="利用CF Workers搭建GH-Proxy服务"></a>利用CF Workers搭建GH-Proxy服务</h1><blockquote>
-<p>项目地址：<a href="https://github.com/hunshcn/gh-proxy">hunshcn&#x2F;gh-proxy: github release、archive以及项目文件的加速项目</a><br>项目简介：github release、archive以及项目文件的加速项目，支持clone，有Cloudflare Workers无服务器版本以及Python版本</p>
-</blockquote>
-<ol>
-<li>注册一个CloudFlare账户</li>
-<li>进入<a href="https://workers.cloudflare.com/">CF Workers</a>页面，点击 <strong>创建应用程序 <img src="https://pan.yuqi.fun/d/%E5%A4%A9%E7%BF%BC%E4%BA%91%E7%9B%98/img/202312120902203.png" alt="img"></strong></li>
-<li>点击 <strong>创建Worker <img src="https://pan.yuqi.fun/d/%E5%A4%A9%E7%BF%BC%E4%BA%91%E7%9B%98/img/202312120902204.png" alt="img"></strong></li>
-<li>按需填写 <strong>名称</strong>，点击右下角 <strong>部署</strong><br><img src="https://pan.yuqi.fun/d/%E5%A4%A9%E7%BF%BC%E4%BA%91%E7%9B%98/img/202312120902205.png" alt="img"></li>
-<li>点击 <strong>编辑代码</strong><img src="https://pan.yuqi.fun/d/%E5%A4%A9%E7%BF%BC%E4%BA%91%E7%9B%98/img/202312120902206.png" alt="img"></li>
-<li>将代码<strong>复制并替换编辑框里的内容</strong>，点击右边的 <strong>保存并部署</strong>，返回刚才的管理页面</li>
-</ol>
-<blockquote>
-<p>代码地址：<a href="https://cdn.jsdelivr.net/gh/hunshcn/gh-proxy@master/index.js">cdn.jsdelivr.net&#x2F;gh&#x2F;hunshcn&#x2F;gh-proxy@master&#x2F;index.js</a></p>
-</blockquote>
-<p><img src="https://pan.yuqi.fun/d/%E5%A4%A9%E7%BF%BC%E4%BA%91%E7%9B%98/img/202312120902207.png" alt="img"></p>
-<ol>
-<li>点击<strong>查看链接</strong>，显示如下界面即为成功<img src="https://pan.yuqi.fun/d/%E5%A4%A9%E7%BF%BC%E4%BA%91%E7%9B%98/img/202312120902208.png" alt="img"></li>
-</ol>
-<p><img src="https://pan.yuqi.fun/d/%E5%A4%A9%E7%BF%BC%E4%BA%91%E7%9B%98/img/202312120902209.png" alt="img"></p>
-<blockquote>
-<h2 id="Cloudflare-Workers计费"><a href="#Cloudflare-Workers计费" class="headerlink" title="Cloudflare Workers计费"></a>Cloudflare Workers计费</h2><p>到 <code>overview</code> 页面可参看使用情况。免费版每天有 10 万次免费请求，并且有每分钟1000次请求的限制。</p>
-<p>如果不够用，可升级到 $5 的高级版本，每月可用 1000 万次请求（超出部分 $0.5&#x2F;百万次请求）。</p>
-</blockquote>
-]]></content>
-      <categories>
-        <category>教程</category>
-      </categories>
-      <tags>
-        <tag>网站</tag>
-      </tags>
-  </entry>
-  <entry>
     <title>一键DD纯净系统脚本 CentOS/Debian/Ubuntu</title>
     <url>/undefined/7db8067.html</url>
     <content><![CDATA[<p>基本所有的VPS服务器商家，都会提供免费的Linux系统供安装，比如CentOS、Debian、Ubuntu等。那为什么还要使用一键DD脚本重装&#x2F;更换系统呢？</p>
@@ -2027,7 +1995,7 @@
 <p>以上几种情况，一键DD脚本就可以为服务器更换一个纯净的系统，帮你解决问题。</p>
 <h2 id="所需环境"><a href="#所需环境" class="headerlink" title="所需环境"></a>所需环境</h2><hr>
 <p>以网络流传较广的Vicer一键DD为例，其所需环境为：</p>
-<p><strong>架构：</strong>KVM&#x2F;XEN，不支持OpenVZ。<br><strong>系统：</strong>Debian&#x2F;Ubuntu&#x2F;CentOS</p>
+<p>**架构：**KVM&#x2F;XEN，不支持OpenVZ。<br>**系统：**Debian&#x2F;Ubuntu&#x2F;CentOS</p>
 <h2 id="一键DD脚本使用教程"><a href="#一键DD脚本使用教程" class="headerlink" title="一键DD脚本使用教程"></a>一键DD脚本使用教程</h2><p>注意事项：</p>
 <ul>
 <li><strong>Vicer脚本目前不支持重装为CentOS 7系统，支持CentOS 6.9以下版本。</strong></li>
@@ -2052,7 +2020,7 @@
 <p>如果安装CentOS 7版本，会出现下图提示，表示不支持：<br><img src="https://pan.yuqi.fun/d/%E5%A4%A9%E7%BF%BC%E4%BA%91%E7%9B%98/img/202311061444408.png"><br>如果输入了其它不支持或不存在的系统版本，则会出现下图提示，中止安装：<br><img src="https://pan.yuqi.fun/d/%E5%A4%A9%E7%BF%BC%E4%BA%91%E7%9B%98/img/202311061444207.png"></p>
 <hr>
 <p>重装系统后更改root密码<br>耐心等待系统安装成功后，出于安全考虑，建议立即更改默认密码。</p>
-<h2 id="具体方法："><a href="#具体方法：" class="headerlink" title="具体方法："></a>具体方法：</h2><p>1、使用Putty以上文提供的默认密码登录，输入以下命令：**<code>passwd root</code>**</p>
+<h2 id="具体方法："><a href="#具体方法：" class="headerlink" title="具体方法："></a>具体方法：</h2><p>1、使用Putty以上文提供的默认密码登录，输入以下命令：<strong><code>passwd root</code></strong></p>
 <p>2、接下来会分两次要求输入新的密码，可以手动输入，也可以在其它位置复制一个密码，然后在Putty界面右键点击即可粘贴上去。</p>
 <h2 id="注意："><a href="#注意：" class="headerlink" title="注意："></a>注意：</h2><p>输入新密码时并不会直接显示出来，光标也不会移动，这是正常的。</p>
 <p>3、再次登录系统时，记得使用新的root密码。</p>
@@ -2062,36 +2030,6 @@
       </categories>
       <tags>
         <tag>服务器</tag>
-      </tags>
-  </entry>
-  <entry>
-    <title>备份Hexo博客到开源仓库</title>
-    <url>/undefined/5836c89e.html</url>
-    <content><![CDATA[<p>本教程以 gitee 举例，GitHub 同理。</p>
-<h1 id="创建-gitee-仓库"><a href="#创建-gitee-仓库" class="headerlink" title="创建 gitee 仓库"></a>创建 gitee 仓库</h1><p>直接 gitee 官网右上角创建仓库即可，名字什么的自定义，最好创建私人仓库。</p>
-<h1 id="初始化本地仓库"><a href="#初始化本地仓库" class="headerlink" title="初始化本地仓库"></a>初始化本地仓库</h1><p>在本地 hexo 目录运行命令行</p>
-<p>输入</p>
-<figure class="highlight cmd"><table><tr><td class="code"><pre><span class="line">git init</span><br></pre></td></tr></table></figure>
-
-<p>然后输入</p>
-<figure class="highlight cmd"><table><tr><td class="code"><pre><span class="line">git remote add origin git@gitee.com:yuqi15/blog-backup.git</span><br></pre></td></tr></table></figure>
-
-<p>注意：这里是使用你自己创建仓库的链接，刚创建好会在页面上提示</p>
-<p><img src="https://pan.yuqi.fun/d/%E5%A4%A9%E7%BF%BC%E4%BA%91%E7%9B%98/img/202303031601529.png"></p>
-<h1 id="上传到-gitee"><a href="#上传到-gitee" class="headerlink" title="上传到 gitee"></a>上传到 gitee</h1><p>依次在命令行里面运行下面命令</p>
-<figure class="highlight cmd"><table><tr><td class="code"><pre><span class="line">git add .</span><br><span class="line">git commit -m &quot;update&quot;</span><br><span class="line">git push origin master --force</span><br></pre></td></tr></table></figure>
-
-<p>运行成功就上传完成了</p>
-<h1 id="新设备恢复-hexo-博客"><a href="#新设备恢复-hexo-博客" class="headerlink" title="新设备恢复 hexo 博客"></a>新设备恢复 hexo 博客</h1><p>1、安装 node</p>
-<p>2、安装 Git</p>
-<p>3、在你需要恢复博客的文件夹里面使用命令行执行</p>
-<figure class="highlight cmd"><table><tr><td class="code"><pre><span class="line">cnpm install hexo-cli -g</span><br><span class="line">git clone 你备份的仓库地址</span><br><span class="line">cnpm install</span><br></pre></td></tr></table></figure>
-]]></content>
-      <categories>
-        <category>教程</category>
-      </categories>
-      <tags>
-        <tag>hexo</tag>
       </tags>
   </entry>
   <entry>
@@ -2163,6 +2101,40 @@
       </tags>
   </entry>
   <entry>
+    <title>利用CF Workers搭建Github加速服务</title>
+    <url>/undefined/ee2e5bab.html</url>
+    <content><![CDATA[<h1 id="利用CF-Workers搭建GH-Proxy服务"><a href="#利用CF-Workers搭建GH-Proxy服务" class="headerlink" title="利用CF Workers搭建GH-Proxy服务"></a>利用CF Workers搭建GH-Proxy服务</h1><blockquote>
+<p>项目地址：<a href="https://github.com/hunshcn/gh-proxy">hunshcn&#x2F;gh-proxy: github release、archive以及项目文件的加速项目</a><br>项目简介：github release、archive以及项目文件的加速项目，支持clone，有Cloudflare Workers无服务器版本以及Python版本</p>
+</blockquote>
+<ol>
+<li>注册一个CloudFlare账户</li>
+<li>进入<a href="https://workers.cloudflare.com/">CF Workers</a>页面，点击 <strong>创建应用程序 <img src="https://pan.yuqi.fun/d/%E5%A4%A9%E7%BF%BC%E4%BA%91%E7%9B%98/img/202312120902203.png" alt="img"></strong></li>
+<li>点击 <strong>创建Worker <img src="https://pan.yuqi.fun/d/%E5%A4%A9%E7%BF%BC%E4%BA%91%E7%9B%98/img/202312120902204.png" alt="img"></strong></li>
+<li>按需填写 <strong>名称</strong>，点击右下角 <strong>部署</strong><br><img src="https://pan.yuqi.fun/d/%E5%A4%A9%E7%BF%BC%E4%BA%91%E7%9B%98/img/202312120902205.png" alt="img"></li>
+<li>点击 <strong>编辑代码</strong><img src="https://pan.yuqi.fun/d/%E5%A4%A9%E7%BF%BC%E4%BA%91%E7%9B%98/img/202312120902206.png" alt="img"></li>
+<li>将代码<strong>复制并替换编辑框里的内容</strong>，点击右边的 <strong>保存并部署</strong>，返回刚才的管理页面</li>
+</ol>
+<blockquote>
+<p>代码地址：<a href="https://cdn.jsdelivr.net/gh/hunshcn/gh-proxy@master/index.js">cdn.jsdelivr.net&#x2F;gh&#x2F;hunshcn&#x2F;gh-proxy@master&#x2F;index.js</a></p>
+</blockquote>
+<p><img src="https://pan.yuqi.fun/d/%E5%A4%A9%E7%BF%BC%E4%BA%91%E7%9B%98/img/202312120902207.png" alt="img"></p>
+<ol>
+<li>点击<strong>查看链接</strong>，显示如下界面即为成功<img src="https://pan.yuqi.fun/d/%E5%A4%A9%E7%BF%BC%E4%BA%91%E7%9B%98/img/202312120902208.png" alt="img"></li>
+</ol>
+<p><img src="https://pan.yuqi.fun/d/%E5%A4%A9%E7%BF%BC%E4%BA%91%E7%9B%98/img/202312120902209.png" alt="img"></p>
+<blockquote>
+<h2 id="Cloudflare-Workers计费"><a href="#Cloudflare-Workers计费" class="headerlink" title="Cloudflare Workers计费"></a>Cloudflare Workers计费</h2><p>到 <code>overview</code> 页面可参看使用情况。免费版每天有 10 万次免费请求，并且有每分钟1000次请求的限制。</p>
+<p>如果不够用，可升级到 $5 的高级版本，每月可用 1000 万次请求（超出部分 $0.5&#x2F;百万次请求）。</p>
+</blockquote>
+]]></content>
+      <categories>
+        <category>教程</category>
+      </categories>
+      <tags>
+        <tag>网站</tag>
+      </tags>
+  </entry>
+  <entry>
     <title>在WSL2中使用Clash Verge代理连接</title>
     <url>/undefined/af89448b.html</url>
     <content><![CDATA[<blockquote>
@@ -2197,34 +2169,33 @@
       </tags>
   </entry>
   <entry>
-    <title>安装了VMware Tools，但无法实现文件的拖拽和复制粘贴---解决方案</title>
-    <url>/undefined/a580ef34.html</url>
-    <content><![CDATA[<p>环境：Windows11，VMware17Pro，ubuntu-23.10.1</p>
-<p>我给虚拟机装好Ubuntu系统后，它默认是安装好vmtools的</p>
-<p>而且这些选项默认是勾选的，但是我无法实现宿主机和虚拟机之间文件的拖拽和复制粘贴</p>
-<p>如果你遇到了和我一样的问题，且网上很多博文提供的解决方案都无法解决你的问题，那么请往下看</p>
-<p>我试了各路大神的解决方案，基本都行不通</p>
-<p>只有一篇标题和这个问题相关度不高的文章，提到了一种重装VMware tools的方法，我试了一下终于解决了问题</p>
-<p> 这里要说一下，网上的很多文章用cd里带的VMware tools压缩包来重新安装（还要手动输yes的那个方法），我试了，根本没有用</p>
-<p>毕竟初始安装的就是那个版本，再重新安装一下并没有意义</p>
-<p>真正的解决方案其实很方便：</p>
-<p>打开终端</p>
-<p>1.卸载VMware Tools</p>
-<figure class="highlight plaintext"><table><tr><td class="code"><pre><span class="line">sudo apt-get autoremove open-vm-tools</span><br></pre></td></tr></table></figure>
+    <title>备份Hexo博客到开源仓库</title>
+    <url>/undefined/5836c89e.html</url>
+    <content><![CDATA[<p>本教程以 gitee 举例，GitHub 同理。</p>
+<h1 id="创建-gitee-仓库"><a href="#创建-gitee-仓库" class="headerlink" title="创建 gitee 仓库"></a>创建 gitee 仓库</h1><p>直接 gitee 官网右上角创建仓库即可，名字什么的自定义，最好创建私人仓库。</p>
+<h1 id="初始化本地仓库"><a href="#初始化本地仓库" class="headerlink" title="初始化本地仓库"></a>初始化本地仓库</h1><p>在本地 hexo 目录运行命令行</p>
+<p>输入</p>
+<figure class="highlight cmd"><table><tr><td class="code"><pre><span class="line">git init</span><br></pre></td></tr></table></figure>
 
-<p>2.联网安装VMware tools</p>
-<figure class="highlight plaintext"><table><tr><td class="code"><pre><span class="line">sudo apt-get install open-vm-tools-desktop</span><br></pre></td></tr></table></figure>
+<p>然后输入</p>
+<figure class="highlight cmd"><table><tr><td class="code"><pre><span class="line">git remote add origin git@gitee.com:yuqi15/blog-backup.git</span><br></pre></td></tr></table></figure>
 
-<p>如果出错了，就执行下面两行命令</p>
-<figure class="highlight plaintext"><table><tr><td class="code"><pre><span class="line">sudo apt-get update</span><br><span class="line">sudo apt-get install open-vm-tools-desktop fuse</span><br></pre></td></tr></table></figure>
+<p>注意：这里是使用你自己创建仓库的链接，刚创建好会在页面上提示</p>
+<p><img src="https://pan.yuqi.fun/d/%E5%A4%A9%E7%BF%BC%E4%BA%91%E7%9B%98/img/202303031601529.png"></p>
+<h1 id="上传到-gitee"><a href="#上传到-gitee" class="headerlink" title="上传到 gitee"></a>上传到 gitee</h1><p>依次在命令行里面运行下面命令</p>
+<figure class="highlight cmd"><table><tr><td class="code"><pre><span class="line">git add .</span><br><span class="line">git commit -m &quot;update&quot;</span><br><span class="line">git push origin master --force</span><br></pre></td></tr></table></figure>
 
-<p>3.重启虚拟机即可</p>
+<p>运行成功就上传完成了</p>
+<h1 id="新设备恢复-hexo-博客"><a href="#新设备恢复-hexo-博客" class="headerlink" title="新设备恢复 hexo 博客"></a>新设备恢复 hexo 博客</h1><p>1、安装 node</p>
+<p>2、安装 Git</p>
+<p>3、在你需要恢复博客的文件夹里面使用命令行执行</p>
+<figure class="highlight cmd"><table><tr><td class="code"><pre><span class="line">cnpm install hexo-cli -g</span><br><span class="line">git clone 你备份的仓库地址</span><br><span class="line">cnpm install</span><br></pre></td></tr></table></figure>
 ]]></content>
       <categories>
         <category>教程</category>
       </categories>
       <tags>
-        <tag>虚拟机</tag>
+        <tag>hexo</tag>
       </tags>
   </entry>
   <entry>
@@ -2261,6 +2232,37 @@
       </categories>
       <tags>
         <tag>手机</tag>
+      </tags>
+  </entry>
+  <entry>
+    <title>安装了VMware Tools，但无法实现文件的拖拽和复制粘贴---解决方案</title>
+    <url>/undefined/a580ef34.html</url>
+    <content><![CDATA[<p>环境：Windows11，VMware17Pro，ubuntu-23.10.1</p>
+<p>我给虚拟机装好Ubuntu系统后，它默认是安装好vmtools的</p>
+<p>而且这些选项默认是勾选的，但是我无法实现宿主机和虚拟机之间文件的拖拽和复制粘贴</p>
+<p>如果你遇到了和我一样的问题，且网上很多博文提供的解决方案都无法解决你的问题，那么请往下看</p>
+<p>我试了各路大神的解决方案，基本都行不通</p>
+<p>只有一篇标题和这个问题相关度不高的文章，提到了一种重装VMware tools的方法，我试了一下终于解决了问题</p>
+<p> 这里要说一下，网上的很多文章用cd里带的VMware tools压缩包来重新安装（还要手动输yes的那个方法），我试了，根本没有用</p>
+<p>毕竟初始安装的就是那个版本，再重新安装一下并没有意义</p>
+<p>真正的解决方案其实很方便：</p>
+<p>打开终端</p>
+<p>1.卸载VMware Tools</p>
+<figure class="highlight plaintext"><table><tr><td class="code"><pre><span class="line">sudo apt-get autoremove open-vm-tools</span><br></pre></td></tr></table></figure>
+
+<p>2.联网安装VMware tools</p>
+<figure class="highlight plaintext"><table><tr><td class="code"><pre><span class="line">sudo apt-get install open-vm-tools-desktop</span><br></pre></td></tr></table></figure>
+
+<p>如果出错了，就执行下面两行命令</p>
+<figure class="highlight plaintext"><table><tr><td class="code"><pre><span class="line">sudo apt-get update</span><br><span class="line">sudo apt-get install open-vm-tools-desktop fuse</span><br></pre></td></tr></table></figure>
+
+<p>3.重启虚拟机即可</p>
+]]></content>
+      <categories>
+        <category>教程</category>
+      </categories>
+      <tags>
+        <tag>虚拟机</tag>
       </tags>
   </entry>
   <entry>
@@ -2401,46 +2403,6 @@
 ]]></content>
   </entry>
   <entry>
-    <title>李跳跳2.2正式版</title>
-    <url>/undefined/f5caf0fa.html</url>
-    <content><![CDATA[<p><strong>无论你是哪个版本的李跳跳，都建议更新啊喂。</strong></p>
-<h1 id="更新日志"><a href="#更新日志" class="headerlink" title="更新日志"></a>更新日志</h1><p>1.省电优化。</p>
-<p>2.响应速度优化。</p>
-<p>3.内置算法优化。</p>
-<p>4.适配更多APP。</p>
-<p>5.修复已知BUG。</p>
-<p>6.修复用户反馈的问题。</p>
-<p>7.适配圆形倒计时广告。</p>
-<p>8.优化微信自动勾选原图。</p>
-<p>9.新增无障碍服务异常检测。</p>
-<p>10.自定义规则优化，支持关闭任意个连续弹窗。</p>
-<p>11.自定义规则优化，支持同一弹窗点击多个位置。</p>
-<p>12.自定义规则优化，遇到流氓弹窗容易误点广告的问题。</p>
-<p>13.优化短时间内弹出多个弹窗无法全部关闭的问题。</p>
-<p>14.过滤一些不合理输入，减少系统资源损耗。</p>
-<p>15.自定义规则支持CheckBox状态判断。</p>
-<p>16.修复华为系统下的特定BUG。</p>
-<p>17.适配华为系统下的特定广告。</p>
-<p>18.特定APP新增特定算法。</p>
-<p>19.适配特定系统的优化。</p>
-<p>20.支持自定义点击序列。</p>
-<p>21.优化节点过滤逻辑。</p>
-<p>22.支持覆盖内置规则。</p>
-<p>23.无障碍标签完善。</p>
-<p>24.优化部分文案。</p>
-<p>25.更换新图标。</p>
-<p>26.更换包名(无奈之举)。</p>
-<h1 id="下载地址"><a href="#下载地址" class="headerlink" title="下载地址"></a>下载地址</h1><p>免登陆下载：<a href="https://www.123pan.com/s/bAORVv-QGQl.html">https://www.123pan.com/s/bAORVv-QGQl.html</a></p>
-<p><img src="https://pan.yuqi.fun/d/%E5%A4%A9%E7%BF%BC%E4%BA%91%E7%9B%98/img/202304091214921.png" alt="image-20230409121412470"></p>
-]]></content>
-      <categories>
-        <category>软件分享</category>
-      </categories>
-      <tags>
-        <tag>安卓软件</tag>
-      </tags>
-  </entry>
-  <entry>
     <title>最佳免费NPV方式-workers搭建vless使用</title>
     <url>/undefined/1b7388f.html</url>
     <content><![CDATA[<h2 id="资源："><a href="#资源：" class="headerlink" title="资源："></a>资源：</h2><h6 id="WIN"><a href="#WIN" class="headerlink" title="WIN:"></a><strong>WIN:</strong></h6><p>v2rayN 最新版<a href="https://github.com/2dust/v2rayN/releases">下载地址&gt;&gt;</a></p>
@@ -2539,6 +2501,46 @@
       </tags>
   </entry>
   <entry>
+    <title>李跳跳2.2正式版</title>
+    <url>/undefined/f5caf0fa.html</url>
+    <content><![CDATA[<p><strong>无论你是哪个版本的李跳跳，都建议更新啊喂。</strong></p>
+<h1 id="更新日志"><a href="#更新日志" class="headerlink" title="更新日志"></a>更新日志</h1><p>1.省电优化。</p>
+<p>2.响应速度优化。</p>
+<p>3.内置算法优化。</p>
+<p>4.适配更多APP。</p>
+<p>5.修复已知BUG。</p>
+<p>6.修复用户反馈的问题。</p>
+<p>7.适配圆形倒计时广告。</p>
+<p>8.优化微信自动勾选原图。</p>
+<p>9.新增无障碍服务异常检测。</p>
+<p>10.自定义规则优化，支持关闭任意个连续弹窗。</p>
+<p>11.自定义规则优化，支持同一弹窗点击多个位置。</p>
+<p>12.自定义规则优化，遇到流氓弹窗容易误点广告的问题。</p>
+<p>13.优化短时间内弹出多个弹窗无法全部关闭的问题。</p>
+<p>14.过滤一些不合理输入，减少系统资源损耗。</p>
+<p>15.自定义规则支持CheckBox状态判断。</p>
+<p>16.修复华为系统下的特定BUG。</p>
+<p>17.适配华为系统下的特定广告。</p>
+<p>18.特定APP新增特定算法。</p>
+<p>19.适配特定系统的优化。</p>
+<p>20.支持自定义点击序列。</p>
+<p>21.优化节点过滤逻辑。</p>
+<p>22.支持覆盖内置规则。</p>
+<p>23.无障碍标签完善。</p>
+<p>24.优化部分文案。</p>
+<p>25.更换新图标。</p>
+<p>26.更换包名(无奈之举)。</p>
+<h1 id="下载地址"><a href="#下载地址" class="headerlink" title="下载地址"></a>下载地址</h1><p>免登陆下载：<a href="https://www.123pan.com/s/bAORVv-QGQl.html">https://www.123pan.com/s/bAORVv-QGQl.html</a></p>
+<p><img src="https://pan.yuqi.fun/d/%E5%A4%A9%E7%BF%BC%E4%BA%91%E7%9B%98/img/202304091214921.png" alt="image-20230409121412470"></p>
+]]></content>
+      <categories>
+        <category>软件分享</category>
+      </categories>
+      <tags>
+        <tag>安卓软件</tag>
+      </tags>
+  </entry>
+  <entry>
     <title>电脑谷歌浏览器糖心使用教程</title>
     <url>/undefined/77efc3f1.html</url>
     <content><![CDATA[<p>1、先安装油猴插件<br><a href="https://greasyfork.org/scripts/461743-%E7%B3%96%E5%BF%83/code/%E7%B3%96%E5%BF%83.user.js">油猴插件</a><br>2、安装更改 ua 插件（挂梯子扶墙，打开 chrome 应用商店安装）<br><a href="https://chrome.google.com/webstore/detail/user-agent-switcher-and-m/bhchdcejhohfmigjafbampogmaanbfkg">https://chrome.google.com/webstore/detail/user-agent-switcher-and-m/bhchdcejhohfmigjafbampogmaanbfkg</a><br>3、按照这个教程(使用拓展插件进行修改)设置 ua<br><a href="https://blog.csdn.net/m0_46665077/article/details/125713310#22__31">https://blog.csdn.net/m0_46665077/article/details/125713310#22__31</a><br>下面是 UA：</p>
@@ -2611,53 +2613,6 @@
       </categories>
       <tags>
         <tag>短信转发</tag>
-      </tags>
-  </entry>
-  <entry>
-    <title>记中兴MF932改串</title>
-    <url>/undefined/27cbce44.html</url>
-    <content><![CDATA[<h1 id="注意！"><a href="#注意！" class="headerlink" title="注意！"></a>注意！</h1><p><strong>改串需要自己将串号写入NV文件中，我也不知道怎么写入，本教程只做参考，不会生成改串的NV文件就不用再往下看了。</strong>**</p>
-<h1 id="下载资料包"><a href="#下载资料包" class="headerlink" title="下载资料包"></a>下载资料包</h1><a class="btn-beautify green larger" href="https://www.123pan.com/s/bAORVv-LSEl.html" title="点击下载"><i class="far fa-hand-point-right"></i><span>点击下载</span></a>
-
-<h1 id="安装驱动以及AT工具"><a href="#安装驱动以及AT工具" class="headerlink" title="安装驱动以及AT工具"></a>安装驱动以及AT工具</h1><p><img src="https://pan.yuqi.fun/d/%E5%A4%A9%E7%BF%BC%E4%BA%91%E7%9B%98/img/202303232019930.png"></p>
-<p>安装驱动和AT工具都是一直默认下一步，驱动的话安装完成会有弹窗，再次点击Update Driver就行，安装完成关闭即可。</p>
-<p><img src="https://pan.yuqi.fun/d/%E5%A4%A9%E7%BF%BC%E4%BA%91%E7%9B%98/img/202303232027379.png" alt="image-20230323202701458"></p>
-<h1 id="改串步骤"><a href="#改串步骤" class="headerlink" title="改串步骤"></a>改串步骤</h1><p>随身WiFi开机连接电脑，双击开端口.exe</p>
-<p><img src="https://pan.yuqi.fun/d/%E5%A4%A9%E7%BF%BC%E4%BA%91%E7%9B%98/img/202303232025428.png"></p>
-<p>然后打开AT工具</p>
-<p><img src="https://pan.yuqi.fun/d/%E5%A4%A9%E7%BF%BC%E4%BA%91%E7%9B%98/img/202303232028866.png" alt="image-20230323202802094"></p>
-<p>选择带AT的端口，波特率115200</p>
-<p><img src="https://pan.yuqi.fun/d/%E5%A4%A9%E7%BF%BC%E4%BA%91%E7%9B%98/img/202303232030393.png" alt="image-20230323203011060"></p>
-<p>输入AT，点击发送，返回OK则连接成功</p>
-<p><img src="https://pan.yuqi.fun/d/%E5%A4%A9%E7%BF%BC%E4%BA%91%E7%9B%98/img/202303232031438.png" alt="image-20230323203136174"></p>
-<p>输入</p>
-<figure class="highlight plaintext"><table><tr><td class="code"><pre><span class="line">AT+zmode=1</span><br></pre></td></tr></table></figure>
-
-<p>拔掉随身WiFi然后重连</p>
-<p>在资料包文件夹打开命令提示符（CMD）,地址栏输入并回车</p>
-<p><img src="https://pan.yuqi.fun/d/%E5%A4%A9%E7%BF%BC%E4%BA%91%E7%9B%98/img/202303232039978.png" alt="image-20230323203952252"></p>
-<p>按照下面的命令进行操作</p>
-<p>备份原来NV</p>
-<figure class="highlight plaintext"><table><tr><td class="code"><pre><span class="line">adb pull /mnt/nvrofs/nvroall.bin C:\Users\YUQI\Desktop\（C:\Users\YUQI\Desktop\ 是保存的文件存放路径）</span><br></pre></td></tr></table></figure>
-
-<p>清除设备NV</p>
-<figure class="highlight plaintext"><table><tr><td class="code"><pre><span class="line">adb shell mount -o remount,rw /mnt nvrofs</span><br><span class="line">adb shell rm -rf /mnt/nvrofs/nvroall.bin</span><br></pre></td></tr></table></figure>
-
-<p>推送修改新imei的NV</p>
-<figure class="highlight plaintext"><table><tr><td class="code"><pre><span class="line">adb push C:\Users\YUQI\Desktop\nvroall.bin /mnt/nvrofs/ （C:\Users\YUQI\Desktop\nvroall.bin是新NV的路径）</span><br></pre></td></tr></table></figure>
-
-<p>重启设备</p>
-<figure class="highlight plaintext"><table><tr><td class="code"><pre><span class="line">adb shell reboot</span><br></pre></td></tr></table></figure>
-
-<p>拔掉随身WiFi再次连接</p>
-<p>重复以上步骤，清除设备NV，推送修改新imei的NV，重启设备</p>
-<p>完成</p>
-]]></content>
-      <categories>
-        <category>教程</category>
-      </categories>
-      <tags>
-        <tag>随身WiFi</tag>
       </tags>
   </entry>
   <entry>
@@ -2799,6 +2754,71 @@
       </tags>
   </entry>
   <entry>
+    <title>记中兴MF932改串</title>
+    <url>/undefined/27cbce44.html</url>
+    <content><![CDATA[<h1 id="注意！"><a href="#注意！" class="headerlink" title="注意！"></a>注意！</h1><p><strong>改串需要自己将串号写入NV文件中，我也不知道怎么写入，本教程只做参考，不会生成改串的NV文件就不用再往下看了。</strong>**</p>
+<h1 id="下载资料包"><a href="#下载资料包" class="headerlink" title="下载资料包"></a>下载资料包</h1><a class="btn-beautify green larger" href="https://www.123pan.com/s/bAORVv-LSEl.html" title="点击下载"><i class="far fa-hand-point-right"></i><span>点击下载</span></a>
+
+<h1 id="安装驱动以及AT工具"><a href="#安装驱动以及AT工具" class="headerlink" title="安装驱动以及AT工具"></a>安装驱动以及AT工具</h1><p><img src="https://pan.yuqi.fun/d/%E5%A4%A9%E7%BF%BC%E4%BA%91%E7%9B%98/img/202303232019930.png"></p>
+<p>安装驱动和AT工具都是一直默认下一步，驱动的话安装完成会有弹窗，再次点击Update Driver就行，安装完成关闭即可。</p>
+<p><img src="https://pan.yuqi.fun/d/%E5%A4%A9%E7%BF%BC%E4%BA%91%E7%9B%98/img/202303232027379.png" alt="image-20230323202701458"></p>
+<h1 id="改串步骤"><a href="#改串步骤" class="headerlink" title="改串步骤"></a>改串步骤</h1><p>随身WiFi开机连接电脑，双击开端口.exe</p>
+<p><img src="https://pan.yuqi.fun/d/%E5%A4%A9%E7%BF%BC%E4%BA%91%E7%9B%98/img/202303232025428.png"></p>
+<p>然后打开AT工具</p>
+<p><img src="https://pan.yuqi.fun/d/%E5%A4%A9%E7%BF%BC%E4%BA%91%E7%9B%98/img/202303232028866.png" alt="image-20230323202802094"></p>
+<p>选择带AT的端口，波特率115200</p>
+<p><img src="https://pan.yuqi.fun/d/%E5%A4%A9%E7%BF%BC%E4%BA%91%E7%9B%98/img/202303232030393.png" alt="image-20230323203011060"></p>
+<p>输入AT，点击发送，返回OK则连接成功</p>
+<p><img src="https://pan.yuqi.fun/d/%E5%A4%A9%E7%BF%BC%E4%BA%91%E7%9B%98/img/202303232031438.png" alt="image-20230323203136174"></p>
+<p>输入</p>
+<figure class="highlight plaintext"><table><tr><td class="code"><pre><span class="line">AT+zmode=1</span><br></pre></td></tr></table></figure>
+
+<p>拔掉随身WiFi然后重连</p>
+<p>在资料包文件夹打开命令提示符（CMD）,地址栏输入并回车</p>
+<p><img src="https://pan.yuqi.fun/d/%E5%A4%A9%E7%BF%BC%E4%BA%91%E7%9B%98/img/202303232039978.png" alt="image-20230323203952252"></p>
+<p>按照下面的命令进行操作</p>
+<p>备份原来NV</p>
+<figure class="highlight plaintext"><table><tr><td class="code"><pre><span class="line">adb pull /mnt/nvrofs/nvroall.bin C:\Users\YUQI\Desktop\（C:\Users\YUQI\Desktop\ 是保存的文件存放路径）</span><br></pre></td></tr></table></figure>
+
+<p>清除设备NV</p>
+<figure class="highlight plaintext"><table><tr><td class="code"><pre><span class="line">adb shell mount -o remount,rw /mnt nvrofs</span><br><span class="line">adb shell rm -rf /mnt/nvrofs/nvroall.bin</span><br></pre></td></tr></table></figure>
+
+<p>推送修改新imei的NV</p>
+<figure class="highlight plaintext"><table><tr><td class="code"><pre><span class="line">adb push C:\Users\YUQI\Desktop\nvroall.bin /mnt/nvrofs/ （C:\Users\YUQI\Desktop\nvroall.bin是新NV的路径）</span><br></pre></td></tr></table></figure>
+
+<p>重启设备</p>
+<figure class="highlight plaintext"><table><tr><td class="code"><pre><span class="line">adb shell reboot</span><br></pre></td></tr></table></figure>
+
+<p>拔掉随身WiFi再次连接</p>
+<p>重复以上步骤，清除设备NV，推送修改新imei的NV，重启设备</p>
+<p>完成</p>
+]]></content>
+      <categories>
+        <category>教程</category>
+      </categories>
+      <tags>
+        <tag>随身WiFi</tag>
+      </tags>
+  </entry>
+  <entry>
+    <title>谷歌浏览器设置关闭搜索记录</title>
+    <url>/undefined/42e51b95.html</url>
+    <content><![CDATA[<p><strong>将 Chrome 的 History 文件设置为可读即可。</strong><br>操作方法：<br>1 、在 Chrome 浏览器地址栏中输入</p>
+<figure class="highlight html"><table><tr><td class="code"><pre><span class="line">chrome://version/</span><br></pre></td></tr></table></figure>
+
+<p>2 、复制<strong>个人资料路径</strong>，关闭 Chrome 浏览器并到资源管理器中打开刚才复制的“个人资料路径”</p>
+<p><img src="https://pan.yuqi.fun/d/%E5%A4%A9%E7%BF%BC%E4%BA%91%E7%9B%98/img/202303062045271.png" alt="image-20230306204551884"></p>
+<p>3 、找到History文件并删除，然后新建一个History文件，对History文件，右键—属性，勾选只读。</p>
+<p><img src="https://pan.yuqi.fun/d/%E5%A4%A9%E7%BF%BC%E4%BA%91%E7%9B%98/img/202303062048179.png" alt="image-20230306204804357"></p>
+]]></content>
+      <categories>
+        <category>教程</category>
+      </categories>
+      <tags>
+        <tag>Google浏览器</tag>
+      </tags>
+  </entry>
+  <entry>
     <title>贵阳吉利程序解析</title>
     <url>/undefined/57946227.html</url>
     <content><![CDATA[<h1 id="程序框架"><a href="#程序框架" class="headerlink" title="程序框架"></a>程序框架</h1><p><strong>_00_Organization_Blocks</strong>：系统组织块</p>
@@ -2885,23 +2905,5 @@
 <p><img src="https://pan.yuqi.fun/d/%E5%A4%A9%E7%BF%BC%E4%BA%91%E7%9B%98/img/202411241536675.png" alt="image-20241124153306459"></p>
 <p><img src="https://pan.yuqi.fun/d/%E5%A4%A9%E7%BF%BC%E4%BA%91%E7%9B%98/img/202411241536972.png" alt="image-20241124153505708"></p>
 <h1 id="画面"><a href="#画面" class="headerlink" title="画面"></a>画面</h1>]]></content>
-  </entry>
-  <entry>
-    <title>谷歌浏览器设置关闭搜索记录</title>
-    <url>/undefined/42e51b95.html</url>
-    <content><![CDATA[<p><strong>将 Chrome 的 History 文件设置为可读即可。</strong><br>操作方法：<br>1 、在 Chrome 浏览器地址栏中输入</p>
-<figure class="highlight html"><table><tr><td class="code"><pre><span class="line">chrome://version/</span><br></pre></td></tr></table></figure>
-
-<p>2 、复制<strong>个人资料路径</strong>，关闭 Chrome 浏览器并到资源管理器中打开刚才复制的“个人资料路径”</p>
-<p><img src="https://pan.yuqi.fun/d/%E5%A4%A9%E7%BF%BC%E4%BA%91%E7%9B%98/img/202303062045271.png" alt="image-20230306204551884"></p>
-<p>3 、找到History文件并删除，然后新建一个History文件，对History文件，右键—属性，勾选只读。</p>
-<p><img src="https://pan.yuqi.fun/d/%E5%A4%A9%E7%BF%BC%E4%BA%91%E7%9B%98/img/202303062048179.png" alt="image-20230306204804357"></p>
-]]></content>
-      <categories>
-        <category>教程</category>
-      </categories>
-      <tags>
-        <tag>Google浏览器</tag>
-      </tags>
   </entry>
 </search>
