@@ -3,11 +3,11 @@
   <title>与亓のBlog</title>
   
   
-  <link href="http://blog.051515.xyz/atom.xml" rel="self"/>
+  <link href="http://yuqi.fun/atom.xml" rel="self"/>
   
-  <link href="http://blog.051515.xyz/"/>
-  <updated>2024-12-26T03:39:56.493Z</updated>
-  <id>http://blog.051515.xyz/</id>
+  <link href="http://yuqi.fun/"/>
+  <updated>2025-01-04T16:00:00.000Z</updated>
+  <id>http://yuqi.fun/</id>
   
   <author>
     <name>与亓</name>
@@ -17,19 +17,18 @@
   <generator uri="https://hexo.io/">Hexo</generator>
   
   <entry>
-    <title></title>
-    <link href="http://blog.051515.xyz/undefined/0.html"/>
-    <id>http://blog.051515.xyz/undefined/0.html</id>
-    <published>2024-12-26T03:39:32.253Z</published>
-    <updated>2024-12-26T03:39:56.493Z</updated>
+    <title>SEW Scope曲线监控</title>
+    <link href="http://yuqi.fun/undefined/c4294855.html"/>
+    <id>http://yuqi.fun/undefined/c4294855.html</id>
+    <published>2025-01-04T16:00:00.000Z</published>
+    <updated>2025-01-04T16:00:00.000Z</updated>
     
-    <content type="html"><![CDATA[<h1 id="程序框架"><a href="#程序框架" class="headerlink" title="程序框架"></a>程序框架</h1><p><strong>_00_Organization_Blocks</strong>：系统组织块</p><p><strong>_01_Initialization</strong>：初始化</p><p><strong>_02_HMI_OperationModes</strong>：HMI操作模式</p><p><strong>_07_Diagnosis</strong>：诊断</p><p><strong>LINE</strong>：功能块</p><p><strong>Main Call</strong>：模式区主调用</p><p><strong>MSG</strong>：模式区报警</p><p>工装</p><p><strong>Robot Zone Config</strong>：机器人干涉区配置</p><p>机器人</p><p><strong>Safety</strong>：安全程序</p><p><strong>ANDON</strong>：安东</p><p><strong>DB_USER</strong>：用户DB</p><p><strong>FC_User</strong>：用户FC</p><p><strong>SICAR</strong>：功能块</p><p><strong>Types_yixin</strong>：功能块</p><p>全局DB</p><h1 id="安全"><a href="#安全" class="headerlink" title="安全"></a>安全</h1><h2 id="框架"><a href="#框架" class="headerlink" title="框架"></a>框架</h2><p><img src="https://pan.yuqi.fun/d/%E5%A4%A9%E7%BF%BC%E4%BA%91%E7%9B%98/img/202411222031727.png" alt="image-20241122203142738"></p><h2 id="注意项"><a href="#注意项" class="headerlink" title="注意项"></a>注意项</h2><h3 id="区域光栅"><a href="#区域光栅" class="headerlink" title="区域光栅"></a>区域光栅</h3><p>直接光栅复位按钮复位，用光栅对应的MLT信号做屏蔽</p><h3 id="急停"><a href="#急停" class="headerlink" title="急停"></a>急停</h3><p>需要对应模式区的安全门关好才可以复位，HMI急停需要所有安全门关好才可以复位</p><h3 id="相邻区域安全"><a href="#相邻区域安全" class="headerlink" title="相邻区域安全"></a>相邻区域安全</h3><p>区域光栅是好的就屏蔽掉相邻工位的急停和安全门</p><h3 id="安全供电"><a href="#安全供电" class="headerlink" title="安全供电"></a>安全供电</h3><p>安全条件满足就供安全电</p><h3 id="机器人安全"><a href="#机器人安全" class="headerlink" title="机器人安全"></a>机器人安全</h3><p>照着功能块填引脚即可</p><h3 id="安全门"><a href="#安全门" class="headerlink" title="安全门"></a>安全门</h3><p>关好门按复位即可</p><h3 id="光栅区扫"><a href="#光栅区扫" class="headerlink" title="光栅区扫"></a>光栅区扫</h3><p>直接光栅区扫复位按钮复位，用光栅对应的MLT信号做屏蔽</p><h1 id="模式"><a href="#模式" class="headerlink" title="模式"></a>模式</h1><h2 id="User-Interface-IN"><a href="#User-Interface-IN" class="headerlink" title="User_Interface_IN"></a>User_Interface_IN</h2><p><strong>H_OpMode</strong>：区域急停信号（区域报警MSG里面产生）</p><p><strong>M_OpMode</strong>：区域安全门信号（区域报警MSG里面产生）</p><p><strong>BasicStartCondition</strong>：基本启动条件（上电、急停安全门等OK）</p><p><strong>Pos_ImmediateStop</strong>：立即停止</p><p><strong>Pos_StopEndCycle</strong>：循环停止</p><p><strong>Pos_InitialPos</strong>：原位</p><p><strong>Pos_OpenDoor</strong>：开门条件</p><p><strong>Alarm</strong>：报警</p><h1 id="工装"><a href="#工装" class="headerlink" title="工装"></a>工装</h1><h2 id="头文件"><a href="#头文件" class="headerlink" title="头文件"></a>头文件</h2><p><strong>Station_No</strong>：工位号（不可重复）</p><p><strong>Name</strong>：工位名</p><p><strong>ActiveCarType</strong>：是否激活车型</p><p><strong>MsgWord</strong>：报警起始字（填多少在HMI报警里面就从报警字X16的地址开始找，关联到DB31的ERR_W）</p><h2 id="操作盒"><a href="#操作盒" class="headerlink" title="操作盒"></a>操作盒</h2><p><strong>PBStart</strong>：通过工位号和操作盒号来寻址得到</p><h2 id="车型条件"><a href="#车型条件" class="headerlink" title="车型条件"></a>车型条件</h2><p><strong>CanDO</strong>：不满足时自动完成当前指针</p><p><img src="https://pan.yuqi.fun/d/%E5%A4%A9%E7%BF%BC%E4%BA%91%E7%9B%98/img/202411241457382.png" alt="image-20241124145708336"></p><h2 id="传感器"><a href="#传感器" class="headerlink" title="传感器"></a>传感器</h2><p><strong>YX12_Part04_SI</strong>：传感器配置块（填有几个传感器，以及对应的信号）</p><p><strong>YX12_Part04_CFG</strong>：传感器状态块（配置当前工件编号（可用来区分不同车型需要用到的传感器），名字，<strong>Mask</strong>：正必为真，负必为假，0为不判断）</p><h2 id="工位自动程序"><a href="#工位自动程序" class="headerlink" title="工位自动程序"></a>工位自动程序</h2><p><strong>自动步尾文件</strong>：需要配置<strong>Max_S_No</strong>为Graph里面最大的步号，不然会影响HMI画面的显示</p><h2 id="气缸"><a href="#气缸" class="headerlink" title="气缸"></a>气缸</h2><p><strong>OBJ_No</strong>：第几个气缸</p><p><strong>Home_FWD</strong>     <strong>Home_BWD</strong>：气缸在什么位置为原位</p><p><strong>CC_FWD</strong>     <strong>CC_BWD</strong>：气缸互锁条件</p><p><strong>NumFWD</strong>    <strong>NumBWD</strong>：伸出缩回有几个传感器</p><p><strong>自动命令都是直接给到相应的背景DB里面的</strong></p><p><img src="https://pan.yuqi.fun/d/%E5%A4%A9%E7%BF%BC%E4%BA%91%E7%9B%98/img/202412060942646.jpg" alt="mmexport1733381636905"></p><p><img src="https://pan.yuqi.fun/d/%E5%A4%A9%E7%BF%BC%E4%BA%91%E7%9B%98/img/202412060942339.jpg" alt="mmexport1733381638785"></p><h1 id="机器人"><a href="#机器人" class="headerlink" title="机器人"></a>机器人</h1><h2 id="干涉区配置"><a href="#干涉区配置" class="headerlink" title="干涉区配置"></a>干涉区配置</h2><p>预留16个干涉区可以配置</p><p><strong>Zone_No</strong>：干涉区编号,1-64</p><p><strong>Group_No</strong>：分组编号，每干涉区1-7个分组</p><p><strong>Rbt_No</strong>：使用此干涉区分组的全局唯一机器人编号</p><p><strong>Robot Zone Config最后一段</strong></p><p><img src="https://pan.yuqi.fun/d/%E5%A4%A9%E7%BF%BC%E4%BA%91%E7%9B%98/img/202411232118218.png" alt="lQLPJv-xoZjBRrXNA5_NBMGwcPS1H1Hy8mgHJ13FDetXAA_1217_927"></p><p><img src="https://pan.yuqi.fun/d/%E5%A4%A9%E7%BF%BC%E4%BA%91%E7%9B%98/img/202411232119180.png" alt="3992cc222d6053827c4fd067201c547e"></p><p><img src="https://pan.yuqi.fun/d/%E5%A4%A9%E7%BF%BC%E4%BA%91%E7%9B%98/img/202411232119734.png" alt="5dbddaf77fdeede3327ad7701238b5f4"></p><h2 id="头文件-1"><a href="#头文件-1" class="headerlink" title="头文件"></a>头文件</h2><p><strong>RBT_No</strong>：机器人编号（不可重复）</p><p><strong>Name</strong>：机器人名称</p><p><strong>ActiveCarType</strong>：是否激活车型</p><p><strong>MsgWord</strong>：报警起始字（填多少在HMI报警里面就从报警字X16的地址开始找，关联到DB31的ERR_W）</p><h2 id="车型条件-1"><a href="#车型条件-1" class="headerlink" title="车型条件"></a>车型条件</h2><p><strong>CanDO</strong>：不满足时自动完成当前指针</p><p><img src="https://pan.yuqi.fun/d/%E5%A4%A9%E7%BF%BC%E4%BA%91%E7%9B%98/img/202411241457382.png" alt="image-20241124145708336"></p><h2 id="轨迹段进入编号"><a href="#轨迹段进入编号" class="headerlink" title="轨迹段进入编号"></a>轨迹段进入编号</h2><p><strong>YX09_RBT_SEG</strong>：10个轨迹段 进入工位编号（全局编号1-50），&lt; 0为与工位无关或不比对车型</p><p><img src="https://pan.yuqi.fun/d/%E5%A4%A9%E7%BF%BC%E4%BA%91%E7%9B%98/img/202411241519872.png" alt="img"></p><h1 id="订单消耗方式"><a href="#订单消耗方式" class="headerlink" title="订单消耗方式"></a>订单消耗方式</h1><p>FC1061    55段</p><p><strong>CanDO</strong></p><p><strong>WorkDone</strong>&#x3D;<strong>CycleFinish</strong></p><p><img src="https://pan.yuqi.fun/d/%E5%A4%A9%E7%BF%BC%E4%BA%91%E7%9B%98/img/202411232118947.png" alt="lQLPKHtxhR0Mcq3NA7TNBwKw1LGGsFn66VsHJoT6gosnAA_1794_948"></p><p><img src="https://pan.yuqi.fun/d/%E5%A4%A9%E7%BF%BC%E4%BA%91%E7%9B%98/img/202411232118949.png" alt="lQLPJyCXjWlXwW3NA8DNB16wjeqcDDPadp4HJoX6ffQgAA_1886_960"></p><p><strong>机器人完成的两种方式</strong></p><p><img src="https://pan.yuqi.fun/d/%E5%A4%A9%E7%BF%BC%E4%BA%91%E7%9B%98/img/202411232118013.png" alt="58b13f519e1f2c0683f8023456b0c6f7"></p><h1 id="注意项-1"><a href="#注意项-1" class="headerlink" title="注意项"></a>注意项</h1><h2 id="复制HMI时注意更改变量"><a href="#复制HMI时注意更改变量" class="headerlink" title="复制HMI时注意更改变量"></a>复制HMI时注意更改变量</h2><p><img src="https://pan.yuqi.fun/d/%E5%A4%A9%E7%BF%BC%E4%BA%91%E7%9B%98/img/202411232118744.png" alt="img"> </p><p><img src="https://pan.yuqi.fun/d/%E5%A4%A9%E7%BF%BC%E4%BA%91%E7%9B%98/img/202411241538795.png" alt="image-20241124153800238"></p><h2 id="车型下发"><a href="#车型下发" class="headerlink" title="车型下发"></a>车型下发</h2><p>DB31    PIS</p><p><img src="https://pan.yuqi.fun/d/%E5%A4%A9%E7%BF%BC%E4%BA%91%E7%9B%98/img/202411241521830.png" alt="image-20241124152128605"></p><p><img src="https://pan.yuqi.fun/d/%E5%A4%A9%E7%BF%BC%E4%BA%91%E7%9B%98/img/202411241521719.png" alt="e739d18a14c4b0d2ce600a075e30dfef"></p><p><img src="https://pan.yuqi.fun/d/%E5%A4%A9%E7%BF%BC%E4%BA%91%E7%9B%98/img/202411241522739.png" alt="d2bc26b41eeffd610cbe2e14b645f283"></p><h2 id="指针寻址找写入点方法"><a href="#指针寻址找写入点方法" class="headerlink" title="指针寻址找写入点方法"></a>指针寻址找写入点方法</h2><p><img src="https://pan.yuqi.fun/d/%E5%A4%A9%E7%BF%BC%E4%BA%91%E7%9B%98/img/202411241535437.png" alt="image-20241124152944611"></p><p><img src="https://pan.yuqi.fun/d/%E5%A4%A9%E7%BF%BC%E4%BA%91%E7%9B%98/img/202411241535985.png" alt="image-20241124153050321"></p><p><img src="https://pan.yuqi.fun/d/%E5%A4%A9%E7%BF%BC%E4%BA%91%E7%9B%98/img/202411241536675.png" alt="image-20241124153306459"></p><p><img src="https://pan.yuqi.fun/d/%E5%A4%A9%E7%BF%BC%E4%BA%91%E7%9B%98/img/202411241536972.png" alt="image-20241124153505708"></p><h1 id="画面"><a href="#画面" class="headerlink" title="画面"></a>画面</h1>]]></content>
+    <content type="html"><![CDATA[<h3 id="打开备份的SEW文件，点击Scope"><a href="#打开备份的SEW文件，点击Scope" class="headerlink" title="打开备份的SEW文件，点击Scope"></a>打开备份的SEW文件，点击Scope</h3><p><img src="https://pan.yuqi.fun/d/%E5%A4%A9%E7%BF%BC%E4%BA%91%E7%9B%98/img/202501051439031.png" alt="image-20250105143536600"></p><h3 id="进入Scope界面"><a href="#进入Scope界面" class="headerlink" title="进入Scope界面"></a>进入Scope界面</h3><p><img src="https://pan.yuqi.fun/d/%E5%A4%A9%E7%BF%BC%E4%BA%91%E7%9B%98/img/202501051439072.png" alt="image-20250105143550152"></p><h3 id="在菜单栏中点击新建文件按钮，并新创建一个模板"><a href="#在菜单栏中点击新建文件按钮，并新创建一个模板" class="headerlink" title="在菜单栏中点击新建文件按钮，并新创建一个模板"></a>在菜单栏中点击新建文件按钮，并新创建一个模板</h3><p><img src="https://pan.yuqi.fun/d/%E5%A4%A9%E7%BF%BC%E4%BA%91%E7%9B%98/img/202501051439108.png" alt="image-20250105143632298"></p><h3 id="模板中设置好监控选项，并保存为名称为Scope的-sct文件"><a href="#模板中设置好监控选项，并保存为名称为Scope的-sct文件" class="headerlink" title="模板中设置好监控选项，并保存为名称为Scope的.sct文件"></a>模板中设置好监控选项，并保存为名称为Scope的.sct文件</h3><p><img src="https://pan.yuqi.fun/d/%E5%A4%A9%E7%BF%BC%E4%BA%91%E7%9B%98/img/202501051439154.png" alt="image-20250105143656071"></p><h3 id="再次在Scope菜单栏中点击新建，在模板中选择我们创建的Scope模板，然后点OK，进入Scope监控界面"><a href="#再次在Scope菜单栏中点击新建，在模板中选择我们创建的Scope模板，然后点OK，进入Scope监控界面" class="headerlink" title="再次在Scope菜单栏中点击新建，在模板中选择我们创建的Scope模板，然后点OK，进入Scope监控界面"></a>再次在Scope菜单栏中点击新建，在模板中选择我们创建的Scope模板，然后点OK，进入Scope监控界面</h3><p><img src="https://pan.yuqi.fun/d/%E5%A4%A9%E7%BF%BC%E4%BA%91%E7%9B%98/img/202501051439188.png" alt="image-20250105143719967"></p><h3 id="进入Scope界面后点击记录设置，出现我们刚才设置的模板，点击Start按钮准备记录Scope曲线。在HMI上手动操作滑台动作就会自动触发记录运行曲线"><a href="#进入Scope界面后点击记录设置，出现我们刚才设置的模板，点击Start按钮准备记录Scope曲线。在HMI上手动操作滑台动作就会自动触发记录运行曲线" class="headerlink" title="进入Scope界面后点击记录设置，出现我们刚才设置的模板，点击Start按钮准备记录Scope曲线。在HMI上手动操作滑台动作就会自动触发记录运行曲线"></a>进入Scope界面后点击记录设置，出现我们刚才设置的模板，点击Start按钮准备记录Scope曲线。在HMI上手动操作滑台动作就会自动触发记录运行曲线</h3><p><strong>注意：根据模板里面的设置，最大记录时间为40.96s，因此来回滑动的时间需要控制在40s以内，否则超时的那部分运行曲线无法获取。如果需要调整最大记录时间，可以调整Sample Time。</strong></p><p><img src="https://pan.yuqi.fun/d/%E5%A4%A9%E7%BF%BC%E4%BA%91%E7%9B%98/img/202501051439213.png" alt="image-20250105143805277"></p>]]></content>
     
     
       
       
-    <summary type="html">&lt;h1 id=&quot;程序框架&quot;&gt;&lt;a href=&quot;#程序框架&quot; class=&quot;headerlink&quot; title=&quot;程序框架&quot;&gt;&lt;/a&gt;程序框架&lt;/h1&gt;&lt;p&gt;&lt;strong&gt;_00_Organization_Blocks&lt;/strong&gt;：系统组织块&lt;/p&gt;
-&lt;p&gt;&lt;strong&gt;</summary>
+    <summary type="html">&lt;h3 id=&quot;打开备份的SEW文件，点击Scope&quot;&gt;&lt;a href=&quot;#打开备份的SEW文件，点击Scope&quot; class=&quot;headerlink&quot; title=&quot;打开备份的SEW文件，点击Scope&quot;&gt;&lt;/a&gt;打开备份的SEW文件，点击Scope&lt;/h3&gt;&lt;p&gt;&lt;img s</summary>
       
     
     
@@ -38,9 +37,88 @@
   </entry>
   
   <entry>
+    <title>1panel面板部署哪吒监控v1</title>
+    <link href="http://yuqi.fun/undefined/aad1ff9e.html"/>
+    <id>http://yuqi.fun/undefined/aad1ff9e.html</id>
+    <published>2025-01-02T16:00:00.000Z</published>
+    <updated>2025-01-02T16:00:00.000Z</updated>
+    
+    <content type="html"><![CDATA[<h1 id="域名解析"><a href="#域名解析" class="headerlink" title="域名解析"></a>域名解析</h1><p>面板域名以<code>nezha.a.com</code>为例</p><p>Cloudflare中添加A记录<code>nezha.a.com</code>指向Dashboard 服务器 IP，开启小黄云。<code>a.com</code>域名设置页面——网络，选择开启WebSockets 和 gRPC ；SSL&#x2F;TLS模式选择完全（严格）。</p><h1 id="哪吒搭建"><a href="#哪吒搭建" class="headerlink" title="哪吒搭建"></a>哪吒搭建</h1><figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><span class="line">sudo mkdir -p /opt/nezha &amp;&amp; cd /opt/nezha</span><br><span class="line">nano docker-compose.yml</span><br><span class="line">docker compose up -d</span><br></pre></td></tr></table></figure><p>docker-compose.yml文件：</p><figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br></pre></td><td class="code"><pre><span class="line">services:</span><br><span class="line">  dashboard:</span><br><span class="line">    container_name: nezha-dashboard</span><br><span class="line">    image: ghcr.io/nezhahq/nezha:latest</span><br><span class="line">    restart: unless-stopped</span><br><span class="line">    volumes:</span><br><span class="line">      - ./dashboard/data:/dashboard/data</span><br><span class="line">    ports:</span><br><span class="line">      - 8008:8008</span><br></pre></td></tr></table></figure><h1 id="反代设置"><a href="#反代设置" class="headerlink" title="反代设置"></a>反代设置</h1><p>反代设置代码来源：<a href="https://www.nodeseek.com/jump?to=https://misaka.es/archives/42.html">https://misaka.es/archives/42.html</a></p><p>1panel面板中新建反向代理网站，<code>网站 —— 创建网站 —— 反向代理</code>，主域名填写<code>nezha.a.com</code>，代理地址填写<code>127.0.0.1:8008</code></p><p>证书页面自行设置Acme账户、DNS账户为<code>nezha.a.com</code>申请证书。</p><p>网站页面点击<code>nezha.a.com</code>进入网站设置，开启https。</p><p>点击配置文件，最下方添加以下代码，保存并重载。<br><img src="https://pan.yuqi.fun/d/%E5%A4%A9%E7%BF%BC%E4%BA%91%E7%9B%98/img/202501031701543.png" alt="image"></p><figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br></pre></td><td class="code"><pre><span class="line"># upstream 配置</span><br><span class="line">upstream dashboard &#123;</span><br><span class="line">    keepalive 512; </span><br><span class="line">    server 127.0.0.1:8008; </span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure><p>打开<code>网站 —— 反向代理 —— 源文</code>，使用以下代码替换原内容，点击确认。至此，反向代理设置完成。<br><img src="https://pan.yuqi.fun/d/%E5%A4%A9%E7%BF%BC%E4%BA%91%E7%9B%98/img/202501031701795.png" alt="image"></p><figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br><span class="line">27</span><br><span class="line">28</span><br><span class="line">29</span><br><span class="line">30</span><br><span class="line">31</span><br><span class="line">32</span><br><span class="line">33</span><br><span class="line">34</span><br><span class="line">35</span><br><span class="line">36</span><br><span class="line">37</span><br><span class="line">38</span><br><span class="line">39</span><br><span class="line">40</span><br><span class="line">41</span><br><span class="line">42</span><br><span class="line">43</span><br><span class="line">44</span><br><span class="line">45</span><br><span class="line">46</span><br><span class="line">47</span><br><span class="line">48</span><br><span class="line">49</span><br><span class="line">50</span><br><span class="line">51</span><br></pre></td><td class="code"><pre><span class="line">location ^~ / &#123;</span><br><span class="line">    proxy_pass http://127.0.0.1:8008; </span><br><span class="line">    proxy_set_header Host $host; </span><br><span class="line">    proxy_set_header X-Real-IP $remote_addr; </span><br><span class="line">    proxy_set_header X-Forwarded-For $proxy_add_x_forwarded_for; </span><br><span class="line">    proxy_set_header REMOTE-HOST $remote_addr; </span><br><span class="line">    proxy_set_header Upgrade $http_upgrade; </span><br><span class="line">    proxy_set_header nz-realip $http_cf_connecting_ip;</span><br><span class="line">    proxy_set_header Connection &quot;upgrade&quot;;</span><br><span class="line">    proxy_set_header X-Forwarded-Proto $scheme;</span><br><span class="line">    proxy_http_version 1.1; </span><br><span class="line">    proxy_read_timeout 3600s;</span><br><span class="line">    proxy_send_timeout 3600s;</span><br><span class="line">    proxy_buffer_size 128k;</span><br><span class="line">    proxy_buffers 4 128k; </span><br><span class="line">    proxy_busy_buffers_size 256k;</span><br><span class="line">    proxy_max_temp_file_size 0;</span><br><span class="line">    add_header X-Cache $upstream_cache_status; </span><br><span class="line">    add_header Cache-Control no-cache; </span><br><span class="line">    proxy_ssl_server_name off; </span><br><span class="line">    proxy_ssl_name $proxy_host; </span><br><span class="line">    add_header Strict-Transport-Security &quot;max-age=31536000&quot;; </span><br><span class="line">&#125;</span><br><span class="line"></span><br><span class="line">underscores_in_headers on;</span><br><span class="line">set_real_ip_from 0.0.0.0/0; # CDN 回源 IP 地址段</span><br><span class="line">real_ip_header CF-Connecting-IP; # CDN 私有 header，此处为 CloudFlare 默认</span><br><span class="line"></span><br><span class="line"># gRPC 服务</span><br><span class="line">location ^~ /proto.NezhaService/ &#123;</span><br><span class="line">    grpc_set_header Host $host;</span><br><span class="line">    grpc_set_header nz-realip $http_CF_Connecting_IP; </span><br><span class="line">    grpc_read_timeout 600s;</span><br><span class="line">    grpc_send_timeout 600s;</span><br><span class="line">    grpc_socket_keepalive on;</span><br><span class="line">    client_max_body_size 10m;</span><br><span class="line">    grpc_buffer_size 4m;</span><br><span class="line">    grpc_pass grpc://dashboard;</span><br><span class="line">&#125;</span><br><span class="line"></span><br><span class="line"># WebSocket 服务</span><br><span class="line">location ~* ^/api/v1/ws/(server|terminal|file)(.*)$ &#123;</span><br><span class="line">    proxy_set_header Host $host;</span><br><span class="line">    proxy_set_header nz-realip $http_cf_connecting_ip; </span><br><span class="line">    proxy_set_header Origin https://$host;</span><br><span class="line">    proxy_set_header Upgrade $http_upgrade;</span><br><span class="line">    proxy_set_header Connection &quot;upgrade&quot;;</span><br><span class="line">    proxy_read_timeout 3600s;</span><br><span class="line">    proxy_send_timeout 3600s;</span><br><span class="line">    proxy_pass http://127.0.0.1:8008;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure><h1 id="面板设置"><a href="#面板设置" class="headerlink" title="面板设置"></a>面板设置</h1><p>登录到 Dashboard 配置界面<code>https://nezha.a.com/dashboard</code>，初始用户名、密码均为<code>admin</code>，登录后立即进入管理页面点击<code>头像 —— 个人信息 —— 更新个人资料</code>修改用户名和密码。</p><p>点击<code>头像 —— 系统设置</code>，填写站点名称、设置语言，<code>Agent对接地址【域名/IP:端口】</code>填写<code>nezha.a.com:443</code>，勾选<code>Agent 使用 TLS 连接</code>，点击<code>确认</code>即可。</p><p><strong>添加TCP-Ping延迟测试：</strong></p><p>全国各省份三网 TCP-Ping IPv4 地址：<a href="https://www.nodeseek.com/post-68572-1">https://www.nodeseek.com/post-68572-1</a></p><p>全国各省份三网 TCP-Ping IPv6 地址：<a href="https://www.nodeseek.com/post-129987-1">https://www.nodeseek.com/post-129987-1</a></p><p>以浙江移动为例，<code>服务</code>页面创建服务，名称：浙江移动，目标：<a href="https://www.nodeseek.com/jump?to=http://zj-cm-v4.ip.zstaticcdn.com:80">zj-cm-v4.ip.zstaticcdn.com:80</a>，类型：TCPing</p><p><strong>添加telegram通知：</strong></p><p><code>通知</code>页面点击“+”，创建通知，名称自定，URL填写<code>https://api.telegram.org/bot&lt;你的机器人Token&gt;/sendMessage?chat_id=&lt;你的用户ID&gt;&amp;text=#NEZHA#</code>，将 <code>&lt;你的机器人Token&gt;</code> 和 <code>&lt;你的用户ID&gt;</code> 替换为实际值。</p><p>获取 URL 参数<br>获取机器人 Token：与 <code>@BotFather </code>对话，发送<code>/newbot</code>创建新机器人，获取 Token。<br>获取用户 ID：与 <code>@userinfobot </code>对话，获取你的用户 ID。<br>与机器人对话：先与新创建的机器人发送一条消息，确保机器人可以发送消息给你。</p><p><code>分组</code>——<code>通知</code>，页面点击“+”，编辑通知分组，名称自定，<code>通知</code>勾选提前创建的telegram通知，确认即可。</p><p>警报规则参考<a href="https://www.nodeseek.com/jump?to=https://nezha.wiki/guide/notifications.html">哪吒官方文档</a>，以离线通知为例：</p><p><code>通知</code>——<code>警报规则</code>，点击“+”，创建警报规则，名称：<code>离线通知</code>，规则：<code>[&#123;&quot;Type&quot;: &quot;offline&quot;, &quot;Duration&quot;: 10&#125;]</code>，通知组：勾选</p><p>telegram通知，启用：勾选，点击确认。</p><p>面板设置完成，可至<code>服务器</code>页面，点击<code>安装命令</code>，根据系统选择安装命令前往被控vps运行。</p><p>注：被控端禁用网页SSH</p><figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">sed -i &#x27;s/disable_command_execute: false/disable_command_execute: true/&#x27; /opt/nezha/agent/config.yml &amp;&amp; systemctl restart nezha-agent</span><br></pre></td></tr></table></figure><h1 id="接入微软登录"><a href="#接入微软登录" class="headerlink" title="接入微软登录"></a>接入微软登录</h1><p>原wiki地址 <a href="https://www.nodeseek.com/jump?to=https://nezha.wiki/guide/q14.html">https://nezha.wiki/guide/q14.html</a></p><p>补充微软登陆</p><figure class="highlight yml"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br></pre></td><td class="code"><pre><span class="line"><span class="attr">oauth2:</span></span><br><span class="line">    <span class="attr">Microsoft:</span></span><br><span class="line">        <span class="attr">clientid:</span> <span class="string">&quot;XXXXXXXX-XXXX-XXXX-XXXX-XXXXXXXXXXXX&quot;</span></span><br><span class="line">        <span class="attr">clientsecret:</span> <span class="string">&quot;XXXXX&quot;</span></span><br><span class="line">        <span class="attr">endpoint:</span></span><br><span class="line">            <span class="attr">authurl:</span> <span class="string">&quot;https://login.microsoftonline.com/consumers/oauth2/v2.0/authorize&quot;</span></span><br><span class="line">            <span class="attr">tokenurl:</span> <span class="string">&quot;https://login.microsoftonline.com/consumers/oauth2/v2.0/token&quot;</span></span><br><span class="line">        <span class="attr">scopes:</span></span><br><span class="line">            <span class="bullet">-</span> <span class="string">&quot;User.Read&quot;</span></span><br><span class="line">        <span class="attr">userinfourl:</span> <span class="string">&quot;https://graph.microsoft.com/v1.0/me&quot;</span></span><br><span class="line">        <span class="attr">useridpath:</span> <span class="string">&quot;id&quot;</span></span><br></pre></td></tr></table></figure><p>配置格式如上，需要自己注册应用以获得clientid、clientsecret</p><ol><li>注册<br><a href="https://www.nodeseek.com/jump?to=https://entra.microsoft.com/%23view/Microsoft_AAD_RegisteredApps/CreateApplicationBlade/quickStartType~/null/isMSAApp~/false">https://entra.microsoft.com/#view/Microsoft_AAD_RegisteredApps&#x2F;CreateApplicationBlade&#x2F;quickStartType<del>&#x2F;null&#x2F;isMSAApp</del>&#x2F;false</a><br>输入项：<br>名称 – 随便写<br>受支持的帐户类型 – 仅 Microsoft 个人帐户<br>重定向 URI (可选) – WEB <a href="https://www.nodeseek.com/jump?to=https://xx.com/api/v1/oauth2/callback">https://xx.com/api/v1/oauth2/callback</a></li><li>获得clientid<br><a href="https://www.nodeseek.com/jump?to=https://entra.microsoft.com/%23view/Microsoft_AAD_RegisteredApps/ApplicationsListBlade/quickStartType~/null/sourceType/Microsoft_AAD_IAM">https://entra.microsoft.com/#view/Microsoft_AAD_RegisteredApps&#x2F;ApplicationsListBlade&#x2F;quickStartType~&#x2F;null&#x2F;sourceType&#x2F;Microsoft_AAD_IAM</a><br>在最左边 所有应用程序 找到自己刚才注册的 点进去<br>概述页面有个 应用程序(客户端) ID，这个就是。</li><li>获得clientsecret<br><img src="https://pan.yuqi.fun/d/%E5%A4%A9%E7%BF%BC%E4%BA%91%E7%9B%98/img/202501031707326.png" alt="uS3yGRHdgnCIGTAi9IVkpS"><br>提交后会出现 一个 值，复制，后续会不可见。</li><li>修改配置文件 并且 重启 面板服务</li><li>在个人信息里面绑定即可</li></ol>]]></content>
+    
+    
+      
+      
+    <summary type="html">&lt;h1 id=&quot;域名解析&quot;&gt;&lt;a href=&quot;#域名解析&quot; class=&quot;headerlink&quot; title=&quot;域名解析&quot;&gt;&lt;/a&gt;域名解析&lt;/h1&gt;&lt;p&gt;面板域名以&lt;code&gt;nezha.a.com&lt;/code&gt;为例&lt;/p&gt;
+&lt;p&gt;Cloudflare中添加A记录&lt;code&gt;n</summary>
+      
+    
+    
+    
+    
+  </entry>
+  
+  <entry>
+    <title>常用VPS脚本</title>
+    <link href="http://yuqi.fun/undefined/6469b43f.html"/>
+    <id>http://yuqi.fun/undefined/6469b43f.html</id>
+    <published>2024-12-30T16:00:00.000Z</published>
+    <updated>2024-12-30T16:00:00.000Z</updated>
+    
+    <content type="html"><![CDATA[<h2 id="1、DD重装脚本"><a href="#1、DD重装脚本" class="headerlink" title="1、DD重装脚本"></a>1、DD重装脚本</h2><p>史上最强脚本</p><figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">wget --no-check-certificate -qO InstallNET.sh &#x27;https://raw.githubusercontent.com/leitbogioro/Tools/master/Linux_reinstall/InstallNET.sh&#x27; &amp;&amp; chmod a+x InstallNET.sh &amp;&amp; bash InstallNET.sh -debian 12 -pwd &#x27;password&#x27;</span><br></pre></td></tr></table></figure><p>萌咖大佬的脚本</p><figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">bash &lt;(wget --no-check-certificate -qO- &#x27;https://raw.githubusercontent.com/MoeClub/Note/master/InstallNET.sh&#x27;) -d 11 -v 64 -p 密码 -port 端口 -a -firmware</span><br></pre></td></tr></table></figure><p>beta.gs大佬的脚本</p><figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">wget --no-check-certificate -O NewReinstall.sh https://raw.githubusercontent.com/fcurrk/reinstall/master/NewReinstall.sh &amp;&amp; chmod a+x NewReinstall.sh &amp;&amp; bash NewReinstall.sh</span><br></pre></td></tr></table></figure><p>DD windows（使用史上最强DD脚本）</p><figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">bash &lt;(curl -sSL https://raw.githubusercontent.com/leitbogioro/Tools/master/Linux_reinstall/InstallNET.sh) -windows 10  -lang &quot;cn&quot;</span><br></pre></td></tr></table></figure><figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line">账户：Administrator</span><br><span class="line">密码：Teddysun.com</span><br></pre></td></tr></table></figure><h2 id="2、综合测试脚本"><a href="#2、综合测试脚本" class="headerlink" title="2、综合测试脚本"></a>2、综合测试脚本</h2><p>LemonBench</p><figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">wget -qO- https://raw.githubusercontent.com/LemonBench/LemonBench/main/LemonBench.sh | bash -s -- --fast</span><br></pre></td></tr></table></figure><p>融合怪</p><figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">bash &lt;(wget -qO- --no-check-certificate https://gitlab.com/spiritysdx/za/-/raw/main/ecs.sh)</span><br></pre></td></tr></table></figure><p>NodeBench</p><figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">bash &lt;(curl -sL https://raw.githubusercontent.com/LloydAsp/NodeBench/main/NodeBench.sh)</span><br></pre></td></tr></table></figure><h2 id="3、性能测试"><a href="#3、性能测试" class="headerlink" title="3、性能测试"></a>3、性能测试</h2><p>GB6 跑分脚本，附带宽测试：</p><figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">curl -sL yabs.sh | bash</span><br></pre></td></tr></table></figure><p>GB6 剔除带宽测试，因为都是国外节点测试，国内跑没多大意义：</p><figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">curl -sL yabs.sh | bash -s -- -i</span><br></pre></td></tr></table></figure><p>GB5 跑分脚本，附带宽测试：</p><figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">curl -sL yabs.sh | bash -5</span><br></pre></td></tr></table></figure><p>GB5 剔除带宽测试：</p><figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">curl -sL yabs.sh | bash -s -- -i -5</span><br></pre></td></tr></table></figure><h2 id="4、流媒体及IP质量测试"><a href="#4、流媒体及IP质量测试" class="headerlink" title="4、流媒体及IP质量测试"></a>4、流媒体及IP质量测试</h2><p>最常用版本</p><figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">bash &lt;(curl -L -s check.unlock.media)</span><br></pre></td></tr></table></figure><p>原生检测脚本</p><figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">bash &lt;(curl -sL Media.Check.Place)</span><br></pre></td></tr></table></figure><p>准确度最高</p><figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">bash &lt;(curl -L -s https://github.com/1-stream/RegionRestrictionCheck/raw/main/check.sh)</span><br></pre></td></tr></table></figure><p>IP质量体检脚本</p><figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">bash &lt;(curl -sL IP.Check.Place)</span><br></pre></td></tr></table></figure><h2 id="5、测速脚本"><a href="#5、测速脚本" class="headerlink" title="5、测速脚本"></a>5、测速脚本</h2><p>Speedtest</p><figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">bash &lt;(curl -sL bash.icu/speedtest)</span><br></pre></td></tr></table></figure><p>Taier</p><figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">bash &lt;(curl -sL res.yserver.ink/taier.sh)</span><br></pre></td></tr></table></figure><p>hyperspeed</p><figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">bash &lt;(curl -Lso- https://bench.im/hyperspeed)</span><br></pre></td></tr></table></figure><p>全球测速</p><figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">curl -sL network-speed.xyz | bash</span><br></pre></td></tr></table></figure><h2 id="6、回程测试"><a href="#6、回程测试" class="headerlink" title="6、回程测试"></a>6、回程测试</h2><p>直接显示回程（小白用这个）</p><figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">curl https://raw.githubusercontent.com/ludashi2020/backtrace/main/install.sh -sSf | sh</span><br></pre></td></tr></table></figure><p>回程详细测试（推荐）</p><figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">wget -N --no-check-certificate https://raw.githubusercontent.com/Chennhaoo/Shell_Bash/master/AutoTrace.sh &amp;&amp; chmod +x AutoTrace.sh &amp;&amp; bash AutoTrace.sh</span><br></pre></td></tr></table></figure><figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">wget https://ghproxy.com/https://raw.githubusercontent.com/vpsxb/testrace/main/testrace.sh -O testrace.sh &amp;&amp; bash testrace.sh</span><br></pre></td></tr></table></figure><h2 id="7、功能脚本"><a href="#7、功能脚本" class="headerlink" title="7、功能脚本"></a>7、功能脚本</h2><p>添加SWAP</p><figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">wget https://www.moerats.com/usr/shell/swap.sh &amp;&amp; bash swap.sh</span><br></pre></td></tr></table></figure><p>Fail2ban</p><figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">wget --no-check-certificate https://raw.githubusercontent.com/FunctionClub/Fail2ban/master/fail2ban.sh &amp;&amp; bash fail2ban.sh 2&gt;&amp;1 | tee fail2ban.log</span><br></pre></td></tr></table></figure><p>一键开启BBR，适用于较新的Debian、Ubuntu</p><figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br></pre></td><td class="code"><pre><span class="line">echo &quot;net.core.default_qdisc=fq&quot; &gt;&gt; /etc/sysctl.conf</span><br><span class="line">echo &quot;net.ipv4.tcp_congestion_control=bbr&quot; &gt;&gt; /etc/sysctl.conf</span><br><span class="line">sysctl -p</span><br><span class="line">sysctl net.ipv4.tcp_available_congestion_control</span><br><span class="line">lsmod | grep bbr</span><br></pre></td></tr></table></figure><p>多功能BBR安装脚本</p><figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">wget -N --no-check-certificate &quot;https://gist.github.com/zeruns/a0ec603f20d1b86de6a774a8ba27588f/raw/4f9957ae23f5efb2bb7c57a198ae2cffebfb1c56/tcp.sh&quot; &amp;&amp; chmod +x tcp.sh &amp;&amp; ./tcp.sh</span><br></pre></td></tr></table></figure><p>锐速&#x2F;BBRPLUS&#x2F;BBR2&#x2F;BBR3</p><figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">wget -O tcpx.sh &quot;https://github.com/ylx2016/Linux-NetSpeed/raw/master/tcpx.sh&quot; &amp;&amp; chmod +x tcpx.sh &amp;&amp; ./tcpx.sh</span><br></pre></td></tr></table></figure><p>TCP窗口调优</p><figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">wget http://sh.nekoneko.cloud/tools.sh -O tools.sh &amp;&amp; bash tools.sh</span><br></pre></td></tr></table></figure><p>添加warp</p><figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">wget -N https://gitlab.com/fscarmen/warp/-/raw/main/menu.sh &amp;&amp; bash menu.sh [option] [lisence/url/token]</span><br></pre></td></tr></table></figure><p>25端口开放测试</p><figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">telnet smtp.aol.com 25</span><br></pre></td></tr></table></figure><h2 id="8、一键安装常用环境及软件"><a href="#8、一键安装常用环境及软件" class="headerlink" title="8、一键安装常用环境及软件"></a>8、一键安装常用环境及软件</h2><p>docker</p><figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">curl -sSL https://get.daocloud.io/docker | sh</span><br></pre></td></tr></table></figure><p>Python</p><figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">curl -O https://raw.githubusercontent.com/lx969788249/lxspacepy/master/pyinstall.sh &amp;&amp; chmod +x pyinstall.sh &amp;&amp; ./pyinstall.sh</span><br></pre></td></tr></table></figure><p>iperf3</p><figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">apt install iperf3</span><br></pre></td></tr></table></figure><p>realm</p><figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">bash &lt;(curl -L https://raw.githubusercontent.com/zhouh047/realm-oneclick-install/main/realm.sh) -i</span><br></pre></td></tr></table></figure><p>gost</p><figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">wget --no-check-certificate -O gost.sh https://raw.githubusercontent.com/qqrrooty/EZgost/main/gost.sh &amp;&amp; chmod +x gost.sh &amp;&amp; ./gost.sh</span><br></pre></td></tr></table></figure><p>极光面板</p><figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">bash &lt;(curl -fsSL https://raw.githubusercontent.com/Aurora-Admin-Panel/deploy/main/install.sh)</span><br></pre></td></tr></table></figure><p>哪吒监控</p><figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">curl -L https://raw.githubusercontent.com/naiba/nezha/master/script/install.sh  -o nezha.sh &amp;&amp; chmod +x nezha.sh &amp;&amp; sudo ./nezha.sh</span><br></pre></td></tr></table></figure><p>WARP</p><figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">wget -N https://gitlab.com/fscarmen/warp/-/raw/main/menu.sh &amp;&amp; bash menu.sh</span><br></pre></td></tr></table></figure><p>Aria2</p><figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">wget -N git.io/aria2.sh &amp;&amp; chmod +x aria2.sh &amp;&amp; ./aria2.sh</span><br></pre></td></tr></table></figure><p>宝塔</p><figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">wget -O install.sh http://v7.hostcli.com/install/install-ubuntu_6.0.sh &amp;&amp; sudo bash install.sh</span><br></pre></td></tr></table></figure><p>PVE虚拟化</p><figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">bash &lt;(wget -qO- --no-check-certificate https://raw.githubusercontent.com/oneclickvirt/pve/main/scripts/build_backend.sh)</span><br></pre></td></tr></table></figure><p>Argox</p><figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">bash &lt;(wget -qO- https://raw.githubusercontent.com/fscarmen/argox/main/argox.sh)</span><br></pre></td></tr></table></figure><h2 id="9、综合功能脚本"><a href="#9、综合功能脚本" class="headerlink" title="9、综合功能脚本"></a>9、综合功能脚本</h2><p>科技lion</p><figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><span class="line">apt update -y  &amp;&amp; apt install -y curl</span><br><span class="line"></span><br><span class="line">bash &lt;(curl -sL kejilion.sh)</span><br></pre></td></tr></table></figure><p>SKY-BOX</p><figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">wget -O box.sh https://raw.githubusercontent.com/BlueSkyXN/SKY-BOX/main/box.sh &amp;&amp; chmod +x box.sh &amp;&amp; clear &amp;&amp; ./box.sh</span><br></pre></td></tr></table></figure>]]></content>
+    
+    
+      
+      
+    <summary type="html">&lt;h2 id=&quot;1、DD重装脚本&quot;&gt;&lt;a href=&quot;#1、DD重装脚本&quot; class=&quot;headerlink&quot; title=&quot;1、DD重装脚本&quot;&gt;&lt;/a&gt;1、DD重装脚本&lt;/h2&gt;&lt;p&gt;史上最强脚本&lt;/p&gt;
+&lt;figure class=&quot;highlight plaintext&quot;</summary>
+      
+    
+    
+    
+    
+  </entry>
+  
+  <entry>
+    <title>Qexo 一个美观、强大的在线 静态博客 管理器</title>
+    <link href="http://yuqi.fun/undefined/8277e0e6.html"/>
+    <id>http://yuqi.fun/undefined/8277e0e6.html</id>
+    <published>2024-12-28T16:00:00.000Z</published>
+    <updated>2024-12-28T16:00:00.000Z</updated>
+    
+    <content type="html"><![CDATA[<h1 id="前言"><a href="#前言" class="headerlink" title="前言"></a>前言</h1><p><strong>Hexo</strong> 是一款快速、高效的静态博客框架。通过 <a href="http://daringfireball.net/projects/markdown/">Markdown</a> 语法，只需几秒便可生成高质量的静态网页。</p><p>最近，我成功实现了在多设备间灵活管理博客并发布内容。一位网友提到 <strong>Qexo</strong>，一个为 Hexo 增加后台功能的工具，它让发布博客变得像发微博一样简单。深入了解后，我发现它非常强大，不仅可以用手机随时随地发表文章，还极大提升了操作便捷性。</p><p>尽管安装过程中遇到了一些问题，但最终都顺利解决。我将整理经验分享，希望能帮助更多人。</p><hr><h1 id="Qexo-简介"><a href="#Qexo-简介" class="headerlink" title="Qexo 简介"></a>Qexo 简介</h1><p><strong>Qexo</strong> 是一个快速、美观且功能丰富的在线 Hexo 管理器，支持通过 Vercel 免费部署，仅需配置一个数据库即可使用。</p><h2 id="主要功能"><a href="#主要功能" class="headerlink" title="主要功能"></a>主要功能</h2><ul><li>自定义图床上传图片</li><li>在线编辑与页面管理</li><li>开放 API 接口</li><li>自动检查更新并一键更新</li><li>快速管理友情链接</li><li>短文分享（类似微博功能）</li><li>自动填充文章模板</li></ul><p><strong>项目地址</strong>：<a href="https://www.oplog.cn/qexo/start.html">Qexo 官方文档</a></p><hr><h1 id="一、配置-GitHub-自动化部署"><a href="#一、配置-GitHub-自动化部署" class="headerlink" title="一、配置 GitHub 自动化部署"></a>一、配置 GitHub 自动化部署</h1><h2 id="1-获取-GitHub-Token"><a href="#1-获取-GitHub-Token" class="headerlink" title="1. 获取 GitHub Token"></a>1. 获取 GitHub Token</h2><ol><li>打开 <strong>Personal settings</strong> -&gt; <strong>Developer settings</strong> -&gt; <strong>Personal access tokens</strong></li><li>设置权限为 <strong>repo</strong> 和 <strong>public repo</strong></li></ol><p><img src="https://pan.yuqi.fun/d/%E5%A4%A9%E7%BF%BC%E4%BA%91%E7%9B%98/img/202412291101351.png" alt="313f2ca0d7d3ea811d7e7be8ad6bcd4b"></p><ol><li>保存生成的 Token（丢失后无法恢复，只能重新生成）</li><li>在博客代码仓库的 <strong>Secrets</strong> 中添加名为 <strong>PERSONAL_TOKEN</strong> 的变量，后续步骤将用到。</li></ol><p><img src="https://pan.yuqi.fun/d/%E5%A4%A9%E7%BF%BC%E4%BA%91%E7%9B%98/img/202412291102866.png" alt="f69e8dd9266ba1336ddddff00a67ffc6"></p><h2 id="2-创建-GitHub-Actions"><a href="#2-创建-GitHub-Actions" class="headerlink" title="2. 创建 GitHub Actions"></a>2. 创建 GitHub Actions</h2><ol><li>在博客仓库页面，点击 <strong>Actions</strong>。</li><li>选择 <strong>Set up a workflow yourself</strong>。</li></ol><p><a href="https://13fe9ff.webp.li/2024/11/b425061c44375abea8ca5a8a01091038.png"><img src="https://pan.yuqi.fun/d/%E5%A4%A9%E7%BF%BC%E4%BA%91%E7%9B%98/img/202412291104224.png" alt="img"></a></p><ol><li>输入以下 YAML 配置并点击 <strong>Start commit</strong> ：</li></ol><figure class="highlight yaml"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br><span class="line">27</span><br><span class="line">28</span><br><span class="line">29</span><br><span class="line">30</span><br><span class="line">31</span><br><span class="line">32</span><br><span class="line">33</span><br><span class="line">34</span><br><span class="line">35</span><br><span class="line">36</span><br><span class="line">37</span><br><span class="line">38</span><br><span class="line">39</span><br><span class="line">40</span><br><span class="line">41</span><br><span class="line">42</span><br><span class="line">43</span><br><span class="line">44</span><br><span class="line">45</span><br><span class="line">46</span><br><span class="line">47</span><br><span class="line">48</span><br><span class="line">49</span><br></pre></td><td class="code"><pre><span class="line"><span class="attr">name:</span> <span class="string">Deploy</span> <span class="string">Hexo</span> <span class="string">to</span> <span class="string">GitHub</span> <span class="string">Pages</span></span><br><span class="line"></span><br><span class="line"><span class="attr">on:</span></span><br><span class="line">  <span class="attr">push:</span></span><br><span class="line">    <span class="attr">branches:</span></span><br><span class="line">      <span class="bullet">-</span> <span class="string">main</span> <span class="comment"># 或你使用的默认分支名称</span></span><br><span class="line"></span><br><span class="line"><span class="attr">jobs:</span></span><br><span class="line">  <span class="attr">deploy:</span></span><br><span class="line">    <span class="attr">runs-on:</span> <span class="string">ubuntu-latest</span></span><br><span class="line"></span><br><span class="line">    <span class="attr">steps:</span></span><br><span class="line">      <span class="bullet">-</span> <span class="attr">name:</span> <span class="string">Checkout</span> <span class="string">blog</span> <span class="string">source</span></span><br><span class="line">        <span class="attr">uses:</span> <span class="string">actions/checkout@v2</span></span><br><span class="line">        <span class="attr">with:</span></span><br><span class="line">          <span class="attr">path:</span> <span class="string">blog</span></span><br><span class="line"></span><br><span class="line">      <span class="bullet">-</span> <span class="attr">name:</span> <span class="string">Set</span> <span class="string">up</span> <span class="string">Node.js</span></span><br><span class="line">        <span class="attr">uses:</span> <span class="string">actions/setup-node@v1</span></span><br><span class="line">        <span class="attr">with:</span></span><br><span class="line">          <span class="attr">node-version:</span> <span class="string">&quot;16&quot;</span> <span class="comment"># 设置 Node.js 版本</span></span><br><span class="line"></span><br><span class="line">      <span class="bullet">-</span> <span class="attr">name:</span> <span class="string">Cache</span> <span class="string">dependencies</span></span><br><span class="line">        <span class="attr">uses:</span> <span class="string">actions/cache@v2</span></span><br><span class="line">        <span class="attr">with:</span></span><br><span class="line">          <span class="attr">path:</span> <span class="string">node_modules</span></span><br><span class="line">          <span class="attr">key:</span> <span class="string">$&#123;&#123;</span> <span class="string">runner.os</span> <span class="string">&#125;&#125;-node-$&#123;&#123;</span> <span class="string">hashFiles(&#x27;**/package-lock.json&#x27;)</span> <span class="string">&#125;&#125;</span></span><br><span class="line">          <span class="attr">restore-keys:</span> <span class="string">|</span></span><br><span class="line"><span class="string">            $&#123;&#123; runner.os &#125;&#125;-node-</span></span><br><span class="line"><span class="string"></span></span><br><span class="line">      <span class="bullet">-</span> <span class="attr">name:</span> <span class="string">Install</span> <span class="string">dependencies</span></span><br><span class="line">        <span class="attr">run:</span> <span class="string">npm</span> <span class="string">install</span></span><br><span class="line">        <span class="attr">working-directory:</span> <span class="string">./blog</span></span><br><span class="line"></span><br><span class="line">      <span class="bullet">-</span> <span class="attr">name:</span> <span class="string">Install</span> <span class="string">Hexo</span> <span class="string">CLI</span></span><br><span class="line">        <span class="attr">run:</span> <span class="string">npm</span> <span class="string">install</span> <span class="string">-g</span> <span class="string">hexo-cli</span></span><br><span class="line">        <span class="attr">working-directory:</span> <span class="string">./blog</span></span><br><span class="line"></span><br><span class="line">      <span class="bullet">-</span> <span class="attr">name:</span> <span class="string">Generate</span> <span class="string">static</span> <span class="string">pages</span></span><br><span class="line">        <span class="attr">run:</span> <span class="string">hexo</span> <span class="string">generate</span></span><br><span class="line">        <span class="attr">working-directory:</span> <span class="string">./blog</span></span><br><span class="line"></span><br><span class="line">      <span class="bullet">-</span> <span class="attr">name:</span> <span class="string">Deploy</span> <span class="string">to</span> <span class="string">GitHub</span> <span class="string">Pages</span></span><br><span class="line">        <span class="attr">uses:</span> <span class="string">peaceiris/actions-gh-pages@v3</span></span><br><span class="line">        <span class="attr">with:</span></span><br><span class="line">          <span class="attr">personal_token:</span> <span class="string">$&#123;&#123;</span> <span class="string">secrets.PERSONAL_TOKEN</span> <span class="string">&#125;&#125;</span></span><br><span class="line">          <span class="attr">publish_dir:</span> <span class="string">./blog/public</span></span><br><span class="line">          <span class="attr">external_repository:</span> <span class="string">username/username.github.io</span> <span class="comment"># 更改为你的 GitHub Pages 仓库, username 是你的用户名</span></span><br><span class="line">          <span class="attr">publish_branch:</span> <span class="string">main</span> <span class="comment"># GitHub Pages 分支</span></span><br></pre></td></tr></table></figure><p>参考文档：</p><ul><li><a href="https://www.oplog.cn/archives/24998.html">Hexo 自动化部署教程</a></li><li><a href="https://hackergavin.com/2024/01/11/hexo-automate-deploy/">利用 GitHub Actions 实现自动化部署 Hexo 到 Github Pages</a></li></ul><hr><h1 id="二、通过-Vercel-部署-Qexo"><a href="#二、通过-Vercel-部署-Qexo" class="headerlink" title="二、通过 Vercel 部署 Qexo"></a>二、通过 Vercel 部署 Qexo</h1><h2 id="1-一键部署"><a href="#1-一键部署" class="headerlink" title="1. 一键部署"></a>1. 一键部署</h2><p>点击以下按钮完成一键部署：<a href="https://vercel.com/new/clone?repository-url=https://github.com/am-abudu/Qexo">Vercel 一键部署</a></p><blockquote><p><strong>注意</strong>：首次部署可能会出现错误提示，可忽略并继续后续步骤。</p></blockquote><h2 id="2-修改-Node-js-版本"><a href="#2-修改-Node-js-版本" class="headerlink" title="2. 修改 Node.js 版本"></a>2. 修改 Node.js 版本</h2><p>由于 <strong><a href="https://vercel.com/docs/functions/runtimes/python#python-dependencies">Vercel 的已知问题</a>，需将项目的 Node.js 版本调整为</strong> <strong>18.x</strong>。<br>路径：<strong>Settings -&gt; General -&gt; Node.js Version</strong></p><h2 id="3-创建-Vercel-数据库"><a href="#3-创建-Vercel-数据库" class="headerlink" title="3. 创建 Vercel 数据库"></a>3. 创建 Vercel 数据库</h2><ol><li>进入<a href="https://vercel.com/dashboard/stores">Vercel Storage 页面</a>。</li><li>点击 *<strong>Create Database</strong>，选择 <strong>Neon</strong> ，设置区域为 <strong>Washington, DC., USA - iad1</strong>，创建免费数据库。</li></ol><h2 id="4-绑定项目"><a href="#4-绑定项目" class="headerlink" title="4. 绑定项目"></a>4. 绑定项目</h2><p>在 <strong>Projects</strong> 页面选择对应项目，点击 <strong>Connect Project</strong> 进行绑定。</p><h2 id="5-部署-Qexo"><a href="#5-部署-Qexo" class="headerlink" title="5. 部署 Qexo"></a>5. 部署 Qexo</h2><p>回到项目页面，点击<strong>Redeploy</strong> 开始部署。部署完成后，无报错即可访问域名进入初始化页面。</p><hr><h1 id="初始化配置"><a href="#初始化配置" class="headerlink" title="初始化配置"></a>初始化配置</h1><p><a href="https://13fe9ff.webp.li/2024/11/d14a6a28fa42dc905ad1f9572d280abb.png"><img src="https://13fe9ff.webp.li/2024/11/d14a6a28fa42dc905ad1f9572d280abb.png" alt="img"></a></p><p><a href="https://13fe9ff.webp.li/2024/11/8781b5e062a34509ccf39ed0000e8033.png"><img src="https://pan.yuqi.fun/d/%E5%A4%A9%E7%BF%BC%E4%BA%91%E7%9B%98/img/202412291104276.png" alt="img"></a></p><h2 id="GitHub-配置"><a href="#GitHub-配置" class="headerlink" title="GitHub 配置"></a>GitHub 配置</h2><p><a href="https://13fe9ff.webp.li/2024/11/7f4e9a472b66f4a2b73ae1c8e035b4ef.png"><img src="https://pan.yuqi.fun/d/%E5%A4%A9%E7%BF%BC%E4%BA%91%E7%9B%98/img/202412291104301.png" alt="img"></a><br>填写博客源码所在仓库的分支名称，例如：</p><figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line">plaintext</span><br><span class="line">master</span><br></pre></td></tr></table></figure><h2 id="GitHub-密钥"><a href="#GitHub-密钥" class="headerlink" title="GitHub 密钥"></a>GitHub 密钥</h2><p>填写生成的 GitHub Token，例如：</p><figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line">plaintext</span><br><span class="line">wrq_P8sYPlYA9fjMlOPEYSKA84xxxxxxxxxxxxxx</span><br></pre></td></tr></table></figure><h2 id="仓库路径"><a href="#仓库路径" class="headerlink" title="仓库路径"></a>仓库路径</h2><p>若 Hexo 源码在仓库根目录，则留空；否则填写路径：</p><figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line">plaintext</span><br><span class="line">path/</span><br></pre></td></tr></table></figure><p><a href="https://13fe9ff.webp.li/2024/11/f2f7c6b57196afa6652292807698db91.png"><img src="https://pan.yuqi.fun/d/%E5%A4%A9%E7%BF%BC%E4%BA%91%E7%9B%98/img/202412291104319.png" alt="img"></a></p><p><a href="https://13fe9ff.webp.li/2024/11/5e4c876cd000a6d5f5da45bb256c963e.png"><img src="https://pan.yuqi.fun/d/%E5%A4%A9%E7%BF%BC%E4%BA%91%E7%9B%98/img/202412291104350.png" alt="img"></a></p><p><a href="https://13fe9ff.webp.li/2024/11/bcc3ab289c7a355ed8116d92faddba80.png"><img src="https://pan.yuqi.fun/d/%E5%A4%A9%E7%BF%BC%E4%BA%91%E7%9B%98/img/202412291104386.png" alt="img"></a></p><h2 id="Vercel-配置"><a href="#Vercel-配置" class="headerlink" title="Vercel 配置"></a>Vercel 配置</h2><ul><li><strong>VERCEL_TOKEN</strong>：在<a href="https://vercel.com/account/tokens">Vercel 账户设置</a> 中生成。</li><li><strong>PROJECT_ID</strong>：在 <strong>Project Settings -&gt; General -&gt; Project ID</strong> 中找到。</li></ul><p>配置完成后，即可登录后台管理博客内容。</p><p><a href="https://13fe9ff.webp.li/2024/11/df6b8e762d048854683e5e31f6e262f2.png"><img src="https://pan.yuqi.fun/d/%E5%A4%A9%E7%BF%BC%E4%BA%91%E7%9B%98/img/202412291104412.png" alt="img"></a></p><p><a href="https://13fe9ff.webp.li/2024/11/2fa7cd4b16b469345b8e628d88affae2.png"><img src="https://pan.yuqi.fun/d/%E5%A4%A9%E7%BF%BC%E4%BA%91%E7%9B%98/img/202412291104441.png" alt="img"></a></p><p><a href="https://13fe9ff.webp.li/2024/11/6a16b8185a435cf9b807dbcc894d92e1.png"><img src="https://pan.yuqi.fun/d/%E5%A4%A9%E7%BF%BC%E4%BA%91%E7%9B%98/img/202412291104466.png" alt="img"></a></p><h1 id=""><a href="#" class="headerlink" title=""></a></h1>]]></content>
+    
+    
+      
+      
+    <summary type="html">&lt;h1 id=&quot;前言&quot;&gt;&lt;a href=&quot;#前言&quot; class=&quot;headerlink&quot; title=&quot;前言&quot;&gt;&lt;/a&gt;前言&lt;/h1&gt;&lt;p&gt;&lt;strong&gt;Hexo&lt;/strong&gt; 是一款快速、高效的静态博客框架。通过 &lt;a href=&quot;http://daringfirebal</summary>
+      
+    
+    
+    
+    
+  </entry>
+  
+  <entry>
+    <title>贵阳吉利程序解析</title>
+    <link href="http://yuqi.fun/undefined/57946227.html"/>
+    <id>http://yuqi.fun/undefined/57946227.html</id>
+    <published>2024-11-28T00:00:00.000Z</published>
+    <updated>2024-12-28T05:34:56.377Z</updated>
+    
+    <content type="html"><![CDATA[<h1 id="程序框架"><a href="#程序框架" class="headerlink" title="程序框架"></a>程序框架</h1><p><strong>_00_Organization_Blocks</strong>：系统组织块</p><p><strong>_01_Initialization</strong>：初始化</p><p><strong>_02_HMI_OperationModes</strong>：HMI操作模式</p><p><strong>_07_Diagnosis</strong>：诊断</p><p><strong>LINE</strong>：功能块</p><p><strong>Main Call</strong>：模式区主调用</p><p><strong>MSG</strong>：模式区报警</p><p>工装</p><p><strong>Robot Zone Config</strong>：机器人干涉区配置</p><p>机器人</p><p><strong>Safety</strong>：安全程序</p><p><strong>ANDON</strong>：安东</p><p><strong>DB_USER</strong>：用户DB</p><p><strong>FC_User</strong>：用户FC</p><p><strong>SICAR</strong>：功能块</p><p><strong>Types_yixin</strong>：功能块</p><p>全局DB</p><h1 id="安全"><a href="#安全" class="headerlink" title="安全"></a>安全</h1><h2 id="框架"><a href="#框架" class="headerlink" title="框架"></a>框架</h2><p><img src="https://pan.yuqi.fun/d/%E5%A4%A9%E7%BF%BC%E4%BA%91%E7%9B%98/img/202411222031727.png" alt="image-20241122203142738"></p><h2 id="注意项"><a href="#注意项" class="headerlink" title="注意项"></a>注意项</h2><h3 id="区域光栅"><a href="#区域光栅" class="headerlink" title="区域光栅"></a>区域光栅</h3><p>直接光栅复位按钮复位，用光栅对应的MLT信号做屏蔽</p><h3 id="急停"><a href="#急停" class="headerlink" title="急停"></a>急停</h3><p>需要对应模式区的安全门关好才可以复位，HMI急停需要所有安全门关好才可以复位</p><h3 id="相邻区域安全"><a href="#相邻区域安全" class="headerlink" title="相邻区域安全"></a>相邻区域安全</h3><p>区域光栅是好的就屏蔽掉相邻工位的急停和安全门</p><h3 id="安全供电"><a href="#安全供电" class="headerlink" title="安全供电"></a>安全供电</h3><p>安全条件满足就供安全电</p><h3 id="机器人安全"><a href="#机器人安全" class="headerlink" title="机器人安全"></a>机器人安全</h3><p>照着功能块填引脚即可</p><h3 id="安全门"><a href="#安全门" class="headerlink" title="安全门"></a>安全门</h3><p>关好门按复位即可</p><h3 id="光栅区扫"><a href="#光栅区扫" class="headerlink" title="光栅区扫"></a>光栅区扫</h3><p>直接光栅区扫复位按钮复位，用光栅对应的MLT信号做屏蔽</p><h1 id="模式"><a href="#模式" class="headerlink" title="模式"></a>模式</h1><h2 id="User-Interface-IN"><a href="#User-Interface-IN" class="headerlink" title="User_Interface_IN"></a>User_Interface_IN</h2><p><strong>H_OpMode</strong>：区域急停信号（区域报警MSG里面产生）</p><p><strong>M_OpMode</strong>：区域安全门信号（区域报警MSG里面产生）</p><p><strong>BasicStartCondition</strong>：基本启动条件（上电、急停安全门等OK）</p><p><strong>Pos_ImmediateStop</strong>：立即停止</p><p><strong>Pos_StopEndCycle</strong>：循环停止</p><p><strong>Pos_InitialPos</strong>：原位</p><p><strong>Pos_OpenDoor</strong>：开门条件</p><p><strong>Alarm</strong>：报警</p><h1 id="工装"><a href="#工装" class="headerlink" title="工装"></a>工装</h1><h2 id="头文件"><a href="#头文件" class="headerlink" title="头文件"></a>头文件</h2><p><strong>Station_No</strong>：工位号（不可重复）</p><p><strong>Name</strong>：工位名</p><p><strong>ActiveCarType</strong>：是否激活车型</p><p><strong>MsgWord</strong>：报警起始字（填多少在HMI报警里面就从报警字X16的地址开始找，关联到DB31的ERR_W）</p><h2 id="操作盒"><a href="#操作盒" class="headerlink" title="操作盒"></a>操作盒</h2><p><strong>PBStart</strong>：通过工位号和操作盒号来寻址得到</p><h2 id="车型条件"><a href="#车型条件" class="headerlink" title="车型条件"></a>车型条件</h2><p><strong>CanDO</strong>：不满足时自动完成当前指针</p><p><img src="https://pan.yuqi.fun/d/%E5%A4%A9%E7%BF%BC%E4%BA%91%E7%9B%98/img/202411241457382.png" alt="image-20241124145708336"></p><h2 id="传感器"><a href="#传感器" class="headerlink" title="传感器"></a>传感器</h2><p><strong>YX12_Part04_SI</strong>：传感器配置块（填有几个传感器，以及对应的信号）</p><p><strong>YX12_Part04_CFG</strong>：传感器状态块（配置当前工件编号（可用来区分不同车型需要用到的传感器），名字，<strong>Mask</strong>：正必为真，负必为假，0为不判断）</p><h2 id="工位自动程序"><a href="#工位自动程序" class="headerlink" title="工位自动程序"></a>工位自动程序</h2><p><strong>自动步尾文件</strong>：需要配置<strong>Max_S_No</strong>为Graph里面最大的步号，不然会影响HMI画面的显示</p><h2 id="气缸"><a href="#气缸" class="headerlink" title="气缸"></a>气缸</h2><p><strong>OBJ_No</strong>：第几个气缸</p><p><strong>Home_FWD</strong>     <strong>Home_BWD</strong>：气缸在什么位置为原位</p><p><strong>CC_FWD</strong>     <strong>CC_BWD</strong>：气缸互锁条件</p><p><strong>NumFWD</strong>    <strong>NumBWD</strong>：伸出缩回有几个传感器</p><p><strong>自动命令都是直接给到相应的背景DB里面的</strong></p><p><img src="https://pan.yuqi.fun/d/%E5%A4%A9%E7%BF%BC%E4%BA%91%E7%9B%98/img/202412060942646.jpg" alt="mmexport1733381636905"></p><p><img src="https://pan.yuqi.fun/d/%E5%A4%A9%E7%BF%BC%E4%BA%91%E7%9B%98/img/202412060942339.jpg" alt="mmexport1733381638785"></p><h1 id="机器人"><a href="#机器人" class="headerlink" title="机器人"></a>机器人</h1><h2 id="干涉区配置"><a href="#干涉区配置" class="headerlink" title="干涉区配置"></a>干涉区配置</h2><p>预留16个干涉区可以配置</p><p><strong>Zone_No</strong>：干涉区编号,1-64</p><p><strong>Group_No</strong>：分组编号，每干涉区1-7个分组</p><p><strong>Rbt_No</strong>：使用此干涉区分组的全局唯一机器人编号</p><p><strong>Robot Zone Config最后一段</strong></p><p><img src="https://pan.yuqi.fun/d/%E5%A4%A9%E7%BF%BC%E4%BA%91%E7%9B%98/img/202411232118218.png" alt="lQLPJv-xoZjBRrXNA5_NBMGwcPS1H1Hy8mgHJ13FDetXAA_1217_927"></p><p><img src="https://pan.yuqi.fun/d/%E5%A4%A9%E7%BF%BC%E4%BA%91%E7%9B%98/img/202411232119180.png" alt="3992cc222d6053827c4fd067201c547e"></p><p><img src="https://pan.yuqi.fun/d/%E5%A4%A9%E7%BF%BC%E4%BA%91%E7%9B%98/img/202411232119734.png" alt="5dbddaf77fdeede3327ad7701238b5f4"></p><h2 id="头文件-1"><a href="#头文件-1" class="headerlink" title="头文件"></a>头文件</h2><p><strong>RBT_No</strong>：机器人编号（不可重复）</p><p><strong>Name</strong>：机器人名称</p><p><strong>ActiveCarType</strong>：是否激活车型</p><p><strong>MsgWord</strong>：报警起始字（填多少在HMI报警里面就从报警字X16的地址开始找，关联到DB31的ERR_W）</p><h2 id="车型条件-1"><a href="#车型条件-1" class="headerlink" title="车型条件"></a>车型条件</h2><p><strong>CanDO</strong>：不满足时自动完成当前指针</p><p><img src="https://pan.yuqi.fun/d/%E5%A4%A9%E7%BF%BC%E4%BA%91%E7%9B%98/img/202411241457382.png" alt="image-20241124145708336"></p><h2 id="轨迹段进入编号"><a href="#轨迹段进入编号" class="headerlink" title="轨迹段进入编号"></a>轨迹段进入编号</h2><p><strong>YX09_RBT_SEG</strong>：10个轨迹段 进入工位编号（全局编号1-50），&lt; 0为与工位无关或不比对车型</p><p><img src="https://pan.yuqi.fun/d/%E5%A4%A9%E7%BF%BC%E4%BA%91%E7%9B%98/img/202411241519872.png" alt="img"></p><h1 id="订单消耗方式"><a href="#订单消耗方式" class="headerlink" title="订单消耗方式"></a>订单消耗方式</h1><p>FC1061    55段</p><p><strong>CanDO</strong></p><p><strong>WorkDone</strong>&#x3D;<strong>CycleFinish</strong></p><p><img src="https://pan.yuqi.fun/d/%E5%A4%A9%E7%BF%BC%E4%BA%91%E7%9B%98/img/202411232118947.png" alt="lQLPKHtxhR0Mcq3NA7TNBwKw1LGGsFn66VsHJoT6gosnAA_1794_948"></p><p><img src="https://pan.yuqi.fun/d/%E5%A4%A9%E7%BF%BC%E4%BA%91%E7%9B%98/img/202411232118949.png" alt="lQLPJyCXjWlXwW3NA8DNB16wjeqcDDPadp4HJoX6ffQgAA_1886_960"></p><p><strong>机器人完成的两种方式</strong></p><p><img src="https://pan.yuqi.fun/d/%E5%A4%A9%E7%BF%BC%E4%BA%91%E7%9B%98/img/202411232118013.png" alt="58b13f519e1f2c0683f8023456b0c6f7"></p><h1 id="注意项-1"><a href="#注意项-1" class="headerlink" title="注意项"></a>注意项</h1><h2 id="复制HMI时注意更改变量"><a href="#复制HMI时注意更改变量" class="headerlink" title="复制HMI时注意更改变量"></a>复制HMI时注意更改变量</h2><p><img src="https://pan.yuqi.fun/d/%E5%A4%A9%E7%BF%BC%E4%BA%91%E7%9B%98/img/202411232118744.png" alt="img"></p><p><img src="https://pan.yuqi.fun/d/%E5%A4%A9%E7%BF%BC%E4%BA%91%E7%9B%98/img/202411241538795.png" alt="image-20241124153800238"></p><h2 id="车型下发"><a href="#车型下发" class="headerlink" title="车型下发"></a>车型下发</h2><p>DB31    PIS</p><p><img src="https://pan.yuqi.fun/d/%E5%A4%A9%E7%BF%BC%E4%BA%91%E7%9B%98/img/202411241521830.png" alt="image-20241124152128605"></p><p><img src="https://pan.yuqi.fun/d/%E5%A4%A9%E7%BF%BC%E4%BA%91%E7%9B%98/img/202411241521719.png" alt="e739d18a14c4b0d2ce600a075e30dfef"></p><p><img src="https://pan.yuqi.fun/d/%E5%A4%A9%E7%BF%BC%E4%BA%91%E7%9B%98/img/202411241522739.png" alt="d2bc26b41eeffd610cbe2e14b645f283"></p><h2 id="指针寻址找写入点方法"><a href="#指针寻址找写入点方法" class="headerlink" title="指针寻址找写入点方法"></a>指针寻址找写入点方法</h2><p><img src="https://pan.yuqi.fun/d/%E5%A4%A9%E7%BF%BC%E4%BA%91%E7%9B%98/img/202411241535437.png" alt="image-20241124152944611"></p><p><img src="https://pan.yuqi.fun/d/%E5%A4%A9%E7%BF%BC%E4%BA%91%E7%9B%98/img/202411241535985.png" alt="image-20241124153050321"></p><p><img src="https://pan.yuqi.fun/d/%E5%A4%A9%E7%BF%BC%E4%BA%91%E7%9B%98/img/202411241536675.png" alt="image-20241124153306459"></p><p><img src="https://pan.yuqi.fun/d/%E5%A4%A9%E7%BF%BC%E4%BA%91%E7%9B%98/img/202411241536972.png" alt="image-20241124153505708"></p><h1 id="画面"><a href="#画面" class="headerlink" title="画面"></a>画面</h1>]]></content>
+    
+    
+    <summary type="html">贵阳吉利面试专用小抄，不会的进来看看...</summary>
+    
+    
+    
+    
+  </entry>
+  
+  <entry>
     <title>安装了VMware Tools，但无法实现文件的拖拽和复制粘贴---解决方案</title>
-    <link href="http://blog.051515.xyz/undefined/a580ef34.html"/>
-    <id>http://blog.051515.xyz/undefined/a580ef34.html</id>
+    <link href="http://yuqi.fun/undefined/a580ef34.html"/>
+    <id>http://yuqi.fun/undefined/a580ef34.html</id>
     <published>2024-04-04T16:00:00.000Z</published>
     <updated>2024-04-04T16:00:00.000Z</updated>
     
@@ -57,17 +135,17 @@
     
     
     
-    <category term="教程" scheme="http://blog.051515.xyz/categories/%E6%95%99%E7%A8%8B/"/>
+    <category term="教程" scheme="http://yuqi.fun/categories/%E6%95%99%E7%A8%8B/"/>
     
     
-    <category term="虚拟机" scheme="http://blog.051515.xyz/tags/%E8%99%9A%E6%8B%9F%E6%9C%BA/"/>
+    <category term="虚拟机" scheme="http://yuqi.fun/tags/%E8%99%9A%E6%8B%9F%E6%9C%BA/"/>
     
   </entry>
   
   <entry>
     <title>在WSL2中使用Clash Verge代理连接</title>
-    <link href="http://blog.051515.xyz/undefined/af89448b.html"/>
-    <id>http://blog.051515.xyz/undefined/af89448b.html</id>
+    <link href="http://yuqi.fun/undefined/af89448b.html"/>
+    <id>http://yuqi.fun/undefined/af89448b.html</id>
     <published>2023-12-12T16:00:00.000Z</published>
     <updated>2024-01-11T16:00:00.000Z</updated>
     
@@ -85,17 +163,17 @@
     
     
     
-    <category term="教程" scheme="http://blog.051515.xyz/categories/%E6%95%99%E7%A8%8B/"/>
+    <category term="教程" scheme="http://yuqi.fun/categories/%E6%95%99%E7%A8%8B/"/>
     
     
-    <category term="科学上网" scheme="http://blog.051515.xyz/tags/%E7%A7%91%E5%AD%A6%E4%B8%8A%E7%BD%91/"/>
+    <category term="科学上网" scheme="http://yuqi.fun/tags/%E7%A7%91%E5%AD%A6%E4%B8%8A%E7%BD%91/"/>
     
   </entry>
   
   <entry>
     <title>Clash Verge规则配置</title>
-    <link href="http://blog.051515.xyz/undefined/97aa67fb.html"/>
-    <id>http://blog.051515.xyz/undefined/97aa67fb.html</id>
+    <link href="http://yuqi.fun/undefined/97aa67fb.html"/>
+    <id>http://yuqi.fun/undefined/97aa67fb.html</id>
     <published>2023-12-11T16:00:00.000Z</published>
     <updated>2023-12-11T16:00:00.000Z</updated>
     
@@ -110,17 +188,17 @@
     
     
     
-    <category term="教程" scheme="http://blog.051515.xyz/categories/%E6%95%99%E7%A8%8B/"/>
+    <category term="教程" scheme="http://yuqi.fun/categories/%E6%95%99%E7%A8%8B/"/>
     
     
-    <category term="科学上网" scheme="http://blog.051515.xyz/tags/%E7%A7%91%E5%AD%A6%E4%B8%8A%E7%BD%91/"/>
+    <category term="科学上网" scheme="http://yuqi.fun/tags/%E7%A7%91%E5%AD%A6%E4%B8%8A%E7%BD%91/"/>
     
   </entry>
   
   <entry>
     <title>利用CF Workers搭建Github加速服务</title>
-    <link href="http://blog.051515.xyz/undefined/ee2e5bab.html"/>
-    <id>http://blog.051515.xyz/undefined/ee2e5bab.html</id>
+    <link href="http://yuqi.fun/undefined/ee2e5bab.html"/>
+    <id>http://yuqi.fun/undefined/ee2e5bab.html</id>
     <published>2023-12-11T16:00:00.000Z</published>
     <updated>2023-12-11T16:00:00.000Z</updated>
     
@@ -134,17 +212,17 @@
     
     
     
-    <category term="教程" scheme="http://blog.051515.xyz/categories/%E6%95%99%E7%A8%8B/"/>
+    <category term="教程" scheme="http://yuqi.fun/categories/%E6%95%99%E7%A8%8B/"/>
     
     
-    <category term="网站" scheme="http://blog.051515.xyz/tags/%E7%BD%91%E7%AB%99/"/>
+    <category term="网站" scheme="http://yuqi.fun/tags/%E7%BD%91%E7%AB%99/"/>
     
   </entry>
   
   <entry>
     <title>ABPLC通过Modbus TCP读取设备压力值</title>
-    <link href="http://blog.051515.xyz/undefined/3529204a.html"/>
-    <id>http://blog.051515.xyz/undefined/3529204a.html</id>
+    <link href="http://yuqi.fun/undefined/3529204a.html"/>
+    <id>http://yuqi.fun/undefined/3529204a.html</id>
     <published>2023-12-10T16:00:00.000Z</published>
     <updated>2023-12-10T16:00:00.000Z</updated>
     
@@ -158,17 +236,17 @@
     
     
     
-    <category term="教程" scheme="http://blog.051515.xyz/categories/%E6%95%99%E7%A8%8B/"/>
+    <category term="教程" scheme="http://yuqi.fun/categories/%E6%95%99%E7%A8%8B/"/>
     
     
-    <category term="PLC" scheme="http://blog.051515.xyz/tags/PLC/"/>
+    <category term="PLC" scheme="http://yuqi.fun/tags/PLC/"/>
     
   </entry>
   
   <entry>
     <title>R探长 甲骨文云开机脚本</title>
-    <link href="http://blog.051515.xyz/undefined/d604b8c7.html"/>
-    <id>http://blog.051515.xyz/undefined/d604b8c7.html</id>
+    <link href="http://yuqi.fun/undefined/d604b8c7.html"/>
+    <id>http://yuqi.fun/undefined/d604b8c7.html</id>
     <published>2023-12-07T16:00:00.000Z</published>
     <updated>2023-12-07T16:00:00.000Z</updated>
     
@@ -182,17 +260,17 @@
     
     
     
-    <category term="教程" scheme="http://blog.051515.xyz/categories/%E6%95%99%E7%A8%8B/"/>
+    <category term="教程" scheme="http://yuqi.fun/categories/%E6%95%99%E7%A8%8B/"/>
     
     
-    <category term="服务器" scheme="http://blog.051515.xyz/tags/%E6%9C%8D%E5%8A%A1%E5%99%A8/"/>
+    <category term="服务器" scheme="http://yuqi.fun/tags/%E6%9C%8D%E5%8A%A1%E5%99%A8/"/>
     
   </entry>
   
   <entry>
     <title>PVE安装iStoreOS</title>
-    <link href="http://blog.051515.xyz/undefined/d167335e.html"/>
-    <id>http://blog.051515.xyz/undefined/d167335e.html</id>
+    <link href="http://yuqi.fun/undefined/d167335e.html"/>
+    <id>http://yuqi.fun/undefined/d167335e.html</id>
     <published>2023-12-02T16:00:00.000Z</published>
     <updated>2023-12-02T16:00:00.000Z</updated>
     
@@ -206,17 +284,17 @@
     
     
     
-    <category term="教程" scheme="http://blog.051515.xyz/categories/%E6%95%99%E7%A8%8B/"/>
+    <category term="教程" scheme="http://yuqi.fun/categories/%E6%95%99%E7%A8%8B/"/>
     
     
-    <category term="路由器" scheme="http://blog.051515.xyz/tags/%E8%B7%AF%E7%94%B1%E5%99%A8/"/>
+    <category term="路由器" scheme="http://yuqi.fun/tags/%E8%B7%AF%E7%94%B1%E5%99%A8/"/>
     
   </entry>
   
   <entry>
     <title>Butterfly主题添加本地搜索功能</title>
-    <link href="http://blog.051515.xyz/undefined/f2a576c2.html"/>
-    <id>http://blog.051515.xyz/undefined/f2a576c2.html</id>
+    <link href="http://yuqi.fun/undefined/f2a576c2.html"/>
+    <id>http://yuqi.fun/undefined/f2a576c2.html</id>
     <published>2023-11-29T16:00:00.000Z</published>
     <updated>2023-11-29T16:00:00.000Z</updated>
     
@@ -231,19 +309,19 @@
     
     
     
-    <category term="教程" scheme="http://blog.051515.xyz/categories/%E6%95%99%E7%A8%8B/"/>
+    <category term="教程" scheme="http://yuqi.fun/categories/%E6%95%99%E7%A8%8B/"/>
     
     
-    <category term="Butterfly" scheme="http://blog.051515.xyz/tags/Butterfly/"/>
+    <category term="Butterfly" scheme="http://yuqi.fun/tags/Butterfly/"/>
     
-    <category term="hexo" scheme="http://blog.051515.xyz/tags/hexo/"/>
+    <category term="hexo" scheme="http://yuqi.fun/tags/hexo/"/>
     
   </entry>
   
   <entry>
     <title>安卓14 + HttpCanary 抓包设置</title>
-    <link href="http://blog.051515.xyz/undefined/5fb4c97d.html"/>
-    <id>http://blog.051515.xyz/undefined/5fb4c97d.html</id>
+    <link href="http://yuqi.fun/undefined/5fb4c97d.html"/>
+    <id>http://yuqi.fun/undefined/5fb4c97d.html</id>
     <published>2023-11-12T16:00:00.000Z</published>
     <updated>2023-11-12T16:00:00.000Z</updated>
     
@@ -257,17 +335,17 @@
     
     
     
-    <category term="教程" scheme="http://blog.051515.xyz/categories/%E6%95%99%E7%A8%8B/"/>
+    <category term="教程" scheme="http://yuqi.fun/categories/%E6%95%99%E7%A8%8B/"/>
     
     
-    <category term="手机" scheme="http://blog.051515.xyz/tags/%E6%89%8B%E6%9C%BA/"/>
+    <category term="手机" scheme="http://yuqi.fun/tags/%E6%89%8B%E6%9C%BA/"/>
     
   </entry>
   
   <entry>
     <title>x-ui最稳妥的魔术面板</title>
-    <link href="http://blog.051515.xyz/undefined/af28068c.html"/>
-    <id>http://blog.051515.xyz/undefined/af28068c.html</id>
+    <link href="http://yuqi.fun/undefined/af28068c.html"/>
+    <id>http://yuqi.fun/undefined/af28068c.html</id>
     <published>2023-11-05T16:00:00.000Z</published>
     <updated>2023-11-05T16:00:00.000Z</updated>
     
@@ -282,17 +360,17 @@
     
     
     
-    <category term="教程" scheme="http://blog.051515.xyz/categories/%E6%95%99%E7%A8%8B/"/>
+    <category term="教程" scheme="http://yuqi.fun/categories/%E6%95%99%E7%A8%8B/"/>
     
     
-    <category term="VPN" scheme="http://blog.051515.xyz/tags/VPN/"/>
+    <category term="VPN" scheme="http://yuqi.fun/tags/VPN/"/>
     
   </entry>
   
   <entry>
     <title>一键DD纯净系统脚本 CentOS/Debian/Ubuntu</title>
-    <link href="http://blog.051515.xyz/undefined/7db8067.html"/>
-    <id>http://blog.051515.xyz/undefined/7db8067.html</id>
+    <link href="http://yuqi.fun/undefined/7db8067.html"/>
+    <id>http://yuqi.fun/undefined/7db8067.html</id>
     <published>2023-11-05T16:00:00.000Z</published>
     <updated>2023-11-05T16:00:00.000Z</updated>
     
@@ -309,17 +387,17 @@
     
     
     
-    <category term="教程" scheme="http://blog.051515.xyz/categories/%E6%95%99%E7%A8%8B/"/>
+    <category term="教程" scheme="http://yuqi.fun/categories/%E6%95%99%E7%A8%8B/"/>
     
     
-    <category term="服务器" scheme="http://blog.051515.xyz/tags/%E6%9C%8D%E5%8A%A1%E5%99%A8/"/>
+    <category term="服务器" scheme="http://yuqi.fun/tags/%E6%9C%8D%E5%8A%A1%E5%99%A8/"/>
     
   </entry>
   
   <entry>
     <title>最佳免费NPV方式-workers搭建vless使用</title>
-    <link href="http://blog.051515.xyz/undefined/1b7388f.html"/>
-    <id>http://blog.051515.xyz/undefined/1b7388f.html</id>
+    <link href="http://yuqi.fun/undefined/1b7388f.html"/>
+    <id>http://yuqi.fun/undefined/1b7388f.html</id>
     <published>2023-10-25T16:00:00.000Z</published>
     <updated>2023-10-25T16:00:00.000Z</updated>
     
@@ -333,17 +411,17 @@
     
     
     
-    <category term="教程" scheme="http://blog.051515.xyz/categories/%E6%95%99%E7%A8%8B/"/>
+    <category term="教程" scheme="http://yuqi.fun/categories/%E6%95%99%E7%A8%8B/"/>
     
     
-    <category term="NPV" scheme="http://blog.051515.xyz/tags/NPV/"/>
+    <category term="NPV" scheme="http://yuqi.fun/tags/NPV/"/>
     
   </entry>
   
   <entry>
     <title>hysteria2与reality共存安装</title>
-    <link href="http://blog.051515.xyz/undefined/756577dc.html"/>
-    <id>http://blog.051515.xyz/undefined/756577dc.html</id>
+    <link href="http://yuqi.fun/undefined/756577dc.html"/>
+    <id>http://yuqi.fun/undefined/756577dc.html</id>
     <published>2023-10-05T16:00:00.000Z</published>
     <updated>2023-10-05T16:00:00.000Z</updated>
     
@@ -357,17 +435,17 @@
     
     
     
-    <category term="教程" scheme="http://blog.051515.xyz/categories/%E6%95%99%E7%A8%8B/"/>
+    <category term="教程" scheme="http://yuqi.fun/categories/%E6%95%99%E7%A8%8B/"/>
     
     
-    <category term="服务器" scheme="http://blog.051515.xyz/tags/%E6%9C%8D%E5%8A%A1%E5%99%A8/"/>
+    <category term="服务器" scheme="http://yuqi.fun/tags/%E6%9C%8D%E5%8A%A1%E5%99%A8/"/>
     
   </entry>
   
   <entry>
     <title>MT7981B安博通ABT_ASR3000刷机指南</title>
-    <link href="http://blog.051515.xyz/undefined/2c4b11e5.html"/>
-    <id>http://blog.051515.xyz/undefined/2c4b11e5.html</id>
+    <link href="http://yuqi.fun/undefined/2c4b11e5.html"/>
+    <id>http://yuqi.fun/undefined/2c4b11e5.html</id>
     <published>2023-09-27T16:00:00.000Z</published>
     <updated>2023-09-27T16:00:00.000Z</updated>
     
@@ -381,17 +459,17 @@
     
     
     
-    <category term="教程" scheme="http://blog.051515.xyz/categories/%E6%95%99%E7%A8%8B/"/>
+    <category term="教程" scheme="http://yuqi.fun/categories/%E6%95%99%E7%A8%8B/"/>
     
     
-    <category term="路由器" scheme="http://blog.051515.xyz/tags/%E8%B7%AF%E7%94%B1%E5%99%A8/"/>
+    <category term="路由器" scheme="http://yuqi.fun/tags/%E8%B7%AF%E7%94%B1%E5%99%A8/"/>
     
   </entry>
   
   <entry>
     <title>VPS一键脚本分享</title>
-    <link href="http://blog.051515.xyz/undefined/2419758f.html"/>
-    <id>http://blog.051515.xyz/undefined/2419758f.html</id>
+    <link href="http://yuqi.fun/undefined/2419758f.html"/>
+    <id>http://yuqi.fun/undefined/2419758f.html</id>
     <published>2023-05-04T16:00:00.000Z</published>
     <updated>2023-05-04T16:00:00.000Z</updated>
     
@@ -407,113 +485,10 @@
     
     
     
-    <category term="教程" scheme="http://blog.051515.xyz/categories/%E6%95%99%E7%A8%8B/"/>
+    <category term="教程" scheme="http://yuqi.fun/categories/%E6%95%99%E7%A8%8B/"/>
     
     
-    <category term="服务器" scheme="http://blog.051515.xyz/tags/%E6%9C%8D%E5%8A%A1%E5%99%A8/"/>
-    
-  </entry>
-  
-  <entry>
-    <title>tmux后台工具使用方法</title>
-    <link href="http://blog.051515.xyz/undefined/3117353a.html"/>
-    <id>http://blog.051515.xyz/undefined/3117353a.html</id>
-    <published>2023-05-04T16:00:00.000Z</published>
-    <updated>2023-05-04T16:00:00.000Z</updated>
-    
-    <content type="html"><![CDATA[<p>tmux多路后台会话功能 即使SSH断开程序也可以在内置会话中执行 实现后台稳定运行<br><img src="https://pan.yuqi.fun/d/%E5%A4%A9%E7%BF%BC%E4%BA%91%E7%9B%98/img/202305051618430.png"></p><p>有长时间任务或者后台程序运行需求大家可以使用tmux，比如编译程序，推流直播，SSH连接不稳定等等场景需求。你可以把这些程序存放到一个独立会话中，让他自己运作，完全不影响SSH主会话。</p><p>即使SSH断了，你在tmux中的程序也不会断连。</p><p>安装</p><figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">apt update -y &amp;&amp; apt install -y tmux</span><br></pre></td></tr></table></figure><p>创建一个会话进入（可多开N个后台会话）</p><figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">tmux new -s my1</span><br></pre></td></tr></table></figure><p><img src="https://pan.yuqi.fun/d/%E5%A4%A9%E7%BF%BC%E4%BA%91%E7%9B%98/img/202305051620536.png"></p><p>退出会话不中断 Crl+b然后d</p><p>重新进入会话</p><figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">tmux attach-session -t my1</span><br></pre></td></tr></table></figure><p>查看所有tmux会话</p><figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">tmux list-sessions</span><br></pre></td></tr></table></figure><p>删除会话</p><figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line">tmux kill-session -t my1</span><br><span class="line">crl+d</span><br></pre></td></tr></table></figure>]]></content>
-    
-    
-      
-      
-    <summary type="html">&lt;p&gt;tmux多路后台会话功能 即使SSH断开程序也可以在内置会话中执行 实现后台稳定运行&lt;br&gt;&lt;img src=&quot;https://pan.yuqi.fun/d/%E5%A4%A9%E7%BF%BC%E4%BA%91%E7%9B%98/img/202305051618430.p</summary>
-      
-    
-    
-    
-    <category term="教程" scheme="http://blog.051515.xyz/categories/%E6%95%99%E7%A8%8B/"/>
-    
-    
-    <category term="服务器" scheme="http://blog.051515.xyz/tags/%E6%9C%8D%E5%8A%A1%E5%99%A8/"/>
-    
-  </entry>
-  
-  <entry>
-    <title>Openwrt编译</title>
-    <link href="http://blog.051515.xyz/undefined/72c5b323.html"/>
-    <id>http://blog.051515.xyz/undefined/72c5b323.html</id>
-    <published>2023-04-27T16:00:00.000Z</published>
-    <updated>2023-04-27T16:00:00.000Z</updated>
-    
-    <content type="html"><![CDATA[<h1 id="注意"><a href="#注意" class="headerlink" title="注意"></a>注意</h1><ol><li><strong>不要用 root 用户进行编译</strong></li><li>国内用户编译前最好准备好梯子</li><li>默认登陆 IP 192.168.1.1 密码 password</li></ol><h1 id="编译命令"><a href="#编译命令" class="headerlink" title="编译命令"></a>编译命令</h1><ol><li><p>首先装好 Linux 系统，推荐 Debian 11 或 Ubuntu LTS</p></li><li><p>安装编译依赖</p></li></ol><figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br></pre></td><td class="code"><pre><span class="line"><span class="built_in">sudo</span> apt update -y</span><br><span class="line"><span class="built_in">sudo</span> apt full-upgrade -y</span><br><span class="line"><span class="built_in">sudo</span> apt install -y ack antlr3 asciidoc autoconf automake autopoint binutils bison build-essential \</span><br><span class="line">bzip2 ccache cmake cpio curl device-tree-compiler fastjar flex gawk gettext gcc-multilib g++-multilib \</span><br><span class="line">git gperf haveged help2man intltool libc6-dev-i386 libelf-dev libglib2.0-dev libgmp3-dev libltdl-dev \</span><br><span class="line">libmpc-dev libmpfr-dev libncurses5-dev libncursesw5-dev libreadline-dev libssl-dev libtool lrzsz \</span><br><span class="line">mkisofs msmtp nano ninja-build p7zip p7zip-full patch pkgconf python2.7 python3 python3-pyelftools \</span><br><span class="line">libpython3-dev qemu-utils rsync scons squashfs-tools subversion swig texinfo uglifyjs upx-ucl unzip \</span><br><span class="line">vim wget xmlto xxd zlib1g-dev</span><br></pre></td></tr></table></figure><ol start="3"><li>下载源代码，更新 feeds 并选择配置<br>lede源：<a href="https://github.com/coolsnowwolf/lede">https://github.com/coolsnowwolf/lede</a><br>插件库：<a href="https://github.com/kenzok8/small-package">https://github.com/kenzok8/small-package</a><br>西瓜皮：<a href="https://github.com/6ang996/lede/tree/rk356x-xgp_support">https://github.com/6ang996/lede/tree/rk356x-xgp_support</a><br>克隆指定分支：git clone -b 分支 源</li></ol><figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br></pre></td><td class="code"><pre><span class="line">git <span class="built_in">clone</span> https://github.com/coolsnowwolf/lede</span><br><span class="line"><span class="built_in">cd</span> lede</span><br><span class="line"><span class="built_in">echo</span> <span class="string">&#x27;src-git small8 https://github.com/kenzok8/small-package&#x27;</span> &gt;&gt;feeds.conf.default</span><br><span class="line">./scripts/feeds update -a</span><br><span class="line">./scripts/feeds install -a</span><br><span class="line">make menuconfig</span><br></pre></td></tr></table></figure><ol start="4"><li>下载 dl 库，编译固件<br>（-j 后面是线程数，第一次编译推荐用单线程） <figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><span class="line">make download -j8</span><br><span class="line">make V=s -j1</span><br><span class="line"><span class="keyword">time</span> make V=s -j$(<span class="built_in">nproc</span>)可以看到编译用时</span><br></pre></td></tr></table></figure></li></ol><p>本套代码保证肯定可以编译成功。里面包括了 R23 所有源代码，包括 IPK 的。</p><p>你可以自由使用，但源码编译二次发布请注明我的 GitHub 仓库链接。谢谢合作！</p><p>二次编译：</p><figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br></pre></td><td class="code"><pre><span class="line"><span class="built_in">cd</span> lede</span><br><span class="line">git pull</span><br><span class="line">./scripts/feeds update -a</span><br><span class="line">./scripts/feeds install -a</span><br><span class="line">make defconfig</span><br><span class="line">make download -j8</span><br><span class="line">make V=s -j$(<span class="built_in">nproc</span>)</span><br></pre></td></tr></table></figure><p>如果需要重新配置：</p><figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><span class="line"><span class="built_in">rm</span> -rf ./tmp &amp;&amp; <span class="built_in">rm</span> -rf .config</span><br><span class="line">make menuconfig</span><br><span class="line">make V=s -j$(<span class="built_in">nproc</span>)</span><br></pre></td></tr></table></figure><p>编译完成后输出路径：bin&#x2F;targets</p><h2 id="如果你使用-WSL-WSL2-进行编译"><a href="#如果你使用-WSL-WSL2-进行编译" class="headerlink" title="如果你使用 WSL&#x2F;WSL2 进行编译"></a>如果你使用 WSL&#x2F;WSL2 进行编译</h2><p>由于 WSL 的 PATH 中包含带有空格的 Windows 路径，有可能会导致编译失败，请在 <code>make</code> 前面加上：</p><figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">PATH=/usr/local/sbin:/usr/local/bin:/usr/sbin:/usr/bin:/sbin:/bin</span><br></pre></td></tr></table></figure><h2 id="macOS-原生系统进行编译"><a href="#macOS-原生系统进行编译" class="headerlink" title="macOS 原生系统进行编译"></a>macOS 原生系统进行编译</h2><ol><li><p>在 AppStore 中安装 Xcode</p></li><li><p>安装 Homebrew：</p></li></ol><figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">/usr/bin/ruby -e <span class="string">&quot;<span class="subst">$(curl -fsSL https://raw.githubusercontent.com/Homebrew/install/master/install)</span>&quot;</span></span><br></pre></td></tr></table></figure><ol start="3"><li>使用 Homebrew 安装工具链、依赖与基础软件包:</li></ol><figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><span class="line">brew <span class="built_in">unlink</span> awk</span><br><span class="line">brew install coreutils diffutils findutils gawk gnu-getopt gnu-tar grep make ncurses pkg-config wget quilt xz</span><br><span class="line">brew install gcc@11</span><br></pre></td></tr></table></figure><ol start="4"><li>然后输入以下命令，添加到系统环境变量中：</li></ol><figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br></pre></td><td class="code"><pre><span class="line"><span class="built_in">echo</span> <span class="string">&#x27;export PATH=&quot;/usr/local/opt/coreutils/libexec/gnubin:$PATH&quot;&#x27;</span> &gt;&gt; ~/.bashrc</span><br><span class="line"><span class="built_in">echo</span> <span class="string">&#x27;export PATH=&quot;/usr/local/opt/findutils/libexec/gnubin:$PATH&quot;&#x27;</span> &gt;&gt; ~/.bashrc</span><br><span class="line"><span class="built_in">echo</span> <span class="string">&#x27;export PATH=&quot;/usr/local/opt/gnu-getopt/bin:$PATH&quot;&#x27;</span> &gt;&gt; ~/.bashrc</span><br><span class="line"><span class="built_in">echo</span> <span class="string">&#x27;export PATH=&quot;/usr/local/opt/gnu-tar/libexec/gnubin:$PATH&quot;&#x27;</span> &gt;&gt; ~/.bashrc</span><br><span class="line"><span class="built_in">echo</span> <span class="string">&#x27;export PATH=&quot;/usr/local/opt/grep/libexec/gnubin:$PATH&quot;&#x27;</span> &gt;&gt; ~/.bashrc</span><br><span class="line"><span class="built_in">echo</span> <span class="string">&#x27;export PATH=&quot;/usr/local/opt/gnu-sed/libexec/gnubin:$PATH&quot;&#x27;</span> &gt;&gt; ~/.bashrc</span><br><span class="line"><span class="built_in">echo</span> <span class="string">&#x27;export PATH=&quot;/usr/local/opt/make/libexec/gnubin:$PATH&quot;&#x27;</span> &gt;&gt; ~/.bashrc</span><br></pre></td></tr></table></figure><ol start="5"><li>重新加载一下 shell 启动文件 <code>source ~/.bashrc</code>，然后输入 <code>bash</code> 进入 bash shell，就可以和 Linux 一样正常编译了</li></ol>]]></content>
-    
-    
-      
-      
-    <summary type="html">&lt;h1 id=&quot;注意&quot;&gt;&lt;a href=&quot;#注意&quot; class=&quot;headerlink&quot; title=&quot;注意&quot;&gt;&lt;/a&gt;注意&lt;/h1&gt;&lt;ol&gt;
-&lt;li&gt;&lt;strong&gt;不要用 root 用户进行编译&lt;/strong&gt;&lt;/li&gt;
-&lt;li&gt;国内用户编译前最好准备好梯子&lt;/li&gt;
-&lt;l</summary>
-      
-    
-    
-    
-    <category term="教程" scheme="http://blog.051515.xyz/categories/%E6%95%99%E7%A8%8B/"/>
-    
-    
-    <category term="Openwrt" scheme="http://blog.051515.xyz/tags/Openwrt/"/>
-    
-  </entry>
-  
-  <entry>
-    <title>神秘模块入门教程（Android端）</title>
-    <link href="http://blog.051515.xyz/undefined/d7b14abe.html"/>
-    <id>http://blog.051515.xyz/undefined/d7b14abe.html</id>
-    <published>2023-04-21T16:00:00.000Z</published>
-    <updated>2023-04-21T16:00:00.000Z</updated>
-    
-    <content type="html"><![CDATA[<p><strong>使用前提</strong><br>1.已经安装Magisk或KernelSU的安卓设备</p><p>2.安卓6.0以上</p><h1 id="一-安装node"><a href="#一-安装node" class="headerlink" title="一 安装node"></a>一 安装node</h1><h2 id="下载Tetmux"><a href="#下载Tetmux" class="headerlink" title="下载Tetmux"></a>下载Tetmux</h2><p><a href="https://github.com/termux/termux-app/releases">https://github.com/termux/termux-app/releases</a></p><p><img src="https://pan.yuqi.fun/d/%E5%A4%A9%E7%BF%BC%E4%BA%91%E7%9B%98/img/202304220807195.jpeg" alt="img"></p><p>默认下第2个，其他根据自己的系统架构选择</p><h2 id="设置国内镜像"><a href="#设置国内镜像" class="headerlink" title="设置国内镜像"></a>设置国内镜像</h2><p>命令行输入</p><figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">termux-change-repo</span><br></pre></td></tr></table></figure><p><img src="https://pan.yuqi.fun/d/%E5%A4%A9%E7%BF%BC%E4%BA%91%E7%9B%98/img/202304220920955.jpg"></p><p><img src="https://pan.yuqi.fun/d/%E5%A4%A9%E7%BF%BC%E4%BA%91%E7%9B%98/img/202304220920451.jpg"></p><h2 id="apt更新所有包"><a href="#apt更新所有包" class="headerlink" title="apt更新所有包"></a>apt更新所有包</h2><p>apt update &amp;&amp; apt upgrade</p><p><img src="https://pan.yuqi.fun/d/%E5%A4%A9%E7%BF%BC%E4%BA%91%E7%9B%98/img/202304220921028.jpg"></p><p>看到输入Y</p><h2 id="重新设置国内镜像"><a href="#重新设置国内镜像" class="headerlink" title="重新设置国内镜像"></a>重新设置国内镜像</h2><p>termux-change-repo</p><p><img src="https://pan.yuqi.fun/d/%E5%A4%A9%E7%BF%BC%E4%BA%91%E7%9B%98/img/202304220922420.jpg"></p><p><img src="https://pan.yuqi.fun/d/%E5%A4%A9%E7%BF%BC%E4%BA%91%E7%9B%98/img/202304220922620.jpg"></p><h2 id="安装node"><a href="#安装node" class="headerlink" title="安装node"></a>安装node</h2><p>apt install nodejs</p><p><img src="https://pan.yuqi.fun/d/%E5%A4%A9%E7%BF%BC%E4%BA%91%E7%9B%98/img/202304220923571.jpg"></p><p>看到输入Y</p><h2 id="检查node"><a href="#检查node" class="headerlink" title="检查node"></a>检查node</h2><p>node -v</p><p><img src="https://pan.yuqi.fun/d/%E5%A4%A9%E7%BF%BC%E4%BA%91%E7%9B%98/img/202304220923747.jpg"></p><p>返回版本号就安装成功了</p><h1 id="第二步-模块刷入"><a href="#第二步-模块刷入" class="headerlink" title="第二步 模块刷入"></a>第二步 模块刷入</h1><p>在发布页下载最新的神秘模块 一般其名称应为 神秘_android_发布时间.zip </p><p><img src="https://pan.yuqi.fun/d/%E5%A4%A9%E7%BF%BC%E4%BA%91%E7%9B%98/img/202304220923727.jpg"></p><p>TG群组链接：<a href="https://t.me/blowh2o">https://t.me/blowh2o</a></p><p>123云盘下载链接：<a href="https://www.123pan.com/s/bAORVv-8XQl.html">https://www.123pan.com/s/bAORVv-8XQl.html</a></p><h2 id="安装模块"><a href="#安装模块" class="headerlink" title="安装模块"></a>安装模块</h2><p><img src="https://pan.yuqi.fun/d/%E5%A4%A9%E7%BF%BC%E4%BA%91%E7%9B%98/img/202304220924515.jpg"></p><h2 id="进入面板"><a href="#进入面板" class="headerlink" title="进入面板"></a>进入面板</h2><p>打开<a href="http://127.0.0.1:23333/">127.0.0.1:23333</a></p><p><img src="https://pan.yuqi.fun/d/%E5%A4%A9%E7%BF%BC%E4%BA%91%E7%9B%98/img/202304220924533.jpg"></p><h1 id="配置神秘"><a href="#配置神秘" class="headerlink" title="配置神秘"></a>配置神秘</h1><h2 id="第一步-选择-涂涂改改"><a href="#第一步-选择-涂涂改改" class="headerlink" title="第一步 选择 涂涂改改"></a>第一步 选择 <strong>涂涂改改</strong></h2><p><img src="https://pan.yuqi.fun/d/%E5%A4%A9%E7%BF%BC%E4%BA%91%E7%9B%98/img/202304220924025.jpg"></p><h2 id="第二步-选择星盘"><a href="#第二步-选择星盘" class="headerlink" title="第二步 选择星盘"></a>第二步 选择<strong>星盘</strong></h2><p><img src="https://pan.yuqi.fun/d/%E5%A4%A9%E7%BF%BC%E4%BA%91%E7%9B%98/img/202304220924598.jpg"></p><p>新建<strong>星盘</strong></p><p><img src="https://pan.yuqi.fun/d/%E5%A4%A9%E7%BF%BC%E4%BA%91%E7%9B%98/img/202304220925165.jpg"></p><p>选<strong>召唤类星盘</strong></p><p><img src="https://pan.yuqi.fun/d/%E5%A4%A9%E7%BF%BC%E4%BA%91%E7%9B%98/img/202304220925718.jpg"></p><p>填 <strong>星盘名称</strong> <strong>召唤法阵</strong>其他看需求的</p><p><img src="https://pan.yuqi.fun/d/%E5%A4%A9%E7%BF%BC%E4%BA%91%E7%9B%98/img/202304220925292.jpg"></p><h2 id="第三步-在涂涂改改-传送阵"><a href="#第三步-在涂涂改改-传送阵" class="headerlink" title="第三步 在涂涂改改-传送阵"></a>第三步 在<strong>涂涂改改-传送阵</strong></h2><p>新建<strong>传送阵</strong></p><p><img src="https://pan.yuqi.fun/d/%E5%A4%A9%E7%BF%BC%E4%BA%91%E7%9B%98/img/202304220925886.jpg"></p><p>选择<strong>定向司南</strong></p><p><img src="https://pan.yuqi.fun/d/%E5%A4%A9%E7%BF%BC%E4%BA%91%E7%9B%98/img/202304220925674.jpg"></p><p>选择创建的<strong>星盘</strong></p><p><img src="https://pan.yuqi.fun/d/%E5%A4%A9%E7%BF%BC%E4%BA%91%E7%9B%98/img/202304220926756.jpg"></p><h2 id="第四步-自动测速（非必选）"><a href="#第四步-自动测速（非必选）" class="headerlink" title="第四步 自动测速（非必选）"></a>第四步 自动测速（非必选）</h2><p>新建<strong>传送阵</strong></p><p><img src="https://pan.yuqi.fun/d/%E5%A4%A9%E7%BF%BC%E4%BA%91%E7%9B%98/img/202304220926790.jpg"></p><p>选择<strong>随缘司南</strong></p><p><img src="https://pan.yuqi.fun/d/%E5%A4%A9%E7%BF%BC%E4%BA%91%E7%9B%98/img/202304220926064.jpg"></p><p>选择想<strong>自动测速</strong>的<strong>星盘</strong></p><p><img src="https://pan.yuqi.fun/d/%E5%A4%A9%E7%BF%BC%E4%BA%91%E7%9B%98/img/202304220926035.jpg"></p><h2 id="第五步-传送阵套娃"><a href="#第五步-传送阵套娃" class="headerlink" title="第五步 传送阵套娃"></a>第五步 传送阵套娃</h2><p>根据<strong>传送阵</strong>选择合适的<strong>传送阵套娃</strong></p><p>国外选择proxy，国内选择domestic</p><p><img src="https://pan.yuqi.fun/d/%E5%A4%A9%E7%BF%BC%E4%BA%91%E7%9B%98/img/202304220926822.jpg"></p><p>选择你想<strong>套娃</strong>的<strong>传送阵</strong></p><p><img src="https://pan.yuqi.fun/d/%E5%A4%A9%E7%BF%BC%E4%BA%91%E7%9B%98/img/202304220926289.jpg"></p><h2 id="第六步-更新"><a href="#第六步-更新" class="headerlink" title="第六步 更新"></a>第六步 更新</h2><p>选择你想更新的<strong>星盘</strong>当然可以全部更新</p><p><img src="https://pan.yuqi.fun/d/%E5%A4%A9%E7%BF%BC%E4%BA%91%E7%9B%98/img/202304220927381.jpg"></p><p>提示处理完成就成功更新了</p><p><img src="https://pan.yuqi.fun/d/%E5%A4%A9%E7%BF%BC%E4%BA%91%E7%9B%98/img/202304220927523.jpg"></p><h2 id="第七步-使用"><a href="#第七步-使用" class="headerlink" title="第七步 使用"></a>第七步 使用</h2><p>选择查<strong>星盘</strong></p><p><img src="https://pan.yuqi.fun/d/%E5%A4%A9%E7%BF%BC%E4%BA%91%E7%9B%98/img/202304220927279.jpg"></p><p>左边选择代理</p><p><img src="https://pan.yuqi.fun/d/%E5%A4%A9%E7%BF%BC%E4%BA%91%E7%9B%98/img/202304220927139.jpg"></p><p>找到<strong>传送阵套娃名称</strong>选<strong>传送阵</strong>最好自动测<strong>速</strong></p><p><img src="https://pan.yuqi.fun/d/%E5%A4%A9%E7%BF%BC%E4%BA%91%E7%9B%98/img/202304220927912.jpg"></p><h1 id="第三步-国内外分流-基础正则使用"><a href="#第三步-国内外分流-基础正则使用" class="headerlink" title="第三步 国内外分流&amp;基础正则使用"></a>第三步 <strong>国内外分流&amp;基础正则使用</strong></h1><p>注:一般一个机场都是国内国外节点混合，我们要用正则进行过滤</p><h2 id="1-新建传送阵"><a href="#1-新建传送阵" class="headerlink" title="1.新建传送阵"></a>1.新建<strong>传送阵</strong></h2><p><img src="https://pan.yuqi.fun/d/%E5%A4%A9%E7%BF%BC%E4%BA%91%E7%9B%98/img/202304220928845.jpg"></p><p>注:名称不要同名</p><p><strong>传送阵类型</strong>选择<strong>定向司南</strong></p><p><img src="https://pan.yuqi.fun/d/%E5%A4%A9%E7%BF%BC%E4%BA%91%E7%9B%98/img/202304220928143.jpg"></p><p>选择你要筛选的<strong>星盘</strong></p><p>例:cn|深圳 筛选CN和深圳的节点名称</p><p>“|”进行分隔，切记请不要“|”后面空白，否则将筛选全部</p><p><img src="https://pan.yuqi.fun/d/%E5%A4%A9%E7%BF%BC%E4%BA%91%E7%9B%98/img/202304220928466.jpg"></p><h2 id="2-自动测速（非必选）"><a href="#2-自动测速（非必选）" class="headerlink" title="2.自动测速（非必选）"></a>2.自动测速（非必选）</h2><p>新建个<strong>传送阵</strong>，<strong>传送阵</strong>类型选择<strong>随缘司</strong>南</p><p><img src="https://pan.yuqi.fun/d/%E5%A4%A9%E7%BF%BC%E4%BA%91%E7%9B%98/img/202304220928724.jpg"></p><p>正则如上</p><p>选择你要筛选的<strong>星盘</strong></p><p><img src="https://pan.yuqi.fun/d/%E5%A4%A9%E7%BF%BC%E4%BA%91%E7%9B%98/img/202304220928156.png"></p><p>注:只选填红框内，其他无管</p><p>根据<strong>传送阵</strong>选择合适的<strong>传送阵套娃</strong></p><p>国外选择proxy，国内选择domestic</p><p><img src="https://pan.yuqi.fun/d/%E5%A4%A9%E7%BF%BC%E4%BA%91%E7%9B%98/img/202304220929488.jpg"></p><p>选择合适的<strong>传送阵</strong></p><p><img src="https://pan.yuqi.fun/d/%E5%A4%A9%E7%BF%BC%E4%BA%91%E7%9B%98/img/202304220929174.jpg"></p><h1 id="第四步-热点模式"><a href="#第四步-热点模式" class="headerlink" title="第四步 热点模式"></a>第四步 <strong>热点模式</strong></h1><p><strong>热点模式</strong>和<strong>兼容模式</strong>打开</p><p><img src="https://pan.yuqi.fun/d/%E5%A4%A9%E7%BF%BC%E4%BA%91%E7%9B%98/img/202304220929159.jpg"></p><h1 id="第五步-常见问题（非必选）"><a href="#第五步-常见问题（非必选）" class="headerlink" title="第五步 常见问题（非必选）"></a>第五步 <strong>常见问题（非必选）</strong></h1><p>正在施工中</p><h1 id="第六步-神秘文字解释（非必选）"><a href="#第六步-神秘文字解释（非必选）" class="headerlink" title="第六步 神秘文字解释（非必选）"></a>第六步 神秘文字解释（非必选）</h1><p><strong>1.神秘面板主页</strong></p><p><strong>不唱了</strong>→<strong>停止</strong></p><p><strong>歇一会</strong>→<strong>重启</strong></p><p>查<strong>星盘</strong>→查看<strong>yacd面板</strong>&amp;<strong>神秘实验室面板</strong></p><p><strong>涂涂改改</strong>→<strong>设置</strong></p><p><strong>召唤</strong>→<strong>单独更新订阅</strong></p><p><strong>全部施法</strong>→<strong>更新所有订阅</strong></p><p><strong>2.涂涂改改（设置）</strong></p><p><strong>一.星盘（订阅）</strong></p><p><strong>星盘类型</strong> <strong>召唤类星盘</strong>→<strong>订阅链接</strong></p><p><strong>献祭类星盘</strong>→<strong>本地文件</strong></p><p><strong>召唤星盘时查询星盘法力剩余→查询订阅链接的流量详情</strong></p><p><strong>二.传送阵（出站）</strong></p><p><strong>传送阵类型</strong> <strong>定向司南</strong>→<strong>分组</strong></p><p><strong>随缘司南</strong>→<strong>自动测速分组</strong></p><p><strong>传送阵套娃</strong>→<strong>引用传送阵</strong></p><p><strong>我不是什么星盘都用的</strong>→<strong>引用订阅类型</strong></p><p><strong>对类型挑食</strong>→<strong>保留匹配的协议</strong></p><p><strong>对端口挑食</strong>→<strong>保留匹配的端口</strong></p><h1 id="其他"><a href="#其他" class="headerlink" title="其他"></a>其他</h1><p><strong>三.子星图（未知）</strong></p><p><strong>四.星图（未知）</strong></p><p><strong>五.书之灵（未知）</strong></p><p><strong>六.神秘（设置）</strong></p><p><strong>神秘领域</strong>→<strong>访问神秘</strong> </p><p><strong>仅本机→仅本机访问神秘</strong> </p><p><strong>全领域→所有可访问神秘</strong></p><p><strong>神秘咒语</strong>→<strong>访问密码</strong></p><p><strong>切换唱法</strong>→<strong>模式</strong></p><p><strong>看情况</strong>→<strong>分流</strong></p><p><strong>学院派</strong>→<strong>全局</strong></p><p><strong>大白嗓</strong>→<strong>直连</strong></p><p><strong>七.朝圣池（未知）</strong></p><p><strong>八.辅助灵（未知）</strong></p><p><strong>九.日记（日志）</strong></p><p><strong>十.时之锚（Ntp时间校准）</strong></p><h1 id="订阅转换-机场推荐"><a href="#订阅转换-机场推荐" class="headerlink" title="订阅转换&amp;机场推荐"></a>订阅转换&amp;机场推荐</h1><p>免流骚订阅转换<a href="http://zhuan.mlsao.ml/">http://zhuan.mlsao.ml/</a></p><p>记得订阅转换为第二个选项clash的</p><p>魔法学院转换<a href="https://sub.v2.lu/">https://sub.v2.lu/</a></p><p>中国国际机场<a href="https://cnnic.pub/#/register?code=gr8guOWR">https://cnnic.pub/#/register?code=gr8guOWR</a></p>]]></content>
-    
-    
-      
-      
-    <summary type="html">&lt;p&gt;&lt;strong&gt;使用前提&lt;/strong&gt;&lt;br&gt;1.已经安装Magisk或KernelSU的安卓设备&lt;/p&gt;
-&lt;p&gt;2.安卓6.0以上&lt;/p&gt;
-&lt;h1 id=&quot;一-安装node&quot;&gt;&lt;a href=&quot;#一-安装node&quot; class=&quot;headerlink&quot; title=&quot;</summary>
-      
-    
-    
-    
-    <category term="教程" scheme="http://blog.051515.xyz/categories/%E6%95%99%E7%A8%8B/"/>
-    
-    
-    <category term="免流" scheme="http://blog.051515.xyz/tags/%E5%85%8D%E6%B5%81/"/>
-    
-    <category term="CFM" scheme="http://blog.051515.xyz/tags/CFM/"/>
-    
-  </entry>
-  
-  <entry>
-    <title>V2,R.a,y.A——新一代Linux客户端安装配置教程</title>
-    <link href="http://blog.051515.xyz/undefined/a53fea94.html"/>
-    <id>http://blog.051515.xyz/undefined/a53fea94.html</id>
-    <published>2023-04-09T16:00:00.000Z</published>
-    <updated>2023-04-09T16:00:00.000Z</updated>
-    
-    <content type="html"><![CDATA[<h1 id="前言"><a href="#前言" class="headerlink" title="前言"></a>前言</h1><p>上一次我们介绍的Qv2ray还是有一些同学不会安装，而且Qv2ray也不再更新了，所以我就另外去找了，刚好找到一个安装配置都非常简单的软件，也就是本章的主角——v2rayA</p><h1 id="特性"><a href="#特性" class="headerlink" title="特性"></a>特性</h1><p><img src="https://pan.yuqi.fun/d/%E5%A4%A9%E7%BF%BC%E4%BA%91%E7%9B%98/img/202304100749200.png" alt="img"></p><p>在官网的介绍中我们可以发现，v2rayA是一款非常强大的软件，它甚至能提供透明代理（几乎完全全局代理，目标服务器检测不到代理服务器）。好我就精简一下官方的教程教给大家怎么去安装配置Qv2ray，官网我会放到文章末尾。</p><h1 id="安装"><a href="#安装" class="headerlink" title="安装"></a>安装</h1><p>首页：<a href="https://v2raya.org/">https://v2raya.org/</a></p><h2 id="安装v2rayA"><a href="#安装v2rayA" class="headerlink" title="安装v2rayA"></a>安装v2rayA</h2><p>方法一：通过软件源安装<br>添加公钥</p><figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">wget -qO - https://apt.v2raya.org/key/public-key.asc | sudo tee /etc/apt/keyrings/v2raya.asc</span><br></pre></td></tr></table></figure><p>添加 V2RayA 软件源</p><figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line">echo &quot;deb [signed-by=/etc/apt/keyrings/v2raya.asc] https://apt.v2raya.org/ v2raya main&quot; | sudo tee /etc/apt/sources.list.d/v2raya.list</span><br><span class="line">sudo apt update</span><br></pre></td></tr></table></figure><p>安装 V2RayA</p><figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">sudo apt install v2raya v2ray ## 也可以使用 xray 包</span><br></pre></td></tr></table></figure><p>方法二：手动安装 deb 包</p><p>下载 deb 包</p><p><a href="https://github.com/v2rayA/v2rayA/releases">点我下载</a></p><p>然后可以使用 Gdebi、QApt 等图形化工具来安装，也可以使用命令行：</p><figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">sudo apt install /path/download/installer_debian_xxx_vxxx.deb ### 自行替换 deb 包所在的实际路径</span><br></pre></td></tr></table></figure><h1 id="启动-配置"><a href="#启动-配置" class="headerlink" title="启动&amp;配置"></a>启动&amp;配置</h1><h2 id="开机自启"><a href="#开机自启" class="headerlink" title="开机自启"></a>开机自启</h2><p>启动 v2rayA</p><figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">sudo systemctl start v2raya.service</span><br></pre></td></tr></table></figure><p>设置开机自动启动</p><figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">sudo systemctl enable v2raya.service</span><br></pre></td></tr></table></figure><h2 id="软件配置"><a href="#软件配置" class="headerlink" title="软件配置"></a>软件配置</h2><p>v2rayA的UI是以网页的形式呈现的，所以我们打开浏览器，访问v2rayA的地址<a href="http://localhost:2017/">http://localhost:2017/</a></p><p><img src="https://pan.yuqi.fun/d/%E5%A4%A9%E7%BF%BC%E4%BA%91%E7%9B%98/img/202304100749118.png" alt="img"></p><p>首次打开需要创建一个管理员账号，如果遗忘，使用下面的命令重置。</p><figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">sudo v2raya --reset-password</span><br></pre></td></tr></table></figure><p>以创建或导入的方式导入节点，导入支持节点链接、订阅链接、扫描二维码和批量导入等方式。</p><p><img src="https://pan.yuqi.fun/d/%E5%A4%A9%E7%BF%BC%E4%BA%91%E7%9B%98/img/202304100749250.png" alt="img"></p><p>导入成功后，节点将显示在 SERVER 中，先选择要连接的节点，再点击左上角的就绪按钮就能开启代理了。</p><p><img src="https://pan.yuqi.fun/d/%E5%A4%A9%E7%BF%BC%E4%BA%91%E7%9B%98/img/202304100749288.png" alt="img"></p><p>点击右边的设置，推荐像我一样设置，也是官方推荐的设置</p><p><img src="https://pan.yuqi.fun/d/%E5%A4%A9%E7%BF%BC%E4%BA%91%E7%9B%98/img/202304100749956.png" alt="img"></p><p>但是还没有结束，在某些不能自动配置代理的系统中，还需要手动进行代理，以Ubuntu为例（Ubuntu无需手动设置代理，仅为了演示），进入设置–&gt;网络–&gt;网络代理–&gt;手动代理，默认端口没有改动的话按照我的填写</p><p><img src="https://pan.yuqi.fun/d/%E5%A4%A9%E7%BF%BC%E4%BA%91%E7%9B%98/img/202304100749118.png" alt="img"></p><p>v2rayA的默认代理端口是</p><p><img src="https://pan.yuqi.fun/d/%E5%A4%A9%E7%BF%BC%E4%BA%91%E7%9B%98/img/202304100755201.png" alt="img"></p><p>到此就完成了整个安装与配置，本篇v2rayA安装配置在别的Linux中仍然适用，如果遇到什么问题推荐看一下官网的文档。</p><p>官网：<a href="https://v2raya.org/">点我直达</a></p>]]></content>
-    
-    
-      
-      
-    <summary type="html">&lt;h1 id=&quot;前言&quot;&gt;&lt;a href=&quot;#前言&quot; class=&quot;headerlink&quot; title=&quot;前言&quot;&gt;&lt;/a&gt;前言&lt;/h1&gt;&lt;p&gt;上一次我们介绍的Qv2ray还是有一些同学不会安装，而且Qv2ray也不再更新了，所以我就另外去找了，刚好找到一个安装配置都非常简单的软件，</summary>
-      
-    
-    
-    
-    <category term="上网" scheme="http://blog.051515.xyz/categories/%E4%B8%8A%E7%BD%91/"/>
-    
-    
-    <category term="v2" scheme="http://blog.051515.xyz/tags/v2/"/>
+    <category term="服务器" scheme="http://yuqi.fun/tags/%E6%9C%8D%E5%8A%A1%E5%99%A8/"/>
     
   </entry>
   
