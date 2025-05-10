@@ -6,7 +6,7 @@
   <link href="http://blog.yuqi.fun/atom.xml" rel="self"/>
   
   <link href="http://blog.yuqi.fun/"/>
-  <updated>2025-01-05T00:00:00.000Z</updated>
+  <updated>2025-05-10T00:00:00.000Z</updated>
   <id>http://blog.yuqi.fun/</id>
   
   <author>
@@ -15,6 +15,27 @@
   </author>
   
   <generator uri="https://hexo.io/">Hexo</generator>
+  
+  <entry>
+    <title>针对Prodiag现场License弹窗的解决方法</title>
+    <link href="http://blog.yuqi.fun/undefined/2622eae5.html"/>
+    <id>http://blog.yuqi.fun/undefined/2622eae5.html</id>
+    <published>2025-05-10T00:00:00.000Z</published>
+    <updated>2025-05-10T00:00:00.000Z</updated>
+    
+    <content type="html"><![CDATA[<p>问题：触摸屏报缺少相关的License Key</p><p><img src="https://pan.yuqi.fun/d/%E5%A4%A9%E7%BF%BC%E4%BA%91%E7%9B%98/img/20250510170721371.png" alt="image-20250510165712437"></p><p>打开2018版EKB秘钥（无法找到秘钥，请更换此2018秘钥）</p><p> <img src="https://pan.yuqi.fun/d/%E5%A4%A9%E7%BF%BC%E4%BA%91%E7%9B%98/img/20250510170736105.png" alt="image-20250510165723510"></p><p>选择此秘钥，安装长秘钥，</p><p><img src="https://pan.yuqi.fun/d/%E5%A4%A9%E7%BF%BC%E4%BA%91%E7%9B%98/img/20250510170745318.png" alt="image-20250510165728998"></p><p>方法一：</p><p>打开软件</p><p><img src="https://pan.yuqi.fun/d/%E5%A4%A9%E7%BF%BC%E4%BA%91%E7%9B%98/img/20250510170755265.png" alt="image-20250510165801227"></p><p>选择下图秘钥—</p><p><img src="https://pan.yuqi.fun/d/%E5%A4%A9%E7%BF%BC%E4%BA%91%E7%9B%98/img/20250510170801052.png" alt="image-20250510165808104"></p><p>找到下图秘钥–右键点击Transfer</p><p>打开Tansfer 窗口，电脑与HMI屏幕连接后，可以找到需要下载的HMI设备（有具体IP地址），OK确认</p><p><img src="https://pan.yuqi.fun/d/%E5%A4%A9%E7%BF%BC%E4%BA%91%E7%9B%98/img/20250510170807531.png" alt="image-20250510165818850"></p><p>方法二：也可以右键相关HMI的此属性，打开授权许可</p><p><img src="https://pan.yuqi.fun/d/%E5%A4%A9%E7%BF%BC%E4%BA%91%E7%9B%98/img/20250510170813884.png" alt="image-20250510165826870"></p><p>找到相关HMI设备。</p><p><img src="https://pan.yuqi.fun/d/%E5%A4%A9%E7%BF%BC%E4%BA%91%E7%9B%98/img/20250510170821004.png" alt="image-20250510165833281"></p><p>注意：授权传送之后会提示成功，传送成功后授权若消失重新使用EKb安装一遍即可出现。</p>]]></content>
+    
+    
+      
+      
+    <summary type="html">&lt;p&gt;问题：触摸屏报缺少相关的License Key&lt;/p&gt;
+&lt;p&gt;&lt;img src=&quot;https://pan.yuqi.fun/d/%E5%A4%A9%E7%BF%BC%E4%BA%91%E7%9B%98/img/20250510170721371.png&quot; alt=&quot;imag</summary>
+      
+    
+    
+    
+    
+  </entry>
   
   <entry>
     <title>SEW Scope曲线监控</title>
@@ -463,32 +484,6 @@
     
     
     <category term="路由器" scheme="http://blog.yuqi.fun/tags/%E8%B7%AF%E7%94%B1%E5%99%A8/"/>
-    
-  </entry>
-  
-  <entry>
-    <title>VPS一键脚本分享</title>
-    <link href="http://blog.yuqi.fun/undefined/2419758f.html"/>
-    <id>http://blog.yuqi.fun/undefined/2419758f.html</id>
-    <published>2023-05-05T00:00:00.000Z</published>
-    <updated>2023-05-05T00:00:00.000Z</updated>
-    
-    <content type="html"><![CDATA[<p><img src="https://pan.yuqi.fun/d/%E5%A4%A9%E7%BF%BC%E4%BA%91%E7%9B%98/img/202305051611537.png"></p><p><strong>一键脚本</strong></p><figure class="highlight shell"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br></pre></td><td class="code"><pre><span class="line">apt update -y &amp;&amp; apt install -y wget sudo</span><br><span class="line"></span><br><span class="line">wget --no-check-certificate -O tcpx.sh https://raw.githubusercontent.com/ylx2016/Linux-NetSpeed/master/tcpx.sh</span><br><span class="line"></span><br><span class="line">chmod +x tcpx.sh</span><br><span class="line"></span><br><span class="line">./tcpx.sh</span><br></pre></td></tr></table></figure><p><strong>以后运行</strong>**</p><figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">./tcpx.sh</span><br></pre></td></tr></table></figure><p><strong>注意</strong></p><p>更新内核需要谨慎 使用后台运行模式最稳妥，我在SSH自动中断后失联了一台服务器。</p><p>推荐使用tmux后台工具</p>]]></content>
-    
-    
-      
-      
-    <summary type="html">&lt;p&gt;&lt;img src=&quot;https://pan.yuqi.fun/d/%E5%A4%A9%E7%BF%BC%E4%BA%91%E7%9B%98/img/202305051611537.png&quot;&gt;&lt;/p&gt;
-&lt;p&gt;&lt;strong&gt;一键脚本&lt;/strong&gt;&lt;/p&gt;
-&lt;figure </summary>
-      
-    
-    
-    
-    <category term="教程" scheme="http://blog.yuqi.fun/categories/%E6%95%99%E7%A8%8B/"/>
-    
-    
-    <category term="服务器" scheme="http://blog.yuqi.fun/tags/%E6%9C%8D%E5%8A%A1%E5%99%A8/"/>
     
   </entry>
   
