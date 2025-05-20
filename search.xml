@@ -1809,6 +1809,31 @@
       </tags>
   </entry>
   <entry>
+    <title>VPS一键脚本分享</title>
+    <url>/undefined/2419758f.html</url>
+    <content><![CDATA[<p><img src="https://pan.yuqi.fun/d/%E5%A4%A9%E7%BF%BC%E4%BA%91%E7%9B%98/img/202305051611537.png"></p>
+<p><strong>一键脚本</strong></p>
+<figure class="highlight shell"><table><tr><td class="code"><pre><span class="line">apt update -y &amp;&amp; apt install -y wget sudo</span><br><span class="line"></span><br><span class="line">wget --no-check-certificate -O tcpx.sh https://raw.githubusercontent.com/ylx2016/Linux-NetSpeed/master/tcpx.sh</span><br><span class="line"></span><br><span class="line">chmod +x tcpx.sh</span><br><span class="line"></span><br><span class="line">./tcpx.sh</span><br></pre></td></tr></table></figure>
+
+
+
+<p><strong>以后运行</strong>**</p>
+<figure class="highlight plaintext"><table><tr><td class="code"><pre><span class="line">./tcpx.sh</span><br></pre></td></tr></table></figure>
+
+
+
+<p><strong>注意</strong></p>
+<p>更新内核需要谨慎 使用后台运行模式最稳妥，我在SSH自动中断后失联了一台服务器。</p>
+<p>推荐使用tmux后台工具</p>
+]]></content>
+      <categories>
+        <category>教程</category>
+      </categories>
+      <tags>
+        <tag>服务器</tag>
+      </tags>
+  </entry>
+  <entry>
     <title>Xray最新协议Reality搭建</title>
     <url>/undefined/428849a6.html</url>
     <content><![CDATA[<h1 id="简介"><a href="#简介" class="headerlink" title="简介"></a>简介</h1><p>为了应对 TLS in TLS 和指纹识别等阻断或封禁的风险，Xray-core 团队推出了 Vision 和 Reality 两种新颖的技术方案。它们能够有效地隐藏和保护流量的特征，提高安全性和稳定性。</p>
@@ -1867,31 +1892,6 @@
       </categories>
       <tags>
         <tag>VPS</tag>
-      </tags>
-  </entry>
-  <entry>
-    <title>VPS一键脚本分享</title>
-    <url>/undefined/2419758f.html</url>
-    <content><![CDATA[<p><img src="https://pan.yuqi.fun/d/%E5%A4%A9%E7%BF%BC%E4%BA%91%E7%9B%98/img/202305051611537.png"></p>
-<p><strong>一键脚本</strong></p>
-<figure class="highlight shell"><table><tr><td class="code"><pre><span class="line">apt update -y &amp;&amp; apt install -y wget sudo</span><br><span class="line"></span><br><span class="line">wget --no-check-certificate -O tcpx.sh https://raw.githubusercontent.com/ylx2016/Linux-NetSpeed/master/tcpx.sh</span><br><span class="line"></span><br><span class="line">chmod +x tcpx.sh</span><br><span class="line"></span><br><span class="line">./tcpx.sh</span><br></pre></td></tr></table></figure>
-
-
-
-<p><strong>以后运行</strong>**</p>
-<figure class="highlight plaintext"><table><tr><td class="code"><pre><span class="line">./tcpx.sh</span><br></pre></td></tr></table></figure>
-
-
-
-<p><strong>注意</strong></p>
-<p>更新内核需要谨慎 使用后台运行模式最稳妥，我在SSH自动中断后失联了一台服务器。</p>
-<p>推荐使用tmux后台工具</p>
-]]></content>
-      <categories>
-        <category>教程</category>
-      </categories>
-      <tags>
-        <tag>服务器</tag>
       </tags>
   </entry>
   <entry>
