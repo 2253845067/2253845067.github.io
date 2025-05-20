@@ -244,57 +244,6 @@
       </tags>
   </entry>
   <entry>
-    <title>AList搭建</title>
-    <url>/undefined/1f49e4a4.html</url>
-    <content><![CDATA[<h1 id="一、项目展示"><a href="#一、项目展示" class="headerlink" title="一、项目展示"></a>一、项目展示</h1><p>GitHub 项目地址：<a href="https://github.com/Xhofe/alist">https://github.com/Xhofe/alist</a></p>
-<p>Demo：<a href="https://alist.nn.ci/">https://alist.nn.ci</a></p>
-<p>Alist 文档地址：<a href="https://alist-doc.nn.ci/en/">https://alist-doc.nn.ci/en/</a></p>
-<p><img src="https://pan.yuqi.fun/d/%E5%A4%A9%E7%BF%BC%E4%BA%91%E7%9B%98/img/202303040811308.png" alt="成品预览"></p>
-<h1 id="二、搭建环境"><a href="#二、搭建环境" class="headerlink" title="二、搭建环境"></a>二、搭建环境</h1><p>服务器：阿里云香港轻量应用服务器 24 元&#x2F;月 VPS 一台（最好是选非大陆的服务器，无需备案）</p>
-<p>系统：Centos7</p>
-<p>域名一枚，并做好解析到服务器上</p>
-<h1 id="三、搭建方式"><a href="#三、搭建方式" class="headerlink" title="三、搭建方式"></a>三、搭建方式</h1><h2 id="1、一键脚本安装（本次使用）"><a href="#1、一键脚本安装（本次使用）" class="headerlink" title="1、一键脚本安装（本次使用）"></a>1、一键脚本安装（本次使用）</h2><p>仅支持 Linux-x86_64&#x2F;aarch64 平台。</p>
-<p>》》<strong>安装</strong></p>
-<figure class="highlight bash"><table><tr><td class="code"><pre><span class="line">curl -fsSL <span class="string">&quot;https://nn.ci/alist.sh&quot;</span> | bash -s install</span><br></pre></td></tr></table></figure>
-
-<p>注意：</p>
-<p>已经安装过再次执行安装会删除之前的数据，更新请使用更新命令。</p>
-<p>》》<strong>更新</strong></p>
-<figure class="highlight bash"><table><tr><td class="code"><pre><span class="line">curl -fsSL <span class="string">&quot;https://nn.ci/alist.sh&quot;</span> | bash -s update</span><br></pre></td></tr></table></figure>
-
-<p>》》<strong>卸载</strong></p>
-<figure class="highlight bash"><table><tr><td class="code"><pre><span class="line">curl -fsSL <span class="string">&quot;https://nn.ci/alist.sh&quot;</span> | bash -s uninstall</span><br></pre></td></tr></table></figure>
-
-<p>》》<strong>自定义路径</strong></p>
-<figure class="highlight bash"><table><tr><td class="code"><pre><span class="line">curl -fsSL <span class="string">&quot;https://nn.ci/alist.sh&quot;</span> | bash -s install</span><br></pre></td></tr></table></figure>
-
-<p>默认安装在&#x2F;opt&#x2F;alist，要自定义安装路径，添加安装路径为第二个参数，必须是绝对路径（路径以 alist 结尾时直接安装到给定路径，否则会安装在给定路径 alist 目录下），如安装到&#x2F;root：</p>
-<figure class="highlight bash"><table><tr><td class="code"><pre><span class="line"><span class="comment"># 安装</span></span><br><span class="line"></span><br><span class="line">curl -fsSL <span class="string">&quot;https://nn.ci/alist.sh&quot;</span> | bash -s install /root</span><br><span class="line"></span><br><span class="line"><span class="comment"># 更新</span></span><br><span class="line"></span><br><span class="line">curl -fsSL <span class="string">&quot;https://nn.ci/alist.sh&quot;</span> | bash -s update /root</span><br><span class="line"></span><br><span class="line"><span class="comment"># 卸载</span></span><br><span class="line"></span><br><span class="line">curl -fsSL <span class="string">&quot;https://nn.ci/alist.sh&quot;</span> | bash -s uninstall /root</span><br></pre></td></tr></table></figure>
-
-<h2 id="2、手动搭建"><a href="#2、手动搭建" class="headerlink" title="2、手动搭建"></a>2、手动搭建</h2><p>参考文档：<a href="https://alist-doc.nn.ci/docs/install/manual">https://alist-doc.nn.ci/docs/install/manual</a></p>
-<h2 id="3、Docker"><a href="#3、Docker" class="headerlink" title="3、Docker"></a>3、Docker</h2><p>参考文档：<a href="https://alist-doc.nn.ci/docs/install/docker">https://alist-doc.nn.ci/docs/install/docker</a></p>
-<h1 id="四、开始搭建（以一键脚本安装为例子）"><a href="#四、开始搭建（以一键脚本安装为例子）" class="headerlink" title="四、开始搭建（以一键脚本安装为例子）"></a>四、开始搭建（以一键脚本安装为例子）</h1><h2 id="1、运行安装代码"><a href="#1、运行安装代码" class="headerlink" title="1、运行安装代码"></a>1、运行安装代码</h2><p>》》<strong>输入以下命令等待自动安装</strong></p>
-<figure class="highlight bash"><table><tr><td class="code"><pre><span class="line">curl -fsSL <span class="string">&quot;https://nn.ci/alist.sh&quot;</span> | bash -s install</span><br></pre></td></tr></table></figure>
-
-<p>注意：安装完成会输出默认后台密码。</p>
-<h2 id="2、放行相关端口"><a href="#2、放行相关端口" class="headerlink" title="2、放行相关端口"></a>2、放行相关端口</h2><p>遇到访问不了，请在宝塔面板的防火墙和服务商的后台防火墙里打开对应端口。</p>
-<h2 id="3、配置反向代理"><a href="#3、配置反向代理" class="headerlink" title="3、配置反向代理"></a>3、配置反向代理</h2><p>以宝塔为例，新建一个网站，域名使用你自己的域名，在配置文件里面注释掉 Nginx 配置文件中的这部分内容：</p>
-<figure class="highlight c#"><table><tr><td class="code"><pre><span class="line">location ~ .*\.(gif|jpg|jpeg|png|bmp|swf)$</span><br><span class="line">&#123;</span><br><span class="line">    expires      <span class="number">30</span>d;</span><br><span class="line">    error_log /dev/<span class="literal">null</span>;</span><br><span class="line">    access_log off;</span><br><span class="line">&#125;</span><br><span class="line"></span><br><span class="line">location ~ .*\.(js|css)?$</span><br><span class="line">&#123;</span><br><span class="line">    expires      <span class="number">12</span>h;</span><br><span class="line">    error_log /dev/<span class="literal">null</span>;</span><br><span class="line">    access_log off;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
-
-<p>然后再下面粘贴这段代码：</p>
-<figure class="highlight c#"><table><tr><td class="code"><pre><span class="line">location / &#123;</span><br><span class="line">    proxy_pass http:<span class="comment">//127.0.0.1:5244/;</span></span><br><span class="line">    rewrite ^/(.*)$ /$<span class="number">1</span> <span class="keyword">break</span>;</span><br><span class="line">    proxy_redirect off;</span><br><span class="line">    proxy_set_header Host $host;</span><br><span class="line">    proxy_set_header X-Forwarded-Proto $scheme;</span><br><span class="line">    proxy_set_header X-Real-IP $remote_addr;</span><br><span class="line">    proxy_set_header X-Forwarded-For $proxy_add_x_forwarded_for;</span><br><span class="line">    proxy_set_header Upgrade-Insecure-Requests <span class="number">1</span>;</span><br><span class="line">    proxy_set_header X-Forwarded-Proto https;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
-
-<h2 id="4、访问域名配置账号"><a href="#4、访问域名配置账号" class="headerlink" title="4、访问域名配置账号"></a>4、访问域名配置账号</h2><p>此时，输入反向代理的域名就能正常访问网站了，输入刚刚安装完成之后终端输出的密码就能正常登陆后台了。为了方便起见，建议更改一个自己能记住的密码。</p>
-<h1 id="五、结束"><a href="#五、结束" class="headerlink" title="五、结束"></a>五、结束</h1><p>祝大家用得开心，有问题可以去 GitHub 提 <a href="https://github.com/Xhofe/alist/issues">Issues</a>，也可以在评论区互相交流探讨。</p>
-]]></content>
-      <categories>
-        <category>教程</category>
-      </categories>
-      <tags>
-        <tag>Alist</tag>
-      </tags>
-  </entry>
-  <entry>
     <title>AI绘画-webui使用教程</title>
     <url>/undefined/ef6f9b71.html</url>
     <content><![CDATA[<h1 id="准备环境"><a href="#准备环境" class="headerlink" title="准备环境"></a>准备环境</h1><h2 id="pychon-的下载及安装"><a href="#pychon-的下载及安装" class="headerlink" title="pychon 的下载及安装"></a>pychon 的下载及安装</h2><p>直接点击下方按钮下载安装</p>
@@ -347,6 +296,57 @@
       </categories>
       <tags>
         <tag>AI绘画</tag>
+      </tags>
+  </entry>
+  <entry>
+    <title>AList搭建</title>
+    <url>/undefined/1f49e4a4.html</url>
+    <content><![CDATA[<h1 id="一、项目展示"><a href="#一、项目展示" class="headerlink" title="一、项目展示"></a>一、项目展示</h1><p>GitHub 项目地址：<a href="https://github.com/Xhofe/alist">https://github.com/Xhofe/alist</a></p>
+<p>Demo：<a href="https://alist.nn.ci/">https://alist.nn.ci</a></p>
+<p>Alist 文档地址：<a href="https://alist-doc.nn.ci/en/">https://alist-doc.nn.ci/en/</a></p>
+<p><img src="https://pan.yuqi.fun/d/%E5%A4%A9%E7%BF%BC%E4%BA%91%E7%9B%98/img/202303040811308.png" alt="成品预览"></p>
+<h1 id="二、搭建环境"><a href="#二、搭建环境" class="headerlink" title="二、搭建环境"></a>二、搭建环境</h1><p>服务器：阿里云香港轻量应用服务器 24 元&#x2F;月 VPS 一台（最好是选非大陆的服务器，无需备案）</p>
+<p>系统：Centos7</p>
+<p>域名一枚，并做好解析到服务器上</p>
+<h1 id="三、搭建方式"><a href="#三、搭建方式" class="headerlink" title="三、搭建方式"></a>三、搭建方式</h1><h2 id="1、一键脚本安装（本次使用）"><a href="#1、一键脚本安装（本次使用）" class="headerlink" title="1、一键脚本安装（本次使用）"></a>1、一键脚本安装（本次使用）</h2><p>仅支持 Linux-x86_64&#x2F;aarch64 平台。</p>
+<p>》》<strong>安装</strong></p>
+<figure class="highlight bash"><table><tr><td class="code"><pre><span class="line">curl -fsSL <span class="string">&quot;https://nn.ci/alist.sh&quot;</span> | bash -s install</span><br></pre></td></tr></table></figure>
+
+<p>注意：</p>
+<p>已经安装过再次执行安装会删除之前的数据，更新请使用更新命令。</p>
+<p>》》<strong>更新</strong></p>
+<figure class="highlight bash"><table><tr><td class="code"><pre><span class="line">curl -fsSL <span class="string">&quot;https://nn.ci/alist.sh&quot;</span> | bash -s update</span><br></pre></td></tr></table></figure>
+
+<p>》》<strong>卸载</strong></p>
+<figure class="highlight bash"><table><tr><td class="code"><pre><span class="line">curl -fsSL <span class="string">&quot;https://nn.ci/alist.sh&quot;</span> | bash -s uninstall</span><br></pre></td></tr></table></figure>
+
+<p>》》<strong>自定义路径</strong></p>
+<figure class="highlight bash"><table><tr><td class="code"><pre><span class="line">curl -fsSL <span class="string">&quot;https://nn.ci/alist.sh&quot;</span> | bash -s install</span><br></pre></td></tr></table></figure>
+
+<p>默认安装在&#x2F;opt&#x2F;alist，要自定义安装路径，添加安装路径为第二个参数，必须是绝对路径（路径以 alist 结尾时直接安装到给定路径，否则会安装在给定路径 alist 目录下），如安装到&#x2F;root：</p>
+<figure class="highlight bash"><table><tr><td class="code"><pre><span class="line"><span class="comment"># 安装</span></span><br><span class="line"></span><br><span class="line">curl -fsSL <span class="string">&quot;https://nn.ci/alist.sh&quot;</span> | bash -s install /root</span><br><span class="line"></span><br><span class="line"><span class="comment"># 更新</span></span><br><span class="line"></span><br><span class="line">curl -fsSL <span class="string">&quot;https://nn.ci/alist.sh&quot;</span> | bash -s update /root</span><br><span class="line"></span><br><span class="line"><span class="comment"># 卸载</span></span><br><span class="line"></span><br><span class="line">curl -fsSL <span class="string">&quot;https://nn.ci/alist.sh&quot;</span> | bash -s uninstall /root</span><br></pre></td></tr></table></figure>
+
+<h2 id="2、手动搭建"><a href="#2、手动搭建" class="headerlink" title="2、手动搭建"></a>2、手动搭建</h2><p>参考文档：<a href="https://alist-doc.nn.ci/docs/install/manual">https://alist-doc.nn.ci/docs/install/manual</a></p>
+<h2 id="3、Docker"><a href="#3、Docker" class="headerlink" title="3、Docker"></a>3、Docker</h2><p>参考文档：<a href="https://alist-doc.nn.ci/docs/install/docker">https://alist-doc.nn.ci/docs/install/docker</a></p>
+<h1 id="四、开始搭建（以一键脚本安装为例子）"><a href="#四、开始搭建（以一键脚本安装为例子）" class="headerlink" title="四、开始搭建（以一键脚本安装为例子）"></a>四、开始搭建（以一键脚本安装为例子）</h1><h2 id="1、运行安装代码"><a href="#1、运行安装代码" class="headerlink" title="1、运行安装代码"></a>1、运行安装代码</h2><p>》》<strong>输入以下命令等待自动安装</strong></p>
+<figure class="highlight bash"><table><tr><td class="code"><pre><span class="line">curl -fsSL <span class="string">&quot;https://nn.ci/alist.sh&quot;</span> | bash -s install</span><br></pre></td></tr></table></figure>
+
+<p>注意：安装完成会输出默认后台密码。</p>
+<h2 id="2、放行相关端口"><a href="#2、放行相关端口" class="headerlink" title="2、放行相关端口"></a>2、放行相关端口</h2><p>遇到访问不了，请在宝塔面板的防火墙和服务商的后台防火墙里打开对应端口。</p>
+<h2 id="3、配置反向代理"><a href="#3、配置反向代理" class="headerlink" title="3、配置反向代理"></a>3、配置反向代理</h2><p>以宝塔为例，新建一个网站，域名使用你自己的域名，在配置文件里面注释掉 Nginx 配置文件中的这部分内容：</p>
+<figure class="highlight c#"><table><tr><td class="code"><pre><span class="line">location ~ .*\.(gif|jpg|jpeg|png|bmp|swf)$</span><br><span class="line">&#123;</span><br><span class="line">    expires      <span class="number">30</span>d;</span><br><span class="line">    error_log /dev/<span class="literal">null</span>;</span><br><span class="line">    access_log off;</span><br><span class="line">&#125;</span><br><span class="line"></span><br><span class="line">location ~ .*\.(js|css)?$</span><br><span class="line">&#123;</span><br><span class="line">    expires      <span class="number">12</span>h;</span><br><span class="line">    error_log /dev/<span class="literal">null</span>;</span><br><span class="line">    access_log off;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+
+<p>然后再下面粘贴这段代码：</p>
+<figure class="highlight c#"><table><tr><td class="code"><pre><span class="line">location / &#123;</span><br><span class="line">    proxy_pass http:<span class="comment">//127.0.0.1:5244/;</span></span><br><span class="line">    rewrite ^/(.*)$ /$<span class="number">1</span> <span class="keyword">break</span>;</span><br><span class="line">    proxy_redirect off;</span><br><span class="line">    proxy_set_header Host $host;</span><br><span class="line">    proxy_set_header X-Forwarded-Proto $scheme;</span><br><span class="line">    proxy_set_header X-Real-IP $remote_addr;</span><br><span class="line">    proxy_set_header X-Forwarded-For $proxy_add_x_forwarded_for;</span><br><span class="line">    proxy_set_header Upgrade-Insecure-Requests <span class="number">1</span>;</span><br><span class="line">    proxy_set_header X-Forwarded-Proto https;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+
+<h2 id="4、访问域名配置账号"><a href="#4、访问域名配置账号" class="headerlink" title="4、访问域名配置账号"></a>4、访问域名配置账号</h2><p>此时，输入反向代理的域名就能正常访问网站了，输入刚刚安装完成之后终端输出的密码就能正常登陆后台了。为了方便起见，建议更改一个自己能记住的密码。</p>
+<h1 id="五、结束"><a href="#五、结束" class="headerlink" title="五、结束"></a>五、结束</h1><p>祝大家用得开心，有问题可以去 GitHub 提 <a href="https://github.com/Xhofe/alist/issues">Issues</a>，也可以在评论区互相交流探讨。</p>
+]]></content>
+      <categories>
+        <category>教程</category>
+      </categories>
+      <tags>
+        <tag>Alist</tag>
       </tags>
   </entry>
   <entry>
@@ -1419,18 +1419,6 @@
 <h1 id=""><a href="#" class="headerlink" title=""></a></h1>]]></content>
   </entry>
   <entry>
-    <title>SEW Scope曲线监控</title>
-    <url>/undefined/c4294855.html</url>
-    <content><![CDATA[<h3 id="打开备份的SEW文件，点击Scope"><a href="#打开备份的SEW文件，点击Scope" class="headerlink" title="打开备份的SEW文件，点击Scope"></a>打开备份的SEW文件，点击Scope</h3><p><img src="https://pan.yuqi.fun/d/%E5%A4%A9%E7%BF%BC%E4%BA%91%E7%9B%98/img/202501051439031.png" alt="image-20250105143536600"></p>
-<h3 id="进入Scope界面"><a href="#进入Scope界面" class="headerlink" title="进入Scope界面"></a>进入Scope界面</h3><p><img src="https://pan.yuqi.fun/d/%E5%A4%A9%E7%BF%BC%E4%BA%91%E7%9B%98/img/202501051439072.png" alt="image-20250105143550152"></p>
-<h3 id="在菜单栏中点击新建文件按钮，并新创建一个模板"><a href="#在菜单栏中点击新建文件按钮，并新创建一个模板" class="headerlink" title="在菜单栏中点击新建文件按钮，并新创建一个模板"></a>在菜单栏中点击新建文件按钮，并新创建一个模板</h3><p><img src="https://pan.yuqi.fun/d/%E5%A4%A9%E7%BF%BC%E4%BA%91%E7%9B%98/img/202501051439108.png" alt="image-20250105143632298"></p>
-<h3 id="模板中设置好监控选项，并保存为名称为Scope的-sct文件"><a href="#模板中设置好监控选项，并保存为名称为Scope的-sct文件" class="headerlink" title="模板中设置好监控选项，并保存为名称为Scope的.sct文件"></a>模板中设置好监控选项，并保存为名称为Scope的.sct文件</h3><p><img src="https://pan.yuqi.fun/d/%E5%A4%A9%E7%BF%BC%E4%BA%91%E7%9B%98/img/202501051439154.png" alt="image-20250105143656071"></p>
-<h3 id="再次在Scope菜单栏中点击新建，在模板中选择我们创建的Scope模板，然后点OK，进入Scope监控界面"><a href="#再次在Scope菜单栏中点击新建，在模板中选择我们创建的Scope模板，然后点OK，进入Scope监控界面" class="headerlink" title="再次在Scope菜单栏中点击新建，在模板中选择我们创建的Scope模板，然后点OK，进入Scope监控界面"></a>再次在Scope菜单栏中点击新建，在模板中选择我们创建的Scope模板，然后点OK，进入Scope监控界面</h3><p><img src="https://pan.yuqi.fun/d/%E5%A4%A9%E7%BF%BC%E4%BA%91%E7%9B%98/img/202501051439188.png" alt="image-20250105143719967"></p>
-<h3 id="进入Scope界面后点击记录设置，出现我们刚才设置的模板，点击Start按钮准备记录Scope曲线。在HMI上手动操作滑台动作就会自动触发记录运行曲线"><a href="#进入Scope界面后点击记录设置，出现我们刚才设置的模板，点击Start按钮准备记录Scope曲线。在HMI上手动操作滑台动作就会自动触发记录运行曲线" class="headerlink" title="进入Scope界面后点击记录设置，出现我们刚才设置的模板，点击Start按钮准备记录Scope曲线。在HMI上手动操作滑台动作就会自动触发记录运行曲线"></a>进入Scope界面后点击记录设置，出现我们刚才设置的模板，点击Start按钮准备记录Scope曲线。在HMI上手动操作滑台动作就会自动触发记录运行曲线</h3><p><strong>注意：根据模板里面的设置，最大记录时间为40.96s，因此来回滑动的时间需要控制在40s以内，否则超时的那部分运行曲线无法获取。如果需要调整最大记录时间，可以调整Sample Time。</strong></p>
-<p><img src="https://pan.yuqi.fun/d/%E5%A4%A9%E7%BF%BC%E4%BA%91%E7%9B%98/img/202501051439213.png" alt="image-20250105143805277"></p>
-]]></content>
-  </entry>
-  <entry>
     <title>R探长 甲骨文云开机脚本</title>
     <url>/undefined/d604b8c7.html</url>
     <content><![CDATA[<h1 id="原作者地址"><a href="#原作者地址" class="headerlink" title="原作者地址"></a>原作者地址</h1><p><a href="https://github.com/semicons/java_oci_manage/blob/main/md/install.md">https://github.com/semicons/java_oci_manage/blob/main/md/install.md</a></p>
@@ -1502,6 +1490,100 @@
       <tags>
         <tag>服务器</tag>
       </tags>
+  </entry>
+  <entry>
+    <title>SEW MOVIPRO调试步骤</title>
+    <url>/undefined/f5fecf87.html</url>
+    <content><![CDATA[<h1 id="创建项目-添加设备并配置"><a href="#创建项目-添加设备并配置" class="headerlink" title="创建项目-添加设备并配置"></a>创建项目-添加设备并配置</h1><p>1、打开MOVITOOLS MotionStudio软件，创建项目；<br><img src="https://pan.yuqi.fun/d/%E5%A4%A9%E7%BF%BC%E4%BA%91%E7%9B%98/img/20250520230954862.png" alt="image-20250520230940811"></p>
+<p>2、用Ethernet线缆连接电脑和MoviPro控制器的service unit。点击“communication”，创建通讯方式；<br><img src="https://pan.yuqi.fun/d/%E5%A4%A9%E7%BF%BC%E4%BA%91%E7%9B%98/img/20250520231006027.png" alt="image-20250520230948605"></p>
+<p>3、设备初始IP地址为192.168.10.4，将电脑IP地址与其设在同一网段下，点击“OK”即可建立Ethernet连接；如果设备IP地址已被更改，点击“edit”；<br><img src="https://pan.yuqi.fun/d/%E5%A4%A9%E7%BF%BC%E4%BA%91%E7%9B%98/img/20250520231113431.png" alt="image-20250520224324421"></p>
+<p>4、添加新的IP地址；<br><img src="https://pan.yuqi.fun/d/%E5%A4%A9%E7%BF%BC%E4%BA%91%E7%9B%98/img/20250520231011496.png" alt="image-20250520224341744"></p>
+<p>5、网络连接建立完成；<br><img src="https://pan.yuqi.fun/d/%E5%A4%A9%E7%BF%BC%E4%BA%91%E7%9B%98/img/20250520231122633.png" alt="image-20250520224354597"></p>
+<p>6、扫描网络中的设备；<br><img src="https://pan.yuqi.fun/d/%E5%A4%A9%E7%BF%BC%E4%BA%91%E7%9B%98/img/20250520231131139.png" alt="image-20250520224412310"></p>
+<p>7、设备扫描完成；<br><img src="https://pan.yuqi.fun/d/%E5%A4%A9%E7%BF%BC%E4%BA%91%E7%9B%98/img/20250520231137902.png" alt="image-20250520224428869"></p>
+<p>8、点击设备属性；<br><img src="https://pan.yuqi.fun/d/%E5%A4%A9%E7%BF%BC%E4%BA%91%E7%9B%98/img/20250520231146176.png" alt="image-20250520224518855"></p>
+<p>9、设置设备名称；<br><img src="https://pan.yuqi.fun/d/%E5%A4%A9%E7%BF%BC%E4%BA%91%E7%9B%98/img/20250520231200252.png" alt="image-20250520224532942"></p>
+<p>8、进行设备硬件配置；<br><img src="https://pan.yuqi.fun/d/%E5%A4%A9%E7%BF%BC%E4%BA%91%E7%9B%98/img/20250520231153579.png" alt="image-20250520224548176"></p>
+<p>11、选择需要配置的设备；<br><img src="https://pan.yuqi.fun/d/%E5%A4%A9%E7%BF%BC%E4%BA%91%E7%9B%98/img/20250520231210043.png" alt="image-20250520224559520"></p>
+<p>12、点击“确定”；<br><img src="https://pan.yuqi.fun/d/%E5%A4%A9%E7%BF%BC%E4%BA%91%E7%9B%98/img/20250520231221238.png" alt="image-20250520224613368"></p>
+<p>13、硬件配置完成；<br><img src="https://pan.yuqi.fun/d/%E5%A4%A9%E7%BF%BC%E4%BA%91%E7%9B%98/img/20250520231228687.png" alt="image-20250520224629428"></p>
+<h1 id="配置电机参数"><a href="#配置电机参数" class="headerlink" title="配置电机参数"></a>配置电机参数</h1><p>14、进行power section初始化；<br><img src="https://pan.yuqi.fun/d/%E5%A4%A9%E7%BF%BC%E4%BA%91%E7%9B%98/img/20250520231239923.png" alt="image-20250520224645469"></p>
+<p>15、点击“perform startup”，开始初始化；<br><img src="https://pan.yuqi.fun/d/%E5%A4%A9%E7%BF%BC%E4%BA%91%E7%9B%98/img/20250520231248547.png" alt="image-20250520224657723"></p>
+<p>16、如果编码器中有电机的电子铭牌。选择接受编码器铭牌信息，点击“next”;<br><img src="https://pan.yuqi.fun/d/%E5%A4%A9%E7%BF%BC%E4%BA%91%E7%9B%98/img/20250520231257891.png" alt="image-20250520224711463"></p>
+<p>17、如果编码器中没有电机的电子铭牌。需要对照电机铭牌，将编码器的电子铭牌手动输入 ；<br><img src="https://pan.yuqi.fun/d/%E5%A4%A9%E7%BF%BC%E4%BA%91%E7%9B%98/img/20250520231305618.png" alt="image-20250520224722270"></p>
+<p>18、对照电机铭牌，确认编码器型号，之后点击“next”；<br><img src="https://pan.yuqi.fun/d/%E5%A4%A9%E7%BF%BC%E4%BA%91%E7%9B%98/img/20250520231315922.png" alt="image-20250520224736776"></p>
+<p>19、编码器配置完成，点击“next”，开始电机初始化；<br><img src="https://pan.yuqi.fun/d/%E5%A4%A9%E7%BF%BC%E4%BA%91%E7%9B%98/img/20250520231327038.png" alt="image-20250520224747069"></p>
+<p>20、点击“startup set-1”,进行parameter set-1设置；<br><img src="https://pan.yuqi.fun/d/%E5%A4%A9%E7%BF%BC%E4%BA%91%E7%9B%98/img/20250520231334194.png" alt="image-20250520224801440"></p>
+<p>21、选择“Execute complete start-up（执行完整的初始化）”；<br><img src="https://pan.yuqi.fun/d/%E5%A4%A9%E7%BF%BC%E4%BA%91%E7%9B%98/img/20250520231349687.png" alt="image-20250520224813064"></p>
+<p>22、选择“Stand-alone motor &gt; Vector-controlled&#x2F;Servo（独立电机 &gt; 矢量控制&#x2F;伺服电机）”；<br><img src="https://pan.yuqi.fun/d/%E5%A4%A9%E7%BF%BC%E4%BA%91%E7%9B%98/img/20250520231358793.png" alt="image-20250520224822876"></p>
+<p>23、参照电机铭牌，检查电机及编码器信息是否准确；<br><img src="https://pan.yuqi.fun/d/%E5%A4%A9%E7%BF%BC%E4%BA%91%E7%9B%98/img/20250520231410958.png" alt="image-20250520224837420"></p>
+<p>24、检查电机类型信息；<br><img src="https://pan.yuqi.fun/d/%E5%A4%A9%E7%BF%BC%E4%BA%91%E7%9B%98/img/20250520231419435.png" alt="image-20250520224848845"></p>
+<p>25、输入电源电压，定义参数P835“电机温度传感器的响应”，定义参数P530“电机温度传感器类型”（例如TF&#x2F;TH）；<br><img src="https://pan.yuqi.fun/d/%E5%A4%A9%E7%BF%BC%E4%BA%91%E7%9B%98/img/20250520231428193.png" alt="image-20250520224926604"></p>
+<p>26、选择“Yes, I use the encoder.（使用编码器）”；<br><img src="https://pan.yuqi.fun/d/%E5%A4%A9%E7%BF%BC%E4%BA%91%E7%9B%98/img/20250520231436016.png" alt="image-20250520224938904"></p>
+<p>27、操作模式选择“Positioning with IPOS（IPOS程序定位模式）”；<br><img src="https://pan.yuqi.fun/d/%E5%A4%A9%E7%BF%BC%E4%BA%91%E7%9B%98/img/20250520231442842.png" alt="image-20250520225002622"></p>
+<p>28、选择“CFC（电流矢量控制）模式”；<br><img src="https://pan.yuqi.fun/d/%E5%A4%A9%E7%BF%BC%E4%BA%91%E7%9B%98/img/20250520231449119.png" alt="image-20250520225015957"></p>
+<p>29、准确填写WEISS计算的load inertia（负载转动惯量），drive选择“With Backlash”；<br><img src="https://pan.yuqi.fun/d/%E5%A4%A9%E7%BF%BC%E4%BA%91%E7%9B%98/img/20250520231503423.png" alt="image-20250520225026004"></p>
+<p>30、相关参数使用WEISS所提供参数表中的建议参数，其它参数选择“Apply Proposal（使用推荐值）”；<br><img src="https://pan.yuqi.fun/d/%E5%A4%A9%E7%BF%BC%E4%BA%91%E7%9B%98/img/20250520231511679.png" alt="image-20250520225036799"></p>
+<p>31、转速控制器参数选择“Apply Proposal（使用推荐值）”；<br><img src="https://pan.yuqi.fun/d/%E5%A4%A9%E7%BF%BC%E4%BA%91%E7%9B%98/img/20250520231536940.png" alt="image-20250520225058582"></p>
+<p>32、 相关参数使用WEISS所提供参数表中的建议参数，剩余参数选择“Apply Proposal（使用推荐值）”；<br><img src="https://pan.yuqi.fun/d/%E5%A4%A9%E7%BF%BC%E4%BA%91%E7%9B%98/img/20250520231544207.png" alt="image-20250520225108975"></p>
+<p>33、点击“完成”，将初始化信息下载至控制器。如需配置parameter set-2，点击“download”，再进行参数包2的配置；<br><img src="https://pan.yuqi.fun/d/%E5%A4%A9%E7%BF%BC%E4%BA%91%E7%9B%98/img/20250520231552525.png" alt="image-20250520225121142"></p>
+<p>34、初始化完全完成后，会跳出提示框，点击“确定”；<br><img src="https://pan.yuqi.fun/d/%E5%A4%A9%E7%BF%BC%E4%BA%91%E7%9B%98/img/20250520231600145.png" alt="image-20250520225138383"></p>
+<h1 id="设置其他参数"><a href="#设置其他参数" class="headerlink" title="设置其他参数"></a>设置其他参数</h1><p>35、点击“parameter tree”，进行WEISS所提供参数表中其它相关参数的设置；<br><img src="https://pan.yuqi.fun/d/%E5%A4%A9%E7%BF%BC%E4%BA%91%E7%9B%98/img/20250520231606894.png" alt="image-20250520225149596"></p>
+<p>36、例如，P911定位斜坡1，P913&#x2F;P914运转转速CW&#x2F;CCW，P916斜坡形式需设为“Jerk-Limited”；<br><img src="https://pan.yuqi.fun/d/%E5%A4%A9%E7%BF%BC%E4%BA%91%E7%9B%98/img/20250520231616480.png" alt="image-20250520225202404"></p>
+<p>37、例如，P933突变时间；<br><img src="https://pan.yuqi.fun/d/%E5%A4%A9%E7%BF%BC%E4%BA%91%E7%9B%98/img/20250520231626629.png" alt="image-20250520225213331"></p>
+<h1 id="手动控制"><a href="#手动控制" class="headerlink" title="手动控制"></a>手动控制</h1><p>38、参数配置为在线实时进行，完成后，点击“manual mode”手动模式；<br><img src="https://pan.yuqi.fun/d/%E5%A4%A9%E7%BF%BC%E4%BA%91%E7%9B%98/img/20250520231642297.png" alt="image-20250520225223204"></p>
+<p>39、点击“Activate manual mode”，激活手动模式。此时插上jumper plug，设置速度，方向，即可进行转台正反停控制；<br><img src="https://pan.yuqi.fun/d/%E5%A4%A9%E7%BF%BC%E4%BA%91%E7%9B%98/img/20250520231656405.png" alt="image-20250520225234230"></p>
+<p>40、手动模式下，转台运行正常后，将转台旋转至机械零点位置，点击“Deactivate manual mode”，退出手动模式，拔下jumper plug;	<br><img src="https://pan.yuqi.fun/d/%E5%A4%A9%E7%BF%BC%E4%BA%91%E7%9B%98/img/20250520231705779.png" alt="image-20250520225246305"></p>
+<h1 id="模块应用配置"><a href="#模块应用配置" class="headerlink" title="模块应用配置"></a>模块应用配置</h1><p>41、点击“Application Configurator”，进行模块应用配置；<br><img src="https://pan.yuqi.fun/d/%E5%A4%A9%E7%BF%BC%E4%BA%91%E7%9B%98/img/20250520231712618.png" alt="image-20250520225301025"></p>
+<p>42、点击“Create new configuration”,创建新的模块应用配置；<br><img src="https://pan.yuqi.fun/d/%E5%A4%A9%E7%BF%BC%E4%BA%91%E7%9B%98/img/20250520231719182.png" alt="image-20250520225312698"></p>
+<p>43、Application module 选择“transparent 6PD”;<br><img src="https://pan.yuqi.fun/d/%E5%A4%A9%E7%BF%BC%E4%BA%91%E7%9B%98/img/20250520231726816.png" alt="image-20250520225325321"></p>
+<p>44、点击“configuration”，完成后标志变绿色，点击“next”；<br><img src="https://pan.yuqi.fun/d/%E5%A4%A9%E7%BF%BC%E4%BA%91%E7%9B%98/img/20250520231734076.png" alt="image-20250520225340848"></p>
+<p>45、点击“Save complete configuration”，可保存应用配置文件；<br><img src="https://pan.yuqi.fun/d/%E5%A4%A9%E7%BF%BC%E4%BA%91%E7%9B%98/img/20250520231740533.png" alt="image-20250520225402973"></p>
+<p>46、点击“Document configuration”,可将应用配置保存为.pdf文件；<br><img src="https://pan.yuqi.fun/d/%E5%A4%A9%E7%BF%BC%E4%BA%91%E7%9B%98/img/20250520231747555.png" alt="image-20250520225422513"></p>
+<p>47、若应用配置软件版本不同，选择“with controller software”，将软件和应用配置下载至设备。过程持续可能20分钟，注意电脑和设备此时不能断电；<br><img src="https://pan.yuqi.fun/d/%E5%A4%A9%E7%BF%BC%E4%BA%91%E7%9B%98/img/20250520231757343.png" alt="image-20250520225434600"></p>
+<p>48、点击“确定”，重启设备;<br><img src="https://pan.yuqi.fun/d/%E5%A4%A9%E7%BF%BC%E4%BA%91%E7%9B%98/img/20250520231804084.png" alt="image-20250520225445136"></p>
+<p>49、应用配置完成；<br><img src="https://pan.yuqi.fun/d/%E5%A4%A9%E7%BF%BC%E4%BA%91%E7%9B%98/img/20250520231811471.png" alt="image-20250520225459428"></p>
+<h1 id="配置AMA0801"><a href="#配置AMA0801" class="headerlink" title="配置AMA0801"></a>配置AMA0801</h1><p>50、创建AMA0801模块；<br><img src="https://pan.yuqi.fun/d/%E5%A4%A9%E7%BF%BC%E4%BA%91%E7%9B%98/img/20250520231822010.png" alt="image-20250520225524162"></p>
+<p>51、点击“Load a configuration”，下载已保存的应用模块，或者点击“next”，开始初始化AMA0801模块；<br><img src="https://pan.yuqi.fun/d/%E5%A4%A9%E7%BF%BC%E4%BA%91%E7%9B%98/img/20250520231828978.png" alt="image-20250520225540943"></p>
+<p>52、总线参数和控制器配置页面，“Application mode”选择“Binary setpoint”;<br><img src="https://pan.yuqi.fun/d/%E5%A4%A9%E7%BF%BC%E4%BA%91%E7%9B%98/img/20250520231837827.png" alt="image-20250520225551310"></p>
+<p>53、刻度计算页面，“Diameter&#x2F;spindle pitch”的单位选择“inc”;<br><img src="https://pan.yuqi.fun/d/%E5%A4%A9%E7%BF%BC%E4%BA%91%E7%9B%98/img/20250520231844945.png" alt="image-20250520225604832"></p>
+<p>54、参数和极限页面，若使用硬件限位开关，需将CW和CCW限位开关接到设备X5102_2，同时在软件上选择“YES”，“parameter tree”中将P603和P604端子功能设置为相应的限位功能。如果没有原点传感器，寻找参考点模式选择5，即将当前点作为原点。同时可根据WEISS参数表设置各种模式下极限速度；<br><img src="https://pan.yuqi.fun/d/%E5%A4%A9%E7%BF%BC%E4%BA%91%E7%9B%98/img/20250520231851607.png" alt="image-20250520225621665"></p>
+<p>55、设置定位和点动模式高低速、加减速时间，以及 至设置设备行走各个位置的速度及加减速时间；<br><img src="https://pan.yuqi.fun/d/%E5%A4%A9%E7%BF%BC%E4%BA%91%E7%9B%98/img/20250520231859909.png" alt="image-20250520225632316"></p>
+<p>56、设置定位窗口和设备行走的位置；<br><img src="https://pan.yuqi.fun/d/%E5%A4%A9%E7%BF%BC%E4%BA%91%E7%9B%98/img/20250520231908210.png" alt="image-20250520225645477"></p>
+<p>57、设置cam switch；<br><img src="https://pan.yuqi.fun/d/%E5%A4%A9%E7%BF%BC%E4%BA%91%E7%9B%98/img/20250520231915883.png" alt="image-20250520225706528"></p>
+<p>58、监控设置页面，建议使用其默认参数；<br><img src="https://pan.yuqi.fun/d/%E5%A4%A9%E7%BF%BC%E4%BA%91%E7%9B%98/img/20250520231922866.png" alt="image-20250520225717710"></p>
+<p>59、点击“save configutation”，可保存AMA配置文件；<br><img src="https://pan.yuqi.fun/d/%E5%A4%A9%E7%BF%BC%E4%BA%91%E7%9B%98/img/20250520231930036.png" alt="image-20250520225728063"></p>
+<p>60、点击“create documentation”，可将AMA配置保存为.pdf文件；<br><img src="https://pan.yuqi.fun/d/%E5%A4%A9%E7%BF%BC%E4%BA%91%E7%9B%98/img/20250520231936652.png" alt="image-20250520225738609"></p>
+<p>61、点击“download”，将AMA应用模块配置下载至设备；<br><img src="https://pan.yuqi.fun/d/%E5%A4%A9%E7%BF%BC%E4%BA%91%E7%9B%98/img/20250520231948547.png" alt="image-20250520225759312"></p>
+<h1 id="总线控制"><a href="#总线控制" class="headerlink" title="总线控制"></a>总线控制</h1><p>62、下载完成后，软件自动跳至总线控制监视器；<br><img src="https://pan.yuqi.fun/d/%E5%A4%A9%E7%BF%BC%E4%BA%91%E7%9B%98/img/20250520232005174.png" alt="image-20250520225808792"></p>
+<p>63、点击“control”，确定弹出对话框；<br><img src="https://pan.yuqi.fun/d/%E5%A4%A9%E7%BF%BC%E4%BA%91%E7%9B%98/img/20250520232013724.png" alt="image-20250520225818826"></p>
+<p>64、插上jumper plug，控制模式选为“reference mode（寻参模式）”，点击“start”，即可将当前机械零点设为电气零点；<br><img src="https://pan.yuqi.fun/d/%E5%A4%A9%E7%BF%BC%E4%BA%91%E7%9B%98/img/20250520232021615.png" alt="image-20250520225830987"></p>
+<p>65、寻参结束后，PO2状态字中当前位置会变为0 inc;<br><img src="https://pan.yuqi.fun/d/%E5%A4%A9%E7%BF%BC%E4%BA%91%E7%9B%98/img/20250520232029384.png" alt="image-20250520225841553"></p>
+<p>66、选择“jog mode（点动模式）”，即可模拟总线进行点动控制；<br><img src="https://pan.yuqi.fun/d/%E5%A4%A9%E7%BF%BC%E4%BA%91%E7%9B%98/img/20250520232037665.png" alt="image-20250520225851198"></p>
+<p>67、选择“positioning mode（定位模式）”，选择位置，即可模拟总线进行定位控制；<br><img src="https://pan.yuqi.fun/d/%E5%A4%A9%E7%BF%BC%E4%BA%91%E7%9B%98/img/20250520232045036.png" alt="image-20250520225859987"></p>
+<p>68、模拟总线控制转台运转正常之后，取消控制字，拔下jumper plug，点击“monitor”，退出控制模式；<br><img src="https://pan.yuqi.fun/d/%E5%A4%A9%E7%BF%BC%E4%BA%91%E7%9B%98/img/20250520232051720.png" alt="image-20250520225909761"></p>
+<h1 id="数据管理"><a href="#数据管理" class="headerlink" title="数据管理"></a>数据管理</h1><p>69、点击“Datamanagement”；<br><img src="https://pan.yuqi.fun/d/%E5%A4%A9%E7%BF%BC%E4%BA%91%E7%9B%98/img/20250520232100983.png" alt="image-20250520225920732"></p>
+<p>70、点击“upload”，将设备中数据备份到SD卡；<br><img src="https://pan.yuqi.fun/d/%E5%A4%A9%E7%BF%BC%E4%BA%91%E7%9B%98/img/20250520232108798.png" alt="image-20250520225930647"></p>
+<p>71、点击“start upload”，开始备份数据；<br><img src="https://pan.yuqi.fun/d/%E5%A4%A9%E7%BF%BC%E4%BA%91%E7%9B%98/img/20250520232116388.png" alt="image-20250520225958505"></p>
+<p>72、备份完成；<br><img src="https://pan.yuqi.fun/d/%E5%A4%A9%E7%BF%BC%E4%BA%91%E7%9B%98/img/20250520232124675.png" alt="image-20250520225942038"></p>
+<p>73、点击“export”，将power section参数导出；<br><img src="https://pan.yuqi.fun/d/%E5%A4%A9%E7%BF%BC%E4%BA%91%E7%9B%98/img/20250520232133052.png" alt="image-20250520230018000"></p>
+<p>74、点击“export”，将control and communication unit参数导出；<br><img src="https://pan.yuqi.fun/d/%E5%A4%A9%E7%BF%BC%E4%BA%91%E7%9B%98/img/20250520232141408.png" alt="image-20250520230027041"></p>
+<p>75、点击“save”，保存项目；<br><img src="https://pan.yuqi.fun/d/%E5%A4%A9%E7%BF%BC%E4%BA%91%E7%9B%98/img/20250520232149043.png" alt="image-20250520230037252"></p>
+<p>76、点击“export”，可将此项目导出为.exe文件；<br><img src="https://pan.yuqi.fun/d/%E5%A4%A9%E7%BF%BC%E4%BA%91%E7%9B%98/img/20250520232157540.png" alt="image-20250520230047342"></p>
+<h1 id="初始化"><a href="#初始化" class="headerlink" title="初始化"></a>初始化</h1><p>77、若需初始化控制器，可在“parameter tree”P802中选择“delivery state”，将控制器还原为出厂状态。<br><img src="https://pan.yuqi.fun/d/%E5%A4%A9%E7%BF%BC%E4%BA%91%E7%9B%98/img/20250520232205573.png" alt="image-20250520230056017"></p>
+]]></content>
+  </entry>
+  <entry>
+    <title>SEW Scope曲线监控</title>
+    <url>/undefined/c4294855.html</url>
+    <content><![CDATA[<h3 id="打开备份的SEW文件，点击Scope"><a href="#打开备份的SEW文件，点击Scope" class="headerlink" title="打开备份的SEW文件，点击Scope"></a>打开备份的SEW文件，点击Scope</h3><p><img src="https://pan.yuqi.fun/d/%E5%A4%A9%E7%BF%BC%E4%BA%91%E7%9B%98/img/202501051439031.png" alt="image-20250105143536600"></p>
+<h3 id="进入Scope界面"><a href="#进入Scope界面" class="headerlink" title="进入Scope界面"></a>进入Scope界面</h3><p><img src="https://pan.yuqi.fun/d/%E5%A4%A9%E7%BF%BC%E4%BA%91%E7%9B%98/img/202501051439072.png" alt="image-20250105143550152"></p>
+<h3 id="在菜单栏中点击新建文件按钮，并新创建一个模板"><a href="#在菜单栏中点击新建文件按钮，并新创建一个模板" class="headerlink" title="在菜单栏中点击新建文件按钮，并新创建一个模板"></a>在菜单栏中点击新建文件按钮，并新创建一个模板</h3><p><img src="https://pan.yuqi.fun/d/%E5%A4%A9%E7%BF%BC%E4%BA%91%E7%9B%98/img/202501051439108.png" alt="image-20250105143632298"></p>
+<h3 id="模板中设置好监控选项，并保存为名称为Scope的-sct文件"><a href="#模板中设置好监控选项，并保存为名称为Scope的-sct文件" class="headerlink" title="模板中设置好监控选项，并保存为名称为Scope的.sct文件"></a>模板中设置好监控选项，并保存为名称为Scope的.sct文件</h3><p><img src="https://pan.yuqi.fun/d/%E5%A4%A9%E7%BF%BC%E4%BA%91%E7%9B%98/img/202501051439154.png" alt="image-20250105143656071"></p>
+<h3 id="再次在Scope菜单栏中点击新建，在模板中选择我们创建的Scope模板，然后点OK，进入Scope监控界面"><a href="#再次在Scope菜单栏中点击新建，在模板中选择我们创建的Scope模板，然后点OK，进入Scope监控界面" class="headerlink" title="再次在Scope菜单栏中点击新建，在模板中选择我们创建的Scope模板，然后点OK，进入Scope监控界面"></a>再次在Scope菜单栏中点击新建，在模板中选择我们创建的Scope模板，然后点OK，进入Scope监控界面</h3><p><img src="https://pan.yuqi.fun/d/%E5%A4%A9%E7%BF%BC%E4%BA%91%E7%9B%98/img/202501051439188.png" alt="image-20250105143719967"></p>
+<h3 id="进入Scope界面后点击记录设置，出现我们刚才设置的模板，点击Start按钮准备记录Scope曲线。在HMI上手动操作滑台动作就会自动触发记录运行曲线"><a href="#进入Scope界面后点击记录设置，出现我们刚才设置的模板，点击Start按钮准备记录Scope曲线。在HMI上手动操作滑台动作就会自动触发记录运行曲线" class="headerlink" title="进入Scope界面后点击记录设置，出现我们刚才设置的模板，点击Start按钮准备记录Scope曲线。在HMI上手动操作滑台动作就会自动触发记录运行曲线"></a>进入Scope界面后点击记录设置，出现我们刚才设置的模板，点击Start按钮准备记录Scope曲线。在HMI上手动操作滑台动作就会自动触发记录运行曲线</h3><p><strong>注意：根据模板里面的设置，最大记录时间为40.96s，因此来回滑动的时间需要控制在40s以内，否则超时的那部分运行曲线无法获取。如果需要调整最大记录时间，可以调整Sample Time。</strong></p>
+<p><img src="https://pan.yuqi.fun/d/%E5%A4%A9%E7%BF%BC%E4%BA%91%E7%9B%98/img/202501051439213.png" alt="image-20250105143805277"></p>
+]]></content>
   </entry>
   <entry>
     <title>SEW-MDX61B变频器定位控制调试流程</title>
@@ -1727,31 +1809,6 @@
       </tags>
   </entry>
   <entry>
-    <title>VPS一键脚本分享</title>
-    <url>/undefined/2419758f.html</url>
-    <content><![CDATA[<p><img src="https://pan.yuqi.fun/d/%E5%A4%A9%E7%BF%BC%E4%BA%91%E7%9B%98/img/202305051611537.png"></p>
-<p><strong>一键脚本</strong></p>
-<figure class="highlight shell"><table><tr><td class="code"><pre><span class="line">apt update -y &amp;&amp; apt install -y wget sudo</span><br><span class="line"></span><br><span class="line">wget --no-check-certificate -O tcpx.sh https://raw.githubusercontent.com/ylx2016/Linux-NetSpeed/master/tcpx.sh</span><br><span class="line"></span><br><span class="line">chmod +x tcpx.sh</span><br><span class="line"></span><br><span class="line">./tcpx.sh</span><br></pre></td></tr></table></figure>
-
-
-
-<p><strong>以后运行</strong>**</p>
-<figure class="highlight plaintext"><table><tr><td class="code"><pre><span class="line">./tcpx.sh</span><br></pre></td></tr></table></figure>
-
-
-
-<p><strong>注意</strong></p>
-<p>更新内核需要谨慎 使用后台运行模式最稳妥，我在SSH自动中断后失联了一台服务器。</p>
-<p>推荐使用tmux后台工具</p>
-]]></content>
-      <categories>
-        <category>教程</category>
-      </categories>
-      <tags>
-        <tag>服务器</tag>
-      </tags>
-  </entry>
-  <entry>
     <title>Xray最新协议Reality搭建</title>
     <url>/undefined/428849a6.html</url>
     <content><![CDATA[<h1 id="简介"><a href="#简介" class="headerlink" title="简介"></a>简介</h1><p>为了应对 TLS in TLS 和指纹识别等阻断或封禁的风险，Xray-core 团队推出了 Vision 和 Reality 两种新颖的技术方案。它们能够有效地隐藏和保护流量的特征，提高安全性和稳定性。</p>
@@ -1810,6 +1867,31 @@
       </categories>
       <tags>
         <tag>VPS</tag>
+      </tags>
+  </entry>
+  <entry>
+    <title>VPS一键脚本分享</title>
+    <url>/undefined/2419758f.html</url>
+    <content><![CDATA[<p><img src="https://pan.yuqi.fun/d/%E5%A4%A9%E7%BF%BC%E4%BA%91%E7%9B%98/img/202305051611537.png"></p>
+<p><strong>一键脚本</strong></p>
+<figure class="highlight shell"><table><tr><td class="code"><pre><span class="line">apt update -y &amp;&amp; apt install -y wget sudo</span><br><span class="line"></span><br><span class="line">wget --no-check-certificate -O tcpx.sh https://raw.githubusercontent.com/ylx2016/Linux-NetSpeed/master/tcpx.sh</span><br><span class="line"></span><br><span class="line">chmod +x tcpx.sh</span><br><span class="line"></span><br><span class="line">./tcpx.sh</span><br></pre></td></tr></table></figure>
+
+
+
+<p><strong>以后运行</strong>**</p>
+<figure class="highlight plaintext"><table><tr><td class="code"><pre><span class="line">./tcpx.sh</span><br></pre></td></tr></table></figure>
+
+
+
+<p><strong>注意</strong></p>
+<p>更新内核需要谨慎 使用后台运行模式最稳妥，我在SSH自动中断后失联了一台服务器。</p>
+<p>推荐使用tmux后台工具</p>
+]]></content>
+      <categories>
+        <category>教程</category>
+      </categories>
+      <tags>
+        <tag>服务器</tag>
       </tags>
   </entry>
   <entry>
