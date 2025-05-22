@@ -2,7 +2,7 @@
 <urlset xmlns="http://www.sitemaps.org/schemas/sitemap/0.9">
   
   <url>
-    <loc>http://blog.yuqi.fun/archives/index.html</loc>
+    <loc>http://blog.yuqi.fun/about/index.html</loc>
     
     <lastmod>2025-05-22</lastmod>
     
@@ -11,7 +11,7 @@
   </url>
   
   <url>
-    <loc>http://blog.yuqi.fun/about/index.html</loc>
+    <loc>http://blog.yuqi.fun/archives/index.html</loc>
     
     <lastmod>2025-05-22</lastmod>
     
@@ -66,6 +66,15 @@
   
   <url>
     <loc>http://blog.yuqi.fun/undefined/f5fecf87.html</loc>
+    
+    <lastmod>2025-05-20</lastmod>
+    
+    <changefreq>monthly</changefreq>
+    <priority>0.6</priority>
+  </url>
+  
+  <url>
+    <loc>http://blog.yuqi.fun/undefined/4f7419e2.html</loc>
     
     <lastmod>2025-05-20</lastmod>
     
@@ -567,14 +576,14 @@
   </url>
   
   <url>
-    <loc>http://blog.yuqi.fun/tags/%E5%85%B6%E4%BB%96/</loc>
+    <loc>http://blog.yuqi.fun/tags/Openwrt/</loc>
     <lastmod>2025-05-22</lastmod>
     <changefreq>weekly</changefreq>
     <priority>0.2</priority>
   </url>
   
   <url>
-    <loc>http://blog.yuqi.fun/tags/Openwrt/</loc>
+    <loc>http://blog.yuqi.fun/tags/%E5%85%B6%E4%BB%96/</loc>
     <lastmod>2025-05-22</lastmod>
     <changefreq>weekly</changefreq>
     <priority>0.2</priority>
@@ -595,14 +604,14 @@
   </url>
   
   <url>
-    <loc>http://blog.yuqi.fun/tags/v2/</loc>
+    <loc>http://blog.yuqi.fun/tags/SICK/</loc>
     <lastmod>2025-05-22</lastmod>
     <changefreq>weekly</changefreq>
     <priority>0.2</priority>
   </url>
   
   <url>
-    <loc>http://blog.yuqi.fun/tags/SICK/</loc>
+    <loc>http://blog.yuqi.fun/tags/v2/</loc>
     <lastmod>2025-05-22</lastmod>
     <changefreq>weekly</changefreq>
     <priority>0.2</priority>
