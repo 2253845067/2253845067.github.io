@@ -1513,6 +1513,18 @@
       </tags>
   </entry>
   <entry>
+    <title>SEW Scope曲线监控</title>
+    <url>/undefined/c4294855.html</url>
+    <content><![CDATA[<h3 id="打开备份的SEW文件，点击Scope"><a href="#打开备份的SEW文件，点击Scope" class="headerlink" title="打开备份的SEW文件，点击Scope"></a>打开备份的SEW文件，点击Scope</h3><p><img src="https://pan.yuqi.fun/d/%E5%A4%A9%E7%BF%BC%E4%BA%91%E7%9B%98/img/202501051439031.png" alt="image-20250105143536600"></p>
+<h3 id="进入Scope界面"><a href="#进入Scope界面" class="headerlink" title="进入Scope界面"></a>进入Scope界面</h3><p><img src="https://pan.yuqi.fun/d/%E5%A4%A9%E7%BF%BC%E4%BA%91%E7%9B%98/img/202501051439072.png" alt="image-20250105143550152"></p>
+<h3 id="在菜单栏中点击新建文件按钮，并新创建一个模板"><a href="#在菜单栏中点击新建文件按钮，并新创建一个模板" class="headerlink" title="在菜单栏中点击新建文件按钮，并新创建一个模板"></a>在菜单栏中点击新建文件按钮，并新创建一个模板</h3><p><img src="https://pan.yuqi.fun/d/%E5%A4%A9%E7%BF%BC%E4%BA%91%E7%9B%98/img/202501051439108.png" alt="image-20250105143632298"></p>
+<h3 id="模板中设置好监控选项，并保存为名称为Scope的-sct文件"><a href="#模板中设置好监控选项，并保存为名称为Scope的-sct文件" class="headerlink" title="模板中设置好监控选项，并保存为名称为Scope的.sct文件"></a>模板中设置好监控选项，并保存为名称为Scope的.sct文件</h3><p><img src="https://pan.yuqi.fun/d/%E5%A4%A9%E7%BF%BC%E4%BA%91%E7%9B%98/img/202501051439154.png" alt="image-20250105143656071"></p>
+<h3 id="再次在Scope菜单栏中点击新建，在模板中选择我们创建的Scope模板，然后点OK，进入Scope监控界面"><a href="#再次在Scope菜单栏中点击新建，在模板中选择我们创建的Scope模板，然后点OK，进入Scope监控界面" class="headerlink" title="再次在Scope菜单栏中点击新建，在模板中选择我们创建的Scope模板，然后点OK，进入Scope监控界面"></a>再次在Scope菜单栏中点击新建，在模板中选择我们创建的Scope模板，然后点OK，进入Scope监控界面</h3><p><img src="https://pan.yuqi.fun/d/%E5%A4%A9%E7%BF%BC%E4%BA%91%E7%9B%98/img/202501051439188.png" alt="image-20250105143719967"></p>
+<h3 id="进入Scope界面后点击记录设置，出现我们刚才设置的模板，点击Start按钮准备记录Scope曲线。在HMI上手动操作滑台动作就会自动触发记录运行曲线"><a href="#进入Scope界面后点击记录设置，出现我们刚才设置的模板，点击Start按钮准备记录Scope曲线。在HMI上手动操作滑台动作就会自动触发记录运行曲线" class="headerlink" title="进入Scope界面后点击记录设置，出现我们刚才设置的模板，点击Start按钮准备记录Scope曲线。在HMI上手动操作滑台动作就会自动触发记录运行曲线"></a>进入Scope界面后点击记录设置，出现我们刚才设置的模板，点击Start按钮准备记录Scope曲线。在HMI上手动操作滑台动作就会自动触发记录运行曲线</h3><p><strong>注意：根据模板里面的设置，最大记录时间为40.96s，因此来回滑动的时间需要控制在40s以内，否则超时的那部分运行曲线无法获取。如果需要调整最大记录时间，可以调整Sample Time。</strong></p>
+<p><img src="https://pan.yuqi.fun/d/%E5%A4%A9%E7%BF%BC%E4%BA%91%E7%9B%98/img/202501051439213.png" alt="image-20250105143805277"></p>
+]]></content>
+  </entry>
+  <entry>
     <title>SEW MOVIPRO调试步骤</title>
     <url>/undefined/f5fecf87.html</url>
     <content><![CDATA[<h1 id="创建项目-添加设备并配置"><a href="#创建项目-添加设备并配置" class="headerlink" title="创建项目-添加设备并配置"></a>创建项目-添加设备并配置</h1><p>1、打开MOVITOOLS MotionStudio软件，创建项目；<br><img src="https://pan.yuqi.fun/d/%E5%A4%A9%E7%BF%BC%E4%BA%91%E7%9B%98/img/20250520230954862.png" alt="image-20250520230940811"></p>
@@ -1592,18 +1604,27 @@
 <p>75、点击“save”，保存项目；<br><img src="https://pan.yuqi.fun/d/%E5%A4%A9%E7%BF%BC%E4%BA%91%E7%9B%98/img/20250520232149043.png" alt="image-20250520230037252"></p>
 <p>76、点击“export”，可将此项目导出为.exe文件；<br><img src="https://pan.yuqi.fun/d/%E5%A4%A9%E7%BF%BC%E4%BA%91%E7%9B%98/img/20250520232157540.png" alt="image-20250520230047342"></p>
 <h1 id="初始化"><a href="#初始化" class="headerlink" title="初始化"></a>初始化</h1><p>77、若需初始化控制器，可在“parameter tree”P802中选择“delivery state”，将控制器还原为出厂状态。<br><img src="https://pan.yuqi.fun/d/%E5%A4%A9%E7%BF%BC%E4%BA%91%E7%9B%98/img/20250520232205573.png" alt="image-20250520230056017"></p>
-]]></content>
-  </entry>
-  <entry>
-    <title>SEW Scope曲线监控</title>
-    <url>/undefined/c4294855.html</url>
-    <content><![CDATA[<h3 id="打开备份的SEW文件，点击Scope"><a href="#打开备份的SEW文件，点击Scope" class="headerlink" title="打开备份的SEW文件，点击Scope"></a>打开备份的SEW文件，点击Scope</h3><p><img src="https://pan.yuqi.fun/d/%E5%A4%A9%E7%BF%BC%E4%BA%91%E7%9B%98/img/202501051439031.png" alt="image-20250105143536600"></p>
-<h3 id="进入Scope界面"><a href="#进入Scope界面" class="headerlink" title="进入Scope界面"></a>进入Scope界面</h3><p><img src="https://pan.yuqi.fun/d/%E5%A4%A9%E7%BF%BC%E4%BA%91%E7%9B%98/img/202501051439072.png" alt="image-20250105143550152"></p>
-<h3 id="在菜单栏中点击新建文件按钮，并新创建一个模板"><a href="#在菜单栏中点击新建文件按钮，并新创建一个模板" class="headerlink" title="在菜单栏中点击新建文件按钮，并新创建一个模板"></a>在菜单栏中点击新建文件按钮，并新创建一个模板</h3><p><img src="https://pan.yuqi.fun/d/%E5%A4%A9%E7%BF%BC%E4%BA%91%E7%9B%98/img/202501051439108.png" alt="image-20250105143632298"></p>
-<h3 id="模板中设置好监控选项，并保存为名称为Scope的-sct文件"><a href="#模板中设置好监控选项，并保存为名称为Scope的-sct文件" class="headerlink" title="模板中设置好监控选项，并保存为名称为Scope的.sct文件"></a>模板中设置好监控选项，并保存为名称为Scope的.sct文件</h3><p><img src="https://pan.yuqi.fun/d/%E5%A4%A9%E7%BF%BC%E4%BA%91%E7%9B%98/img/202501051439154.png" alt="image-20250105143656071"></p>
-<h3 id="再次在Scope菜单栏中点击新建，在模板中选择我们创建的Scope模板，然后点OK，进入Scope监控界面"><a href="#再次在Scope菜单栏中点击新建，在模板中选择我们创建的Scope模板，然后点OK，进入Scope监控界面" class="headerlink" title="再次在Scope菜单栏中点击新建，在模板中选择我们创建的Scope模板，然后点OK，进入Scope监控界面"></a>再次在Scope菜单栏中点击新建，在模板中选择我们创建的Scope模板，然后点OK，进入Scope监控界面</h3><p><img src="https://pan.yuqi.fun/d/%E5%A4%A9%E7%BF%BC%E4%BA%91%E7%9B%98/img/202501051439188.png" alt="image-20250105143719967"></p>
-<h3 id="进入Scope界面后点击记录设置，出现我们刚才设置的模板，点击Start按钮准备记录Scope曲线。在HMI上手动操作滑台动作就会自动触发记录运行曲线"><a href="#进入Scope界面后点击记录设置，出现我们刚才设置的模板，点击Start按钮准备记录Scope曲线。在HMI上手动操作滑台动作就会自动触发记录运行曲线" class="headerlink" title="进入Scope界面后点击记录设置，出现我们刚才设置的模板，点击Start按钮准备记录Scope曲线。在HMI上手动操作滑台动作就会自动触发记录运行曲线"></a>进入Scope界面后点击记录设置，出现我们刚才设置的模板，点击Start按钮准备记录Scope曲线。在HMI上手动操作滑台动作就会自动触发记录运行曲线</h3><p><strong>注意：根据模板里面的设置，最大记录时间为40.96s，因此来回滑动的时间需要控制在40s以内，否则超时的那部分运行曲线无法获取。如果需要调整最大记录时间，可以调整Sample Time。</strong></p>
-<p><img src="https://pan.yuqi.fun/d/%E5%A4%A9%E7%BF%BC%E4%BA%91%E7%9B%98/img/202501051439213.png" alt="image-20250105143805277"></p>
+<h1 id="补充"><a href="#补充" class="headerlink" title="补充"></a>补充</h1><p>1、变频器安全参照MOVIFIT设置右键点击20 Default<br><img src="https://pan.yuqi.fun/d/%E5%A4%A9%E7%BF%BC%E4%BA%91%E7%9B%98/img/20250522195109917.jpg" alt="img"></p>
+<p>2、变频器硬件组态输入输出数据为 8 WORD.<br><img src="https://pan.yuqi.fun/d/%E5%A4%A9%E7%BF%BC%E4%BA%91%E7%9B%98/img/20250522195116416.jpg" alt="img"></p>
+<p>3、选择<br><img src="https://pan.yuqi.fun/d/%E5%A4%A9%E7%BF%BC%E4%BA%91%E7%9B%98/img/20250522195121633.jpg" alt="img"><br>读取编码器中电机参数 ，电机NEXT<br><img src="https://pan.yuqi.fun/d/%E5%A4%A9%E7%BF%BC%E4%BA%91%E7%9B%98/img/20250522195127315.jpg" alt="img"></p>
+<p>4、开始设置变频器参数 电机START-UP SET1<br><img src="https://pan.yuqi.fun/d/%E5%A4%A9%E7%BF%BC%E4%BA%91%E7%9B%98/img/20250522195131943.jpg" alt="img"></p>
+<p>5、选择完成执行参数初始化<br><img src="https://pan.yuqi.fun/d/%E5%A4%A9%E7%BF%BC%E4%BA%91%E7%9B%98/img/20250522195136752.jpg" alt="img"></p>
+<p>6、选择私服控制<br><img src="https://pan.yuqi.fun/d/%E5%A4%A9%E7%BF%BC%E4%BA%91%E7%9B%98/img/20250522195141348.jpg" alt="img"></p>
+<p>7、选择电机型号。本项目中是读取编码器中电机数据故无需设置<br><img src="https://pan.yuqi.fun/d/%E5%A4%A9%E7%BF%BC%E4%BA%91%E7%9B%98/img/20250522195149268.jpg" alt="img"></p>
+<p>8、选择PositionWith IPOS<br><img src="https://pan.yuqi.fun/d/%E5%A4%A9%E7%BF%BC%E4%BA%91%E7%9B%98/img/20250522195155150.jpg" alt="img"> </p>
+<p>9、选择矢量控制<br><img src="https://pan.yuqi.fun/d/%E5%A4%A9%E7%BF%BC%E4%BA%91%E7%9B%98/img/20250522195201283.jpg" alt="img"></p>
+<p>10、设置电机转动惯量和抱闸应用<br><img src="https://pan.yuqi.fun/d/%E5%A4%A9%E7%BF%BC%E4%BA%91%E7%9B%98/img/20250522195208507.jpg" alt="img"></p>
+<p>11、电机参数选择SEW建议值， APPLY PROPOSAL电机NEXT<br><img src="https://pan.yuqi.fun/d/%E5%A4%A9%E7%BF%BC%E4%BA%91%E7%9B%98/img/20250522195215400.jpg" alt="img"></p>
+<p>12、参数设置完成，电机完成将参数下载到变频器、<br><img src="https://pan.yuqi.fun/d/%E5%A4%A9%E7%BF%BC%E4%BA%91%E7%9B%98/img/20250522195221191.jpg" alt="img"></p>
+<p>13、设置变频器IPOS应用、选择Extened Positioning Via Bus<br><img src="https://pan.yuqi.fun/d/%E5%A4%A9%E7%BF%BC%E4%BA%91%E7%9B%98/img/20250522195226479.jpg" alt="img"></p>
+<p>14、电机NEXT<br><img src="https://pan.yuqi.fun/d/%E5%A4%A9%E7%BF%BC%E4%BA%91%E7%9B%98/img/20250522195231631.jpg" alt="img"></p>
+<p>15、设置滚床机械参数。由于采用脉冲定位方式故直接电机NEXT<br><img src="https://pan.yuqi.fun/d/%E5%A4%A9%E7%BF%BC%E4%BA%91%E7%9B%98/img/20250522195237098.jpg" alt="img"></p>
+<p>16、设置变频器软限位和校零方式<br><img src="https://pan.yuqi.fun/d/%E5%A4%A9%E7%BF%BC%E4%BA%91%E7%9B%98/img/20250522195242608.jpg" alt="img"></p>
+<p>17、参数设置完成电机DOWN load下载参数<br><img src="https://pan.yuqi.fun/d/%E5%A4%A9%E7%BF%BC%E4%BA%91%E7%9B%98/img/20250522195249177.jpg" alt="img"></p>
+<p>18、选择YES可以查看变频器控制字和状态字<br><img src="https://pan.yuqi.fun/d/%E5%A4%A9%E7%BF%BC%E4%BA%91%E7%9B%98/img/20250522195255788.jpg" alt="img"></p>
+<p>19、MONITOR MODE和 CONTROL模式可以监控变频器状态或者控制变频器定位（由PC控制）<br><img src="https://pan.yuqi.fun/d/%E5%A4%A9%E7%BF%BC%E4%BA%91%E7%9B%98/img/20250522195303798.jpg" alt="img"></p>
+<p>20、巡参模式控制字<br><img src="https://pan.yuqi.fun/d/%E5%A4%A9%E7%BF%BC%E4%BA%91%E7%9B%98/img/20250522195310346.jpg" alt="img"></p>
+<p>21、定位模式状态字。定位的前提是变频器必须巡参，需要设置目的值、速度、加减速度<br><img src="https://pan.yuqi.fun/d/%E5%A4%A9%E7%BF%BC%E4%BA%91%E7%9B%98/img/20250522195316220.jpg" alt="img"></p>
 ]]></content>
   </entry>
   <entry>
@@ -1759,24 +1780,6 @@
       </tags>
   </entry>
   <entry>
-    <title>SICK区扫调试步骤</title>
-    <url>/undefined/af80d2f7.html</url>
-    <content><![CDATA[<p><img src="https://pan.yuqi.fun/d/%E5%A4%A9%E7%BF%BC%E4%BA%91%E7%9B%98/img/202303041357323.JPG" alt="幻灯片1"><br><img src="https://pan.yuqi.fun/d/%E5%A4%A9%E7%BF%BC%E4%BA%91%E7%9B%98/img/202303041357782.JPG" alt="幻灯片2"></p>
-<p><img src="https://pan.yuqi.fun/d/%E5%A4%A9%E7%BF%BC%E4%BA%91%E7%9B%98/img/202303041358093.JPG" alt="幻灯片3"></p>
-<p><img src="https://pan.yuqi.fun/d/%E5%A4%A9%E7%BF%BC%E4%BA%91%E7%9B%98/img/202303041358392.JPG" alt="幻灯片4"></p>
-<p><img src="https://pan.yuqi.fun/d/%E5%A4%A9%E7%BF%BC%E4%BA%91%E7%9B%98/img/202303041358744.JPG" alt="幻灯片5"></p>
-<p><img src="https://pan.yuqi.fun/d/%E5%A4%A9%E7%BF%BC%E4%BA%91%E7%9B%98/img/202303041358489.JPG" alt="幻灯片6"></p>
-<p><img src="https://pan.yuqi.fun/d/%E5%A4%A9%E7%BF%BC%E4%BA%91%E7%9B%98/img/202303041358180.JPG" alt="幻灯片7"></p>
-<p><img src="https://pan.yuqi.fun/d/%E5%A4%A9%E7%BF%BC%E4%BA%91%E7%9B%98/img/202303041358561.JPG" alt="幻灯片8"></p>
-]]></content>
-      <categories>
-        <category>教程</category>
-      </categories>
-      <tags>
-        <tag>SICK</tag>
-      </tags>
-  </entry>
-  <entry>
     <title>V2,R.a,y.A——新一代Linux客户端安装配置教程</title>
     <url>/undefined/a53fea94.html</url>
     <content><![CDATA[<h1 id="前言"><a href="#前言" class="headerlink" title="前言"></a>前言</h1><p>上一次我们介绍的Qv2ray还是有一些同学不会安装，而且Qv2ray也不再更新了，所以我就另外去找了，刚好找到一个安装配置都非常简单的软件，也就是本章的主角——v2rayA</p>
@@ -1827,6 +1830,24 @@
       </categories>
       <tags>
         <tag>v2</tag>
+      </tags>
+  </entry>
+  <entry>
+    <title>SICK区扫调试步骤</title>
+    <url>/undefined/af80d2f7.html</url>
+    <content><![CDATA[<p><img src="https://pan.yuqi.fun/d/%E5%A4%A9%E7%BF%BC%E4%BA%91%E7%9B%98/img/202303041357323.JPG" alt="幻灯片1"><br><img src="https://pan.yuqi.fun/d/%E5%A4%A9%E7%BF%BC%E4%BA%91%E7%9B%98/img/202303041357782.JPG" alt="幻灯片2"></p>
+<p><img src="https://pan.yuqi.fun/d/%E5%A4%A9%E7%BF%BC%E4%BA%91%E7%9B%98/img/202303041358093.JPG" alt="幻灯片3"></p>
+<p><img src="https://pan.yuqi.fun/d/%E5%A4%A9%E7%BF%BC%E4%BA%91%E7%9B%98/img/202303041358392.JPG" alt="幻灯片4"></p>
+<p><img src="https://pan.yuqi.fun/d/%E5%A4%A9%E7%BF%BC%E4%BA%91%E7%9B%98/img/202303041358744.JPG" alt="幻灯片5"></p>
+<p><img src="https://pan.yuqi.fun/d/%E5%A4%A9%E7%BF%BC%E4%BA%91%E7%9B%98/img/202303041358489.JPG" alt="幻灯片6"></p>
+<p><img src="https://pan.yuqi.fun/d/%E5%A4%A9%E7%BF%BC%E4%BA%91%E7%9B%98/img/202303041358180.JPG" alt="幻灯片7"></p>
+<p><img src="https://pan.yuqi.fun/d/%E5%A4%A9%E7%BF%BC%E4%BA%91%E7%9B%98/img/202303041358561.JPG" alt="幻灯片8"></p>
+]]></content>
+      <categories>
+        <category>教程</category>
+      </categories>
+      <tags>
+        <tag>SICK</tag>
       </tags>
   </entry>
   <entry>
@@ -2904,6 +2925,24 @@
       </tags>
   </entry>
   <entry>
+    <title>谷歌浏览器设置关闭搜索记录</title>
+    <url>/undefined/42e51b95.html</url>
+    <content><![CDATA[<p><strong>将 Chrome 的 History 文件设置为可读即可。</strong><br>操作方法：<br>1 、在 Chrome 浏览器地址栏中输入</p>
+<figure class="highlight html"><table><tr><td class="code"><pre><span class="line">chrome://version/</span><br></pre></td></tr></table></figure>
+
+<p>2 、复制<strong>个人资料路径</strong>，关闭 Chrome 浏览器并到资源管理器中打开刚才复制的“个人资料路径”</p>
+<p><img src="https://pan.yuqi.fun/d/%E5%A4%A9%E7%BF%BC%E4%BA%91%E7%9B%98/img/202303062045271.png" alt="image-20230306204551884"></p>
+<p>3 、找到History文件并删除，然后新建一个History文件，对History文件，右键—属性，勾选只读。</p>
+<p><img src="https://pan.yuqi.fun/d/%E5%A4%A9%E7%BF%BC%E4%BA%91%E7%9B%98/img/202303062048179.png" alt="image-20230306204804357"></p>
+]]></content>
+      <categories>
+        <category>教程</category>
+      </categories>
+      <tags>
+        <tag>Google浏览器</tag>
+      </tags>
+  </entry>
+  <entry>
     <title>贵阳吉利程序解析</title>
     <url>/undefined/57946227.html</url>
     <content><![CDATA[<h1 id="程序框架"><a href="#程序框架" class="headerlink" title="程序框架"></a>程序框架</h1><p><strong>_00_Organization_Blocks</strong>：系统组织块</p>
@@ -2990,24 +3029,6 @@
 <p><img src="https://pan.yuqi.fun/d/%E5%A4%A9%E7%BF%BC%E4%BA%91%E7%9B%98/img/202411241536675.png" alt="image-20241124153306459"></p>
 <p><img src="https://pan.yuqi.fun/d/%E5%A4%A9%E7%BF%BC%E4%BA%91%E7%9B%98/img/202411241536972.png" alt="image-20241124153505708"></p>
 <h1 id="画面"><a href="#画面" class="headerlink" title="画面"></a>画面</h1>]]></content>
-  </entry>
-  <entry>
-    <title>谷歌浏览器设置关闭搜索记录</title>
-    <url>/undefined/42e51b95.html</url>
-    <content><![CDATA[<p><strong>将 Chrome 的 History 文件设置为可读即可。</strong><br>操作方法：<br>1 、在 Chrome 浏览器地址栏中输入</p>
-<figure class="highlight html"><table><tr><td class="code"><pre><span class="line">chrome://version/</span><br></pre></td></tr></table></figure>
-
-<p>2 、复制<strong>个人资料路径</strong>，关闭 Chrome 浏览器并到资源管理器中打开刚才复制的“个人资料路径”</p>
-<p><img src="https://pan.yuqi.fun/d/%E5%A4%A9%E7%BF%BC%E4%BA%91%E7%9B%98/img/202303062045271.png" alt="image-20230306204551884"></p>
-<p>3 、找到History文件并删除，然后新建一个History文件，对History文件，右键—属性，勾选只读。</p>
-<p><img src="https://pan.yuqi.fun/d/%E5%A4%A9%E7%BF%BC%E4%BA%91%E7%9B%98/img/202303062048179.png" alt="image-20230306204804357"></p>
-]]></content>
-      <categories>
-        <category>教程</category>
-      </categories>
-      <tags>
-        <tag>Google浏览器</tag>
-      </tags>
   </entry>
   <entry>
     <title>针对Prodiag现场License弹窗的解决方法</title>
