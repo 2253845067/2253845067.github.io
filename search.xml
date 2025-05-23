@@ -1798,6 +1798,68 @@
       </tags>
   </entry>
   <entry>
+    <title>SINAMICS G120D CU250-2PN速度控制调试步骤</title>
+    <url>/undefined/908d3d13.html</url>
+    <content><![CDATA[<h1 id="1、打开SINAMICS-STARTER软件，创建项目；"><a href="#1、打开SINAMICS-STARTER软件，创建项目；" class="headerlink" title="1、打开SINAMICS STARTER软件，创建项目；"></a>1、打开SINAMICS STARTER软件，创建项目；</h1><p>选择菜单Project -&gt; New…<br>或使用快捷按钮创建新项目。<br><img src="https://pan.yuqi.fun/d/%E5%A4%A9%E7%BF%BC%E4%BA%91%E7%9B%98/img/20250523225816269.png" alt="image-20250523222741743"><br><img src="https://pan.yuqi.fun/d/%E5%A4%A9%E7%BF%BC%E4%BA%91%E7%9B%98/img/20250523225840938.png" alt="image-20250523222747691"></p>
+<h1 id="2、用USB电缆连接电脑和CU240D控制器，设置PG-PC接口。"><a href="#2、用USB电缆连接电脑和CU240D控制器，设置PG-PC接口。" class="headerlink" title="2、用USB电缆连接电脑和CU240D控制器，设置PG&#x2F;PC接口。"></a>2、用USB电缆连接电脑和CU240D控制器，设置<strong>PG&#x2F;PC</strong>接口。</h1><p><img src="https://pan.yuqi.fun/d/%E5%A4%A9%E7%BF%BC%E4%BA%91%E7%9B%98/img/20250523225903522.png" alt="image-20250523222804999"></p>
+<h1 id="3、使用网线连接PLC，通过PROFINET总线方式连接CU240D控制器，设置PG-PC接口方式同USB连接。"><a href="#3、使用网线连接PLC，通过PROFINET总线方式连接CU240D控制器，设置PG-PC接口方式同USB连接。" class="headerlink" title="3、使用网线连接PLC，通过PROFINET总线方式连接CU240D控制器，设置PG&#x2F;PC接口方式同USB连接。"></a>3、使用网线连接PLC，通过PROFINET总线方式连接CU240D控制器，设置<strong>PG&#x2F;PC</strong>接口方式同USB连接。</h1><p><img src="https://pan.yuqi.fun/d/%E5%A4%A9%E7%BF%BC%E4%BA%91%E7%9B%98/img/20250523225926726.png" alt="image-20250523222819925"></p>
+<h1 id="4、使用如下方式搜索并连接变频器控制器。"><a href="#4、使用如下方式搜索并连接变频器控制器。" class="headerlink" title="4、使用如下方式搜索并连接变频器控制器。"></a>4、使用如下方式搜索并连接变频器控制器。</h1><p>(1).选择菜单”Project -&gt; Accessible node”  或使用快捷按钮    搜索变频器，如果没有搜索到变频器会显示“No further active partner can be found”(没有找到节点)请执行第(2)步，如果搜 索到变频器跳到第(6)步。<br><img src="https://pan.yuqi.fun/d/%E5%A4%A9%E7%BF%BC%E4%BA%91%E7%9B%98/img/20250523225955108.png" alt="image-20250523222859036"></p>
+<p>(2).点击”Access Point”按钮。<br><img src="https://pan.yuqi.fun/d/%E5%A4%A9%E7%BF%BC%E4%BA%91%E7%9B%98/img/20250523230015877.png" alt="image-20250523222908513"></p>
+<p>(3). 在Set Access Point for Accessible nodes页面选择正确的连接方式。<br><img src="https://pan.yuqi.fun/d/%E5%A4%A9%E7%BF%BC%E4%BA%91%E7%9B%98/img/20250523230027484.png" alt="image-20250523222917891"><br><img src="https://pan.yuqi.fun/d/%E5%A4%A9%E7%BF%BC%E4%BA%91%E7%9B%98/img/20250523230034591.png" alt="image-20250523222921962"></p>
+<p>(4).点击”Update”按钮，开始搜索变频器。<br>(5).搜索到变频器在右侧Accessible nodes区域显示如下信息C显示内容与控制 单元型号有关)。 如果没有搜索到变频器请根据提示查找具体原因，或查看帮助文件。<br><img src="https://pan.yuqi.fun/d/%E5%A4%A9%E7%BF%BC%E4%BA%91%E7%9B%98/img/20250523230042623.png" alt="image-20250523223006082"></p>
+<p>(6).勾选搜索到的控制单元。<br>(7).点击“Accept”按钮。<br>(8).STARTER会自动把该变频器插入到项目中。<br>(9).点击按钮，进入 STARTER 在线模式。<br><img src="https://pan.yuqi.fun/d/%E5%A4%A9%E7%BF%BC%E4%BA%91%E7%9B%98/img/20250523230127394.png"><br><img src="https://pan.yuqi.fun/d/%E5%A4%A9%E7%BF%BC%E4%BA%91%E7%9B%98/img/20250523230049689.png" alt="image-20250523223107422"></p>
+<p>(10). 点击”Connect to assigned devices”按钮，连接到驱动器。<br><img src="https://pan.yuqi.fun/d/%E5%A4%A9%E7%BF%BC%E4%BA%91%E7%9B%98/img/20250523230101397.png" alt="image-20250523223117348"></p>
+<p>(11). STARTER进入在线模式，右下角状态栏指示黄色”Online mode”状态。<br>(12).点击控制单元树形菜单下”Expert list”功能，右侧窗口打开专家列表，熟悉 SINAMICS G120D参数的人员，可以直接使用专家列表查看并修改变频器参数。<br><img src="https://pan.yuqi.fun/d/%E5%A4%A9%E7%BF%BC%E4%BA%91%E7%9B%98/img/20250523230108744.png" alt="image-20250523223131065"></p>
+<h1 id="5、其他基本操作。"><a href="#5、其他基本操作。" class="headerlink" title="5、其他基本操作。"></a>5、其他基本操作。</h1><p><img src="https://pan.yuqi.fun/d/%E5%A4%A9%E7%BF%BC%E4%BA%91%E7%9B%98/img/20250523230117107.png" alt="image-20250523223200504"></p>
+<h2 id="5-1、恢复工厂设置。"><a href="#5-1、恢复工厂设置。" class="headerlink" title="5.1、恢复工厂设置。"></a>5.1、恢复工厂设置。</h2><p>(1).点击     按钮，进入 STARTER 在线模式。<br><img src="https://pan.yuqi.fun/d/%E5%A4%A9%E7%BF%BC%E4%BA%91%E7%9B%98/img/20250523230127394.png"></p>
+<p>(2).点击”Restore factory settings”    按钮，变频器参数恢复出厂设置。<br><img src="https://pan.yuqi.fun/d/%E5%A4%A9%E7%BF%BC%E4%BA%91%E7%9B%98/img/20250523230202306.png" alt="image-20250523223233618"></p>
+<h2 id="5-2、上传参数-变频器-PG-PC。"><a href="#5-2、上传参数-变频器-PG-PC。" class="headerlink" title="5.2、上传参数:变频器 -&gt; PG&#x2F;PC。"></a>5.2、上传参数:变频器 -&gt; PG&#x2F;PC。</h2><p>(1).点击     按钮，进入 STARTER 在线模式。<br><img src="https://pan.yuqi.fun/d/%E5%A4%A9%E7%BF%BC%E4%BA%91%E7%9B%98/img/20250523230127394.png"></p>
+<p>(2).点击“Load project to PG”     按钮。<br><img src="https://pan.yuqi.fun/d/%E5%A4%A9%E7%BF%BC%E4%BA%91%E7%9B%98/img/20250523230207642.png" alt="image-20250523223343414"></p>
+<p>(3).点击     按钮，将数据保存在 PG&#x2F;PC 中。<br><img src="https://pan.yuqi.fun/d/%E5%A4%A9%E7%BF%BC%E4%BA%91%E7%9B%98/img/20250523230214796.png" alt="image-20250523223349703"></p>
+<h2 id="5-3、下载参数-PG-PC-变频器。"><a href="#5-3、下载参数-PG-PC-变频器。" class="headerlink" title="5.3、下载参数: PG&#x2F;PC -&gt; 变频器。"></a>5.3、下载参数: PG&#x2F;PC -&gt; 变频器。</h2><p>(1).点击     按钮，进入 STARTER 在线模式。<br><img src="https://pan.yuqi.fun/d/%E5%A4%A9%E7%BF%BC%E4%BA%91%E7%9B%98/img/20250523230127394.png"></p>
+<p>(2).点击“Download project to target system”     按钮，将项目下载到变频中。<br><img src="https://pan.yuqi.fun/d/%E5%A4%A9%E7%BF%BC%E4%BA%91%E7%9B%98/img/20250523230220440.png" alt="image-20250523223407782"></p>
+<p>(3).点击“Copy RAM to ROM”     按钮，将数据保存到变频器中。<br><img src="https://pan.yuqi.fun/d/%E5%A4%A9%E7%BF%BC%E4%BA%91%E7%9B%98/img/20250523230228156.png" alt="image-20250523223416658"></p>
+<p> <strong>注意：许多参数是可以在线修改的，在线修改完参数后需要重新上载到离线参数中，否则点击下载的话会将离线参数下载到变频器中。</strong></p>
+<h1 id="6、参数设置。"><a href="#6、参数设置。" class="headerlink" title="6、参数设置。"></a>6、参数设置。</h1><h2 id="6-1、使用配置向导配置变频器系统基本参数。"><a href="#6-1、使用配置向导配置变频器系统基本参数。" class="headerlink" title="6.1、使用配置向导配置变频器系统基本参数。"></a>6.1、使用配置向导配置变频器系统基本参数。</h2><p>(1).点击“Configuration” 。<br>(2).点击工作区内的“Wizard …”，弹出向导对话框，点击“Next”逐步进行配置。<br><img src="https://pan.yuqi.fun/d/%E5%A4%A9%E7%BF%BC%E4%BA%91%E7%9B%98/img/20250523230237648.png" alt="image-20250523223430045"></p>
+<p>(3).设置控制结构。<br><img src="https://pan.yuqi.fun/d/%E5%A4%A9%E7%BF%BC%E4%BA%91%E7%9B%98/img/20250523230248176.png" alt="image-20250523223440470"></p>
+<p>(4).定义命令源和设定值来源。	<br><img src="https://pan.yuqi.fun/d/%E5%A4%A9%E7%BF%BC%E4%BA%91%E7%9B%98/img/20250523230256863.png" alt="image-20250523223450414"></p>
+<p>(5).驱动器设置。<br><img src="https://pan.yuqi.fun/d/%E5%A4%A9%E7%BF%BC%E4%BA%91%E7%9B%98/img/20250523230303276.png" alt="image-20250523223458640"></p>
+<p>(6).选择电机类型。<br><img src="https://pan.yuqi.fun/d/%E5%A4%A9%E7%BF%BC%E4%BA%91%E7%9B%98/img/20250523230309577.png" alt="image-20250523223506895"></p>
+<p>(7).输入与铭牌对应的电机数据。<br><img src="https://pan.yuqi.fun/d/%E5%A4%A9%E7%BF%BC%E4%BA%91%E7%9B%98/img/20250523230315284.png" alt="image-20250523223516044"></p>
+<p>(8).为电机数据识别选择“Identify motor data at standstill” 。<br><img src="https://pan.yuqi.fun/d/%E5%A4%A9%E7%BF%BC%E4%BA%91%E7%9B%98/img/20250523230321833.png" alt="image-20250523223525334"></p>
+<p>(9).输入最大电流，最小和最大转速，加、减速时间和 OFF3 紧急关闭减速时间。<br><img src="https://pan.yuqi.fun/d/%E5%A4%A9%E7%BF%BC%E4%BA%91%E7%9B%98/img/20250523230331437.png" alt="image-20250523223534198"></p>
+<p>(10).点击“Next”，将开始计算电机数据。这样便通过配置向导完成了参数设置。您现在将收到一份有关输入的所有参数值汇总。按“Copy text to clipboard”按键即可将汇总添加到文本文件。最后选择“Copy RAM to ROM”，将参数设置保存到变频器 ROM 存储器内，然后点击“Finish”关闭窗口。<br><img src="https://pan.yuqi.fun/d/%E5%A4%A9%E7%BF%BC%E4%BA%91%E7%9B%98/img/20250523230338683.png" alt="image-20250523223542937"></p>
+<h2 id="6-2、若使用总线接口，应将默认外部I-O配置清除（X07-X08-X09）。"><a href="#6-2、若使用总线接口，应将默认外部I-O配置清除（X07-X08-X09）。" class="headerlink" title="6.2、若使用总线接口，应将默认外部I&#x2F;O配置清除（X07\X08\X09）。"></a>6.2、若使用总线接口，应将默认外部I&#x2F;O配置清除（X07\X08\X09）。</h2><p>(1).点击“Inputs&#x2F;Outputs”。<br>(2).点击工作区内X07\X08\X09对应引脚参数的按钮，弹出向导I&#x2F;O分配对话框。<br>(3).将该引脚对应参数前面的勾选去掉，并点击“OK”按钮，该引脚分配显示“—”。<br><img src="https://pan.yuqi.fun/d/%E5%A4%A9%E7%BF%BC%E4%BA%91%E7%9B%98/img/20250523230345952.png" alt="image-20250523223552253"></p>
+<h2 id="6-3、其它基本参数设置。"><a href="#6-3、其它基本参数设置。" class="headerlink" title="6.3、其它基本参数设置。"></a>6.3、其它基本参数设置。</h2><p>(1).设置“Ramp-function generator”。<br><img src="https://pan.yuqi.fun/d/%E5%A4%A9%E7%BF%BC%E4%BA%91%E7%9B%98/img/20250523230353888.png" alt="image-20250523223604732"></p>
+<p>(2).设置“Motor potentiometer”。<br><img src="https://pan.yuqi.fun/d/%E5%A4%A9%E7%BF%BC%E4%BA%91%E7%9B%98/img/20250523230400015.png" alt="image-20250523223613817"></p>
+<p>(3).设置“P gain factor”和“Integration time”。<br><img src="https://pan.yuqi.fun/d/%E5%A4%A9%E7%BF%BC%E4%BA%91%E7%9B%98/img/20250523230406143.png" alt="image-20250523223624398"></p>
+<p>(4).设置“Upper torque limit”。<br><img src="https://pan.yuqi.fun/d/%E5%A4%A9%E7%BF%BC%E4%BA%91%E7%9B%98/img/20250523230413146.png" alt="image-20250523223632096"></p>
+<p>(5).设置“Current limitation ”。<br><img src="https://pan.yuqi.fun/d/%E5%A4%A9%E7%BF%BC%E4%BA%91%E7%9B%98/img/20250523230419657.png" alt="image-20250523223641924"></p>
+<p>(6).设置“Power limit ”。<br><img src="https://pan.yuqi.fun/d/%E5%A4%A9%E7%BF%BC%E4%BA%91%E7%9B%98/img/20250523230425656.png" alt="image-20250523223649828"> </p>
+<p>(7).设置“Low torque limit”。<br><img src="https://pan.yuqi.fun/d/%E5%A4%A9%E7%BF%BC%E4%BA%91%E7%9B%98/img/20250523230431431.png" alt="image-20250523223702783"></p>
+<h2 id="6-4、电机抱闸设置。在步骤2处设置电机抱闸方式，调试时可通过步骤3-5来强制打开关闭抱闸功能。"><a href="#6-4、电机抱闸设置。在步骤2处设置电机抱闸方式，调试时可通过步骤3-5来强制打开关闭抱闸功能。" class="headerlink" title="6.4、电机抱闸设置。在步骤2处设置电机抱闸方式，调试时可通过步骤3-5来强制打开关闭抱闸功能。"></a>6.4、电机抱闸设置。在步骤2处设置电机抱闸方式，调试时可通过步骤3-5来强制打开关闭抱闸功能。</h2><p><img src="https://pan.yuqi.fun/d/%E5%A4%A9%E7%BF%BC%E4%BA%91%E7%9B%98/img/20250523230438399.png" alt="image-20250523223710923"></p>
+<p>设置G120D变频器的安全响应时间。P9659设置成最大值9000<br><img src="https://pan.yuqi.fun/d/%E5%A4%A9%E7%BF%BC%E4%BA%91%E7%9B%98/img/20250523230445945.png" alt="image-20250523223720556"></p>
+<h2 id="6-5、配置安全功能。配置完成后将配置下载到变频器中即可，安全功能需断电重启。"><a href="#6-5、配置安全功能。配置完成后将配置下载到变频器中即可，安全功能需断电重启。" class="headerlink" title="6.5、配置安全功能。配置完成后将配置下载到变频器中即可，安全功能需断电重启。"></a>6.5、配置安全功能。配置完成后将配置下载到变频器中即可，安全功能需断电重启。</h2><p><img src="https://pan.yuqi.fun/d/%E5%A4%A9%E7%BF%BC%E4%BA%91%E7%9B%98/img/20250523230452866.png" alt="image-20250523223729738"></p>
+<p>PLC硬件组态中G120D变频器的安全地址值。<br><img src="https://pan.yuqi.fun/d/%E5%A4%A9%E7%BF%BC%E4%BA%91%E7%9B%98/img/20250523230501004.png" alt="image-20250523223738733"></p>
+<h2 id="6-6、配置报文，即分配G120D变频器与PLC在PROFINET总线通信下的接口信号-包括PROFIsafe安全功能）。"><a href="#6-6、配置报文，即分配G120D变频器与PLC在PROFINET总线通信下的接口信号-包括PROFIsafe安全功能）。" class="headerlink" title="6.6、配置报文，即分配G120D变频器与PLC在PROFINET总线通信下的接口信号(包括PROFIsafe安全功能）。"></a>6.6、配置报文，即分配G120D变频器与PLC在PROFINET总线通信下的接口信号(包括PROFIsafe安全功能）。</h2><p>(1).点击“Communication -&gt; Field bus”。<br>(2).配置报文类型。G120D变频器的报文有多种类型，对应着不同的接口信息，根据需要通过下拉菜单可选择不同种类的报文。除999自由报文外，其他种类报文为默认报文，其对应的接口信息无法修改，自由报文可以任意定义接口信息。沃尔沃项目采用的是999自由报文以及30 PROFIsafe标准安全报文。配置G120D变频器报文时，应保持与PLC硬件组态中配置报文类型一致。<br><img src="https://pan.yuqi.fun/d/%E5%A4%A9%E7%BF%BC%E4%BA%91%E7%9B%98/img/20250523230508841.png" alt="image-20250523223747844"><br><img src="https://pan.yuqi.fun/d/%E5%A4%A9%E7%BF%BC%E4%BA%91%E7%9B%98/img/20250523230515043.png" alt="image-20250523223752899"></p>
+<p>(3).配置变频器安全报文控制字。<br><img src="https://pan.yuqi.fun/d/%E5%A4%A9%E7%BF%BC%E4%BA%91%E7%9B%98/img/20250523230521428.png" alt="image-20250523223801670"></p>
+<p>(4).配置变频器自由报文控制字。<br><img src="https://pan.yuqi.fun/d/%E5%A4%A9%E7%BF%BC%E4%BA%91%E7%9B%98/img/20250523230528073.png" alt="image-20250523223811435"></p>
+<p>(5).配置变频器安全报文状态字。<br><img src="https://pan.yuqi.fun/d/%E5%A4%A9%E7%BF%BC%E4%BA%91%E7%9B%98/img/20250523230534628.png" alt="image-20250523223819506"></p>
+<p>(6).配置变频器自由报文状态字。<br><img src="https://pan.yuqi.fun/d/%E5%A4%A9%E7%BF%BC%E4%BA%91%E7%9B%98/img/20250523230543575.png" alt="image-20250523223827945"></p>
+<p>(7).配置变频器自由报文控制字&#x2F;状态字监控。<br><img src="https://pan.yuqi.fun/d/%E5%A4%A9%E7%BF%BC%E4%BA%91%E7%9B%98/img/20250523230550183.png" alt="image-20250523223837007"></p>
+<h1 id="7、电机试运行。"><a href="#7、电机试运行。" class="headerlink" title="7、电机试运行。"></a>7、电机试运行。</h1><p>(1).在线模式下点击“Commissioning -&gt; Control panel”。<br>(2).点击工作台区域的“Assume control priority”。<br>(3).输入设置值，并点击“Accept”按钮。<br><img src="https://pan.yuqi.fun/d/%E5%A4%A9%E7%BF%BC%E4%BA%91%E7%9B%98/img/20250523230559371.png" alt="image-20250523223845302"></p>
+<p>(4).选中工作台区域中“Enables”旁的复选框。<br>(5).设置试运行速度。<br>(6).通过绿色&#x2F;红色按钮来启停电机，或使用JOG点动控制电机运行。<br><img src="https://pan.yuqi.fun/d/%E5%A4%A9%E7%BF%BC%E4%BA%91%E7%9B%98/img/20250523230606413.png" alt="image-20250523223855097"></p>
+<h1 id="8、状态-LED-一览。"><a href="#8、状态-LED-一览。" class="headerlink" title="8、状态 LED 一览。"></a>8、状态 LED 一览。</h1><p>控制单元上有一排双色 LED 来指明变频器的运行状态。 具体而言，这些状态有：<br>● 一般故障状态<br>● 通讯状态<br>● 输入和输出的状态<br>● Safety Integrated 安全功能的状态<br>下图展示了各个 LED 在控制单元上的位置。<br><img src="https://pan.yuqi.fun/d/%E5%A4%A9%E7%BF%BC%E4%BA%91%E7%9B%98/img/20250523230617834.png" alt="image-20250523223904225"></p>
+<p>(1).一般状态 LED 的说明。<br><img src="https://pan.yuqi.fun/d/%E5%A4%A9%E7%BF%BC%E4%BA%91%E7%9B%98/img/20250523230636359.png" alt="image-20250523223915427"></p>
+<p>(2). PROFIBUS 通讯 LED 的说明。<br><img src="https://pan.yuqi.fun/d/%E5%A4%A9%E7%BF%BC%E4%BA%91%E7%9B%98/img/20250523230641679.png" alt="image-20250523223923215"></p>
+<p>(3). SAFE LED 的说明。<br><img src="https://pan.yuqi.fun/d/%E5%A4%A9%E7%BF%BC%E4%BA%91%E7%9B%98/img/20250523230649731.png" alt="image-20250523223934820"></p>
+<p>(4). PROFINET 通讯 LED 的说明。<br><img src="https://pan.yuqi.fun/d/%E5%A4%A9%E7%BF%BC%E4%BA%91%E7%9B%98/img/20250523230655139.png" alt="image-20250523223943566"></p>
+<p>(5).数字量输入输出状态 LED 的说明。<br><img src="https://pan.yuqi.fun/d/%E5%A4%A9%E7%BF%BC%E4%BA%91%E7%9B%98/img/20250523230700922.png" alt="image-20250523223951803"></p>
+<h1 id="9、故障和警告列表。"><a href="#9、故障和警告列表。" class="headerlink" title="9、故障和警告列表。"></a>9、故障和警告列表。</h1><p>详见附件列表。</p>
+<p><strong>G120D Fault and Warning List.pdf</strong><a class="btn-beautify pink larger" href="https://pan.yuqi.fun/d/%E5%A4%A9%E7%BF%BC%E4%BA%91%E7%9B%98/%E8%B5%84%E6%96%99/%E6%96%87%E6%A1%A3/G120D%20Fault%20and%20Warning%20List.pdf" title="点击下载"><i class="far fa-hand-point-right"></i><span>点击下载</span></a></p>
+]]></content>
+  </entry>
+  <entry>
     <title>V2,R.a,y.A——新一代Linux客户端安装配置教程</title>
     <url>/undefined/a53fea94.html</url>
     <content><![CDATA[<h1 id="前言"><a href="#前言" class="headerlink" title="前言"></a>前言</h1><p>上一次我们介绍的Qv2ray还是有一些同学不会安装，而且Qv2ray也不再更新了，所以我就另外去找了，刚好找到一个安装配置都非常简单的软件，也就是本章的主角——v2rayA</p>
@@ -2665,21 +2727,6 @@
       </tags>
   </entry>
   <entry>
-    <title>电脑谷歌浏览器糖心使用教程</title>
-    <url>/undefined/77efc3f1.html</url>
-    <content><![CDATA[<p>1、先安装油猴插件<br><a href="https://greasyfork.org/scripts/461743-%E7%B3%96%E5%BF%83/code/%E7%B3%96%E5%BF%83.user.js">油猴插件</a><br>2、安装更改 ua 插件（挂梯子扶墙，打开 chrome 应用商店安装）<br><a href="https://chrome.google.com/webstore/detail/user-agent-switcher-and-m/bhchdcejhohfmigjafbampogmaanbfkg">https://chrome.google.com/webstore/detail/user-agent-switcher-and-m/bhchdcejhohfmigjafbampogmaanbfkg</a><br>3、按照这个教程(使用拓展插件进行修改)设置 ua<br><a href="https://blog.csdn.net/m0_46665077/article/details/125713310#22__31">https://blog.csdn.net/m0_46665077/article/details/125713310#22__31</a><br>下面是 UA：</p>
-<figure class="highlight plaintext"><table><tr><td class="code"><pre><span class="line">Mozilla/5.0(iPhone;CPUiPhoneOS11_4_1likeMacOSX)AppleWebKit/537.36(KHTML,likeGecko)Chrome/77.0.3865.116MobileSafari/11.0Mobile/58.0Firefox/12F70Safari/537.36Quark/3.8.4.128UCBrowser/12.0.4.985baiduboxapp/3.2.5.10MQQBrowser/7.2.1.2965XiaoMi/MiuiBrowser/11.9.2SearchCraft/2.0.0ALiSearchApp/2.4AliApp(TB/9.5.6)BingWeb/6.2TBS/537.36Weiyun/6.9.37(Android)Weiyun(zh-Hans)/537.36</span><br></pre></td></tr></table></figure>
-
-<p>4、最后打开网址<a href="https://txh016.com/">https://txh016.com</a>奔放</p>
-]]></content>
-      <categories>
-        <category>教程</category>
-      </categories>
-      <tags>
-        <tag>18+</tag>
-      </tags>
-  </entry>
-  <entry>
     <title>短信转发神器,合宙 Air780E,700E 开发板刷机教程</title>
     <url>/undefined/15b05887.html</url>
     <content><![CDATA[<p>此教程只针对拿板子做短信转发器用，其他高阶操作（定位、联网、语音）需要自由拓展发挥。</p>
@@ -2737,6 +2784,21 @@
       </categories>
       <tags>
         <tag>短信转发</tag>
+      </tags>
+  </entry>
+  <entry>
+    <title>电脑谷歌浏览器糖心使用教程</title>
+    <url>/undefined/77efc3f1.html</url>
+    <content><![CDATA[<p>1、先安装油猴插件<br><a href="https://greasyfork.org/scripts/461743-%E7%B3%96%E5%BF%83/code/%E7%B3%96%E5%BF%83.user.js">油猴插件</a><br>2、安装更改 ua 插件（挂梯子扶墙，打开 chrome 应用商店安装）<br><a href="https://chrome.google.com/webstore/detail/user-agent-switcher-and-m/bhchdcejhohfmigjafbampogmaanbfkg">https://chrome.google.com/webstore/detail/user-agent-switcher-and-m/bhchdcejhohfmigjafbampogmaanbfkg</a><br>3、按照这个教程(使用拓展插件进行修改)设置 ua<br><a href="https://blog.csdn.net/m0_46665077/article/details/125713310#22__31">https://blog.csdn.net/m0_46665077/article/details/125713310#22__31</a><br>下面是 UA：</p>
+<figure class="highlight plaintext"><table><tr><td class="code"><pre><span class="line">Mozilla/5.0(iPhone;CPUiPhoneOS11_4_1likeMacOSX)AppleWebKit/537.36(KHTML,likeGecko)Chrome/77.0.3865.116MobileSafari/11.0Mobile/58.0Firefox/12F70Safari/537.36Quark/3.8.4.128UCBrowser/12.0.4.985baiduboxapp/3.2.5.10MQQBrowser/7.2.1.2965XiaoMi/MiuiBrowser/11.9.2SearchCraft/2.0.0ALiSearchApp/2.4AliApp(TB/9.5.6)BingWeb/6.2TBS/537.36Weiyun/6.9.37(Android)Weiyun(zh-Hans)/537.36</span><br></pre></td></tr></table></figure>
+
+<p>4、最后打开网址<a href="https://txh016.com/">https://txh016.com</a>奔放</p>
+]]></content>
+      <categories>
+        <category>教程</category>
+      </categories>
+      <tags>
+        <tag>18+</tag>
       </tags>
   </entry>
   <entry>
@@ -3057,6 +3119,30 @@
       </tags>
   </entry>
   <entry>
+    <title>针对Prodiag现场License弹窗的解决方法</title>
+    <url>/undefined/2622eae5.html</url>
+    <content><![CDATA[<p>问题：触摸屏报缺少相关的License Key</p>
+<p><img src="https://pan.yuqi.fun/d/%E5%A4%A9%E7%BF%BC%E4%BA%91%E7%9B%98/img/20250510170721371.png" alt="image-20250510165712437"></p>
+<p>打开2018版EKB秘钥（无法找到秘钥，请更换此2018秘钥）</p>
+<p> <img src="https://pan.yuqi.fun/d/%E5%A4%A9%E7%BF%BC%E4%BA%91%E7%9B%98/img/20250510170736105.png" alt="image-20250510165723510"></p>
+<p>选择此秘钥，安装长秘钥，</p>
+<p><img src="https://pan.yuqi.fun/d/%E5%A4%A9%E7%BF%BC%E4%BA%91%E7%9B%98/img/20250510170745318.png" alt="image-20250510165728998"></p>
+<p>方法一：</p>
+<p>打开软件</p>
+<p><img src="https://pan.yuqi.fun/d/%E5%A4%A9%E7%BF%BC%E4%BA%91%E7%9B%98/img/20250510170755265.png" alt="image-20250510165801227"></p>
+<p>选择下图秘钥—</p>
+<p><img src="https://pan.yuqi.fun/d/%E5%A4%A9%E7%BF%BC%E4%BA%91%E7%9B%98/img/20250510170801052.png" alt="image-20250510165808104"></p>
+<p>找到下图秘钥–右键点击Transfer</p>
+<p>打开Tansfer 窗口，电脑与HMI屏幕连接后，可以找到需要下载的HMI设备（有具体IP地址），OK确认</p>
+<p><img src="https://pan.yuqi.fun/d/%E5%A4%A9%E7%BF%BC%E4%BA%91%E7%9B%98/img/20250510170807531.png" alt="image-20250510165818850"></p>
+<p>方法二：也可以右键相关HMI的此属性，打开授权许可</p>
+<p><img src="https://pan.yuqi.fun/d/%E5%A4%A9%E7%BF%BC%E4%BA%91%E7%9B%98/img/20250510170813884.png" alt="image-20250510165826870"></p>
+<p>找到相关HMI设备。</p>
+<p><img src="https://pan.yuqi.fun/d/%E5%A4%A9%E7%BF%BC%E4%BA%91%E7%9B%98/img/20250510170821004.png" alt="image-20250510165833281"></p>
+<p>注意：授权传送之后会提示成功，传送成功后授权若消失重新使用EKb安装一遍即可出现。</p>
+]]></content>
+  </entry>
+  <entry>
     <title>贵阳吉利程序解析</title>
     <url>/undefined/57946227.html</url>
     <content><![CDATA[<h1 id="程序框架"><a href="#程序框架" class="headerlink" title="程序框架"></a>程序框架</h1><p><strong>_00_Organization_Blocks</strong>：系统组织块</p>
@@ -3143,29 +3229,5 @@
 <p><img src="https://pan.yuqi.fun/d/%E5%A4%A9%E7%BF%BC%E4%BA%91%E7%9B%98/img/202411241536675.png" alt="image-20241124153306459"></p>
 <p><img src="https://pan.yuqi.fun/d/%E5%A4%A9%E7%BF%BC%E4%BA%91%E7%9B%98/img/202411241536972.png" alt="image-20241124153505708"></p>
 <h1 id="画面"><a href="#画面" class="headerlink" title="画面"></a>画面</h1>]]></content>
-  </entry>
-  <entry>
-    <title>针对Prodiag现场License弹窗的解决方法</title>
-    <url>/undefined/2622eae5.html</url>
-    <content><![CDATA[<p>问题：触摸屏报缺少相关的License Key</p>
-<p><img src="https://pan.yuqi.fun/d/%E5%A4%A9%E7%BF%BC%E4%BA%91%E7%9B%98/img/20250510170721371.png" alt="image-20250510165712437"></p>
-<p>打开2018版EKB秘钥（无法找到秘钥，请更换此2018秘钥）</p>
-<p> <img src="https://pan.yuqi.fun/d/%E5%A4%A9%E7%BF%BC%E4%BA%91%E7%9B%98/img/20250510170736105.png" alt="image-20250510165723510"></p>
-<p>选择此秘钥，安装长秘钥，</p>
-<p><img src="https://pan.yuqi.fun/d/%E5%A4%A9%E7%BF%BC%E4%BA%91%E7%9B%98/img/20250510170745318.png" alt="image-20250510165728998"></p>
-<p>方法一：</p>
-<p>打开软件</p>
-<p><img src="https://pan.yuqi.fun/d/%E5%A4%A9%E7%BF%BC%E4%BA%91%E7%9B%98/img/20250510170755265.png" alt="image-20250510165801227"></p>
-<p>选择下图秘钥—</p>
-<p><img src="https://pan.yuqi.fun/d/%E5%A4%A9%E7%BF%BC%E4%BA%91%E7%9B%98/img/20250510170801052.png" alt="image-20250510165808104"></p>
-<p>找到下图秘钥–右键点击Transfer</p>
-<p>打开Tansfer 窗口，电脑与HMI屏幕连接后，可以找到需要下载的HMI设备（有具体IP地址），OK确认</p>
-<p><img src="https://pan.yuqi.fun/d/%E5%A4%A9%E7%BF%BC%E4%BA%91%E7%9B%98/img/20250510170807531.png" alt="image-20250510165818850"></p>
-<p>方法二：也可以右键相关HMI的此属性，打开授权许可</p>
-<p><img src="https://pan.yuqi.fun/d/%E5%A4%A9%E7%BF%BC%E4%BA%91%E7%9B%98/img/20250510170813884.png" alt="image-20250510165826870"></p>
-<p>找到相关HMI设备。</p>
-<p><img src="https://pan.yuqi.fun/d/%E5%A4%A9%E7%BF%BC%E4%BA%91%E7%9B%98/img/20250510170821004.png" alt="image-20250510165833281"></p>
-<p>注意：授权传送之后会提示成功，传送成功后授权若消失重新使用EKb安装一遍即可出现。</p>
-]]></content>
   </entry>
 </search>
