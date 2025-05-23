@@ -1798,6 +1798,68 @@
       </tags>
   </entry>
   <entry>
+    <title>SINAMICS G120D CU250-2PN速度控制调试步骤</title>
+    <url>/undefined/908d3d13.html</url>
+    <content><![CDATA[<p>1、打开SINAMICS STARTER软件，创建项目；<br>选择菜单Project -&gt; New…<br>或使用快捷按钮创建新项目。<br><img src="https://pan.yuqi.fun/d/%E5%A4%A9%E7%BF%BC%E4%BA%91%E7%9B%98/img/20250523225816269.png" alt="image-20250523222741743"><br><img src="https://pan.yuqi.fun/d/%E5%A4%A9%E7%BF%BC%E4%BA%91%E7%9B%98/img/20250523225840938.png" alt="image-20250523222747691"></p>
+<p>2、用USB电缆连接电脑和CU240D控制器，设置<strong>PG&#x2F;PC</strong>接口。<br><img src="https://pan.yuqi.fun/d/%E5%A4%A9%E7%BF%BC%E4%BA%91%E7%9B%98/img/20250523225903522.png" alt="image-20250523222804999"></p>
+<p>3、使用网线连接PLC，通过PROFINET总线方式连接CU240D控制器，设置<strong>PG&#x2F;PC</strong>接口方式同USB连接。<br><img src="https://pan.yuqi.fun/d/%E5%A4%A9%E7%BF%BC%E4%BA%91%E7%9B%98/img/20250523225926726.png" alt="image-20250523222819925"></p>
+<p>4、使用如下方式搜索并连接变频器控制器。<br>(1).选择菜单”Project -&gt; Accessible node”  或使用快捷按钮    搜索变频器，如果没有搜索到变频器会显示“No further active partner can be found”(没有找到节点)请执行第(2)步，如果搜 索到变频器跳到第(6)步。<br><img src="https://pan.yuqi.fun/d/%E5%A4%A9%E7%BF%BC%E4%BA%91%E7%9B%98/img/20250523225955108.png" alt="image-20250523222859036"></p>
+<p>(2).点击”Access Point”按钮。<br><img src="https://pan.yuqi.fun/d/%E5%A4%A9%E7%BF%BC%E4%BA%91%E7%9B%98/img/20250523230015877.png" alt="image-20250523222908513"></p>
+<p>(3). 在Set Access Point for Accessible nodes页面选择正确的连接方式。<br><img src="https://pan.yuqi.fun/d/%E5%A4%A9%E7%BF%BC%E4%BA%91%E7%9B%98/img/20250523230027484.png" alt="image-20250523222917891"><br><img src="https://pan.yuqi.fun/d/%E5%A4%A9%E7%BF%BC%E4%BA%91%E7%9B%98/img/20250523230034591.png" alt="image-20250523222921962"></p>
+<p>(4).点击”Update”按钮，开始搜索变频器。<br>(5).搜索到变频器在右侧Accessible nodes区域显示如下信息C显示内容与控制 单元型号有关)。 如果没有搜索到变频器请根据提示查找具体原因，或查看帮助文件。<br><img src="https://pan.yuqi.fun/d/%E5%A4%A9%E7%BF%BC%E4%BA%91%E7%9B%98/img/20250523230042623.png" alt="image-20250523223006082"></p>
+<p>(6).勾选搜索到的控制单元。<br>(7).点击“Accept”按钮。<br>(8).STARTER会自动把该变频器插入到项目中。<br>(9).点击按钮，进入 STARTER 在线模式。<br><img src="https://pan.yuqi.fun/d/%E5%A4%A9%E7%BF%BC%E4%BA%91%E7%9B%98/img/20250523230127394.png"><br><img src="https://pan.yuqi.fun/d/%E5%A4%A9%E7%BF%BC%E4%BA%91%E7%9B%98/img/20250523230049689.png" alt="image-20250523223107422"></p>
+<p>(10). 点击”Connect to assigned devices”按钮，连接到驱动器。<br><img src="https://pan.yuqi.fun/d/%E5%A4%A9%E7%BF%BC%E4%BA%91%E7%9B%98/img/20250523230101397.png" alt="image-20250523223117348"></p>
+<p>(11). STARTER进入在线模式，右下角状态栏指示黄色”Online mode”状态。<br>(12).点击控制单元树形菜单下”Expert list”功能，右侧窗口打开专家列表，熟悉 SINAMICS G120D参数的人员，可以直接使用专家列表查看并修改变频器参数。<br><img src="https://pan.yuqi.fun/d/%E5%A4%A9%E7%BF%BC%E4%BA%91%E7%9B%98/img/20250523230108744.png" alt="image-20250523223131065"></p>
+<p>5、其他基本操作。<br><img src="https://pan.yuqi.fun/d/%E5%A4%A9%E7%BF%BC%E4%BA%91%E7%9B%98/img/20250523230117107.png" alt="image-20250523223200504"></p>
+<p>5.1、恢复工厂设置。<br>(1).点击     按钮，进入 STARTER 在线模式。<br><img src="https://pan.yuqi.fun/d/%E5%A4%A9%E7%BF%BC%E4%BA%91%E7%9B%98/img/20250523230127394.png"></p>
+<p>(2).点击”Restore factory settings”    按钮，变频器参数恢复出厂设置。<br><img src="https://pan.yuqi.fun/d/%E5%A4%A9%E7%BF%BC%E4%BA%91%E7%9B%98/img/20250523230202306.png" alt="image-20250523223233618"></p>
+<p>5.2、上传参数:变频器 -&gt; PG&#x2F;PC。<br>(1).点击     按钮，进入 STARTER 在线模式。<br><img src="https://pan.yuqi.fun/d/%E5%A4%A9%E7%BF%BC%E4%BA%91%E7%9B%98/img/20250523230127394.png"></p>
+<p>(2).点击“Load project to PG”     按钮。<br><img src="https://pan.yuqi.fun/d/%E5%A4%A9%E7%BF%BC%E4%BA%91%E7%9B%98/img/20250523230207642.png" alt="image-20250523223343414"></p>
+<p>(3).点击     按钮，将数据保存在 PG&#x2F;PC 中。<br><img src="https://pan.yuqi.fun/d/%E5%A4%A9%E7%BF%BC%E4%BA%91%E7%9B%98/img/20250523230214796.png" alt="image-20250523223349703"></p>
+<p>5.3、下载参数: PG&#x2F;PC -&gt; 变频器。<br>(1).点击     按钮，进入 STARTER 在线模式。<br><img src="https://pan.yuqi.fun/d/%E5%A4%A9%E7%BF%BC%E4%BA%91%E7%9B%98/img/20250523230127394.png"></p>
+<p>(2).点击“Download project to target system”     按钮，将项目下载到变频中。<br><img src="https://pan.yuqi.fun/d/%E5%A4%A9%E7%BF%BC%E4%BA%91%E7%9B%98/img/20250523230220440.png" alt="image-20250523223407782"></p>
+<p>(3).点击“Copy RAM to ROM”     按钮，将数据保存到变频器中。<br><img src="https://pan.yuqi.fun/d/%E5%A4%A9%E7%BF%BC%E4%BA%91%E7%9B%98/img/20250523230228156.png" alt="image-20250523223416658"></p>
+<p> <strong>注意：许多参数是可以在线修改的，在线修改完参数后需要重新上载到离线参数中，否则点击下载的话会将离线参数下载到变频器中。</strong></p>
+<p>6、参数设置。<br>6.1、使用配置向导配置变频器系统基本参数。<br>(1).点击“Configuration” 。<br>(2).点击工作区内的“Wizard …”，弹出向导对话框，点击“Next”逐步进行配置。<br><img src="https://pan.yuqi.fun/d/%E5%A4%A9%E7%BF%BC%E4%BA%91%E7%9B%98/img/20250523230237648.png" alt="image-20250523223430045"></p>
+<p>(3).设置控制结构。<br><img src="https://pan.yuqi.fun/d/%E5%A4%A9%E7%BF%BC%E4%BA%91%E7%9B%98/img/20250523230248176.png" alt="image-20250523223440470"></p>
+<p>(4).定义命令源和设定值来源。	<br><img src="https://pan.yuqi.fun/d/%E5%A4%A9%E7%BF%BC%E4%BA%91%E7%9B%98/img/20250523230256863.png" alt="image-20250523223450414"></p>
+<p>(5).驱动器设置。<br><img src="https://pan.yuqi.fun/d/%E5%A4%A9%E7%BF%BC%E4%BA%91%E7%9B%98/img/20250523230303276.png" alt="image-20250523223458640"></p>
+<p>(6).选择电机类型。<br><img src="https://pan.yuqi.fun/d/%E5%A4%A9%E7%BF%BC%E4%BA%91%E7%9B%98/img/20250523230309577.png" alt="image-20250523223506895"></p>
+<p>(7).输入与铭牌对应的电机数据。<br><img src="https://pan.yuqi.fun/d/%E5%A4%A9%E7%BF%BC%E4%BA%91%E7%9B%98/img/20250523230315284.png" alt="image-20250523223516044"></p>
+<p>(8).为电机数据识别选择“Identify motor data at standstill” 。<br><img src="https://pan.yuqi.fun/d/%E5%A4%A9%E7%BF%BC%E4%BA%91%E7%9B%98/img/20250523230321833.png" alt="image-20250523223525334"></p>
+<p>(9).输入最大电流，最小和最大转速，加、减速时间和 OFF3 紧急关闭减速时间。<br><img src="https://pan.yuqi.fun/d/%E5%A4%A9%E7%BF%BC%E4%BA%91%E7%9B%98/img/20250523230331437.png" alt="image-20250523223534198"></p>
+<p>(10).点击“Next”，将开始计算电机数据。这样便通过配置向导完成了参数设置。您现在将收到一份有关输入的所有参数值汇总。按“Copy text to clipboard”按键即可将汇总添加到文本文件。最后选择“Copy RAM to ROM”，将参数设置保存到变频器 ROM 存储器内，然后点击“Finish”关闭窗口。<br><img src="https://pan.yuqi.fun/d/%E5%A4%A9%E7%BF%BC%E4%BA%91%E7%9B%98/img/20250523230338683.png" alt="image-20250523223542937"></p>
+<p>6.2、若使用总线接口，应将默认外部I&#x2F;O配置清除（X07\X08\X09）。<br>(1).点击“Inputs&#x2F;Outputs”。<br>(2).点击工作区内X07\X08\X09对应引脚参数的按钮，弹出向导I&#x2F;O分配对话框。<br>(3).将该引脚对应参数前面的勾选去掉，并点击“OK”按钮，该引脚分配显示“—”。<br><img src="https://pan.yuqi.fun/d/%E5%A4%A9%E7%BF%BC%E4%BA%91%E7%9B%98/img/20250523230345952.png" alt="image-20250523223552253"></p>
+<p>6.3、其它基本参数设置。<br>(1).设置“Ramp-function generator”。<br><img src="https://pan.yuqi.fun/d/%E5%A4%A9%E7%BF%BC%E4%BA%91%E7%9B%98/img/20250523230353888.png" alt="image-20250523223604732"></p>
+<p>(2).设置“Motor potentiometer”。<br><img src="https://pan.yuqi.fun/d/%E5%A4%A9%E7%BF%BC%E4%BA%91%E7%9B%98/img/20250523230400015.png" alt="image-20250523223613817"></p>
+<p>(3).设置“P gain factor”和“Integration time”。<br><img src="https://pan.yuqi.fun/d/%E5%A4%A9%E7%BF%BC%E4%BA%91%E7%9B%98/img/20250523230406143.png" alt="image-20250523223624398"></p>
+<p>(4).设置“Upper torque limit”。<br><img src="https://pan.yuqi.fun/d/%E5%A4%A9%E7%BF%BC%E4%BA%91%E7%9B%98/img/20250523230413146.png" alt="image-20250523223632096"></p>
+<p>(5).设置“Current limitation ”。<br><img src="https://pan.yuqi.fun/d/%E5%A4%A9%E7%BF%BC%E4%BA%91%E7%9B%98/img/20250523230419657.png" alt="image-20250523223641924"></p>
+<p>(6).设置“Power limit ”。<br><img src="https://pan.yuqi.fun/d/%E5%A4%A9%E7%BF%BC%E4%BA%91%E7%9B%98/img/20250523230425656.png" alt="image-20250523223649828"> </p>
+<p>(7).设置“Low torque limit”。<br><img src="https://pan.yuqi.fun/d/%E5%A4%A9%E7%BF%BC%E4%BA%91%E7%9B%98/img/20250523230431431.png" alt="image-20250523223702783"></p>
+<p>6.4、电机抱闸设置。在步骤2处设置电机抱闸方式，调试时可通过步骤3-5来强制打开关闭抱闸功能。<br><img src="https://pan.yuqi.fun/d/%E5%A4%A9%E7%BF%BC%E4%BA%91%E7%9B%98/img/20250523230438399.png" alt="image-20250523223710923"></p>
+<p>设置G120D变频器的安全响应时间。P9659设置成最大值9000<br><img src="https://pan.yuqi.fun/d/%E5%A4%A9%E7%BF%BC%E4%BA%91%E7%9B%98/img/20250523230445945.png" alt="image-20250523223720556"></p>
+<p>6.5、配置安全功能。配置完成后将配置下载到变频器中即可，安全功能需断电重启。<br><img src="https://pan.yuqi.fun/d/%E5%A4%A9%E7%BF%BC%E4%BA%91%E7%9B%98/img/20250523230452866.png" alt="image-20250523223729738"></p>
+<p>PLC硬件组态中G120D变频器的安全地址值。<br><img src="https://pan.yuqi.fun/d/%E5%A4%A9%E7%BF%BC%E4%BA%91%E7%9B%98/img/20250523230501004.png" alt="image-20250523223738733"></p>
+<p>6.6、配置报文，即分配G120D变频器与PLC在PROFINET总线通信下的接口信号(包括PROFIsafe安全功能）。<br>(1).点击“Communication -&gt; Field bus”。<br>(2).配置报文类型。G120D变频器的报文有多种类型，对应着不同的接口信息，根据需要通过下拉菜单可选择不同种类的报文。除999自由报文外，其他种类报文为默认报文，其对应的接口信息无法修改，自由报文可以任意定义接口信息。沃尔沃项目采用的是999自由报文以及30 PROFIsafe标准安全报文。配置G120D变频器报文时，应保持与PLC硬件组态中配置报文类型一致。<br><img src="https://pan.yuqi.fun/d/%E5%A4%A9%E7%BF%BC%E4%BA%91%E7%9B%98/img/20250523230508841.png" alt="image-20250523223747844"><br><img src="https://pan.yuqi.fun/d/%E5%A4%A9%E7%BF%BC%E4%BA%91%E7%9B%98/img/20250523230515043.png" alt="image-20250523223752899"></p>
+<p>(3).配置变频器安全报文控制字。<br><img src="https://pan.yuqi.fun/d/%E5%A4%A9%E7%BF%BC%E4%BA%91%E7%9B%98/img/20250523230521428.png" alt="image-20250523223801670"></p>
+<p>(4).配置变频器自由报文控制字。<br><img src="https://pan.yuqi.fun/d/%E5%A4%A9%E7%BF%BC%E4%BA%91%E7%9B%98/img/20250523230528073.png" alt="image-20250523223811435"></p>
+<p>(5).配置变频器安全报文状态字。<br><img src="https://pan.yuqi.fun/d/%E5%A4%A9%E7%BF%BC%E4%BA%91%E7%9B%98/img/20250523230534628.png" alt="image-20250523223819506"></p>
+<p>(6).配置变频器自由报文状态字。<br><img src="https://pan.yuqi.fun/d/%E5%A4%A9%E7%BF%BC%E4%BA%91%E7%9B%98/img/20250523230543575.png" alt="image-20250523223827945"></p>
+<p>(7).配置变频器自由报文控制字&#x2F;状态字监控。<br><img src="https://pan.yuqi.fun/d/%E5%A4%A9%E7%BF%BC%E4%BA%91%E7%9B%98/img/20250523230550183.png" alt="image-20250523223837007"></p>
+<p>7、电机试运行。<br>(1).在线模式下点击“Commissioning -&gt; Control panel”。<br>(2).点击工作台区域的“Assume control priority”。<br>(3).输入设置值，并点击“Accept”按钮。<br><img src="https://pan.yuqi.fun/d/%E5%A4%A9%E7%BF%BC%E4%BA%91%E7%9B%98/img/20250523230559371.png" alt="image-20250523223845302"></p>
+<p>(4).选中工作台区域中“Enables”旁的复选框。<br>(5).设置试运行速度。<br>(6).通过绿色&#x2F;红色按钮来启停电机，或使用JOG点动控制电机运行。<br><img src="https://pan.yuqi.fun/d/%E5%A4%A9%E7%BF%BC%E4%BA%91%E7%9B%98/img/20250523230606413.png" alt="image-20250523223855097"></p>
+<p>8、状态 LED 一览。<br>控制单元上有一排双色 LED 来指明变频器的运行状态。 具体而言，这些状态有：<br>● 一般故障状态<br>● 通讯状态<br>● 输入和输出的状态<br>● Safety Integrated 安全功能的状态<br>下图展示了各个 LED 在控制单元上的位置。<br><img src="https://pan.yuqi.fun/d/%E5%A4%A9%E7%BF%BC%E4%BA%91%E7%9B%98/img/20250523230617834.png" alt="image-20250523223904225"></p>
+<p>(1).一般状态 LED 的说明。<br><img src="https://pan.yuqi.fun/d/%E5%A4%A9%E7%BF%BC%E4%BA%91%E7%9B%98/img/20250523230636359.png" alt="image-20250523223915427"></p>
+<p>(2). PROFIBUS 通讯 LED 的说明。<br><img src="https://pan.yuqi.fun/d/%E5%A4%A9%E7%BF%BC%E4%BA%91%E7%9B%98/img/20250523230641679.png" alt="image-20250523223923215"></p>
+<p>(3). SAFE LED 的说明。<br><img src="https://pan.yuqi.fun/d/%E5%A4%A9%E7%BF%BC%E4%BA%91%E7%9B%98/img/20250523230649731.png" alt="image-20250523223934820"></p>
+<p>(4). PROFINET 通讯 LED 的说明。<br><img src="https://pan.yuqi.fun/d/%E5%A4%A9%E7%BF%BC%E4%BA%91%E7%9B%98/img/20250523230655139.png" alt="image-20250523223943566"></p>
+<p>(5).数字量输入输出状态 LED 的说明。<br><img src="https://pan.yuqi.fun/d/%E5%A4%A9%E7%BF%BC%E4%BA%91%E7%9B%98/img/20250523230700922.png" alt="image-20250523223951803"></p>
+<p>9、故障和警告列表。<br>详见附件列表。</p>
+<p><strong>G120D Fault and Warning List.pdf</strong>：<a class="btn-beautify pink larger" href="https://pan.yuqi.fun/d/%E5%A4%A9%E7%BF%BC%E4%BA%91%E7%9B%98/%E8%B5%84%E6%96%99/%E6%96%87%E6%A1%A3/G120D%20Fault%20and%20Warning%20List.pdf" title="点击下载"><i class="far fa-hand-point-right"></i><span>点击下载</span></a></p>
+]]></content>
+  </entry>
+  <entry>
     <title>V2,R.a,y.A——新一代Linux客户端安装配置教程</title>
     <url>/undefined/a53fea94.html</url>
     <content><![CDATA[<h1 id="前言"><a href="#前言" class="headerlink" title="前言"></a>前言</h1><p>上一次我们介绍的Qv2ray还是有一些同学不会安装，而且Qv2ray也不再更新了，所以我就另外去找了，刚好找到一个安装配置都非常简单的软件，也就是本章的主角——v2rayA</p>
@@ -1851,68 +1913,6 @@
       </tags>
   </entry>
   <entry>
-    <title>SINAMICS G120D CU250-2PN速度控制调试步骤</title>
-    <url>/undefined/908d3d13.html</url>
-    <content><![CDATA[<h1 id="1、打开SINAMICS-STARTER软件，创建项目；"><a href="#1、打开SINAMICS-STARTER软件，创建项目；" class="headerlink" title="1、打开SINAMICS STARTER软件，创建项目；"></a>1、打开SINAMICS STARTER软件，创建项目；</h1><p>选择菜单Project -&gt; New…<br>或使用快捷按钮创建新项目。<br><img src="https://pan.yuqi.fun/d/%E5%A4%A9%E7%BF%BC%E4%BA%91%E7%9B%98/img/20250523225816269.png" alt="image-20250523222741743"><br><img src="https://pan.yuqi.fun/d/%E5%A4%A9%E7%BF%BC%E4%BA%91%E7%9B%98/img/20250523225840938.png" alt="image-20250523222747691"></p>
-<h1 id="2、用USB电缆连接电脑和CU240D控制器，设置PG-PC接口。"><a href="#2、用USB电缆连接电脑和CU240D控制器，设置PG-PC接口。" class="headerlink" title="2、用USB电缆连接电脑和CU240D控制器，设置PG&#x2F;PC接口。"></a>2、用USB电缆连接电脑和CU240D控制器，设置<strong>PG&#x2F;PC</strong>接口。</h1><p><img src="https://pan.yuqi.fun/d/%E5%A4%A9%E7%BF%BC%E4%BA%91%E7%9B%98/img/20250523225903522.png" alt="image-20250523222804999"></p>
-<h1 id="3、使用网线连接PLC，通过PROFINET总线方式连接CU240D控制器，设置PG-PC接口方式同USB连接。"><a href="#3、使用网线连接PLC，通过PROFINET总线方式连接CU240D控制器，设置PG-PC接口方式同USB连接。" class="headerlink" title="3、使用网线连接PLC，通过PROFINET总线方式连接CU240D控制器，设置PG&#x2F;PC接口方式同USB连接。"></a>3、使用网线连接PLC，通过PROFINET总线方式连接CU240D控制器，设置<strong>PG&#x2F;PC</strong>接口方式同USB连接。</h1><p><img src="https://pan.yuqi.fun/d/%E5%A4%A9%E7%BF%BC%E4%BA%91%E7%9B%98/img/20250523225926726.png" alt="image-20250523222819925"></p>
-<h1 id="4、使用如下方式搜索并连接变频器控制器。"><a href="#4、使用如下方式搜索并连接变频器控制器。" class="headerlink" title="4、使用如下方式搜索并连接变频器控制器。"></a>4、使用如下方式搜索并连接变频器控制器。</h1><p>(1).选择菜单”Project -&gt; Accessible node”  或使用快捷按钮    搜索变频器，如果没有搜索到变频器会显示“No further active partner can be found”(没有找到节点)请执行第(2)步，如果搜 索到变频器跳到第(6)步。<br><img src="https://pan.yuqi.fun/d/%E5%A4%A9%E7%BF%BC%E4%BA%91%E7%9B%98/img/20250523225955108.png" alt="image-20250523222859036"></p>
-<p>(2).点击”Access Point”按钮。<br><img src="https://pan.yuqi.fun/d/%E5%A4%A9%E7%BF%BC%E4%BA%91%E7%9B%98/img/20250523230015877.png" alt="image-20250523222908513"></p>
-<p>(3). 在Set Access Point for Accessible nodes页面选择正确的连接方式。<br><img src="https://pan.yuqi.fun/d/%E5%A4%A9%E7%BF%BC%E4%BA%91%E7%9B%98/img/20250523230027484.png" alt="image-20250523222917891"><br><img src="https://pan.yuqi.fun/d/%E5%A4%A9%E7%BF%BC%E4%BA%91%E7%9B%98/img/20250523230034591.png" alt="image-20250523222921962"></p>
-<p>(4).点击”Update”按钮，开始搜索变频器。<br>(5).搜索到变频器在右侧Accessible nodes区域显示如下信息C显示内容与控制 单元型号有关)。 如果没有搜索到变频器请根据提示查找具体原因，或查看帮助文件。<br><img src="https://pan.yuqi.fun/d/%E5%A4%A9%E7%BF%BC%E4%BA%91%E7%9B%98/img/20250523230042623.png" alt="image-20250523223006082"></p>
-<p>(6).勾选搜索到的控制单元。<br>(7).点击“Accept”按钮。<br>(8).STARTER会自动把该变频器插入到项目中。<br>(9).点击按钮，进入 STARTER 在线模式。<br><img src="https://pan.yuqi.fun/d/%E5%A4%A9%E7%BF%BC%E4%BA%91%E7%9B%98/img/20250523230127394.png"><br><img src="https://pan.yuqi.fun/d/%E5%A4%A9%E7%BF%BC%E4%BA%91%E7%9B%98/img/20250523230049689.png" alt="image-20250523223107422"></p>
-<p>(10). 点击”Connect to assigned devices”按钮，连接到驱动器。<br><img src="https://pan.yuqi.fun/d/%E5%A4%A9%E7%BF%BC%E4%BA%91%E7%9B%98/img/20250523230101397.png" alt="image-20250523223117348"></p>
-<p>(11). STARTER进入在线模式，右下角状态栏指示黄色”Online mode”状态。<br>(12).点击控制单元树形菜单下”Expert list”功能，右侧窗口打开专家列表，熟悉 SINAMICS G120D参数的人员，可以直接使用专家列表查看并修改变频器参数。<br><img src="https://pan.yuqi.fun/d/%E5%A4%A9%E7%BF%BC%E4%BA%91%E7%9B%98/img/20250523230108744.png" alt="image-20250523223131065"></p>
-<h1 id="5、其他基本操作。"><a href="#5、其他基本操作。" class="headerlink" title="5、其他基本操作。"></a>5、其他基本操作。</h1><p><img src="https://pan.yuqi.fun/d/%E5%A4%A9%E7%BF%BC%E4%BA%91%E7%9B%98/img/20250523230117107.png" alt="image-20250523223200504"></p>
-<h2 id="5-1、恢复工厂设置。"><a href="#5-1、恢复工厂设置。" class="headerlink" title="5.1、恢复工厂设置。"></a>5.1、恢复工厂设置。</h2><p>(1).点击     按钮，进入 STARTER 在线模式。<br><img src="https://pan.yuqi.fun/d/%E5%A4%A9%E7%BF%BC%E4%BA%91%E7%9B%98/img/20250523230127394.png"></p>
-<p>(2).点击”Restore factory settings”    按钮，变频器参数恢复出厂设置。<br><img src="https://pan.yuqi.fun/d/%E5%A4%A9%E7%BF%BC%E4%BA%91%E7%9B%98/img/20250523230202306.png" alt="image-20250523223233618"></p>
-<h2 id="5-2、上传参数-变频器-PG-PC。"><a href="#5-2、上传参数-变频器-PG-PC。" class="headerlink" title="5.2、上传参数:变频器 -&gt; PG&#x2F;PC。"></a>5.2、上传参数:变频器 -&gt; PG&#x2F;PC。</h2><p>(1).点击     按钮，进入 STARTER 在线模式。<br><img src="https://pan.yuqi.fun/d/%E5%A4%A9%E7%BF%BC%E4%BA%91%E7%9B%98/img/20250523230127394.png"></p>
-<p>(2).点击“Load project to PG”     按钮。<br><img src="https://pan.yuqi.fun/d/%E5%A4%A9%E7%BF%BC%E4%BA%91%E7%9B%98/img/20250523230207642.png" alt="image-20250523223343414"></p>
-<p>(3).点击     按钮，将数据保存在 PG&#x2F;PC 中。<br><img src="https://pan.yuqi.fun/d/%E5%A4%A9%E7%BF%BC%E4%BA%91%E7%9B%98/img/20250523230214796.png" alt="image-20250523223349703"></p>
-<h2 id="5-3、下载参数-PG-PC-变频器。"><a href="#5-3、下载参数-PG-PC-变频器。" class="headerlink" title="5.3、下载参数: PG&#x2F;PC -&gt; 变频器。"></a>5.3、下载参数: PG&#x2F;PC -&gt; 变频器。</h2><p>(1).点击     按钮，进入 STARTER 在线模式。<br><img src="https://pan.yuqi.fun/d/%E5%A4%A9%E7%BF%BC%E4%BA%91%E7%9B%98/img/20250523230127394.png"></p>
-<p>(2).点击“Download project to target system”     按钮，将项目下载到变频中。<br><img src="https://pan.yuqi.fun/d/%E5%A4%A9%E7%BF%BC%E4%BA%91%E7%9B%98/img/20250523230220440.png" alt="image-20250523223407782"></p>
-<p>(3).点击“Copy RAM to ROM”     按钮，将数据保存到变频器中。<br><img src="https://pan.yuqi.fun/d/%E5%A4%A9%E7%BF%BC%E4%BA%91%E7%9B%98/img/20250523230228156.png" alt="image-20250523223416658"></p>
-<p> <strong>注意：许多参数是可以在线修改的，在线修改完参数后需要重新上载到离线参数中，否则点击下载的话会将离线参数下载到变频器中。</strong></p>
-<h1 id="6、参数设置。"><a href="#6、参数设置。" class="headerlink" title="6、参数设置。"></a>6、参数设置。</h1><h2 id="6-1、使用配置向导配置变频器系统基本参数。"><a href="#6-1、使用配置向导配置变频器系统基本参数。" class="headerlink" title="6.1、使用配置向导配置变频器系统基本参数。"></a>6.1、使用配置向导配置变频器系统基本参数。</h2><p>(1).点击“Configuration” 。<br>(2).点击工作区内的“Wizard …”，弹出向导对话框，点击“Next”逐步进行配置。<br><img src="https://pan.yuqi.fun/d/%E5%A4%A9%E7%BF%BC%E4%BA%91%E7%9B%98/img/20250523230237648.png" alt="image-20250523223430045"></p>
-<p>(3).设置控制结构。<br><img src="https://pan.yuqi.fun/d/%E5%A4%A9%E7%BF%BC%E4%BA%91%E7%9B%98/img/20250523230248176.png" alt="image-20250523223440470"></p>
-<p>(4).定义命令源和设定值来源。	<br><img src="https://pan.yuqi.fun/d/%E5%A4%A9%E7%BF%BC%E4%BA%91%E7%9B%98/img/20250523230256863.png" alt="image-20250523223450414"></p>
-<p>(5).驱动器设置。<br><img src="https://pan.yuqi.fun/d/%E5%A4%A9%E7%BF%BC%E4%BA%91%E7%9B%98/img/20250523230303276.png" alt="image-20250523223458640"></p>
-<p>(6).选择电机类型。<br><img src="https://pan.yuqi.fun/d/%E5%A4%A9%E7%BF%BC%E4%BA%91%E7%9B%98/img/20250523230309577.png" alt="image-20250523223506895"></p>
-<p>(7).输入与铭牌对应的电机数据。<br><img src="https://pan.yuqi.fun/d/%E5%A4%A9%E7%BF%BC%E4%BA%91%E7%9B%98/img/20250523230315284.png" alt="image-20250523223516044"></p>
-<p>(8).为电机数据识别选择“Identify motor data at standstill” 。<br><img src="https://pan.yuqi.fun/d/%E5%A4%A9%E7%BF%BC%E4%BA%91%E7%9B%98/img/20250523230321833.png" alt="image-20250523223525334"></p>
-<p>(9).输入最大电流，最小和最大转速，加、减速时间和 OFF3 紧急关闭减速时间。<br><img src="https://pan.yuqi.fun/d/%E5%A4%A9%E7%BF%BC%E4%BA%91%E7%9B%98/img/20250523230331437.png" alt="image-20250523223534198"></p>
-<p>(10).点击“Next”，将开始计算电机数据。这样便通过配置向导完成了参数设置。您现在将收到一份有关输入的所有参数值汇总。按“Copy text to clipboard”按键即可将汇总添加到文本文件。最后选择“Copy RAM to ROM”，将参数设置保存到变频器 ROM 存储器内，然后点击“Finish”关闭窗口。<br><img src="https://pan.yuqi.fun/d/%E5%A4%A9%E7%BF%BC%E4%BA%91%E7%9B%98/img/20250523230338683.png" alt="image-20250523223542937"></p>
-<h2 id="6-2、若使用总线接口，应将默认外部I-O配置清除（X07-X08-X09）。"><a href="#6-2、若使用总线接口，应将默认外部I-O配置清除（X07-X08-X09）。" class="headerlink" title="6.2、若使用总线接口，应将默认外部I&#x2F;O配置清除（X07\X08\X09）。"></a>6.2、若使用总线接口，应将默认外部I&#x2F;O配置清除（X07\X08\X09）。</h2><p>(1).点击“Inputs&#x2F;Outputs”。<br>(2).点击工作区内X07\X08\X09对应引脚参数的按钮，弹出向导I&#x2F;O分配对话框。<br>(3).将该引脚对应参数前面的勾选去掉，并点击“OK”按钮，该引脚分配显示“—”。<br><img src="https://pan.yuqi.fun/d/%E5%A4%A9%E7%BF%BC%E4%BA%91%E7%9B%98/img/20250523230345952.png" alt="image-20250523223552253"></p>
-<h2 id="6-3、其它基本参数设置。"><a href="#6-3、其它基本参数设置。" class="headerlink" title="6.3、其它基本参数设置。"></a>6.3、其它基本参数设置。</h2><p>(1).设置“Ramp-function generator”。<br><img src="https://pan.yuqi.fun/d/%E5%A4%A9%E7%BF%BC%E4%BA%91%E7%9B%98/img/20250523230353888.png" alt="image-20250523223604732"></p>
-<p>(2).设置“Motor potentiometer”。<br><img src="https://pan.yuqi.fun/d/%E5%A4%A9%E7%BF%BC%E4%BA%91%E7%9B%98/img/20250523230400015.png" alt="image-20250523223613817"></p>
-<p>(3).设置“P gain factor”和“Integration time”。<br><img src="https://pan.yuqi.fun/d/%E5%A4%A9%E7%BF%BC%E4%BA%91%E7%9B%98/img/20250523230406143.png" alt="image-20250523223624398"></p>
-<p>(4).设置“Upper torque limit”。<br><img src="https://pan.yuqi.fun/d/%E5%A4%A9%E7%BF%BC%E4%BA%91%E7%9B%98/img/20250523230413146.png" alt="image-20250523223632096"></p>
-<p>(5).设置“Current limitation ”。<br><img src="https://pan.yuqi.fun/d/%E5%A4%A9%E7%BF%BC%E4%BA%91%E7%9B%98/img/20250523230419657.png" alt="image-20250523223641924"></p>
-<p>(6).设置“Power limit ”。<br><img src="https://pan.yuqi.fun/d/%E5%A4%A9%E7%BF%BC%E4%BA%91%E7%9B%98/img/20250523230425656.png" alt="image-20250523223649828"> </p>
-<p>(7).设置“Low torque limit”。<br><img src="https://pan.yuqi.fun/d/%E5%A4%A9%E7%BF%BC%E4%BA%91%E7%9B%98/img/20250523230431431.png" alt="image-20250523223702783"></p>
-<h2 id="6-4、电机抱闸设置。在步骤2处设置电机抱闸方式，调试时可通过步骤3-5来强制打开关闭抱闸功能。"><a href="#6-4、电机抱闸设置。在步骤2处设置电机抱闸方式，调试时可通过步骤3-5来强制打开关闭抱闸功能。" class="headerlink" title="6.4、电机抱闸设置。在步骤2处设置电机抱闸方式，调试时可通过步骤3-5来强制打开关闭抱闸功能。"></a>6.4、电机抱闸设置。在步骤2处设置电机抱闸方式，调试时可通过步骤3-5来强制打开关闭抱闸功能。</h2><p><img src="https://pan.yuqi.fun/d/%E5%A4%A9%E7%BF%BC%E4%BA%91%E7%9B%98/img/20250523230438399.png" alt="image-20250523223710923"></p>
-<p>设置G120D变频器的安全响应时间。P9659设置成最大值9000<br><img src="https://pan.yuqi.fun/d/%E5%A4%A9%E7%BF%BC%E4%BA%91%E7%9B%98/img/20250523230445945.png" alt="image-20250523223720556"></p>
-<h2 id="6-5、配置安全功能。配置完成后将配置下载到变频器中即可，安全功能需断电重启。"><a href="#6-5、配置安全功能。配置完成后将配置下载到变频器中即可，安全功能需断电重启。" class="headerlink" title="6.5、配置安全功能。配置完成后将配置下载到变频器中即可，安全功能需断电重启。"></a>6.5、配置安全功能。配置完成后将配置下载到变频器中即可，安全功能需断电重启。</h2><p><img src="https://pan.yuqi.fun/d/%E5%A4%A9%E7%BF%BC%E4%BA%91%E7%9B%98/img/20250523230452866.png" alt="image-20250523223729738"></p>
-<p>PLC硬件组态中G120D变频器的安全地址值。<br><img src="https://pan.yuqi.fun/d/%E5%A4%A9%E7%BF%BC%E4%BA%91%E7%9B%98/img/20250523230501004.png" alt="image-20250523223738733"></p>
-<h2 id="6-6、配置报文，即分配G120D变频器与PLC在PROFINET总线通信下的接口信号-包括PROFIsafe安全功能）。"><a href="#6-6、配置报文，即分配G120D变频器与PLC在PROFINET总线通信下的接口信号-包括PROFIsafe安全功能）。" class="headerlink" title="6.6、配置报文，即分配G120D变频器与PLC在PROFINET总线通信下的接口信号(包括PROFIsafe安全功能）。"></a>6.6、配置报文，即分配G120D变频器与PLC在PROFINET总线通信下的接口信号(包括PROFIsafe安全功能）。</h2><p>(1).点击“Communication -&gt; Field bus”。<br>(2).配置报文类型。G120D变频器的报文有多种类型，对应着不同的接口信息，根据需要通过下拉菜单可选择不同种类的报文。除999自由报文外，其他种类报文为默认报文，其对应的接口信息无法修改，自由报文可以任意定义接口信息。沃尔沃项目采用的是999自由报文以及30 PROFIsafe标准安全报文。配置G120D变频器报文时，应保持与PLC硬件组态中配置报文类型一致。<br><img src="https://pan.yuqi.fun/d/%E5%A4%A9%E7%BF%BC%E4%BA%91%E7%9B%98/img/20250523230508841.png" alt="image-20250523223747844"><br><img src="https://pan.yuqi.fun/d/%E5%A4%A9%E7%BF%BC%E4%BA%91%E7%9B%98/img/20250523230515043.png" alt="image-20250523223752899"></p>
-<p>(3).配置变频器安全报文控制字。<br><img src="https://pan.yuqi.fun/d/%E5%A4%A9%E7%BF%BC%E4%BA%91%E7%9B%98/img/20250523230521428.png" alt="image-20250523223801670"></p>
-<p>(4).配置变频器自由报文控制字。<br><img src="https://pan.yuqi.fun/d/%E5%A4%A9%E7%BF%BC%E4%BA%91%E7%9B%98/img/20250523230528073.png" alt="image-20250523223811435"></p>
-<p>(5).配置变频器安全报文状态字。<br><img src="https://pan.yuqi.fun/d/%E5%A4%A9%E7%BF%BC%E4%BA%91%E7%9B%98/img/20250523230534628.png" alt="image-20250523223819506"></p>
-<p>(6).配置变频器自由报文状态字。<br><img src="https://pan.yuqi.fun/d/%E5%A4%A9%E7%BF%BC%E4%BA%91%E7%9B%98/img/20250523230543575.png" alt="image-20250523223827945"></p>
-<p>(7).配置变频器自由报文控制字&#x2F;状态字监控。<br><img src="https://pan.yuqi.fun/d/%E5%A4%A9%E7%BF%BC%E4%BA%91%E7%9B%98/img/20250523230550183.png" alt="image-20250523223837007"></p>
-<h1 id="7、电机试运行。"><a href="#7、电机试运行。" class="headerlink" title="7、电机试运行。"></a>7、电机试运行。</h1><p>(1).在线模式下点击“Commissioning -&gt; Control panel”。<br>(2).点击工作台区域的“Assume control priority”。<br>(3).输入设置值，并点击“Accept”按钮。<br><img src="https://pan.yuqi.fun/d/%E5%A4%A9%E7%BF%BC%E4%BA%91%E7%9B%98/img/20250523230559371.png" alt="image-20250523223845302"></p>
-<p>(4).选中工作台区域中“Enables”旁的复选框。<br>(5).设置试运行速度。<br>(6).通过绿色&#x2F;红色按钮来启停电机，或使用JOG点动控制电机运行。<br><img src="https://pan.yuqi.fun/d/%E5%A4%A9%E7%BF%BC%E4%BA%91%E7%9B%98/img/20250523230606413.png" alt="image-20250523223855097"></p>
-<h1 id="8、状态-LED-一览。"><a href="#8、状态-LED-一览。" class="headerlink" title="8、状态 LED 一览。"></a>8、状态 LED 一览。</h1><p>控制单元上有一排双色 LED 来指明变频器的运行状态。 具体而言，这些状态有：<br>● 一般故障状态<br>● 通讯状态<br>● 输入和输出的状态<br>● Safety Integrated 安全功能的状态<br>下图展示了各个 LED 在控制单元上的位置。<br><img src="https://pan.yuqi.fun/d/%E5%A4%A9%E7%BF%BC%E4%BA%91%E7%9B%98/img/20250523230617834.png" alt="image-20250523223904225"></p>
-<p>(1).一般状态 LED 的说明。<br><img src="https://pan.yuqi.fun/d/%E5%A4%A9%E7%BF%BC%E4%BA%91%E7%9B%98/img/20250523230636359.png" alt="image-20250523223915427"></p>
-<p>(2). PROFIBUS 通讯 LED 的说明。<br><img src="https://pan.yuqi.fun/d/%E5%A4%A9%E7%BF%BC%E4%BA%91%E7%9B%98/img/20250523230641679.png" alt="image-20250523223923215"></p>
-<p>(3). SAFE LED 的说明。<br><img src="https://pan.yuqi.fun/d/%E5%A4%A9%E7%BF%BC%E4%BA%91%E7%9B%98/img/20250523230649731.png" alt="image-20250523223934820"></p>
-<p>(4). PROFINET 通讯 LED 的说明。<br><img src="https://pan.yuqi.fun/d/%E5%A4%A9%E7%BF%BC%E4%BA%91%E7%9B%98/img/20250523230655139.png" alt="image-20250523223943566"></p>
-<p>(5).数字量输入输出状态 LED 的说明。<br><img src="https://pan.yuqi.fun/d/%E5%A4%A9%E7%BF%BC%E4%BA%91%E7%9B%98/img/20250523230700922.png" alt="image-20250523223951803"></p>
-<h1 id="9、故障和警告列表。"><a href="#9、故障和警告列表。" class="headerlink" title="9、故障和警告列表。"></a>9、故障和警告列表。</h1><p>详见附件列表。</p>
-<p><strong>G120D Fault and Warning List.pdf</strong><a class="btn-beautify pink larger" href="https://pan.yuqi.fun/d/%E5%A4%A9%E7%BF%BC%E4%BA%91%E7%9B%98/%E8%B5%84%E6%96%99/%E6%96%87%E6%A1%A3/G120D%20Fault%20and%20Warning%20List.pdf" title="点击下载"><i class="far fa-hand-point-right"></i><span>点击下载</span></a></p>
-]]></content>
-  </entry>
-  <entry>
     <title>VPS一键脚本分享</title>
     <url>/undefined/2419758f.html</url>
     <content><![CDATA[<p><img src="https://pan.yuqi.fun/d/%E5%A4%A9%E7%BF%BC%E4%BA%91%E7%9B%98/img/202305051611537.png"></p>
@@ -1935,43 +1935,6 @@
       </categories>
       <tags>
         <tag>服务器</tag>
-      </tags>
-  </entry>
-  <entry>
-    <title>git每次操作提示输入密码问题解决</title>
-    <url>/undefined/21c693ea.html</url>
-    <content><![CDATA[<p><strong>提示：git每次pull提示需要密码</strong></p>
-<hr>
-<h1 id="错误提示"><a href="#错误提示" class="headerlink" title="错误提示"></a>错误提示</h1><figure class="highlight plaintext"><table><tr><td class="code"><pre><span class="line">Administrator@DEEP MINGW64 /f/code/xxx-service (master)</span><br><span class="line">$ git pull</span><br><span class="line">git@gitlab.xxx.com&#x27;s password:</span><br></pre></td></tr></table></figure>
-
-<h1 id="原因"><a href="#原因" class="headerlink" title="原因"></a>原因</h1><p>只提示输入密码的情况，一般是秘钥验证失败。二种情况</p>
-<hr>
-<h1 id="1、公钥验证错误"><a href="#1、公钥验证错误" class="headerlink" title="1、公钥验证错误"></a>1、公钥验证错误</h1><p>  解决方法如下，以github为例</p>
-<p>  在<a href="https://github.com/settings/keys">https://github.com/settings/keys</a> 界面，将生成的<a href="https://so.csdn.net/so/search?q=%E5%85%AC%E9%92%A5&spm=1001.2101.3001.7020">公钥</a>添加到SSH keys项中</p>
-<p>  如没有则使用<a href="https://so.csdn.net/so/search?q=ssh-keygen&spm=1001.2101.3001.7020">ssh-keygen</a>命令生成</p>
-<figure class="highlight plaintext"><table><tr><td class="code"><pre><span class="line">ssh-keygen -t rsa -C &quot;Your Email Address&quot; -f &quot;~/.ssh/gitlab_id_rsa&quot;</span><br></pre></td></tr></table></figure>
-
-<h1 id="2、私钥验证错误"><a href="#2、私钥验证错误" class="headerlink" title="2、私钥验证错误"></a>2、私钥验证错误</h1><p>git拉取代码时没有配置私钥认证</p>
-<p>使用以下命令添加认证到ssh</p>
-<figure class="highlight plaintext"><table><tr><td class="code"><pre><span class="line">ssh-add ~/.ssh/gitlab_id_rsa</span><br></pre></td></tr></table></figure>
-
-<p>使用以上命令，只能对当前环境生效，重启或新开终端会继续提示输入密码</p>
-<p>永久解决：在<code>~/.ssh/config</code>文件中（没有则新建），指定对应git服务使用的认证秘钥文件即可</p>
-<figure class="highlight plaintext"><table><tr><td class="code"><pre><span class="line"># GitLab.com 密钥</span><br><span class="line">Host github.com</span><br><span class="line">  Preferredauthentications publickey</span><br><span class="line">  IdentityFile ~/.ssh/github_id_rsa</span><br><span class="line"># GitLab.com 密钥</span><br><span class="line">Host gitlab.xxx.com</span><br><span class="line">  Preferredauthentications publickey</span><br><span class="line">  IdentityFile ~/.ssh/gitlab_id_rsa</span><br></pre></td></tr></table></figure>
-
-
-
-<hr>
-<h1 id="总结"><a href="#总结" class="headerlink" title="总结"></a>总结</h1><ol>
-<li>直接提示输入密码的，为秘钥认证失败，使用以上方法即可解决</li>
-<li>提示输入账号和密码的，为账号认证失败，使用<code>git config --global credential.helper store</code>命令，可输入一次密码后永久存储</li>
-</ol>
-]]></content>
-      <categories>
-        <category>教程</category>
-      </categories>
-      <tags>
-        <tag>git</tag>
       </tags>
   </entry>
   <entry>
@@ -2033,6 +1996,43 @@
       </categories>
       <tags>
         <tag>VPS</tag>
+      </tags>
+  </entry>
+  <entry>
+    <title>git每次操作提示输入密码问题解决</title>
+    <url>/undefined/21c693ea.html</url>
+    <content><![CDATA[<p><strong>提示：git每次pull提示需要密码</strong></p>
+<hr>
+<h1 id="错误提示"><a href="#错误提示" class="headerlink" title="错误提示"></a>错误提示</h1><figure class="highlight plaintext"><table><tr><td class="code"><pre><span class="line">Administrator@DEEP MINGW64 /f/code/xxx-service (master)</span><br><span class="line">$ git pull</span><br><span class="line">git@gitlab.xxx.com&#x27;s password:</span><br></pre></td></tr></table></figure>
+
+<h1 id="原因"><a href="#原因" class="headerlink" title="原因"></a>原因</h1><p>只提示输入密码的情况，一般是秘钥验证失败。二种情况</p>
+<hr>
+<h1 id="1、公钥验证错误"><a href="#1、公钥验证错误" class="headerlink" title="1、公钥验证错误"></a>1、公钥验证错误</h1><p>  解决方法如下，以github为例</p>
+<p>  在<a href="https://github.com/settings/keys">https://github.com/settings/keys</a> 界面，将生成的<a href="https://so.csdn.net/so/search?q=%E5%85%AC%E9%92%A5&spm=1001.2101.3001.7020">公钥</a>添加到SSH keys项中</p>
+<p>  如没有则使用<a href="https://so.csdn.net/so/search?q=ssh-keygen&spm=1001.2101.3001.7020">ssh-keygen</a>命令生成</p>
+<figure class="highlight plaintext"><table><tr><td class="code"><pre><span class="line">ssh-keygen -t rsa -C &quot;Your Email Address&quot; -f &quot;~/.ssh/gitlab_id_rsa&quot;</span><br></pre></td></tr></table></figure>
+
+<h1 id="2、私钥验证错误"><a href="#2、私钥验证错误" class="headerlink" title="2、私钥验证错误"></a>2、私钥验证错误</h1><p>git拉取代码时没有配置私钥认证</p>
+<p>使用以下命令添加认证到ssh</p>
+<figure class="highlight plaintext"><table><tr><td class="code"><pre><span class="line">ssh-add ~/.ssh/gitlab_id_rsa</span><br></pre></td></tr></table></figure>
+
+<p>使用以上命令，只能对当前环境生效，重启或新开终端会继续提示输入密码</p>
+<p>永久解决：在<code>~/.ssh/config</code>文件中（没有则新建），指定对应git服务使用的认证秘钥文件即可</p>
+<figure class="highlight plaintext"><table><tr><td class="code"><pre><span class="line"># GitLab.com 密钥</span><br><span class="line">Host github.com</span><br><span class="line">  Preferredauthentications publickey</span><br><span class="line">  IdentityFile ~/.ssh/github_id_rsa</span><br><span class="line"># GitLab.com 密钥</span><br><span class="line">Host gitlab.xxx.com</span><br><span class="line">  Preferredauthentications publickey</span><br><span class="line">  IdentityFile ~/.ssh/gitlab_id_rsa</span><br></pre></td></tr></table></figure>
+
+
+
+<hr>
+<h1 id="总结"><a href="#总结" class="headerlink" title="总结"></a>总结</h1><ol>
+<li>直接提示输入密码的，为秘钥认证失败，使用以上方法即可解决</li>
+<li>提示输入账号和密码的，为账号认证失败，使用<code>git config --global credential.helper store</code>命令，可输入一次密码后永久存储</li>
+</ol>
+]]></content>
+      <categories>
+        <category>教程</category>
+      </categories>
+      <tags>
+        <tag>git</tag>
       </tags>
   </entry>
   <entry>
@@ -2355,36 +2355,6 @@
       </tags>
   </entry>
   <entry>
-    <title>备份Hexo博客到开源仓库</title>
-    <url>/undefined/5836c89e.html</url>
-    <content><![CDATA[<p>本教程以 gitee 举例，GitHub 同理。</p>
-<h1 id="创建-gitee-仓库"><a href="#创建-gitee-仓库" class="headerlink" title="创建 gitee 仓库"></a>创建 gitee 仓库</h1><p>直接 gitee 官网右上角创建仓库即可，名字什么的自定义，最好创建私人仓库。</p>
-<h1 id="初始化本地仓库"><a href="#初始化本地仓库" class="headerlink" title="初始化本地仓库"></a>初始化本地仓库</h1><p>在本地 hexo 目录运行命令行</p>
-<p>输入</p>
-<figure class="highlight cmd"><table><tr><td class="code"><pre><span class="line">git init</span><br></pre></td></tr></table></figure>
-
-<p>然后输入</p>
-<figure class="highlight cmd"><table><tr><td class="code"><pre><span class="line">git remote add origin git@gitee.com:yuqi15/blog-backup.git</span><br></pre></td></tr></table></figure>
-
-<p>注意：这里是使用你自己创建仓库的链接，刚创建好会在页面上提示</p>
-<p><img src="https://pan.yuqi.fun/d/%E5%A4%A9%E7%BF%BC%E4%BA%91%E7%9B%98/img/202303031601529.png"></p>
-<h1 id="上传到-gitee"><a href="#上传到-gitee" class="headerlink" title="上传到 gitee"></a>上传到 gitee</h1><p>依次在命令行里面运行下面命令</p>
-<figure class="highlight cmd"><table><tr><td class="code"><pre><span class="line">git add .</span><br><span class="line">git commit -m &quot;update&quot;</span><br><span class="line">git push origin master --force</span><br></pre></td></tr></table></figure>
-
-<p>运行成功就上传完成了</p>
-<h1 id="新设备恢复-hexo-博客"><a href="#新设备恢复-hexo-博客" class="headerlink" title="新设备恢复 hexo 博客"></a>新设备恢复 hexo 博客</h1><p>1、安装 node</p>
-<p>2、安装 Git</p>
-<p>3、在你需要恢复博客的文件夹里面使用命令行执行</p>
-<figure class="highlight cmd"><table><tr><td class="code"><pre><span class="line">cnpm install hexo-cli -g</span><br><span class="line">git clone 你备份的仓库地址</span><br><span class="line">cnpm install</span><br></pre></td></tr></table></figure>
-]]></content>
-      <categories>
-        <category>教程</category>
-      </categories>
-      <tags>
-        <tag>hexo</tag>
-      </tags>
-  </entry>
-  <entry>
     <title>安卓14 + HttpCanary 抓包设置</title>
     <url>/undefined/5fb4c97d.html</url>
     <content><![CDATA[<h1 id="前言"><a href="#前言" class="headerlink" title="前言"></a>前言</h1><p>这两天使用 HttpCanary 抓包，无法安装证书，如下图，搜索找到了解决办法。本教程适合安卓14 + 无法安装证书，以及解决“系统证书”和“目标App使用固定证书”的问题。</p>
@@ -2418,6 +2388,36 @@
       </categories>
       <tags>
         <tag>手机</tag>
+      </tags>
+  </entry>
+  <entry>
+    <title>备份Hexo博客到开源仓库</title>
+    <url>/undefined/5836c89e.html</url>
+    <content><![CDATA[<p>本教程以 gitee 举例，GitHub 同理。</p>
+<h1 id="创建-gitee-仓库"><a href="#创建-gitee-仓库" class="headerlink" title="创建 gitee 仓库"></a>创建 gitee 仓库</h1><p>直接 gitee 官网右上角创建仓库即可，名字什么的自定义，最好创建私人仓库。</p>
+<h1 id="初始化本地仓库"><a href="#初始化本地仓库" class="headerlink" title="初始化本地仓库"></a>初始化本地仓库</h1><p>在本地 hexo 目录运行命令行</p>
+<p>输入</p>
+<figure class="highlight cmd"><table><tr><td class="code"><pre><span class="line">git init</span><br></pre></td></tr></table></figure>
+
+<p>然后输入</p>
+<figure class="highlight cmd"><table><tr><td class="code"><pre><span class="line">git remote add origin git@gitee.com:yuqi15/blog-backup.git</span><br></pre></td></tr></table></figure>
+
+<p>注意：这里是使用你自己创建仓库的链接，刚创建好会在页面上提示</p>
+<p><img src="https://pan.yuqi.fun/d/%E5%A4%A9%E7%BF%BC%E4%BA%91%E7%9B%98/img/202303031601529.png"></p>
+<h1 id="上传到-gitee"><a href="#上传到-gitee" class="headerlink" title="上传到 gitee"></a>上传到 gitee</h1><p>依次在命令行里面运行下面命令</p>
+<figure class="highlight cmd"><table><tr><td class="code"><pre><span class="line">git add .</span><br><span class="line">git commit -m &quot;update&quot;</span><br><span class="line">git push origin master --force</span><br></pre></td></tr></table></figure>
+
+<p>运行成功就上传完成了</p>
+<h1 id="新设备恢复-hexo-博客"><a href="#新设备恢复-hexo-博客" class="headerlink" title="新设备恢复 hexo 博客"></a>新设备恢复 hexo 博客</h1><p>1、安装 node</p>
+<p>2、安装 Git</p>
+<p>3、在你需要恢复博客的文件夹里面使用命令行执行</p>
+<figure class="highlight cmd"><table><tr><td class="code"><pre><span class="line">cnpm install hexo-cli -g</span><br><span class="line">git clone 你备份的仓库地址</span><br><span class="line">cnpm install</span><br></pre></td></tr></table></figure>
+]]></content>
+      <categories>
+        <category>教程</category>
+      </categories>
+      <tags>
+        <tag>hexo</tag>
       </tags>
   </entry>
   <entry>
@@ -2589,6 +2589,46 @@
 ]]></content>
   </entry>
   <entry>
+    <title>李跳跳2.2正式版</title>
+    <url>/undefined/f5caf0fa.html</url>
+    <content><![CDATA[<p><strong>无论你是哪个版本的李跳跳，都建议更新啊喂。</strong></p>
+<h1 id="更新日志"><a href="#更新日志" class="headerlink" title="更新日志"></a>更新日志</h1><p>1.省电优化。</p>
+<p>2.响应速度优化。</p>
+<p>3.内置算法优化。</p>
+<p>4.适配更多APP。</p>
+<p>5.修复已知BUG。</p>
+<p>6.修复用户反馈的问题。</p>
+<p>7.适配圆形倒计时广告。</p>
+<p>8.优化微信自动勾选原图。</p>
+<p>9.新增无障碍服务异常检测。</p>
+<p>10.自定义规则优化，支持关闭任意个连续弹窗。</p>
+<p>11.自定义规则优化，支持同一弹窗点击多个位置。</p>
+<p>12.自定义规则优化，遇到流氓弹窗容易误点广告的问题。</p>
+<p>13.优化短时间内弹出多个弹窗无法全部关闭的问题。</p>
+<p>14.过滤一些不合理输入，减少系统资源损耗。</p>
+<p>15.自定义规则支持CheckBox状态判断。</p>
+<p>16.修复华为系统下的特定BUG。</p>
+<p>17.适配华为系统下的特定广告。</p>
+<p>18.特定APP新增特定算法。</p>
+<p>19.适配特定系统的优化。</p>
+<p>20.支持自定义点击序列。</p>
+<p>21.优化节点过滤逻辑。</p>
+<p>22.支持覆盖内置规则。</p>
+<p>23.无障碍标签完善。</p>
+<p>24.优化部分文案。</p>
+<p>25.更换新图标。</p>
+<p>26.更换包名(无奈之举)。</p>
+<h1 id="下载地址"><a href="#下载地址" class="headerlink" title="下载地址"></a>下载地址</h1><p>免登陆下载：<a href="https://www.123pan.com/s/bAORVv-QGQl.html">https://www.123pan.com/s/bAORVv-QGQl.html</a></p>
+<p><img src="https://pan.yuqi.fun/d/%E5%A4%A9%E7%BF%BC%E4%BA%91%E7%9B%98/img/202304091214921.png" alt="image-20230409121412470"></p>
+]]></content>
+      <categories>
+        <category>软件分享</category>
+      </categories>
+      <tags>
+        <tag>安卓软件</tag>
+      </tags>
+  </entry>
+  <entry>
     <title>最佳免费NPV方式-workers搭建vless使用</title>
     <url>/undefined/1b7388f.html</url>
     <content><![CDATA[<h2 id="资源："><a href="#资源：" class="headerlink" title="资源："></a>资源：</h2><h6 id="WIN"><a href="#WIN" class="headerlink" title="WIN:"></a><strong>WIN:</strong></h6><p>v2rayN 最新版<a href="https://github.com/2dust/v2rayN/releases">下载地址&gt;&gt;</a></p>
@@ -2684,46 +2724,6 @@
       </categories>
       <tags>
         <tag>NPV</tag>
-      </tags>
-  </entry>
-  <entry>
-    <title>李跳跳2.2正式版</title>
-    <url>/undefined/f5caf0fa.html</url>
-    <content><![CDATA[<p><strong>无论你是哪个版本的李跳跳，都建议更新啊喂。</strong></p>
-<h1 id="更新日志"><a href="#更新日志" class="headerlink" title="更新日志"></a>更新日志</h1><p>1.省电优化。</p>
-<p>2.响应速度优化。</p>
-<p>3.内置算法优化。</p>
-<p>4.适配更多APP。</p>
-<p>5.修复已知BUG。</p>
-<p>6.修复用户反馈的问题。</p>
-<p>7.适配圆形倒计时广告。</p>
-<p>8.优化微信自动勾选原图。</p>
-<p>9.新增无障碍服务异常检测。</p>
-<p>10.自定义规则优化，支持关闭任意个连续弹窗。</p>
-<p>11.自定义规则优化，支持同一弹窗点击多个位置。</p>
-<p>12.自定义规则优化，遇到流氓弹窗容易误点广告的问题。</p>
-<p>13.优化短时间内弹出多个弹窗无法全部关闭的问题。</p>
-<p>14.过滤一些不合理输入，减少系统资源损耗。</p>
-<p>15.自定义规则支持CheckBox状态判断。</p>
-<p>16.修复华为系统下的特定BUG。</p>
-<p>17.适配华为系统下的特定广告。</p>
-<p>18.特定APP新增特定算法。</p>
-<p>19.适配特定系统的优化。</p>
-<p>20.支持自定义点击序列。</p>
-<p>21.优化节点过滤逻辑。</p>
-<p>22.支持覆盖内置规则。</p>
-<p>23.无障碍标签完善。</p>
-<p>24.优化部分文案。</p>
-<p>25.更换新图标。</p>
-<p>26.更换包名(无奈之举)。</p>
-<h1 id="下载地址"><a href="#下载地址" class="headerlink" title="下载地址"></a>下载地址</h1><p>免登陆下载：<a href="https://www.123pan.com/s/bAORVv-QGQl.html">https://www.123pan.com/s/bAORVv-QGQl.html</a></p>
-<p><img src="https://pan.yuqi.fun/d/%E5%A4%A9%E7%BF%BC%E4%BA%91%E7%9B%98/img/202304091214921.png" alt="image-20230409121412470"></p>
-]]></content>
-      <categories>
-        <category>软件分享</category>
-      </categories>
-      <tags>
-        <tag>安卓软件</tag>
       </tags>
   </entry>
   <entry>
