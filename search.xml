@@ -1798,6 +1798,59 @@
       </tags>
   </entry>
   <entry>
+    <title>V2,R.a,y.A——新一代Linux客户端安装配置教程</title>
+    <url>/undefined/a53fea94.html</url>
+    <content><![CDATA[<h1 id="前言"><a href="#前言" class="headerlink" title="前言"></a>前言</h1><p>上一次我们介绍的Qv2ray还是有一些同学不会安装，而且Qv2ray也不再更新了，所以我就另外去找了，刚好找到一个安装配置都非常简单的软件，也就是本章的主角——v2rayA</p>
+<h1 id="特性"><a href="#特性" class="headerlink" title="特性"></a>特性</h1><p><img src="https://pan.yuqi.fun/d/%E5%A4%A9%E7%BF%BC%E4%BA%91%E7%9B%98/img/202304100749200.png" alt="img"></p>
+<p>在官网的介绍中我们可以发现，v2rayA是一款非常强大的软件，它甚至能提供透明代理（几乎完全全局代理，目标服务器检测不到代理服务器）。好我就精简一下官方的教程教给大家怎么去安装配置Qv2ray，官网我会放到文章末尾。</p>
+<h1 id="安装"><a href="#安装" class="headerlink" title="安装"></a>安装</h1><p>首页：<a href="https://v2raya.org/">https://v2raya.org/</a></p>
+<h2 id="安装v2rayA"><a href="#安装v2rayA" class="headerlink" title="安装v2rayA"></a>安装v2rayA</h2><p>方法一：通过软件源安装<br>添加公钥</p>
+<figure class="highlight plaintext"><table><tr><td class="code"><pre><span class="line">wget -qO - https://apt.v2raya.org/key/public-key.asc | sudo tee /etc/apt/keyrings/v2raya.asc</span><br></pre></td></tr></table></figure>
+
+<p>添加 V2RayA 软件源</p>
+<figure class="highlight plaintext"><table><tr><td class="code"><pre><span class="line">echo &quot;deb [signed-by=/etc/apt/keyrings/v2raya.asc] https://apt.v2raya.org/ v2raya main&quot; | sudo tee /etc/apt/sources.list.d/v2raya.list</span><br><span class="line">sudo apt update</span><br></pre></td></tr></table></figure>
+
+<p>安装 V2RayA</p>
+<figure class="highlight plaintext"><table><tr><td class="code"><pre><span class="line">sudo apt install v2raya v2ray ## 也可以使用 xray 包</span><br></pre></td></tr></table></figure>
+
+<p>方法二：手动安装 deb 包</p>
+<p>下载 deb 包</p>
+<p><a href="https://github.com/v2rayA/v2rayA/releases">点我下载</a></p>
+<p>然后可以使用 Gdebi、QApt 等图形化工具来安装，也可以使用命令行：</p>
+<figure class="highlight plaintext"><table><tr><td class="code"><pre><span class="line">sudo apt install /path/download/installer_debian_xxx_vxxx.deb ### 自行替换 deb 包所在的实际路径</span><br></pre></td></tr></table></figure>
+
+<h1 id="启动-配置"><a href="#启动-配置" class="headerlink" title="启动&amp;配置"></a>启动&amp;配置</h1><h2 id="开机自启"><a href="#开机自启" class="headerlink" title="开机自启"></a>开机自启</h2><p>启动 v2rayA</p>
+<figure class="highlight plaintext"><table><tr><td class="code"><pre><span class="line">sudo systemctl start v2raya.service</span><br></pre></td></tr></table></figure>
+
+<p>设置开机自动启动</p>
+<figure class="highlight plaintext"><table><tr><td class="code"><pre><span class="line">sudo systemctl enable v2raya.service</span><br></pre></td></tr></table></figure>
+
+<h2 id="软件配置"><a href="#软件配置" class="headerlink" title="软件配置"></a>软件配置</h2><p>v2rayA的UI是以网页的形式呈现的，所以我们打开浏览器，访问v2rayA的地址<a href="http://localhost:2017/">http://localhost:2017/</a></p>
+<p><img src="https://pan.yuqi.fun/d/%E5%A4%A9%E7%BF%BC%E4%BA%91%E7%9B%98/img/202304100749118.png" alt="img"></p>
+<p>首次打开需要创建一个管理员账号，如果遗忘，使用下面的命令重置。</p>
+<figure class="highlight plaintext"><table><tr><td class="code"><pre><span class="line">sudo v2raya --reset-password</span><br></pre></td></tr></table></figure>
+
+<p>以创建或导入的方式导入节点，导入支持节点链接、订阅链接、扫描二维码和批量导入等方式。</p>
+<p><img src="https://pan.yuqi.fun/d/%E5%A4%A9%E7%BF%BC%E4%BA%91%E7%9B%98/img/202304100749250.png" alt="img"></p>
+<p>导入成功后，节点将显示在 SERVER 中，先选择要连接的节点，再点击左上角的就绪按钮就能开启代理了。</p>
+<p><img src="https://pan.yuqi.fun/d/%E5%A4%A9%E7%BF%BC%E4%BA%91%E7%9B%98/img/202304100749288.png" alt="img"></p>
+<p>点击右边的设置，推荐像我一样设置，也是官方推荐的设置</p>
+<p><img src="https://pan.yuqi.fun/d/%E5%A4%A9%E7%BF%BC%E4%BA%91%E7%9B%98/img/202304100749956.png" alt="img"></p>
+<p>但是还没有结束，在某些不能自动配置代理的系统中，还需要手动进行代理，以Ubuntu为例（Ubuntu无需手动设置代理，仅为了演示），进入设置–&gt;网络–&gt;网络代理–&gt;手动代理，默认端口没有改动的话按照我的填写</p>
+<p><img src="https://pan.yuqi.fun/d/%E5%A4%A9%E7%BF%BC%E4%BA%91%E7%9B%98/img/202304100749118.png" alt="img"></p>
+<p>v2rayA的默认代理端口是</p>
+<p><img src="https://pan.yuqi.fun/d/%E5%A4%A9%E7%BF%BC%E4%BA%91%E7%9B%98/img/202304100755201.png" alt="img"></p>
+<p>到此就完成了整个安装与配置，本篇v2rayA安装配置在别的Linux中仍然适用，如果遇到什么问题推荐看一下官网的文档。</p>
+<p>官网：<a href="https://v2raya.org/">点我直达</a></p>
+]]></content>
+      <categories>
+        <category>上网</category>
+      </categories>
+      <tags>
+        <tag>v2</tag>
+      </tags>
+  </entry>
+  <entry>
     <title>SINAMICS G120D CU250-2PN速度控制调试步骤</title>
     <url>/undefined/908d3d13.html</url>
     <content><![CDATA[<h1 id="1、打开SINAMICS-STARTER软件，创建项目；"><a href="#1、打开SINAMICS-STARTER软件，创建项目；" class="headerlink" title="1、打开SINAMICS STARTER软件，创建项目；"></a>1、打开SINAMICS STARTER软件，创建项目；</h1><p>选择菜单Project -&gt; New…<br>或使用快捷按钮创建新项目。<br><img src="https://pan.yuqi.fun/d/%E5%A4%A9%E7%BF%BC%E4%BA%91%E7%9B%98/img/20250523225816269.png" alt="image-20250523222741743"><br><img src="https://pan.yuqi.fun/d/%E5%A4%A9%E7%BF%BC%E4%BA%91%E7%9B%98/img/20250523225840938.png" alt="image-20250523222747691"></p>
@@ -1860,59 +1913,6 @@
 ]]></content>
   </entry>
   <entry>
-    <title>V2,R.a,y.A——新一代Linux客户端安装配置教程</title>
-    <url>/undefined/a53fea94.html</url>
-    <content><![CDATA[<h1 id="前言"><a href="#前言" class="headerlink" title="前言"></a>前言</h1><p>上一次我们介绍的Qv2ray还是有一些同学不会安装，而且Qv2ray也不再更新了，所以我就另外去找了，刚好找到一个安装配置都非常简单的软件，也就是本章的主角——v2rayA</p>
-<h1 id="特性"><a href="#特性" class="headerlink" title="特性"></a>特性</h1><p><img src="https://pan.yuqi.fun/d/%E5%A4%A9%E7%BF%BC%E4%BA%91%E7%9B%98/img/202304100749200.png" alt="img"></p>
-<p>在官网的介绍中我们可以发现，v2rayA是一款非常强大的软件，它甚至能提供透明代理（几乎完全全局代理，目标服务器检测不到代理服务器）。好我就精简一下官方的教程教给大家怎么去安装配置Qv2ray，官网我会放到文章末尾。</p>
-<h1 id="安装"><a href="#安装" class="headerlink" title="安装"></a>安装</h1><p>首页：<a href="https://v2raya.org/">https://v2raya.org/</a></p>
-<h2 id="安装v2rayA"><a href="#安装v2rayA" class="headerlink" title="安装v2rayA"></a>安装v2rayA</h2><p>方法一：通过软件源安装<br>添加公钥</p>
-<figure class="highlight plaintext"><table><tr><td class="code"><pre><span class="line">wget -qO - https://apt.v2raya.org/key/public-key.asc | sudo tee /etc/apt/keyrings/v2raya.asc</span><br></pre></td></tr></table></figure>
-
-<p>添加 V2RayA 软件源</p>
-<figure class="highlight plaintext"><table><tr><td class="code"><pre><span class="line">echo &quot;deb [signed-by=/etc/apt/keyrings/v2raya.asc] https://apt.v2raya.org/ v2raya main&quot; | sudo tee /etc/apt/sources.list.d/v2raya.list</span><br><span class="line">sudo apt update</span><br></pre></td></tr></table></figure>
-
-<p>安装 V2RayA</p>
-<figure class="highlight plaintext"><table><tr><td class="code"><pre><span class="line">sudo apt install v2raya v2ray ## 也可以使用 xray 包</span><br></pre></td></tr></table></figure>
-
-<p>方法二：手动安装 deb 包</p>
-<p>下载 deb 包</p>
-<p><a href="https://github.com/v2rayA/v2rayA/releases">点我下载</a></p>
-<p>然后可以使用 Gdebi、QApt 等图形化工具来安装，也可以使用命令行：</p>
-<figure class="highlight plaintext"><table><tr><td class="code"><pre><span class="line">sudo apt install /path/download/installer_debian_xxx_vxxx.deb ### 自行替换 deb 包所在的实际路径</span><br></pre></td></tr></table></figure>
-
-<h1 id="启动-配置"><a href="#启动-配置" class="headerlink" title="启动&amp;配置"></a>启动&amp;配置</h1><h2 id="开机自启"><a href="#开机自启" class="headerlink" title="开机自启"></a>开机自启</h2><p>启动 v2rayA</p>
-<figure class="highlight plaintext"><table><tr><td class="code"><pre><span class="line">sudo systemctl start v2raya.service</span><br></pre></td></tr></table></figure>
-
-<p>设置开机自动启动</p>
-<figure class="highlight plaintext"><table><tr><td class="code"><pre><span class="line">sudo systemctl enable v2raya.service</span><br></pre></td></tr></table></figure>
-
-<h2 id="软件配置"><a href="#软件配置" class="headerlink" title="软件配置"></a>软件配置</h2><p>v2rayA的UI是以网页的形式呈现的，所以我们打开浏览器，访问v2rayA的地址<a href="http://localhost:2017/">http://localhost:2017/</a></p>
-<p><img src="https://pan.yuqi.fun/d/%E5%A4%A9%E7%BF%BC%E4%BA%91%E7%9B%98/img/202304100749118.png" alt="img"></p>
-<p>首次打开需要创建一个管理员账号，如果遗忘，使用下面的命令重置。</p>
-<figure class="highlight plaintext"><table><tr><td class="code"><pre><span class="line">sudo v2raya --reset-password</span><br></pre></td></tr></table></figure>
-
-<p>以创建或导入的方式导入节点，导入支持节点链接、订阅链接、扫描二维码和批量导入等方式。</p>
-<p><img src="https://pan.yuqi.fun/d/%E5%A4%A9%E7%BF%BC%E4%BA%91%E7%9B%98/img/202304100749250.png" alt="img"></p>
-<p>导入成功后，节点将显示在 SERVER 中，先选择要连接的节点，再点击左上角的就绪按钮就能开启代理了。</p>
-<p><img src="https://pan.yuqi.fun/d/%E5%A4%A9%E7%BF%BC%E4%BA%91%E7%9B%98/img/202304100749288.png" alt="img"></p>
-<p>点击右边的设置，推荐像我一样设置，也是官方推荐的设置</p>
-<p><img src="https://pan.yuqi.fun/d/%E5%A4%A9%E7%BF%BC%E4%BA%91%E7%9B%98/img/202304100749956.png" alt="img"></p>
-<p>但是还没有结束，在某些不能自动配置代理的系统中，还需要手动进行代理，以Ubuntu为例（Ubuntu无需手动设置代理，仅为了演示），进入设置–&gt;网络–&gt;网络代理–&gt;手动代理，默认端口没有改动的话按照我的填写</p>
-<p><img src="https://pan.yuqi.fun/d/%E5%A4%A9%E7%BF%BC%E4%BA%91%E7%9B%98/img/202304100749118.png" alt="img"></p>
-<p>v2rayA的默认代理端口是</p>
-<p><img src="https://pan.yuqi.fun/d/%E5%A4%A9%E7%BF%BC%E4%BA%91%E7%9B%98/img/202304100755201.png" alt="img"></p>
-<p>到此就完成了整个安装与配置，本篇v2rayA安装配置在别的Linux中仍然适用，如果遇到什么问题推荐看一下官网的文档。</p>
-<p>官网：<a href="https://v2raya.org/">点我直达</a></p>
-]]></content>
-      <categories>
-        <category>上网</category>
-      </categories>
-      <tags>
-        <tag>v2</tag>
-      </tags>
-  </entry>
-  <entry>
     <title>VPS一键脚本分享</title>
     <url>/undefined/2419758f.html</url>
     <content><![CDATA[<p><img src="https://pan.yuqi.fun/d/%E5%A4%A9%E7%BF%BC%E4%BA%91%E7%9B%98/img/202305051611537.png"></p>
@@ -1935,6 +1935,43 @@
       </categories>
       <tags>
         <tag>服务器</tag>
+      </tags>
+  </entry>
+  <entry>
+    <title>git每次操作提示输入密码问题解决</title>
+    <url>/undefined/21c693ea.html</url>
+    <content><![CDATA[<p><strong>提示：git每次pull提示需要密码</strong></p>
+<hr>
+<h1 id="错误提示"><a href="#错误提示" class="headerlink" title="错误提示"></a>错误提示</h1><figure class="highlight plaintext"><table><tr><td class="code"><pre><span class="line">Administrator@DEEP MINGW64 /f/code/xxx-service (master)</span><br><span class="line">$ git pull</span><br><span class="line">git@gitlab.xxx.com&#x27;s password:</span><br></pre></td></tr></table></figure>
+
+<h1 id="原因"><a href="#原因" class="headerlink" title="原因"></a>原因</h1><p>只提示输入密码的情况，一般是秘钥验证失败。二种情况</p>
+<hr>
+<h1 id="1、公钥验证错误"><a href="#1、公钥验证错误" class="headerlink" title="1、公钥验证错误"></a>1、公钥验证错误</h1><p>  解决方法如下，以github为例</p>
+<p>  在<a href="https://github.com/settings/keys">https://github.com/settings/keys</a> 界面，将生成的<a href="https://so.csdn.net/so/search?q=%E5%85%AC%E9%92%A5&spm=1001.2101.3001.7020">公钥</a>添加到SSH keys项中</p>
+<p>  如没有则使用<a href="https://so.csdn.net/so/search?q=ssh-keygen&spm=1001.2101.3001.7020">ssh-keygen</a>命令生成</p>
+<figure class="highlight plaintext"><table><tr><td class="code"><pre><span class="line">ssh-keygen -t rsa -C &quot;Your Email Address&quot; -f &quot;~/.ssh/gitlab_id_rsa&quot;</span><br></pre></td></tr></table></figure>
+
+<h1 id="2、私钥验证错误"><a href="#2、私钥验证错误" class="headerlink" title="2、私钥验证错误"></a>2、私钥验证错误</h1><p>git拉取代码时没有配置私钥认证</p>
+<p>使用以下命令添加认证到ssh</p>
+<figure class="highlight plaintext"><table><tr><td class="code"><pre><span class="line">ssh-add ~/.ssh/gitlab_id_rsa</span><br></pre></td></tr></table></figure>
+
+<p>使用以上命令，只能对当前环境生效，重启或新开终端会继续提示输入密码</p>
+<p>永久解决：在<code>~/.ssh/config</code>文件中（没有则新建），指定对应git服务使用的认证秘钥文件即可</p>
+<figure class="highlight plaintext"><table><tr><td class="code"><pre><span class="line"># GitLab.com 密钥</span><br><span class="line">Host github.com</span><br><span class="line">  Preferredauthentications publickey</span><br><span class="line">  IdentityFile ~/.ssh/github_id_rsa</span><br><span class="line"># GitLab.com 密钥</span><br><span class="line">Host gitlab.xxx.com</span><br><span class="line">  Preferredauthentications publickey</span><br><span class="line">  IdentityFile ~/.ssh/gitlab_id_rsa</span><br></pre></td></tr></table></figure>
+
+
+
+<hr>
+<h1 id="总结"><a href="#总结" class="headerlink" title="总结"></a>总结</h1><ol>
+<li>直接提示输入密码的，为秘钥认证失败，使用以上方法即可解决</li>
+<li>提示输入账号和密码的，为账号认证失败，使用<code>git config --global credential.helper store</code>命令，可输入一次密码后永久存储</li>
+</ol>
+]]></content>
+      <categories>
+        <category>教程</category>
+      </categories>
+      <tags>
+        <tag>git</tag>
       </tags>
   </entry>
   <entry>
@@ -1996,43 +2033,6 @@
       </categories>
       <tags>
         <tag>VPS</tag>
-      </tags>
-  </entry>
-  <entry>
-    <title>git每次操作提示输入密码问题解决</title>
-    <url>/undefined/21c693ea.html</url>
-    <content><![CDATA[<p><strong>提示：git每次pull提示需要密码</strong></p>
-<hr>
-<h1 id="错误提示"><a href="#错误提示" class="headerlink" title="错误提示"></a>错误提示</h1><figure class="highlight plaintext"><table><tr><td class="code"><pre><span class="line">Administrator@DEEP MINGW64 /f/code/xxx-service (master)</span><br><span class="line">$ git pull</span><br><span class="line">git@gitlab.xxx.com&#x27;s password:</span><br></pre></td></tr></table></figure>
-
-<h1 id="原因"><a href="#原因" class="headerlink" title="原因"></a>原因</h1><p>只提示输入密码的情况，一般是秘钥验证失败。二种情况</p>
-<hr>
-<h1 id="1、公钥验证错误"><a href="#1、公钥验证错误" class="headerlink" title="1、公钥验证错误"></a>1、公钥验证错误</h1><p>  解决方法如下，以github为例</p>
-<p>  在<a href="https://github.com/settings/keys">https://github.com/settings/keys</a> 界面，将生成的<a href="https://so.csdn.net/so/search?q=%E5%85%AC%E9%92%A5&spm=1001.2101.3001.7020">公钥</a>添加到SSH keys项中</p>
-<p>  如没有则使用<a href="https://so.csdn.net/so/search?q=ssh-keygen&spm=1001.2101.3001.7020">ssh-keygen</a>命令生成</p>
-<figure class="highlight plaintext"><table><tr><td class="code"><pre><span class="line">ssh-keygen -t rsa -C &quot;Your Email Address&quot; -f &quot;~/.ssh/gitlab_id_rsa&quot;</span><br></pre></td></tr></table></figure>
-
-<h1 id="2、私钥验证错误"><a href="#2、私钥验证错误" class="headerlink" title="2、私钥验证错误"></a>2、私钥验证错误</h1><p>git拉取代码时没有配置私钥认证</p>
-<p>使用以下命令添加认证到ssh</p>
-<figure class="highlight plaintext"><table><tr><td class="code"><pre><span class="line">ssh-add ~/.ssh/gitlab_id_rsa</span><br></pre></td></tr></table></figure>
-
-<p>使用以上命令，只能对当前环境生效，重启或新开终端会继续提示输入密码</p>
-<p>永久解决：在<code>~/.ssh/config</code>文件中（没有则新建），指定对应git服务使用的认证秘钥文件即可</p>
-<figure class="highlight plaintext"><table><tr><td class="code"><pre><span class="line"># GitLab.com 密钥</span><br><span class="line">Host github.com</span><br><span class="line">  Preferredauthentications publickey</span><br><span class="line">  IdentityFile ~/.ssh/github_id_rsa</span><br><span class="line"># GitLab.com 密钥</span><br><span class="line">Host gitlab.xxx.com</span><br><span class="line">  Preferredauthentications publickey</span><br><span class="line">  IdentityFile ~/.ssh/gitlab_id_rsa</span><br></pre></td></tr></table></figure>
-
-
-
-<hr>
-<h1 id="总结"><a href="#总结" class="headerlink" title="总结"></a>总结</h1><ol>
-<li>直接提示输入密码的，为秘钥认证失败，使用以上方法即可解决</li>
-<li>提示输入账号和密码的，为账号认证失败，使用<code>git config --global credential.helper store</code>命令，可输入一次密码后永久存储</li>
-</ol>
-]]></content>
-      <categories>
-        <category>教程</category>
-      </categories>
-      <tags>
-        <tag>git</tag>
       </tags>
   </entry>
   <entry>
@@ -2727,6 +2727,21 @@
       </tags>
   </entry>
   <entry>
+    <title>电脑谷歌浏览器糖心使用教程</title>
+    <url>/undefined/77efc3f1.html</url>
+    <content><![CDATA[<p>1、先安装油猴插件<br><a href="https://greasyfork.org/scripts/461743-%E7%B3%96%E5%BF%83/code/%E7%B3%96%E5%BF%83.user.js">油猴插件</a><br>2、安装更改 ua 插件（挂梯子扶墙，打开 chrome 应用商店安装）<br><a href="https://chrome.google.com/webstore/detail/user-agent-switcher-and-m/bhchdcejhohfmigjafbampogmaanbfkg">https://chrome.google.com/webstore/detail/user-agent-switcher-and-m/bhchdcejhohfmigjafbampogmaanbfkg</a><br>3、按照这个教程(使用拓展插件进行修改)设置 ua<br><a href="https://blog.csdn.net/m0_46665077/article/details/125713310#22__31">https://blog.csdn.net/m0_46665077/article/details/125713310#22__31</a><br>下面是 UA：</p>
+<figure class="highlight plaintext"><table><tr><td class="code"><pre><span class="line">Mozilla/5.0(iPhone;CPUiPhoneOS11_4_1likeMacOSX)AppleWebKit/537.36(KHTML,likeGecko)Chrome/77.0.3865.116MobileSafari/11.0Mobile/58.0Firefox/12F70Safari/537.36Quark/3.8.4.128UCBrowser/12.0.4.985baiduboxapp/3.2.5.10MQQBrowser/7.2.1.2965XiaoMi/MiuiBrowser/11.9.2SearchCraft/2.0.0ALiSearchApp/2.4AliApp(TB/9.5.6)BingWeb/6.2TBS/537.36Weiyun/6.9.37(Android)Weiyun(zh-Hans)/537.36</span><br></pre></td></tr></table></figure>
+
+<p>4、最后打开网址<a href="https://txh016.com/">https://txh016.com</a>奔放</p>
+]]></content>
+      <categories>
+        <category>教程</category>
+      </categories>
+      <tags>
+        <tag>18+</tag>
+      </tags>
+  </entry>
+  <entry>
     <title>短信转发神器,合宙 Air780E,700E 开发板刷机教程</title>
     <url>/undefined/15b05887.html</url>
     <content><![CDATA[<p>此教程只针对拿板子做短信转发器用，其他高阶操作（定位、联网、语音）需要自由拓展发挥。</p>
@@ -2784,21 +2799,6 @@
       </categories>
       <tags>
         <tag>短信转发</tag>
-      </tags>
-  </entry>
-  <entry>
-    <title>电脑谷歌浏览器糖心使用教程</title>
-    <url>/undefined/77efc3f1.html</url>
-    <content><![CDATA[<p>1、先安装油猴插件<br><a href="https://greasyfork.org/scripts/461743-%E7%B3%96%E5%BF%83/code/%E7%B3%96%E5%BF%83.user.js">油猴插件</a><br>2、安装更改 ua 插件（挂梯子扶墙，打开 chrome 应用商店安装）<br><a href="https://chrome.google.com/webstore/detail/user-agent-switcher-and-m/bhchdcejhohfmigjafbampogmaanbfkg">https://chrome.google.com/webstore/detail/user-agent-switcher-and-m/bhchdcejhohfmigjafbampogmaanbfkg</a><br>3、按照这个教程(使用拓展插件进行修改)设置 ua<br><a href="https://blog.csdn.net/m0_46665077/article/details/125713310#22__31">https://blog.csdn.net/m0_46665077/article/details/125713310#22__31</a><br>下面是 UA：</p>
-<figure class="highlight plaintext"><table><tr><td class="code"><pre><span class="line">Mozilla/5.0(iPhone;CPUiPhoneOS11_4_1likeMacOSX)AppleWebKit/537.36(KHTML,likeGecko)Chrome/77.0.3865.116MobileSafari/11.0Mobile/58.0Firefox/12F70Safari/537.36Quark/3.8.4.128UCBrowser/12.0.4.985baiduboxapp/3.2.5.10MQQBrowser/7.2.1.2965XiaoMi/MiuiBrowser/11.9.2SearchCraft/2.0.0ALiSearchApp/2.4AliApp(TB/9.5.6)BingWeb/6.2TBS/537.36Weiyun/6.9.37(Android)Weiyun(zh-Hans)/537.36</span><br></pre></td></tr></table></figure>
-
-<p>4、最后打开网址<a href="https://txh016.com/">https://txh016.com</a>奔放</p>
-]]></content>
-      <categories>
-        <category>教程</category>
-      </categories>
-      <tags>
-        <tag>18+</tag>
       </tags>
   </entry>
   <entry>
@@ -3119,30 +3119,6 @@
       </tags>
   </entry>
   <entry>
-    <title>针对Prodiag现场License弹窗的解决方法</title>
-    <url>/undefined/2622eae5.html</url>
-    <content><![CDATA[<p>问题：触摸屏报缺少相关的License Key</p>
-<p><img src="https://pan.yuqi.fun/d/%E5%A4%A9%E7%BF%BC%E4%BA%91%E7%9B%98/img/20250510170721371.png" alt="image-20250510165712437"></p>
-<p>打开2018版EKB秘钥（无法找到秘钥，请更换此2018秘钥）</p>
-<p> <img src="https://pan.yuqi.fun/d/%E5%A4%A9%E7%BF%BC%E4%BA%91%E7%9B%98/img/20250510170736105.png" alt="image-20250510165723510"></p>
-<p>选择此秘钥，安装长秘钥，</p>
-<p><img src="https://pan.yuqi.fun/d/%E5%A4%A9%E7%BF%BC%E4%BA%91%E7%9B%98/img/20250510170745318.png" alt="image-20250510165728998"></p>
-<p>方法一：</p>
-<p>打开软件</p>
-<p><img src="https://pan.yuqi.fun/d/%E5%A4%A9%E7%BF%BC%E4%BA%91%E7%9B%98/img/20250510170755265.png" alt="image-20250510165801227"></p>
-<p>选择下图秘钥—</p>
-<p><img src="https://pan.yuqi.fun/d/%E5%A4%A9%E7%BF%BC%E4%BA%91%E7%9B%98/img/20250510170801052.png" alt="image-20250510165808104"></p>
-<p>找到下图秘钥–右键点击Transfer</p>
-<p>打开Tansfer 窗口，电脑与HMI屏幕连接后，可以找到需要下载的HMI设备（有具体IP地址），OK确认</p>
-<p><img src="https://pan.yuqi.fun/d/%E5%A4%A9%E7%BF%BC%E4%BA%91%E7%9B%98/img/20250510170807531.png" alt="image-20250510165818850"></p>
-<p>方法二：也可以右键相关HMI的此属性，打开授权许可</p>
-<p><img src="https://pan.yuqi.fun/d/%E5%A4%A9%E7%BF%BC%E4%BA%91%E7%9B%98/img/20250510170813884.png" alt="image-20250510165826870"></p>
-<p>找到相关HMI设备。</p>
-<p><img src="https://pan.yuqi.fun/d/%E5%A4%A9%E7%BF%BC%E4%BA%91%E7%9B%98/img/20250510170821004.png" alt="image-20250510165833281"></p>
-<p>注意：授权传送之后会提示成功，传送成功后授权若消失重新使用EKb安装一遍即可出现。</p>
-]]></content>
-  </entry>
-  <entry>
     <title>贵阳吉利程序解析</title>
     <url>/undefined/57946227.html</url>
     <content><![CDATA[<h1 id="程序框架"><a href="#程序框架" class="headerlink" title="程序框架"></a>程序框架</h1><p><strong>_00_Organization_Blocks</strong>：系统组织块</p>
@@ -3229,5 +3205,29 @@
 <p><img src="https://pan.yuqi.fun/d/%E5%A4%A9%E7%BF%BC%E4%BA%91%E7%9B%98/img/202411241536675.png" alt="image-20241124153306459"></p>
 <p><img src="https://pan.yuqi.fun/d/%E5%A4%A9%E7%BF%BC%E4%BA%91%E7%9B%98/img/202411241536972.png" alt="image-20241124153505708"></p>
 <h1 id="画面"><a href="#画面" class="headerlink" title="画面"></a>画面</h1>]]></content>
+  </entry>
+  <entry>
+    <title>针对Prodiag现场License弹窗的解决方法</title>
+    <url>/undefined/2622eae5.html</url>
+    <content><![CDATA[<p>问题：触摸屏报缺少相关的License Key</p>
+<p><img src="https://pan.yuqi.fun/d/%E5%A4%A9%E7%BF%BC%E4%BA%91%E7%9B%98/img/20250510170721371.png" alt="image-20250510165712437"></p>
+<p>打开2018版EKB秘钥（无法找到秘钥，请更换此2018秘钥）</p>
+<p> <img src="https://pan.yuqi.fun/d/%E5%A4%A9%E7%BF%BC%E4%BA%91%E7%9B%98/img/20250510170736105.png" alt="image-20250510165723510"></p>
+<p>选择此秘钥，安装长秘钥，</p>
+<p><img src="https://pan.yuqi.fun/d/%E5%A4%A9%E7%BF%BC%E4%BA%91%E7%9B%98/img/20250510170745318.png" alt="image-20250510165728998"></p>
+<p>方法一：</p>
+<p>打开软件</p>
+<p><img src="https://pan.yuqi.fun/d/%E5%A4%A9%E7%BF%BC%E4%BA%91%E7%9B%98/img/20250510170755265.png" alt="image-20250510165801227"></p>
+<p>选择下图秘钥—</p>
+<p><img src="https://pan.yuqi.fun/d/%E5%A4%A9%E7%BF%BC%E4%BA%91%E7%9B%98/img/20250510170801052.png" alt="image-20250510165808104"></p>
+<p>找到下图秘钥–右键点击Transfer</p>
+<p>打开Tansfer 窗口，电脑与HMI屏幕连接后，可以找到需要下载的HMI设备（有具体IP地址），OK确认</p>
+<p><img src="https://pan.yuqi.fun/d/%E5%A4%A9%E7%BF%BC%E4%BA%91%E7%9B%98/img/20250510170807531.png" alt="image-20250510165818850"></p>
+<p>方法二：也可以右键相关HMI的此属性，打开授权许可</p>
+<p><img src="https://pan.yuqi.fun/d/%E5%A4%A9%E7%BF%BC%E4%BA%91%E7%9B%98/img/20250510170813884.png" alt="image-20250510165826870"></p>
+<p>找到相关HMI设备。</p>
+<p><img src="https://pan.yuqi.fun/d/%E5%A4%A9%E7%BF%BC%E4%BA%91%E7%9B%98/img/20250510170821004.png" alt="image-20250510165833281"></p>
+<p>注意：授权传送之后会提示成功，传送成功后授权若消失重新使用EKb安装一遍即可出现。</p>
+]]></content>
   </entry>
 </search>
