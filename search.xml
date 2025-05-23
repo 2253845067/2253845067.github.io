@@ -2036,6 +2036,35 @@
       </tags>
   </entry>
   <entry>
+    <title>tmux后台工具使用方法</title>
+    <url>/undefined/3117353a.html</url>
+    <content><![CDATA[<p>tmux多路后台会话功能 即使SSH断开程序也可以在内置会话中执行 实现后台稳定运行<br><img src="https://pan.yuqi.fun/d/%E5%A4%A9%E7%BF%BC%E4%BA%91%E7%9B%98/img/202305051618430.png"></p>
+<p>有长时间任务或者后台程序运行需求大家可以使用tmux，比如编译程序，推流直播，SSH连接不稳定等等场景需求。你可以把这些程序存放到一个独立会话中，让他自己运作，完全不影响SSH主会话。</p>
+<p>即使SSH断了，你在tmux中的程序也不会断连。</p>
+<p>安装</p>
+<figure class="highlight plaintext"><table><tr><td class="code"><pre><span class="line">apt update -y &amp;&amp; apt install -y tmux</span><br></pre></td></tr></table></figure>
+
+<p>创建一个会话进入（可多开N个后台会话）</p>
+<figure class="highlight plaintext"><table><tr><td class="code"><pre><span class="line">tmux new -s my1</span><br></pre></td></tr></table></figure>
+<p><img src="https://pan.yuqi.fun/d/%E5%A4%A9%E7%BF%BC%E4%BA%91%E7%9B%98/img/202305051620536.png"></p>
+<p>退出会话不中断 Crl+b然后d</p>
+<p>重新进入会话</p>
+<figure class="highlight plaintext"><table><tr><td class="code"><pre><span class="line">tmux attach-session -t my1</span><br></pre></td></tr></table></figure>
+
+<p>查看所有tmux会话</p>
+<figure class="highlight plaintext"><table><tr><td class="code"><pre><span class="line">tmux list-sessions</span><br></pre></td></tr></table></figure>
+
+<p>删除会话</p>
+<figure class="highlight plaintext"><table><tr><td class="code"><pre><span class="line">tmux kill-session -t my1</span><br><span class="line">crl+d</span><br></pre></td></tr></table></figure>
+]]></content>
+      <categories>
+        <category>教程</category>
+      </categories>
+      <tags>
+        <tag>服务器</tag>
+      </tags>
+  </entry>
+  <entry>
     <title>hysteria2与reality共存安装</title>
     <url>/undefined/756577dc.html</url>
     <content><![CDATA[<h1 id="前言"><a href="#前言" class="headerlink" title="前言"></a>前言</h1><p>1.目前伪装最好的两种协议，一个代表tcp协议（reality）的目前巅峰，一个新型UDP协议（hysteria2）的宠儿。<br>2.这次用的sing-box搭建 <a href="https://sing-box.sagernet.org/zh">https://sing-box.sagernet.org/zh</a> 因为简单。之前一直用八合一，最大的问题就是各种伪装后，机器就只能拿来科学上网了，因为安装Nginx，搭建个网页啥的都很麻烦。<br>3.教程亮点，无需自备域名。<br>3.passwall发现没有类似的设置教程，所以出一个。</p>
@@ -2079,35 +2108,6 @@
 <p>【遥遥领先】黑科技！垃圾VPS线路网速大幅提升！第二代hysteria节点搭建教程，歇斯底里为什么可以提升网速？windows&#x2F;ios&#x2F;android手机移动端使用方式，sing-box配置hy2方式：<a href="https://youtu.be/CXj-ID33MhU?si=bgcrlIpW5BwOc9uL">https://youtu.be/CXj-ID33MhU?si=bgcrlIpW5BwOc9uL</a></p>
 <h2 id="文档参考"><a href="#文档参考" class="headerlink" title="文档参考"></a>文档参考</h2><p>视频1：<a href="https://ybfl.xyz/sites/283.html">https://ybfl.xyz/sites/283.html</a></p>
 <p>视频2：<a href="https://bulianglin.com/archives/hysteria2.html">https://bulianglin.com/archives/hysteria2.html</a></p>
-]]></content>
-      <categories>
-        <category>教程</category>
-      </categories>
-      <tags>
-        <tag>服务器</tag>
-      </tags>
-  </entry>
-  <entry>
-    <title>tmux后台工具使用方法</title>
-    <url>/undefined/3117353a.html</url>
-    <content><![CDATA[<p>tmux多路后台会话功能 即使SSH断开程序也可以在内置会话中执行 实现后台稳定运行<br><img src="https://pan.yuqi.fun/d/%E5%A4%A9%E7%BF%BC%E4%BA%91%E7%9B%98/img/202305051618430.png"></p>
-<p>有长时间任务或者后台程序运行需求大家可以使用tmux，比如编译程序，推流直播，SSH连接不稳定等等场景需求。你可以把这些程序存放到一个独立会话中，让他自己运作，完全不影响SSH主会话。</p>
-<p>即使SSH断了，你在tmux中的程序也不会断连。</p>
-<p>安装</p>
-<figure class="highlight plaintext"><table><tr><td class="code"><pre><span class="line">apt update -y &amp;&amp; apt install -y tmux</span><br></pre></td></tr></table></figure>
-
-<p>创建一个会话进入（可多开N个后台会话）</p>
-<figure class="highlight plaintext"><table><tr><td class="code"><pre><span class="line">tmux new -s my1</span><br></pre></td></tr></table></figure>
-<p><img src="https://pan.yuqi.fun/d/%E5%A4%A9%E7%BF%BC%E4%BA%91%E7%9B%98/img/202305051620536.png"></p>
-<p>退出会话不中断 Crl+b然后d</p>
-<p>重新进入会话</p>
-<figure class="highlight plaintext"><table><tr><td class="code"><pre><span class="line">tmux attach-session -t my1</span><br></pre></td></tr></table></figure>
-
-<p>查看所有tmux会话</p>
-<figure class="highlight plaintext"><table><tr><td class="code"><pre><span class="line">tmux list-sessions</span><br></pre></td></tr></table></figure>
-
-<p>删除会话</p>
-<figure class="highlight plaintext"><table><tr><td class="code"><pre><span class="line">tmux kill-session -t my1</span><br><span class="line">crl+d</span><br></pre></td></tr></table></figure>
 ]]></content>
       <categories>
         <category>教程</category>
@@ -2355,6 +2355,36 @@
       </tags>
   </entry>
   <entry>
+    <title>备份Hexo博客到开源仓库</title>
+    <url>/undefined/5836c89e.html</url>
+    <content><![CDATA[<p>本教程以 gitee 举例，GitHub 同理。</p>
+<h1 id="创建-gitee-仓库"><a href="#创建-gitee-仓库" class="headerlink" title="创建 gitee 仓库"></a>创建 gitee 仓库</h1><p>直接 gitee 官网右上角创建仓库即可，名字什么的自定义，最好创建私人仓库。</p>
+<h1 id="初始化本地仓库"><a href="#初始化本地仓库" class="headerlink" title="初始化本地仓库"></a>初始化本地仓库</h1><p>在本地 hexo 目录运行命令行</p>
+<p>输入</p>
+<figure class="highlight cmd"><table><tr><td class="code"><pre><span class="line">git init</span><br></pre></td></tr></table></figure>
+
+<p>然后输入</p>
+<figure class="highlight cmd"><table><tr><td class="code"><pre><span class="line">git remote add origin git@gitee.com:yuqi15/blog-backup.git</span><br></pre></td></tr></table></figure>
+
+<p>注意：这里是使用你自己创建仓库的链接，刚创建好会在页面上提示</p>
+<p><img src="https://pan.yuqi.fun/d/%E5%A4%A9%E7%BF%BC%E4%BA%91%E7%9B%98/img/202303031601529.png"></p>
+<h1 id="上传到-gitee"><a href="#上传到-gitee" class="headerlink" title="上传到 gitee"></a>上传到 gitee</h1><p>依次在命令行里面运行下面命令</p>
+<figure class="highlight cmd"><table><tr><td class="code"><pre><span class="line">git add .</span><br><span class="line">git commit -m &quot;update&quot;</span><br><span class="line">git push origin master --force</span><br></pre></td></tr></table></figure>
+
+<p>运行成功就上传完成了</p>
+<h1 id="新设备恢复-hexo-博客"><a href="#新设备恢复-hexo-博客" class="headerlink" title="新设备恢复 hexo 博客"></a>新设备恢复 hexo 博客</h1><p>1、安装 node</p>
+<p>2、安装 Git</p>
+<p>3、在你需要恢复博客的文件夹里面使用命令行执行</p>
+<figure class="highlight cmd"><table><tr><td class="code"><pre><span class="line">cnpm install hexo-cli -g</span><br><span class="line">git clone 你备份的仓库地址</span><br><span class="line">cnpm install</span><br></pre></td></tr></table></figure>
+]]></content>
+      <categories>
+        <category>教程</category>
+      </categories>
+      <tags>
+        <tag>hexo</tag>
+      </tags>
+  </entry>
+  <entry>
     <title>安卓14 + HttpCanary 抓包设置</title>
     <url>/undefined/5fb4c97d.html</url>
     <content><![CDATA[<h1 id="前言"><a href="#前言" class="headerlink" title="前言"></a>前言</h1><p>这两天使用 HttpCanary 抓包，无法安装证书，如下图，搜索找到了解决办法。本教程适合安卓14 + 无法安装证书，以及解决“系统证书”和“目标App使用固定证书”的问题。</p>
@@ -2388,36 +2418,6 @@
       </categories>
       <tags>
         <tag>手机</tag>
-      </tags>
-  </entry>
-  <entry>
-    <title>备份Hexo博客到开源仓库</title>
-    <url>/undefined/5836c89e.html</url>
-    <content><![CDATA[<p>本教程以 gitee 举例，GitHub 同理。</p>
-<h1 id="创建-gitee-仓库"><a href="#创建-gitee-仓库" class="headerlink" title="创建 gitee 仓库"></a>创建 gitee 仓库</h1><p>直接 gitee 官网右上角创建仓库即可，名字什么的自定义，最好创建私人仓库。</p>
-<h1 id="初始化本地仓库"><a href="#初始化本地仓库" class="headerlink" title="初始化本地仓库"></a>初始化本地仓库</h1><p>在本地 hexo 目录运行命令行</p>
-<p>输入</p>
-<figure class="highlight cmd"><table><tr><td class="code"><pre><span class="line">git init</span><br></pre></td></tr></table></figure>
-
-<p>然后输入</p>
-<figure class="highlight cmd"><table><tr><td class="code"><pre><span class="line">git remote add origin git@gitee.com:yuqi15/blog-backup.git</span><br></pre></td></tr></table></figure>
-
-<p>注意：这里是使用你自己创建仓库的链接，刚创建好会在页面上提示</p>
-<p><img src="https://pan.yuqi.fun/d/%E5%A4%A9%E7%BF%BC%E4%BA%91%E7%9B%98/img/202303031601529.png"></p>
-<h1 id="上传到-gitee"><a href="#上传到-gitee" class="headerlink" title="上传到 gitee"></a>上传到 gitee</h1><p>依次在命令行里面运行下面命令</p>
-<figure class="highlight cmd"><table><tr><td class="code"><pre><span class="line">git add .</span><br><span class="line">git commit -m &quot;update&quot;</span><br><span class="line">git push origin master --force</span><br></pre></td></tr></table></figure>
-
-<p>运行成功就上传完成了</p>
-<h1 id="新设备恢复-hexo-博客"><a href="#新设备恢复-hexo-博客" class="headerlink" title="新设备恢复 hexo 博客"></a>新设备恢复 hexo 博客</h1><p>1、安装 node</p>
-<p>2、安装 Git</p>
-<p>3、在你需要恢复博客的文件夹里面使用命令行执行</p>
-<figure class="highlight cmd"><table><tr><td class="code"><pre><span class="line">cnpm install hexo-cli -g</span><br><span class="line">git clone 你备份的仓库地址</span><br><span class="line">cnpm install</span><br></pre></td></tr></table></figure>
-]]></content>
-      <categories>
-        <category>教程</category>
-      </categories>
-      <tags>
-        <tag>hexo</tag>
       </tags>
   </entry>
   <entry>
@@ -2589,46 +2589,6 @@
 ]]></content>
   </entry>
   <entry>
-    <title>李跳跳2.2正式版</title>
-    <url>/undefined/f5caf0fa.html</url>
-    <content><![CDATA[<p><strong>无论你是哪个版本的李跳跳，都建议更新啊喂。</strong></p>
-<h1 id="更新日志"><a href="#更新日志" class="headerlink" title="更新日志"></a>更新日志</h1><p>1.省电优化。</p>
-<p>2.响应速度优化。</p>
-<p>3.内置算法优化。</p>
-<p>4.适配更多APP。</p>
-<p>5.修复已知BUG。</p>
-<p>6.修复用户反馈的问题。</p>
-<p>7.适配圆形倒计时广告。</p>
-<p>8.优化微信自动勾选原图。</p>
-<p>9.新增无障碍服务异常检测。</p>
-<p>10.自定义规则优化，支持关闭任意个连续弹窗。</p>
-<p>11.自定义规则优化，支持同一弹窗点击多个位置。</p>
-<p>12.自定义规则优化，遇到流氓弹窗容易误点广告的问题。</p>
-<p>13.优化短时间内弹出多个弹窗无法全部关闭的问题。</p>
-<p>14.过滤一些不合理输入，减少系统资源损耗。</p>
-<p>15.自定义规则支持CheckBox状态判断。</p>
-<p>16.修复华为系统下的特定BUG。</p>
-<p>17.适配华为系统下的特定广告。</p>
-<p>18.特定APP新增特定算法。</p>
-<p>19.适配特定系统的优化。</p>
-<p>20.支持自定义点击序列。</p>
-<p>21.优化节点过滤逻辑。</p>
-<p>22.支持覆盖内置规则。</p>
-<p>23.无障碍标签完善。</p>
-<p>24.优化部分文案。</p>
-<p>25.更换新图标。</p>
-<p>26.更换包名(无奈之举)。</p>
-<h1 id="下载地址"><a href="#下载地址" class="headerlink" title="下载地址"></a>下载地址</h1><p>免登陆下载：<a href="https://www.123pan.com/s/bAORVv-QGQl.html">https://www.123pan.com/s/bAORVv-QGQl.html</a></p>
-<p><img src="https://pan.yuqi.fun/d/%E5%A4%A9%E7%BF%BC%E4%BA%91%E7%9B%98/img/202304091214921.png" alt="image-20230409121412470"></p>
-]]></content>
-      <categories>
-        <category>软件分享</category>
-      </categories>
-      <tags>
-        <tag>安卓软件</tag>
-      </tags>
-  </entry>
-  <entry>
     <title>最佳免费NPV方式-workers搭建vless使用</title>
     <url>/undefined/1b7388f.html</url>
     <content><![CDATA[<h2 id="资源："><a href="#资源：" class="headerlink" title="资源："></a>资源：</h2><h6 id="WIN"><a href="#WIN" class="headerlink" title="WIN:"></a><strong>WIN:</strong></h6><p>v2rayN 最新版<a href="https://github.com/2dust/v2rayN/releases">下载地址&gt;&gt;</a></p>
@@ -2724,6 +2684,46 @@
       </categories>
       <tags>
         <tag>NPV</tag>
+      </tags>
+  </entry>
+  <entry>
+    <title>李跳跳2.2正式版</title>
+    <url>/undefined/f5caf0fa.html</url>
+    <content><![CDATA[<p><strong>无论你是哪个版本的李跳跳，都建议更新啊喂。</strong></p>
+<h1 id="更新日志"><a href="#更新日志" class="headerlink" title="更新日志"></a>更新日志</h1><p>1.省电优化。</p>
+<p>2.响应速度优化。</p>
+<p>3.内置算法优化。</p>
+<p>4.适配更多APP。</p>
+<p>5.修复已知BUG。</p>
+<p>6.修复用户反馈的问题。</p>
+<p>7.适配圆形倒计时广告。</p>
+<p>8.优化微信自动勾选原图。</p>
+<p>9.新增无障碍服务异常检测。</p>
+<p>10.自定义规则优化，支持关闭任意个连续弹窗。</p>
+<p>11.自定义规则优化，支持同一弹窗点击多个位置。</p>
+<p>12.自定义规则优化，遇到流氓弹窗容易误点广告的问题。</p>
+<p>13.优化短时间内弹出多个弹窗无法全部关闭的问题。</p>
+<p>14.过滤一些不合理输入，减少系统资源损耗。</p>
+<p>15.自定义规则支持CheckBox状态判断。</p>
+<p>16.修复华为系统下的特定BUG。</p>
+<p>17.适配华为系统下的特定广告。</p>
+<p>18.特定APP新增特定算法。</p>
+<p>19.适配特定系统的优化。</p>
+<p>20.支持自定义点击序列。</p>
+<p>21.优化节点过滤逻辑。</p>
+<p>22.支持覆盖内置规则。</p>
+<p>23.无障碍标签完善。</p>
+<p>24.优化部分文案。</p>
+<p>25.更换新图标。</p>
+<p>26.更换包名(无奈之举)。</p>
+<h1 id="下载地址"><a href="#下载地址" class="headerlink" title="下载地址"></a>下载地址</h1><p>免登陆下载：<a href="https://www.123pan.com/s/bAORVv-QGQl.html">https://www.123pan.com/s/bAORVv-QGQl.html</a></p>
+<p><img src="https://pan.yuqi.fun/d/%E5%A4%A9%E7%BF%BC%E4%BA%91%E7%9B%98/img/202304091214921.png" alt="image-20230409121412470"></p>
+]]></content>
+      <categories>
+        <category>软件分享</category>
+      </categories>
+      <tags>
+        <tag>安卓软件</tag>
       </tags>
   </entry>
   <entry>
