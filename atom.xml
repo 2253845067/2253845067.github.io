@@ -6,7 +6,7 @@
   <link href="http://blog.yuqi.fun/atom.xml" rel="self"/>
   
   <link href="http://blog.yuqi.fun/"/>
-  <updated>2025-05-23T00:00:00.000Z</updated>
+  <updated>2025-05-24T00:00:00.000Z</updated>
   <id>http://blog.yuqi.fun/</id>
   
   <author>
@@ -15,6 +15,27 @@
   </author>
   
   <generator uri="https://hexo.io/">Hexo</generator>
+  
+  <entry>
+    <title>SEW-MC07B变频器-MOTION--STUDIO软件调试步骤、方法和技巧</title>
+    <link href="http://blog.yuqi.fun/undefined/421934fd.html"/>
+    <id>http://blog.yuqi.fun/undefined/421934fd.html</id>
+    <published>2025-05-24T00:00:00.000Z</published>
+    <updated>2025-05-24T00:00:00.000Z</updated>
+    
+    <content type="html"><![CDATA[<p><img src="http://ydn.yuqi.fun:5244/d/189Cloud/img/20250524205528464.PNG" alt="4"></p><p><img src="http://ydn.yuqi.fun:5244/d/189Cloud/img/20250524205547050.PNG" alt="5"></p><p><img src="http://ydn.yuqi.fun:5244/d/189Cloud/img/20250524205627985.PNG" alt="6"></p><p><img src="http://ydn.yuqi.fun:5244/d/189Cloud/img/20250524205645010.PNG" alt="7"></p><p><img src="http://ydn.yuqi.fun:5244/d/189Cloud/img/20250524205656950.PNG" alt="8"></p><p><img src="http://ydn.yuqi.fun:5244/d/189Cloud/img/20250524205709394.PNG" alt="9"></p><p><img src="http://ydn.yuqi.fun:5244/d/189Cloud/img/20250524205720726.PNG" alt="10"></p><p><img src="http://ydn.yuqi.fun:5244/d/189Cloud/img/20250524205733378.PNG" alt="11"></p><p><img src="http://ydn.yuqi.fun:5244/d/189Cloud/img/20250524205754775.PNG" alt="12"></p><p><img src="http://ydn.yuqi.fun:5244/d/189Cloud/img/20250524205811663.PNG" alt="13"></p><p><img src="http://ydn.yuqi.fun:5244/d/189Cloud/img/20250524205821221.PNG" alt="14"></p><p><img src="http://ydn.yuqi.fun:5244/d/189Cloud/img/20250524205834316.PNG" alt="15"></p><p><img src="http://ydn.yuqi.fun:5244/d/189Cloud/img/20250524205843533.PNG" alt="16"></p><p><img src="http://ydn.yuqi.fun:5244/d/189Cloud/img/20250524205901797.PNG" alt="17"></p><p><img src="http://ydn.yuqi.fun:5244/d/189Cloud/img/20250524205914973.PNG" alt="18"></p><p><img src="http://ydn.yuqi.fun:5244/d/189Cloud/img/20250524205928160.PNG" alt="19"></p><p><img src="http://ydn.yuqi.fun:5244/d/189Cloud/img/20250524205940302.PNG" alt="20"></p><p><img src="http://ydn.yuqi.fun:5244/d/189Cloud/img/20250524205950644.PNG" alt="21"></p><p><img src="http://ydn.yuqi.fun:5244/d/189Cloud/img/20250524210006913.PNG" alt="22"></p><p><img src="http://ydn.yuqi.fun:5244/d/189Cloud/img/20250524210029075.PNG" alt="23"></p><p><img src="http://ydn.yuqi.fun:5244/d/189Cloud/img/20250524210042996.PNG" alt="24"></p><p><img src="http://ydn.yuqi.fun:5244/d/189Cloud/img/20250524210105981.PNG" alt="25"></p><p><img src="http://ydn.yuqi.fun:5244/d/189Cloud/img/20250524210122505.PNG" alt="26"></p><p><img src="http://ydn.yuqi.fun:5244/d/189Cloud/img/20250524210136340.PNG" alt="27"></p><p><img src="http://ydn.yuqi.fun:5244/d/189Cloud/img/20250524210145600.PNG" alt="28"></p><p><img src="http://ydn.yuqi.fun:5244/d/189Cloud/img/20250524210156379.PNG" alt="29"></p><p><img src="http://ydn.yuqi.fun:5244/d/189Cloud/img/20250524210210502.PNG" alt="30"></p><p><img src="http://ydn.yuqi.fun:5244/d/189Cloud/img/20250524210234883.PNG" alt="31"></p><p><img src="http://ydn.yuqi.fun:5244/d/189Cloud/img/20250524210248367.PNG" alt="32"></p><p><img src="http://ydn.yuqi.fun:5244/d/189Cloud/img/20250524210258079.PNG" alt="33"></p><p><img src="http://ydn.yuqi.fun:5244/d/189Cloud/img/20250524210309675.PNG" alt="34"></p><p><img src="http://ydn.yuqi.fun:5244/d/189Cloud/img/20250524210319649.PNG" alt="35"></p><p><img src="http://ydn.yuqi.fun:5244/d/189Cloud/img/20250524210333008.PNG" alt="36"></p><p><img src="http://ydn.yuqi.fun:5244/d/189Cloud/img/20250524210342988.PNG" alt="37"></p><p><img src="http://ydn.yuqi.fun:5244/d/189Cloud/img/20250524210354944.PNG" alt="38"></p><p><img src="http://ydn.yuqi.fun:5244/d/189Cloud/img/20250524210407861.PNG" alt="39"></p><p><img src="http://ydn.yuqi.fun:5244/d/189Cloud/img/20250524210423100.PNG" alt="40"></p><p><img src="http://ydn.yuqi.fun:5244/d/189Cloud/img/20250524210434359.PNG" alt="41"></p><p><img src="http://ydn.yuqi.fun:5244/d/189Cloud/img/20250524210450567.PNG" alt="42"></p><p><img src="http://ydn.yuqi.fun:5244/d/189Cloud/img/20250524210503106.PNG" alt="43"></p><p><img src="http://ydn.yuqi.fun:5244/d/189Cloud/img/20250524210515428.PNG" alt="44"></p><p><img src="http://ydn.yuqi.fun:5244/d/189Cloud/img/20250524210527098.PNG" alt="45"></p><p><img src="http://ydn.yuqi.fun:5244/d/189Cloud/img/20250524210537936.PNG" alt="46"></p><p><img src="http://ydn.yuqi.fun:5244/d/189Cloud/img/20250524210549531.PNG" alt="47"></p><p><img src="http://ydn.yuqi.fun:5244/d/189Cloud/img/20250524210601981.PNG" alt="48"></p><p><img src="http://ydn.yuqi.fun:5244/d/189Cloud/img/20250524210614094.PNG" alt="49"></p><p><img src="http://ydn.yuqi.fun:5244/d/189Cloud/img/20250524210627091.PNG" alt="50"></p><p><img src="http://ydn.yuqi.fun:5244/d/189Cloud/img/20250524210637201.PNG" alt="51"></p><p><img src="http://ydn.yuqi.fun:5244/d/189Cloud/img/20250524210647926.PNG" alt="52"></p>]]></content>
+    
+    
+      
+      
+    <summary type="html">&lt;p&gt;&lt;img src=&quot;http://ydn.yuqi.fun:5244/d/189Cloud/img/20250524205528464.PNG&quot; alt=&quot;4&quot;&gt;&lt;/p&gt;
+&lt;p&gt;&lt;img src=&quot;http://ydn.yuqi.fun:5244/d/189Cloud/im</summary>
+      
+    
+    
+    
+    
+  </entry>
   
   <entry>
     <title>SINAMICS G120D CU250-2PN速度控制调试步骤</title>
@@ -441,31 +462,6 @@
     
     
     <category term="手机" scheme="http://blog.yuqi.fun/tags/%E6%89%8B%E6%9C%BA/"/>
-    
-  </entry>
-  
-  <entry>
-    <title>x-ui最稳妥的魔术面板</title>
-    <link href="http://blog.yuqi.fun/undefined/af28068c.html"/>
-    <id>http://blog.yuqi.fun/undefined/af28068c.html</id>
-    <published>2023-11-06T00:00:00.000Z</published>
-    <updated>2023-11-06T00:00:00.000Z</updated>
-    
-    <content type="html"><![CDATA[<p><strong>最近经常有人被封端口，我自己搭的这个方案没被封过，现在分享出来。</strong></p><h2 id="系统：Debian10-11"><a href="#系统：Debian10-11" class="headerlink" title="系统：Debian10-11"></a>系统：Debian10-11</h2><p>首先要确保自己的vps是纯净的系统，不要商家预装的，在系统启动后操作DD重装脚本进行安装纯净版系统</p><h2 id="第一步：DD重装Debian10系统："><a href="#第一步：DD重装Debian10系统：" class="headerlink" title="第一步：DD重装Debian10系统："></a>第一步：DD重装Debian10系统：</h2><figure class="highlight shell"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">wget -N --no-check-certificate https://raw.githubusercontent.com/qingee/dd/master/InstallNET.sh &amp;&amp; chmod +x InstallNET.sh &amp;&amp; ./InstallNET.sh -d 10 -v 64 -p &quot;notetoday&quot; -port &quot;22&quot;</span><br></pre></td></tr></table></figure><p>系统root密码：<code>notetoday</code><br>更改root密码：<code>passwd</code> 或者 <code>passwd root</code>输入你想要设置的密码即可，在ssh命令窗口输入密码<code>不显示是正常的</code></p><h2 id="第二步：安装WARP接管VPS的出站ip（加入香港节点WireGuard异常：可以去Github）"><a href="#第二步：安装WARP接管VPS的出站ip（加入香港节点WireGuard异常：可以去Github）" class="headerlink" title="第二步：安装WARP接管VPS的出站ip（加入香港节点WireGuard异常：可以去Github）"></a>第二步：安装WARP接管VPS的出站ip（加入香港节点WireGuard异常：可以去<a href="https://github.com/fscarmen/warp">Github</a>）</h2><blockquote><p>apt update<br>apt install curl -y<br>apt install gnupg2 -y<br>apt install wget -y<br># 自动配置 WARP WireGuard IPv4 网络<br>bash &lt;(curl -fsSL git.io&#x2F;warp.sh) 4<br>echo “1” &gt; &#x2F;proc&#x2F;sys&#x2F;net&#x2F;ipv6&#x2F;conf&#x2F;all&#x2F;disable_ipv6</p></blockquote><p>这个配置后你vps向外请求的所有ip都不是本机的真实ip，速度可能会有所影响，但是会很安全</p><h2 id="第三步：-安装适用于流媒体的XanMod内核开启BBR2（FQ-PIE）："><a href="#第三步：-安装适用于流媒体的XanMod内核开启BBR2（FQ-PIE）：" class="headerlink" title="第三步： 安装适用于流媒体的XanMod内核开启BBR2（FQ+PIE）："></a>第三步： 安装适用于流媒体的XanMod内核开启BBR2（FQ+PIE）：</h2><blockquote><ol><li>Register the PGP key:</li></ol><figure class="highlight shell"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">wget -qO - https://dl.xanmod.org/archive.key | sudo gpg --dearmor -o /usr/share/keyrings/xanmod-archive-keyring.gpg</span><br></pre></td></tr></table></figure><ol start="2"><li>Add the repository:</li></ol><figure class="highlight shell"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">echo &#x27;deb [signed-by=/usr/share/keyrings/xanmod-archive-keyring.gpg] http://deb.xanmod.org releases main&#x27; | sudo tee /etc/apt/sources.list.d/xanmod-release.list</span><br></pre></td></tr></table></figure><ol start="3"><li>Then update and install:  <strong>⇲</strong> Check platform compatibility in <strong>x86-64 psABI level reference</strong> below.</li></ol><figure class="highlight shell"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">sudo apt update &amp;&amp; sudo apt install linux-xanmod-x64v3</span><br></pre></td></tr></table></figure><ol start="4"><li>Reboot</li></ol></blockquote><p>执行完命令代码后等待系统重启，重启完成后执行以下脚本开启<code>BBR2</code></p><blockquote><p>bash &lt;(curl -Lso- <a href="https://git.io/kernel.sh">https://git.io/kernel.sh</a>)</p></blockquote><p><a href=""><img src="https://pan.yuqi.fun/d/%E5%A4%A9%E7%BF%BC%E4%BA%91%E7%9B%98/img/202311061449957.png" alt="2022-10-22T05:09:28.png"></a><br><a href=""><img src="https://pan.yuqi.fun/d/%E5%A4%A9%E7%BF%BC%E4%BA%91%E7%9B%98/img/202311061450569.png" alt="2022-10-22T05:13:42.png"></a><br><a href=""><img src="https://pan.yuqi.fun/d/%E5%A4%A9%E7%BF%BC%E4%BA%91%E7%9B%98/img/202311061450421.png" alt="2022-10-22T05:15:10.png"></a><br>再次运行上面的代码，查看参数是否和下图一样，如果是一样的就是开启成功了<br><a href=""><img src="https://pan.yuqi.fun/d/%E5%A4%A9%E7%BF%BC%E4%BA%91%E7%9B%98/img/202311061450627.png" alt="2022-10-22T05:17:17.png"></a> </p><h2 id="第四步：安装x-ui面板"><a href="#第四步：安装x-ui面板" class="headerlink" title="第四步：安装x-ui面板"></a><strong>第四步：安装x-ui面板</strong></h2><blockquote></blockquote><h2 id="PS：安装VPS开源MW控制面板（要装就装，不装也没事）"><a href="#PS：安装VPS开源MW控制面板（要装就装，不装也没事）" class="headerlink" title="PS：安装VPS开源MW控制面板（要装就装，不装也没事）"></a><strong>PS：安装VPS开源MW控制面板（要装就装，不装也没事）</strong></h2><p>使用这套配置操作，所有IP 都是CDNip</p><p><a href="https://www.notetoday.net/note/111.html">Linux主机开源面板：mdserver-web，完全免费，界面仿宝塔面板</a></p><figure class="highlight shell"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line">curl -fsSL https://gcore.jsdelivr.net/gh/midoks/mdserver-web@latest/scripts/install.sh | bash</span><br><span class="line">curl -fsSL  https://raw.githubusercontent.com/midoks/mdserver-web/dev/scripts/update_dev.sh | bash</span><br></pre></td></tr></table></figure><p><a href=""><img src="https://pan.yuqi.fun/d/%E5%A4%A9%E7%BF%BC%E4%BA%91%E7%9B%98/img/202311061450166.png" alt="2022-10-22T05:25:00.png"></a><br>记住控制面板的信息登录上去后在安全里<code>关闭防火墙</code></p><p>或者海外宝塔：<a href="https://www.aapanel.com/new/download.html">https://www.aapanel.com/new/download.html</a></p>]]></content>
-    
-    
-      
-      
-    <summary type="html">&lt;p&gt;&lt;strong&gt;最近经常有人被封端口，我自己搭的这个方案没被封过，现在分享出来。&lt;/strong&gt;&lt;/p&gt;
-&lt;h2 id=&quot;系统：Debian10-11&quot;&gt;&lt;a href=&quot;#系统：Debian10-11&quot; class=&quot;headerlink&quot; title=&quot;系统：Debi</summary>
-      
-    
-    
-    
-    <category term="教程" scheme="http://blog.yuqi.fun/categories/%E6%95%99%E7%A8%8B/"/>
-    
-    
-    <category term="VPN" scheme="http://blog.yuqi.fun/tags/VPN/"/>
     
   </entry>
   
