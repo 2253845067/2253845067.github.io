@@ -2159,6 +2159,43 @@
       </tags>
   </entry>
   <entry>
+    <title>git每次操作提示输入密码问题解决</title>
+    <url>/undefined/21c693ea.html</url>
+    <content><![CDATA[<p><strong>提示：git每次pull提示需要密码</strong></p>
+<hr>
+<h1 id="错误提示"><a href="#错误提示" class="headerlink" title="错误提示"></a>错误提示</h1><figure class="highlight plaintext"><table><tr><td class="code"><pre><span class="line">Administrator@DEEP MINGW64 /f/code/xxx-service (master)</span><br><span class="line">$ git pull</span><br><span class="line">git@gitlab.xxx.com&#x27;s password:</span><br></pre></td></tr></table></figure>
+
+<h1 id="原因"><a href="#原因" class="headerlink" title="原因"></a>原因</h1><p>只提示输入密码的情况，一般是秘钥验证失败。二种情况</p>
+<hr>
+<h1 id="1、公钥验证错误"><a href="#1、公钥验证错误" class="headerlink" title="1、公钥验证错误"></a>1、公钥验证错误</h1><p>  解决方法如下，以github为例</p>
+<p>  在<a href="https://github.com/settings/keys">https://github.com/settings/keys</a> 界面，将生成的<a href="https://so.csdn.net/so/search?q=%E5%85%AC%E9%92%A5&spm=1001.2101.3001.7020">公钥</a>添加到SSH keys项中</p>
+<p>  如没有则使用<a href="https://so.csdn.net/so/search?q=ssh-keygen&spm=1001.2101.3001.7020">ssh-keygen</a>命令生成</p>
+<figure class="highlight plaintext"><table><tr><td class="code"><pre><span class="line">ssh-keygen -t rsa -C &quot;Your Email Address&quot; -f &quot;~/.ssh/gitlab_id_rsa&quot;</span><br></pre></td></tr></table></figure>
+
+<h1 id="2、私钥验证错误"><a href="#2、私钥验证错误" class="headerlink" title="2、私钥验证错误"></a>2、私钥验证错误</h1><p>git拉取代码时没有配置私钥认证</p>
+<p>使用以下命令添加认证到ssh</p>
+<figure class="highlight plaintext"><table><tr><td class="code"><pre><span class="line">ssh-add ~/.ssh/gitlab_id_rsa</span><br></pre></td></tr></table></figure>
+
+<p>使用以上命令，只能对当前环境生效，重启或新开终端会继续提示输入密码</p>
+<p>永久解决：在<code>~/.ssh/config</code>文件中（没有则新建），指定对应git服务使用的认证秘钥文件即可</p>
+<figure class="highlight plaintext"><table><tr><td class="code"><pre><span class="line"># GitLab.com 密钥</span><br><span class="line">Host github.com</span><br><span class="line">  Preferredauthentications publickey</span><br><span class="line">  IdentityFile ~/.ssh/github_id_rsa</span><br><span class="line"># GitLab.com 密钥</span><br><span class="line">Host gitlab.xxx.com</span><br><span class="line">  Preferredauthentications publickey</span><br><span class="line">  IdentityFile ~/.ssh/gitlab_id_rsa</span><br></pre></td></tr></table></figure>
+
+
+
+<hr>
+<h1 id="总结"><a href="#总结" class="headerlink" title="总结"></a>总结</h1><ol>
+<li>直接提示输入密码的，为秘钥认证失败，使用以上方法即可解决</li>
+<li>提示输入账号和密码的，为账号认证失败，使用<code>git config --global credential.helper store</code>命令，可输入一次密码后永久存储</li>
+</ol>
+]]></content>
+      <categories>
+        <category>教程</category>
+      </categories>
+      <tags>
+        <tag>git</tag>
+      </tags>
+  </entry>
+  <entry>
     <title>Xray最新协议Reality搭建</title>
     <url>/undefined/428849a6.html</url>
     <content><![CDATA[<h1 id="简介"><a href="#简介" class="headerlink" title="简介"></a>简介</h1><p>为了应对 TLS in TLS 和指纹识别等阻断或封禁的风险，Xray-core 团队推出了 Vision 和 Reality 两种新颖的技术方案。它们能够有效地隐藏和保护流量的特征，提高安全性和稳定性。</p>
@@ -2217,43 +2254,6 @@
       </categories>
       <tags>
         <tag>VPS</tag>
-      </tags>
-  </entry>
-  <entry>
-    <title>git每次操作提示输入密码问题解决</title>
-    <url>/undefined/21c693ea.html</url>
-    <content><![CDATA[<p><strong>提示：git每次pull提示需要密码</strong></p>
-<hr>
-<h1 id="错误提示"><a href="#错误提示" class="headerlink" title="错误提示"></a>错误提示</h1><figure class="highlight plaintext"><table><tr><td class="code"><pre><span class="line">Administrator@DEEP MINGW64 /f/code/xxx-service (master)</span><br><span class="line">$ git pull</span><br><span class="line">git@gitlab.xxx.com&#x27;s password:</span><br></pre></td></tr></table></figure>
-
-<h1 id="原因"><a href="#原因" class="headerlink" title="原因"></a>原因</h1><p>只提示输入密码的情况，一般是秘钥验证失败。二种情况</p>
-<hr>
-<h1 id="1、公钥验证错误"><a href="#1、公钥验证错误" class="headerlink" title="1、公钥验证错误"></a>1、公钥验证错误</h1><p>  解决方法如下，以github为例</p>
-<p>  在<a href="https://github.com/settings/keys">https://github.com/settings/keys</a> 界面，将生成的<a href="https://so.csdn.net/so/search?q=%E5%85%AC%E9%92%A5&spm=1001.2101.3001.7020">公钥</a>添加到SSH keys项中</p>
-<p>  如没有则使用<a href="https://so.csdn.net/so/search?q=ssh-keygen&spm=1001.2101.3001.7020">ssh-keygen</a>命令生成</p>
-<figure class="highlight plaintext"><table><tr><td class="code"><pre><span class="line">ssh-keygen -t rsa -C &quot;Your Email Address&quot; -f &quot;~/.ssh/gitlab_id_rsa&quot;</span><br></pre></td></tr></table></figure>
-
-<h1 id="2、私钥验证错误"><a href="#2、私钥验证错误" class="headerlink" title="2、私钥验证错误"></a>2、私钥验证错误</h1><p>git拉取代码时没有配置私钥认证</p>
-<p>使用以下命令添加认证到ssh</p>
-<figure class="highlight plaintext"><table><tr><td class="code"><pre><span class="line">ssh-add ~/.ssh/gitlab_id_rsa</span><br></pre></td></tr></table></figure>
-
-<p>使用以上命令，只能对当前环境生效，重启或新开终端会继续提示输入密码</p>
-<p>永久解决：在<code>~/.ssh/config</code>文件中（没有则新建），指定对应git服务使用的认证秘钥文件即可</p>
-<figure class="highlight plaintext"><table><tr><td class="code"><pre><span class="line"># GitLab.com 密钥</span><br><span class="line">Host github.com</span><br><span class="line">  Preferredauthentications publickey</span><br><span class="line">  IdentityFile ~/.ssh/github_id_rsa</span><br><span class="line"># GitLab.com 密钥</span><br><span class="line">Host gitlab.xxx.com</span><br><span class="line">  Preferredauthentications publickey</span><br><span class="line">  IdentityFile ~/.ssh/gitlab_id_rsa</span><br></pre></td></tr></table></figure>
-
-
-
-<hr>
-<h1 id="总结"><a href="#总结" class="headerlink" title="总结"></a>总结</h1><ol>
-<li>直接提示输入密码的，为秘钥认证失败，使用以上方法即可解决</li>
-<li>提示输入账号和密码的，为账号认证失败，使用<code>git config --global credential.helper store</code>命令，可输入一次密码后永久存储</li>
-</ol>
-]]></content>
-      <categories>
-        <category>教程</category>
-      </categories>
-      <tags>
-        <tag>git</tag>
       </tags>
   </entry>
   <entry>
@@ -3161,53 +3161,6 @@
       </tags>
   </entry>
   <entry>
-    <title>记中兴MF932改串</title>
-    <url>/undefined/27cbce44.html</url>
-    <content><![CDATA[<h1 id="注意！"><a href="#注意！" class="headerlink" title="注意！"></a>注意！</h1><p><strong>改串需要自己将串号写入NV文件中，我也不知道怎么写入，本教程只做参考，不会生成改串的NV文件就不用再往下看了。</strong>**</p>
-<h1 id="下载资料包"><a href="#下载资料包" class="headerlink" title="下载资料包"></a>下载资料包</h1><a class="btn-beautify green larger" href="https://www.123pan.com/s/bAORVv-LSEl.html" title="点击下载"><i class="far fa-hand-point-right"></i><span>点击下载</span></a>
-
-<h1 id="安装驱动以及AT工具"><a href="#安装驱动以及AT工具" class="headerlink" title="安装驱动以及AT工具"></a>安装驱动以及AT工具</h1><p><img src="https://pan.yuqi.fun/d/%E5%A4%A9%E7%BF%BC%E4%BA%91%E7%9B%98/img/202303232019930.png"></p>
-<p>安装驱动和AT工具都是一直默认下一步，驱动的话安装完成会有弹窗，再次点击Update Driver就行，安装完成关闭即可。</p>
-<p><img src="https://pan.yuqi.fun/d/%E5%A4%A9%E7%BF%BC%E4%BA%91%E7%9B%98/img/202303232027379.png" alt="image-20230323202701458"></p>
-<h1 id="改串步骤"><a href="#改串步骤" class="headerlink" title="改串步骤"></a>改串步骤</h1><p>随身WiFi开机连接电脑，双击开端口.exe</p>
-<p><img src="https://pan.yuqi.fun/d/%E5%A4%A9%E7%BF%BC%E4%BA%91%E7%9B%98/img/202303232025428.png"></p>
-<p>然后打开AT工具</p>
-<p><img src="https://pan.yuqi.fun/d/%E5%A4%A9%E7%BF%BC%E4%BA%91%E7%9B%98/img/202303232028866.png" alt="image-20230323202802094"></p>
-<p>选择带AT的端口，波特率115200</p>
-<p><img src="https://pan.yuqi.fun/d/%E5%A4%A9%E7%BF%BC%E4%BA%91%E7%9B%98/img/202303232030393.png" alt="image-20230323203011060"></p>
-<p>输入AT，点击发送，返回OK则连接成功</p>
-<p><img src="https://pan.yuqi.fun/d/%E5%A4%A9%E7%BF%BC%E4%BA%91%E7%9B%98/img/202303232031438.png" alt="image-20230323203136174"></p>
-<p>输入</p>
-<figure class="highlight plaintext"><table><tr><td class="code"><pre><span class="line">AT+zmode=1</span><br></pre></td></tr></table></figure>
-
-<p>拔掉随身WiFi然后重连</p>
-<p>在资料包文件夹打开命令提示符（CMD）,地址栏输入并回车</p>
-<p><img src="https://pan.yuqi.fun/d/%E5%A4%A9%E7%BF%BC%E4%BA%91%E7%9B%98/img/202303232039978.png" alt="image-20230323203952252"></p>
-<p>按照下面的命令进行操作</p>
-<p>备份原来NV</p>
-<figure class="highlight plaintext"><table><tr><td class="code"><pre><span class="line">adb pull /mnt/nvrofs/nvroall.bin C:\Users\YUQI\Desktop\（C:\Users\YUQI\Desktop\ 是保存的文件存放路径）</span><br></pre></td></tr></table></figure>
-
-<p>清除设备NV</p>
-<figure class="highlight plaintext"><table><tr><td class="code"><pre><span class="line">adb shell mount -o remount,rw /mnt nvrofs</span><br><span class="line">adb shell rm -rf /mnt/nvrofs/nvroall.bin</span><br></pre></td></tr></table></figure>
-
-<p>推送修改新imei的NV</p>
-<figure class="highlight plaintext"><table><tr><td class="code"><pre><span class="line">adb push C:\Users\YUQI\Desktop\nvroall.bin /mnt/nvrofs/ （C:\Users\YUQI\Desktop\nvroall.bin是新NV的路径）</span><br></pre></td></tr></table></figure>
-
-<p>重启设备</p>
-<figure class="highlight plaintext"><table><tr><td class="code"><pre><span class="line">adb shell reboot</span><br></pre></td></tr></table></figure>
-
-<p>拔掉随身WiFi再次连接</p>
-<p>重复以上步骤，清除设备NV，推送修改新imei的NV，重启设备</p>
-<p>完成</p>
-]]></content>
-      <categories>
-        <category>教程</category>
-      </categories>
-      <tags>
-        <tag>随身WiFi</tag>
-      </tags>
-  </entry>
-  <entry>
     <title>移载机SEW MOVIDRIVE 变频器配置手册（双编码器）</title>
     <url>/undefined/4f7419e2.html</url>
     <content><![CDATA[<h1 id="一、SEW变频器Startup"><a href="#一、SEW变频器Startup" class="headerlink" title="一、SEW变频器Startup"></a>一、SEW变频器Startup</h1><p>安装好MOVITOOL软件</p>
@@ -3320,6 +3273,53 @@
 <p>设置完成这些参数，可以测试运行电机。</p>
 <p><img src="https://pan.yuqi.fun/d/%E5%A4%A9%E7%BF%BC%E4%BA%91%E7%9B%98/img/20250522212158850.png" alt="image-20250522210558705"></p>
 ]]></content>
+  </entry>
+  <entry>
+    <title>记中兴MF932改串</title>
+    <url>/undefined/27cbce44.html</url>
+    <content><![CDATA[<h1 id="注意！"><a href="#注意！" class="headerlink" title="注意！"></a>注意！</h1><p><strong>改串需要自己将串号写入NV文件中，我也不知道怎么写入，本教程只做参考，不会生成改串的NV文件就不用再往下看了。</strong>**</p>
+<h1 id="下载资料包"><a href="#下载资料包" class="headerlink" title="下载资料包"></a>下载资料包</h1><a class="btn-beautify green larger" href="https://www.123pan.com/s/bAORVv-LSEl.html" title="点击下载"><i class="far fa-hand-point-right"></i><span>点击下载</span></a>
+
+<h1 id="安装驱动以及AT工具"><a href="#安装驱动以及AT工具" class="headerlink" title="安装驱动以及AT工具"></a>安装驱动以及AT工具</h1><p><img src="https://pan.yuqi.fun/d/%E5%A4%A9%E7%BF%BC%E4%BA%91%E7%9B%98/img/202303232019930.png"></p>
+<p>安装驱动和AT工具都是一直默认下一步，驱动的话安装完成会有弹窗，再次点击Update Driver就行，安装完成关闭即可。</p>
+<p><img src="https://pan.yuqi.fun/d/%E5%A4%A9%E7%BF%BC%E4%BA%91%E7%9B%98/img/202303232027379.png" alt="image-20230323202701458"></p>
+<h1 id="改串步骤"><a href="#改串步骤" class="headerlink" title="改串步骤"></a>改串步骤</h1><p>随身WiFi开机连接电脑，双击开端口.exe</p>
+<p><img src="https://pan.yuqi.fun/d/%E5%A4%A9%E7%BF%BC%E4%BA%91%E7%9B%98/img/202303232025428.png"></p>
+<p>然后打开AT工具</p>
+<p><img src="https://pan.yuqi.fun/d/%E5%A4%A9%E7%BF%BC%E4%BA%91%E7%9B%98/img/202303232028866.png" alt="image-20230323202802094"></p>
+<p>选择带AT的端口，波特率115200</p>
+<p><img src="https://pan.yuqi.fun/d/%E5%A4%A9%E7%BF%BC%E4%BA%91%E7%9B%98/img/202303232030393.png" alt="image-20230323203011060"></p>
+<p>输入AT，点击发送，返回OK则连接成功</p>
+<p><img src="https://pan.yuqi.fun/d/%E5%A4%A9%E7%BF%BC%E4%BA%91%E7%9B%98/img/202303232031438.png" alt="image-20230323203136174"></p>
+<p>输入</p>
+<figure class="highlight plaintext"><table><tr><td class="code"><pre><span class="line">AT+zmode=1</span><br></pre></td></tr></table></figure>
+
+<p>拔掉随身WiFi然后重连</p>
+<p>在资料包文件夹打开命令提示符（CMD）,地址栏输入并回车</p>
+<p><img src="https://pan.yuqi.fun/d/%E5%A4%A9%E7%BF%BC%E4%BA%91%E7%9B%98/img/202303232039978.png" alt="image-20230323203952252"></p>
+<p>按照下面的命令进行操作</p>
+<p>备份原来NV</p>
+<figure class="highlight plaintext"><table><tr><td class="code"><pre><span class="line">adb pull /mnt/nvrofs/nvroall.bin C:\Users\YUQI\Desktop\（C:\Users\YUQI\Desktop\ 是保存的文件存放路径）</span><br></pre></td></tr></table></figure>
+
+<p>清除设备NV</p>
+<figure class="highlight plaintext"><table><tr><td class="code"><pre><span class="line">adb shell mount -o remount,rw /mnt nvrofs</span><br><span class="line">adb shell rm -rf /mnt/nvrofs/nvroall.bin</span><br></pre></td></tr></table></figure>
+
+<p>推送修改新imei的NV</p>
+<figure class="highlight plaintext"><table><tr><td class="code"><pre><span class="line">adb push C:\Users\YUQI\Desktop\nvroall.bin /mnt/nvrofs/ （C:\Users\YUQI\Desktop\nvroall.bin是新NV的路径）</span><br></pre></td></tr></table></figure>
+
+<p>重启设备</p>
+<figure class="highlight plaintext"><table><tr><td class="code"><pre><span class="line">adb shell reboot</span><br></pre></td></tr></table></figure>
+
+<p>拔掉随身WiFi再次连接</p>
+<p>重复以上步骤，清除设备NV，推送修改新imei的NV，重启设备</p>
+<p>完成</p>
+]]></content>
+      <categories>
+        <category>教程</category>
+      </categories>
+      <tags>
+        <tag>随身WiFi</tag>
+      </tags>
   </entry>
   <entry>
     <title>谷歌浏览器设置关闭搜索记录</title>

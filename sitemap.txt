@@ -73,8 +73,8 @@ http://blog.yuqi.fun/tags/%E6%9C%8D%E5%8A%A1%E5%99%A8/
 http://blog.yuqi.fun/tags/SEW/
 http://blog.yuqi.fun/tags/SICK/
 http://blog.yuqi.fun/tags/v2/
-http://blog.yuqi.fun/tags/VPS/
 http://blog.yuqi.fun/tags/git/
+http://blog.yuqi.fun/tags/VPS/
 http://blog.yuqi.fun/tags/VPN/
 http://blog.yuqi.fun/tags/%E9%9A%8F%E8%BA%ABWiFi/
 http://blog.yuqi.fun/tags/%E7%BD%91%E7%AB%99/
