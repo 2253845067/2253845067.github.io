@@ -2,24 +2,6 @@
 <urlset xmlns="http://www.sitemaps.org/schemas/sitemap/0.9">
   
   <url>
-    <loc>http://blog.yuqi.fun/comment/index.html</loc>
-    
-    <lastmod>2025-05-24</lastmod>
-    
-    <changefreq>monthly</changefreq>
-    <priority>0.6</priority>
-  </url>
-  
-  <url>
-    <loc>http://blog.yuqi.fun/link/index.html</loc>
-    
-    <lastmod>2025-05-24</lastmod>
-    
-    <changefreq>monthly</changefreq>
-    <priority>0.6</priority>
-  </url>
-  
-  <url>
     <loc>http://blog.yuqi.fun/tags/index.html</loc>
     
     <lastmod>2025-05-24</lastmod>
@@ -48,6 +30,24 @@
   
   <url>
     <loc>http://blog.yuqi.fun/categories/index.html</loc>
+    
+    <lastmod>2025-05-24</lastmod>
+    
+    <changefreq>monthly</changefreq>
+    <priority>0.6</priority>
+  </url>
+  
+  <url>
+    <loc>http://blog.yuqi.fun/comment/index.html</loc>
+    
+    <lastmod>2025-05-24</lastmod>
+    
+    <changefreq>monthly</changefreq>
+    <priority>0.6</priority>
+  </url>
+  
+  <url>
+    <loc>http://blog.yuqi.fun/link/index.html</loc>
     
     <lastmod>2025-05-24</lastmod>
     

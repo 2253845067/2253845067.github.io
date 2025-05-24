@@ -386,6 +386,27 @@
       </tags>
   </entry>
   <entry>
+    <title>Butterfly主题添加本地搜索功能</title>
+    <url>/undefined/f2a576c2.html</url>
+    <content><![CDATA[<p>安装插件：</p>
+<figure class="highlight bash"><table><tr><td class="code"><pre><span class="line">npm install hexo-generator-search --save</span><br></pre></td></tr></table></figure>
+
+<p>修改_config.yml文件，添加以下内容</p>
+<figure class="highlight yml"><table><tr><td class="code"><pre><span class="line"><span class="comment"># 添加本地搜索</span></span><br><span class="line"><span class="attr">search:</span></span><br><span class="line">  <span class="attr">path:</span> <span class="string">search.xml</span></span><br><span class="line">  <span class="attr">field:</span> <span class="string">post</span></span><br><span class="line">  <span class="attr">content:</span> <span class="literal">true</span></span><br><span class="line">  <span class="attr">format:</span> <span class="string">html</span></span><br></pre></td></tr></table></figure>
+
+<p>修改_config.butterfly.yml文件，添加以下内容</p>
+<figure class="highlight yml"><table><tr><td class="code"><pre><span class="line"><span class="comment"># Local search</span></span><br><span class="line"><span class="attr">local_search:</span></span><br><span class="line">  <span class="attr">enable:</span> <span class="literal">true</span></span><br><span class="line">  <span class="comment"># Preload the search data when the page loads.</span></span><br><span class="line">  <span class="attr">preload:</span> <span class="literal">false</span></span><br><span class="line">  <span class="comment"># Show top n results per article, show all results by setting to -1</span></span><br><span class="line">  <span class="attr">top_n_per_article:</span> <span class="number">1</span></span><br><span class="line">  <span class="comment"># Unescape html strings to the readable one.</span></span><br><span class="line">  <span class="attr">unescape:</span> <span class="literal">false</span></span><br><span class="line">  <span class="attr">CDN:</span></span><br></pre></td></tr></table></figure>
+
+]]></content>
+      <categories>
+        <category>教程</category>
+      </categories>
+      <tags>
+        <tag>Butterfly</tag>
+        <tag>hexo</tag>
+      </tags>
+  </entry>
+  <entry>
     <title>Clash Verge规则配置</title>
     <url>/undefined/97aa67fb.html</url>
     <content><![CDATA[<h1 id="下载Clash-Meta内核客户端"><a href="#下载Clash-Meta内核客户端" class="headerlink" title="下载Clash.Meta内核客户端"></a>下载Clash.Meta内核客户端</h1><ul>
@@ -455,27 +476,6 @@
       </categories>
       <tags>
         <tag>科学上网</tag>
-      </tags>
-  </entry>
-  <entry>
-    <title>Butterfly主题添加本地搜索功能</title>
-    <url>/undefined/f2a576c2.html</url>
-    <content><![CDATA[<p>安装插件：</p>
-<figure class="highlight bash"><table><tr><td class="code"><pre><span class="line">npm install hexo-generator-search --save</span><br></pre></td></tr></table></figure>
-
-<p>修改_config.yml文件，添加以下内容</p>
-<figure class="highlight yml"><table><tr><td class="code"><pre><span class="line"><span class="comment"># 添加本地搜索</span></span><br><span class="line"><span class="attr">search:</span></span><br><span class="line">  <span class="attr">path:</span> <span class="string">search.xml</span></span><br><span class="line">  <span class="attr">field:</span> <span class="string">post</span></span><br><span class="line">  <span class="attr">content:</span> <span class="literal">true</span></span><br><span class="line">  <span class="attr">format:</span> <span class="string">html</span></span><br></pre></td></tr></table></figure>
-
-<p>修改_config.butterfly.yml文件，添加以下内容</p>
-<figure class="highlight yml"><table><tr><td class="code"><pre><span class="line"><span class="comment"># Local search</span></span><br><span class="line"><span class="attr">local_search:</span></span><br><span class="line">  <span class="attr">enable:</span> <span class="literal">true</span></span><br><span class="line">  <span class="comment"># Preload the search data when the page loads.</span></span><br><span class="line">  <span class="attr">preload:</span> <span class="literal">false</span></span><br><span class="line">  <span class="comment"># Show top n results per article, show all results by setting to -1</span></span><br><span class="line">  <span class="attr">top_n_per_article:</span> <span class="number">1</span></span><br><span class="line">  <span class="comment"># Unescape html strings to the readable one.</span></span><br><span class="line">  <span class="attr">unescape:</span> <span class="literal">false</span></span><br><span class="line">  <span class="attr">CDN:</span></span><br></pre></td></tr></table></figure>
-
-]]></content>
-      <categories>
-        <category>教程</category>
-      </categories>
-      <tags>
-        <tag>Butterfly</tag>
-        <tag>hexo</tag>
       </tags>
   </entry>
   <entry>
@@ -1216,149 +1216,6 @@
       </tags>
   </entry>
   <entry>
-    <title>PVE安装iStoreOS</title>
-    <url>/undefined/d167335e.html</url>
-    <content><![CDATA[<h1 id="首先X86机器已经安装好PVE机器，且能正常联网；"><a href="#首先X86机器已经安装好PVE机器，且能正常联网；" class="headerlink" title="首先X86机器已经安装好PVE机器，且能正常联网；"></a>首先X86机器已经安装好PVE机器，且能正常联网；</h1><ul>
-<li>这里不提供X86机器安装pve教程，自行科普。</li>
-</ul>
-<h1 id="下载固件"><a href="#下载固件" class="headerlink" title="下载固件"></a>下载固件</h1><ul>
-<li><a href="https://fw.koolcenter.com/iStoreOS/x86_64/">固件下载(opens new window)</a></li>
-<li><a href="https://fw.koolcenter.com/iStoreOS/x86_64_efi/">固件下载-EFI(opens new window)</a></li>
-</ul>
-<p>越后面的版本越新，下载最新的版本。下载完成之后不需要解压。</p>
-<h1 id="在PVE里新建虚拟机；"><a href="#在PVE里新建虚拟机；" class="headerlink" title="在PVE里新建虚拟机；"></a>在PVE里新建虚拟机；</h1><ul>
-<li>进入PVE系统管理界面，右上角“新建虚拟机”；</li>
-</ul>
-<p><img src="https://pan.yuqi.fun/d/%E5%A4%A9%E7%BF%BC%E4%BA%91%E7%9B%98/img/202312031646065.jpeg"></p>
-<ul>
-<li>只填写名称，VM ID即为虚拟机ID，自动排序的，也可自定义，其余不管，下一步：</li>
-</ul>
-<p><img src="https://pan.yuqi.fun/d/%E5%A4%A9%E7%BF%BC%E4%BA%91%E7%9B%98/img/202312031646686.jpeg"></p>
-<ul>
-<li>勾选“不使用任何介质”，其余不管，下一步；</li>
-</ul>
-<p><img src="https://pan.yuqi.fun/d/%E5%A4%A9%E7%BF%BC%E4%BA%91%E7%9B%98/img/202312031646138.jpeg"></p>
-<ul>
-<li>如果是下载的EFI固件，BIOS选择“OVMF(UEFI)”，EFI存储选择PVE的虚拟盘，其余不管，下一步：</li>
-</ul>
-<p><img src="https://pan.yuqi.fun/d/%E5%A4%A9%E7%BF%BC%E4%BA%91%E7%9B%98/img/202312031646135.jpeg"></p>
-<p>如果下载的非EFI固件，此页面不用管，直接下一步；</p>
-<p><img src="https://pan.yuqi.fun/d/%E5%A4%A9%E7%BF%BC%E4%BA%91%E7%9B%98/img/202312031646944.jpeg"></p>
-<ul>
-<li>磁盘，不需要创建，直接删掉，下一步；</li>
-</ul>
-<p><img src="https://pan.yuqi.fun/d/%E5%A4%A9%E7%BF%BC%E4%BA%91%E7%9B%98/img/202312031646104.jpeg"></p>
-<ul>
-<li>CPU核心，根据你的实机CPU核设置(比如实机是6核12线程，大于等于1且小于等于12都成)，类别建议选host；</li>
-</ul>
-<p><img src="https://pan.yuqi.fun/d/%E5%A4%A9%E7%BF%BC%E4%BA%91%E7%9B%98/img/202312031646942.jpeg"></p>
-<ul>
-<li>内存根据实际需求设置；</li>
-</ul>
-<p><img src="https://pan.yuqi.fun/d/%E5%A4%A9%E7%BF%BC%E4%BA%91%E7%9B%98/img/202312031646040.jpg" alt="download"></p>
-<ul>
-<li>网络默认即可，默认已经选了PVE的虚拟LAN；</li>
-</ul>
-<p><img src="https://pan.yuqi.fun/d/%E5%A4%A9%E7%BF%BC%E4%BA%91%E7%9B%98/img/202312031646342.jpeg"></p>
-<ul>
-<li>完成，等待虚拟机创建好。</li>
-</ul>
-<p><img src="https://pan.yuqi.fun/d/%E5%A4%A9%E7%BF%BC%E4%BA%91%E7%9B%98/img/202312031647835.jpeg"></p>
-<h1 id="往刚创建的虚拟机里写入固件；"><a href="#往刚创建的虚拟机里写入固件；" class="headerlink" title="往刚创建的虚拟机里写入固件；"></a>往刚创建的虚拟机里写入固件；</h1><ul>
-<li>利用WinSCP等工具，把下载好的固件(教程用的EFI固件)和img2kvm工具放入root目录下；</li>
-<li><a href="https://fw.koolcenter.com/binary/other-tools/">img2kvm工具下载(opens new window)</a></li>
-<li>终端登录PVE系统后台，终端输入命令：<code>chmod 777 ./img2kvm</code></li>
-<li>继续终端输入：<code>./img2kvm 固件完整名 虚拟机ID</code></li>
-</ul>
-<p>比如教程所示的虚拟机ID是104，下载的固件完整名：istoreos-21.02.3-2022092019-x86-64-squashfs-combined-efi.img.gz</p>
-<p>所以输入的命令就是：</p>
-<figure class="highlight plaintext"><table><tr><td class="code"><pre><span class="line">./img2kvm istoreos-21.02.3-2022092019-x86-64-squashfs-combined-efi.img.gz 104</span><br></pre></td></tr></table></figure>
-
-<p><img src="https://pan.yuqi.fun/d/%E5%A4%A9%E7%BF%BC%E4%BA%91%E7%9B%98/img/202312031647302.jpeg"></p>
-<p>然后看PVE虚拟机104的硬件界面，会出现一个未添加的硬盘，双击添加：</p>
-<p><img src="https://pan.yuqi.fun/d/%E5%A4%A9%E7%BF%BC%E4%BA%91%E7%9B%98/img/202312031647806.jpeg"></p>
-<p>不用设置直接添加：</p>
-<p><img src="https://pan.yuqi.fun/d/%E5%A4%A9%E7%BF%BC%E4%BA%91%E7%9B%98/img/202312031647609.jpeg"></p>
-<p>添加完成，会出现一个硬盘：</p>
-<p><img src="https://pan.yuqi.fun/d/%E5%A4%A9%E7%BF%BC%E4%BA%91%E7%9B%98/img/202312031647016.jpeg"></p>
-<p>选项——引导顺序，双击进入编辑：</p>
-<p><img src="https://pan.yuqi.fun/d/%E5%A4%A9%E7%BF%BC%E4%BA%91%E7%9B%98/img/202312031647797.jpeg"></p>
-<p>把刚添加的硬盘作为第一启动：</p>
-<p><img src="https://pan.yuqi.fun/d/%E5%A4%A9%E7%BF%BC%E4%BA%91%E7%9B%98/img/202312031647908.jpeg"></p>
-<p><img src="https://pan.yuqi.fun/d/%E5%A4%A9%E7%BF%BC%E4%BA%91%E7%9B%98/img/202312031647362.jpeg"></p>
-<ul>
-<li>把EFI磁盘删掉，若BIOS不是UEFI，无此项设置；</li>
-</ul>
-<p><img src="https://pan.yuqi.fun/d/%E5%A4%A9%E7%BF%BC%E4%BA%91%E7%9B%98/img/202312031647310.jpeg"></p>
-<h1 id="启动iStoreOS："><a href="#启动iStoreOS：" class="headerlink" title="启动iStoreOS："></a>启动iStoreOS：</h1><p><img src="https://pan.yuqi.fun/d/%E5%A4%A9%E7%BF%BC%E4%BA%91%E7%9B%98/img/202312031648006.jpeg"></p>
-<ul>
-<li>如果前面的步骤没出错，是能正常启动的：</li>
-</ul>
-<p><img src="https://pan.yuqi.fun/d/%E5%A4%A9%E7%BF%BC%E4%BA%91%E7%9B%98/img/202312031648517.jpeg"></p>
-<ul>
-<li>等系统启动一两分钟，然后点击此虚拟机——控制台(右上角控制台也可)：</li>
-</ul>
-<p><img src="https://pan.yuqi.fun/d/%E5%A4%A9%E7%BF%BC%E4%BA%91%E7%9B%98/img/202312031648522.jpeg"></p>
-<p>鼠标点在此界面，键盘回车：就会出现终端入口：</p>
-<p><img src="https://pan.yuqi.fun/d/%E5%A4%A9%E7%BF%BC%E4%BA%91%E7%9B%98/img/202312031648241.jpeg"></p>
-<p><img src="https://pan.yuqi.fun/d/%E5%A4%A9%E7%BF%BC%E4%BA%91%E7%9B%98/img/202312031648418.jpeg"></p>
-<p>输入：<code>quickstart</code>，利用键盘“上下键”选择2，回车：</p>
-<p>输入要分配给iStoreOS的LAN口的ip(必须是PVE虚拟LAN的IP段，比如PVE的管理IP是192.168.2.88，那么此处的IP就必须是192.168.2.XXX)，回车生效；</p>
-<p><img src="https://pan.yuqi.fun/d/%E5%A4%A9%E7%BF%BC%E4%BA%91%E7%9B%98/img/202312031648082.jpeg"></p>
-<p>要求输入掩码(mask)，照着填：255.255.255.0，回车生效：</p>
-<p><img src="https://pan.yuqi.fun/d/%E5%A4%A9%E7%BF%BC%E4%BA%91%E7%9B%98/img/202312031648554.jpeg"></p>
-<p>然后选择QUIT退出此界面：</p>
-<p><img src="https://pan.yuqi.fun/d/%E5%A4%A9%E7%BF%BC%E4%BA%91%E7%9B%98/img/202312031648466.jpeg"></p>
-<ul>
-<li>输入：<code>reboot</code>重启iStoreOS，这样浏览器输入我们设置的IP，就进入iStoreOS界面了。</li>
-</ul>
-<p><img src="https://pan.yuqi.fun/d/%E5%A4%A9%E7%BF%BC%E4%BA%91%E7%9B%98/img/202312031648602.jpeg"></p>
-<p>iStoreOS默认登录密码是：password</p>
-<p><img src="https://pan.yuqi.fun/d/%E5%A4%A9%E7%BF%BC%E4%BA%91%E7%9B%98/img/202312031648519.jpeg"></p>
-<h1 id="配置iStoreOS："><a href="#配置iStoreOS：" class="headerlink" title="配置iStoreOS："></a>配置iStoreOS：</h1><p>此刻我们进入iStoreOS，但是目前iStoreOS是个单臂路由状态，只有一个LAN口。</p>
-<ul>
-<li>如果PVE里已有主路由系统，需要把iStoreOS配置为旁路由，在“网络向导”里配置“旁路由”即可。</li>
-</ul>
-<p><img src="https://pan.yuqi.fun/d/%E5%A4%A9%E7%BF%BC%E4%BA%91%E7%9B%98/img/202312031649861.jpeg"></p>
-<ul>
-<li>如果需要将iStoreOS作为主路由系统，就需要添加网口：</li>
-</ul>
-<p>首先在PVE里关闭iStoreOS虚拟机，然后硬件——添加一个PVE的网口作为WAN口；</p>
-<p><img src="https://pan.yuqi.fun/d/%E5%A4%A9%E7%BF%BC%E4%BA%91%E7%9B%98/img/202312031649410.jpeg"></p>
-<ul>
-<li>然后再确认2个IP，首先确认：PVE的虚拟LAN管理IP，比如是192.168.2.88，那么就必须把iStoreOS的IP改成192.168.2.1~192.168.2.77之间，比如把PVE的IP放在iStoreOS主路由LAN口IP之后，不然PVE无法联网。</li>
-<li>然后启动iStoreOS虚拟机，进入iStoreOS后，在“网络向导”里配置联网即可。</li>
-</ul>
-<h1 id="安装离线插件："><a href="#安装离线插件：" class="headerlink" title="安装离线插件："></a>安装离线插件：</h1><p><strong>注意，上述软件包安装，部分依赖依然要通过opkg软件源在线安装。如果安装失败，检查路由器自身的网络情况，特别是旁路由模式下最容易出现网络问题。</strong><br><strong>再三注意需要路由器自身联网正常</strong></p>
-<ul>
-<li><p>下载地址</p>
-<p><a href="https://github.com/bcseputetto/Are-u-ok">https://github.com/bcseputetto/Are-u-ok</a></p>
-</li>
-<li><p>如何安装<br>下载后，来到iStore应用商店页面，点击手动安装，点击选择上传或者直接拖放文件<br><img src="https://pan.yuqi.fun/d/%E5%A4%A9%E7%BF%BC%E4%BA%91%E7%9B%98/img/202312031649689.png"></p>
-</li>
-</ul>
-<p>对于没有iStore应用商店的OpenWrt也可以使用以下方法。<br>将 .run 文件上传到路由器上，然后在终端环境执行</p>
-<figure class="highlight plaintext"><table><tr><td class="code"><pre><span class="line">sh 包名.run</span><br></pre></td></tr></table></figure>
-
-
-
-<p>例</p>
-<figure class="highlight plaintext"><table><tr><td class="code"><pre><span class="line">sh PassWall4.71-2_x86_all_sdk_22.03.5.run</span><br></pre></td></tr></table></figure>
-
-
-
-<p>如果文件不在当前路径记得填写路径，下例</p>
-<figure class="highlight plaintext"><table><tr><td class="code"><pre><span class="line">sh /tmp/upload/PassWall4.71-2_x86_all_sdk_22.03.5.run</span><br></pre></td></tr></table></figure>
-
-]]></content>
-      <categories>
-        <category>教程</category>
-      </categories>
-      <tags>
-        <tag>路由器</tag>
-      </tags>
-  </entry>
-  <entry>
     <title>Qexo 一个美观、强大的在线 静态博客 管理器</title>
     <url>/undefined/8277e0e6.html</url>
     <content><![CDATA[<h1 id="前言"><a href="#前言" class="headerlink" title="前言"></a>前言</h1><p><strong>Hexo</strong> 是一款快速、高效的静态博客框架。通过 <a href="http://daringfireball.net/projects/markdown/">Markdown</a> 语法，只需几秒便可生成高质量的静态网页。</p>
@@ -1630,55 +1487,55 @@
   <entry>
     <title>SEW-MC07B变频器-MOTION--STUDIO软件调试步骤、方法和技巧</title>
     <url>/undefined/421934fd.html</url>
-    <content><![CDATA[<p><img src="http://ydn.yuqi.fun:5244/d/189Cloud/img/20250524205528464.PNG" alt="4"></p>
-<p><img src="http://ydn.yuqi.fun:5244/d/189Cloud/img/20250524205547050.PNG" alt="5"></p>
-<p><img src="http://ydn.yuqi.fun:5244/d/189Cloud/img/20250524205627985.PNG" alt="6"></p>
-<p><img src="http://ydn.yuqi.fun:5244/d/189Cloud/img/20250524205645010.PNG" alt="7"></p>
-<p><img src="http://ydn.yuqi.fun:5244/d/189Cloud/img/20250524205656950.PNG" alt="8"></p>
-<p><img src="http://ydn.yuqi.fun:5244/d/189Cloud/img/20250524205709394.PNG" alt="9"></p>
-<p><img src="http://ydn.yuqi.fun:5244/d/189Cloud/img/20250524205720726.PNG" alt="10"></p>
-<p><img src="http://ydn.yuqi.fun:5244/d/189Cloud/img/20250524205733378.PNG" alt="11"></p>
-<p><img src="http://ydn.yuqi.fun:5244/d/189Cloud/img/20250524205754775.PNG" alt="12"></p>
-<p><img src="http://ydn.yuqi.fun:5244/d/189Cloud/img/20250524205811663.PNG" alt="13"></p>
-<p><img src="http://ydn.yuqi.fun:5244/d/189Cloud/img/20250524205821221.PNG" alt="14"></p>
-<p><img src="http://ydn.yuqi.fun:5244/d/189Cloud/img/20250524205834316.PNG" alt="15"></p>
-<p><img src="http://ydn.yuqi.fun:5244/d/189Cloud/img/20250524205843533.PNG" alt="16"></p>
-<p><img src="http://ydn.yuqi.fun:5244/d/189Cloud/img/20250524205901797.PNG" alt="17"></p>
-<p><img src="http://ydn.yuqi.fun:5244/d/189Cloud/img/20250524205914973.PNG" alt="18"></p>
-<p><img src="http://ydn.yuqi.fun:5244/d/189Cloud/img/20250524205928160.PNG" alt="19"></p>
-<p><img src="http://ydn.yuqi.fun:5244/d/189Cloud/img/20250524205940302.PNG" alt="20"></p>
-<p><img src="http://ydn.yuqi.fun:5244/d/189Cloud/img/20250524205950644.PNG" alt="21"></p>
-<p><img src="http://ydn.yuqi.fun:5244/d/189Cloud/img/20250524210006913.PNG" alt="22"></p>
-<p><img src="http://ydn.yuqi.fun:5244/d/189Cloud/img/20250524210029075.PNG" alt="23"></p>
-<p><img src="http://ydn.yuqi.fun:5244/d/189Cloud/img/20250524210042996.PNG" alt="24"></p>
-<p><img src="http://ydn.yuqi.fun:5244/d/189Cloud/img/20250524210105981.PNG" alt="25"></p>
-<p><img src="http://ydn.yuqi.fun:5244/d/189Cloud/img/20250524210122505.PNG" alt="26"></p>
-<p><img src="http://ydn.yuqi.fun:5244/d/189Cloud/img/20250524210136340.PNG" alt="27"></p>
-<p><img src="http://ydn.yuqi.fun:5244/d/189Cloud/img/20250524210145600.PNG" alt="28"></p>
-<p><img src="http://ydn.yuqi.fun:5244/d/189Cloud/img/20250524210156379.PNG" alt="29"></p>
-<p><img src="http://ydn.yuqi.fun:5244/d/189Cloud/img/20250524210210502.PNG" alt="30"></p>
-<p><img src="http://ydn.yuqi.fun:5244/d/189Cloud/img/20250524210234883.PNG" alt="31"></p>
-<p><img src="http://ydn.yuqi.fun:5244/d/189Cloud/img/20250524210248367.PNG" alt="32"></p>
-<p><img src="http://ydn.yuqi.fun:5244/d/189Cloud/img/20250524210258079.PNG" alt="33"></p>
-<p><img src="http://ydn.yuqi.fun:5244/d/189Cloud/img/20250524210309675.PNG" alt="34"></p>
-<p><img src="http://ydn.yuqi.fun:5244/d/189Cloud/img/20250524210319649.PNG" alt="35"></p>
-<p><img src="http://ydn.yuqi.fun:5244/d/189Cloud/img/20250524210333008.PNG" alt="36"></p>
-<p><img src="http://ydn.yuqi.fun:5244/d/189Cloud/img/20250524210342988.PNG" alt="37"></p>
-<p><img src="http://ydn.yuqi.fun:5244/d/189Cloud/img/20250524210354944.PNG" alt="38"></p>
-<p><img src="http://ydn.yuqi.fun:5244/d/189Cloud/img/20250524210407861.PNG" alt="39"></p>
-<p><img src="http://ydn.yuqi.fun:5244/d/189Cloud/img/20250524210423100.PNG" alt="40"></p>
-<p><img src="http://ydn.yuqi.fun:5244/d/189Cloud/img/20250524210434359.PNG" alt="41"></p>
-<p><img src="http://ydn.yuqi.fun:5244/d/189Cloud/img/20250524210450567.PNG" alt="42"></p>
-<p><img src="http://ydn.yuqi.fun:5244/d/189Cloud/img/20250524210503106.PNG" alt="43"></p>
-<p><img src="http://ydn.yuqi.fun:5244/d/189Cloud/img/20250524210515428.PNG" alt="44"></p>
-<p><img src="http://ydn.yuqi.fun:5244/d/189Cloud/img/20250524210527098.PNG" alt="45"></p>
-<p><img src="http://ydn.yuqi.fun:5244/d/189Cloud/img/20250524210537936.PNG" alt="46"></p>
-<p><img src="http://ydn.yuqi.fun:5244/d/189Cloud/img/20250524210549531.PNG" alt="47"></p>
-<p><img src="http://ydn.yuqi.fun:5244/d/189Cloud/img/20250524210601981.PNG" alt="48"></p>
-<p><img src="http://ydn.yuqi.fun:5244/d/189Cloud/img/20250524210614094.PNG" alt="49"></p>
-<p><img src="http://ydn.yuqi.fun:5244/d/189Cloud/img/20250524210627091.PNG" alt="50"></p>
-<p><img src="http://ydn.yuqi.fun:5244/d/189Cloud/img/20250524210637201.PNG" alt="51"></p>
-<p><img src="http://ydn.yuqi.fun:5244/d/189Cloud/img/20250524210647926.PNG" alt="52"></p>
+    <content><![CDATA[<p><img src="https://pan.yuqi.fun/d/%E5%A4%A9%E7%BF%BC%E4%BA%91%E7%9B%98/img/20250524205528464.PNG" alt="4"></p>
+<p><img src="https://pan.yuqi.fun/d/%E5%A4%A9%E7%BF%BC%E4%BA%91%E7%9B%98/img/20250524205547050.PNG" alt="5"></p>
+<p><img src="https://pan.yuqi.fun/d/%E5%A4%A9%E7%BF%BC%E4%BA%91%E7%9B%98/img/20250524205627985.PNG" alt="6"></p>
+<p><img src="https://pan.yuqi.fun/d/%E5%A4%A9%E7%BF%BC%E4%BA%91%E7%9B%98/img/20250524205645010.PNG" alt="7"></p>
+<p><img src="https://pan.yuqi.fun/d/%E5%A4%A9%E7%BF%BC%E4%BA%91%E7%9B%98/img/20250524205656950.PNG" alt="8"></p>
+<p><img src="https://pan.yuqi.fun/d/%E5%A4%A9%E7%BF%BC%E4%BA%91%E7%9B%98/img/20250524205709394.PNG" alt="9"></p>
+<p><img src="https://pan.yuqi.fun/d/%E5%A4%A9%E7%BF%BC%E4%BA%91%E7%9B%98/img/20250524205720726.PNG" alt="10"></p>
+<p><img src="https://pan.yuqi.fun/d/%E5%A4%A9%E7%BF%BC%E4%BA%91%E7%9B%98/img/20250524205733378.PNG" alt="11"></p>
+<p><img src="https://pan.yuqi.fun/d/%E5%A4%A9%E7%BF%BC%E4%BA%91%E7%9B%98/img/20250524205754775.PNG" alt="12"></p>
+<p><img src="https://pan.yuqi.fun/d/%E5%A4%A9%E7%BF%BC%E4%BA%91%E7%9B%98/img/20250524205811663.PNG" alt="13"></p>
+<p><img src="https://pan.yuqi.fun/d/%E5%A4%A9%E7%BF%BC%E4%BA%91%E7%9B%98/img/20250524205821221.PNG" alt="14"></p>
+<p><img src="https://pan.yuqi.fun/d/%E5%A4%A9%E7%BF%BC%E4%BA%91%E7%9B%98/img/20250524205834316.PNG" alt="15"></p>
+<p><img src="https://pan.yuqi.fun/d/%E5%A4%A9%E7%BF%BC%E4%BA%91%E7%9B%98/img/20250524205843533.PNG" alt="16"></p>
+<p><img src="https://pan.yuqi.fun/d/%E5%A4%A9%E7%BF%BC%E4%BA%91%E7%9B%98/img/20250524205901797.PNG" alt="17"></p>
+<p><img src="https://pan.yuqi.fun/d/%E5%A4%A9%E7%BF%BC%E4%BA%91%E7%9B%98/img/20250524205914973.PNG" alt="18"></p>
+<p><img src="https://pan.yuqi.fun/d/%E5%A4%A9%E7%BF%BC%E4%BA%91%E7%9B%98/img/20250524205928160.PNG" alt="19"></p>
+<p><img src="https://pan.yuqi.fun/d/%E5%A4%A9%E7%BF%BC%E4%BA%91%E7%9B%98/img/20250524205940302.PNG" alt="20"></p>
+<p><img src="https://pan.yuqi.fun/d/%E5%A4%A9%E7%BF%BC%E4%BA%91%E7%9B%98/img/20250524205950644.PNG" alt="21"></p>
+<p><img src="https://pan.yuqi.fun/d/%E5%A4%A9%E7%BF%BC%E4%BA%91%E7%9B%98/img/20250524210006913.PNG" alt="22"></p>
+<p><img src="https://pan.yuqi.fun/d/%E5%A4%A9%E7%BF%BC%E4%BA%91%E7%9B%98/img/20250524210029075.PNG" alt="23"></p>
+<p><img src="https://pan.yuqi.fun/d/%E5%A4%A9%E7%BF%BC%E4%BA%91%E7%9B%98/img/20250524210042996.PNG" alt="24"></p>
+<p><img src="https://pan.yuqi.fun/d/%E5%A4%A9%E7%BF%BC%E4%BA%91%E7%9B%98/img/20250524210105981.PNG" alt="25"></p>
+<p><img src="https://pan.yuqi.fun/d/%E5%A4%A9%E7%BF%BC%E4%BA%91%E7%9B%98/img/20250524210122505.PNG" alt="26"></p>
+<p><img src="https://pan.yuqi.fun/d/%E5%A4%A9%E7%BF%BC%E4%BA%91%E7%9B%98/img/20250524210136340.PNG" alt="27"></p>
+<p><img src="https://pan.yuqi.fun/d/%E5%A4%A9%E7%BF%BC%E4%BA%91%E7%9B%98/img/20250524210145600.PNG" alt="28"></p>
+<p><img src="https://pan.yuqi.fun/d/%E5%A4%A9%E7%BF%BC%E4%BA%91%E7%9B%98/img/20250524210156379.PNG" alt="29"></p>
+<p><img src="https://pan.yuqi.fun/d/%E5%A4%A9%E7%BF%BC%E4%BA%91%E7%9B%98/img/20250524210210502.PNG" alt="30"></p>
+<p><img src="https://pan.yuqi.fun/d/%E5%A4%A9%E7%BF%BC%E4%BA%91%E7%9B%98/img/20250524210234883.PNG" alt="31"></p>
+<p><img src="https://pan.yuqi.fun/d/%E5%A4%A9%E7%BF%BC%E4%BA%91%E7%9B%98/img/20250524210248367.PNG" alt="32"></p>
+<p><img src="https://pan.yuqi.fun/d/%E5%A4%A9%E7%BF%BC%E4%BA%91%E7%9B%98/img/20250524210258079.PNG" alt="33"></p>
+<p><img src="https://pan.yuqi.fun/d/%E5%A4%A9%E7%BF%BC%E4%BA%91%E7%9B%98/img/20250524210309675.PNG" alt="34"></p>
+<p><img src="https://pan.yuqi.fun/d/%E5%A4%A9%E7%BF%BC%E4%BA%91%E7%9B%98/img/20250524210319649.PNG" alt="35"></p>
+<p><img src="https://pan.yuqi.fun/d/%E5%A4%A9%E7%BF%BC%E4%BA%91%E7%9B%98/img/20250524210333008.PNG" alt="36"></p>
+<p><img src="https://pan.yuqi.fun/d/%E5%A4%A9%E7%BF%BC%E4%BA%91%E7%9B%98/img/20250524210342988.PNG" alt="37"></p>
+<p><img src="https://pan.yuqi.fun/d/%E5%A4%A9%E7%BF%BC%E4%BA%91%E7%9B%98/img/20250524210354944.PNG" alt="38"></p>
+<p><img src="https://pan.yuqi.fun/d/%E5%A4%A9%E7%BF%BC%E4%BA%91%E7%9B%98/img/20250524210407861.PNG" alt="39"></p>
+<p><img src="https://pan.yuqi.fun/d/%E5%A4%A9%E7%BF%BC%E4%BA%91%E7%9B%98/img/20250524210423100.PNG" alt="40"></p>
+<p><img src="https://pan.yuqi.fun/d/%E5%A4%A9%E7%BF%BC%E4%BA%91%E7%9B%98/img/20250524210434359.PNG" alt="41"></p>
+<p><img src="https://pan.yuqi.fun/d/%E5%A4%A9%E7%BF%BC%E4%BA%91%E7%9B%98/img/20250524210450567.PNG" alt="42"></p>
+<p><img src="https://pan.yuqi.fun/d/%E5%A4%A9%E7%BF%BC%E4%BA%91%E7%9B%98/img/20250524210503106.PNG" alt="43"></p>
+<p><img src="https://pan.yuqi.fun/d/%E5%A4%A9%E7%BF%BC%E4%BA%91%E7%9B%98/img/20250524210515428.PNG" alt="44"></p>
+<p><img src="https://pan.yuqi.fun/d/%E5%A4%A9%E7%BF%BC%E4%BA%91%E7%9B%98/img/20250524210527098.PNG" alt="45"></p>
+<p><img src="https://pan.yuqi.fun/d/%E5%A4%A9%E7%BF%BC%E4%BA%91%E7%9B%98/img/20250524210537936.PNG" alt="46"></p>
+<p><img src="https://pan.yuqi.fun/d/%E5%A4%A9%E7%BF%BC%E4%BA%91%E7%9B%98/img/20250524210549531.PNG" alt="47"></p>
+<p><img src="https://pan.yuqi.fun/d/%E5%A4%A9%E7%BF%BC%E4%BA%91%E7%9B%98/img/20250524210601981.PNG" alt="48"></p>
+<p><img src="https://pan.yuqi.fun/d/%E5%A4%A9%E7%BF%BC%E4%BA%91%E7%9B%98/img/20250524210614094.PNG" alt="49"></p>
+<p><img src="https://pan.yuqi.fun/d/%E5%A4%A9%E7%BF%BC%E4%BA%91%E7%9B%98/img/20250524210627091.PNG" alt="50"></p>
+<p><img src="https://pan.yuqi.fun/d/%E5%A4%A9%E7%BF%BC%E4%BA%91%E7%9B%98/img/20250524210637201.PNG" alt="51"></p>
+<p><img src="https://pan.yuqi.fun/d/%E5%A4%A9%E7%BF%BC%E4%BA%91%E7%9B%98/img/20250524210647926.PNG" alt="52"></p>
 ]]></content>
   </entry>
   <entry>
@@ -2090,55 +1947,146 @@
       </tags>
   </entry>
   <entry>
-    <title>hysteria2与reality共存安装</title>
-    <url>/undefined/756577dc.html</url>
-    <content><![CDATA[<h1 id="前言"><a href="#前言" class="headerlink" title="前言"></a>前言</h1><p>1.目前伪装最好的两种协议，一个代表tcp协议（reality）的目前巅峰，一个新型UDP协议（hysteria2）的宠儿。<br>2.这次用的sing-box搭建 <a href="https://sing-box.sagernet.org/zh">https://sing-box.sagernet.org/zh</a> 因为简单。之前一直用八合一，最大的问题就是各种伪装后，机器就只能拿来科学上网了，因为安装Nginx，搭建个网页啥的都很麻烦。<br>3.教程亮点，无需自备域名。<br>3.passwall发现没有类似的设置教程，所以出一个。</p>
-<h1 id="安装sing-box"><a href="#安装sing-box" class="headerlink" title="安装sing-box"></a>安装sing-box</h1><p>直接安装预发布版（支持hysteria2）</p>
-<figure class="highlight plaintext"><table><tr><td class="code"><pre><span class="line">bash -c &quot;$(curl -L https://sing-box.vercel.app)&quot; @ install --beta</span><br></pre></td></tr></table></figure>
+    <title>PVE安装iStoreOS</title>
+    <url>/undefined/d167335e.html</url>
+    <content><![CDATA[<h1 id="首先X86机器已经安装好PVE机器，且能正常联网；"><a href="#首先X86机器已经安装好PVE机器，且能正常联网；" class="headerlink" title="首先X86机器已经安装好PVE机器，且能正常联网；"></a>首先X86机器已经安装好PVE机器，且能正常联网；</h1><ul>
+<li>这里不提供X86机器安装pve教程，自行科普。</li>
+</ul>
+<h1 id="下载固件"><a href="#下载固件" class="headerlink" title="下载固件"></a>下载固件</h1><ul>
+<li><a href="https://fw.koolcenter.com/iStoreOS/x86_64/">固件下载(opens new window)</a></li>
+<li><a href="https://fw.koolcenter.com/iStoreOS/x86_64_efi/">固件下载-EFI(opens new window)</a></li>
+</ul>
+<p>越后面的版本越新，下载最新的版本。下载完成之后不需要解压。</p>
+<h1 id="在PVE里新建虚拟机；"><a href="#在PVE里新建虚拟机；" class="headerlink" title="在PVE里新建虚拟机；"></a>在PVE里新建虚拟机；</h1><ul>
+<li>进入PVE系统管理界面，右上角“新建虚拟机”；</li>
+</ul>
+<p><img src="https://pan.yuqi.fun/d/%E5%A4%A9%E7%BF%BC%E4%BA%91%E7%9B%98/img/202312031646065.jpeg"></p>
+<ul>
+<li>只填写名称，VM ID即为虚拟机ID，自动排序的，也可自定义，其余不管，下一步：</li>
+</ul>
+<p><img src="https://pan.yuqi.fun/d/%E5%A4%A9%E7%BF%BC%E4%BA%91%E7%9B%98/img/202312031646686.jpeg"></p>
+<ul>
+<li>勾选“不使用任何介质”，其余不管，下一步；</li>
+</ul>
+<p><img src="https://pan.yuqi.fun/d/%E5%A4%A9%E7%BF%BC%E4%BA%91%E7%9B%98/img/202312031646138.jpeg"></p>
+<ul>
+<li>如果是下载的EFI固件，BIOS选择“OVMF(UEFI)”，EFI存储选择PVE的虚拟盘，其余不管，下一步：</li>
+</ul>
+<p><img src="https://pan.yuqi.fun/d/%E5%A4%A9%E7%BF%BC%E4%BA%91%E7%9B%98/img/202312031646135.jpeg"></p>
+<p>如果下载的非EFI固件，此页面不用管，直接下一步；</p>
+<p><img src="https://pan.yuqi.fun/d/%E5%A4%A9%E7%BF%BC%E4%BA%91%E7%9B%98/img/202312031646944.jpeg"></p>
+<ul>
+<li>磁盘，不需要创建，直接删掉，下一步；</li>
+</ul>
+<p><img src="https://pan.yuqi.fun/d/%E5%A4%A9%E7%BF%BC%E4%BA%91%E7%9B%98/img/202312031646104.jpeg"></p>
+<ul>
+<li>CPU核心，根据你的实机CPU核设置(比如实机是6核12线程，大于等于1且小于等于12都成)，类别建议选host；</li>
+</ul>
+<p><img src="https://pan.yuqi.fun/d/%E5%A4%A9%E7%BF%BC%E4%BA%91%E7%9B%98/img/202312031646942.jpeg"></p>
+<ul>
+<li>内存根据实际需求设置；</li>
+</ul>
+<p><img src="https://pan.yuqi.fun/d/%E5%A4%A9%E7%BF%BC%E4%BA%91%E7%9B%98/img/202312031646040.jpg" alt="download"></p>
+<ul>
+<li>网络默认即可，默认已经选了PVE的虚拟LAN；</li>
+</ul>
+<p><img src="https://pan.yuqi.fun/d/%E5%A4%A9%E7%BF%BC%E4%BA%91%E7%9B%98/img/202312031646342.jpeg"></p>
+<ul>
+<li>完成，等待虚拟机创建好。</li>
+</ul>
+<p><img src="https://pan.yuqi.fun/d/%E5%A4%A9%E7%BF%BC%E4%BA%91%E7%9B%98/img/202312031647835.jpeg"></p>
+<h1 id="往刚创建的虚拟机里写入固件；"><a href="#往刚创建的虚拟机里写入固件；" class="headerlink" title="往刚创建的虚拟机里写入固件；"></a>往刚创建的虚拟机里写入固件；</h1><ul>
+<li>利用WinSCP等工具，把下载好的固件(教程用的EFI固件)和img2kvm工具放入root目录下；</li>
+<li><a href="https://fw.koolcenter.com/binary/other-tools/">img2kvm工具下载(opens new window)</a></li>
+<li>终端登录PVE系统后台，终端输入命令：<code>chmod 777 ./img2kvm</code></li>
+<li>继续终端输入：<code>./img2kvm 固件完整名 虚拟机ID</code></li>
+</ul>
+<p>比如教程所示的虚拟机ID是104，下载的固件完整名：istoreos-21.02.3-2022092019-x86-64-squashfs-combined-efi.img.gz</p>
+<p>所以输入的命令就是：</p>
+<figure class="highlight plaintext"><table><tr><td class="code"><pre><span class="line">./img2kvm istoreos-21.02.3-2022092019-x86-64-squashfs-combined-efi.img.gz 104</span><br></pre></td></tr></table></figure>
 
-<p>如何需要卸载</p>
-<figure class="highlight plaintext"><table><tr><td class="code"><pre><span class="line">bash -c &quot;$(curl -L https://sing-box.vercel.app)&quot; @ remove</span><br></pre></td></tr></table></figure>
+<p><img src="https://pan.yuqi.fun/d/%E5%A4%A9%E7%BF%BC%E4%BA%91%E7%9B%98/img/202312031647302.jpeg"></p>
+<p>然后看PVE虚拟机104的硬件界面，会出现一个未添加的硬盘，双击添加：</p>
+<p><img src="https://pan.yuqi.fun/d/%E5%A4%A9%E7%BF%BC%E4%BA%91%E7%9B%98/img/202312031647806.jpeg"></p>
+<p>不用设置直接添加：</p>
+<p><img src="https://pan.yuqi.fun/d/%E5%A4%A9%E7%BF%BC%E4%BA%91%E7%9B%98/img/202312031647609.jpeg"></p>
+<p>添加完成，会出现一个硬盘：</p>
+<p><img src="https://pan.yuqi.fun/d/%E5%A4%A9%E7%BF%BC%E4%BA%91%E7%9B%98/img/202312031647016.jpeg"></p>
+<p>选项——引导顺序，双击进入编辑：</p>
+<p><img src="https://pan.yuqi.fun/d/%E5%A4%A9%E7%BF%BC%E4%BA%91%E7%9B%98/img/202312031647797.jpeg"></p>
+<p>把刚添加的硬盘作为第一启动：</p>
+<p><img src="https://pan.yuqi.fun/d/%E5%A4%A9%E7%BF%BC%E4%BA%91%E7%9B%98/img/202312031647908.jpeg"></p>
+<p><img src="https://pan.yuqi.fun/d/%E5%A4%A9%E7%BF%BC%E4%BA%91%E7%9B%98/img/202312031647362.jpeg"></p>
+<ul>
+<li>把EFI磁盘删掉，若BIOS不是UEFI，无此项设置；</li>
+</ul>
+<p><img src="https://pan.yuqi.fun/d/%E5%A4%A9%E7%BF%BC%E4%BA%91%E7%9B%98/img/202312031647310.jpeg"></p>
+<h1 id="启动iStoreOS："><a href="#启动iStoreOS：" class="headerlink" title="启动iStoreOS："></a>启动iStoreOS：</h1><p><img src="https://pan.yuqi.fun/d/%E5%A4%A9%E7%BF%BC%E4%BA%91%E7%9B%98/img/202312031648006.jpeg"></p>
+<ul>
+<li>如果前面的步骤没出错，是能正常启动的：</li>
+</ul>
+<p><img src="https://pan.yuqi.fun/d/%E5%A4%A9%E7%BF%BC%E4%BA%91%E7%9B%98/img/202312031648517.jpeg"></p>
+<ul>
+<li>等系统启动一两分钟，然后点击此虚拟机——控制台(右上角控制台也可)：</li>
+</ul>
+<p><img src="https://pan.yuqi.fun/d/%E5%A4%A9%E7%BF%BC%E4%BA%91%E7%9B%98/img/202312031648522.jpeg"></p>
+<p>鼠标点在此界面，键盘回车：就会出现终端入口：</p>
+<p><img src="https://pan.yuqi.fun/d/%E5%A4%A9%E7%BF%BC%E4%BA%91%E7%9B%98/img/202312031648241.jpeg"></p>
+<p><img src="https://pan.yuqi.fun/d/%E5%A4%A9%E7%BF%BC%E4%BA%91%E7%9B%98/img/202312031648418.jpeg"></p>
+<p>输入：<code>quickstart</code>，利用键盘“上下键”选择2，回车：</p>
+<p>输入要分配给iStoreOS的LAN口的ip(必须是PVE虚拟LAN的IP段，比如PVE的管理IP是192.168.2.88，那么此处的IP就必须是192.168.2.XXX)，回车生效；</p>
+<p><img src="https://pan.yuqi.fun/d/%E5%A4%A9%E7%BF%BC%E4%BA%91%E7%9B%98/img/202312031648082.jpeg"></p>
+<p>要求输入掩码(mask)，照着填：255.255.255.0，回车生效：</p>
+<p><img src="https://pan.yuqi.fun/d/%E5%A4%A9%E7%BF%BC%E4%BA%91%E7%9B%98/img/202312031648554.jpeg"></p>
+<p>然后选择QUIT退出此界面：</p>
+<p><img src="https://pan.yuqi.fun/d/%E5%A4%A9%E7%BF%BC%E4%BA%91%E7%9B%98/img/202312031648466.jpeg"></p>
+<ul>
+<li>输入：<code>reboot</code>重启iStoreOS，这样浏览器输入我们设置的IP，就进入iStoreOS界面了。</li>
+</ul>
+<p><img src="https://pan.yuqi.fun/d/%E5%A4%A9%E7%BF%BC%E4%BA%91%E7%9B%98/img/202312031648602.jpeg"></p>
+<p>iStoreOS默认登录密码是：password</p>
+<p><img src="https://pan.yuqi.fun/d/%E5%A4%A9%E7%BF%BC%E4%BA%91%E7%9B%98/img/202312031648519.jpeg"></p>
+<h1 id="配置iStoreOS："><a href="#配置iStoreOS：" class="headerlink" title="配置iStoreOS："></a>配置iStoreOS：</h1><p>此刻我们进入iStoreOS，但是目前iStoreOS是个单臂路由状态，只有一个LAN口。</p>
+<ul>
+<li>如果PVE里已有主路由系统，需要把iStoreOS配置为旁路由，在“网络向导”里配置“旁路由”即可。</li>
+</ul>
+<p><img src="https://pan.yuqi.fun/d/%E5%A4%A9%E7%BF%BC%E4%BA%91%E7%9B%98/img/202312031649861.jpeg"></p>
+<ul>
+<li>如果需要将iStoreOS作为主路由系统，就需要添加网口：</li>
+</ul>
+<p>首先在PVE里关闭iStoreOS虚拟机，然后硬件——添加一个PVE的网口作为WAN口；</p>
+<p><img src="https://pan.yuqi.fun/d/%E5%A4%A9%E7%BF%BC%E4%BA%91%E7%9B%98/img/202312031649410.jpeg"></p>
+<ul>
+<li>然后再确认2个IP，首先确认：PVE的虚拟LAN管理IP，比如是192.168.2.88，那么就必须把iStoreOS的IP改成192.168.2.1~192.168.2.77之间，比如把PVE的IP放在iStoreOS主路由LAN口IP之后，不然PVE无法联网。</li>
+<li>然后启动iStoreOS虚拟机，进入iStoreOS后，在“网络向导”里配置联网即可。</li>
+</ul>
+<h1 id="安装离线插件："><a href="#安装离线插件：" class="headerlink" title="安装离线插件："></a>安装离线插件：</h1><p><strong>注意，上述软件包安装，部分依赖依然要通过opkg软件源在线安装。如果安装失败，检查路由器自身的网络情况，特别是旁路由模式下最容易出现网络问题。</strong><br><strong>再三注意需要路由器自身联网正常</strong></p>
+<ul>
+<li><p>下载地址</p>
+<p><a href="https://github.com/bcseputetto/Are-u-ok">https://github.com/bcseputetto/Are-u-ok</a></p>
+</li>
+<li><p>如何安装<br>下载后，来到iStore应用商店页面，点击手动安装，点击选择上传或者直接拖放文件<br><img src="https://pan.yuqi.fun/d/%E5%A4%A9%E7%BF%BC%E4%BA%91%E7%9B%98/img/202312031649689.png"></p>
+</li>
+</ul>
+<p>对于没有iStore应用商店的OpenWrt也可以使用以下方法。<br>将 .run 文件上传到路由器上，然后在终端环境执行</p>
+<figure class="highlight plaintext"><table><tr><td class="code"><pre><span class="line">sh 包名.run</span><br></pre></td></tr></table></figure>
 
-<p>等会用得到的指令<br>重启</p>
-<figure class="highlight plaintext"><table><tr><td class="code"><pre><span class="line">systemctl restart sing-box</span><br></pre></td></tr></table></figure>
 
-<p>状态</p>
-<figure class="highlight plaintext"><table><tr><td class="code"><pre><span class="line">systemctl status sing-box</span><br></pre></td></tr></table></figure>
 
-<p>实时日志</p>
-<figure class="highlight plaintext"><table><tr><td class="code"><pre><span class="line">journalctl -u sing-box -o cat -f</span><br></pre></td></tr></table></figure>
+<p>例</p>
+<figure class="highlight plaintext"><table><tr><td class="code"><pre><span class="line">sh PassWall4.71-2_x86_all_sdk_22.03.5.run</span><br></pre></td></tr></table></figure>
 
-<h1 id="服务端vps搭建"><a href="#服务端vps搭建" class="headerlink" title="服务端vps搭建"></a>服务端vps搭建</h1><p><strong>自签证书申请，这里申请的是bing.com，申请了10年，可以用到你vps商家跑路了</strong></p>
-<figure class="highlight plaintext"><table><tr><td class="code"><pre><span class="line">mkdir -p /etc/hysteria &amp;&amp; openssl ecparam -genkey -name prime256v1 -out /etc/hysteria/private.key &amp;&amp; openssl req -new -x509 -days 3650 -key /etc/hysteria/private.key -out /etc/hysteria/cert.pem -subj &quot;/CN=bing.com&quot;</span><br></pre></td></tr></table></figure>
 
-<p><strong>搭建组合选择</strong><br>参考网站 <a href="https://github.com/chika0801/sing-box-examples">https://github.com/chika0801/sing-box-examples</a> 后期可以根据需求自由组合<br>为什么选择reality和hysteria2<br>1.reality目前是TCP协议里面号称最安全的<br>2.hysteria2作者是最用心的，教程写得很清楚 <a href="https://v2.hysteria.network/zh/">https://v2.hysteria.network/zh/</a><br>开始<br>编辑confing文件</p>
-<figure class="highlight plaintext"><table><tr><td class="code"><pre><span class="line">nano /usr/local/etc/sing-box/config.json</span><br></pre></td></tr></table></figure>
 
-<p>按照以下修改</p>
-<figure class="highlight plaintext"><table><tr><td class="code"><pre><span class="line">&#123;</span><br><span class="line">    &quot;inbounds&quot;: [</span><br><span class="line">        &#123;</span><br><span class="line">            &quot;type&quot;: &quot;hysteria2&quot;,</span><br><span class="line">            &quot;listen&quot;: &quot;::&quot;,</span><br><span class="line">            &quot;listen_port&quot;: 8443,</span><br><span class="line">            &quot;users&quot;: [</span><br><span class="line">                &#123;</span><br><span class="line">                    &quot;password&quot;: &quot;&quot; //你的密码</span><br><span class="line">                &#125;</span><br><span class="line">            ],</span><br><span class="line">            &quot;masquerade&quot;: &quot;https://bing.com&quot;,</span><br><span class="line">            &quot;tls&quot;: &#123;</span><br><span class="line">                &quot;enabled&quot;: true,</span><br><span class="line">                &quot;alpn&quot;: [</span><br><span class="line">                    &quot;h3&quot;</span><br><span class="line">                ],</span><br><span class="line">                &quot;certificate_path&quot;: &quot;/etc/hysteria/cert.pem&quot;,</span><br><span class="line">                &quot;key_path&quot;: &quot;/etc/hysteria/private.key&quot;</span><br><span class="line">            &#125;</span><br><span class="line">        &#125;,</span><br><span class="line">        &#123;</span><br><span class="line">            &quot;type&quot;: &quot;vless&quot;,</span><br><span class="line">            &quot;listen&quot;: &quot;::&quot;,</span><br><span class="line">            &quot;listen_port&quot;: 443,</span><br><span class="line">            &quot;users&quot;: [</span><br><span class="line">                &#123;</span><br><span class="line">                    &quot;uuid&quot;: &quot;&quot;, //vps上执行sing-box generate uuid</span><br><span class="line">                    &quot;flow&quot;: &quot;xtls-rprx-vision&quot;</span><br><span class="line">                &#125;</span><br><span class="line">            ],</span><br><span class="line">            &quot;tls&quot;: &#123;</span><br><span class="line">                &quot;enabled&quot;: true,</span><br><span class="line">                &quot;server_name&quot;: &quot;www.tesla.com&quot;,</span><br><span class="line">                &quot;reality&quot;: &#123;</span><br><span class="line">                    &quot;enabled&quot;: true,</span><br><span class="line">                    &quot;handshake&quot;: &#123;</span><br><span class="line">                        &quot;server&quot;: &quot;www.tesla.com&quot;,</span><br><span class="line">                        &quot;server_port&quot;: 443</span><br><span class="line">                    &#125;,</span><br><span class="line">                    &quot;private_key&quot;: &quot;&quot;, //vps上执行sing-box generate reality-keypair</span><br><span class="line">                    &quot;short_id&quot;: [</span><br><span class="line">                        &quot;0123456789abcdef&quot;// 0到f，长度为2的倍数，长度上限为16，默认这个也可以</span><br><span class="line">                    ]</span><br><span class="line">                &#125;</span><br><span class="line">            &#125;</span><br><span class="line">        &#125;</span><br><span class="line">    ],</span><br><span class="line">    &quot;outbounds&quot;: [</span><br><span class="line">        &#123;</span><br><span class="line">            &quot;type&quot;: &quot;direct&quot;</span><br><span class="line">        &#125;</span><br><span class="line">    ]</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+<p>如果文件不在当前路径记得填写路径，下例</p>
+<figure class="highlight plaintext"><table><tr><td class="code"><pre><span class="line">sh /tmp/upload/PassWall4.71-2_x86_all_sdk_22.03.5.run</span><br></pre></td></tr></table></figure>
 
-<p>然后重启</p>
-<figure class="highlight plaintext"><table><tr><td class="code"><pre><span class="line">systemctl restart sing-box</span><br></pre></td></tr></table></figure>
-
-<p>再查看日志</p>
-<figure class="highlight plaintext"><table><tr><td class="code"><pre><span class="line">journalctl -u sing-box -o cat -f</span><br></pre></td></tr></table></figure>
-
-<p>没问题就OK拉，开始导入passwall了因为申请的是自签证书，所有设置，都是<strong>开启允许不安全连接</strong></p>
-<h1 id="hysteria2客户端配置文件"><a href="#hysteria2客户端配置文件" class="headerlink" title="hysteria2客户端配置文件"></a>hysteria2客户端配置文件</h1><h2 id="客户端配置文件"><a href="#客户端配置文件" class="headerlink" title="客户端配置文件"></a>客户端配置文件</h2><figure class="highlight yaml"><table><tr><td class="code"><pre><span class="line"><span class="attr">server:</span> <span class="string">ip:443</span></span><br><span class="line"><span class="attr">auth:</span> <span class="number">123456</span></span><br><span class="line"></span><br><span class="line"><span class="attr">bandwidth:</span></span><br><span class="line">  <span class="attr">up:</span> <span class="number">20</span> <span class="string">mbps</span></span><br><span class="line">  <span class="attr">down:</span> <span class="number">100</span> <span class="string">mbps</span></span><br><span class="line">  </span><br><span class="line"><span class="attr">tls:</span></span><br><span class="line">  <span class="attr">sni:</span> <span class="string">a.com</span></span><br><span class="line">  <span class="attr">insecure:</span> <span class="literal">false</span> <span class="comment">#使用自签域名时需要改成true</span></span><br><span class="line"></span><br><span class="line"><span class="attr">socks5:</span></span><br><span class="line">  <span class="attr">listen:</span> <span class="number">127.0</span><span class="number">.0</span><span class="number">.1</span><span class="string">:1080</span></span><br><span class="line"><span class="attr">http:</span></span><br><span class="line">  <span class="attr">listen:</span> <span class="number">127.0</span><span class="number">.0</span><span class="number">.1</span><span class="string">:8080</span></span><br></pre></td></tr></table></figure>
-
-<h2 id="sing-box配置文件-Android-IOS"><a href="#sing-box配置文件-Android-IOS" class="headerlink" title="sing-box配置文件(Android&#x2F;IOS)"></a>sing-box配置文件(Android&#x2F;IOS)</h2><figure class="highlight json"><table><tr><td class="code"><pre><span class="line"><span class="punctuation">&#123;</span></span><br><span class="line">  <span class="attr">&quot;dns&quot;</span><span class="punctuation">:</span> <span class="punctuation">&#123;</span></span><br><span class="line">    <span class="attr">&quot;servers&quot;</span><span class="punctuation">:</span> <span class="punctuation">[</span></span><br><span class="line">      <span class="punctuation">&#123;</span></span><br><span class="line">        <span class="attr">&quot;tag&quot;</span><span class="punctuation">:</span> <span class="string">&quot;cf&quot;</span><span class="punctuation">,</span></span><br><span class="line">        <span class="attr">&quot;address&quot;</span><span class="punctuation">:</span> <span class="string">&quot;https://1.1.1.1/dns-query&quot;</span></span><br><span class="line">      <span class="punctuation">&#125;</span><span class="punctuation">,</span></span><br><span class="line">      <span class="punctuation">&#123;</span></span><br><span class="line">        <span class="attr">&quot;tag&quot;</span><span class="punctuation">:</span> <span class="string">&quot;local&quot;</span><span class="punctuation">,</span></span><br><span class="line">        <span class="attr">&quot;address&quot;</span><span class="punctuation">:</span> <span class="string">&quot;223.5.5.5&quot;</span><span class="punctuation">,</span></span><br><span class="line">        <span class="attr">&quot;detour&quot;</span><span class="punctuation">:</span> <span class="string">&quot;direct&quot;</span></span><br><span class="line">      <span class="punctuation">&#125;</span><span class="punctuation">,</span></span><br><span class="line">      <span class="punctuation">&#123;</span></span><br><span class="line">        <span class="attr">&quot;tag&quot;</span><span class="punctuation">:</span> <span class="string">&quot;block&quot;</span><span class="punctuation">,</span></span><br><span class="line">        <span class="attr">&quot;address&quot;</span><span class="punctuation">:</span> <span class="string">&quot;rcode://success&quot;</span></span><br><span class="line">      <span class="punctuation">&#125;</span></span><br><span class="line">    <span class="punctuation">]</span><span class="punctuation">,</span></span><br><span class="line">    <span class="attr">&quot;rules&quot;</span><span class="punctuation">:</span> <span class="punctuation">[</span></span><br><span class="line">      <span class="punctuation">&#123;</span></span><br><span class="line">        <span class="attr">&quot;geosite&quot;</span><span class="punctuation">:</span> <span class="string">&quot;category-ads-all&quot;</span><span class="punctuation">,</span></span><br><span class="line">        <span class="attr">&quot;server&quot;</span><span class="punctuation">:</span> <span class="string">&quot;block&quot;</span><span class="punctuation">,</span></span><br><span class="line">        <span class="attr">&quot;disable_cache&quot;</span><span class="punctuation">:</span> <span class="literal"><span class="keyword">true</span></span></span><br><span class="line">      <span class="punctuation">&#125;</span><span class="punctuation">,</span></span><br><span class="line">      <span class="punctuation">&#123;</span></span><br><span class="line">        <span class="attr">&quot;outbound&quot;</span><span class="punctuation">:</span> <span class="string">&quot;any&quot;</span><span class="punctuation">,</span></span><br><span class="line">        <span class="attr">&quot;server&quot;</span><span class="punctuation">:</span> <span class="string">&quot;local&quot;</span></span><br><span class="line">      <span class="punctuation">&#125;</span><span class="punctuation">,</span></span><br><span class="line">      <span class="punctuation">&#123;</span></span><br><span class="line">        <span class="attr">&quot;geosite&quot;</span><span class="punctuation">:</span> <span class="string">&quot;cn&quot;</span><span class="punctuation">,</span></span><br><span class="line">        <span class="attr">&quot;server&quot;</span><span class="punctuation">:</span> <span class="string">&quot;local&quot;</span></span><br><span class="line">      <span class="punctuation">&#125;</span></span><br><span class="line">    <span class="punctuation">]</span><span class="punctuation">,</span></span><br><span class="line">    <span class="attr">&quot;strategy&quot;</span><span class="punctuation">:</span> <span class="string">&quot;ipv4_only&quot;</span></span><br><span class="line">  <span class="punctuation">&#125;</span><span class="punctuation">,</span></span><br><span class="line">  <span class="attr">&quot;inbounds&quot;</span><span class="punctuation">:</span> <span class="punctuation">[</span></span><br><span class="line">    <span class="punctuation">&#123;</span></span><br><span class="line">      <span class="attr">&quot;type&quot;</span><span class="punctuation">:</span> <span class="string">&quot;tun&quot;</span><span class="punctuation">,</span></span><br><span class="line">      <span class="attr">&quot;inet4_address&quot;</span><span class="punctuation">:</span> <span class="string">&quot;172.19.0.1/30&quot;</span><span class="punctuation">,</span></span><br><span class="line">      <span class="attr">&quot;auto_route&quot;</span><span class="punctuation">:</span> <span class="literal"><span class="keyword">true</span></span><span class="punctuation">,</span></span><br><span class="line">      <span class="attr">&quot;strict_route&quot;</span><span class="punctuation">:</span> <span class="literal"><span class="keyword">false</span></span><span class="punctuation">,</span></span><br><span class="line">      <span class="attr">&quot;sniff&quot;</span><span class="punctuation">:</span> <span class="literal"><span class="keyword">true</span></span></span><br><span class="line">    <span class="punctuation">&#125;</span></span><br><span class="line">  <span class="punctuation">]</span><span class="punctuation">,</span></span><br><span class="line">  <span class="attr">&quot;outbounds&quot;</span><span class="punctuation">:</span> <span class="punctuation">[</span></span><br><span class="line">    <span class="punctuation">&#123;</span></span><br><span class="line">      <span class="attr">&quot;type&quot;</span><span class="punctuation">:</span> <span class="string">&quot;hysteria2&quot;</span><span class="punctuation">,</span></span><br><span class="line">      <span class="attr">&quot;tag&quot;</span><span class="punctuation">:</span> <span class="string">&quot;proxy&quot;</span><span class="punctuation">,</span></span><br><span class="line">      <span class="attr">&quot;server&quot;</span><span class="punctuation">:</span> <span class="string">&quot;这里填ip&quot;</span><span class="punctuation">,</span></span><br><span class="line">      <span class="attr">&quot;server_port&quot;</span><span class="punctuation">:</span> <span class="number">443</span><span class="punctuation">,</span></span><br><span class="line">      <span class="attr">&quot;up_mbps&quot;</span><span class="punctuation">:</span> <span class="number">20</span><span class="punctuation">,</span></span><br><span class="line">      <span class="attr">&quot;down_mbps&quot;</span><span class="punctuation">:</span> <span class="number">100</span><span class="punctuation">,</span></span><br><span class="line">      <span class="attr">&quot;password&quot;</span><span class="punctuation">:</span> <span class="string">&quot;这里填密码&quot;</span><span class="punctuation">,</span></span><br><span class="line">      <span class="attr">&quot;tls&quot;</span><span class="punctuation">:</span> <span class="punctuation">&#123;</span></span><br><span class="line">        <span class="attr">&quot;enabled&quot;</span><span class="punctuation">:</span> <span class="literal"><span class="keyword">true</span></span><span class="punctuation">,</span></span><br><span class="line">        <span class="attr">&quot;server_name&quot;</span><span class="punctuation">:</span> <span class="string">&quot;a.com&quot;</span><span class="punctuation">,</span></span><br><span class="line">        <span class="attr">&quot;insecure&quot;</span><span class="punctuation">:</span> <span class="literal"><span class="keyword">false</span></span></span><br><span class="line">      <span class="punctuation">&#125;</span></span><br><span class="line">    <span class="punctuation">&#125;</span><span class="punctuation">,</span></span><br><span class="line">    <span class="punctuation">&#123;</span></span><br><span class="line">      <span class="attr">&quot;type&quot;</span><span class="punctuation">:</span> <span class="string">&quot;direct&quot;</span><span class="punctuation">,</span></span><br><span class="line">      <span class="attr">&quot;tag&quot;</span><span class="punctuation">:</span> <span class="string">&quot;direct&quot;</span></span><br><span class="line">    <span class="punctuation">&#125;</span><span class="punctuation">,</span></span><br><span class="line">    <span class="punctuation">&#123;</span></span><br><span class="line">      <span class="attr">&quot;type&quot;</span><span class="punctuation">:</span> <span class="string">&quot;block&quot;</span><span class="punctuation">,</span></span><br><span class="line">      <span class="attr">&quot;tag&quot;</span><span class="punctuation">:</span> <span class="string">&quot;block&quot;</span></span><br><span class="line">    <span class="punctuation">&#125;</span><span class="punctuation">,</span></span><br><span class="line">    <span class="punctuation">&#123;</span></span><br><span class="line">      <span class="attr">&quot;type&quot;</span><span class="punctuation">:</span> <span class="string">&quot;dns&quot;</span><span class="punctuation">,</span></span><br><span class="line">      <span class="attr">&quot;tag&quot;</span><span class="punctuation">:</span> <span class="string">&quot;dns-out&quot;</span></span><br><span class="line">    <span class="punctuation">&#125;</span></span><br><span class="line">  <span class="punctuation">]</span><span class="punctuation">,</span></span><br><span class="line">  <span class="attr">&quot;route&quot;</span><span class="punctuation">:</span> <span class="punctuation">&#123;</span></span><br><span class="line">    <span class="attr">&quot;rules&quot;</span><span class="punctuation">:</span> <span class="punctuation">[</span></span><br><span class="line">      <span class="punctuation">&#123;</span></span><br><span class="line">        <span class="attr">&quot;protocol&quot;</span><span class="punctuation">:</span> <span class="string">&quot;dns&quot;</span><span class="punctuation">,</span></span><br><span class="line">        <span class="attr">&quot;outbound&quot;</span><span class="punctuation">:</span> <span class="string">&quot;dns-out&quot;</span></span><br><span class="line">      <span class="punctuation">&#125;</span><span class="punctuation">,</span></span><br><span class="line">      <span class="punctuation">&#123;</span></span><br><span class="line">        <span class="attr">&quot;geosite&quot;</span><span class="punctuation">:</span> <span class="string">&quot;cn&quot;</span><span class="punctuation">,</span></span><br><span class="line">        <span class="attr">&quot;geoip&quot;</span><span class="punctuation">:</span> <span class="punctuation">[</span></span><br><span class="line">          <span class="string">&quot;private&quot;</span><span class="punctuation">,</span></span><br><span class="line">          <span class="string">&quot;cn&quot;</span></span><br><span class="line">        <span class="punctuation">]</span><span class="punctuation">,</span></span><br><span class="line">        <span class="attr">&quot;outbound&quot;</span><span class="punctuation">:</span> <span class="string">&quot;direct&quot;</span></span><br><span class="line">      <span class="punctuation">&#125;</span><span class="punctuation">,</span></span><br><span class="line">      <span class="punctuation">&#123;</span></span><br><span class="line">        <span class="attr">&quot;geosite&quot;</span><span class="punctuation">:</span> <span class="string">&quot;category-ads-all&quot;</span><span class="punctuation">,</span></span><br><span class="line">        <span class="attr">&quot;outbound&quot;</span><span class="punctuation">:</span> <span class="string">&quot;block&quot;</span></span><br><span class="line">      <span class="punctuation">&#125;</span></span><br><span class="line">    <span class="punctuation">]</span><span class="punctuation">,</span></span><br><span class="line">    <span class="attr">&quot;auto_detect_interface&quot;</span><span class="punctuation">:</span> <span class="literal"><span class="keyword">true</span></span></span><br><span class="line">  <span class="punctuation">&#125;</span></span><br><span class="line"><span class="punctuation">&#125;</span></span><br></pre></td></tr></table></figure>
-
-<h1 id="相关链接"><a href="#相关链接" class="headerlink" title="相关链接"></a>相关链接</h1><h2 id="客户端下载"><a href="#客户端下载" class="headerlink" title="客户端下载"></a>客户端下载</h2><p>v2rayN 下载：<a href="https://bulianglin.com/g/aHR0cHM6Ly9naXRodWIuY29tLzJkdXN0L3YycmF5Ti9yZWxlYXNlcy9sYXRlc3Q">https://github.com/2dust/v2rayN/releases/latest</a><br>Hysteria 2下载：<a href="https://bulianglin.com/g/aHR0cHM6Ly9naXRodWIuY29tL2FwZXJuZXQvaHlzdGVyaWEvcmVsZWFzZXM">https://github.com/apernet/hysteria/releases</a><br>Hysteria 2文档：<a href="https://bulianglin.com/g/aHR0cHM6Ly92Mi5oeXN0ZXJpYS5uZXR3b3JrL3poLw">https://v2.hysteria.network/zh/</a><br>sing-box文档：<a href="https://bulianglin.com/g/aHR0cHM6Ly9zaW5nLWJveC5zYWdlcm5ldC5vcmcvemgv">https://sing-box.sagernet.org/zh/</a><br>Android客户端（SFA）：<a href="https://bulianglin.com/g/aHR0cHM6Ly9pbnN0YWxsLmFwcGNlbnRlci5tcy91c2Vycy9uZWtvaGFzZWthaS9hcHBzL3NmYS9kaXN0cmlidXRpb25fZ3JvdXBzL3B1YmxpY3Rlc3Q">https://install.appcenter.ms/users/nekohasekai/apps/sfa/distribution_groups&#x2F;publictest</a><br>IOS客户端（TestFlight）：<a href="https://bulianglin.com/g/aHR0cHM6Ly90ZXN0ZmxpZ2h0LmFwcGxlLmNvbS9qb2luL0FjcU80NEZI">https://testflight.apple.com/join/AcqO44FH</a> （1.5.0 beta版支持Hysteria 2）<br>IOS客户端（AppStore）：<a href="https://bulianglin.com/g/aHR0cHM6Ly9hcHBzLmFwcGxlLmNvbS91cy9hcHAvc2luZy1ib3gvaWQ2NDUxMjcyNjcz">https://apps.apple.com/us/app/sing-box/id6451272673</a> （暂不支持Hysteria 2）</p>
-<h2 id="视频教程参考"><a href="#视频教程参考" class="headerlink" title="视频教程参考"></a>视频教程参考</h2><p>2023年最安全协议hysteria2和reality同时搭建 | 无需自备域名 | passwall设置hysteria2方法：<a href="https://youtu.be/S0jSGOdeTs4?si=w4vYPa44zIoQ4zHv">https://youtu.be/S0jSGOdeTs4?si=w4vYPa44zIoQ4zHv</a></p>
-<p>【遥遥领先】黑科技！垃圾VPS线路网速大幅提升！第二代hysteria节点搭建教程，歇斯底里为什么可以提升网速？windows&#x2F;ios&#x2F;android手机移动端使用方式，sing-box配置hy2方式：<a href="https://youtu.be/CXj-ID33MhU?si=bgcrlIpW5BwOc9uL">https://youtu.be/CXj-ID33MhU?si=bgcrlIpW5BwOc9uL</a></p>
-<h2 id="文档参考"><a href="#文档参考" class="headerlink" title="文档参考"></a>文档参考</h2><p>视频1：<a href="https://ybfl.xyz/sites/283.html">https://ybfl.xyz/sites/283.html</a></p>
-<p>视频2：<a href="https://bulianglin.com/archives/hysteria2.html">https://bulianglin.com/archives/hysteria2.html</a></p>
 ]]></content>
       <categories>
         <category>教程</category>
       </categories>
       <tags>
-        <tag>服务器</tag>
+        <tag>路由器</tag>
       </tags>
   </entry>
   <entry>
@@ -2475,37 +2423,6 @@
       </tags>
   </entry>
   <entry>
-    <title>安装了VMware Tools，但无法实现文件的拖拽和复制粘贴---解决方案</title>
-    <url>/undefined/a580ef34.html</url>
-    <content><![CDATA[<p>环境：Windows11，VMware17Pro，ubuntu-23.10.1</p>
-<p>我给虚拟机装好Ubuntu系统后，它默认是安装好vmtools的</p>
-<p>而且这些选项默认是勾选的，但是我无法实现宿主机和虚拟机之间文件的拖拽和复制粘贴</p>
-<p>如果你遇到了和我一样的问题，且网上很多博文提供的解决方案都无法解决你的问题，那么请往下看</p>
-<p>我试了各路大神的解决方案，基本都行不通</p>
-<p>只有一篇标题和这个问题相关度不高的文章，提到了一种重装VMware tools的方法，我试了一下终于解决了问题</p>
-<p> 这里要说一下，网上的很多文章用cd里带的VMware tools压缩包来重新安装（还要手动输yes的那个方法），我试了，根本没有用</p>
-<p>毕竟初始安装的就是那个版本，再重新安装一下并没有意义</p>
-<p>真正的解决方案其实很方便：</p>
-<p>打开终端</p>
-<p>1.卸载VMware Tools</p>
-<figure class="highlight plaintext"><table><tr><td class="code"><pre><span class="line">sudo apt-get autoremove open-vm-tools</span><br></pre></td></tr></table></figure>
-
-<p>2.联网安装VMware tools</p>
-<figure class="highlight plaintext"><table><tr><td class="code"><pre><span class="line">sudo apt-get install open-vm-tools-desktop</span><br></pre></td></tr></table></figure>
-
-<p>如果出错了，就执行下面两行命令</p>
-<figure class="highlight plaintext"><table><tr><td class="code"><pre><span class="line">sudo apt-get update</span><br><span class="line">sudo apt-get install open-vm-tools-desktop fuse</span><br></pre></td></tr></table></figure>
-
-<p>3.重启虚拟机即可</p>
-]]></content>
-      <categories>
-        <category>教程</category>
-      </categories>
-      <tags>
-        <tag>虚拟机</tag>
-      </tags>
-  </entry>
-  <entry>
     <title>常用VPS脚本</title>
     <url>/undefined/6469b43f.html</url>
     <content><![CDATA[<h2 id="1、DD重装脚本"><a href="#1、DD重装脚本" class="headerlink" title="1、DD重装脚本"></a>1、DD重装脚本</h2><p>史上最强脚本</p>
@@ -2641,6 +2558,37 @@
 <p>SKY-BOX</p>
 <figure class="highlight plaintext"><table><tr><td class="code"><pre><span class="line">wget -O box.sh https://raw.githubusercontent.com/BlueSkyXN/SKY-BOX/main/box.sh &amp;&amp; chmod +x box.sh &amp;&amp; clear &amp;&amp; ./box.sh</span><br></pre></td></tr></table></figure>
 ]]></content>
+  </entry>
+  <entry>
+    <title>安装了VMware Tools，但无法实现文件的拖拽和复制粘贴---解决方案</title>
+    <url>/undefined/a580ef34.html</url>
+    <content><![CDATA[<p>环境：Windows11，VMware17Pro，ubuntu-23.10.1</p>
+<p>我给虚拟机装好Ubuntu系统后，它默认是安装好vmtools的</p>
+<p>而且这些选项默认是勾选的，但是我无法实现宿主机和虚拟机之间文件的拖拽和复制粘贴</p>
+<p>如果你遇到了和我一样的问题，且网上很多博文提供的解决方案都无法解决你的问题，那么请往下看</p>
+<p>我试了各路大神的解决方案，基本都行不通</p>
+<p>只有一篇标题和这个问题相关度不高的文章，提到了一种重装VMware tools的方法，我试了一下终于解决了问题</p>
+<p> 这里要说一下，网上的很多文章用cd里带的VMware tools压缩包来重新安装（还要手动输yes的那个方法），我试了，根本没有用</p>
+<p>毕竟初始安装的就是那个版本，再重新安装一下并没有意义</p>
+<p>真正的解决方案其实很方便：</p>
+<p>打开终端</p>
+<p>1.卸载VMware Tools</p>
+<figure class="highlight plaintext"><table><tr><td class="code"><pre><span class="line">sudo apt-get autoremove open-vm-tools</span><br></pre></td></tr></table></figure>
+
+<p>2.联网安装VMware tools</p>
+<figure class="highlight plaintext"><table><tr><td class="code"><pre><span class="line">sudo apt-get install open-vm-tools-desktop</span><br></pre></td></tr></table></figure>
+
+<p>如果出错了，就执行下面两行命令</p>
+<figure class="highlight plaintext"><table><tr><td class="code"><pre><span class="line">sudo apt-get update</span><br><span class="line">sudo apt-get install open-vm-tools-desktop fuse</span><br></pre></td></tr></table></figure>
+
+<p>3.重启虚拟机即可</p>
+]]></content>
+      <categories>
+        <category>教程</category>
+      </categories>
+      <tags>
+        <tag>虚拟机</tag>
+      </tags>
   </entry>
   <entry>
     <title>最佳免费NPV方式-workers搭建vless使用</title>
@@ -2856,120 +2804,6 @@
       </tags>
   </entry>
   <entry>
-    <title>移载机SEW MOVIDRIVE 变频器配置手册（双编码器）</title>
-    <url>/undefined/4f7419e2.html</url>
-    <content><![CDATA[<h1 id="一、SEW变频器Startup"><a href="#一、SEW变频器Startup" class="headerlink" title="一、SEW变频器Startup"></a>一、SEW变频器Startup</h1><p>安装好MOVITOOL软件</p>
-<p><img src="https://pan.yuqi.fun/d/%E5%A4%A9%E7%BF%BC%E4%BA%91%E7%9B%98/img/20250522211420768.png" alt="image-20250522204456926"></p>
-<p>打开创建好的项目开始配置通信连接</p>
-<p><img src="https://pan.yuqi.fun/d/%E5%A4%A9%E7%BF%BC%E4%BA%91%E7%9B%98/img/20250522211428346.png" alt="image-20250522204525245"></p>
-<p>下面以以太网连接为例</p>
-<p><img src="https://pan.yuqi.fun/d/%E5%A4%A9%E7%BF%BC%E4%BA%91%E7%9B%98/img/20250522211435174.png" alt="image-20250522204553577"></p>
-<p><img src="https://pan.yuqi.fun/d/%E5%A4%A9%E7%BF%BC%E4%BA%91%E7%9B%98/img/20250522211440753.png" alt="image-20250522204622864"></p>
-<p>当设置完成后，请一路OK回到软件管理画面</p>
-<p><img src="https://pan.yuqi.fun/d/%E5%A4%A9%E7%BF%BC%E4%BA%91%E7%9B%98/img/20250522211452463.png" alt="image-20250522204646120"></p>
-<p>通信配置正确的软件界面状态</p>
-<p><img src="https://pan.yuqi.fun/d/%E5%A4%A9%E7%BF%BC%E4%BA%91%E7%9B%98/img/20250522211500726.png" alt="image-20250522204707808"></p>
-<p>单击红色刷新图标</p>
-<p><img src="https://pan.yuqi.fun/d/%E5%A4%A9%E7%BF%BC%E4%BA%91%E7%9B%98/img/20250522211506743.png" alt="image-20250522204732227"></p>
-<p>一切准备就绪后，单击已连接的变频器。会在软件管理中罗列出当前各项功能菜单。</p>
-<p><img src="https://pan.yuqi.fun/d/%E5%A4%A9%E7%BF%BC%E4%BA%91%E7%9B%98/img/20250522211526791.png" alt="image-20250522204750498"></p>
-<p>下面我们开始参数配置：</p>
-<p>参数设置一</p>
-<p>单击参数列表</p>
-<p><img src="https://pan.yuqi.fun/d/%E5%A4%A9%E7%BF%BC%E4%BA%91%E7%9B%98/img/20250522211536263.png" alt="image-20250522204832268"></p>
-<p><img src="https://pan.yuqi.fun/d/%E5%A4%A9%E7%BF%BC%E4%BA%91%E7%9B%98/img/20250522211545286.png" alt="image-20250522204848233"></p>
-<p>变频器参数重置完成后，回到SEW管理器画面选择</p>
-<p><img src="https://pan.yuqi.fun/d/%E5%A4%A9%E7%BF%BC%E4%BA%91%E7%9B%98/img/20250522211551830.png" alt="image-20250522204903815"></p>
-<p>开始电机参数配置。</p>
-<p>第一步配置电机基本参数参数</p>
-<p>第二步配置变频器参数</p>
-<p>第三步配置IPOS参数</p>
-<p>出现下图配置画面：</p>
-<p><img src="https://pan.yuqi.fun/d/%E5%A4%A9%E7%BF%BC%E4%BA%91%E7%9B%98/img/20250522211556970.png" alt="image-20250522204922056"></p>
-<p><img src="https://pan.yuqi.fun/d/%E5%A4%A9%E7%BF%BC%E4%BA%91%E7%9B%98/img/20250522211605460.png" alt="image-20250522204935064"></p>
-<p><img src="https://pan.yuqi.fun/d/%E5%A4%A9%E7%BF%BC%E4%BA%91%E7%9B%98/img/20250522211612151.png" alt="image-20250522204948929"></p>
-<p>选择矢量\伺服控制</p>
-<p><img src="https://pan.yuqi.fun/d/%E5%A4%A9%E7%BF%BC%E4%BA%91%E7%9B%98/img/20250522211636487.png" alt="image-20250522205011792"></p>
-<p>选择下一步。</p>
-<p><img src="https://pan.yuqi.fun/d/%E5%A4%A9%E7%BF%BC%E4%BA%91%E7%9B%98/img/20250522211621582.png" alt="image-20250522205025251"></p>
-<p>选择电机类型。</p>
-<p><img src="https://pan.yuqi.fun/d/%E5%A4%A9%E7%BF%BC%E4%BA%91%E7%9B%98/img/20250522211648706.png" alt="image-20250522205042278"></p>
-<p>选择电机对应的型号和输入电源的额定电压和频率值</p>
-<p><img src="https://pan.yuqi.fun/d/%E5%A4%A9%E7%BF%BC%E4%BA%91%E7%9B%98/img/20250522211659160.png" alt="image-20250522205058945"></p>
-<p>选择使用的编码器</p>
-<p><img src="https://pan.yuqi.fun/d/%E5%A4%A9%E7%BF%BC%E4%BA%91%E7%9B%98/img/20250522211705047.png" alt="image-20250522205115647"></p>
-<p>选择变频器IPOS工作模式。</p>
-<p><img src="https://pan.yuqi.fun/d/%E5%A4%A9%E7%BF%BC%E4%BA%91%E7%9B%98/img/20250522211711639.png" alt="image-20250522205143590"></p>
-<p>选择压频控制（VFC）模式</p>
-<p><img src="https://pan.yuqi.fun/d/%E5%A4%A9%E7%BF%BC%E4%BA%91%E7%9B%98/img/20250522211718088.png" alt="image-20250522205154059"></p>
-<p>惯性选择</p>
-<p>弹出下图</p>
-<p><img src="https://pan.yuqi.fun/d/%E5%A4%A9%E7%BF%BC%E4%BA%91%E7%9B%98/img/20250522211739760.png" alt="image-20250522205329862"></p>
-<p>选择是否启用电机抱闸。</p>
-<p><img src="https://pan.yuqi.fun/d/%E5%A4%A9%E7%BF%BC%E4%BA%91%E7%9B%98/img/20250522211747415.png" alt="image-20250522205348345"></p>
-<p>参数设置part1</p>
-<p><img src="https://pan.yuqi.fun/d/%E5%A4%A9%E7%BF%BC%E4%BA%91%E7%9B%98/img/20250522211819997.png" alt="image-20250522205423812"></p>
-<p>参数设置part2</p>
-<p><img src="https://pan.yuqi.fun/d/%E5%A4%A9%E7%BF%BC%E4%BA%91%E7%9B%98/img/20250522211831478.png" alt="image-20250522205442378"></p>
-<p>参数设置part3</p>
-<p><img src="https://pan.yuqi.fun/d/%E5%A4%A9%E7%BF%BC%E4%BA%91%E7%9B%98/img/20250522211836809.png" alt="image-20250522205459889"></p>
-<p>点击“下载”，然后单击“设置变频器，“完成”</p>
-<p><img src="https://pan.yuqi.fun/d/%E5%A4%A9%E7%BF%BC%E4%BA%91%E7%9B%98/img/20250522211843403.png" alt="image-20250522205518921"></p>
-<h1 id="二、SEW变频器总线扩展定位设置"><a href="#二、SEW变频器总线扩展定位设置" class="headerlink" title="二、SEW变频器总线扩展定位设置"></a>二、SEW变频器总线扩展定位设置</h1><p>点击2.SEW总线扩展定位，定位块设置。</p>
-<p><img src="https://pan.yuqi.fun/d/%E5%A4%A9%E7%BF%BC%E4%BA%91%E7%9B%98/img/20250522211849177.png" alt="image-20250522205619412"></p>
-<p><img src="https://pan.yuqi.fun/d/%E5%A4%A9%E7%BF%BC%E4%BA%91%E7%9B%98/img/20250522205630853.png" alt="image-20250522205630853"></p>
-<p><img src="https://pan.yuqi.fun/d/%E5%A4%A9%E7%BF%BC%E4%BA%91%E7%9B%98/img/20250522211912978.png" alt="image-20250522205642616"></p>
-<p>选择位移编码器类型</p>
-<p><img src="https://pan.yuqi.fun/d/%E5%A4%A9%E7%BF%BC%E4%BA%91%E7%9B%98/img/20250522211919035.png" alt="image-20250522205658095"></p>
-<p><img src="https://pan.yuqi.fun/d/%E5%A4%A9%E7%BF%BC%E4%BA%91%E7%9B%98/img/20250522211934232.png" alt="image-20250522205706074"></p>
-<p><img src="https://pan.yuqi.fun/d/%E5%A4%A9%E7%BF%BC%E4%BA%91%E7%9B%98/img/20250522211923657.png" alt="image-20250522205711381"></p>
-<p><img src="https://pan.yuqi.fun/d/%E5%A4%A9%E7%BF%BC%E4%BA%91%E7%9B%98/img/20250522211941581.png" alt="image-20250522205717432"></p>
-<p>移载机内置编码器和外置编码器匹配。</p>
-<p><img src="https://pan.yuqi.fun/d/%E5%A4%A9%E7%BF%BC%E4%BA%91%E7%9B%98/img/20250522211948129.png" alt="image-20250522205733747"></p>
-<p>提示：做这一步时，如果出现电机不能转动，或产生报警不能通过编码器匹配。需要检查以下内容：</p>
-<p>1电机不能转动：</p>
-<p>a可能是由于变频器的安全24V未给</p>
-<p>b电机抱闸未打开</p>
-<p>c机械设备运动到极限位置或被锁定</p>
-<p>2变频器报警：a速度故障编码器线缆有接触不良或错误如同下图</p>
-<p><img src="https://pan.yuqi.fun/d/%E5%A4%A9%E7%BF%BC%E4%BA%91%E7%9B%98/img/20250522211957143.png" alt="image-20250522205831537"></p>
-<p>单击下一步</p>
-<p><img src="https://pan.yuqi.fun/d/%E5%A4%A9%E7%BF%BC%E4%BA%91%E7%9B%98/img/20250522212003541.png" alt="image-20250522205846506"></p>
-<p>单击下一步</p>
-<p><img src="https://pan.yuqi.fun/d/%E5%A4%A9%E7%BF%BC%E4%BA%91%E7%9B%98/img/20250522212010638.png" alt="image-20250522205903857"></p>
-<p>单击下一步</p>
-<p><img src="https://pan.yuqi.fun/d/%E5%A4%A9%E7%BF%BC%E4%BA%91%E7%9B%98/img/20250522212020133.png" alt="image-20250522205929872"></p>
-<p>编码器匹配通过后点击下一步，进入下图画面传送参考位置。</p>
-<p>提示：传送参考位置前请断开变频器安全24V电源，否则会弹出禁止修改提示框；修改成功后也会弹出提示框，根据提示继续配置。</p>
-<p><img src="https://pan.yuqi.fun/d/%E5%A4%A9%E7%BF%BC%E4%BA%91%E7%9B%98/img/20250522212026198.png" alt="image-20250522205951899"></p>
-<p>单击“完成”。</p>
-<p><img src="https://pan.yuqi.fun/d/%E5%A4%A9%E7%BF%BC%E4%BA%91%E7%9B%98/img/20250522212032184.png" alt="image-20250522210003836"></p>
-<h1 id="三、-IPOS配置"><a href="#三、-IPOS配置" class="headerlink" title="三、 IPOS配置"></a>三、 IPOS配置</h1><p><img src="https://pan.yuqi.fun/d/%E5%A4%A9%E7%BF%BC%E4%BA%91%E7%9B%98/img/20250522212039234.png" alt="image-20250522210033621"></p>
-<p>设置通信总线类型为Profinet，单击下一步</p>
-<p><img src="https://pan.yuqi.fun/d/%E5%A4%A9%E7%BF%BC%E4%BA%91%E7%9B%98/img/20250522212044956.png" alt="image-20250522210130165"></p>
-<p>参数设置单击下一步</p>
-<p><img src="https://pan.yuqi.fun/d/%E5%A4%A9%E7%BF%BC%E4%BA%91%E7%9B%98/img/20250522212052156.png" alt="image-20250522210205472"></p>
-<p>变频器软限位，及参考类型设置单击下一步</p>
-<p><img src="https://pan.yuqi.fun/d/%E5%A4%A9%E7%BF%BC%E4%BA%91%E7%9B%98/img/20250522212058553.png" alt="image-20250522210229213"></p>
-<p><img src="https://pan.yuqi.fun/d/%E5%A4%A9%E7%BF%BC%E4%BA%91%E7%9B%98/img/20250522212105838.png" alt="image-20250522210236898"></p>
-<p>选择“否“不保存</p>
-<p>下载配置的参数，提示：下载参数需要断开变频器的安全24V电源</p>
-<p><img src="https://pan.yuqi.fun/d/%E5%A4%A9%E7%BF%BC%E4%BA%91%E7%9B%98/img/20250522212111341.png" alt="image-20250522210301645"></p>
-<p>点“yes”监控状态</p>
-<p><img src="https://pan.yuqi.fun/d/%E5%A4%A9%E7%BF%BC%E4%BA%91%E7%9B%98/img/20250522212118310.png" alt="image-20250522210316464"></p>
-<p><img src="https://pan.yuqi.fun/d/%E5%A4%A9%E7%BF%BC%E4%BA%91%E7%9B%98/img/20250522212125742.png" alt="image-20250522210352603"></p>
-<p>参考设置No.1</p>
-<p><img src="https://pan.yuqi.fun/d/%E5%A4%A9%E7%BF%BC%E4%BA%91%E7%9B%98/img/20250522212132048.png" alt="image-20250522210417474"></p>
-<p>参考设置No.2</p>
-<p><img src="https://pan.yuqi.fun/d/%E5%A4%A9%E7%BF%BC%E4%BA%91%E7%9B%98/img/20250522212143689.png" alt="image-20250522210438966"></p>
-<p>参考设置No.3</p>
-<p>选择PO1 第2,3,9,13 位，点击“SendPA”Start reference，编码器反馈值为0（PI2&#x2F;3 Actual position&#x3D;0）</p>
-<p><img src="https://pan.yuqi.fun/d/%E5%A4%A9%E7%BF%BC%E4%BA%91%E7%9B%98/img/20250522212151212.png" alt="image-20250522210537816"></p>
-<p>设置完成这些参数，可以测试运行电机。</p>
-<p><img src="https://pan.yuqi.fun/d/%E5%A4%A9%E7%BF%BC%E4%BA%91%E7%9B%98/img/20250522212158850.png" alt="image-20250522210558705"></p>
-]]></content>
-  </entry>
-  <entry>
     <title>神秘模块入门教程（Android端）</title>
     <url>/undefined/d7b14abe.html</url>
     <content><![CDATA[<p><strong>使用前提</strong><br>1.已经安装Magisk或KernelSU的安卓设备</p>
@@ -3108,6 +2942,120 @@
       </tags>
   </entry>
   <entry>
+    <title>移载机SEW MOVIDRIVE 变频器配置手册（双编码器）</title>
+    <url>/undefined/4f7419e2.html</url>
+    <content><![CDATA[<h1 id="一、SEW变频器Startup"><a href="#一、SEW变频器Startup" class="headerlink" title="一、SEW变频器Startup"></a>一、SEW变频器Startup</h1><p>安装好MOVITOOL软件</p>
+<p><img src="https://pan.yuqi.fun/d/%E5%A4%A9%E7%BF%BC%E4%BA%91%E7%9B%98/img/20250522211420768.png" alt="image-20250522204456926"></p>
+<p>打开创建好的项目开始配置通信连接</p>
+<p><img src="https://pan.yuqi.fun/d/%E5%A4%A9%E7%BF%BC%E4%BA%91%E7%9B%98/img/20250522211428346.png" alt="image-20250522204525245"></p>
+<p>下面以以太网连接为例</p>
+<p><img src="https://pan.yuqi.fun/d/%E5%A4%A9%E7%BF%BC%E4%BA%91%E7%9B%98/img/20250522211435174.png" alt="image-20250522204553577"></p>
+<p><img src="https://pan.yuqi.fun/d/%E5%A4%A9%E7%BF%BC%E4%BA%91%E7%9B%98/img/20250522211440753.png" alt="image-20250522204622864"></p>
+<p>当设置完成后，请一路OK回到软件管理画面</p>
+<p><img src="https://pan.yuqi.fun/d/%E5%A4%A9%E7%BF%BC%E4%BA%91%E7%9B%98/img/20250522211452463.png" alt="image-20250522204646120"></p>
+<p>通信配置正确的软件界面状态</p>
+<p><img src="https://pan.yuqi.fun/d/%E5%A4%A9%E7%BF%BC%E4%BA%91%E7%9B%98/img/20250522211500726.png" alt="image-20250522204707808"></p>
+<p>单击红色刷新图标</p>
+<p><img src="https://pan.yuqi.fun/d/%E5%A4%A9%E7%BF%BC%E4%BA%91%E7%9B%98/img/20250522211506743.png" alt="image-20250522204732227"></p>
+<p>一切准备就绪后，单击已连接的变频器。会在软件管理中罗列出当前各项功能菜单。</p>
+<p><img src="https://pan.yuqi.fun/d/%E5%A4%A9%E7%BF%BC%E4%BA%91%E7%9B%98/img/20250522211526791.png" alt="image-20250522204750498"></p>
+<p>下面我们开始参数配置：</p>
+<p>参数设置一</p>
+<p>单击参数列表</p>
+<p><img src="https://pan.yuqi.fun/d/%E5%A4%A9%E7%BF%BC%E4%BA%91%E7%9B%98/img/20250522211536263.png" alt="image-20250522204832268"></p>
+<p><img src="https://pan.yuqi.fun/d/%E5%A4%A9%E7%BF%BC%E4%BA%91%E7%9B%98/img/20250522211545286.png" alt="image-20250522204848233"></p>
+<p>变频器参数重置完成后，回到SEW管理器画面选择</p>
+<p><img src="https://pan.yuqi.fun/d/%E5%A4%A9%E7%BF%BC%E4%BA%91%E7%9B%98/img/20250522211551830.png" alt="image-20250522204903815"></p>
+<p>开始电机参数配置。</p>
+<p>第一步配置电机基本参数参数</p>
+<p>第二步配置变频器参数</p>
+<p>第三步配置IPOS参数</p>
+<p>出现下图配置画面：</p>
+<p><img src="https://pan.yuqi.fun/d/%E5%A4%A9%E7%BF%BC%E4%BA%91%E7%9B%98/img/20250522211556970.png" alt="image-20250522204922056"></p>
+<p><img src="https://pan.yuqi.fun/d/%E5%A4%A9%E7%BF%BC%E4%BA%91%E7%9B%98/img/20250522211605460.png" alt="image-20250522204935064"></p>
+<p><img src="https://pan.yuqi.fun/d/%E5%A4%A9%E7%BF%BC%E4%BA%91%E7%9B%98/img/20250522211612151.png" alt="image-20250522204948929"></p>
+<p>选择矢量\伺服控制</p>
+<p><img src="https://pan.yuqi.fun/d/%E5%A4%A9%E7%BF%BC%E4%BA%91%E7%9B%98/img/20250522211636487.png" alt="image-20250522205011792"></p>
+<p>选择下一步。</p>
+<p><img src="https://pan.yuqi.fun/d/%E5%A4%A9%E7%BF%BC%E4%BA%91%E7%9B%98/img/20250522211621582.png" alt="image-20250522205025251"></p>
+<p>选择电机类型。</p>
+<p><img src="https://pan.yuqi.fun/d/%E5%A4%A9%E7%BF%BC%E4%BA%91%E7%9B%98/img/20250522211648706.png" alt="image-20250522205042278"></p>
+<p>选择电机对应的型号和输入电源的额定电压和频率值</p>
+<p><img src="https://pan.yuqi.fun/d/%E5%A4%A9%E7%BF%BC%E4%BA%91%E7%9B%98/img/20250522211659160.png" alt="image-20250522205058945"></p>
+<p>选择使用的编码器</p>
+<p><img src="https://pan.yuqi.fun/d/%E5%A4%A9%E7%BF%BC%E4%BA%91%E7%9B%98/img/20250522211705047.png" alt="image-20250522205115647"></p>
+<p>选择变频器IPOS工作模式。</p>
+<p><img src="https://pan.yuqi.fun/d/%E5%A4%A9%E7%BF%BC%E4%BA%91%E7%9B%98/img/20250522211711639.png" alt="image-20250522205143590"></p>
+<p>选择压频控制（VFC）模式</p>
+<p><img src="https://pan.yuqi.fun/d/%E5%A4%A9%E7%BF%BC%E4%BA%91%E7%9B%98/img/20250522211718088.png" alt="image-20250522205154059"></p>
+<p>惯性选择</p>
+<p>弹出下图</p>
+<p><img src="https://pan.yuqi.fun/d/%E5%A4%A9%E7%BF%BC%E4%BA%91%E7%9B%98/img/20250522211739760.png" alt="image-20250522205329862"></p>
+<p>选择是否启用电机抱闸。</p>
+<p><img src="https://pan.yuqi.fun/d/%E5%A4%A9%E7%BF%BC%E4%BA%91%E7%9B%98/img/20250522211747415.png" alt="image-20250522205348345"></p>
+<p>参数设置part1</p>
+<p><img src="https://pan.yuqi.fun/d/%E5%A4%A9%E7%BF%BC%E4%BA%91%E7%9B%98/img/20250522211819997.png" alt="image-20250522205423812"></p>
+<p>参数设置part2</p>
+<p><img src="https://pan.yuqi.fun/d/%E5%A4%A9%E7%BF%BC%E4%BA%91%E7%9B%98/img/20250522211831478.png" alt="image-20250522205442378"></p>
+<p>参数设置part3</p>
+<p><img src="https://pan.yuqi.fun/d/%E5%A4%A9%E7%BF%BC%E4%BA%91%E7%9B%98/img/20250522211836809.png" alt="image-20250522205459889"></p>
+<p>点击“下载”，然后单击“设置变频器，“完成”</p>
+<p><img src="https://pan.yuqi.fun/d/%E5%A4%A9%E7%BF%BC%E4%BA%91%E7%9B%98/img/20250522211843403.png" alt="image-20250522205518921"></p>
+<h1 id="二、SEW变频器总线扩展定位设置"><a href="#二、SEW变频器总线扩展定位设置" class="headerlink" title="二、SEW变频器总线扩展定位设置"></a>二、SEW变频器总线扩展定位设置</h1><p>点击2.SEW总线扩展定位，定位块设置。</p>
+<p><img src="https://pan.yuqi.fun/d/%E5%A4%A9%E7%BF%BC%E4%BA%91%E7%9B%98/img/20250522211849177.png" alt="image-20250522205619412"></p>
+<p><img src="https://pan.yuqi.fun/d/%E5%A4%A9%E7%BF%BC%E4%BA%91%E7%9B%98/img/20250522205630853.png" alt="image-20250522205630853"></p>
+<p><img src="https://pan.yuqi.fun/d/%E5%A4%A9%E7%BF%BC%E4%BA%91%E7%9B%98/img/20250522211912978.png" alt="image-20250522205642616"></p>
+<p>选择位移编码器类型</p>
+<p><img src="https://pan.yuqi.fun/d/%E5%A4%A9%E7%BF%BC%E4%BA%91%E7%9B%98/img/20250522211919035.png" alt="image-20250522205658095"></p>
+<p><img src="https://pan.yuqi.fun/d/%E5%A4%A9%E7%BF%BC%E4%BA%91%E7%9B%98/img/20250522211934232.png" alt="image-20250522205706074"></p>
+<p><img src="https://pan.yuqi.fun/d/%E5%A4%A9%E7%BF%BC%E4%BA%91%E7%9B%98/img/20250522211923657.png" alt="image-20250522205711381"></p>
+<p><img src="https://pan.yuqi.fun/d/%E5%A4%A9%E7%BF%BC%E4%BA%91%E7%9B%98/img/20250522211941581.png" alt="image-20250522205717432"></p>
+<p>移载机内置编码器和外置编码器匹配。</p>
+<p><img src="https://pan.yuqi.fun/d/%E5%A4%A9%E7%BF%BC%E4%BA%91%E7%9B%98/img/20250522211948129.png" alt="image-20250522205733747"></p>
+<p>提示：做这一步时，如果出现电机不能转动，或产生报警不能通过编码器匹配。需要检查以下内容：</p>
+<p>1电机不能转动：</p>
+<p>a可能是由于变频器的安全24V未给</p>
+<p>b电机抱闸未打开</p>
+<p>c机械设备运动到极限位置或被锁定</p>
+<p>2变频器报警：a速度故障编码器线缆有接触不良或错误如同下图</p>
+<p><img src="https://pan.yuqi.fun/d/%E5%A4%A9%E7%BF%BC%E4%BA%91%E7%9B%98/img/20250522211957143.png" alt="image-20250522205831537"></p>
+<p>单击下一步</p>
+<p><img src="https://pan.yuqi.fun/d/%E5%A4%A9%E7%BF%BC%E4%BA%91%E7%9B%98/img/20250522212003541.png" alt="image-20250522205846506"></p>
+<p>单击下一步</p>
+<p><img src="https://pan.yuqi.fun/d/%E5%A4%A9%E7%BF%BC%E4%BA%91%E7%9B%98/img/20250522212010638.png" alt="image-20250522205903857"></p>
+<p>单击下一步</p>
+<p><img src="https://pan.yuqi.fun/d/%E5%A4%A9%E7%BF%BC%E4%BA%91%E7%9B%98/img/20250522212020133.png" alt="image-20250522205929872"></p>
+<p>编码器匹配通过后点击下一步，进入下图画面传送参考位置。</p>
+<p>提示：传送参考位置前请断开变频器安全24V电源，否则会弹出禁止修改提示框；修改成功后也会弹出提示框，根据提示继续配置。</p>
+<p><img src="https://pan.yuqi.fun/d/%E5%A4%A9%E7%BF%BC%E4%BA%91%E7%9B%98/img/20250522212026198.png" alt="image-20250522205951899"></p>
+<p>单击“完成”。</p>
+<p><img src="https://pan.yuqi.fun/d/%E5%A4%A9%E7%BF%BC%E4%BA%91%E7%9B%98/img/20250522212032184.png" alt="image-20250522210003836"></p>
+<h1 id="三、-IPOS配置"><a href="#三、-IPOS配置" class="headerlink" title="三、 IPOS配置"></a>三、 IPOS配置</h1><p><img src="https://pan.yuqi.fun/d/%E5%A4%A9%E7%BF%BC%E4%BA%91%E7%9B%98/img/20250522212039234.png" alt="image-20250522210033621"></p>
+<p>设置通信总线类型为Profinet，单击下一步</p>
+<p><img src="https://pan.yuqi.fun/d/%E5%A4%A9%E7%BF%BC%E4%BA%91%E7%9B%98/img/20250522212044956.png" alt="image-20250522210130165"></p>
+<p>参数设置单击下一步</p>
+<p><img src="https://pan.yuqi.fun/d/%E5%A4%A9%E7%BF%BC%E4%BA%91%E7%9B%98/img/20250522212052156.png" alt="image-20250522210205472"></p>
+<p>变频器软限位，及参考类型设置单击下一步</p>
+<p><img src="https://pan.yuqi.fun/d/%E5%A4%A9%E7%BF%BC%E4%BA%91%E7%9B%98/img/20250522212058553.png" alt="image-20250522210229213"></p>
+<p><img src="https://pan.yuqi.fun/d/%E5%A4%A9%E7%BF%BC%E4%BA%91%E7%9B%98/img/20250522212105838.png" alt="image-20250522210236898"></p>
+<p>选择“否“不保存</p>
+<p>下载配置的参数，提示：下载参数需要断开变频器的安全24V电源</p>
+<p><img src="https://pan.yuqi.fun/d/%E5%A4%A9%E7%BF%BC%E4%BA%91%E7%9B%98/img/20250522212111341.png" alt="image-20250522210301645"></p>
+<p>点“yes”监控状态</p>
+<p><img src="https://pan.yuqi.fun/d/%E5%A4%A9%E7%BF%BC%E4%BA%91%E7%9B%98/img/20250522212118310.png" alt="image-20250522210316464"></p>
+<p><img src="https://pan.yuqi.fun/d/%E5%A4%A9%E7%BF%BC%E4%BA%91%E7%9B%98/img/20250522212125742.png" alt="image-20250522210352603"></p>
+<p>参考设置No.1</p>
+<p><img src="https://pan.yuqi.fun/d/%E5%A4%A9%E7%BF%BC%E4%BA%91%E7%9B%98/img/20250522212132048.png" alt="image-20250522210417474"></p>
+<p>参考设置No.2</p>
+<p><img src="https://pan.yuqi.fun/d/%E5%A4%A9%E7%BF%BC%E4%BA%91%E7%9B%98/img/20250522212143689.png" alt="image-20250522210438966"></p>
+<p>参考设置No.3</p>
+<p>选择PO1 第2,3,9,13 位，点击“SendPA”Start reference，编码器反馈值为0（PI2&#x2F;3 Actual position&#x3D;0）</p>
+<p><img src="https://pan.yuqi.fun/d/%E5%A4%A9%E7%BF%BC%E4%BA%91%E7%9B%98/img/20250522212151212.png" alt="image-20250522210537816"></p>
+<p>设置完成这些参数，可以测试运行电机。</p>
+<p><img src="https://pan.yuqi.fun/d/%E5%A4%A9%E7%BF%BC%E4%BA%91%E7%9B%98/img/20250522212158850.png" alt="image-20250522210558705"></p>
+]]></content>
+  </entry>
+  <entry>
     <title>记中兴MF932改串</title>
     <url>/undefined/27cbce44.html</url>
     <content><![CDATA[<h1 id="注意！"><a href="#注意！" class="headerlink" title="注意！"></a>注意！</h1><p><strong>改串需要自己将串号写入NV文件中，我也不知道怎么写入，本教程只做参考，不会生成改串的NV文件就不用再往下看了。</strong>**</p>
@@ -3152,6 +3100,24 @@
       </categories>
       <tags>
         <tag>随身WiFi</tag>
+      </tags>
+  </entry>
+  <entry>
+    <title>谷歌浏览器设置关闭搜索记录</title>
+    <url>/undefined/42e51b95.html</url>
+    <content><![CDATA[<p><strong>将 Chrome 的 History 文件设置为可读即可。</strong><br>操作方法：<br>1 、在 Chrome 浏览器地址栏中输入</p>
+<figure class="highlight html"><table><tr><td class="code"><pre><span class="line">chrome://version/</span><br></pre></td></tr></table></figure>
+
+<p>2 、复制<strong>个人资料路径</strong>，关闭 Chrome 浏览器并到资源管理器中打开刚才复制的“个人资料路径”</p>
+<p><img src="https://pan.yuqi.fun/d/%E5%A4%A9%E7%BF%BC%E4%BA%91%E7%9B%98/img/202303062045271.png" alt="image-20230306204551884"></p>
+<p>3 、找到History文件并删除，然后新建一个History文件，对History文件，右键—属性，勾选只读。</p>
+<p><img src="https://pan.yuqi.fun/d/%E5%A4%A9%E7%BF%BC%E4%BA%91%E7%9B%98/img/202303062048179.png" alt="image-20230306204804357"></p>
+]]></content>
+      <categories>
+        <category>教程</category>
+      </categories>
+      <tags>
+        <tag>Google浏览器</tag>
       </tags>
   </entry>
   <entry>
@@ -3243,24 +3209,6 @@
 <h1 id="画面"><a href="#画面" class="headerlink" title="画面"></a>画面</h1>]]></content>
   </entry>
   <entry>
-    <title>谷歌浏览器设置关闭搜索记录</title>
-    <url>/undefined/42e51b95.html</url>
-    <content><![CDATA[<p><strong>将 Chrome 的 History 文件设置为可读即可。</strong><br>操作方法：<br>1 、在 Chrome 浏览器地址栏中输入</p>
-<figure class="highlight html"><table><tr><td class="code"><pre><span class="line">chrome://version/</span><br></pre></td></tr></table></figure>
-
-<p>2 、复制<strong>个人资料路径</strong>，关闭 Chrome 浏览器并到资源管理器中打开刚才复制的“个人资料路径”</p>
-<p><img src="https://pan.yuqi.fun/d/%E5%A4%A9%E7%BF%BC%E4%BA%91%E7%9B%98/img/202303062045271.png" alt="image-20230306204551884"></p>
-<p>3 、找到History文件并删除，然后新建一个History文件，对History文件，右键—属性，勾选只读。</p>
-<p><img src="https://pan.yuqi.fun/d/%E5%A4%A9%E7%BF%BC%E4%BA%91%E7%9B%98/img/202303062048179.png" alt="image-20230306204804357"></p>
-]]></content>
-      <categories>
-        <category>教程</category>
-      </categories>
-      <tags>
-        <tag>Google浏览器</tag>
-      </tags>
-  </entry>
-  <entry>
     <title>针对Prodiag现场License弹窗的解决方法</title>
     <url>/undefined/2622eae5.html</url>
     <content><![CDATA[<p>问题：触摸屏报缺少相关的License Key</p>
@@ -3283,5 +3231,57 @@
 <p><img src="https://pan.yuqi.fun/d/%E5%A4%A9%E7%BF%BC%E4%BA%91%E7%9B%98/img/20250510170821004.png" alt="image-20250510165833281"></p>
 <p>注意：授权传送之后会提示成功，传送成功后授权若消失重新使用EKb安装一遍即可出现。</p>
 ]]></content>
+  </entry>
+  <entry>
+    <title>hysteria2与reality共存安装</title>
+    <url>/undefined/756577dc.html</url>
+    <content><![CDATA[<h1 id="前言"><a href="#前言" class="headerlink" title="前言"></a>前言</h1><p>1.目前伪装最好的两种协议，一个代表tcp协议（reality）的目前巅峰，一个新型UDP协议（hysteria2）的宠儿。<br>2.这次用的sing-box搭建 <a href="https://sing-box.sagernet.org/zh">https://sing-box.sagernet.org/zh</a> 因为简单。之前一直用八合一，最大的问题就是各种伪装后，机器就只能拿来科学上网了，因为安装Nginx，搭建个网页啥的都很麻烦。<br>3.教程亮点，无需自备域名。<br>3.passwall发现没有类似的设置教程，所以出一个。</p>
+<h1 id="安装sing-box"><a href="#安装sing-box" class="headerlink" title="安装sing-box"></a>安装sing-box</h1><p>直接安装预发布版（支持hysteria2）</p>
+<figure class="highlight plaintext"><table><tr><td class="code"><pre><span class="line">bash -c &quot;$(curl -L https://sing-box.vercel.app)&quot; @ install --beta</span><br></pre></td></tr></table></figure>
+
+<p>如何需要卸载</p>
+<figure class="highlight plaintext"><table><tr><td class="code"><pre><span class="line">bash -c &quot;$(curl -L https://sing-box.vercel.app)&quot; @ remove</span><br></pre></td></tr></table></figure>
+
+<p>等会用得到的指令<br>重启</p>
+<figure class="highlight plaintext"><table><tr><td class="code"><pre><span class="line">systemctl restart sing-box</span><br></pre></td></tr></table></figure>
+
+<p>状态</p>
+<figure class="highlight plaintext"><table><tr><td class="code"><pre><span class="line">systemctl status sing-box</span><br></pre></td></tr></table></figure>
+
+<p>实时日志</p>
+<figure class="highlight plaintext"><table><tr><td class="code"><pre><span class="line">journalctl -u sing-box -o cat -f</span><br></pre></td></tr></table></figure>
+
+<h1 id="服务端vps搭建"><a href="#服务端vps搭建" class="headerlink" title="服务端vps搭建"></a>服务端vps搭建</h1><p><strong>自签证书申请，这里申请的是bing.com，申请了10年，可以用到你vps商家跑路了</strong></p>
+<figure class="highlight plaintext"><table><tr><td class="code"><pre><span class="line">mkdir -p /etc/hysteria &amp;&amp; openssl ecparam -genkey -name prime256v1 -out /etc/hysteria/private.key &amp;&amp; openssl req -new -x509 -days 3650 -key /etc/hysteria/private.key -out /etc/hysteria/cert.pem -subj &quot;/CN=bing.com&quot;</span><br></pre></td></tr></table></figure>
+
+<p><strong>搭建组合选择</strong><br>参考网站 <a href="https://github.com/chika0801/sing-box-examples">https://github.com/chika0801/sing-box-examples</a> 后期可以根据需求自由组合<br>为什么选择reality和hysteria2<br>1.reality目前是TCP协议里面号称最安全的<br>2.hysteria2作者是最用心的，教程写得很清楚 <a href="https://v2.hysteria.network/zh/">https://v2.hysteria.network/zh/</a><br>开始<br>编辑confing文件</p>
+<figure class="highlight plaintext"><table><tr><td class="code"><pre><span class="line">nano /usr/local/etc/sing-box/config.json</span><br></pre></td></tr></table></figure>
+
+<p>按照以下修改</p>
+<figure class="highlight plaintext"><table><tr><td class="code"><pre><span class="line">&#123;</span><br><span class="line">    &quot;inbounds&quot;: [</span><br><span class="line">        &#123;</span><br><span class="line">            &quot;type&quot;: &quot;hysteria2&quot;,</span><br><span class="line">            &quot;listen&quot;: &quot;::&quot;,</span><br><span class="line">            &quot;listen_port&quot;: 8443,</span><br><span class="line">            &quot;users&quot;: [</span><br><span class="line">                &#123;</span><br><span class="line">                    &quot;password&quot;: &quot;&quot; //你的密码</span><br><span class="line">                &#125;</span><br><span class="line">            ],</span><br><span class="line">            &quot;masquerade&quot;: &quot;https://bing.com&quot;,</span><br><span class="line">            &quot;tls&quot;: &#123;</span><br><span class="line">                &quot;enabled&quot;: true,</span><br><span class="line">                &quot;alpn&quot;: [</span><br><span class="line">                    &quot;h3&quot;</span><br><span class="line">                ],</span><br><span class="line">                &quot;certificate_path&quot;: &quot;/etc/hysteria/cert.pem&quot;,</span><br><span class="line">                &quot;key_path&quot;: &quot;/etc/hysteria/private.key&quot;</span><br><span class="line">            &#125;</span><br><span class="line">        &#125;,</span><br><span class="line">        &#123;</span><br><span class="line">            &quot;type&quot;: &quot;vless&quot;,</span><br><span class="line">            &quot;listen&quot;: &quot;::&quot;,</span><br><span class="line">            &quot;listen_port&quot;: 443,</span><br><span class="line">            &quot;users&quot;: [</span><br><span class="line">                &#123;</span><br><span class="line">                    &quot;uuid&quot;: &quot;&quot;, //vps上执行sing-box generate uuid</span><br><span class="line">                    &quot;flow&quot;: &quot;xtls-rprx-vision&quot;</span><br><span class="line">                &#125;</span><br><span class="line">            ],</span><br><span class="line">            &quot;tls&quot;: &#123;</span><br><span class="line">                &quot;enabled&quot;: true,</span><br><span class="line">                &quot;server_name&quot;: &quot;www.tesla.com&quot;,</span><br><span class="line">                &quot;reality&quot;: &#123;</span><br><span class="line">                    &quot;enabled&quot;: true,</span><br><span class="line">                    &quot;handshake&quot;: &#123;</span><br><span class="line">                        &quot;server&quot;: &quot;www.tesla.com&quot;,</span><br><span class="line">                        &quot;server_port&quot;: 443</span><br><span class="line">                    &#125;,</span><br><span class="line">                    &quot;private_key&quot;: &quot;&quot;, //vps上执行sing-box generate reality-keypair</span><br><span class="line">                    &quot;short_id&quot;: [</span><br><span class="line">                        &quot;0123456789abcdef&quot;// 0到f，长度为2的倍数，长度上限为16，默认这个也可以</span><br><span class="line">                    ]</span><br><span class="line">                &#125;</span><br><span class="line">            &#125;</span><br><span class="line">        &#125;</span><br><span class="line">    ],</span><br><span class="line">    &quot;outbounds&quot;: [</span><br><span class="line">        &#123;</span><br><span class="line">            &quot;type&quot;: &quot;direct&quot;</span><br><span class="line">        &#125;</span><br><span class="line">    ]</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+
+<p>然后重启</p>
+<figure class="highlight plaintext"><table><tr><td class="code"><pre><span class="line">systemctl restart sing-box</span><br></pre></td></tr></table></figure>
+
+<p>再查看日志</p>
+<figure class="highlight plaintext"><table><tr><td class="code"><pre><span class="line">journalctl -u sing-box -o cat -f</span><br></pre></td></tr></table></figure>
+
+<p>没问题就OK拉，开始导入passwall了因为申请的是自签证书，所有设置，都是<strong>开启允许不安全连接</strong></p>
+<h1 id="hysteria2客户端配置文件"><a href="#hysteria2客户端配置文件" class="headerlink" title="hysteria2客户端配置文件"></a>hysteria2客户端配置文件</h1><h2 id="客户端配置文件"><a href="#客户端配置文件" class="headerlink" title="客户端配置文件"></a>客户端配置文件</h2><figure class="highlight yaml"><table><tr><td class="code"><pre><span class="line"><span class="attr">server:</span> <span class="string">ip:443</span></span><br><span class="line"><span class="attr">auth:</span> <span class="number">123456</span></span><br><span class="line"></span><br><span class="line"><span class="attr">bandwidth:</span></span><br><span class="line">  <span class="attr">up:</span> <span class="number">20</span> <span class="string">mbps</span></span><br><span class="line">  <span class="attr">down:</span> <span class="number">100</span> <span class="string">mbps</span></span><br><span class="line">  </span><br><span class="line"><span class="attr">tls:</span></span><br><span class="line">  <span class="attr">sni:</span> <span class="string">a.com</span></span><br><span class="line">  <span class="attr">insecure:</span> <span class="literal">false</span> <span class="comment">#使用自签域名时需要改成true</span></span><br><span class="line"></span><br><span class="line"><span class="attr">socks5:</span></span><br><span class="line">  <span class="attr">listen:</span> <span class="number">127.0</span><span class="number">.0</span><span class="number">.1</span><span class="string">:1080</span></span><br><span class="line"><span class="attr">http:</span></span><br><span class="line">  <span class="attr">listen:</span> <span class="number">127.0</span><span class="number">.0</span><span class="number">.1</span><span class="string">:8080</span></span><br></pre></td></tr></table></figure>
+
+<h2 id="sing-box配置文件-Android-IOS"><a href="#sing-box配置文件-Android-IOS" class="headerlink" title="sing-box配置文件(Android&#x2F;IOS)"></a>sing-box配置文件(Android&#x2F;IOS)</h2><figure class="highlight json"><table><tr><td class="code"><pre><span class="line"><span class="punctuation">&#123;</span></span><br><span class="line">  <span class="attr">&quot;dns&quot;</span><span class="punctuation">:</span> <span class="punctuation">&#123;</span></span><br><span class="line">    <span class="attr">&quot;servers&quot;</span><span class="punctuation">:</span> <span class="punctuation">[</span></span><br><span class="line">      <span class="punctuation">&#123;</span></span><br><span class="line">        <span class="attr">&quot;tag&quot;</span><span class="punctuation">:</span> <span class="string">&quot;cf&quot;</span><span class="punctuation">,</span></span><br><span class="line">        <span class="attr">&quot;address&quot;</span><span class="punctuation">:</span> <span class="string">&quot;https://1.1.1.1/dns-query&quot;</span></span><br><span class="line">      <span class="punctuation">&#125;</span><span class="punctuation">,</span></span><br><span class="line">      <span class="punctuation">&#123;</span></span><br><span class="line">        <span class="attr">&quot;tag&quot;</span><span class="punctuation">:</span> <span class="string">&quot;local&quot;</span><span class="punctuation">,</span></span><br><span class="line">        <span class="attr">&quot;address&quot;</span><span class="punctuation">:</span> <span class="string">&quot;223.5.5.5&quot;</span><span class="punctuation">,</span></span><br><span class="line">        <span class="attr">&quot;detour&quot;</span><span class="punctuation">:</span> <span class="string">&quot;direct&quot;</span></span><br><span class="line">      <span class="punctuation">&#125;</span><span class="punctuation">,</span></span><br><span class="line">      <span class="punctuation">&#123;</span></span><br><span class="line">        <span class="attr">&quot;tag&quot;</span><span class="punctuation">:</span> <span class="string">&quot;block&quot;</span><span class="punctuation">,</span></span><br><span class="line">        <span class="attr">&quot;address&quot;</span><span class="punctuation">:</span> <span class="string">&quot;rcode://success&quot;</span></span><br><span class="line">      <span class="punctuation">&#125;</span></span><br><span class="line">    <span class="punctuation">]</span><span class="punctuation">,</span></span><br><span class="line">    <span class="attr">&quot;rules&quot;</span><span class="punctuation">:</span> <span class="punctuation">[</span></span><br><span class="line">      <span class="punctuation">&#123;</span></span><br><span class="line">        <span class="attr">&quot;geosite&quot;</span><span class="punctuation">:</span> <span class="string">&quot;category-ads-all&quot;</span><span class="punctuation">,</span></span><br><span class="line">        <span class="attr">&quot;server&quot;</span><span class="punctuation">:</span> <span class="string">&quot;block&quot;</span><span class="punctuation">,</span></span><br><span class="line">        <span class="attr">&quot;disable_cache&quot;</span><span class="punctuation">:</span> <span class="literal"><span class="keyword">true</span></span></span><br><span class="line">      <span class="punctuation">&#125;</span><span class="punctuation">,</span></span><br><span class="line">      <span class="punctuation">&#123;</span></span><br><span class="line">        <span class="attr">&quot;outbound&quot;</span><span class="punctuation">:</span> <span class="string">&quot;any&quot;</span><span class="punctuation">,</span></span><br><span class="line">        <span class="attr">&quot;server&quot;</span><span class="punctuation">:</span> <span class="string">&quot;local&quot;</span></span><br><span class="line">      <span class="punctuation">&#125;</span><span class="punctuation">,</span></span><br><span class="line">      <span class="punctuation">&#123;</span></span><br><span class="line">        <span class="attr">&quot;geosite&quot;</span><span class="punctuation">:</span> <span class="string">&quot;cn&quot;</span><span class="punctuation">,</span></span><br><span class="line">        <span class="attr">&quot;server&quot;</span><span class="punctuation">:</span> <span class="string">&quot;local&quot;</span></span><br><span class="line">      <span class="punctuation">&#125;</span></span><br><span class="line">    <span class="punctuation">]</span><span class="punctuation">,</span></span><br><span class="line">    <span class="attr">&quot;strategy&quot;</span><span class="punctuation">:</span> <span class="string">&quot;ipv4_only&quot;</span></span><br><span class="line">  <span class="punctuation">&#125;</span><span class="punctuation">,</span></span><br><span class="line">  <span class="attr">&quot;inbounds&quot;</span><span class="punctuation">:</span> <span class="punctuation">[</span></span><br><span class="line">    <span class="punctuation">&#123;</span></span><br><span class="line">      <span class="attr">&quot;type&quot;</span><span class="punctuation">:</span> <span class="string">&quot;tun&quot;</span><span class="punctuation">,</span></span><br><span class="line">      <span class="attr">&quot;inet4_address&quot;</span><span class="punctuation">:</span> <span class="string">&quot;172.19.0.1/30&quot;</span><span class="punctuation">,</span></span><br><span class="line">      <span class="attr">&quot;auto_route&quot;</span><span class="punctuation">:</span> <span class="literal"><span class="keyword">true</span></span><span class="punctuation">,</span></span><br><span class="line">      <span class="attr">&quot;strict_route&quot;</span><span class="punctuation">:</span> <span class="literal"><span class="keyword">false</span></span><span class="punctuation">,</span></span><br><span class="line">      <span class="attr">&quot;sniff&quot;</span><span class="punctuation">:</span> <span class="literal"><span class="keyword">true</span></span></span><br><span class="line">    <span class="punctuation">&#125;</span></span><br><span class="line">  <span class="punctuation">]</span><span class="punctuation">,</span></span><br><span class="line">  <span class="attr">&quot;outbounds&quot;</span><span class="punctuation">:</span> <span class="punctuation">[</span></span><br><span class="line">    <span class="punctuation">&#123;</span></span><br><span class="line">      <span class="attr">&quot;type&quot;</span><span class="punctuation">:</span> <span class="string">&quot;hysteria2&quot;</span><span class="punctuation">,</span></span><br><span class="line">      <span class="attr">&quot;tag&quot;</span><span class="punctuation">:</span> <span class="string">&quot;proxy&quot;</span><span class="punctuation">,</span></span><br><span class="line">      <span class="attr">&quot;server&quot;</span><span class="punctuation">:</span> <span class="string">&quot;这里填ip&quot;</span><span class="punctuation">,</span></span><br><span class="line">      <span class="attr">&quot;server_port&quot;</span><span class="punctuation">:</span> <span class="number">443</span><span class="punctuation">,</span></span><br><span class="line">      <span class="attr">&quot;up_mbps&quot;</span><span class="punctuation">:</span> <span class="number">20</span><span class="punctuation">,</span></span><br><span class="line">      <span class="attr">&quot;down_mbps&quot;</span><span class="punctuation">:</span> <span class="number">100</span><span class="punctuation">,</span></span><br><span class="line">      <span class="attr">&quot;password&quot;</span><span class="punctuation">:</span> <span class="string">&quot;这里填密码&quot;</span><span class="punctuation">,</span></span><br><span class="line">      <span class="attr">&quot;tls&quot;</span><span class="punctuation">:</span> <span class="punctuation">&#123;</span></span><br><span class="line">        <span class="attr">&quot;enabled&quot;</span><span class="punctuation">:</span> <span class="literal"><span class="keyword">true</span></span><span class="punctuation">,</span></span><br><span class="line">        <span class="attr">&quot;server_name&quot;</span><span class="punctuation">:</span> <span class="string">&quot;a.com&quot;</span><span class="punctuation">,</span></span><br><span class="line">        <span class="attr">&quot;insecure&quot;</span><span class="punctuation">:</span> <span class="literal"><span class="keyword">false</span></span></span><br><span class="line">      <span class="punctuation">&#125;</span></span><br><span class="line">    <span class="punctuation">&#125;</span><span class="punctuation">,</span></span><br><span class="line">    <span class="punctuation">&#123;</span></span><br><span class="line">      <span class="attr">&quot;type&quot;</span><span class="punctuation">:</span> <span class="string">&quot;direct&quot;</span><span class="punctuation">,</span></span><br><span class="line">      <span class="attr">&quot;tag&quot;</span><span class="punctuation">:</span> <span class="string">&quot;direct&quot;</span></span><br><span class="line">    <span class="punctuation">&#125;</span><span class="punctuation">,</span></span><br><span class="line">    <span class="punctuation">&#123;</span></span><br><span class="line">      <span class="attr">&quot;type&quot;</span><span class="punctuation">:</span> <span class="string">&quot;block&quot;</span><span class="punctuation">,</span></span><br><span class="line">      <span class="attr">&quot;tag&quot;</span><span class="punctuation">:</span> <span class="string">&quot;block&quot;</span></span><br><span class="line">    <span class="punctuation">&#125;</span><span class="punctuation">,</span></span><br><span class="line">    <span class="punctuation">&#123;</span></span><br><span class="line">      <span class="attr">&quot;type&quot;</span><span class="punctuation">:</span> <span class="string">&quot;dns&quot;</span><span class="punctuation">,</span></span><br><span class="line">      <span class="attr">&quot;tag&quot;</span><span class="punctuation">:</span> <span class="string">&quot;dns-out&quot;</span></span><br><span class="line">    <span class="punctuation">&#125;</span></span><br><span class="line">  <span class="punctuation">]</span><span class="punctuation">,</span></span><br><span class="line">  <span class="attr">&quot;route&quot;</span><span class="punctuation">:</span> <span class="punctuation">&#123;</span></span><br><span class="line">    <span class="attr">&quot;rules&quot;</span><span class="punctuation">:</span> <span class="punctuation">[</span></span><br><span class="line">      <span class="punctuation">&#123;</span></span><br><span class="line">        <span class="attr">&quot;protocol&quot;</span><span class="punctuation">:</span> <span class="string">&quot;dns&quot;</span><span class="punctuation">,</span></span><br><span class="line">        <span class="attr">&quot;outbound&quot;</span><span class="punctuation">:</span> <span class="string">&quot;dns-out&quot;</span></span><br><span class="line">      <span class="punctuation">&#125;</span><span class="punctuation">,</span></span><br><span class="line">      <span class="punctuation">&#123;</span></span><br><span class="line">        <span class="attr">&quot;geosite&quot;</span><span class="punctuation">:</span> <span class="string">&quot;cn&quot;</span><span class="punctuation">,</span></span><br><span class="line">        <span class="attr">&quot;geoip&quot;</span><span class="punctuation">:</span> <span class="punctuation">[</span></span><br><span class="line">          <span class="string">&quot;private&quot;</span><span class="punctuation">,</span></span><br><span class="line">          <span class="string">&quot;cn&quot;</span></span><br><span class="line">        <span class="punctuation">]</span><span class="punctuation">,</span></span><br><span class="line">        <span class="attr">&quot;outbound&quot;</span><span class="punctuation">:</span> <span class="string">&quot;direct&quot;</span></span><br><span class="line">      <span class="punctuation">&#125;</span><span class="punctuation">,</span></span><br><span class="line">      <span class="punctuation">&#123;</span></span><br><span class="line">        <span class="attr">&quot;geosite&quot;</span><span class="punctuation">:</span> <span class="string">&quot;category-ads-all&quot;</span><span class="punctuation">,</span></span><br><span class="line">        <span class="attr">&quot;outbound&quot;</span><span class="punctuation">:</span> <span class="string">&quot;block&quot;</span></span><br><span class="line">      <span class="punctuation">&#125;</span></span><br><span class="line">    <span class="punctuation">]</span><span class="punctuation">,</span></span><br><span class="line">    <span class="attr">&quot;auto_detect_interface&quot;</span><span class="punctuation">:</span> <span class="literal"><span class="keyword">true</span></span></span><br><span class="line">  <span class="punctuation">&#125;</span></span><br><span class="line"><span class="punctuation">&#125;</span></span><br></pre></td></tr></table></figure>
+
+<h1 id="相关链接"><a href="#相关链接" class="headerlink" title="相关链接"></a>相关链接</h1><h2 id="客户端下载"><a href="#客户端下载" class="headerlink" title="客户端下载"></a>客户端下载</h2><p>v2rayN 下载：<a href="https://bulianglin.com/g/aHR0cHM6Ly9naXRodWIuY29tLzJkdXN0L3YycmF5Ti9yZWxlYXNlcy9sYXRlc3Q">https://github.com/2dust/v2rayN/releases/latest</a><br>Hysteria 2下载：<a href="https://bulianglin.com/g/aHR0cHM6Ly9naXRodWIuY29tL2FwZXJuZXQvaHlzdGVyaWEvcmVsZWFzZXM">https://github.com/apernet/hysteria/releases</a><br>Hysteria 2文档：<a href="https://bulianglin.com/g/aHR0cHM6Ly92Mi5oeXN0ZXJpYS5uZXR3b3JrL3poLw">https://v2.hysteria.network/zh/</a><br>sing-box文档：<a href="https://bulianglin.com/g/aHR0cHM6Ly9zaW5nLWJveC5zYWdlcm5ldC5vcmcvemgv">https://sing-box.sagernet.org/zh/</a><br>Android客户端（SFA）：<a href="https://bulianglin.com/g/aHR0cHM6Ly9pbnN0YWxsLmFwcGNlbnRlci5tcy91c2Vycy9uZWtvaGFzZWthaS9hcHBzL3NmYS9kaXN0cmlidXRpb25fZ3JvdXBzL3B1YmxpY3Rlc3Q">https://install.appcenter.ms/users/nekohasekai/apps/sfa/distribution_groups&#x2F;publictest</a><br>IOS客户端（TestFlight）：<a href="https://bulianglin.com/g/aHR0cHM6Ly90ZXN0ZmxpZ2h0LmFwcGxlLmNvbS9qb2luL0FjcU80NEZI">https://testflight.apple.com/join/AcqO44FH</a> （1.5.0 beta版支持Hysteria 2）<br>IOS客户端（AppStore）：<a href="https://bulianglin.com/g/aHR0cHM6Ly9hcHBzLmFwcGxlLmNvbS91cy9hcHAvc2luZy1ib3gvaWQ2NDUxMjcyNjcz">https://apps.apple.com/us/app/sing-box/id6451272673</a> （暂不支持Hysteria 2）</p>
+<h2 id="视频教程参考"><a href="#视频教程参考" class="headerlink" title="视频教程参考"></a>视频教程参考</h2><p>2023年最安全协议hysteria2和reality同时搭建 | 无需自备域名 | passwall设置hysteria2方法：<a href="https://youtu.be/S0jSGOdeTs4?si=w4vYPa44zIoQ4zHv">https://youtu.be/S0jSGOdeTs4?si=w4vYPa44zIoQ4zHv</a></p>
+<p>【遥遥领先】黑科技！垃圾VPS线路网速大幅提升！第二代hysteria节点搭建教程，歇斯底里为什么可以提升网速？windows&#x2F;ios&#x2F;android手机移动端使用方式，sing-box配置hy2方式：<a href="https://youtu.be/CXj-ID33MhU?si=bgcrlIpW5BwOc9uL">https://youtu.be/CXj-ID33MhU?si=bgcrlIpW5BwOc9uL</a></p>
+<h2 id="文档参考"><a href="#文档参考" class="headerlink" title="文档参考"></a>文档参考</h2><p>视频1：<a href="https://ybfl.xyz/sites/283.html">https://ybfl.xyz/sites/283.html</a></p>
+<p>视频2：<a href="https://bulianglin.com/archives/hysteria2.html">https://bulianglin.com/archives/hysteria2.html</a></p>
+]]></content>
+      <categories>
+        <category>教程</category>
+      </categories>
+      <tags>
+        <tag>服务器</tag>
+      </tags>
   </entry>
 </search>
