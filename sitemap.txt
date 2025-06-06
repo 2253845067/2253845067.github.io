@@ -1,9 +1,9 @@
+http://blog.yuqi.fun/tags/index.html
+http://blog.yuqi.fun/about/index.html
 http://blog.yuqi.fun/archives/index.html
 http://blog.yuqi.fun/categories/index.html
-http://blog.yuqi.fun/about/index.html
 http://blog.yuqi.fun/comment/index.html
 http://blog.yuqi.fun/link/index.html
-http://blog.yuqi.fun/tags/index.html
 http://blog.yuqi.fun/undefined/175f8f8b.html
 http://blog.yuqi.fun/undefined/421934fd.html
 http://blog.yuqi.fun/undefined/908d3d13.html
@@ -67,8 +67,8 @@ http://blog.yuqi.fun/tags/%E7%A7%91%E5%AD%A6%E4%B8%8A%E7%BD%91/
 http://blog.yuqi.fun/tags/HTML/
 http://blog.yuqi.fun/tags/css/
 http://blog.yuqi.fun/tags/%E5%89%8D%E7%AB%AF/
-http://blog.yuqi.fun/tags/%E5%85%B6%E4%BB%96/
 http://blog.yuqi.fun/tags/Openwrt/
+http://blog.yuqi.fun/tags/%E5%85%B6%E4%BB%96/
 http://blog.yuqi.fun/tags/%E6%9C%8D%E5%8A%A1%E5%99%A8/
 http://blog.yuqi.fun/tags/SEW/
 http://blog.yuqi.fun/tags/SICK/
