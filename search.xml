@@ -14,10 +14,10 @@
 <p>1panel面板中新建反向代理网站，<code>网站 —— 创建网站 —— 反向代理</code>，主域名填写<code>nezha.a.com</code>，代理地址填写<code>127.0.0.1:8008</code></p>
 <p>证书页面自行设置Acme账户、DNS账户为<code>nezha.a.com</code>申请证书。</p>
 <p>网站页面点击<code>nezha.a.com</code>进入网站设置，开启https。</p>
-<p>点击配置文件，最下方添加以下代码，保存并重载。<br><img src="https://img.051516.xyz//202501031701543.png" alt="image"></p>
+<p>点击配置文件，最下方添加以下代码，保存并重载。<br><img src="https://img.051516.xyz/202501031701543.png" alt="image"></p>
 <figure class="highlight plaintext"><table><tr><td class="code"><pre><span class="line"># upstream 配置</span><br><span class="line">upstream dashboard &#123;</span><br><span class="line">    keepalive 512; </span><br><span class="line">    server 127.0.0.1:8008; </span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
 
-<p>打开<code>网站 —— 反向代理 —— 源文</code>，使用以下代码替换原内容，点击确认。至此，反向代理设置完成。<br><img src="https://img.051516.xyz//202501031701795.png" alt="image"></p>
+<p>打开<code>网站 —— 反向代理 —— 源文</code>，使用以下代码替换原内容，点击确认。至此，反向代理设置完成。<br><img src="https://img.051516.xyz/202501031701795.png" alt="image"></p>
 <figure class="highlight plaintext"><table><tr><td class="code"><pre><span class="line">location ^~ / &#123;</span><br><span class="line">    proxy_pass http://127.0.0.1:8008; </span><br><span class="line">    proxy_set_header Host $host; </span><br><span class="line">    proxy_set_header X-Real-IP $remote_addr; </span><br><span class="line">    proxy_set_header X-Forwarded-For $proxy_add_x_forwarded_for; </span><br><span class="line">    proxy_set_header REMOTE-HOST $remote_addr; </span><br><span class="line">    proxy_set_header Upgrade $http_upgrade; </span><br><span class="line">    proxy_set_header nz-realip $http_cf_connecting_ip;</span><br><span class="line">    proxy_set_header Connection &quot;upgrade&quot;;</span><br><span class="line">    proxy_set_header X-Forwarded-Proto $scheme;</span><br><span class="line">    proxy_http_version 1.1; </span><br><span class="line">    proxy_read_timeout 3600s;</span><br><span class="line">    proxy_send_timeout 3600s;</span><br><span class="line">    proxy_buffer_size 128k;</span><br><span class="line">    proxy_buffers 4 128k; </span><br><span class="line">    proxy_busy_buffers_size 256k;</span><br><span class="line">    proxy_max_temp_file_size 0;</span><br><span class="line">    add_header X-Cache $upstream_cache_status; </span><br><span class="line">    add_header Cache-Control no-cache; </span><br><span class="line">    proxy_ssl_server_name off; </span><br><span class="line">    proxy_ssl_name $proxy_host; </span><br><span class="line">    add_header Strict-Transport-Security &quot;max-age=31536000&quot;; </span><br><span class="line">&#125;</span><br><span class="line"></span><br><span class="line">underscores_in_headers on;</span><br><span class="line">set_real_ip_from 0.0.0.0/0; # CDN 回源 IP 地址段</span><br><span class="line">real_ip_header CF-Connecting-IP; # CDN 私有 header，此处为 CloudFlare 默认</span><br><span class="line"></span><br><span class="line"># gRPC 服务</span><br><span class="line">location ^~ /proto.NezhaService/ &#123;</span><br><span class="line">    grpc_set_header Host $host;</span><br><span class="line">    grpc_set_header nz-realip $http_CF_Connecting_IP; </span><br><span class="line">    grpc_read_timeout 600s;</span><br><span class="line">    grpc_send_timeout 600s;</span><br><span class="line">    grpc_socket_keepalive on;</span><br><span class="line">    client_max_body_size 10m;</span><br><span class="line">    grpc_buffer_size 4m;</span><br><span class="line">    grpc_pass grpc://dashboard;</span><br><span class="line">&#125;</span><br><span class="line"></span><br><span class="line"># WebSocket 服务</span><br><span class="line">location ~* ^/api/v1/ws/(server|terminal|file)(.*)$ &#123;</span><br><span class="line">    proxy_set_header Host $host;</span><br><span class="line">    proxy_set_header nz-realip $http_cf_connecting_ip; </span><br><span class="line">    proxy_set_header Origin https://$host;</span><br><span class="line">    proxy_set_header Upgrade $http_upgrade;</span><br><span class="line">    proxy_set_header Connection &quot;upgrade&quot;;</span><br><span class="line">    proxy_read_timeout 3600s;</span><br><span class="line">    proxy_send_timeout 3600s;</span><br><span class="line">    proxy_pass http://127.0.0.1:8008;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
 
 <h1 id="面板设置"><a href="#面板设置" class="headerlink" title="面板设置"></a>面板设置</h1><p>登录到 Dashboard 配置界面<code>https://nezha.a.com/dashboard</code>，初始用户名、密码均为<code>admin</code>，登录后立即进入管理页面点击<code>头像 —— 个人信息 —— 更新个人资料</code>修改用户名和密码。</p>
@@ -45,7 +45,7 @@
 <ol>
 <li>注册<br><a href="https://www.nodeseek.com/jump?to=https://entra.microsoft.com/%23view/Microsoft_AAD_RegisteredApps/CreateApplicationBlade/quickStartType~/null/isMSAApp~/false">https://entra.microsoft.com/#view/Microsoft_AAD_RegisteredApps&#x2F;CreateApplicationBlade&#x2F;quickStartType<del>&#x2F;null&#x2F;isMSAApp</del>&#x2F;false</a><br>输入项：<br>名称 – 随便写<br>受支持的帐户类型 – 仅 Microsoft 个人帐户<br>重定向 URI (可选) – WEB <a href="https://www.nodeseek.com/jump?to=https://xx.com/api/v1/oauth2/callback">https://xx.com/api/v1/oauth2/callback</a></li>
 <li>获得clientid<br><a href="https://www.nodeseek.com/jump?to=https://entra.microsoft.com/%23view/Microsoft_AAD_RegisteredApps/ApplicationsListBlade/quickStartType~/null/sourceType/Microsoft_AAD_IAM">https://entra.microsoft.com/#view/Microsoft_AAD_RegisteredApps&#x2F;ApplicationsListBlade&#x2F;quickStartType~&#x2F;null&#x2F;sourceType&#x2F;Microsoft_AAD_IAM</a><br>在最左边 所有应用程序 找到自己刚才注册的 点进去<br>概述页面有个 应用程序(客户端) ID，这个就是。</li>
-<li>获得clientsecret<br><img src="https://img.051516.xyz//202501031707326.png" alt="uS3yGRHdgnCIGTAi9IVkpS"><br>提交后会出现 一个 值，复制，后续会不可见。</li>
+<li>获得clientsecret<br><img src="https://img.051516.xyz/202501031707326.png" alt="uS3yGRHdgnCIGTAi9IVkpS"><br>提交后会出现 一个 值，复制，后续会不可见。</li>
 <li>修改配置文件 并且 重启 面板服务</li>
 <li>在个人信息里面绑定即可</li>
 </ol>
@@ -1134,6 +1134,21 @@
       </tags>
   </entry>
   <entry>
+    <title>OnlyFans 公共存档器 免费查看OnlyFans付费内容-Coomer</title>
+    <url>/undefined/1082bb6d.html</url>
+    <content><![CDATA[<p>Coomer，一个 OnlyFans 公共存档器，可以免费查看 OnlyFans 付费内容，上面所以内容都由网友搬运、贡献的 OnlyFans 付费内容，想要查看哪位艺术家、作者的付费内容，直接搜索名字即可免费查看 OnlyFans 上的付费内容，当然你也可以共享你的。</p>
+<p>地址：<a href="https://coomer.party/">https://coomer.party/</a></p>
+<p>可以尝试点击&gt;creators&gt;然后搜索 ‘hongkongdoll’ ，‘juneliu’；</p>
+<p>更多的关键词待你挖掘</p>
+]]></content>
+      <categories>
+        <category>其他</category>
+      </categories>
+      <tags>
+        <tag>其他</tag>
+      </tags>
+  </entry>
+  <entry>
     <title>Openwrt编译</title>
     <url>/undefined/72c5b323.html</url>
     <content><![CDATA[<h1 id="注意"><a href="#注意" class="headerlink" title="注意"></a>注意</h1><ol>
@@ -1198,21 +1213,6 @@
       </categories>
       <tags>
         <tag>Openwrt</tag>
-      </tags>
-  </entry>
-  <entry>
-    <title>OnlyFans 公共存档器 免费查看OnlyFans付费内容-Coomer</title>
-    <url>/undefined/1082bb6d.html</url>
-    <content><![CDATA[<p>Coomer，一个 OnlyFans 公共存档器，可以免费查看 OnlyFans 付费内容，上面所以内容都由网友搬运、贡献的 OnlyFans 付费内容，想要查看哪位艺术家、作者的付费内容，直接搜索名字即可免费查看 OnlyFans 上的付费内容，当然你也可以共享你的。</p>
-<p>地址：<a href="https://coomer.party/">https://coomer.party/</a></p>
-<p>可以尝试点击&gt;creators&gt;然后搜索 ‘hongkongdoll’ ，‘juneliu’；</p>
-<p>更多的关键词待你挖掘</p>
-]]></content>
-      <categories>
-        <category>其他</category>
-      </categories>
-      <tags>
-        <tag>其他</tag>
       </tags>
   </entry>
   <entry>
@@ -1381,17 +1381,17 @@
 <li>打开 <strong>Personal settings</strong> -&gt; <strong>Developer settings</strong> -&gt; <strong>Personal access tokens</strong></li>
 <li>设置权限为 <strong>repo</strong> 和 <strong>public repo</strong></li>
 </ol>
-<p><img src="https://img.051516.xyz//202412291101351.png" alt="313f2ca0d7d3ea811d7e7be8ad6bcd4b"></p>
+<p><img src="https://img.051516.xyz/202412291101351.png" alt="313f2ca0d7d3ea811d7e7be8ad6bcd4b"></p>
 <ol>
 <li>保存生成的 Token（丢失后无法恢复，只能重新生成）</li>
 <li>在博客代码仓库的 <strong>Secrets</strong> 中添加名为 <strong>PERSONAL_TOKEN</strong> 的变量，后续步骤将用到。</li>
 </ol>
-<p><img src="https://img.051516.xyz//202412291102866.png" alt="f69e8dd9266ba1336ddddff00a67ffc6"></p>
+<p><img src="https://img.051516.xyz/202412291102866.png" alt="f69e8dd9266ba1336ddddff00a67ffc6"></p>
 <h2 id="2-创建-GitHub-Actions"><a href="#2-创建-GitHub-Actions" class="headerlink" title="2. 创建 GitHub Actions"></a>2. 创建 GitHub Actions</h2><ol>
 <li>在博客仓库页面，点击 <strong>Actions</strong>。</li>
 <li>选择 <strong>Set up a workflow yourself</strong>。</li>
 </ol>
-<p><a href="https://13fe9ff.webp.li/2024/11/b425061c44375abea8ca5a8a01091038.png"><img src="https://img.051516.xyz//202412291104224.png" alt="img"></a></p>
+<p><a href="https://13fe9ff.webp.li/2024/11/b425061c44375abea8ca5a8a01091038.png"><img src="https://img.051516.xyz/202412291104224.png" alt="img"></a></p>
 <ol>
 <li>输入以下 YAML 配置并点击 <strong>Start commit</strong> ：</li>
 </ol>
@@ -1416,8 +1416,8 @@
 <h2 id="5-部署-Qexo"><a href="#5-部署-Qexo" class="headerlink" title="5. 部署 Qexo"></a>5. 部署 Qexo</h2><p>回到项目页面，点击<strong>Redeploy</strong> 开始部署。部署完成后，无报错即可访问域名进入初始化页面。</p>
 <hr>
 <h1 id="初始化配置"><a href="#初始化配置" class="headerlink" title="初始化配置"></a>初始化配置</h1><p><a href="https://13fe9ff.webp.li/2024/11/d14a6a28fa42dc905ad1f9572d280abb.png"><img src="https://13fe9ff.webp.li/2024/11/d14a6a28fa42dc905ad1f9572d280abb.png" alt="img"></a></p>
-<p><a href="https://13fe9ff.webp.li/2024/11/8781b5e062a34509ccf39ed0000e8033.png"><img src="https://img.051516.xyz//202412291104276.png" alt="img"></a></p>
-<h2 id="GitHub-配置"><a href="#GitHub-配置" class="headerlink" title="GitHub 配置"></a>GitHub 配置</h2><p><a href="https://13fe9ff.webp.li/2024/11/7f4e9a472b66f4a2b73ae1c8e035b4ef.png"><img src="https://img.051516.xyz//202412291104301.png" alt="img"></a><br>填写博客源码所在仓库的分支名称，例如：</p>
+<p><a href="https://13fe9ff.webp.li/2024/11/8781b5e062a34509ccf39ed0000e8033.png"><img src="https://img.051516.xyz/202412291104276.png" alt="img"></a></p>
+<h2 id="GitHub-配置"><a href="#GitHub-配置" class="headerlink" title="GitHub 配置"></a>GitHub 配置</h2><p><a href="https://13fe9ff.webp.li/2024/11/7f4e9a472b66f4a2b73ae1c8e035b4ef.png"><img src="https://img.051516.xyz/202412291104301.png" alt="img"></a><br>填写博客源码所在仓库的分支名称，例如：</p>
 <figure class="highlight plaintext"><table><tr><td class="code"><pre><span class="line">plaintext</span><br><span class="line">master</span><br></pre></td></tr></table></figure>
 
 <h2 id="GitHub-密钥"><a href="#GitHub-密钥" class="headerlink" title="GitHub 密钥"></a>GitHub 密钥</h2><p>填写生成的 GitHub Token，例如：</p>
@@ -1426,17 +1426,17 @@
 <h2 id="仓库路径"><a href="#仓库路径" class="headerlink" title="仓库路径"></a>仓库路径</h2><p>若 Hexo 源码在仓库根目录，则留空；否则填写路径：</p>
 <figure class="highlight plaintext"><table><tr><td class="code"><pre><span class="line">plaintext</span><br><span class="line">path/</span><br></pre></td></tr></table></figure>
 
-<p><a href="https://13fe9ff.webp.li/2024/11/f2f7c6b57196afa6652292807698db91.png"><img src="https://img.051516.xyz//202412291104319.png" alt="img"></a></p>
-<p><a href="https://13fe9ff.webp.li/2024/11/5e4c876cd000a6d5f5da45bb256c963e.png"><img src="https://img.051516.xyz//202412291104350.png" alt="img"></a></p>
-<p><a href="https://13fe9ff.webp.li/2024/11/bcc3ab289c7a355ed8116d92faddba80.png"><img src="https://img.051516.xyz//202412291104386.png" alt="img"></a></p>
+<p><a href="https://13fe9ff.webp.li/2024/11/f2f7c6b57196afa6652292807698db91.png"><img src="https://img.051516.xyz/202412291104319.png" alt="img"></a></p>
+<p><a href="https://13fe9ff.webp.li/2024/11/5e4c876cd000a6d5f5da45bb256c963e.png"><img src="https://img.051516.xyz/202412291104350.png" alt="img"></a></p>
+<p><a href="https://13fe9ff.webp.li/2024/11/bcc3ab289c7a355ed8116d92faddba80.png"><img src="https://img.051516.xyz/202412291104386.png" alt="img"></a></p>
 <h2 id="Vercel-配置"><a href="#Vercel-配置" class="headerlink" title="Vercel 配置"></a>Vercel 配置</h2><ul>
 <li><strong>VERCEL_TOKEN</strong>：在<a href="https://vercel.com/account/tokens">Vercel 账户设置</a> 中生成。</li>
 <li><strong>PROJECT_ID</strong>：在 <strong>Project Settings -&gt; General -&gt; Project ID</strong> 中找到。</li>
 </ul>
 <p>配置完成后，即可登录后台管理博客内容。</p>
-<p><a href="https://13fe9ff.webp.li/2024/11/df6b8e762d048854683e5e31f6e262f2.png"><img src="https://img.051516.xyz//202412291104412.png" alt="img"></a></p>
-<p><a href="https://13fe9ff.webp.li/2024/11/2fa7cd4b16b469345b8e628d88affae2.png"><img src="https://img.051516.xyz//202412291104441.png" alt="img"></a></p>
-<p><a href="https://13fe9ff.webp.li/2024/11/6a16b8185a435cf9b807dbcc894d92e1.png"><img src="https://img.051516.xyz//202412291104466.png" alt="img"></a></p>
+<p><a href="https://13fe9ff.webp.li/2024/11/df6b8e762d048854683e5e31f6e262f2.png"><img src="https://img.051516.xyz/202412291104412.png" alt="img"></a></p>
+<p><a href="https://13fe9ff.webp.li/2024/11/2fa7cd4b16b469345b8e628d88affae2.png"><img src="https://img.051516.xyz/202412291104441.png" alt="img"></a></p>
+<p><a href="https://13fe9ff.webp.li/2024/11/6a16b8185a435cf9b807dbcc894d92e1.png"><img src="https://img.051516.xyz/202412291104466.png" alt="img"></a></p>
 <h1 id=""><a href="#" class="headerlink" title=""></a></h1>]]></content>
   </entry>
   <entry>
@@ -1785,13 +1785,13 @@
   <entry>
     <title>SEW Scope曲线监控</title>
     <url>/undefined/c4294855.html</url>
-    <content><![CDATA[<h3 id="打开备份的SEW文件，点击Scope"><a href="#打开备份的SEW文件，点击Scope" class="headerlink" title="打开备份的SEW文件，点击Scope"></a>打开备份的SEW文件，点击Scope</h3><p><img src="https://img.051516.xyz//202501051439031.png" alt="image-20250105143536600"></p>
-<h3 id="进入Scope界面"><a href="#进入Scope界面" class="headerlink" title="进入Scope界面"></a>进入Scope界面</h3><p><img src="https://img.051516.xyz//202501051439072.png" alt="image-20250105143550152"></p>
-<h3 id="在菜单栏中点击新建文件按钮，并新创建一个模板"><a href="#在菜单栏中点击新建文件按钮，并新创建一个模板" class="headerlink" title="在菜单栏中点击新建文件按钮，并新创建一个模板"></a>在菜单栏中点击新建文件按钮，并新创建一个模板</h3><p><img src="https://img.051516.xyz//202501051439108.png" alt="image-20250105143632298"></p>
-<h3 id="模板中设置好监控选项，并保存为名称为Scope的-sct文件"><a href="#模板中设置好监控选项，并保存为名称为Scope的-sct文件" class="headerlink" title="模板中设置好监控选项，并保存为名称为Scope的.sct文件"></a>模板中设置好监控选项，并保存为名称为Scope的.sct文件</h3><p><img src="https://img.051516.xyz//202501051439154.png" alt="image-20250105143656071"></p>
-<h3 id="再次在Scope菜单栏中点击新建，在模板中选择我们创建的Scope模板，然后点OK，进入Scope监控界面"><a href="#再次在Scope菜单栏中点击新建，在模板中选择我们创建的Scope模板，然后点OK，进入Scope监控界面" class="headerlink" title="再次在Scope菜单栏中点击新建，在模板中选择我们创建的Scope模板，然后点OK，进入Scope监控界面"></a>再次在Scope菜单栏中点击新建，在模板中选择我们创建的Scope模板，然后点OK，进入Scope监控界面</h3><p><img src="https://img.051516.xyz//202501051439188.png" alt="image-20250105143719967"></p>
+    <content><![CDATA[<h3 id="打开备份的SEW文件，点击Scope"><a href="#打开备份的SEW文件，点击Scope" class="headerlink" title="打开备份的SEW文件，点击Scope"></a>打开备份的SEW文件，点击Scope</h3><p><img src="https://img.051516.xyz/202501051439031.png" alt="image-20250105143536600"></p>
+<h3 id="进入Scope界面"><a href="#进入Scope界面" class="headerlink" title="进入Scope界面"></a>进入Scope界面</h3><p><img src="https://img.051516.xyz/202501051439072.png" alt="image-20250105143550152"></p>
+<h3 id="在菜单栏中点击新建文件按钮，并新创建一个模板"><a href="#在菜单栏中点击新建文件按钮，并新创建一个模板" class="headerlink" title="在菜单栏中点击新建文件按钮，并新创建一个模板"></a>在菜单栏中点击新建文件按钮，并新创建一个模板</h3><p><img src="https://img.051516.xyz/202501051439108.png" alt="image-20250105143632298"></p>
+<h3 id="模板中设置好监控选项，并保存为名称为Scope的-sct文件"><a href="#模板中设置好监控选项，并保存为名称为Scope的-sct文件" class="headerlink" title="模板中设置好监控选项，并保存为名称为Scope的.sct文件"></a>模板中设置好监控选项，并保存为名称为Scope的.sct文件</h3><p><img src="https://img.051516.xyz/202501051439154.png" alt="image-20250105143656071"></p>
+<h3 id="再次在Scope菜单栏中点击新建，在模板中选择我们创建的Scope模板，然后点OK，进入Scope监控界面"><a href="#再次在Scope菜单栏中点击新建，在模板中选择我们创建的Scope模板，然后点OK，进入Scope监控界面" class="headerlink" title="再次在Scope菜单栏中点击新建，在模板中选择我们创建的Scope模板，然后点OK，进入Scope监控界面"></a>再次在Scope菜单栏中点击新建，在模板中选择我们创建的Scope模板，然后点OK，进入Scope监控界面</h3><p><img src="https://img.051516.xyz/202501051439188.png" alt="image-20250105143719967"></p>
 <h3 id="进入Scope界面后点击记录设置，出现我们刚才设置的模板，点击Start按钮准备记录Scope曲线。在HMI上手动操作滑台动作就会自动触发记录运行曲线"><a href="#进入Scope界面后点击记录设置，出现我们刚才设置的模板，点击Start按钮准备记录Scope曲线。在HMI上手动操作滑台动作就会自动触发记录运行曲线" class="headerlink" title="进入Scope界面后点击记录设置，出现我们刚才设置的模板，点击Start按钮准备记录Scope曲线。在HMI上手动操作滑台动作就会自动触发记录运行曲线"></a>进入Scope界面后点击记录设置，出现我们刚才设置的模板，点击Start按钮准备记录Scope曲线。在HMI上手动操作滑台动作就会自动触发记录运行曲线</h3><p><strong>注意：根据模板里面的设置，最大记录时间为40.96s，因此来回滑动的时间需要控制在40s以内，否则超时的那部分运行曲线无法获取。如果需要调整最大记录时间，可以调整Sample Time。</strong></p>
-<p><img src="https://img.051516.xyz//202501051439213.png" alt="image-20250105143805277"></p>
+<p><img src="https://img.051516.xyz/202501051439213.png" alt="image-20250105143805277"></p>
 ]]></content>
   </entry>
   <entry>
@@ -2440,6 +2440,40 @@
       </tags>
   </entry>
   <entry>
+    <title>利用CF Workers搭建Github加速服务</title>
+    <url>/undefined/ee2e5bab.html</url>
+    <content><![CDATA[<h1 id="利用CF-Workers搭建GH-Proxy服务"><a href="#利用CF-Workers搭建GH-Proxy服务" class="headerlink" title="利用CF Workers搭建GH-Proxy服务"></a>利用CF Workers搭建GH-Proxy服务</h1><blockquote>
+<p>项目地址：<a href="https://github.com/hunshcn/gh-proxy">hunshcn&#x2F;gh-proxy: github release、archive以及项目文件的加速项目</a><br>项目简介：github release、archive以及项目文件的加速项目，支持clone，有Cloudflare Workers无服务器版本以及Python版本</p>
+</blockquote>
+<ol>
+<li>注册一个CloudFlare账户</li>
+<li>进入<a href="https://workers.cloudflare.com/">CF Workers</a>页面，点击 <strong>创建应用程序 <img src="https://img.051516.xyz/202312120902203.png" alt="img"></strong></li>
+<li>点击 <strong>创建Worker <img src="https://img.051516.xyz/202312120902204.png" alt="img"></strong></li>
+<li>按需填写 <strong>名称</strong>，点击右下角 <strong>部署</strong><br><img src="https://img.051516.xyz/202312120902205.png" alt="img"></li>
+<li>点击 <strong>编辑代码</strong><img src="https://img.051516.xyz/202312120902206.png" alt="img"></li>
+<li>将代码<strong>复制并替换编辑框里的内容</strong>，点击右边的 <strong>保存并部署</strong>，返回刚才的管理页面</li>
+</ol>
+<blockquote>
+<p>代码地址：<a href="https://cdn.jsdelivr.net/gh/hunshcn/gh-proxy@master/index.js">cdn.jsdelivr.net&#x2F;gh&#x2F;hunshcn&#x2F;gh-proxy@master&#x2F;index.js</a></p>
+</blockquote>
+<p><img src="https://img.051516.xyz/202312120902207.png" alt="img"></p>
+<ol>
+<li>点击<strong>查看链接</strong>，显示如下界面即为成功<img src="https://img.051516.xyz/202312120902208.png" alt="img"></li>
+</ol>
+<p><img src="https://img.051516.xyz/202312120902209.png" alt="img"></p>
+<blockquote>
+<h2 id="Cloudflare-Workers计费"><a href="#Cloudflare-Workers计费" class="headerlink" title="Cloudflare Workers计费"></a>Cloudflare Workers计费</h2><p>到 <code>overview</code> 页面可参看使用情况。免费版每天有 10 万次免费请求，并且有每分钟1000次请求的限制。</p>
+<p>如果不够用，可升级到 $5 的高级版本，每月可用 1000 万次请求（超出部分 $0.5&#x2F;百万次请求）。</p>
+</blockquote>
+]]></content>
+      <categories>
+        <category>教程</category>
+      </categories>
+      <tags>
+        <tag>网站</tag>
+      </tags>
+  </entry>
+  <entry>
     <title>中星微随身Wifi去后门刷全功能后台</title>
     <url>/undefined/f9dbe722.html</url>
     <content><![CDATA[<h1 id="前言"><a href="#前言" class="headerlink" title="前言"></a>前言</h1><p>买到棒子先不要插自己卡，需要进行屏蔽操作防止被远程操作，这里我买的是狗东某沃中星微。</p>
@@ -2508,40 +2542,6 @@
       </tags>
   </entry>
   <entry>
-    <title>利用CF Workers搭建Github加速服务</title>
-    <url>/undefined/ee2e5bab.html</url>
-    <content><![CDATA[<h1 id="利用CF-Workers搭建GH-Proxy服务"><a href="#利用CF-Workers搭建GH-Proxy服务" class="headerlink" title="利用CF Workers搭建GH-Proxy服务"></a>利用CF Workers搭建GH-Proxy服务</h1><blockquote>
-<p>项目地址：<a href="https://github.com/hunshcn/gh-proxy">hunshcn&#x2F;gh-proxy: github release、archive以及项目文件的加速项目</a><br>项目简介：github release、archive以及项目文件的加速项目，支持clone，有Cloudflare Workers无服务器版本以及Python版本</p>
-</blockquote>
-<ol>
-<li>注册一个CloudFlare账户</li>
-<li>进入<a href="https://workers.cloudflare.com/">CF Workers</a>页面，点击 <strong>创建应用程序 <img src="https://img.051516.xyz/202312120902203.png" alt="img"></strong></li>
-<li>点击 <strong>创建Worker <img src="https://img.051516.xyz/202312120902204.png" alt="img"></strong></li>
-<li>按需填写 <strong>名称</strong>，点击右下角 <strong>部署</strong><br><img src="https://img.051516.xyz/202312120902205.png" alt="img"></li>
-<li>点击 <strong>编辑代码</strong><img src="https://img.051516.xyz/202312120902206.png" alt="img"></li>
-<li>将代码<strong>复制并替换编辑框里的内容</strong>，点击右边的 <strong>保存并部署</strong>，返回刚才的管理页面</li>
-</ol>
-<blockquote>
-<p>代码地址：<a href="https://cdn.jsdelivr.net/gh/hunshcn/gh-proxy@master/index.js">cdn.jsdelivr.net&#x2F;gh&#x2F;hunshcn&#x2F;gh-proxy@master&#x2F;index.js</a></p>
-</blockquote>
-<p><img src="https://img.051516.xyz/202312120902207.png" alt="img"></p>
-<ol>
-<li>点击<strong>查看链接</strong>，显示如下界面即为成功<img src="https://img.051516.xyz/202312120902208.png" alt="img"></li>
-</ol>
-<p><img src="https://img.051516.xyz/202312120902209.png" alt="img"></p>
-<blockquote>
-<h2 id="Cloudflare-Workers计费"><a href="#Cloudflare-Workers计费" class="headerlink" title="Cloudflare Workers计费"></a>Cloudflare Workers计费</h2><p>到 <code>overview</code> 页面可参看使用情况。免费版每天有 10 万次免费请求，并且有每分钟1000次请求的限制。</p>
-<p>如果不够用，可升级到 $5 的高级版本，每月可用 1000 万次请求（超出部分 $0.5&#x2F;百万次请求）。</p>
-</blockquote>
-]]></content>
-      <categories>
-        <category>教程</category>
-      </categories>
-      <tags>
-        <tag>网站</tag>
-      </tags>
-  </entry>
-  <entry>
     <title>在WSL2中使用Clash Verge代理连接</title>
     <url>/undefined/af89448b.html</url>
     <content><![CDATA[<blockquote>
@@ -2588,7 +2588,7 @@
 <figure class="highlight cmd"><table><tr><td class="code"><pre><span class="line">git remote add origin git@gitee.com:yuqi15/blog-backup.git</span><br></pre></td></tr></table></figure>
 
 <p>注意：这里是使用你自己创建仓库的链接，刚创建好会在页面上提示</p>
-<p><img src="https://img.051516.xyz//202303031601529.png"></p>
+<p><img src="https://img.051516.xyz/202303031601529.png"></p>
 <h1 id="上传到-gitee"><a href="#上传到-gitee" class="headerlink" title="上传到 gitee"></a>上传到 gitee</h1><p>依次在命令行里面运行下面命令</p>
 <figure class="highlight cmd"><table><tr><td class="code"><pre><span class="line">git add .</span><br><span class="line">git commit -m &quot;update&quot;</span><br><span class="line">git push origin master --force</span><br></pre></td></tr></table></figure>
 
@@ -2609,7 +2609,7 @@
     <title>安卓14 + HttpCanary 抓包设置</title>
     <url>/undefined/5fb4c97d.html</url>
     <content><![CDATA[<h1 id="前言"><a href="#前言" class="headerlink" title="前言"></a>前言</h1><p>这两天使用 HttpCanary 抓包，无法安装证书，如下图，搜索找到了解决办法。本教程适合安卓14 + 无法安装证书，以及解决“系统证书”和“目标App使用固定证书”的问题。</p>
-<p><img src="https://img.051516.xyz//202311130929372.jpg"></p>
+<p><img src="https://img.051516.xyz/202311130929372.jpg"></p>
 <h1 id="准备工作"><a href="#准备工作" class="headerlink" title="准备工作"></a>准备工作</h1><ol>
 <li><p>手机需要root，安装好 Magisk 和 Xposed 框架（比如 LSPosed）；</p>
 </li>
@@ -2618,16 +2618,16 @@
 </ol>
 <p>说明：HttpCanary_3.3.5.apk：HttpCanary 安装包，原版无修改；HttpCanary根证书.zip：Magisk 模块，将HttpCanary根证书添加至系统CA目录，证书文件需自己添加；TrustMeAlready_1.11.apk：Xposed模块，解决“目标app使用固定证书，无法抓包”。</p>
 <h1 id="安装证书"><a href="#安装证书" class="headerlink" title="安装证书"></a>安装证书</h1><p>1.安装 HttpCanary 后，打开软件，若“安装根证书”无法安装点“跳过”即可，进入软件后，即可退出软件；<br>2.MT管理器打开 &#x2F;data&#x2F;user&#x2F;0&#x2F;com.guoshi.httpcanary&#x2F;cache，新建名为 HttpCanary.jks 的空文件；然后把 HttpCanary.p12 和 HttpCanary.pem 两个文件复制到其他文件夹里（比如 Download 文件夹），后面要用到，如下图。</p>
-<p><img src="https://img.051516.xyz//202311130932355.gif"></p>
+<p><img src="https://img.051516.xyz/202311130932355.gif"></p>
 <p>3.打开 设置→安全→加密与凭据→安装证书，不同机型可能不同，也可以在设置搜索”安装证书”打开。这里需要安装三个证书（本人测试安装“CA 证书”即可，推荐全部安装）：</p>
 <ol>
 <li>点击 <strong>CA 证书</strong>，它会提示<strong>您的数据将不再是私密的</strong>，点<strong>仍然安装</strong>。找到刚才放证书的文件夹，选择 HttpCanary.pem 。 显示<strong>已安装CA证书</strong>。</li>
 <li>点击 <strong>xxx和应用用户证书</strong>，选择 HttpCanary.p12 ，密码为 HttpCanary（推荐复制，避免输错），证书名称为 <strong>xxx and Apps</strong>（xxx看图）。</li>
 <li>点击<strong>WLAN证书</strong>，选择 HttpCanary.p12 ，密码为 HttpCanary，证书名称为 WiFi。</li>
 </ol>
-<p>至此，用户证书安装完毕，点开用户凭据会看到有三个证书，如下图。<br><img src="https://img.051516.xyz//202311130934065.jpg"></p>
-<h1 id="添加根证书至系统"><a href="#添加根证书至系统" class="headerlink" title="添加根证书至系统"></a>添加根证书至系统</h1><p>由于从Android 7.0版本开始，系统不再信任安装的用户证书，可能会导致无法抓取SSL&#x2F;TLS加密数据包或者无网络等问题，如下图。因此需要将HttpCanary根证书添加至系统CA目录，此操作需要在Root设备上进行。<br><img src="https://img.051516.xyz//202311130935681.jpg"><br>1.直接移动根证书<br>打开 HttpCanary→设置→HttpCanary根证书→添加根证书至系统（Root）→移动。若成功，则可以跳过此部分；若显示下图，则说明 system 分区没有解锁，可以通过 Magisk 模块移动根证书，接着看下面内容。<br><img src="https://img.051516.xyz//202311130935077.jpg"><br>2.通过 Magisk 模块移动根证书<br>(1) MT管理器打开 &#x2F;data&#x2F;misc&#x2F;user&#x2F;0&#x2F;cacerts-added&#x2F; ，安装完用户证书后，这个路径下面会生成一个 .0格式证书文件。在MT管理器另一侧窗口打开之前下载好的 HttpCanary根证书.zip ，打开到 HttpCanary根证书.zip&#x2F;system&#x2F;etc&#x2F;security&#x2F;cacerts&#x2F; 路径。<br>然后长按 .0格式文件，添加到 HttpCanary根证书.zip&#x2F;system&#x2F;etc&#x2F;security&#x2F;cacerts&#x2F; 里，如下图。<br><img src="https://img.051516.xyz//202311130936670.gif"><br>(2) 打开 Magisk→模块→从本地安装→选择“HttpCanary根证书.zip”→确定安装，安装完成后重启手机。<br>如下图，若打开 &#x2F;system&#x2F;etc&#x2F;security&#x2F;cacerts&#x2F; 路径，可以找到和 &#x2F;data&#x2F;misc&#x2F;user&#x2F;0&#x2F;cacerts-added&#x2F; 路径下相同的 .0文件，说明已成功把 HttpCanary根证书添加至系统CA目录。<br><img src="https://img.051516.xyz//202311130936693.jpg"></p>
-<h1 id="解决“目标App使用固定证书”问题"><a href="#解决“目标App使用固定证书”问题" class="headerlink" title="解决“目标App使用固定证书”问题"></a>解决“目标App使用固定证书”问题</h1><p>如下图，在将HttpCanary根证书添加至系统CA目录后，对部分APP抓包仍会报错：目标App使用固定证书。<br><img src="https://img.051516.xyz//202311130937716.jpg"><br>解决办法是：安装前面下载好的“TrustMeAlready_1.11.apk”，安装完成在 LSPosed 中启用模块，勾选系统框架和需要抓包的APP，如下图。重启手机，一定要重启手机，否则不会生效。<br><img src="https://img.051516.xyz//202311130937034.jpg"><br>在完成上面设置后就可以愉快地抓包了。</p>
+<p>至此，用户证书安装完毕，点开用户凭据会看到有三个证书，如下图。<br><img src="https://img.051516.xyz/202311130934065.jpg"></p>
+<h1 id="添加根证书至系统"><a href="#添加根证书至系统" class="headerlink" title="添加根证书至系统"></a>添加根证书至系统</h1><p>由于从Android 7.0版本开始，系统不再信任安装的用户证书，可能会导致无法抓取SSL&#x2F;TLS加密数据包或者无网络等问题，如下图。因此需要将HttpCanary根证书添加至系统CA目录，此操作需要在Root设备上进行。<br><img src="https://img.051516.xyz/202311130935681.jpg"><br>1.直接移动根证书<br>打开 HttpCanary→设置→HttpCanary根证书→添加根证书至系统（Root）→移动。若成功，则可以跳过此部分；若显示下图，则说明 system 分区没有解锁，可以通过 Magisk 模块移动根证书，接着看下面内容。<br><img src="https://img.051516.xyz/202311130935077.jpg"><br>2.通过 Magisk 模块移动根证书<br>(1) MT管理器打开 &#x2F;data&#x2F;misc&#x2F;user&#x2F;0&#x2F;cacerts-added&#x2F; ，安装完用户证书后，这个路径下面会生成一个 .0格式证书文件。在MT管理器另一侧窗口打开之前下载好的 HttpCanary根证书.zip ，打开到 HttpCanary根证书.zip&#x2F;system&#x2F;etc&#x2F;security&#x2F;cacerts&#x2F; 路径。<br>然后长按 .0格式文件，添加到 HttpCanary根证书.zip&#x2F;system&#x2F;etc&#x2F;security&#x2F;cacerts&#x2F; 里，如下图。<br><img src="https://img.051516.xyz/202311130936670.gif"><br>(2) 打开 Magisk→模块→从本地安装→选择“HttpCanary根证书.zip”→确定安装，安装完成后重启手机。<br>如下图，若打开 &#x2F;system&#x2F;etc&#x2F;security&#x2F;cacerts&#x2F; 路径，可以找到和 &#x2F;data&#x2F;misc&#x2F;user&#x2F;0&#x2F;cacerts-added&#x2F; 路径下相同的 .0文件，说明已成功把 HttpCanary根证书添加至系统CA目录。<br><img src="https://img.051516.xyz/202311130936693.jpg"></p>
+<h1 id="解决“目标App使用固定证书”问题"><a href="#解决“目标App使用固定证书”问题" class="headerlink" title="解决“目标App使用固定证书”问题"></a>解决“目标App使用固定证书”问题</h1><p>如下图，在将HttpCanary根证书添加至系统CA目录后，对部分APP抓包仍会报错：目标App使用固定证书。<br><img src="https://img.051516.xyz/202311130937716.jpg"><br>解决办法是：安装前面下载好的“TrustMeAlready_1.11.apk”，安装完成在 LSPosed 中启用模块，勾选系统框架和需要抓包的APP，如下图。重启手机，一定要重启手机，否则不会生效。<br><img src="https://img.051516.xyz/202311130937034.jpg"><br>在完成上面设置后就可以愉快地抓包了。</p>
 <h1 id="参考文章"><a href="#参考文章" class="headerlink" title="参考文章"></a>参考文章</h1><p><a href="https://www.coolapk.com/feed/45789599?shareKey=Yjc1OGRiZDAwOWYwNjU1MTc5ZTk~&shareUid=922742&shareFrom=com.coolapk.market_13.3.6">https://www.coolapk.com/feed/45789599?shareKey=Yjc1OGRiZDAwOWYwNjU1MTc5ZTk~&amp;shareUid=922742&amp;shareFrom=com.coolapk.market_13.3.6</a></p>
 <p><a href="https://www.coolapk.com/feed/43608693">https://www.coolapk.com/feed/43608693</a></p>
 <h1 id="非系统SLL库抓包"><a href="#非系统SLL库抓包" class="headerlink" title="非系统SLL库抓包"></a>非系统SLL库抓包</h1><p>某些应用用的是非系统SLL库，比如某音，此教程无效。可以参考下面教程：<br><a href="https://bbs.kanxue.com/thread-271968.htm">https://bbs.kanxue.com/thread-271968.htm</a> </p>
@@ -2968,7 +2968,7 @@
     <content><![CDATA[<p>此教程只针对拿板子做短信转发器用，其他高阶操作（定位、联网、语音）需要自由拓展发挥。</p>
 <h1 id="官网资料"><a href="#官网资料" class="headerlink" title="官网资料"></a>官网资料</h1><p>Air780E : <a href="https://doc.openluat.com/wiki/37?wiki_page_id=4454">https://doc.openluat.com/wiki/37?wiki_page_id=4454</a></p>
 <p>Air700E : <a href="https://doc.openluat.com/wiki/44?wiki_page_id=4730">https://doc.openluat.com/wiki/44?wiki_page_id=4730</a></p>
-<p><img src="https://img.051516.xyz//202303300802872.webp" alt="img"></p>
+<p><img src="https://img.051516.xyz/202303300802872.webp" alt="img"></p>
 <h1 id="刷机前的准备"><a href="#刷机前的准备" class="headerlink" title="刷机前的准备"></a>刷机前的准备</h1><h2 id="下载Lua固件烧录工具Luatools-v2-7z"><a href="#下载Lua固件烧录工具Luatools-v2-7z" class="headerlink" title="下载Lua固件烧录工具Luatools_v2.7z"></a>下载Lua固件烧录工具Luatools_v2.7z</h2><p>下载地址：<a href="https://luatos.com/luatools/download/last">https://luatos.com/luatools/download/last</a></p>
 <p>大概看一下这个工具的安装使用教程<a href="https://doc.openluat.com/wiki/37?wiki_page_id=4489">https://doc.openluat.com/wiki/37?wiki_page_id=4489</a></p>
 <h2 id="下载EC618芯片的固件"><a href="#下载EC618芯片的固件" class="headerlink" title="下载EC618芯片的固件"></a>下载EC618芯片的固件</h2><p>这一步也可以省略，第三步的脚本里面包含最新固件</p>
@@ -2976,16 +2976,16 @@
 <p>截至2023.3.15固件最新版本LuatOS-SoC#EC618 V1105 <a href="https://gitee.com/openLuat/LuatOS/releases/download/v0007.ec618.v1105/core_V1105.zip">https://gitee.com/openLuat/LuatOS/releases/download/v0007.ec618.v1105/core_V1105.zip</a></p>
 <p>（#是替换符，替换@，便于阅读）</p>
 <h2 id="下载软件脚本"><a href="#下载软件脚本" class="headerlink" title="下载软件脚本"></a>下载软件脚本</h2><p><a href="https://github.com/lageev/air780e-forwarder">https://github.com/lageev/air780e-forwarder</a></p>
-<p><img src="https://img.051516.xyz//202303300803714.webp" alt="img"></p>
+<p><img src="https://img.051516.xyz/202303300803714.webp" alt="img"></p>
 <p>一般直接压缩压缩包就可以，如果你想后续跟着这个仓库更新，可以用git克隆到本地。</p>
 <p>这个github仓库里有两个文件夹，core里面放的是固件，script里面放的是脚本。</p>
-<p><img src="https://img.051516.xyz//202303300803027.webp" alt="img"></p>
+<p><img src="https://img.051516.xyz/202303300803027.webp" alt="img"></p>
 <p>soc后缀的是固件，lua后缀的是脚本。</p>
 <p>选择固件的时候，任选一个，固件的文件名写了固件不同的功能和版本，有的是基础固件，有的是带TTS的，RNDIS是带网卡能力的，一般选FULL（全都有）就可以了。</p>
 <p>选择脚本的时候，需要全选。</p>
 <p>这里说的「选」，是指第二步，烧录的时候选择「文件」，这里先不管。</p>
 <p>脚本在烧录之前需要手动改一下config.lua 文件的代码，填写你自己的token或者webhook地址</p>
-<p><img src="https://img.051516.xyz//202303300803773.webp" alt="img"></p>
+<p><img src="https://img.051516.xyz/202303300803773.webp" alt="img"></p>
 <p>如上图，需要先填写「NOTIFY_TYPE」字段，这里支持多选，支持上面注释的例子里面的渠道。</p>
 <p>比如你想同时推送到bark和钉钉,第四行代码就是NOTIFY_TYPE&#x3D;{“bark”,”dingtalk”}，以此类推，只有一个推送渠道的时候，大括号可以省略。</p>
 <p>改写完「NOTIFY_TYPE」字段，还需要改下面的webhook地址，需要你去对应的软件获取，具体方法自己解决，代码里已经给了相关的文档地址。</p>
@@ -2993,7 +2993,7 @@
 <p>打开首页会有很多网址</p>
 <p>比如 <a href="https://api.day.app/xxxxxxxxxx">https://api.day.app/xxxxxxxxxx</a></p>
 <p>xxxxxxx所代表的就是bark的key，只需要把这个key复制到config.lua 中 BARK_KEY中即可，API字段不用变（如果你没有自己部署Bark的话）。</p>
-<p><img src="https://img.051516.xyz//202303300803629.webp" alt="img"></p>
+<p><img src="https://img.051516.xyz/202303300803629.webp" alt="img"></p>
 <p>在config.lua 代码中填写完你自己的配置，保存之后，其他的就不要动了。</p>
 <h1 id="烧录固件和脚本"><a href="#烧录固件和脚本" class="headerlink" title="烧录固件和脚本"></a>烧录固件和脚本</h1><p>这里的烧录固件就相当于刷机，刷ROM，脚本就相当于安装App。</p>
 <p>由于开发板自身没有用户界面，所以所有的安装操作都是通过烧录完成的。需要用USB-C数据线将电脑和开发板连接，剩下的所有操作都在LuaTool里面。</p>
@@ -3005,8 +3005,8 @@
 <p>4、选择电脑中已经下载好的固件</p>
 <p>5、选择电脑中已经下载好的脚本</p>
 <p>6、点击「下载底层和脚本」</p>
-<p><img src="https://img.051516.xyz//202303300803467.webp" alt="img"></p>
-<p><img src="https://img.051516.xyz//202303300804588.webp" alt="img">点击「下载底层和脚本」之后，软件会有文字提示，「正在准备xxx」「正在下载xxx」</p>
+<p><img src="https://img.051516.xyz/202303300803467.webp" alt="img"></p>
+<p><img src="https://img.051516.xyz/202303300804588.webp" alt="img">点击「下载底层和脚本」之后，软件会有文字提示，「正在准备xxx」「正在下载xxx」</p>
 <p>这时候，同时按住电源键和BOOT键，软件有反应了再松手（提示「发现下载端口」），这时候固件和脚本会自动刷入，知道提示下载完成。</p>
 <p>提示：700E和780E的按键一样，可以参考文章开头的大图，从左往右依次是「电源键」「重置键」「BOOT键」</p>
 <p>这时，烧录操作全部完成，可以开机使用了。</p>
@@ -3021,120 +3021,6 @@
       <tags>
         <tag>短信转发</tag>
       </tags>
-  </entry>
-  <entry>
-    <title>移载机SEW MOVIDRIVE 变频器配置手册（双编码器）</title>
-    <url>/undefined/4f7419e2.html</url>
-    <content><![CDATA[<h1 id="一、SEW变频器Startup"><a href="#一、SEW变频器Startup" class="headerlink" title="一、SEW变频器Startup"></a>一、SEW变频器Startup</h1><p>安装好MOVITOOL软件</p>
-<p><img src="https://img.051516.xyz/20250522211420768.png" alt="image-20250522204456926"></p>
-<p>打开创建好的项目开始配置通信连接</p>
-<p><img src="https://img.051516.xyz/20250522211428346.png" alt="image-20250522204525245"></p>
-<p>下面以以太网连接为例</p>
-<p><img src="https://img.051516.xyz/20250522211435174.png" alt="image-20250522204553577"></p>
-<p><img src="https://img.051516.xyz/20250522211440753.png" alt="image-20250522204622864"></p>
-<p>当设置完成后，请一路OK回到软件管理画面</p>
-<p><img src="https://img.051516.xyz/20250522211452463.png" alt="image-20250522204646120"></p>
-<p>通信配置正确的软件界面状态</p>
-<p><img src="https://img.051516.xyz/20250522211500726.png" alt="image-20250522204707808"></p>
-<p>单击红色刷新图标</p>
-<p><img src="https://img.051516.xyz/20250522211506743.png" alt="image-20250522204732227"></p>
-<p>一切准备就绪后，单击已连接的变频器。会在软件管理中罗列出当前各项功能菜单。</p>
-<p><img src="https://img.051516.xyz/20250522211526791.png" alt="image-20250522204750498"></p>
-<p>下面我们开始参数配置：</p>
-<p>参数设置一</p>
-<p>单击参数列表</p>
-<p><img src="https://img.051516.xyz/20250522211536263.png" alt="image-20250522204832268"></p>
-<p><img src="https://img.051516.xyz/20250522211545286.png" alt="image-20250522204848233"></p>
-<p>变频器参数重置完成后，回到SEW管理器画面选择</p>
-<p><img src="https://img.051516.xyz/20250522211551830.png" alt="image-20250522204903815"></p>
-<p>开始电机参数配置。</p>
-<p>第一步配置电机基本参数参数</p>
-<p>第二步配置变频器参数</p>
-<p>第三步配置IPOS参数</p>
-<p>出现下图配置画面：</p>
-<p><img src="https://img.051516.xyz/20250522211556970.png" alt="image-20250522204922056"></p>
-<p><img src="https://img.051516.xyz/20250522211605460.png" alt="image-20250522204935064"></p>
-<p><img src="https://img.051516.xyz/20250522211612151.png" alt="image-20250522204948929"></p>
-<p>选择矢量\伺服控制</p>
-<p><img src="https://img.051516.xyz/20250522211636487.png" alt="image-20250522205011792"></p>
-<p>选择下一步。</p>
-<p><img src="https://img.051516.xyz/20250522211621582.png" alt="image-20250522205025251"></p>
-<p>选择电机类型。</p>
-<p><img src="https://img.051516.xyz/20250522211648706.png" alt="image-20250522205042278"></p>
-<p>选择电机对应的型号和输入电源的额定电压和频率值</p>
-<p><img src="https://img.051516.xyz/20250522211659160.png" alt="image-20250522205058945"></p>
-<p>选择使用的编码器</p>
-<p><img src="https://img.051516.xyz/20250522211705047.png" alt="image-20250522205115647"></p>
-<p>选择变频器IPOS工作模式。</p>
-<p><img src="https://img.051516.xyz/20250522211711639.png" alt="image-20250522205143590"></p>
-<p>选择压频控制（VFC）模式</p>
-<p><img src="https://img.051516.xyz/20250522211718088.png" alt="image-20250522205154059"></p>
-<p>惯性选择</p>
-<p>弹出下图</p>
-<p><img src="https://img.051516.xyz/20250522211739760.png" alt="image-20250522205329862"></p>
-<p>选择是否启用电机抱闸。</p>
-<p><img src="https://img.051516.xyz/20250522211747415.png" alt="image-20250522205348345"></p>
-<p>参数设置part1</p>
-<p><img src="https://img.051516.xyz/20250522211819997.png" alt="image-20250522205423812"></p>
-<p>参数设置part2</p>
-<p><img src="https://img.051516.xyz/20250522211831478.png" alt="image-20250522205442378"></p>
-<p>参数设置part3</p>
-<p><img src="https://img.051516.xyz/20250522211836809.png" alt="image-20250522205459889"></p>
-<p>点击“下载”，然后单击“设置变频器，“完成”</p>
-<p><img src="https://img.051516.xyz/20250522211843403.png" alt="image-20250522205518921"></p>
-<h1 id="二、SEW变频器总线扩展定位设置"><a href="#二、SEW变频器总线扩展定位设置" class="headerlink" title="二、SEW变频器总线扩展定位设置"></a>二、SEW变频器总线扩展定位设置</h1><p>点击2.SEW总线扩展定位，定位块设置。</p>
-<p><img src="https://img.051516.xyz/20250522211849177.png" alt="image-20250522205619412"></p>
-<p><img src="https://img.051516.xyz/20250522205630853.png" alt="image-20250522205630853"></p>
-<p><img src="https://img.051516.xyz/20250522211912978.png" alt="image-20250522205642616"></p>
-<p>选择位移编码器类型</p>
-<p><img src="https://img.051516.xyz/20250522211919035.png" alt="image-20250522205658095"></p>
-<p><img src="https://img.051516.xyz/20250522211934232.png" alt="image-20250522205706074"></p>
-<p><img src="https://img.051516.xyz/20250522211923657.png" alt="image-20250522205711381"></p>
-<p><img src="https://img.051516.xyz/20250522211941581.png" alt="image-20250522205717432"></p>
-<p>移载机内置编码器和外置编码器匹配。</p>
-<p><img src="https://img.051516.xyz/20250522211948129.png" alt="image-20250522205733747"></p>
-<p>提示：做这一步时，如果出现电机不能转动，或产生报警不能通过编码器匹配。需要检查以下内容：</p>
-<p>1电机不能转动：</p>
-<p>a可能是由于变频器的安全24V未给</p>
-<p>b电机抱闸未打开</p>
-<p>c机械设备运动到极限位置或被锁定</p>
-<p>2变频器报警：a速度故障编码器线缆有接触不良或错误如同下图</p>
-<p><img src="https://img.051516.xyz/20250522211957143.png" alt="image-20250522205831537"></p>
-<p>单击下一步</p>
-<p><img src="https://img.051516.xyz/20250522212003541.png" alt="image-20250522205846506"></p>
-<p>单击下一步</p>
-<p><img src="https://img.051516.xyz/20250522212010638.png" alt="image-20250522205903857"></p>
-<p>单击下一步</p>
-<p><img src="https://img.051516.xyz/20250522212020133.png" alt="image-20250522205929872"></p>
-<p>编码器匹配通过后点击下一步，进入下图画面传送参考位置。</p>
-<p>提示：传送参考位置前请断开变频器安全24V电源，否则会弹出禁止修改提示框；修改成功后也会弹出提示框，根据提示继续配置。</p>
-<p><img src="https://img.051516.xyz/20250522212026198.png" alt="image-20250522205951899"></p>
-<p>单击“完成”。</p>
-<p><img src="https://img.051516.xyz/20250522212032184.png" alt="image-20250522210003836"></p>
-<h1 id="三、-IPOS配置"><a href="#三、-IPOS配置" class="headerlink" title="三、 IPOS配置"></a>三、 IPOS配置</h1><p><img src="https://img.051516.xyz/20250522212039234.png" alt="image-20250522210033621"></p>
-<p>设置通信总线类型为Profinet，单击下一步</p>
-<p><img src="https://img.051516.xyz/20250522212044956.png" alt="image-20250522210130165"></p>
-<p>参数设置单击下一步</p>
-<p><img src="https://img.051516.xyz/20250522212052156.png" alt="image-20250522210205472"></p>
-<p>变频器软限位，及参考类型设置单击下一步</p>
-<p><img src="https://img.051516.xyz/20250522212058553.png" alt="image-20250522210229213"></p>
-<p><img src="https://img.051516.xyz/20250522212105838.png" alt="image-20250522210236898"></p>
-<p>选择“否“不保存</p>
-<p>下载配置的参数，提示：下载参数需要断开变频器的安全24V电源</p>
-<p><img src="https://img.051516.xyz/20250522212111341.png" alt="image-20250522210301645"></p>
-<p>点“yes”监控状态</p>
-<p><img src="https://img.051516.xyz/20250522212118310.png" alt="image-20250522210316464"></p>
-<p><img src="https://img.051516.xyz/20250522212125742.png" alt="image-20250522210352603"></p>
-<p>参考设置No.1</p>
-<p><img src="https://img.051516.xyz/20250522212132048.png" alt="image-20250522210417474"></p>
-<p>参考设置No.2</p>
-<p><img src="https://img.051516.xyz/20250522212143689.png" alt="image-20250522210438966"></p>
-<p>参考设置No.3</p>
-<p>选择PO1 第2,3,9,13 位，点击“SendPA”Start reference，编码器反馈值为0（PI2&#x2F;3 Actual position&#x3D;0）</p>
-<p><img src="https://img.051516.xyz/20250522212151212.png" alt="image-20250522210537816"></p>
-<p>设置完成这些参数，可以测试运行电机。</p>
-<p><img src="https://img.051516.xyz/20250522212158850.png" alt="image-20250522210558705"></p>
-]]></content>
   </entry>
   <entry>
     <title>神秘模块入门教程（Android端）</title>
@@ -3275,6 +3161,120 @@
       </tags>
   </entry>
   <entry>
+    <title>移载机SEW MOVIDRIVE 变频器配置手册（双编码器）</title>
+    <url>/undefined/4f7419e2.html</url>
+    <content><![CDATA[<h1 id="一、SEW变频器Startup"><a href="#一、SEW变频器Startup" class="headerlink" title="一、SEW变频器Startup"></a>一、SEW变频器Startup</h1><p>安装好MOVITOOL软件</p>
+<p><img src="https://img.051516.xyz/20250522211420768.png" alt="image-20250522204456926"></p>
+<p>打开创建好的项目开始配置通信连接</p>
+<p><img src="https://img.051516.xyz/20250522211428346.png" alt="image-20250522204525245"></p>
+<p>下面以以太网连接为例</p>
+<p><img src="https://img.051516.xyz/20250522211435174.png" alt="image-20250522204553577"></p>
+<p><img src="https://img.051516.xyz/20250522211440753.png" alt="image-20250522204622864"></p>
+<p>当设置完成后，请一路OK回到软件管理画面</p>
+<p><img src="https://img.051516.xyz/20250522211452463.png" alt="image-20250522204646120"></p>
+<p>通信配置正确的软件界面状态</p>
+<p><img src="https://img.051516.xyz/20250522211500726.png" alt="image-20250522204707808"></p>
+<p>单击红色刷新图标</p>
+<p><img src="https://img.051516.xyz/20250522211506743.png" alt="image-20250522204732227"></p>
+<p>一切准备就绪后，单击已连接的变频器。会在软件管理中罗列出当前各项功能菜单。</p>
+<p><img src="https://img.051516.xyz/20250522211526791.png" alt="image-20250522204750498"></p>
+<p>下面我们开始参数配置：</p>
+<p>参数设置一</p>
+<p>单击参数列表</p>
+<p><img src="https://img.051516.xyz/20250522211536263.png" alt="image-20250522204832268"></p>
+<p><img src="https://img.051516.xyz/20250522211545286.png" alt="image-20250522204848233"></p>
+<p>变频器参数重置完成后，回到SEW管理器画面选择</p>
+<p><img src="https://img.051516.xyz/20250522211551830.png" alt="image-20250522204903815"></p>
+<p>开始电机参数配置。</p>
+<p>第一步配置电机基本参数参数</p>
+<p>第二步配置变频器参数</p>
+<p>第三步配置IPOS参数</p>
+<p>出现下图配置画面：</p>
+<p><img src="https://img.051516.xyz/20250522211556970.png" alt="image-20250522204922056"></p>
+<p><img src="https://img.051516.xyz/20250522211605460.png" alt="image-20250522204935064"></p>
+<p><img src="https://img.051516.xyz/20250522211612151.png" alt="image-20250522204948929"></p>
+<p>选择矢量\伺服控制</p>
+<p><img src="https://img.051516.xyz/20250522211636487.png" alt="image-20250522205011792"></p>
+<p>选择下一步。</p>
+<p><img src="https://img.051516.xyz/20250522211621582.png" alt="image-20250522205025251"></p>
+<p>选择电机类型。</p>
+<p><img src="https://img.051516.xyz/20250522211648706.png" alt="image-20250522205042278"></p>
+<p>选择电机对应的型号和输入电源的额定电压和频率值</p>
+<p><img src="https://img.051516.xyz/20250522211659160.png" alt="image-20250522205058945"></p>
+<p>选择使用的编码器</p>
+<p><img src="https://img.051516.xyz/20250522211705047.png" alt="image-20250522205115647"></p>
+<p>选择变频器IPOS工作模式。</p>
+<p><img src="https://img.051516.xyz/20250522211711639.png" alt="image-20250522205143590"></p>
+<p>选择压频控制（VFC）模式</p>
+<p><img src="https://img.051516.xyz/20250522211718088.png" alt="image-20250522205154059"></p>
+<p>惯性选择</p>
+<p>弹出下图</p>
+<p><img src="https://img.051516.xyz/20250522211739760.png" alt="image-20250522205329862"></p>
+<p>选择是否启用电机抱闸。</p>
+<p><img src="https://img.051516.xyz/20250522211747415.png" alt="image-20250522205348345"></p>
+<p>参数设置part1</p>
+<p><img src="https://img.051516.xyz/20250522211819997.png" alt="image-20250522205423812"></p>
+<p>参数设置part2</p>
+<p><img src="https://img.051516.xyz/20250522211831478.png" alt="image-20250522205442378"></p>
+<p>参数设置part3</p>
+<p><img src="https://img.051516.xyz/20250522211836809.png" alt="image-20250522205459889"></p>
+<p>点击“下载”，然后单击“设置变频器，“完成”</p>
+<p><img src="https://img.051516.xyz/20250522211843403.png" alt="image-20250522205518921"></p>
+<h1 id="二、SEW变频器总线扩展定位设置"><a href="#二、SEW变频器总线扩展定位设置" class="headerlink" title="二、SEW变频器总线扩展定位设置"></a>二、SEW变频器总线扩展定位设置</h1><p>点击2.SEW总线扩展定位，定位块设置。</p>
+<p><img src="https://img.051516.xyz/20250522211849177.png" alt="image-20250522205619412"></p>
+<p><img src="https://img.051516.xyz/20250522205630853.png" alt="image-20250522205630853"></p>
+<p><img src="https://img.051516.xyz/20250522211912978.png" alt="image-20250522205642616"></p>
+<p>选择位移编码器类型</p>
+<p><img src="https://img.051516.xyz/20250522211919035.png" alt="image-20250522205658095"></p>
+<p><img src="https://img.051516.xyz/20250522211934232.png" alt="image-20250522205706074"></p>
+<p><img src="https://img.051516.xyz/20250522211923657.png" alt="image-20250522205711381"></p>
+<p><img src="https://img.051516.xyz/20250522211941581.png" alt="image-20250522205717432"></p>
+<p>移载机内置编码器和外置编码器匹配。</p>
+<p><img src="https://img.051516.xyz/20250522211948129.png" alt="image-20250522205733747"></p>
+<p>提示：做这一步时，如果出现电机不能转动，或产生报警不能通过编码器匹配。需要检查以下内容：</p>
+<p>1电机不能转动：</p>
+<p>a可能是由于变频器的安全24V未给</p>
+<p>b电机抱闸未打开</p>
+<p>c机械设备运动到极限位置或被锁定</p>
+<p>2变频器报警：a速度故障编码器线缆有接触不良或错误如同下图</p>
+<p><img src="https://img.051516.xyz/20250522211957143.png" alt="image-20250522205831537"></p>
+<p>单击下一步</p>
+<p><img src="https://img.051516.xyz/20250522212003541.png" alt="image-20250522205846506"></p>
+<p>单击下一步</p>
+<p><img src="https://img.051516.xyz/20250522212010638.png" alt="image-20250522205903857"></p>
+<p>单击下一步</p>
+<p><img src="https://img.051516.xyz/20250522212020133.png" alt="image-20250522205929872"></p>
+<p>编码器匹配通过后点击下一步，进入下图画面传送参考位置。</p>
+<p>提示：传送参考位置前请断开变频器安全24V电源，否则会弹出禁止修改提示框；修改成功后也会弹出提示框，根据提示继续配置。</p>
+<p><img src="https://img.051516.xyz/20250522212026198.png" alt="image-20250522205951899"></p>
+<p>单击“完成”。</p>
+<p><img src="https://img.051516.xyz/20250522212032184.png" alt="image-20250522210003836"></p>
+<h1 id="三、-IPOS配置"><a href="#三、-IPOS配置" class="headerlink" title="三、 IPOS配置"></a>三、 IPOS配置</h1><p><img src="https://img.051516.xyz/20250522212039234.png" alt="image-20250522210033621"></p>
+<p>设置通信总线类型为Profinet，单击下一步</p>
+<p><img src="https://img.051516.xyz/20250522212044956.png" alt="image-20250522210130165"></p>
+<p>参数设置单击下一步</p>
+<p><img src="https://img.051516.xyz/20250522212052156.png" alt="image-20250522210205472"></p>
+<p>变频器软限位，及参考类型设置单击下一步</p>
+<p><img src="https://img.051516.xyz/20250522212058553.png" alt="image-20250522210229213"></p>
+<p><img src="https://img.051516.xyz/20250522212105838.png" alt="image-20250522210236898"></p>
+<p>选择“否“不保存</p>
+<p>下载配置的参数，提示：下载参数需要断开变频器的安全24V电源</p>
+<p><img src="https://img.051516.xyz/20250522212111341.png" alt="image-20250522210301645"></p>
+<p>点“yes”监控状态</p>
+<p><img src="https://img.051516.xyz/20250522212118310.png" alt="image-20250522210316464"></p>
+<p><img src="https://img.051516.xyz/20250522212125742.png" alt="image-20250522210352603"></p>
+<p>参考设置No.1</p>
+<p><img src="https://img.051516.xyz/20250522212132048.png" alt="image-20250522210417474"></p>
+<p>参考设置No.2</p>
+<p><img src="https://img.051516.xyz/20250522212143689.png" alt="image-20250522210438966"></p>
+<p>参考设置No.3</p>
+<p>选择PO1 第2,3,9,13 位，点击“SendPA”Start reference，编码器反馈值为0（PI2&#x2F;3 Actual position&#x3D;0）</p>
+<p><img src="https://img.051516.xyz/20250522212151212.png" alt="image-20250522210537816"></p>
+<p>设置完成这些参数，可以测试运行电机。</p>
+<p><img src="https://img.051516.xyz/20250522212158850.png" alt="image-20250522210558705"></p>
+]]></content>
+  </entry>
+  <entry>
     <title>记中兴MF932改串</title>
     <url>/undefined/27cbce44.html</url>
     <content><![CDATA[<h1 id="注意！"><a href="#注意！" class="headerlink" title="注意！"></a>注意！</h1><p><strong>改串需要自己将串号写入NV文件中，我也不知道怎么写入，本教程只做参考，不会生成改串的NV文件就不用再往下看了。</strong>**</p>
@@ -3359,7 +3359,7 @@
 <p><strong>SICAR</strong>：功能块</p>
 <p><strong>Types_yixin</strong>：功能块</p>
 <p>全局DB</p>
-<h1 id="安全"><a href="#安全" class="headerlink" title="安全"></a>安全</h1><h2 id="框架"><a href="#框架" class="headerlink" title="框架"></a>框架</h2><p><img src="https://img.051516.xyz//202411222031727.png" alt="image-20241122203142738"></p>
+<h1 id="安全"><a href="#安全" class="headerlink" title="安全"></a>安全</h1><h2 id="框架"><a href="#框架" class="headerlink" title="框架"></a>框架</h2><p><img src="https://img.051516.xyz/202411222031727.png" alt="image-20241122203142738"></p>
 <h2 id="注意项"><a href="#注意项" class="headerlink" title="注意项"></a>注意项</h2><h3 id="区域光栅"><a href="#区域光栅" class="headerlink" title="区域光栅"></a>区域光栅</h3><p>直接光栅复位按钮复位，用光栅对应的MLT信号做屏蔽</p>
 <h3 id="急停"><a href="#急停" class="headerlink" title="急停"></a>急停</h3><p>需要对应模式区的安全门关好才可以复位，HMI急停需要所有安全门关好才可以复位</p>
 <h3 id="相邻区域安全"><a href="#相邻区域安全" class="headerlink" title="相邻区域安全"></a>相邻区域安全</h3><p>区域光栅是好的就屏蔽掉相邻工位的急停和安全门</p>
@@ -3381,7 +3381,7 @@
 <p><strong>MsgWord</strong>：报警起始字（填多少在HMI报警里面就从报警字X16的地址开始找，关联到DB31的ERR_W）</p>
 <h2 id="操作盒"><a href="#操作盒" class="headerlink" title="操作盒"></a>操作盒</h2><p><strong>PBStart</strong>：通过工位号和操作盒号来寻址得到</p>
 <h2 id="车型条件"><a href="#车型条件" class="headerlink" title="车型条件"></a>车型条件</h2><p><strong>CanDO</strong>：不满足时自动完成当前指针</p>
-<p><img src="https://img.051516.xyz//202411241457382.png" alt="image-20241124145708336"></p>
+<p><img src="https://img.051516.xyz/202411241457382.png" alt="image-20241124145708336"></p>
 <h2 id="传感器"><a href="#传感器" class="headerlink" title="传感器"></a>传感器</h2><p><strong>YX12_Part04_SI</strong>：传感器配置块（填有几个传感器，以及对应的信号）</p>
 <p><strong>YX12_Part04_CFG</strong>：传感器状态块（配置当前工件编号（可用来区分不同车型需要用到的传感器），名字，<strong>Mask</strong>：正必为真，负必为假，0为不判断）</p>
 <h2 id="工位自动程序"><a href="#工位自动程序" class="headerlink" title="工位自动程序"></a>工位自动程序</h2><p><strong>自动步尾文件</strong>：需要配置<strong>Max_S_No</strong>为Graph里面最大的步号，不然会影响HMI画面的显示</p>
@@ -3390,41 +3390,41 @@
 <p><strong>CC_FWD</strong>     <strong>CC_BWD</strong>：气缸互锁条件</p>
 <p><strong>NumFWD</strong>    <strong>NumBWD</strong>：伸出缩回有几个传感器</p>
 <p><strong>自动命令都是直接给到相应的背景DB里面的</strong></p>
-<p><img src="https://img.051516.xyz//202412060942646.jpg" alt="mmexport1733381636905"></p>
-<p><img src="https://img.051516.xyz//202412060942339.jpg" alt="mmexport1733381638785"></p>
+<p><img src="https://img.051516.xyz/202412060942646.jpg" alt="mmexport1733381636905"></p>
+<p><img src="https://img.051516.xyz/202412060942339.jpg" alt="mmexport1733381638785"></p>
 <h1 id="机器人"><a href="#机器人" class="headerlink" title="机器人"></a>机器人</h1><h2 id="干涉区配置"><a href="#干涉区配置" class="headerlink" title="干涉区配置"></a>干涉区配置</h2><p>预留16个干涉区可以配置</p>
 <p><strong>Zone_No</strong>：干涉区编号,1-64</p>
 <p><strong>Group_No</strong>：分组编号，每干涉区1-7个分组</p>
 <p><strong>Rbt_No</strong>：使用此干涉区分组的全局唯一机器人编号</p>
 <p><strong>Robot Zone Config最后一段</strong></p>
-<p><img src="https://img.051516.xyz//202411232118218.png" alt="lQLPJv-xoZjBRrXNA5_NBMGwcPS1H1Hy8mgHJ13FDetXAA_1217_927"></p>
-<p><img src="https://img.051516.xyz//202411232119180.png" alt="3992cc222d6053827c4fd067201c547e"></p>
-<p><img src="https://img.051516.xyz//202411232119734.png" alt="5dbddaf77fdeede3327ad7701238b5f4"></p>
+<p><img src="https://img.051516.xyz/202411232118218.png" alt="lQLPJv-xoZjBRrXNA5_NBMGwcPS1H1Hy8mgHJ13FDetXAA_1217_927"></p>
+<p><img src="https://img.051516.xyz/202411232119180.png" alt="3992cc222d6053827c4fd067201c547e"></p>
+<p><img src="https://img.051516.xyz/202411232119734.png" alt="5dbddaf77fdeede3327ad7701238b5f4"></p>
 <h2 id="头文件-1"><a href="#头文件-1" class="headerlink" title="头文件"></a>头文件</h2><p><strong>RBT_No</strong>：机器人编号（不可重复）</p>
 <p><strong>Name</strong>：机器人名称</p>
 <p><strong>ActiveCarType</strong>：是否激活车型</p>
 <p><strong>MsgWord</strong>：报警起始字（填多少在HMI报警里面就从报警字X16的地址开始找，关联到DB31的ERR_W）</p>
 <h2 id="车型条件-1"><a href="#车型条件-1" class="headerlink" title="车型条件"></a>车型条件</h2><p><strong>CanDO</strong>：不满足时自动完成当前指针</p>
-<p><img src="https://img.051516.xyz//202411241457382.png" alt="image-20241124145708336"></p>
+<p><img src="https://img.051516.xyz/202411241457382.png" alt="image-20241124145708336"></p>
 <h2 id="轨迹段进入编号"><a href="#轨迹段进入编号" class="headerlink" title="轨迹段进入编号"></a>轨迹段进入编号</h2><p><strong>YX09_RBT_SEG</strong>：10个轨迹段 进入工位编号（全局编号1-50），&lt; 0为与工位无关或不比对车型</p>
-<p><img src="https://img.051516.xyz//202411241519872.png" alt="img"></p>
+<p><img src="https://img.051516.xyz/202411241519872.png" alt="img"></p>
 <h1 id="订单消耗方式"><a href="#订单消耗方式" class="headerlink" title="订单消耗方式"></a>订单消耗方式</h1><p>FC1061    55段</p>
 <p><strong>CanDO</strong></p>
 <p><strong>WorkDone</strong>&#x3D;<strong>CycleFinish</strong></p>
-<p><img src="https://img.051516.xyz//202411232118947.png" alt="lQLPKHtxhR0Mcq3NA7TNBwKw1LGGsFn66VsHJoT6gosnAA_1794_948"></p>
-<p><img src="https://img.051516.xyz//202411232118949.png" alt="lQLPJyCXjWlXwW3NA8DNB16wjeqcDDPadp4HJoX6ffQgAA_1886_960"></p>
+<p><img src="https://img.051516.xyz/202411232118947.png" alt="lQLPKHtxhR0Mcq3NA7TNBwKw1LGGsFn66VsHJoT6gosnAA_1794_948"></p>
+<p><img src="https://img.051516.xyz/202411232118949.png" alt="lQLPJyCXjWlXwW3NA8DNB16wjeqcDDPadp4HJoX6ffQgAA_1886_960"></p>
 <p><strong>机器人完成的两种方式</strong></p>
-<p><img src="https://img.051516.xyz//202411232118013.png" alt="58b13f519e1f2c0683f8023456b0c6f7"></p>
-<h1 id="注意项-1"><a href="#注意项-1" class="headerlink" title="注意项"></a>注意项</h1><h2 id="复制HMI时注意更改变量"><a href="#复制HMI时注意更改变量" class="headerlink" title="复制HMI时注意更改变量"></a>复制HMI时注意更改变量</h2><p><img src="https://img.051516.xyz//202411232118744.png" alt="img"></p>
-<p><img src="https://img.051516.xyz//202411241538795.png" alt="image-20241124153800238"></p>
+<p><img src="https://img.051516.xyz/202411232118013.png" alt="58b13f519e1f2c0683f8023456b0c6f7"></p>
+<h1 id="注意项-1"><a href="#注意项-1" class="headerlink" title="注意项"></a>注意项</h1><h2 id="复制HMI时注意更改变量"><a href="#复制HMI时注意更改变量" class="headerlink" title="复制HMI时注意更改变量"></a>复制HMI时注意更改变量</h2><p><img src="https://img.051516.xyz/202411232118744.png" alt="img"></p>
+<p><img src="https://img.051516.xyz/202411241538795.png" alt="image-20241124153800238"></p>
 <h2 id="车型下发"><a href="#车型下发" class="headerlink" title="车型下发"></a>车型下发</h2><p>DB31    PIS</p>
-<p><img src="https://img.051516.xyz//202411241521830.png" alt="image-20241124152128605"></p>
-<p><img src="https://img.051516.xyz//202411241521719.png" alt="e739d18a14c4b0d2ce600a075e30dfef"></p>
-<p><img src="https://img.051516.xyz//202411241522739.png" alt="d2bc26b41eeffd610cbe2e14b645f283"></p>
-<h2 id="指针寻址找写入点方法"><a href="#指针寻址找写入点方法" class="headerlink" title="指针寻址找写入点方法"></a>指针寻址找写入点方法</h2><p><img src="https://img.051516.xyz//202411241535437.png" alt="image-20241124152944611"></p>
-<p><img src="https://img.051516.xyz//202411241535985.png" alt="image-20241124153050321"></p>
-<p><img src="https://img.051516.xyz//202411241536675.png" alt="image-20241124153306459"></p>
-<p><img src="https://img.051516.xyz//202411241536972.png" alt="image-20241124153505708"></p>
+<p><img src="https://img.051516.xyz/202411241521830.png" alt="image-20241124152128605"></p>
+<p><img src="https://img.051516.xyz/202411241521719.png" alt="e739d18a14c4b0d2ce600a075e30dfef"></p>
+<p><img src="https://img.051516.xyz/202411241522739.png" alt="d2bc26b41eeffd610cbe2e14b645f283"></p>
+<h2 id="指针寻址找写入点方法"><a href="#指针寻址找写入点方法" class="headerlink" title="指针寻址找写入点方法"></a>指针寻址找写入点方法</h2><p><img src="https://img.051516.xyz/202411241535437.png" alt="image-20241124152944611"></p>
+<p><img src="https://img.051516.xyz/202411241535985.png" alt="image-20241124153050321"></p>
+<p><img src="https://img.051516.xyz/202411241536675.png" alt="image-20241124153306459"></p>
+<p><img src="https://img.051516.xyz/202411241536972.png" alt="image-20241124153505708"></p>
 <h1 id="画面"><a href="#画面" class="headerlink" title="画面"></a>画面</h1>]]></content>
   </entry>
   <entry>
