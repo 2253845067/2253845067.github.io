@@ -2440,40 +2440,6 @@
       </tags>
   </entry>
   <entry>
-    <title>利用CF Workers搭建Github加速服务</title>
-    <url>/undefined/ee2e5bab.html</url>
-    <content><![CDATA[<h1 id="利用CF-Workers搭建GH-Proxy服务"><a href="#利用CF-Workers搭建GH-Proxy服务" class="headerlink" title="利用CF Workers搭建GH-Proxy服务"></a>利用CF Workers搭建GH-Proxy服务</h1><blockquote>
-<p>项目地址：<a href="https://github.com/hunshcn/gh-proxy">hunshcn&#x2F;gh-proxy: github release、archive以及项目文件的加速项目</a><br>项目简介：github release、archive以及项目文件的加速项目，支持clone，有Cloudflare Workers无服务器版本以及Python版本</p>
-</blockquote>
-<ol>
-<li>注册一个CloudFlare账户</li>
-<li>进入<a href="https://workers.cloudflare.com/">CF Workers</a>页面，点击 <strong>创建应用程序 <img src="https://img.051516.xyz/202312120902203.png" alt="img"></strong></li>
-<li>点击 <strong>创建Worker <img src="https://img.051516.xyz/202312120902204.png" alt="img"></strong></li>
-<li>按需填写 <strong>名称</strong>，点击右下角 <strong>部署</strong><br><img src="https://img.051516.xyz/202312120902205.png" alt="img"></li>
-<li>点击 <strong>编辑代码</strong><img src="https://img.051516.xyz/202312120902206.png" alt="img"></li>
-<li>将代码<strong>复制并替换编辑框里的内容</strong>，点击右边的 <strong>保存并部署</strong>，返回刚才的管理页面</li>
-</ol>
-<blockquote>
-<p>代码地址：<a href="https://cdn.jsdelivr.net/gh/hunshcn/gh-proxy@master/index.js">cdn.jsdelivr.net&#x2F;gh&#x2F;hunshcn&#x2F;gh-proxy@master&#x2F;index.js</a></p>
-</blockquote>
-<p><img src="https://img.051516.xyz/202312120902207.png" alt="img"></p>
-<ol>
-<li>点击<strong>查看链接</strong>，显示如下界面即为成功<img src="https://img.051516.xyz/202312120902208.png" alt="img"></li>
-</ol>
-<p><img src="https://img.051516.xyz/202312120902209.png" alt="img"></p>
-<blockquote>
-<h2 id="Cloudflare-Workers计费"><a href="#Cloudflare-Workers计费" class="headerlink" title="Cloudflare Workers计费"></a>Cloudflare Workers计费</h2><p>到 <code>overview</code> 页面可参看使用情况。免费版每天有 10 万次免费请求，并且有每分钟1000次请求的限制。</p>
-<p>如果不够用，可升级到 $5 的高级版本，每月可用 1000 万次请求（超出部分 $0.5&#x2F;百万次请求）。</p>
-</blockquote>
-]]></content>
-      <categories>
-        <category>教程</category>
-      </categories>
-      <tags>
-        <tag>网站</tag>
-      </tags>
-  </entry>
-  <entry>
     <title>中星微随身Wifi去后门刷全功能后台</title>
     <url>/undefined/f9dbe722.html</url>
     <content><![CDATA[<h1 id="前言"><a href="#前言" class="headerlink" title="前言"></a>前言</h1><p>买到棒子先不要插自己卡，需要进行屏蔽操作防止被远程操作，这里我买的是狗东某沃中星微。</p>
@@ -2539,6 +2505,40 @@
       </categories>
       <tags>
         <tag>随身WiFi</tag>
+      </tags>
+  </entry>
+  <entry>
+    <title>利用CF Workers搭建Github加速服务</title>
+    <url>/undefined/ee2e5bab.html</url>
+    <content><![CDATA[<h1 id="利用CF-Workers搭建GH-Proxy服务"><a href="#利用CF-Workers搭建GH-Proxy服务" class="headerlink" title="利用CF Workers搭建GH-Proxy服务"></a>利用CF Workers搭建GH-Proxy服务</h1><blockquote>
+<p>项目地址：<a href="https://github.com/hunshcn/gh-proxy">hunshcn&#x2F;gh-proxy: github release、archive以及项目文件的加速项目</a><br>项目简介：github release、archive以及项目文件的加速项目，支持clone，有Cloudflare Workers无服务器版本以及Python版本</p>
+</blockquote>
+<ol>
+<li>注册一个CloudFlare账户</li>
+<li>进入<a href="https://workers.cloudflare.com/">CF Workers</a>页面，点击 <strong>创建应用程序 <img src="https://img.051516.xyz/202312120902203.png" alt="img"></strong></li>
+<li>点击 <strong>创建Worker <img src="https://img.051516.xyz/202312120902204.png" alt="img"></strong></li>
+<li>按需填写 <strong>名称</strong>，点击右下角 <strong>部署</strong><br><img src="https://img.051516.xyz/202312120902205.png" alt="img"></li>
+<li>点击 <strong>编辑代码</strong><img src="https://img.051516.xyz/202312120902206.png" alt="img"></li>
+<li>将代码<strong>复制并替换编辑框里的内容</strong>，点击右边的 <strong>保存并部署</strong>，返回刚才的管理页面</li>
+</ol>
+<blockquote>
+<p>代码地址：<a href="https://cdn.jsdelivr.net/gh/hunshcn/gh-proxy@master/index.js">cdn.jsdelivr.net&#x2F;gh&#x2F;hunshcn&#x2F;gh-proxy@master&#x2F;index.js</a></p>
+</blockquote>
+<p><img src="https://img.051516.xyz/202312120902207.png" alt="img"></p>
+<ol>
+<li>点击<strong>查看链接</strong>，显示如下界面即为成功<img src="https://img.051516.xyz/202312120902208.png" alt="img"></li>
+</ol>
+<p><img src="https://img.051516.xyz/202312120902209.png" alt="img"></p>
+<blockquote>
+<h2 id="Cloudflare-Workers计费"><a href="#Cloudflare-Workers计费" class="headerlink" title="Cloudflare Workers计费"></a>Cloudflare Workers计费</h2><p>到 <code>overview</code> 页面可参看使用情况。免费版每天有 10 万次免费请求，并且有每分钟1000次请求的限制。</p>
+<p>如果不够用，可升级到 $5 的高级版本，每月可用 1000 万次请求（超出部分 $0.5&#x2F;百万次请求）。</p>
+</blockquote>
+]]></content>
+      <categories>
+        <category>教程</category>
+      </categories>
+      <tags>
+        <tag>网站</tag>
       </tags>
   </entry>
   <entry>
@@ -2670,6 +2670,104 @@
       </categories>
       <tags>
         <tag>虚拟机</tag>
+      </tags>
+  </entry>
+  <entry>
+    <title>最佳免费NPV方式-workers搭建vless使用</title>
+    <url>/undefined/1b7388f.html</url>
+    <content><![CDATA[<h2 id="资源："><a href="#资源：" class="headerlink" title="资源："></a>资源：</h2><h6 id="WIN"><a href="#WIN" class="headerlink" title="WIN:"></a><strong>WIN:</strong></h6><p>v2rayN 最新版<a href="https://github.com/2dust/v2rayN/releases">下载地址&gt;&gt;</a></p>
+<p>cloudflare<a href="https://dash.cloudflare.com/">网站链接&gt;&gt;</a></p>
+<p>临时邮箱：<a href="https://www.linshiyouxiang.net/">https://www.linshiyouxiang.net/</a></p>
+<p>部署代码：<a href="https://github.com/zizifn/edgetunnel/blob/main/src/worker-vless.js">https://github.com/zizifn/edgetunnel/blob/main/src/worker-vless.js</a></p>
+<p>uuid生成：<a href="https://1024tools.com/uuid">https://1024tools.com/uuid</a></p>
+<p>workers win专用ip优选：<a href="https://jdssl.top/wp-content/uploads/2023/07/works%E4%B8%93%E7%94%A8ip%E4%BC%98%E9%80%89.zip">下载地址&gt;&gt;</a></p>
+<p>ip查看：<a href="https://whatismyipaddress.com/">https://whatismyipaddress.com/</a></p>
+<p>cf ip优选；<a href="https://stock.hostmonit.com/CloudFlareYes">https://stock.hostmonit.com/CloudFlareYes</a></p>
+<p>网络测速：<a href="https://www.speedtest.net/result/14952074175">https://www.speedtest.net/result/14952074175</a></p>
+<p>openclash转换订阅网址：<a href="https://sub-web.netlify.app/">https://sub-web.netlify.app/</a></p>
+<h5 id="cdn加速"><a href="#cdn加速" class="headerlink" title="cdn加速"></a>cdn加速</h5><p>cdn-all.xn–b6gac.eu.org<br>cdn.xn–b6gac.eu.org<br>cdn-b100.xn–b6gac.eu.org<br>edgetunnel.anycast.eu.org<br>cdn.anycast.eu.org （亚洲地区）</p>
+<h6 id="MAC"><a href="#MAC" class="headerlink" title="MAC:"></a>MAC:</h6><p>v2rayu: <a href="https://github.com/yanue/V2rayU/releases/tag/v3.8.0">下载链接&gt;&gt;</a></p>
+<h5 id="cloudflarest-ip优化："><a href="#cloudflarest-ip优化：" class="headerlink" title="cloudflarest ip优化："></a>cloudflarest ip优化：</h5><p>mac inter :<a href="https://github.com/XIU2/CloudflareSpeedTest/releases/download/v2.2.4/CloudflareST_darwin_amd64.zip">下载地址&gt;&gt;</a></p>
+<p>mac arm :<a href="https://github.com/XIU2/CloudflareSpeedTest/releases/download/v2.2.4/CloudflareST_darwin_arm64.zip">下载地址&gt;&gt;</a></p>
+<p>cloudflarest ip段：<a href="https://zip.baipiao.eu.org/">下载地址&gt;&gt;</a></p>
+<p>备注：需要自行下载上方CDN IP段否则只能延迟测速。</p>
+<p>终端：</p>
+<p>cd &#x2F;xxxx&#x2F;xxxxx&#x2F;CloudfareST_darwin_amd64</p>
+<p>无法使用以下代码或报错请赋予权限：</p>
+<p>chmod a+x CloudflareST</p>
+<p>若实在无法解决该问题请使用这个网站进行优选ip <em><a href="https://vfarid.github.io/cf-ip-scanner/?max=30">点击优选ip&gt;&gt;</a>)</em></p>
+<p><a href=""><img src="https://img.051516.xyz/202311061021358.png" alt="img"></a></p>
+<p>普通ip优选</p>
+<p>sudo .&#x2F;CloudflareST</p>
+<p>10 个平均延迟低于 200 ms且下载速度高于3MB&#x2F;s的IP</p>
+<p>sudo .&#x2F;CloudflareST -url <a href="https://jp.cloudflarest.link/">https://jp.cloudflarest.link</a> -tl 200 -sl 3 -dn 10</p>
+<p>sudo .&#x2F;CloudflareST -url <a href="https://hkcs.cloudflarest.link/">https://hkcs.cloudflarest.link</a> -tl 200 -sl 3 -dn 10</p>
+<h2 id="教程"><a href="#教程" class="headerlink" title="教程"></a>教程</h2><h3 id="一、注册cloudflare账：https-dash-cloudflare-com-login"><a href="#一、注册cloudflare账：https-dash-cloudflare-com-login" class="headerlink" title="一、注册cloudflare账：https://dash.cloudflare.com/login"></a>一、注册cloudflare账：<a href="https://dash.cloudflare.com/login">https://dash.cloudflare.com/login</a></h3><p>点击Workers 和 Pages，创建Workers</p>
+<p><img src="https://img.051516.xyz/202311061022123.png"></p>
+<p>写上备注或者名字</p>
+<p><img src="https://img.051516.xyz/202311061022475.png"></p>
+<h3 id="二、代码部署"><a href="#二、代码部署" class="headerlink" title="二、代码部署"></a>二、代码部署</h3><p>复制代码到编辑器：<a href="https://github.com/zizifn/edgetunnel/blob/main/src/worker-vless.js">https://github.com/zizifn/edgetunnel/blob/main/src/worker-vless.js</a></p>
+<p>修改userid–生成：<a href="https://1024tools.com/uuid">https://1024tools.com/uuid</a></p>
+<p>修改proxyip–cdn加速（随便选一个）</p>
+<p>cdn-all.xn–b6gac.eu.org<br>cdn.xn–b6gac.eu.org<br>cdn-b100.xn–b6gac.eu.org<br>edgetunnel.anycast.eu.org<br>cdn.anycast.eu.org （亚洲地区）</p>
+<p>或**(113.64.186.198或者103.200.112.108或者199.15.76.35)**</p>
+<p><strong>通过issues进行proxyip查找：<a href="https://github.com/zizifn/edgetunnel/issues/162">https://github.com/zizifn/edgetunnel/issues/162</a></strong></p>
+<p><a href=""><img src="https://img.051516.xyz/202311061023400.webp" alt="img"></a></p>
+<h3 id="三、点击部署运行，然后在浏览器输入地址【网站域名-和刚刚修改的uuid】"><a href="#三、点击部署运行，然后在浏览器输入地址【网站域名-和刚刚修改的uuid】" class="headerlink" title="三、点击部署运行，然后在浏览器输入地址【网站域名 &#x2F; 和刚刚修改的uuid】"></a>三、点击部署运行，然后在浏览器输入地址【网站域名 &#x2F; 和刚刚修改的uuid】</h3><p>如noisevless.workers.dev&#x2F;c55-08e2-46fa-9d21-2e6020d9acd9，得到配置信息</p>
+<p><img src="https://img.051516.xyz/202311061025196.png"></p>
+<p>复制v2ray显示的信息，然后在v2ray中下拉菜单中选择从粘贴板导入，然后查看服务器列表是否有该地址</p>
+<p><a href=""><img src="https://img.051516.xyz/202311061026907.webp" alt="img"></a></p>
+<h3 id="四、配置ip优选"><a href="#四、配置ip优选" class="headerlink" title="四、配置ip优选"></a>四、配置ip优选</h3><p>本地拉取ip优选 Github：<a href="https://github.com/XIU2/CloudflareSpeedTest">https://github.com/XIU2/CloudflareSpeedTest</a></p>
+<p>下载：<a href="https://github.com/XIU2/CloudflareSpeedTest/releases">https://github.com/XIU2/CloudflareSpeedTest/releases</a></p>
+<p>国内用户建议从蓝奏云下载：<a href="https://pan.lanzouj.com/b0742hkxe">https://pan.lanzouj.com/b0742hkxe</a></p>
+<p>支持win、Mac、linux【注意：退出所有代理软件】</p>
+<p>提示：MAC 系统下如果遇到提示：open ip.txt: no such file or directory 说明你没有在软件所在目录下运行。</p>
+<p>如果平均延迟非常低（如 0.xx），则说明 CloudflareST 测速时走了代理，请先关闭代理软件后再测速。</p>
+<p>如果在路由器上运行，请先关闭路由器内的代理（或将其排除），否则测速结果可能会不准确&#x2F;无法使用。</p>
+<p>&#x3D;&#x3D;&#x3D;&#x3D;&#x3D;&#x3D;&#x3D;&#x3D;&#x3D;&#x3D;&#x3D;&#x3D;&#x3D;&#x3D;&#x3D;&#x3D;&#x3D;&#x3D;&#x3D;&#x3D;&#x3D;&#x3D;&#x3D;&#x3D;&#x3D;&#x3D;&#x3D;&#x3D;&#x3D;&#x3D;&#x3D;&#x3D;&#x3D;&#x3D;&#x3D;</p>
+<p>脚本【cfst_host.sh】的作用是 CloudflareST 测速后获取最快 IP 并替换 Hosts 中的 Cloudflare CDN IP。</p>
+<p>使用前请先阅读：<a href="https://github.com/XIU2/CloudflareSpeedTest/discussions/312#discussioncomment-5161577">https://github.com/XIU2/CloudflareSpeedTest/discussions/312#discussioncomment-5161577</a></p>
+<p>&#x3D;&#x3D;&#x3D;&#x3D;&#x3D;&#x3D;&#x3D;&#x3D;&#x3D;&#x3D;&#x3D;&#x3D;&#x3D;&#x3D;&#x3D;&#x3D;&#x3D;&#x3D;&#x3D;&#x3D;&#x3D;&#x3D;&#x3D;&#x3D;&#x3D;&#x3D;&#x3D;&#x3D;&#x3D;&#x3D;&#x3D;&#x3D;&#x3D;&#x3D;&#x3D;</p>
+<p>ip.txt 为 IPv4 数据文件<br>ipv6.txt 为 IPv6 数据文件</p>
+<p>可以使用 -f xx.txt 参数来指定不同的 IP 数据文件（支持 IPv4 + IPv6 混合测速），如：<br>.&#x2F;CloudflareST -f ipv6.txt</p>
+<p>也可以直接通过参数指定要测速的 IP，如：<br>.&#x2F;CloudflareST -ip 1.1.1.1,2606:4700::&#x2F;32</p>
+<p>Mac：终端：</p>
+<figure class="highlight plaintext"><table><tr><td class="code"><pre><span class="line">cd /xxxx/xxxxx/CloudfareST\_darwin\_amd64</span><br></pre></td></tr></table></figure>
+
+<p>无法使用以下代码或报错请赋予权限：</p>
+<figure class="highlight plaintext"><table><tr><td class="code"><pre><span class="line">chmod a+x CloudflareST</span><br></pre></td></tr></table></figure>
+
+<p>然后运行 <code>sudo ./CloudflareST</code></p>
+<p><a href=""><img src="https://img.051516.xyz/202311061026875.jpeg" alt="img"></a></p>
+<h3 id="五、v2rayu软件设置"><a href="#五、v2rayu软件设置" class="headerlink" title="五、v2rayu软件设置"></a>五、v2rayu软件设置</h3><h2 id="不设置自定义域名解析（没tls加密，80或者2052端口）："><a href="#不设置自定义域名解析（没tls加密，80或者2052端口）：" class="headerlink" title="不设置自定义域名解析（没tls加密，80或者2052端口）："></a>不设置自定义域名解析（没tls加密，80或者2052端口）：</h2><p>选择延迟最低的ip地址填入v2rayu设置中，<strong>注意：v2ray,shadowrocket等客户端要去掉tls加密，端口改为80或者2052，地址修为优选 ip，host为你部署works的地址</strong></p>
+<p><a href=""><img src="https://img.051516.xyz/202311061026600.webp" alt="img"></a></p>
+<p>点击on开启v2rayu，选择全局模式即可</p>
+<p>win端选择优选服务器后开启活动服务器</p>
+<p><a href=""><img src="https://img.051516.xyz/202311061026578.webp" alt="img"></a></p>
+<p><a href=""><img src="https://img.051516.xyz/202311061026372.webp" alt="img"></a></p>
+<h2 id="有域名（有tls加密，443端口-："><a href="#有域名（有tls加密，443端口-：" class="headerlink" title="有域名（有tls加密，443端口)："></a>有域名（有tls加密，443端口)：</h2><p>works配置域名：在触发器中添加自定义域名，然后在二级域名后加&#x2F;UUID，就能看到VLESS节点URL和Clash-meta配置<br>在v2rayN导入URL，地址栏改为优选ip，secrurity为pls，端口配置443，host为解析的域名地址，</p>
+<p><a href=""><img src="https://img.051516.xyz/202311061026359.webp" alt="img"></a></p>
+<p>确认之后就生成v2ray和clash-meta节点配置信息</p>
+<p><img src="https://img.051516.xyz/202311061027942.png"></p>
+<p><strong>3大运营商优选IP，根据自身运营商选择延迟最低IP</strong> <a href="https://stock.hostmonit.com/CloudFlareYes">点击直达</a></p>
+<p>再按照上面介绍的正确填写信息即可，别名地址都是我们自定义后的域名</p>
+<p><a href=""><img src="https://img.051516.xyz/202311061027451.webp" alt="img"></a></p>
+<h2 id="附加"><a href="#附加" class="headerlink" title="附加"></a>附加</h2><p>v2ray的正确信息修改</p>
+<p>1、修改地址,改成自己运营商的优选IP</p>
+<p>2、端口修改为2052或者80</p>
+<p>3、关闭tls</p>
+<p><img src="https://img.051516.xyz/202311061028951.png"></p>
+<figure class="highlight plaintext"><table><tr><td class="code"><pre><span class="line">PLAINTEXT</span><br><span class="line">clash-meta的正确信息修改</span><br></pre></td></tr></table></figure>
+
+<p><img src="https://img.051516.xyz/202311061029359.png"></p>
+<p>如果有域名的：<br>只需要替换优选ip，然后sni和host检查时自己的域名哦</p>
+<p>**speedtest測速-**<a href="https://www.speedtest.net/">https://www.speedtest.net/</a></p>
+]]></content>
+      <categories>
+        <category>教程</category>
+      </categories>
+      <tags>
+        <tag>NPV</tag>
       </tags>
   </entry>
   <entry>
@@ -2808,104 +2906,6 @@
 <p>SKY-BOX</p>
 <figure class="highlight plaintext"><table><tr><td class="code"><pre><span class="line">wget -O box.sh https://raw.githubusercontent.com/BlueSkyXN/SKY-BOX/main/box.sh &amp;&amp; chmod +x box.sh &amp;&amp; clear &amp;&amp; ./box.sh</span><br></pre></td></tr></table></figure>
 ]]></content>
-  </entry>
-  <entry>
-    <title>最佳免费NPV方式-workers搭建vless使用</title>
-    <url>/undefined/1b7388f.html</url>
-    <content><![CDATA[<h2 id="资源："><a href="#资源：" class="headerlink" title="资源："></a>资源：</h2><h6 id="WIN"><a href="#WIN" class="headerlink" title="WIN:"></a><strong>WIN:</strong></h6><p>v2rayN 最新版<a href="https://github.com/2dust/v2rayN/releases">下载地址&gt;&gt;</a></p>
-<p>cloudflare<a href="https://dash.cloudflare.com/">网站链接&gt;&gt;</a></p>
-<p>临时邮箱：<a href="https://www.linshiyouxiang.net/">https://www.linshiyouxiang.net/</a></p>
-<p>部署代码：<a href="https://github.com/zizifn/edgetunnel/blob/main/src/worker-vless.js">https://github.com/zizifn/edgetunnel/blob/main/src/worker-vless.js</a></p>
-<p>uuid生成：<a href="https://1024tools.com/uuid">https://1024tools.com/uuid</a></p>
-<p>workers win专用ip优选：<a href="https://jdssl.top/wp-content/uploads/2023/07/works%E4%B8%93%E7%94%A8ip%E4%BC%98%E9%80%89.zip">下载地址&gt;&gt;</a></p>
-<p>ip查看：<a href="https://whatismyipaddress.com/">https://whatismyipaddress.com/</a></p>
-<p>cf ip优选；<a href="https://stock.hostmonit.com/CloudFlareYes">https://stock.hostmonit.com/CloudFlareYes</a></p>
-<p>网络测速：<a href="https://www.speedtest.net/result/14952074175">https://www.speedtest.net/result/14952074175</a></p>
-<p>openclash转换订阅网址：<a href="https://sub-web.netlify.app/">https://sub-web.netlify.app/</a></p>
-<h5 id="cdn加速"><a href="#cdn加速" class="headerlink" title="cdn加速"></a>cdn加速</h5><p>cdn-all.xn–b6gac.eu.org<br>cdn.xn–b6gac.eu.org<br>cdn-b100.xn–b6gac.eu.org<br>edgetunnel.anycast.eu.org<br>cdn.anycast.eu.org （亚洲地区）</p>
-<h6 id="MAC"><a href="#MAC" class="headerlink" title="MAC:"></a>MAC:</h6><p>v2rayu: <a href="https://github.com/yanue/V2rayU/releases/tag/v3.8.0">下载链接&gt;&gt;</a></p>
-<h5 id="cloudflarest-ip优化："><a href="#cloudflarest-ip优化：" class="headerlink" title="cloudflarest ip优化："></a>cloudflarest ip优化：</h5><p>mac inter :<a href="https://github.com/XIU2/CloudflareSpeedTest/releases/download/v2.2.4/CloudflareST_darwin_amd64.zip">下载地址&gt;&gt;</a></p>
-<p>mac arm :<a href="https://github.com/XIU2/CloudflareSpeedTest/releases/download/v2.2.4/CloudflareST_darwin_arm64.zip">下载地址&gt;&gt;</a></p>
-<p>cloudflarest ip段：<a href="https://zip.baipiao.eu.org/">下载地址&gt;&gt;</a></p>
-<p>备注：需要自行下载上方CDN IP段否则只能延迟测速。</p>
-<p>终端：</p>
-<p>cd &#x2F;xxxx&#x2F;xxxxx&#x2F;CloudfareST_darwin_amd64</p>
-<p>无法使用以下代码或报错请赋予权限：</p>
-<p>chmod a+x CloudflareST</p>
-<p>若实在无法解决该问题请使用这个网站进行优选ip <em><a href="https://vfarid.github.io/cf-ip-scanner/?max=30">点击优选ip&gt;&gt;</a>)</em></p>
-<p><a href=""><img src="https://img.051516.xyz/202311061021358.png" alt="img"></a></p>
-<p>普通ip优选</p>
-<p>sudo .&#x2F;CloudflareST</p>
-<p>10 个平均延迟低于 200 ms且下载速度高于3MB&#x2F;s的IP</p>
-<p>sudo .&#x2F;CloudflareST -url <a href="https://jp.cloudflarest.link/">https://jp.cloudflarest.link</a> -tl 200 -sl 3 -dn 10</p>
-<p>sudo .&#x2F;CloudflareST -url <a href="https://hkcs.cloudflarest.link/">https://hkcs.cloudflarest.link</a> -tl 200 -sl 3 -dn 10</p>
-<h2 id="教程"><a href="#教程" class="headerlink" title="教程"></a>教程</h2><h3 id="一、注册cloudflare账：https-dash-cloudflare-com-login"><a href="#一、注册cloudflare账：https-dash-cloudflare-com-login" class="headerlink" title="一、注册cloudflare账：https://dash.cloudflare.com/login"></a>一、注册cloudflare账：<a href="https://dash.cloudflare.com/login">https://dash.cloudflare.com/login</a></h3><p>点击Workers 和 Pages，创建Workers</p>
-<p><img src="https://img.051516.xyz/202311061022123.png"></p>
-<p>写上备注或者名字</p>
-<p><img src="https://img.051516.xyz/202311061022475.png"></p>
-<h3 id="二、代码部署"><a href="#二、代码部署" class="headerlink" title="二、代码部署"></a>二、代码部署</h3><p>复制代码到编辑器：<a href="https://github.com/zizifn/edgetunnel/blob/main/src/worker-vless.js">https://github.com/zizifn/edgetunnel/blob/main/src/worker-vless.js</a></p>
-<p>修改userid–生成：<a href="https://1024tools.com/uuid">https://1024tools.com/uuid</a></p>
-<p>修改proxyip–cdn加速（随便选一个）</p>
-<p>cdn-all.xn–b6gac.eu.org<br>cdn.xn–b6gac.eu.org<br>cdn-b100.xn–b6gac.eu.org<br>edgetunnel.anycast.eu.org<br>cdn.anycast.eu.org （亚洲地区）</p>
-<p>或**(113.64.186.198或者103.200.112.108或者199.15.76.35)**</p>
-<p><strong>通过issues进行proxyip查找：<a href="https://github.com/zizifn/edgetunnel/issues/162">https://github.com/zizifn/edgetunnel/issues/162</a></strong></p>
-<p><a href=""><img src="https://img.051516.xyz/202311061023400.webp" alt="img"></a></p>
-<h3 id="三、点击部署运行，然后在浏览器输入地址【网站域名-和刚刚修改的uuid】"><a href="#三、点击部署运行，然后在浏览器输入地址【网站域名-和刚刚修改的uuid】" class="headerlink" title="三、点击部署运行，然后在浏览器输入地址【网站域名 &#x2F; 和刚刚修改的uuid】"></a>三、点击部署运行，然后在浏览器输入地址【网站域名 &#x2F; 和刚刚修改的uuid】</h3><p>如noisevless.workers.dev&#x2F;c55-08e2-46fa-9d21-2e6020d9acd9，得到配置信息</p>
-<p><img src="https://img.051516.xyz/202311061025196.png"></p>
-<p>复制v2ray显示的信息，然后在v2ray中下拉菜单中选择从粘贴板导入，然后查看服务器列表是否有该地址</p>
-<p><a href=""><img src="https://img.051516.xyz/202311061026907.webp" alt="img"></a></p>
-<h3 id="四、配置ip优选"><a href="#四、配置ip优选" class="headerlink" title="四、配置ip优选"></a>四、配置ip优选</h3><p>本地拉取ip优选 Github：<a href="https://github.com/XIU2/CloudflareSpeedTest">https://github.com/XIU2/CloudflareSpeedTest</a></p>
-<p>下载：<a href="https://github.com/XIU2/CloudflareSpeedTest/releases">https://github.com/XIU2/CloudflareSpeedTest/releases</a></p>
-<p>国内用户建议从蓝奏云下载：<a href="https://pan.lanzouj.com/b0742hkxe">https://pan.lanzouj.com/b0742hkxe</a></p>
-<p>支持win、Mac、linux【注意：退出所有代理软件】</p>
-<p>提示：MAC 系统下如果遇到提示：open ip.txt: no such file or directory 说明你没有在软件所在目录下运行。</p>
-<p>如果平均延迟非常低（如 0.xx），则说明 CloudflareST 测速时走了代理，请先关闭代理软件后再测速。</p>
-<p>如果在路由器上运行，请先关闭路由器内的代理（或将其排除），否则测速结果可能会不准确&#x2F;无法使用。</p>
-<p>&#x3D;&#x3D;&#x3D;&#x3D;&#x3D;&#x3D;&#x3D;&#x3D;&#x3D;&#x3D;&#x3D;&#x3D;&#x3D;&#x3D;&#x3D;&#x3D;&#x3D;&#x3D;&#x3D;&#x3D;&#x3D;&#x3D;&#x3D;&#x3D;&#x3D;&#x3D;&#x3D;&#x3D;&#x3D;&#x3D;&#x3D;&#x3D;&#x3D;&#x3D;&#x3D;</p>
-<p>脚本【cfst_host.sh】的作用是 CloudflareST 测速后获取最快 IP 并替换 Hosts 中的 Cloudflare CDN IP。</p>
-<p>使用前请先阅读：<a href="https://github.com/XIU2/CloudflareSpeedTest/discussions/312#discussioncomment-5161577">https://github.com/XIU2/CloudflareSpeedTest/discussions/312#discussioncomment-5161577</a></p>
-<p>&#x3D;&#x3D;&#x3D;&#x3D;&#x3D;&#x3D;&#x3D;&#x3D;&#x3D;&#x3D;&#x3D;&#x3D;&#x3D;&#x3D;&#x3D;&#x3D;&#x3D;&#x3D;&#x3D;&#x3D;&#x3D;&#x3D;&#x3D;&#x3D;&#x3D;&#x3D;&#x3D;&#x3D;&#x3D;&#x3D;&#x3D;&#x3D;&#x3D;&#x3D;&#x3D;</p>
-<p>ip.txt 为 IPv4 数据文件<br>ipv6.txt 为 IPv6 数据文件</p>
-<p>可以使用 -f xx.txt 参数来指定不同的 IP 数据文件（支持 IPv4 + IPv6 混合测速），如：<br>.&#x2F;CloudflareST -f ipv6.txt</p>
-<p>也可以直接通过参数指定要测速的 IP，如：<br>.&#x2F;CloudflareST -ip 1.1.1.1,2606:4700::&#x2F;32</p>
-<p>Mac：终端：</p>
-<figure class="highlight plaintext"><table><tr><td class="code"><pre><span class="line">cd /xxxx/xxxxx/CloudfareST\_darwin\_amd64</span><br></pre></td></tr></table></figure>
-
-<p>无法使用以下代码或报错请赋予权限：</p>
-<figure class="highlight plaintext"><table><tr><td class="code"><pre><span class="line">chmod a+x CloudflareST</span><br></pre></td></tr></table></figure>
-
-<p>然后运行 <code>sudo ./CloudflareST</code></p>
-<p><a href=""><img src="https://img.051516.xyz/202311061026875.jpeg" alt="img"></a></p>
-<h3 id="五、v2rayu软件设置"><a href="#五、v2rayu软件设置" class="headerlink" title="五、v2rayu软件设置"></a>五、v2rayu软件设置</h3><h2 id="不设置自定义域名解析（没tls加密，80或者2052端口）："><a href="#不设置自定义域名解析（没tls加密，80或者2052端口）：" class="headerlink" title="不设置自定义域名解析（没tls加密，80或者2052端口）："></a>不设置自定义域名解析（没tls加密，80或者2052端口）：</h2><p>选择延迟最低的ip地址填入v2rayu设置中，<strong>注意：v2ray,shadowrocket等客户端要去掉tls加密，端口改为80或者2052，地址修为优选 ip，host为你部署works的地址</strong></p>
-<p><a href=""><img src="https://img.051516.xyz/202311061026600.webp" alt="img"></a></p>
-<p>点击on开启v2rayu，选择全局模式即可</p>
-<p>win端选择优选服务器后开启活动服务器</p>
-<p><a href=""><img src="https://img.051516.xyz/202311061026578.webp" alt="img"></a></p>
-<p><a href=""><img src="https://img.051516.xyz/202311061026372.webp" alt="img"></a></p>
-<h2 id="有域名（有tls加密，443端口-："><a href="#有域名（有tls加密，443端口-：" class="headerlink" title="有域名（有tls加密，443端口)："></a>有域名（有tls加密，443端口)：</h2><p>works配置域名：在触发器中添加自定义域名，然后在二级域名后加&#x2F;UUID，就能看到VLESS节点URL和Clash-meta配置<br>在v2rayN导入URL，地址栏改为优选ip，secrurity为pls，端口配置443，host为解析的域名地址，</p>
-<p><a href=""><img src="https://img.051516.xyz/202311061026359.webp" alt="img"></a></p>
-<p>确认之后就生成v2ray和clash-meta节点配置信息</p>
-<p><img src="https://img.051516.xyz/202311061027942.png"></p>
-<p><strong>3大运营商优选IP，根据自身运营商选择延迟最低IP</strong> <a href="https://stock.hostmonit.com/CloudFlareYes">点击直达</a></p>
-<p>再按照上面介绍的正确填写信息即可，别名地址都是我们自定义后的域名</p>
-<p><a href=""><img src="https://img.051516.xyz/202311061027451.webp" alt="img"></a></p>
-<h2 id="附加"><a href="#附加" class="headerlink" title="附加"></a>附加</h2><p>v2ray的正确信息修改</p>
-<p>1、修改地址,改成自己运营商的优选IP</p>
-<p>2、端口修改为2052或者80</p>
-<p>3、关闭tls</p>
-<p><img src="https://img.051516.xyz/202311061028951.png"></p>
-<figure class="highlight plaintext"><table><tr><td class="code"><pre><span class="line">PLAINTEXT</span><br><span class="line">clash-meta的正确信息修改</span><br></pre></td></tr></table></figure>
-
-<p><img src="https://img.051516.xyz/202311061029359.png"></p>
-<p>如果有域名的：<br>只需要替换优选ip，然后sni和host检查时自己的域名哦</p>
-<p>**speedtest測速-**<a href="https://www.speedtest.net/">https://www.speedtest.net/</a></p>
-]]></content>
-      <categories>
-        <category>教程</category>
-      </categories>
-      <tags>
-        <tag>NPV</tag>
-      </tags>
   </entry>
   <entry>
     <title>李跳跳2.2正式版</title>
