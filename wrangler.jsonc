@@ -1,7 +1,9 @@
 {
-  "name": "hexo-blog",
+  "name": "yuqi-hexo-blog",
+  "main": "index.html",
   "compatibility_date": "2025-06-30",
   "assets": {
-    "directory": "./dist"
+    "directory": "./",
+    "binding": "ASSETS"
   }
 }
