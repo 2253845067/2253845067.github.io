@@ -1,9 +1,9 @@
 {
-  "name": "yuqi-hexo-blog",
-  "main": "index.html",
-  "compatibility_date": "2025-06-30",
+  "name": "my-spa",
+  "main": "src/index.js",
+  "compatibility_date": "2025-01-01",
   "assets": {
-    "directory": "./",
+    "directory": "./dist",
     "binding": "ASSETS"
   }
 }
