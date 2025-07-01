@@ -3,11 +3,11 @@
   <title>与亓のBlog</title>
   
   
-  <link href="http://blog.yuqi.fun/atom.xml" rel="self"/>
+  <link href="https://blog.ikun.ink/atom.xml" rel="self"/>
   
-  <link href="http://blog.yuqi.fun/"/>
+  <link href="https://blog.ikun.ink/"/>
   <updated>2025-05-24T00:00:00.000Z</updated>
-  <id>http://blog.yuqi.fun/</id>
+  <id>https://blog.ikun.ink/</id>
   
   <author>
     <name>与亓</name>
@@ -18,8 +18,8 @@
   
   <entry>
     <title>SEW MOVIDRIVE MDX61B调试步骤</title>
-    <link href="http://blog.yuqi.fun/undefined/175f8f8b.html"/>
-    <id>http://blog.yuqi.fun/undefined/175f8f8b.html</id>
+    <link href="https://blog.ikun.ink/undefined/175f8f8b.html"/>
+    <id>https://blog.ikun.ink/undefined/175f8f8b.html</id>
     <published>2025-05-24T00:00:00.000Z</published>
     <updated>2025-05-24T00:00:00.000Z</updated>
     
@@ -39,8 +39,8 @@
   
   <entry>
     <title>SEW-MC07B变频器-MOTION--STUDIO软件调试步骤、方法和技巧</title>
-    <link href="http://blog.yuqi.fun/undefined/421934fd.html"/>
-    <id>http://blog.yuqi.fun/undefined/421934fd.html</id>
+    <link href="https://blog.ikun.ink/undefined/421934fd.html"/>
+    <id>https://blog.ikun.ink/undefined/421934fd.html</id>
     <published>2025-05-24T00:00:00.000Z</published>
     <updated>2025-05-24T00:00:00.000Z</updated>
     
@@ -60,8 +60,8 @@
   
   <entry>
     <title>SINAMICS G120D CU250-2PN速度控制调试步骤</title>
-    <link href="http://blog.yuqi.fun/undefined/908d3d13.html"/>
-    <id>http://blog.yuqi.fun/undefined/908d3d13.html</id>
+    <link href="https://blog.ikun.ink/undefined/908d3d13.html"/>
+    <id>https://blog.ikun.ink/undefined/908d3d13.html</id>
     <published>2025-05-23T00:00:00.000Z</published>
     <updated>2025-05-23T00:00:00.000Z</updated>
     
@@ -80,8 +80,8 @@
   
   <entry>
     <title>MOVIFIT参数配置</title>
-    <link href="http://blog.yuqi.fun/undefined/7f12cab4.html"/>
-    <id>http://blog.yuqi.fun/undefined/7f12cab4.html</id>
+    <link href="https://blog.ikun.ink/undefined/7f12cab4.html"/>
+    <id>https://blog.ikun.ink/undefined/7f12cab4.html</id>
     <published>2025-05-22T00:00:00.000Z</published>
     <updated>2025-05-22T00:00:00.000Z</updated>
     
@@ -101,8 +101,8 @@
   
   <entry>
     <title>移载机SEW MOVIDRIVE 变频器配置手册（双编码器）</title>
-    <link href="http://blog.yuqi.fun/undefined/4f7419e2.html"/>
-    <id>http://blog.yuqi.fun/undefined/4f7419e2.html</id>
+    <link href="https://blog.ikun.ink/undefined/4f7419e2.html"/>
+    <id>https://blog.ikun.ink/undefined/4f7419e2.html</id>
     <published>2025-05-22T00:00:00.000Z</published>
     <updated>2025-05-22T00:00:00.000Z</updated>
     
@@ -122,8 +122,8 @@
   
   <entry>
     <title>SEW MOVIPRO调试步骤</title>
-    <link href="http://blog.yuqi.fun/undefined/f5fecf87.html"/>
-    <id>http://blog.yuqi.fun/undefined/f5fecf87.html</id>
+    <link href="https://blog.ikun.ink/undefined/f5fecf87.html"/>
+    <id>https://blog.ikun.ink/undefined/f5fecf87.html</id>
     <published>2025-05-20T00:00:00.000Z</published>
     <updated>2025-05-20T00:00:00.000Z</updated>
     
@@ -142,8 +142,8 @@
   
   <entry>
     <title>针对Prodiag现场License弹窗的解决方法</title>
-    <link href="http://blog.yuqi.fun/undefined/2622eae5.html"/>
-    <id>http://blog.yuqi.fun/undefined/2622eae5.html</id>
+    <link href="https://blog.ikun.ink/undefined/2622eae5.html"/>
+    <id>https://blog.ikun.ink/undefined/2622eae5.html</id>
     <published>2025-05-10T00:00:00.000Z</published>
     <updated>2025-05-10T00:00:00.000Z</updated>
     
@@ -164,8 +164,8 @@
   
   <entry>
     <title>SEW Scope曲线监控</title>
-    <link href="http://blog.yuqi.fun/undefined/c4294855.html"/>
-    <id>http://blog.yuqi.fun/undefined/c4294855.html</id>
+    <link href="https://blog.ikun.ink/undefined/c4294855.html"/>
+    <id>https://blog.ikun.ink/undefined/c4294855.html</id>
     <published>2025-01-05T00:00:00.000Z</published>
     <updated>2025-01-05T00:00:00.000Z</updated>
     
@@ -184,8 +184,8 @@
   
   <entry>
     <title>1panel面板部署哪吒监控v1</title>
-    <link href="http://blog.yuqi.fun/undefined/aad1ff9e.html"/>
-    <id>http://blog.yuqi.fun/undefined/aad1ff9e.html</id>
+    <link href="https://blog.ikun.ink/undefined/aad1ff9e.html"/>
+    <id>https://blog.ikun.ink/undefined/aad1ff9e.html</id>
     <published>2025-01-03T00:00:00.000Z</published>
     <updated>2025-01-03T00:00:00.000Z</updated>
     
@@ -205,8 +205,8 @@
   
   <entry>
     <title>常用VPS脚本</title>
-    <link href="http://blog.yuqi.fun/undefined/6469b43f.html"/>
-    <id>http://blog.yuqi.fun/undefined/6469b43f.html</id>
+    <link href="https://blog.ikun.ink/undefined/6469b43f.html"/>
+    <id>https://blog.ikun.ink/undefined/6469b43f.html</id>
     <published>2024-12-31T00:00:00.000Z</published>
     <updated>2024-12-31T00:00:00.000Z</updated>
     
@@ -226,8 +226,8 @@
   
   <entry>
     <title>Qexo 一个美观、强大的在线 静态博客 管理器</title>
-    <link href="http://blog.yuqi.fun/undefined/8277e0e6.html"/>
-    <id>http://blog.yuqi.fun/undefined/8277e0e6.html</id>
+    <link href="https://blog.ikun.ink/undefined/8277e0e6.html"/>
+    <id>https://blog.ikun.ink/undefined/8277e0e6.html</id>
     <published>2024-12-29T00:00:00.000Z</published>
     <updated>2024-12-29T00:00:00.000Z</updated>
     
@@ -246,8 +246,8 @@
   
   <entry>
     <title>贵阳吉利程序解析</title>
-    <link href="http://blog.yuqi.fun/undefined/57946227.html"/>
-    <id>http://blog.yuqi.fun/undefined/57946227.html</id>
+    <link href="https://blog.ikun.ink/undefined/57946227.html"/>
+    <id>https://blog.ikun.ink/undefined/57946227.html</id>
     <published>2024-11-28T00:00:00.000Z</published>
     <updated>2024-12-28T05:34:56.377Z</updated>
     
@@ -263,8 +263,8 @@
   
   <entry>
     <title>安装了VMware Tools，但无法实现文件的拖拽和复制粘贴---解决方案</title>
-    <link href="http://blog.yuqi.fun/undefined/a580ef34.html"/>
-    <id>http://blog.yuqi.fun/undefined/a580ef34.html</id>
+    <link href="https://blog.ikun.ink/undefined/a580ef34.html"/>
+    <id>https://blog.ikun.ink/undefined/a580ef34.html</id>
     <published>2024-04-05T00:00:00.000Z</published>
     <updated>2024-04-05T00:00:00.000Z</updated>
     
@@ -281,17 +281,17 @@
     
     
     
-    <category term="教程" scheme="http://blog.yuqi.fun/categories/%E6%95%99%E7%A8%8B/"/>
+    <category term="教程" scheme="https://blog.ikun.ink/categories/%E6%95%99%E7%A8%8B/"/>
     
     
-    <category term="虚拟机" scheme="http://blog.yuqi.fun/tags/%E8%99%9A%E6%8B%9F%E6%9C%BA/"/>
+    <category term="虚拟机" scheme="https://blog.ikun.ink/tags/%E8%99%9A%E6%8B%9F%E6%9C%BA/"/>
     
   </entry>
   
   <entry>
     <title>在WSL2中使用Clash Verge代理连接</title>
-    <link href="http://blog.yuqi.fun/undefined/af89448b.html"/>
-    <id>http://blog.yuqi.fun/undefined/af89448b.html</id>
+    <link href="https://blog.ikun.ink/undefined/af89448b.html"/>
+    <id>https://blog.ikun.ink/undefined/af89448b.html</id>
     <published>2023-12-13T00:00:00.000Z</published>
     <updated>2024-01-12T00:00:00.000Z</updated>
     
@@ -309,17 +309,17 @@
     
     
     
-    <category term="教程" scheme="http://blog.yuqi.fun/categories/%E6%95%99%E7%A8%8B/"/>
+    <category term="教程" scheme="https://blog.ikun.ink/categories/%E6%95%99%E7%A8%8B/"/>
     
     
-    <category term="科学上网" scheme="http://blog.yuqi.fun/tags/%E7%A7%91%E5%AD%A6%E4%B8%8A%E7%BD%91/"/>
+    <category term="科学上网" scheme="https://blog.ikun.ink/tags/%E7%A7%91%E5%AD%A6%E4%B8%8A%E7%BD%91/"/>
     
   </entry>
   
   <entry>
     <title>Clash Verge规则配置</title>
-    <link href="http://blog.yuqi.fun/undefined/97aa67fb.html"/>
-    <id>http://blog.yuqi.fun/undefined/97aa67fb.html</id>
+    <link href="https://blog.ikun.ink/undefined/97aa67fb.html"/>
+    <id>https://blog.ikun.ink/undefined/97aa67fb.html</id>
     <published>2023-12-12T00:00:00.000Z</published>
     <updated>2023-12-12T00:00:00.000Z</updated>
     
@@ -334,17 +334,17 @@
     
     
     
-    <category term="教程" scheme="http://blog.yuqi.fun/categories/%E6%95%99%E7%A8%8B/"/>
+    <category term="教程" scheme="https://blog.ikun.ink/categories/%E6%95%99%E7%A8%8B/"/>
     
     
-    <category term="科学上网" scheme="http://blog.yuqi.fun/tags/%E7%A7%91%E5%AD%A6%E4%B8%8A%E7%BD%91/"/>
+    <category term="科学上网" scheme="https://blog.ikun.ink/tags/%E7%A7%91%E5%AD%A6%E4%B8%8A%E7%BD%91/"/>
     
   </entry>
   
   <entry>
     <title>利用CF Workers搭建Github加速服务</title>
-    <link href="http://blog.yuqi.fun/undefined/ee2e5bab.html"/>
-    <id>http://blog.yuqi.fun/undefined/ee2e5bab.html</id>
+    <link href="https://blog.ikun.ink/undefined/ee2e5bab.html"/>
+    <id>https://blog.ikun.ink/undefined/ee2e5bab.html</id>
     <published>2023-12-12T00:00:00.000Z</published>
     <updated>2023-12-12T00:00:00.000Z</updated>
     
@@ -358,17 +358,17 @@
     
     
     
-    <category term="教程" scheme="http://blog.yuqi.fun/categories/%E6%95%99%E7%A8%8B/"/>
+    <category term="教程" scheme="https://blog.ikun.ink/categories/%E6%95%99%E7%A8%8B/"/>
     
     
-    <category term="网站" scheme="http://blog.yuqi.fun/tags/%E7%BD%91%E7%AB%99/"/>
+    <category term="网站" scheme="https://blog.ikun.ink/tags/%E7%BD%91%E7%AB%99/"/>
     
   </entry>
   
   <entry>
     <title>ABPLC通过Modbus TCP读取设备压力值</title>
-    <link href="http://blog.yuqi.fun/undefined/3529204a.html"/>
-    <id>http://blog.yuqi.fun/undefined/3529204a.html</id>
+    <link href="https://blog.ikun.ink/undefined/3529204a.html"/>
+    <id>https://blog.ikun.ink/undefined/3529204a.html</id>
     <published>2023-12-11T00:00:00.000Z</published>
     <updated>2023-12-11T00:00:00.000Z</updated>
     
@@ -382,17 +382,17 @@
     
     
     
-    <category term="教程" scheme="http://blog.yuqi.fun/categories/%E6%95%99%E7%A8%8B/"/>
+    <category term="教程" scheme="https://blog.ikun.ink/categories/%E6%95%99%E7%A8%8B/"/>
     
     
-    <category term="PLC" scheme="http://blog.yuqi.fun/tags/PLC/"/>
+    <category term="PLC" scheme="https://blog.ikun.ink/tags/PLC/"/>
     
   </entry>
   
   <entry>
     <title>R探长 甲骨文云开机脚本</title>
-    <link href="http://blog.yuqi.fun/undefined/d604b8c7.html"/>
-    <id>http://blog.yuqi.fun/undefined/d604b8c7.html</id>
+    <link href="https://blog.ikun.ink/undefined/d604b8c7.html"/>
+    <id>https://blog.ikun.ink/undefined/d604b8c7.html</id>
     <published>2023-12-08T00:00:00.000Z</published>
     <updated>2023-12-08T00:00:00.000Z</updated>
     
@@ -406,17 +406,17 @@
     
     
     
-    <category term="教程" scheme="http://blog.yuqi.fun/categories/%E6%95%99%E7%A8%8B/"/>
+    <category term="教程" scheme="https://blog.ikun.ink/categories/%E6%95%99%E7%A8%8B/"/>
     
     
-    <category term="服务器" scheme="http://blog.yuqi.fun/tags/%E6%9C%8D%E5%8A%A1%E5%99%A8/"/>
+    <category term="服务器" scheme="https://blog.ikun.ink/tags/%E6%9C%8D%E5%8A%A1%E5%99%A8/"/>
     
   </entry>
   
   <entry>
     <title>PVE安装iStoreOS</title>
-    <link href="http://blog.yuqi.fun/undefined/d167335e.html"/>
-    <id>http://blog.yuqi.fun/undefined/d167335e.html</id>
+    <link href="https://blog.ikun.ink/undefined/d167335e.html"/>
+    <id>https://blog.ikun.ink/undefined/d167335e.html</id>
     <published>2023-12-03T00:00:00.000Z</published>
     <updated>2023-12-03T00:00:00.000Z</updated>
     
@@ -430,17 +430,17 @@
     
     
     
-    <category term="教程" scheme="http://blog.yuqi.fun/categories/%E6%95%99%E7%A8%8B/"/>
+    <category term="教程" scheme="https://blog.ikun.ink/categories/%E6%95%99%E7%A8%8B/"/>
     
     
-    <category term="路由器" scheme="http://blog.yuqi.fun/tags/%E8%B7%AF%E7%94%B1%E5%99%A8/"/>
+    <category term="路由器" scheme="https://blog.ikun.ink/tags/%E8%B7%AF%E7%94%B1%E5%99%A8/"/>
     
   </entry>
   
   <entry>
     <title>Butterfly主题添加本地搜索功能</title>
-    <link href="http://blog.yuqi.fun/undefined/f2a576c2.html"/>
-    <id>http://blog.yuqi.fun/undefined/f2a576c2.html</id>
+    <link href="https://blog.ikun.ink/undefined/f2a576c2.html"/>
+    <id>https://blog.ikun.ink/undefined/f2a576c2.html</id>
     <published>2023-11-30T00:00:00.000Z</published>
     <updated>2023-11-30T00:00:00.000Z</updated>
     
@@ -455,12 +455,12 @@
     
     
     
-    <category term="教程" scheme="http://blog.yuqi.fun/categories/%E6%95%99%E7%A8%8B/"/>
+    <category term="教程" scheme="https://blog.ikun.ink/categories/%E6%95%99%E7%A8%8B/"/>
     
     
-    <category term="Butterfly" scheme="http://blog.yuqi.fun/tags/Butterfly/"/>
+    <category term="Butterfly" scheme="https://blog.ikun.ink/tags/Butterfly/"/>
     
-    <category term="hexo" scheme="http://blog.yuqi.fun/tags/hexo/"/>
+    <category term="hexo" scheme="https://blog.ikun.ink/tags/hexo/"/>
     
   </entry>
   
