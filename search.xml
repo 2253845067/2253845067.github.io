@@ -1,6 +1,24 @@
 <?xml version="1.0" encoding="utf-8"?>
 <search>
   <entry>
+    <title>5G21第二批刷机以及不同作者间的固件切换</title>
+    <url>/undefined/7ae0e921.html</url>
+    <content><![CDATA[<p>lean 的 q-wrt 可以进行 webui 直接更新 进入 webui 后依次点击系统-服务&#x2F;备份-刷写新的固件上传固件后升级。切记不要勾选保留配置。<br>切换到志平或狂风固件请使用 winscp 等工具上传到 tmp 目录后，ssh 输入以下的命令，记得先 cd 到 tmp 目录。</p>
+<figure class="highlight plaintext"><table><tr><td class="code"><pre><span class="line">sysupgrade -F -n xxx.bin</span><br></pre></td></tr></table></figure>
+
+<p>或者使用以下命令强刷</p>
+<figure class="highlight plaintext"><table><tr><td class="code"><pre><span class="line">sysupgrade -F -n -v xxx.bin</span><br></pre></td></tr></table></figure>
+
+<p><strong>xxx 为固件名字</strong></p>
+]]></content>
+      <categories>
+        <category>教程</category>
+      </categories>
+      <tags>
+        <tag>路由器</tag>
+      </tags>
+  </entry>
+  <entry>
     <title>1panel面板部署哪吒监控v1</title>
     <url>/undefined/aad1ff9e.html</url>
     <content><![CDATA[<h1 id="域名解析"><a href="#域名解析" class="headerlink" title="域名解析"></a>域名解析</h1><p>面板域名以<code>nezha.a.com</code>为例</p>
@@ -50,24 +68,6 @@
 <li>在个人信息里面绑定即可</li>
 </ol>
 ]]></content>
-  </entry>
-  <entry>
-    <title>5G21第二批刷机以及不同作者间的固件切换</title>
-    <url>/undefined/7ae0e921.html</url>
-    <content><![CDATA[<p>lean 的 q-wrt 可以进行 webui 直接更新 进入 webui 后依次点击系统-服务&#x2F;备份-刷写新的固件上传固件后升级。切记不要勾选保留配置。<br>切换到志平或狂风固件请使用 winscp 等工具上传到 tmp 目录后，ssh 输入以下的命令，记得先 cd 到 tmp 目录。</p>
-<figure class="highlight plaintext"><table><tr><td class="code"><pre><span class="line">sysupgrade -F -n xxx.bin</span><br></pre></td></tr></table></figure>
-
-<p>或者使用以下命令强刷</p>
-<figure class="highlight plaintext"><table><tr><td class="code"><pre><span class="line">sysupgrade -F -n -v xxx.bin</span><br></pre></td></tr></table></figure>
-
-<p><strong>xxx 为固件名字</strong></p>
-]]></content>
-      <categories>
-        <category>教程</category>
-      </categories>
-      <tags>
-        <tag>路由器</tag>
-      </tags>
   </entry>
   <entry>
     <title>ABPLC通过Modbus TCP读取设备压力值</title>
@@ -1849,24 +1849,6 @@
 ]]></content>
   </entry>
   <entry>
-    <title>SICK区扫调试步骤</title>
-    <url>/undefined/af80d2f7.html</url>
-    <content><![CDATA[<p><img src="https://img.051516.xyz/202303041357323.JPG" alt="幻灯片1"><br><img src="https://img.051516.xyz/202303041357782.JPG" alt="幻灯片2"></p>
-<p><img src="https://img.051516.xyz/202303041358093.JPG" alt="幻灯片3"></p>
-<p><img src="https://img.051516.xyz/202303041358392.JPG" alt="幻灯片4"></p>
-<p><img src="https://img.051516.xyz/202303041358744.JPG" alt="幻灯片5"></p>
-<p><img src="https://img.051516.xyz/202303041358489.JPG" alt="幻灯片6"></p>
-<p><img src="https://img.051516.xyz/202303041358180.JPG" alt="幻灯片7"></p>
-<p><img src="https://img.051516.xyz/202303041358561.JPG" alt="幻灯片8"></p>
-]]></content>
-      <categories>
-        <category>教程</category>
-      </categories>
-      <tags>
-        <tag>SICK</tag>
-      </tags>
-  </entry>
-  <entry>
     <title>SEW-MDX61B变频器定位控制调试流程</title>
     <url>/undefined/e4c152dc.html</url>
     <content><![CDATA[<h1 id="一、-调试准备"><a href="#一、-调试准备" class="headerlink" title="一、 调试准备"></a>一、 调试准备</h1><h2 id="操作系统及调试软件"><a href="#操作系统及调试软件" class="headerlink" title="操作系统及调试软件"></a>操作系统及调试软件</h2><p>操作系统：Windows 7 64 位操作系统</p>
@@ -2016,6 +1998,24 @@
       </categories>
       <tags>
         <tag>SEW</tag>
+      </tags>
+  </entry>
+  <entry>
+    <title>SICK区扫调试步骤</title>
+    <url>/undefined/af80d2f7.html</url>
+    <content><![CDATA[<p><img src="https://img.051516.xyz/202303041357323.JPG" alt="幻灯片1"><br><img src="https://img.051516.xyz/202303041357782.JPG" alt="幻灯片2"></p>
+<p><img src="https://img.051516.xyz/202303041358093.JPG" alt="幻灯片3"></p>
+<p><img src="https://img.051516.xyz/202303041358392.JPG" alt="幻灯片4"></p>
+<p><img src="https://img.051516.xyz/202303041358744.JPG" alt="幻灯片5"></p>
+<p><img src="https://img.051516.xyz/202303041358489.JPG" alt="幻灯片6"></p>
+<p><img src="https://img.051516.xyz/202303041358180.JPG" alt="幻灯片7"></p>
+<p><img src="https://img.051516.xyz/202303041358561.JPG" alt="幻灯片8"></p>
+]]></content>
+      <categories>
+        <category>教程</category>
+      </categories>
+      <tags>
+        <tag>SICK</tag>
       </tags>
   </entry>
   <entry>
@@ -2391,6 +2391,55 @@
       </tags>
   </entry>
   <entry>
+    <title>一键DD纯净系统脚本 CentOS/Debian/Ubuntu</title>
+    <url>/undefined/7db8067.html</url>
+    <content><![CDATA[<p>基本所有的VPS服务器商家，都会提供免费的Linux系统供安装，比如CentOS、Debian、Ubuntu等。那为什么还要使用一键DD脚本重装&#x2F;更换系统呢？</p>
+<ol>
+<li>商家提供的系统版本有限，可能没有自己需要的版本。</li>
+<li>商家的系统安装有自己不想要的服务，有的预装系统本身也有缺陷，导致很多服务安装不上</li>
+<li>商家的系统无法安装特定软件，比如很挑内核的锐速。</li>
+</ol>
+<p>以上几种情况，一键DD脚本就可以为服务器更换一个纯净的系统，帮你解决问题。</p>
+<h2 id="所需环境"><a href="#所需环境" class="headerlink" title="所需环境"></a>所需环境</h2><hr>
+<p>以网络流传较广的Vicer一键DD为例，其所需环境为：</p>
+<p>**架构：**KVM&#x2F;XEN，不支持OpenVZ。<br>**系统：**Debian&#x2F;Ubuntu&#x2F;CentOS</p>
+<h2 id="一键DD脚本使用教程"><a href="#一键DD脚本使用教程" class="headerlink" title="一键DD脚本使用教程"></a>一键DD脚本使用教程</h2><p>注意事项：</p>
+<ul>
+<li><strong>Vicer脚本目前不支持重装为CentOS 7系统，支持CentOS 6.9以下版本。</strong></li>
+<li><strong>重装的系统源自官方发行版。</strong></li>
+<li><strong>安装过程全自动进行，无需VNC操作，无需进入救援模式。</strong></li>
+<li><strong>系统安装完成后的默认用户名为root，默认密码为: <code>MoeClub.org</code></strong></li>
+</ul>
+<p><strong>DD脚本示例：</strong><br>由于脚本命令中需要写明目标系统版本，所以根据需求不同，最终的运行命令也各不相同。</p>
+<p>下面提供几个使用范例，可以直接复制使用，也可以将命令中的系统版本替换为其它版本。</p>
+<h2 id="重装为CentOS："><a href="#重装为CentOS：" class="headerlink" title="重装为CentOS："></a>重装为CentOS：</h2><p>以下命令中的 -c 后面为CentOS版本号，-v 后面为64位&#x2F;32位，可根据需求进行替换。</p>
+<figure class="highlight shell"><table><tr><td class="code"><pre><span class="line"><span class="meta prompt_"># </span><span class="language-bash">CentOS 6.10 64位：</span></span><br><span class="line">bash &lt;(wget --no-check-certificate -qO- &#x27;https://raw.githubusercontent.com/notetoday/sh/main/InstallNET.sh&#x27;) -c 6.10 -v 64 -a</span><br><span class="line"><span class="meta prompt_"># </span><span class="language-bash">CentOS 6.10 32位：</span></span><br><span class="line">bash &lt;(wget --no-check-certificate -qO- &#x27;https://raw.githubusercontent.com/notetoday/sh/main/InstallNET.sh&#x27;) -c 6.10 -v 32 -a</span><br></pre></td></tr></table></figure>
+
+<h2 id="重装为Debian："><a href="#重装为Debian：" class="headerlink" title="重装为Debian："></a>重装为Debian：</h2><p>以下命令中的 -d 后面为Debian版本号，-v 后面为64位&#x2F;32位，可根据需求进行替换。</p>
+<figure class="highlight shell"><table><tr><td class="code"><pre><span class="line"><span class="meta prompt_"># </span><span class="language-bash">Debian 8 64位：</span></span><br><span class="line">bash &lt;(wget --no-check-certificate -qO- &#x27;https://raw.githubusercontent.com/notetoday/sh/main/InstallNET.sh&#x27;) -d 8 -v 64 -a</span><br><span class="line"><span class="meta prompt_"># </span><span class="language-bash">Debian 9 64位：</span></span><br><span class="line">bash &lt;(wget --no-check-certificate -qO- &#x27;https://raw.githubusercontent.com/notetoday/sh/main/InstallNET.sh&#x27;) -d 9 -v 64 -a</span><br><span class="line"><span class="meta prompt_"># </span><span class="language-bash">Debian 10 64位：</span></span><br><span class="line">bash &lt;(wget --no-check-certificate -qO- &#x27;https://raw.githubusercontent.com/notetoday/sh/main/InstallNET.sh&#x27;) -d 10 -v 64 -a</span><br><span class="line"><span class="meta prompt_"># </span><span class="language-bash">Debian 11 64位：</span></span><br><span class="line">bash &lt;(wget --no-check-certificate -qO- &#x27;https://raw.githubusercontent.com/notetoday/sh/main/InstallNET.sh&#x27;) -d 11 -v 64 -a</span><br><span class="line"><span class="meta prompt_"># </span><span class="language-bash">Debian 11.5 64位：</span></span><br><span class="line">bash &lt;(wget --no-check-certificate -qO- &#x27;https://raw.githubusercontent.com/notetoday/sh/main/InstallNET.sh&#x27;) -d 11.5 -v 64 -a</span><br></pre></td></tr></table></figure>
+
+<h2 id="重装为Ubuntu："><a href="#重装为Ubuntu：" class="headerlink" title="重装为Ubuntu："></a>重装为Ubuntu：</h2><p>以下命令中的 -u 后面为Ubuntu版本号，-v 后面为64位&#x2F;32位，可根据需求进行替换。</p>
+<figure class="highlight shell"><table><tr><td class="code"><pre><span class="line"><span class="meta prompt_"># </span><span class="language-bash">Ubuntu 12.04 64位：</span></span><br><span class="line">bash &lt;(wget --no-check-certificate -qO- &#x27;https://raw.githubusercontent.com/notetoday/sh/main/InstallNET.sh&#x27;) -u 12.04 -v 64 -a</span><br><span class="line"><span class="meta prompt_"># </span><span class="language-bash">Ubuntu 14.04 64位：</span></span><br><span class="line">bash &lt;(wget --no-check-certificate -qO- &#x27;https://raw.githubusercontent.com/notetoday/sh/main/InstallNET.sh&#x27;) -u 14.04 -v 64 -a</span><br><span class="line"><span class="meta prompt_"># </span><span class="language-bash">Ubuntu 16.04 64位：</span></span><br><span class="line">bash &lt;(wget --no-check-certificate -qO- &#x27;https://raw.githubusercontent.com/notetoday/sh/main/InstallNET.sh&#x27;) -u 16.04 -v 64 -a</span><br><span class="line"><span class="meta prompt_"># </span><span class="language-bash">Ubuntu 18.04 64位：</span></span><br><span class="line">bash &lt;(wget --no-check-certificate -qO- &#x27;https://raw.githubusercontent.com/notetoday/sh/main/InstallNET.sh&#x27;) -u 18.04 -v 64 -a</span><br><span class="line"><span class="meta prompt_"># </span><span class="language-bash">Ubuntu 20.04 64位：</span></span><br><span class="line">bash &lt;(wget --no-check-certificate -qO- &#x27;https://raw.githubusercontent.com/notetoday/sh/main/InstallNET.sh&#x27;) -u 20.04 -v 64 -a</span><br></pre></td></tr></table></figure>
+
+<h2 id="关于系统重装过程"><a href="#关于系统重装过程" class="headerlink" title="关于系统重装过程"></a>关于系统重装过程</h2><hr>
+<p>运行包含正确系统版本号的脚本后，新系统的安装会自动进行，无需人工干预。</p>
+<h2 id="可能的三种情况："><a href="#可能的三种情况：" class="headerlink" title="可能的三种情况："></a>可能的三种情况：</h2><p>正常情况下10分钟左右就可以安装成功了，期间可以在VNC中观察安装过程：<br><img src="https://img.051516.xyz/202311061444304.png"></p>
+<p>如果安装CentOS 7版本，会出现下图提示，表示不支持：<br><img src="https://img.051516.xyz/202311061444408.png"><br>如果输入了其它不支持或不存在的系统版本，则会出现下图提示，中止安装：<br><img src="https://img.051516.xyz/202311061444207.png"></p>
+<hr>
+<p>重装系统后更改root密码<br>耐心等待系统安装成功后，出于安全考虑，建议立即更改默认密码。</p>
+<h2 id="具体方法："><a href="#具体方法：" class="headerlink" title="具体方法："></a>具体方法：</h2><p>1、使用Putty以上文提供的默认密码登录，输入以下命令：<strong><code>passwd root</code></strong></p>
+<p>2、接下来会分两次要求输入新的密码，可以手动输入，也可以在其它位置复制一个密码，然后在Putty界面右键点击即可粘贴上去。</p>
+<h2 id="注意："><a href="#注意：" class="headerlink" title="注意："></a>注意：</h2><p>输入新密码时并不会直接显示出来，光标也不会移动，这是正常的。</p>
+<p>3、再次登录系统时，记得使用新的root密码。</p>
+]]></content>
+      <categories>
+        <category>教程</category>
+      </categories>
+      <tags>
+        <tag>服务器</tag>
+      </tags>
+  </entry>
+  <entry>
     <title>中星微随身Wifi去后门刷全功能后台</title>
     <url>/undefined/f9dbe722.html</url>
     <content><![CDATA[<h1 id="前言"><a href="#前言" class="headerlink" title="前言"></a>前言</h1><p>买到棒子先不要插自己卡，需要进行屏蔽操作防止被远程操作，这里我买的是狗东某沃中星微。</p>
@@ -2456,55 +2505,6 @@
       </categories>
       <tags>
         <tag>随身WiFi</tag>
-      </tags>
-  </entry>
-  <entry>
-    <title>一键DD纯净系统脚本 CentOS/Debian/Ubuntu</title>
-    <url>/undefined/7db8067.html</url>
-    <content><![CDATA[<p>基本所有的VPS服务器商家，都会提供免费的Linux系统供安装，比如CentOS、Debian、Ubuntu等。那为什么还要使用一键DD脚本重装&#x2F;更换系统呢？</p>
-<ol>
-<li>商家提供的系统版本有限，可能没有自己需要的版本。</li>
-<li>商家的系统安装有自己不想要的服务，有的预装系统本身也有缺陷，导致很多服务安装不上</li>
-<li>商家的系统无法安装特定软件，比如很挑内核的锐速。</li>
-</ol>
-<p>以上几种情况，一键DD脚本就可以为服务器更换一个纯净的系统，帮你解决问题。</p>
-<h2 id="所需环境"><a href="#所需环境" class="headerlink" title="所需环境"></a>所需环境</h2><hr>
-<p>以网络流传较广的Vicer一键DD为例，其所需环境为：</p>
-<p>**架构：**KVM&#x2F;XEN，不支持OpenVZ。<br>**系统：**Debian&#x2F;Ubuntu&#x2F;CentOS</p>
-<h2 id="一键DD脚本使用教程"><a href="#一键DD脚本使用教程" class="headerlink" title="一键DD脚本使用教程"></a>一键DD脚本使用教程</h2><p>注意事项：</p>
-<ul>
-<li><strong>Vicer脚本目前不支持重装为CentOS 7系统，支持CentOS 6.9以下版本。</strong></li>
-<li><strong>重装的系统源自官方发行版。</strong></li>
-<li><strong>安装过程全自动进行，无需VNC操作，无需进入救援模式。</strong></li>
-<li><strong>系统安装完成后的默认用户名为root，默认密码为: <code>MoeClub.org</code></strong></li>
-</ul>
-<p><strong>DD脚本示例：</strong><br>由于脚本命令中需要写明目标系统版本，所以根据需求不同，最终的运行命令也各不相同。</p>
-<p>下面提供几个使用范例，可以直接复制使用，也可以将命令中的系统版本替换为其它版本。</p>
-<h2 id="重装为CentOS："><a href="#重装为CentOS：" class="headerlink" title="重装为CentOS："></a>重装为CentOS：</h2><p>以下命令中的 -c 后面为CentOS版本号，-v 后面为64位&#x2F;32位，可根据需求进行替换。</p>
-<figure class="highlight shell"><table><tr><td class="code"><pre><span class="line"><span class="meta prompt_"># </span><span class="language-bash">CentOS 6.10 64位：</span></span><br><span class="line">bash &lt;(wget --no-check-certificate -qO- &#x27;https://raw.githubusercontent.com/notetoday/sh/main/InstallNET.sh&#x27;) -c 6.10 -v 64 -a</span><br><span class="line"><span class="meta prompt_"># </span><span class="language-bash">CentOS 6.10 32位：</span></span><br><span class="line">bash &lt;(wget --no-check-certificate -qO- &#x27;https://raw.githubusercontent.com/notetoday/sh/main/InstallNET.sh&#x27;) -c 6.10 -v 32 -a</span><br></pre></td></tr></table></figure>
-
-<h2 id="重装为Debian："><a href="#重装为Debian：" class="headerlink" title="重装为Debian："></a>重装为Debian：</h2><p>以下命令中的 -d 后面为Debian版本号，-v 后面为64位&#x2F;32位，可根据需求进行替换。</p>
-<figure class="highlight shell"><table><tr><td class="code"><pre><span class="line"><span class="meta prompt_"># </span><span class="language-bash">Debian 8 64位：</span></span><br><span class="line">bash &lt;(wget --no-check-certificate -qO- &#x27;https://raw.githubusercontent.com/notetoday/sh/main/InstallNET.sh&#x27;) -d 8 -v 64 -a</span><br><span class="line"><span class="meta prompt_"># </span><span class="language-bash">Debian 9 64位：</span></span><br><span class="line">bash &lt;(wget --no-check-certificate -qO- &#x27;https://raw.githubusercontent.com/notetoday/sh/main/InstallNET.sh&#x27;) -d 9 -v 64 -a</span><br><span class="line"><span class="meta prompt_"># </span><span class="language-bash">Debian 10 64位：</span></span><br><span class="line">bash &lt;(wget --no-check-certificate -qO- &#x27;https://raw.githubusercontent.com/notetoday/sh/main/InstallNET.sh&#x27;) -d 10 -v 64 -a</span><br><span class="line"><span class="meta prompt_"># </span><span class="language-bash">Debian 11 64位：</span></span><br><span class="line">bash &lt;(wget --no-check-certificate -qO- &#x27;https://raw.githubusercontent.com/notetoday/sh/main/InstallNET.sh&#x27;) -d 11 -v 64 -a</span><br><span class="line"><span class="meta prompt_"># </span><span class="language-bash">Debian 11.5 64位：</span></span><br><span class="line">bash &lt;(wget --no-check-certificate -qO- &#x27;https://raw.githubusercontent.com/notetoday/sh/main/InstallNET.sh&#x27;) -d 11.5 -v 64 -a</span><br></pre></td></tr></table></figure>
-
-<h2 id="重装为Ubuntu："><a href="#重装为Ubuntu：" class="headerlink" title="重装为Ubuntu："></a>重装为Ubuntu：</h2><p>以下命令中的 -u 后面为Ubuntu版本号，-v 后面为64位&#x2F;32位，可根据需求进行替换。</p>
-<figure class="highlight shell"><table><tr><td class="code"><pre><span class="line"><span class="meta prompt_"># </span><span class="language-bash">Ubuntu 12.04 64位：</span></span><br><span class="line">bash &lt;(wget --no-check-certificate -qO- &#x27;https://raw.githubusercontent.com/notetoday/sh/main/InstallNET.sh&#x27;) -u 12.04 -v 64 -a</span><br><span class="line"><span class="meta prompt_"># </span><span class="language-bash">Ubuntu 14.04 64位：</span></span><br><span class="line">bash &lt;(wget --no-check-certificate -qO- &#x27;https://raw.githubusercontent.com/notetoday/sh/main/InstallNET.sh&#x27;) -u 14.04 -v 64 -a</span><br><span class="line"><span class="meta prompt_"># </span><span class="language-bash">Ubuntu 16.04 64位：</span></span><br><span class="line">bash &lt;(wget --no-check-certificate -qO- &#x27;https://raw.githubusercontent.com/notetoday/sh/main/InstallNET.sh&#x27;) -u 16.04 -v 64 -a</span><br><span class="line"><span class="meta prompt_"># </span><span class="language-bash">Ubuntu 18.04 64位：</span></span><br><span class="line">bash &lt;(wget --no-check-certificate -qO- &#x27;https://raw.githubusercontent.com/notetoday/sh/main/InstallNET.sh&#x27;) -u 18.04 -v 64 -a</span><br><span class="line"><span class="meta prompt_"># </span><span class="language-bash">Ubuntu 20.04 64位：</span></span><br><span class="line">bash &lt;(wget --no-check-certificate -qO- &#x27;https://raw.githubusercontent.com/notetoday/sh/main/InstallNET.sh&#x27;) -u 20.04 -v 64 -a</span><br></pre></td></tr></table></figure>
-
-<h2 id="关于系统重装过程"><a href="#关于系统重装过程" class="headerlink" title="关于系统重装过程"></a>关于系统重装过程</h2><hr>
-<p>运行包含正确系统版本号的脚本后，新系统的安装会自动进行，无需人工干预。</p>
-<h2 id="可能的三种情况："><a href="#可能的三种情况：" class="headerlink" title="可能的三种情况："></a>可能的三种情况：</h2><p>正常情况下10分钟左右就可以安装成功了，期间可以在VNC中观察安装过程：<br><img src="https://img.051516.xyz/202311061444304.png"></p>
-<p>如果安装CentOS 7版本，会出现下图提示，表示不支持：<br><img src="https://img.051516.xyz/202311061444408.png"><br>如果输入了其它不支持或不存在的系统版本，则会出现下图提示，中止安装：<br><img src="https://img.051516.xyz/202311061444207.png"></p>
-<hr>
-<p>重装系统后更改root密码<br>耐心等待系统安装成功后，出于安全考虑，建议立即更改默认密码。</p>
-<h2 id="具体方法："><a href="#具体方法：" class="headerlink" title="具体方法："></a>具体方法：</h2><p>1、使用Putty以上文提供的默认密码登录，输入以下命令：<strong><code>passwd root</code></strong></p>
-<p>2、接下来会分两次要求输入新的密码，可以手动输入，也可以在其它位置复制一个密码，然后在Putty界面右键点击即可粘贴上去。</p>
-<h2 id="注意："><a href="#注意：" class="headerlink" title="注意："></a>注意：</h2><p>输入新密码时并不会直接显示出来，光标也不会移动，这是正常的。</p>
-<p>3、再次登录系统时，记得使用新的root密码。</p>
-]]></content>
-      <categories>
-        <category>教程</category>
-      </categories>
-      <tags>
-        <tag>服务器</tag>
       </tags>
   </entry>
   <entry>
@@ -2673,6 +2673,104 @@
       </tags>
   </entry>
   <entry>
+    <title>最佳免费NPV方式-workers搭建vless使用</title>
+    <url>/undefined/1b7388f.html</url>
+    <content><![CDATA[<h2 id="资源："><a href="#资源：" class="headerlink" title="资源："></a>资源：</h2><h6 id="WIN"><a href="#WIN" class="headerlink" title="WIN:"></a><strong>WIN:</strong></h6><p>v2rayN 最新版<a href="https://github.com/2dust/v2rayN/releases">下载地址&gt;&gt;</a></p>
+<p>cloudflare<a href="https://dash.cloudflare.com/">网站链接&gt;&gt;</a></p>
+<p>临时邮箱：<a href="https://www.linshiyouxiang.net/">https://www.linshiyouxiang.net/</a></p>
+<p>部署代码：<a href="https://github.com/zizifn/edgetunnel/blob/main/src/worker-vless.js">https://github.com/zizifn/edgetunnel/blob/main/src/worker-vless.js</a></p>
+<p>uuid生成：<a href="https://1024tools.com/uuid">https://1024tools.com/uuid</a></p>
+<p>workers win专用ip优选：<a href="https://jdssl.top/wp-content/uploads/2023/07/works%E4%B8%93%E7%94%A8ip%E4%BC%98%E9%80%89.zip">下载地址&gt;&gt;</a></p>
+<p>ip查看：<a href="https://whatismyipaddress.com/">https://whatismyipaddress.com/</a></p>
+<p>cf ip优选；<a href="https://stock.hostmonit.com/CloudFlareYes">https://stock.hostmonit.com/CloudFlareYes</a></p>
+<p>网络测速：<a href="https://www.speedtest.net/result/14952074175">https://www.speedtest.net/result/14952074175</a></p>
+<p>openclash转换订阅网址：<a href="https://sub-web.netlify.app/">https://sub-web.netlify.app/</a></p>
+<h5 id="cdn加速"><a href="#cdn加速" class="headerlink" title="cdn加速"></a>cdn加速</h5><p>cdn-all.xn–b6gac.eu.org<br>cdn.xn–b6gac.eu.org<br>cdn-b100.xn–b6gac.eu.org<br>edgetunnel.anycast.eu.org<br>cdn.anycast.eu.org （亚洲地区）</p>
+<h6 id="MAC"><a href="#MAC" class="headerlink" title="MAC:"></a>MAC:</h6><p>v2rayu: <a href="https://github.com/yanue/V2rayU/releases/tag/v3.8.0">下载链接&gt;&gt;</a></p>
+<h5 id="cloudflarest-ip优化："><a href="#cloudflarest-ip优化：" class="headerlink" title="cloudflarest ip优化："></a>cloudflarest ip优化：</h5><p>mac inter :<a href="https://github.com/XIU2/CloudflareSpeedTest/releases/download/v2.2.4/CloudflareST_darwin_amd64.zip">下载地址&gt;&gt;</a></p>
+<p>mac arm :<a href="https://github.com/XIU2/CloudflareSpeedTest/releases/download/v2.2.4/CloudflareST_darwin_arm64.zip">下载地址&gt;&gt;</a></p>
+<p>cloudflarest ip段：<a href="https://zip.baipiao.eu.org/">下载地址&gt;&gt;</a></p>
+<p>备注：需要自行下载上方CDN IP段否则只能延迟测速。</p>
+<p>终端：</p>
+<p>cd &#x2F;xxxx&#x2F;xxxxx&#x2F;CloudfareST_darwin_amd64</p>
+<p>无法使用以下代码或报错请赋予权限：</p>
+<p>chmod a+x CloudflareST</p>
+<p>若实在无法解决该问题请使用这个网站进行优选ip <em><a href="https://vfarid.github.io/cf-ip-scanner/?max=30">点击优选ip&gt;&gt;</a>)</em></p>
+<p><a href=""><img src="https://img.051516.xyz/202311061021358.png" alt="img"></a></p>
+<p>普通ip优选</p>
+<p>sudo .&#x2F;CloudflareST</p>
+<p>10 个平均延迟低于 200 ms且下载速度高于3MB&#x2F;s的IP</p>
+<p>sudo .&#x2F;CloudflareST -url <a href="https://jp.cloudflarest.link/">https://jp.cloudflarest.link</a> -tl 200 -sl 3 -dn 10</p>
+<p>sudo .&#x2F;CloudflareST -url <a href="https://hkcs.cloudflarest.link/">https://hkcs.cloudflarest.link</a> -tl 200 -sl 3 -dn 10</p>
+<h2 id="教程"><a href="#教程" class="headerlink" title="教程"></a>教程</h2><h3 id="一、注册cloudflare账：https-dash-cloudflare-com-login"><a href="#一、注册cloudflare账：https-dash-cloudflare-com-login" class="headerlink" title="一、注册cloudflare账：https://dash.cloudflare.com/login"></a>一、注册cloudflare账：<a href="https://dash.cloudflare.com/login">https://dash.cloudflare.com/login</a></h3><p>点击Workers 和 Pages，创建Workers</p>
+<p><img src="https://img.051516.xyz/202311061022123.png"></p>
+<p>写上备注或者名字</p>
+<p><img src="https://img.051516.xyz/202311061022475.png"></p>
+<h3 id="二、代码部署"><a href="#二、代码部署" class="headerlink" title="二、代码部署"></a>二、代码部署</h3><p>复制代码到编辑器：<a href="https://github.com/zizifn/edgetunnel/blob/main/src/worker-vless.js">https://github.com/zizifn/edgetunnel/blob/main/src/worker-vless.js</a></p>
+<p>修改userid–生成：<a href="https://1024tools.com/uuid">https://1024tools.com/uuid</a></p>
+<p>修改proxyip–cdn加速（随便选一个）</p>
+<p>cdn-all.xn–b6gac.eu.org<br>cdn.xn–b6gac.eu.org<br>cdn-b100.xn–b6gac.eu.org<br>edgetunnel.anycast.eu.org<br>cdn.anycast.eu.org （亚洲地区）</p>
+<p>或**(113.64.186.198或者103.200.112.108或者199.15.76.35)**</p>
+<p><strong>通过issues进行proxyip查找：<a href="https://github.com/zizifn/edgetunnel/issues/162">https://github.com/zizifn/edgetunnel/issues/162</a></strong></p>
+<p><a href=""><img src="https://img.051516.xyz/202311061023400.webp" alt="img"></a></p>
+<h3 id="三、点击部署运行，然后在浏览器输入地址【网站域名-和刚刚修改的uuid】"><a href="#三、点击部署运行，然后在浏览器输入地址【网站域名-和刚刚修改的uuid】" class="headerlink" title="三、点击部署运行，然后在浏览器输入地址【网站域名 &#x2F; 和刚刚修改的uuid】"></a>三、点击部署运行，然后在浏览器输入地址【网站域名 &#x2F; 和刚刚修改的uuid】</h3><p>如noisevless.workers.dev&#x2F;c55-08e2-46fa-9d21-2e6020d9acd9，得到配置信息</p>
+<p><img src="https://img.051516.xyz/202311061025196.png"></p>
+<p>复制v2ray显示的信息，然后在v2ray中下拉菜单中选择从粘贴板导入，然后查看服务器列表是否有该地址</p>
+<p><a href=""><img src="https://img.051516.xyz/202311061026907.webp" alt="img"></a></p>
+<h3 id="四、配置ip优选"><a href="#四、配置ip优选" class="headerlink" title="四、配置ip优选"></a>四、配置ip优选</h3><p>本地拉取ip优选 Github：<a href="https://github.com/XIU2/CloudflareSpeedTest">https://github.com/XIU2/CloudflareSpeedTest</a></p>
+<p>下载：<a href="https://github.com/XIU2/CloudflareSpeedTest/releases">https://github.com/XIU2/CloudflareSpeedTest/releases</a></p>
+<p>国内用户建议从蓝奏云下载：<a href="https://pan.lanzouj.com/b0742hkxe">https://pan.lanzouj.com/b0742hkxe</a></p>
+<p>支持win、Mac、linux【注意：退出所有代理软件】</p>
+<p>提示：MAC 系统下如果遇到提示：open ip.txt: no such file or directory 说明你没有在软件所在目录下运行。</p>
+<p>如果平均延迟非常低（如 0.xx），则说明 CloudflareST 测速时走了代理，请先关闭代理软件后再测速。</p>
+<p>如果在路由器上运行，请先关闭路由器内的代理（或将其排除），否则测速结果可能会不准确&#x2F;无法使用。</p>
+<p>&#x3D;&#x3D;&#x3D;&#x3D;&#x3D;&#x3D;&#x3D;&#x3D;&#x3D;&#x3D;&#x3D;&#x3D;&#x3D;&#x3D;&#x3D;&#x3D;&#x3D;&#x3D;&#x3D;&#x3D;&#x3D;&#x3D;&#x3D;&#x3D;&#x3D;&#x3D;&#x3D;&#x3D;&#x3D;&#x3D;&#x3D;&#x3D;&#x3D;&#x3D;&#x3D;</p>
+<p>脚本【cfst_host.sh】的作用是 CloudflareST 测速后获取最快 IP 并替换 Hosts 中的 Cloudflare CDN IP。</p>
+<p>使用前请先阅读：<a href="https://github.com/XIU2/CloudflareSpeedTest/discussions/312#discussioncomment-5161577">https://github.com/XIU2/CloudflareSpeedTest/discussions/312#discussioncomment-5161577</a></p>
+<p>&#x3D;&#x3D;&#x3D;&#x3D;&#x3D;&#x3D;&#x3D;&#x3D;&#x3D;&#x3D;&#x3D;&#x3D;&#x3D;&#x3D;&#x3D;&#x3D;&#x3D;&#x3D;&#x3D;&#x3D;&#x3D;&#x3D;&#x3D;&#x3D;&#x3D;&#x3D;&#x3D;&#x3D;&#x3D;&#x3D;&#x3D;&#x3D;&#x3D;&#x3D;&#x3D;</p>
+<p>ip.txt 为 IPv4 数据文件<br>ipv6.txt 为 IPv6 数据文件</p>
+<p>可以使用 -f xx.txt 参数来指定不同的 IP 数据文件（支持 IPv4 + IPv6 混合测速），如：<br>.&#x2F;CloudflareST -f ipv6.txt</p>
+<p>也可以直接通过参数指定要测速的 IP，如：<br>.&#x2F;CloudflareST -ip 1.1.1.1,2606:4700::&#x2F;32</p>
+<p>Mac：终端：</p>
+<figure class="highlight plaintext"><table><tr><td class="code"><pre><span class="line">cd /xxxx/xxxxx/CloudfareST\_darwin\_amd64</span><br></pre></td></tr></table></figure>
+
+<p>无法使用以下代码或报错请赋予权限：</p>
+<figure class="highlight plaintext"><table><tr><td class="code"><pre><span class="line">chmod a+x CloudflareST</span><br></pre></td></tr></table></figure>
+
+<p>然后运行 <code>sudo ./CloudflareST</code></p>
+<p><a href=""><img src="https://img.051516.xyz/202311061026875.jpeg" alt="img"></a></p>
+<h3 id="五、v2rayu软件设置"><a href="#五、v2rayu软件设置" class="headerlink" title="五、v2rayu软件设置"></a>五、v2rayu软件设置</h3><h2 id="不设置自定义域名解析（没tls加密，80或者2052端口）："><a href="#不设置自定义域名解析（没tls加密，80或者2052端口）：" class="headerlink" title="不设置自定义域名解析（没tls加密，80或者2052端口）："></a>不设置自定义域名解析（没tls加密，80或者2052端口）：</h2><p>选择延迟最低的ip地址填入v2rayu设置中，<strong>注意：v2ray,shadowrocket等客户端要去掉tls加密，端口改为80或者2052，地址修为优选 ip，host为你部署works的地址</strong></p>
+<p><a href=""><img src="https://img.051516.xyz/202311061026600.webp" alt="img"></a></p>
+<p>点击on开启v2rayu，选择全局模式即可</p>
+<p>win端选择优选服务器后开启活动服务器</p>
+<p><a href=""><img src="https://img.051516.xyz/202311061026578.webp" alt="img"></a></p>
+<p><a href=""><img src="https://img.051516.xyz/202311061026372.webp" alt="img"></a></p>
+<h2 id="有域名（有tls加密，443端口-："><a href="#有域名（有tls加密，443端口-：" class="headerlink" title="有域名（有tls加密，443端口)："></a>有域名（有tls加密，443端口)：</h2><p>works配置域名：在触发器中添加自定义域名，然后在二级域名后加&#x2F;UUID，就能看到VLESS节点URL和Clash-meta配置<br>在v2rayN导入URL，地址栏改为优选ip，secrurity为pls，端口配置443，host为解析的域名地址，</p>
+<p><a href=""><img src="https://img.051516.xyz/202311061026359.webp" alt="img"></a></p>
+<p>确认之后就生成v2ray和clash-meta节点配置信息</p>
+<p><img src="https://img.051516.xyz/202311061027942.png"></p>
+<p><strong>3大运营商优选IP，根据自身运营商选择延迟最低IP</strong> <a href="https://stock.hostmonit.com/CloudFlareYes">点击直达</a></p>
+<p>再按照上面介绍的正确填写信息即可，别名地址都是我们自定义后的域名</p>
+<p><a href=""><img src="https://img.051516.xyz/202311061027451.webp" alt="img"></a></p>
+<h2 id="附加"><a href="#附加" class="headerlink" title="附加"></a>附加</h2><p>v2ray的正确信息修改</p>
+<p>1、修改地址,改成自己运营商的优选IP</p>
+<p>2、端口修改为2052或者80</p>
+<p>3、关闭tls</p>
+<p><img src="https://img.051516.xyz/202311061028951.png"></p>
+<figure class="highlight plaintext"><table><tr><td class="code"><pre><span class="line">PLAINTEXT</span><br><span class="line">clash-meta的正确信息修改</span><br></pre></td></tr></table></figure>
+
+<p><img src="https://img.051516.xyz/202311061029359.png"></p>
+<p>如果有域名的：<br>只需要替换优选ip，然后sni和host检查时自己的域名哦</p>
+<p>**speedtest測速-**<a href="https://www.speedtest.net/">https://www.speedtest.net/</a></p>
+]]></content>
+      <categories>
+        <category>教程</category>
+      </categories>
+      <tags>
+        <tag>NPV</tag>
+      </tags>
+  </entry>
+  <entry>
     <title>常用VPS脚本</title>
     <url>/undefined/6469b43f.html</url>
     <content><![CDATA[<h2 id="1、DD重装脚本"><a href="#1、DD重装脚本" class="headerlink" title="1、DD重装脚本"></a>1、DD重装脚本</h2><p>史上最强脚本</p>
@@ -2810,104 +2908,6 @@
 ]]></content>
   </entry>
   <entry>
-    <title>最佳免费NPV方式-workers搭建vless使用</title>
-    <url>/undefined/1b7388f.html</url>
-    <content><![CDATA[<h2 id="资源："><a href="#资源：" class="headerlink" title="资源："></a>资源：</h2><h6 id="WIN"><a href="#WIN" class="headerlink" title="WIN:"></a><strong>WIN:</strong></h6><p>v2rayN 最新版<a href="https://github.com/2dust/v2rayN/releases">下载地址&gt;&gt;</a></p>
-<p>cloudflare<a href="https://dash.cloudflare.com/">网站链接&gt;&gt;</a></p>
-<p>临时邮箱：<a href="https://www.linshiyouxiang.net/">https://www.linshiyouxiang.net/</a></p>
-<p>部署代码：<a href="https://github.com/zizifn/edgetunnel/blob/main/src/worker-vless.js">https://github.com/zizifn/edgetunnel/blob/main/src/worker-vless.js</a></p>
-<p>uuid生成：<a href="https://1024tools.com/uuid">https://1024tools.com/uuid</a></p>
-<p>workers win专用ip优选：<a href="https://jdssl.top/wp-content/uploads/2023/07/works%E4%B8%93%E7%94%A8ip%E4%BC%98%E9%80%89.zip">下载地址&gt;&gt;</a></p>
-<p>ip查看：<a href="https://whatismyipaddress.com/">https://whatismyipaddress.com/</a></p>
-<p>cf ip优选；<a href="https://stock.hostmonit.com/CloudFlareYes">https://stock.hostmonit.com/CloudFlareYes</a></p>
-<p>网络测速：<a href="https://www.speedtest.net/result/14952074175">https://www.speedtest.net/result/14952074175</a></p>
-<p>openclash转换订阅网址：<a href="https://sub-web.netlify.app/">https://sub-web.netlify.app/</a></p>
-<h5 id="cdn加速"><a href="#cdn加速" class="headerlink" title="cdn加速"></a>cdn加速</h5><p>cdn-all.xn–b6gac.eu.org<br>cdn.xn–b6gac.eu.org<br>cdn-b100.xn–b6gac.eu.org<br>edgetunnel.anycast.eu.org<br>cdn.anycast.eu.org （亚洲地区）</p>
-<h6 id="MAC"><a href="#MAC" class="headerlink" title="MAC:"></a>MAC:</h6><p>v2rayu: <a href="https://github.com/yanue/V2rayU/releases/tag/v3.8.0">下载链接&gt;&gt;</a></p>
-<h5 id="cloudflarest-ip优化："><a href="#cloudflarest-ip优化：" class="headerlink" title="cloudflarest ip优化："></a>cloudflarest ip优化：</h5><p>mac inter :<a href="https://github.com/XIU2/CloudflareSpeedTest/releases/download/v2.2.4/CloudflareST_darwin_amd64.zip">下载地址&gt;&gt;</a></p>
-<p>mac arm :<a href="https://github.com/XIU2/CloudflareSpeedTest/releases/download/v2.2.4/CloudflareST_darwin_arm64.zip">下载地址&gt;&gt;</a></p>
-<p>cloudflarest ip段：<a href="https://zip.baipiao.eu.org/">下载地址&gt;&gt;</a></p>
-<p>备注：需要自行下载上方CDN IP段否则只能延迟测速。</p>
-<p>终端：</p>
-<p>cd &#x2F;xxxx&#x2F;xxxxx&#x2F;CloudfareST_darwin_amd64</p>
-<p>无法使用以下代码或报错请赋予权限：</p>
-<p>chmod a+x CloudflareST</p>
-<p>若实在无法解决该问题请使用这个网站进行优选ip <em><a href="https://vfarid.github.io/cf-ip-scanner/?max=30">点击优选ip&gt;&gt;</a>)</em></p>
-<p><a href=""><img src="https://img.051516.xyz/202311061021358.png" alt="img"></a></p>
-<p>普通ip优选</p>
-<p>sudo .&#x2F;CloudflareST</p>
-<p>10 个平均延迟低于 200 ms且下载速度高于3MB&#x2F;s的IP</p>
-<p>sudo .&#x2F;CloudflareST -url <a href="https://jp.cloudflarest.link/">https://jp.cloudflarest.link</a> -tl 200 -sl 3 -dn 10</p>
-<p>sudo .&#x2F;CloudflareST -url <a href="https://hkcs.cloudflarest.link/">https://hkcs.cloudflarest.link</a> -tl 200 -sl 3 -dn 10</p>
-<h2 id="教程"><a href="#教程" class="headerlink" title="教程"></a>教程</h2><h3 id="一、注册cloudflare账：https-dash-cloudflare-com-login"><a href="#一、注册cloudflare账：https-dash-cloudflare-com-login" class="headerlink" title="一、注册cloudflare账：https://dash.cloudflare.com/login"></a>一、注册cloudflare账：<a href="https://dash.cloudflare.com/login">https://dash.cloudflare.com/login</a></h3><p>点击Workers 和 Pages，创建Workers</p>
-<p><img src="https://img.051516.xyz/202311061022123.png"></p>
-<p>写上备注或者名字</p>
-<p><img src="https://img.051516.xyz/202311061022475.png"></p>
-<h3 id="二、代码部署"><a href="#二、代码部署" class="headerlink" title="二、代码部署"></a>二、代码部署</h3><p>复制代码到编辑器：<a href="https://github.com/zizifn/edgetunnel/blob/main/src/worker-vless.js">https://github.com/zizifn/edgetunnel/blob/main/src/worker-vless.js</a></p>
-<p>修改userid–生成：<a href="https://1024tools.com/uuid">https://1024tools.com/uuid</a></p>
-<p>修改proxyip–cdn加速（随便选一个）</p>
-<p>cdn-all.xn–b6gac.eu.org<br>cdn.xn–b6gac.eu.org<br>cdn-b100.xn–b6gac.eu.org<br>edgetunnel.anycast.eu.org<br>cdn.anycast.eu.org （亚洲地区）</p>
-<p>或**(113.64.186.198或者103.200.112.108或者199.15.76.35)**</p>
-<p><strong>通过issues进行proxyip查找：<a href="https://github.com/zizifn/edgetunnel/issues/162">https://github.com/zizifn/edgetunnel/issues/162</a></strong></p>
-<p><a href=""><img src="https://img.051516.xyz/202311061023400.webp" alt="img"></a></p>
-<h3 id="三、点击部署运行，然后在浏览器输入地址【网站域名-和刚刚修改的uuid】"><a href="#三、点击部署运行，然后在浏览器输入地址【网站域名-和刚刚修改的uuid】" class="headerlink" title="三、点击部署运行，然后在浏览器输入地址【网站域名 &#x2F; 和刚刚修改的uuid】"></a>三、点击部署运行，然后在浏览器输入地址【网站域名 &#x2F; 和刚刚修改的uuid】</h3><p>如noisevless.workers.dev&#x2F;c55-08e2-46fa-9d21-2e6020d9acd9，得到配置信息</p>
-<p><img src="https://img.051516.xyz/202311061025196.png"></p>
-<p>复制v2ray显示的信息，然后在v2ray中下拉菜单中选择从粘贴板导入，然后查看服务器列表是否有该地址</p>
-<p><a href=""><img src="https://img.051516.xyz/202311061026907.webp" alt="img"></a></p>
-<h3 id="四、配置ip优选"><a href="#四、配置ip优选" class="headerlink" title="四、配置ip优选"></a>四、配置ip优选</h3><p>本地拉取ip优选 Github：<a href="https://github.com/XIU2/CloudflareSpeedTest">https://github.com/XIU2/CloudflareSpeedTest</a></p>
-<p>下载：<a href="https://github.com/XIU2/CloudflareSpeedTest/releases">https://github.com/XIU2/CloudflareSpeedTest/releases</a></p>
-<p>国内用户建议从蓝奏云下载：<a href="https://pan.lanzouj.com/b0742hkxe">https://pan.lanzouj.com/b0742hkxe</a></p>
-<p>支持win、Mac、linux【注意：退出所有代理软件】</p>
-<p>提示：MAC 系统下如果遇到提示：open ip.txt: no such file or directory 说明你没有在软件所在目录下运行。</p>
-<p>如果平均延迟非常低（如 0.xx），则说明 CloudflareST 测速时走了代理，请先关闭代理软件后再测速。</p>
-<p>如果在路由器上运行，请先关闭路由器内的代理（或将其排除），否则测速结果可能会不准确&#x2F;无法使用。</p>
-<p>&#x3D;&#x3D;&#x3D;&#x3D;&#x3D;&#x3D;&#x3D;&#x3D;&#x3D;&#x3D;&#x3D;&#x3D;&#x3D;&#x3D;&#x3D;&#x3D;&#x3D;&#x3D;&#x3D;&#x3D;&#x3D;&#x3D;&#x3D;&#x3D;&#x3D;&#x3D;&#x3D;&#x3D;&#x3D;&#x3D;&#x3D;&#x3D;&#x3D;&#x3D;&#x3D;</p>
-<p>脚本【cfst_host.sh】的作用是 CloudflareST 测速后获取最快 IP 并替换 Hosts 中的 Cloudflare CDN IP。</p>
-<p>使用前请先阅读：<a href="https://github.com/XIU2/CloudflareSpeedTest/discussions/312#discussioncomment-5161577">https://github.com/XIU2/CloudflareSpeedTest/discussions/312#discussioncomment-5161577</a></p>
-<p>&#x3D;&#x3D;&#x3D;&#x3D;&#x3D;&#x3D;&#x3D;&#x3D;&#x3D;&#x3D;&#x3D;&#x3D;&#x3D;&#x3D;&#x3D;&#x3D;&#x3D;&#x3D;&#x3D;&#x3D;&#x3D;&#x3D;&#x3D;&#x3D;&#x3D;&#x3D;&#x3D;&#x3D;&#x3D;&#x3D;&#x3D;&#x3D;&#x3D;&#x3D;&#x3D;</p>
-<p>ip.txt 为 IPv4 数据文件<br>ipv6.txt 为 IPv6 数据文件</p>
-<p>可以使用 -f xx.txt 参数来指定不同的 IP 数据文件（支持 IPv4 + IPv6 混合测速），如：<br>.&#x2F;CloudflareST -f ipv6.txt</p>
-<p>也可以直接通过参数指定要测速的 IP，如：<br>.&#x2F;CloudflareST -ip 1.1.1.1,2606:4700::&#x2F;32</p>
-<p>Mac：终端：</p>
-<figure class="highlight plaintext"><table><tr><td class="code"><pre><span class="line">cd /xxxx/xxxxx/CloudfareST\_darwin\_amd64</span><br></pre></td></tr></table></figure>
-
-<p>无法使用以下代码或报错请赋予权限：</p>
-<figure class="highlight plaintext"><table><tr><td class="code"><pre><span class="line">chmod a+x CloudflareST</span><br></pre></td></tr></table></figure>
-
-<p>然后运行 <code>sudo ./CloudflareST</code></p>
-<p><a href=""><img src="https://img.051516.xyz/202311061026875.jpeg" alt="img"></a></p>
-<h3 id="五、v2rayu软件设置"><a href="#五、v2rayu软件设置" class="headerlink" title="五、v2rayu软件设置"></a>五、v2rayu软件设置</h3><h2 id="不设置自定义域名解析（没tls加密，80或者2052端口）："><a href="#不设置自定义域名解析（没tls加密，80或者2052端口）：" class="headerlink" title="不设置自定义域名解析（没tls加密，80或者2052端口）："></a>不设置自定义域名解析（没tls加密，80或者2052端口）：</h2><p>选择延迟最低的ip地址填入v2rayu设置中，<strong>注意：v2ray,shadowrocket等客户端要去掉tls加密，端口改为80或者2052，地址修为优选 ip，host为你部署works的地址</strong></p>
-<p><a href=""><img src="https://img.051516.xyz/202311061026600.webp" alt="img"></a></p>
-<p>点击on开启v2rayu，选择全局模式即可</p>
-<p>win端选择优选服务器后开启活动服务器</p>
-<p><a href=""><img src="https://img.051516.xyz/202311061026578.webp" alt="img"></a></p>
-<p><a href=""><img src="https://img.051516.xyz/202311061026372.webp" alt="img"></a></p>
-<h2 id="有域名（有tls加密，443端口-："><a href="#有域名（有tls加密，443端口-：" class="headerlink" title="有域名（有tls加密，443端口)："></a>有域名（有tls加密，443端口)：</h2><p>works配置域名：在触发器中添加自定义域名，然后在二级域名后加&#x2F;UUID，就能看到VLESS节点URL和Clash-meta配置<br>在v2rayN导入URL，地址栏改为优选ip，secrurity为pls，端口配置443，host为解析的域名地址，</p>
-<p><a href=""><img src="https://img.051516.xyz/202311061026359.webp" alt="img"></a></p>
-<p>确认之后就生成v2ray和clash-meta节点配置信息</p>
-<p><img src="https://img.051516.xyz/202311061027942.png"></p>
-<p><strong>3大运营商优选IP，根据自身运营商选择延迟最低IP</strong> <a href="https://stock.hostmonit.com/CloudFlareYes">点击直达</a></p>
-<p>再按照上面介绍的正确填写信息即可，别名地址都是我们自定义后的域名</p>
-<p><a href=""><img src="https://img.051516.xyz/202311061027451.webp" alt="img"></a></p>
-<h2 id="附加"><a href="#附加" class="headerlink" title="附加"></a>附加</h2><p>v2ray的正确信息修改</p>
-<p>1、修改地址,改成自己运营商的优选IP</p>
-<p>2、端口修改为2052或者80</p>
-<p>3、关闭tls</p>
-<p><img src="https://img.051516.xyz/202311061028951.png"></p>
-<figure class="highlight plaintext"><table><tr><td class="code"><pre><span class="line">PLAINTEXT</span><br><span class="line">clash-meta的正确信息修改</span><br></pre></td></tr></table></figure>
-
-<p><img src="https://img.051516.xyz/202311061029359.png"></p>
-<p>如果有域名的：<br>只需要替换优选ip，然后sni和host检查时自己的域名哦</p>
-<p>**speedtest測速-**<a href="https://www.speedtest.net/">https://www.speedtest.net/</a></p>
-]]></content>
-      <categories>
-        <category>教程</category>
-      </categories>
-      <tags>
-        <tag>NPV</tag>
-      </tags>
-  </entry>
-  <entry>
     <title>李跳跳2.2正式版</title>
     <url>/undefined/f5caf0fa.html</url>
     <content><![CDATA[<p><strong>无论你是哪个版本的李跳跳，都建议更新啊喂。</strong></p>
@@ -2945,21 +2945,6 @@
       </categories>
       <tags>
         <tag>安卓软件</tag>
-      </tags>
-  </entry>
-  <entry>
-    <title>电脑谷歌浏览器糖心使用教程</title>
-    <url>/undefined/77efc3f1.html</url>
-    <content><![CDATA[<p>1、先安装油猴插件<br><a href="https://greasyfork.org/scripts/461743-%E7%B3%96%E5%BF%83/code/%E7%B3%96%E5%BF%83.user.js">油猴插件</a><br>2、安装更改 ua 插件（挂梯子扶墙，打开 chrome 应用商店安装）<br><a href="https://chrome.google.com/webstore/detail/user-agent-switcher-and-m/bhchdcejhohfmigjafbampogmaanbfkg">https://chrome.google.com/webstore/detail/user-agent-switcher-and-m/bhchdcejhohfmigjafbampogmaanbfkg</a><br>3、按照这个教程(使用拓展插件进行修改)设置 ua<br><a href="https://blog.csdn.net/m0_46665077/article/details/125713310#22__31">https://blog.csdn.net/m0_46665077/article/details/125713310#22__31</a><br>下面是 UA：</p>
-<figure class="highlight plaintext"><table><tr><td class="code"><pre><span class="line">Mozilla/5.0(iPhone;CPUiPhoneOS11_4_1likeMacOSX)AppleWebKit/537.36(KHTML,likeGecko)Chrome/77.0.3865.116MobileSafari/11.0Mobile/58.0Firefox/12F70Safari/537.36Quark/3.8.4.128UCBrowser/12.0.4.985baiduboxapp/3.2.5.10MQQBrowser/7.2.1.2965XiaoMi/MiuiBrowser/11.9.2SearchCraft/2.0.0ALiSearchApp/2.4AliApp(TB/9.5.6)BingWeb/6.2TBS/537.36Weiyun/6.9.37(Android)Weiyun(zh-Hans)/537.36</span><br></pre></td></tr></table></figure>
-
-<p>4、最后打开网址<a href="https://txh016.com/">https://txh016.com</a>奔放</p>
-]]></content>
-      <categories>
-        <category>教程</category>
-      </categories>
-      <tags>
-        <tag>18+</tag>
       </tags>
   </entry>
   <entry>
@@ -3020,6 +3005,21 @@
       </categories>
       <tags>
         <tag>短信转发</tag>
+      </tags>
+  </entry>
+  <entry>
+    <title>电脑谷歌浏览器糖心使用教程</title>
+    <url>/undefined/77efc3f1.html</url>
+    <content><![CDATA[<p>1、先安装油猴插件<br><a href="https://greasyfork.org/scripts/461743-%E7%B3%96%E5%BF%83/code/%E7%B3%96%E5%BF%83.user.js">油猴插件</a><br>2、安装更改 ua 插件（挂梯子扶墙，打开 chrome 应用商店安装）<br><a href="https://chrome.google.com/webstore/detail/user-agent-switcher-and-m/bhchdcejhohfmigjafbampogmaanbfkg">https://chrome.google.com/webstore/detail/user-agent-switcher-and-m/bhchdcejhohfmigjafbampogmaanbfkg</a><br>3、按照这个教程(使用拓展插件进行修改)设置 ua<br><a href="https://blog.csdn.net/m0_46665077/article/details/125713310#22__31">https://blog.csdn.net/m0_46665077/article/details/125713310#22__31</a><br>下面是 UA：</p>
+<figure class="highlight plaintext"><table><tr><td class="code"><pre><span class="line">Mozilla/5.0(iPhone;CPUiPhoneOS11_4_1likeMacOSX)AppleWebKit/537.36(KHTML,likeGecko)Chrome/77.0.3865.116MobileSafari/11.0Mobile/58.0Firefox/12F70Safari/537.36Quark/3.8.4.128UCBrowser/12.0.4.985baiduboxapp/3.2.5.10MQQBrowser/7.2.1.2965XiaoMi/MiuiBrowser/11.9.2SearchCraft/2.0.0ALiSearchApp/2.4AliApp(TB/9.5.6)BingWeb/6.2TBS/537.36Weiyun/6.9.37(Android)Weiyun(zh-Hans)/537.36</span><br></pre></td></tr></table></figure>
+
+<p>4、最后打开网址<a href="https://txh016.com/">https://txh016.com</a>奔放</p>
+]]></content>
+      <categories>
+        <category>教程</category>
+      </categories>
+      <tags>
+        <tag>18+</tag>
       </tags>
   </entry>
   <entry>
