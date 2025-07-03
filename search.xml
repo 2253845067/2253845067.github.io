@@ -1,6 +1,24 @@
 <?xml version="1.0" encoding="utf-8"?>
 <search>
   <entry>
+    <title>5G21第二批刷机以及不同作者间的固件切换</title>
+    <url>/undefined/7ae0e921.html</url>
+    <content><![CDATA[<p>lean 的 q-wrt 可以进行 webui 直接更新 进入 webui 后依次点击系统-服务&#x2F;备份-刷写新的固件上传固件后升级。切记不要勾选保留配置。<br>切换到志平或狂风固件请使用 winscp 等工具上传到 tmp 目录后，ssh 输入以下的命令，记得先 cd 到 tmp 目录。</p>
+<figure class="highlight plaintext"><table><tr><td class="code"><pre><span class="line">sysupgrade -F -n xxx.bin</span><br></pre></td></tr></table></figure>
+
+<p>或者使用以下命令强刷</p>
+<figure class="highlight plaintext"><table><tr><td class="code"><pre><span class="line">sysupgrade -F -n -v xxx.bin</span><br></pre></td></tr></table></figure>
+
+<p><strong>xxx 为固件名字</strong></p>
+]]></content>
+      <categories>
+        <category>教程</category>
+      </categories>
+      <tags>
+        <tag>路由器</tag>
+      </tags>
+  </entry>
+  <entry>
     <title>1panel面板部署哪吒监控v1</title>
     <url>/undefined/aad1ff9e.html</url>
     <content><![CDATA[<h1 id="域名解析"><a href="#域名解析" class="headerlink" title="域名解析"></a>域名解析</h1><p>面板域名以<code>nezha.a.com</code>为例</p>
@@ -50,24 +68,6 @@
 <li>在个人信息里面绑定即可</li>
 </ol>
 ]]></content>
-  </entry>
-  <entry>
-    <title>5G21第二批刷机以及不同作者间的固件切换</title>
-    <url>/undefined/7ae0e921.html</url>
-    <content><![CDATA[<p>lean 的 q-wrt 可以进行 webui 直接更新 进入 webui 后依次点击系统-服务&#x2F;备份-刷写新的固件上传固件后升级。切记不要勾选保留配置。<br>切换到志平或狂风固件请使用 winscp 等工具上传到 tmp 目录后，ssh 输入以下的命令，记得先 cd 到 tmp 目录。</p>
-<figure class="highlight plaintext"><table><tr><td class="code"><pre><span class="line">sysupgrade -F -n xxx.bin</span><br></pre></td></tr></table></figure>
-
-<p>或者使用以下命令强刷</p>
-<figure class="highlight plaintext"><table><tr><td class="code"><pre><span class="line">sysupgrade -F -n -v xxx.bin</span><br></pre></td></tr></table></figure>
-
-<p><strong>xxx 为固件名字</strong></p>
-]]></content>
-      <categories>
-        <category>教程</category>
-      </categories>
-      <tags>
-        <tag>路由器</tag>
-      </tags>
   </entry>
   <entry>
     <title>ABPLC通过Modbus TCP读取设备压力值</title>
@@ -1795,6 +1795,60 @@
 ]]></content>
   </entry>
   <entry>
+    <title>SEW-MC07B变频器-MOTION--STUDIO软件调试步骤、方法和技巧</title>
+    <url>/undefined/421934fd.html</url>
+    <content><![CDATA[<p><img src="https://img.051516.xyz/20250524205528464.PNG" alt="4"></p>
+<p><img src="https://img.051516.xyz/20250524205547050.PNG" alt="5"></p>
+<p><img src="https://img.051516.xyz/20250524205627985.PNG" alt="6"></p>
+<p><img src="https://img.051516.xyz/20250524205645010.PNG" alt="7"></p>
+<p><img src="https://img.051516.xyz/20250524205656950.PNG" alt="8"></p>
+<p><img src="https://img.051516.xyz/20250524205709394.PNG" alt="9"></p>
+<p><img src="https://img.051516.xyz/20250524205720726.PNG" alt="10"></p>
+<p><img src="https://img.051516.xyz/20250524205733378.PNG" alt="11"></p>
+<p><img src="https://img.051516.xyz/20250524205754775.PNG" alt="12"></p>
+<p><img src="https://img.051516.xyz/20250524205811663.PNG" alt="13"></p>
+<p><img src="https://img.051516.xyz/20250524205821221.PNG" alt="14"></p>
+<p><img src="https://img.051516.xyz/20250524205834316.PNG" alt="15"></p>
+<p><img src="https://img.051516.xyz/20250524205843533.PNG" alt="16"></p>
+<p><img src="https://img.051516.xyz/20250524205901797.PNG" alt="17"></p>
+<p><img src="https://img.051516.xyz/20250524205914973.PNG" alt="18"></p>
+<p><img src="https://img.051516.xyz/20250524205928160.PNG" alt="19"></p>
+<p><img src="https://img.051516.xyz/20250524205940302.PNG" alt="20"></p>
+<p><img src="https://img.051516.xyz/20250524205950644.PNG" alt="21"></p>
+<p><img src="https://img.051516.xyz/20250524210006913.PNG" alt="22"></p>
+<p><img src="https://img.051516.xyz/20250524210029075.PNG" alt="23"></p>
+<p><img src="https://img.051516.xyz/20250524210042996.PNG" alt="24"></p>
+<p><img src="https://img.051516.xyz/20250524210105981.PNG" alt="25"></p>
+<p><img src="https://img.051516.xyz/20250524210122505.PNG" alt="26"></p>
+<p><img src="https://img.051516.xyz/20250524210136340.PNG" alt="27"></p>
+<p><img src="https://img.051516.xyz/20250524210145600.PNG" alt="28"></p>
+<p><img src="https://img.051516.xyz/20250524210156379.PNG" alt="29"></p>
+<p><img src="https://img.051516.xyz/20250524210210502.PNG" alt="30"></p>
+<p><img src="https://img.051516.xyz/20250524210234883.PNG" alt="31"></p>
+<p><img src="https://img.051516.xyz/20250524210248367.PNG" alt="32"></p>
+<p><img src="https://img.051516.xyz/20250524210258079.PNG" alt="33"></p>
+<p><img src="https://img.051516.xyz/20250524210309675.PNG" alt="34"></p>
+<p><img src="https://img.051516.xyz/20250524210319649.PNG" alt="35"></p>
+<p><img src="https://img.051516.xyz/20250524210333008.PNG" alt="36"></p>
+<p><img src="https://img.051516.xyz/20250524210342988.PNG" alt="37"></p>
+<p><img src="https://img.051516.xyz/20250524210354944.PNG" alt="38"></p>
+<p><img src="https://img.051516.xyz/20250524210407861.PNG" alt="39"></p>
+<p><img src="https://img.051516.xyz/20250524210423100.PNG" alt="40"></p>
+<p><img src="https://img.051516.xyz/20250524210434359.PNG" alt="41"></p>
+<p><img src="https://img.051516.xyz/20250524210450567.PNG" alt="42"></p>
+<p><img src="https://img.051516.xyz/20250524210503106.PNG" alt="43"></p>
+<p><img src="https://img.051516.xyz/20250524210515428.PNG" alt="44"></p>
+<p><img src="https://img.051516.xyz/20250524210527098.PNG" alt="45"></p>
+<p><img src="https://img.051516.xyz/20250524210537936.PNG" alt="46"></p>
+<p><img src="https://img.051516.xyz/20250524210549531.PNG" alt="47"></p>
+<p><img src="https://img.051516.xyz/20250524210601981.PNG" alt="48"></p>
+<p><img src="https://img.051516.xyz/20250524210614094.PNG" alt="49"></p>
+<p><img src="https://img.051516.xyz/20250524210627091.PNG" alt="50"></p>
+<p><img src="https://img.051516.xyz/20250524210637201.PNG" alt="51"></p>
+<p><img src="https://img.051516.xyz/20250524210647926.PNG" alt="52"></p>
+]]></content>
+  </entry>
+  <entry>
     <title>SEW-MDX61B变频器定位控制调试流程</title>
     <url>/undefined/e4c152dc.html</url>
     <content><![CDATA[<h1 id="一、-调试准备"><a href="#一、-调试准备" class="headerlink" title="一、 调试准备"></a>一、 调试准备</h1><h2 id="操作系统及调试软件"><a href="#操作系统及调试软件" class="headerlink" title="操作系统及调试软件"></a>操作系统及调试软件</h2><p>操作系统：Windows 7 64 位操作系统</p>
@@ -1947,60 +2001,6 @@
       </tags>
   </entry>
   <entry>
-    <title>SEW-MC07B变频器-MOTION--STUDIO软件调试步骤、方法和技巧</title>
-    <url>/undefined/421934fd.html</url>
-    <content><![CDATA[<p><img src="https://img.051516.xyz/20250524205528464.PNG" alt="4"></p>
-<p><img src="https://img.051516.xyz/20250524205547050.PNG" alt="5"></p>
-<p><img src="https://img.051516.xyz/20250524205627985.PNG" alt="6"></p>
-<p><img src="https://img.051516.xyz/20250524205645010.PNG" alt="7"></p>
-<p><img src="https://img.051516.xyz/20250524205656950.PNG" alt="8"></p>
-<p><img src="https://img.051516.xyz/20250524205709394.PNG" alt="9"></p>
-<p><img src="https://img.051516.xyz/20250524205720726.PNG" alt="10"></p>
-<p><img src="https://img.051516.xyz/20250524205733378.PNG" alt="11"></p>
-<p><img src="https://img.051516.xyz/20250524205754775.PNG" alt="12"></p>
-<p><img src="https://img.051516.xyz/20250524205811663.PNG" alt="13"></p>
-<p><img src="https://img.051516.xyz/20250524205821221.PNG" alt="14"></p>
-<p><img src="https://img.051516.xyz/20250524205834316.PNG" alt="15"></p>
-<p><img src="https://img.051516.xyz/20250524205843533.PNG" alt="16"></p>
-<p><img src="https://img.051516.xyz/20250524205901797.PNG" alt="17"></p>
-<p><img src="https://img.051516.xyz/20250524205914973.PNG" alt="18"></p>
-<p><img src="https://img.051516.xyz/20250524205928160.PNG" alt="19"></p>
-<p><img src="https://img.051516.xyz/20250524205940302.PNG" alt="20"></p>
-<p><img src="https://img.051516.xyz/20250524205950644.PNG" alt="21"></p>
-<p><img src="https://img.051516.xyz/20250524210006913.PNG" alt="22"></p>
-<p><img src="https://img.051516.xyz/20250524210029075.PNG" alt="23"></p>
-<p><img src="https://img.051516.xyz/20250524210042996.PNG" alt="24"></p>
-<p><img src="https://img.051516.xyz/20250524210105981.PNG" alt="25"></p>
-<p><img src="https://img.051516.xyz/20250524210122505.PNG" alt="26"></p>
-<p><img src="https://img.051516.xyz/20250524210136340.PNG" alt="27"></p>
-<p><img src="https://img.051516.xyz/20250524210145600.PNG" alt="28"></p>
-<p><img src="https://img.051516.xyz/20250524210156379.PNG" alt="29"></p>
-<p><img src="https://img.051516.xyz/20250524210210502.PNG" alt="30"></p>
-<p><img src="https://img.051516.xyz/20250524210234883.PNG" alt="31"></p>
-<p><img src="https://img.051516.xyz/20250524210248367.PNG" alt="32"></p>
-<p><img src="https://img.051516.xyz/20250524210258079.PNG" alt="33"></p>
-<p><img src="https://img.051516.xyz/20250524210309675.PNG" alt="34"></p>
-<p><img src="https://img.051516.xyz/20250524210319649.PNG" alt="35"></p>
-<p><img src="https://img.051516.xyz/20250524210333008.PNG" alt="36"></p>
-<p><img src="https://img.051516.xyz/20250524210342988.PNG" alt="37"></p>
-<p><img src="https://img.051516.xyz/20250524210354944.PNG" alt="38"></p>
-<p><img src="https://img.051516.xyz/20250524210407861.PNG" alt="39"></p>
-<p><img src="https://img.051516.xyz/20250524210423100.PNG" alt="40"></p>
-<p><img src="https://img.051516.xyz/20250524210434359.PNG" alt="41"></p>
-<p><img src="https://img.051516.xyz/20250524210450567.PNG" alt="42"></p>
-<p><img src="https://img.051516.xyz/20250524210503106.PNG" alt="43"></p>
-<p><img src="https://img.051516.xyz/20250524210515428.PNG" alt="44"></p>
-<p><img src="https://img.051516.xyz/20250524210527098.PNG" alt="45"></p>
-<p><img src="https://img.051516.xyz/20250524210537936.PNG" alt="46"></p>
-<p><img src="https://img.051516.xyz/20250524210549531.PNG" alt="47"></p>
-<p><img src="https://img.051516.xyz/20250524210601981.PNG" alt="48"></p>
-<p><img src="https://img.051516.xyz/20250524210614094.PNG" alt="49"></p>
-<p><img src="https://img.051516.xyz/20250524210627091.PNG" alt="50"></p>
-<p><img src="https://img.051516.xyz/20250524210637201.PNG" alt="51"></p>
-<p><img src="https://img.051516.xyz/20250524210647926.PNG" alt="52"></p>
-]]></content>
-  </entry>
-  <entry>
     <title>SICK区扫调试步骤</title>
     <url>/undefined/af80d2f7.html</url>
     <content><![CDATA[<p><img src="https://img.051516.xyz/202303041357323.JPG" alt="幻灯片1"><br><img src="https://img.051516.xyz/202303041357782.JPG" alt="幻灯片2"></p>
@@ -2081,6 +2081,31 @@
 ]]></content>
   </entry>
   <entry>
+    <title>VPS一键脚本分享</title>
+    <url>/undefined/2419758f.html</url>
+    <content><![CDATA[<p><img src="https://img.051516.xyz/202305051611537.png"></p>
+<p><strong>一键脚本</strong></p>
+<figure class="highlight shell"><table><tr><td class="code"><pre><span class="line">apt update -y &amp;&amp; apt install -y wget sudo</span><br><span class="line"></span><br><span class="line">wget --no-check-certificate -O tcpx.sh https://raw.githubusercontent.com/ylx2016/Linux-NetSpeed/master/tcpx.sh</span><br><span class="line"></span><br><span class="line">chmod +x tcpx.sh</span><br><span class="line"></span><br><span class="line">./tcpx.sh</span><br></pre></td></tr></table></figure>
+
+
+
+<p><strong>以后运行</strong>**</p>
+<figure class="highlight plaintext"><table><tr><td class="code"><pre><span class="line">./tcpx.sh</span><br></pre></td></tr></table></figure>
+
+
+
+<p><strong>注意</strong></p>
+<p>更新内核需要谨慎 使用后台运行模式最稳妥，我在SSH自动中断后失联了一台服务器。</p>
+<p>推荐使用tmux后台工具</p>
+]]></content>
+      <categories>
+        <category>教程</category>
+      </categories>
+      <tags>
+        <tag>服务器</tag>
+      </tags>
+  </entry>
+  <entry>
     <title>V2,R.a,y.A——新一代Linux客户端安装配置教程</title>
     <url>/undefined/a53fea94.html</url>
     <content><![CDATA[<h1 id="前言"><a href="#前言" class="headerlink" title="前言"></a>前言</h1><p>上一次我们介绍的Qv2ray还是有一些同学不会安装，而且Qv2ray也不再更新了，所以我就另外去找了，刚好找到一个安装配置都非常简单的软件，也就是本章的主角——v2rayA</p>
@@ -2131,31 +2156,6 @@
       </categories>
       <tags>
         <tag>v2</tag>
-      </tags>
-  </entry>
-  <entry>
-    <title>VPS一键脚本分享</title>
-    <url>/undefined/2419758f.html</url>
-    <content><![CDATA[<p><img src="https://img.051516.xyz/202305051611537.png"></p>
-<p><strong>一键脚本</strong></p>
-<figure class="highlight shell"><table><tr><td class="code"><pre><span class="line">apt update -y &amp;&amp; apt install -y wget sudo</span><br><span class="line"></span><br><span class="line">wget --no-check-certificate -O tcpx.sh https://raw.githubusercontent.com/ylx2016/Linux-NetSpeed/master/tcpx.sh</span><br><span class="line"></span><br><span class="line">chmod +x tcpx.sh</span><br><span class="line"></span><br><span class="line">./tcpx.sh</span><br></pre></td></tr></table></figure>
-
-
-
-<p><strong>以后运行</strong>**</p>
-<figure class="highlight plaintext"><table><tr><td class="code"><pre><span class="line">./tcpx.sh</span><br></pre></td></tr></table></figure>
-
-
-
-<p><strong>注意</strong></p>
-<p>更新内核需要谨慎 使用后台运行模式最稳妥，我在SSH自动中断后失联了一台服务器。</p>
-<p>推荐使用tmux后台工具</p>
-]]></content>
-      <categories>
-        <category>教程</category>
-      </categories>
-      <tags>
-        <tag>服务器</tag>
       </tags>
   </entry>
   <entry>
@@ -2220,43 +2220,6 @@
       </tags>
   </entry>
   <entry>
-    <title>git每次操作提示输入密码问题解决</title>
-    <url>/undefined/21c693ea.html</url>
-    <content><![CDATA[<p><strong>提示：git每次pull提示需要密码</strong></p>
-<hr>
-<h1 id="错误提示"><a href="#错误提示" class="headerlink" title="错误提示"></a>错误提示</h1><figure class="highlight plaintext"><table><tr><td class="code"><pre><span class="line">Administrator@DEEP MINGW64 /f/code/xxx-service (master)</span><br><span class="line">$ git pull</span><br><span class="line">git@gitlab.xxx.com&#x27;s password:</span><br></pre></td></tr></table></figure>
-
-<h1 id="原因"><a href="#原因" class="headerlink" title="原因"></a>原因</h1><p>只提示输入密码的情况，一般是秘钥验证失败。二种情况</p>
-<hr>
-<h1 id="1、公钥验证错误"><a href="#1、公钥验证错误" class="headerlink" title="1、公钥验证错误"></a>1、公钥验证错误</h1><p>  解决方法如下，以github为例</p>
-<p>  在<a href="https://github.com/settings/keys">https://github.com/settings/keys</a> 界面，将生成的<a href="https://so.csdn.net/so/search?q=%E5%85%AC%E9%92%A5&spm=1001.2101.3001.7020">公钥</a>添加到SSH keys项中</p>
-<p>  如没有则使用<a href="https://so.csdn.net/so/search?q=ssh-keygen&spm=1001.2101.3001.7020">ssh-keygen</a>命令生成</p>
-<figure class="highlight plaintext"><table><tr><td class="code"><pre><span class="line">ssh-keygen -t rsa -C &quot;Your Email Address&quot; -f &quot;~/.ssh/gitlab_id_rsa&quot;</span><br></pre></td></tr></table></figure>
-
-<h1 id="2、私钥验证错误"><a href="#2、私钥验证错误" class="headerlink" title="2、私钥验证错误"></a>2、私钥验证错误</h1><p>git拉取代码时没有配置私钥认证</p>
-<p>使用以下命令添加认证到ssh</p>
-<figure class="highlight plaintext"><table><tr><td class="code"><pre><span class="line">ssh-add ~/.ssh/gitlab_id_rsa</span><br></pre></td></tr></table></figure>
-
-<p>使用以上命令，只能对当前环境生效，重启或新开终端会继续提示输入密码</p>
-<p>永久解决：在<code>~/.ssh/config</code>文件中（没有则新建），指定对应git服务使用的认证秘钥文件即可</p>
-<figure class="highlight plaintext"><table><tr><td class="code"><pre><span class="line"># GitLab.com 密钥</span><br><span class="line">Host github.com</span><br><span class="line">  Preferredauthentications publickey</span><br><span class="line">  IdentityFile ~/.ssh/github_id_rsa</span><br><span class="line"># GitLab.com 密钥</span><br><span class="line">Host gitlab.xxx.com</span><br><span class="line">  Preferredauthentications publickey</span><br><span class="line">  IdentityFile ~/.ssh/gitlab_id_rsa</span><br></pre></td></tr></table></figure>
-
-
-
-<hr>
-<h1 id="总结"><a href="#总结" class="headerlink" title="总结"></a>总结</h1><ol>
-<li>直接提示输入密码的，为秘钥认证失败，使用以上方法即可解决</li>
-<li>提示输入账号和密码的，为账号认证失败，使用<code>git config --global credential.helper store</code>命令，可输入一次密码后永久存储</li>
-</ol>
-]]></content>
-      <categories>
-        <category>教程</category>
-      </categories>
-      <tags>
-        <tag>git</tag>
-      </tags>
-  </entry>
-  <entry>
     <title>hysteria2与reality共存安装</title>
     <url>/undefined/756577dc.html</url>
     <content><![CDATA[<h1 id="前言"><a href="#前言" class="headerlink" title="前言"></a>前言</h1><p>1.目前伪装最好的两种协议，一个代表tcp协议（reality）的目前巅峰，一个新型UDP协议（hysteria2）的宠儿。<br>2.这次用的sing-box搭建 <a href="https://sing-box.sagernet.org/zh">https://sing-box.sagernet.org/zh</a> 因为简单。之前一直用八合一，最大的问题就是各种伪装后，机器就只能拿来科学上网了，因为安装Nginx，搭建个网页啥的都很麻烦。<br>3.教程亮点，无需自备域名。<br>3.passwall发现没有类似的设置教程，所以出一个。</p>
@@ -2306,6 +2269,43 @@
       </categories>
       <tags>
         <tag>服务器</tag>
+      </tags>
+  </entry>
+  <entry>
+    <title>git每次操作提示输入密码问题解决</title>
+    <url>/undefined/21c693ea.html</url>
+    <content><![CDATA[<p><strong>提示：git每次pull提示需要密码</strong></p>
+<hr>
+<h1 id="错误提示"><a href="#错误提示" class="headerlink" title="错误提示"></a>错误提示</h1><figure class="highlight plaintext"><table><tr><td class="code"><pre><span class="line">Administrator@DEEP MINGW64 /f/code/xxx-service (master)</span><br><span class="line">$ git pull</span><br><span class="line">git@gitlab.xxx.com&#x27;s password:</span><br></pre></td></tr></table></figure>
+
+<h1 id="原因"><a href="#原因" class="headerlink" title="原因"></a>原因</h1><p>只提示输入密码的情况，一般是秘钥验证失败。二种情况</p>
+<hr>
+<h1 id="1、公钥验证错误"><a href="#1、公钥验证错误" class="headerlink" title="1、公钥验证错误"></a>1、公钥验证错误</h1><p>  解决方法如下，以github为例</p>
+<p>  在<a href="https://github.com/settings/keys">https://github.com/settings/keys</a> 界面，将生成的<a href="https://so.csdn.net/so/search?q=%E5%85%AC%E9%92%A5&spm=1001.2101.3001.7020">公钥</a>添加到SSH keys项中</p>
+<p>  如没有则使用<a href="https://so.csdn.net/so/search?q=ssh-keygen&spm=1001.2101.3001.7020">ssh-keygen</a>命令生成</p>
+<figure class="highlight plaintext"><table><tr><td class="code"><pre><span class="line">ssh-keygen -t rsa -C &quot;Your Email Address&quot; -f &quot;~/.ssh/gitlab_id_rsa&quot;</span><br></pre></td></tr></table></figure>
+
+<h1 id="2、私钥验证错误"><a href="#2、私钥验证错误" class="headerlink" title="2、私钥验证错误"></a>2、私钥验证错误</h1><p>git拉取代码时没有配置私钥认证</p>
+<p>使用以下命令添加认证到ssh</p>
+<figure class="highlight plaintext"><table><tr><td class="code"><pre><span class="line">ssh-add ~/.ssh/gitlab_id_rsa</span><br></pre></td></tr></table></figure>
+
+<p>使用以上命令，只能对当前环境生效，重启或新开终端会继续提示输入密码</p>
+<p>永久解决：在<code>~/.ssh/config</code>文件中（没有则新建），指定对应git服务使用的认证秘钥文件即可</p>
+<figure class="highlight plaintext"><table><tr><td class="code"><pre><span class="line"># GitLab.com 密钥</span><br><span class="line">Host github.com</span><br><span class="line">  Preferredauthentications publickey</span><br><span class="line">  IdentityFile ~/.ssh/github_id_rsa</span><br><span class="line"># GitLab.com 密钥</span><br><span class="line">Host gitlab.xxx.com</span><br><span class="line">  Preferredauthentications publickey</span><br><span class="line">  IdentityFile ~/.ssh/gitlab_id_rsa</span><br></pre></td></tr></table></figure>
+
+
+
+<hr>
+<h1 id="总结"><a href="#总结" class="headerlink" title="总结"></a>总结</h1><ol>
+<li>直接提示输入密码的，为秘钥认证失败，使用以上方法即可解决</li>
+<li>提示输入账号和密码的，为账号认证失败，使用<code>git config --global credential.helper store</code>命令，可输入一次密码后永久存储</li>
+</ol>
+]]></content>
+      <categories>
+        <category>教程</category>
+      </categories>
+      <tags>
+        <tag>git</tag>
       </tags>
   </entry>
   <entry>

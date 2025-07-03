@@ -2,8 +2,8 @@ https://blog.ikun.ink/about/index.html
 https://blog.ikun.ink/archives/index.html
 https://blog.ikun.ink/categories/index.html
 https://blog.ikun.ink/comment/index.html
-https://blog.ikun.ink/link/index.html
 https://blog.ikun.ink/tags/index.html
+https://blog.ikun.ink/link/index.html
 https://blog.ikun.ink/undefined/175f8f8b.html
 https://blog.ikun.ink/undefined/421934fd.html
 https://blog.ikun.ink/undefined/908d3d13.html
