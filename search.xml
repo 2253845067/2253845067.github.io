@@ -350,6 +350,27 @@
       </tags>
   </entry>
   <entry>
+    <title>Butterfly主题添加本地搜索功能</title>
+    <url>/undefined/f2a576c2.html</url>
+    <content><![CDATA[<p>安装插件：</p>
+<figure class="highlight bash"><table><tr><td class="code"><pre><span class="line">npm install hexo-generator-search --save</span><br></pre></td></tr></table></figure>
+
+<p>修改_config.yml文件，添加以下内容</p>
+<figure class="highlight yml"><table><tr><td class="code"><pre><span class="line"><span class="comment"># 添加本地搜索</span></span><br><span class="line"><span class="attr">search:</span></span><br><span class="line">  <span class="attr">path:</span> <span class="string">search.xml</span></span><br><span class="line">  <span class="attr">field:</span> <span class="string">post</span></span><br><span class="line">  <span class="attr">content:</span> <span class="literal">true</span></span><br><span class="line">  <span class="attr">format:</span> <span class="string">html</span></span><br></pre></td></tr></table></figure>
+
+<p>修改_config.butterfly.yml文件，添加以下内容</p>
+<figure class="highlight yml"><table><tr><td class="code"><pre><span class="line"><span class="comment"># Local search</span></span><br><span class="line"><span class="attr">local_search:</span></span><br><span class="line">  <span class="attr">enable:</span> <span class="literal">true</span></span><br><span class="line">  <span class="comment"># Preload the search data when the page loads.</span></span><br><span class="line">  <span class="attr">preload:</span> <span class="literal">false</span></span><br><span class="line">  <span class="comment"># Show top n results per article, show all results by setting to -1</span></span><br><span class="line">  <span class="attr">top_n_per_article:</span> <span class="number">1</span></span><br><span class="line">  <span class="comment"># Unescape html strings to the readable one.</span></span><br><span class="line">  <span class="attr">unescape:</span> <span class="literal">false</span></span><br><span class="line">  <span class="attr">CDN:</span></span><br></pre></td></tr></table></figure>
+
+]]></content>
+      <categories>
+        <category>教程</category>
+      </categories>
+      <tags>
+        <tag>Butterfly</tag>
+        <tag>hexo</tag>
+      </tags>
+  </entry>
+  <entry>
     <title>Butterfly主题添加一图流背景与顶部图修改</title>
     <url>/undefined/f7d3fad8.html</url>
     <content><![CDATA[<h2 id="介绍"><a href="#介绍" class="headerlink" title="介绍"></a>介绍</h2><p>本文将会详细介绍一图流背景与顶部图的修改过程。</p>
@@ -376,27 +397,6 @@
 <h2 id="后记"><a href="#后记" class="headerlink" title="后记"></a>后记</h2><p>其实在早些时候，有篇最终效果差不多的修改教程。<br><a href="https://www.nesxc.com/">@Nesxc</a> 大佬写的<a href="https://www.nesxc.com/60/">butterfly 文章页美化教程</a>。<br>是通过直接修改主题源文件的方式实现的。<br>而本文的修改方式是使用了 Hexo 的<a href="https://hexo.io/zh-cn/docs/plugins">插件</a>系统实现的。</p>
 <p>插件版的优点是更新主题时，只要结构变化不大，便无需任何操作即可继续使用。并且在管理上比较方便。<br>源文件版的优点是效率会略高一点，毕竟是直接修改的主题源文件。</p>
 <p>如果像我一样，不想每次升级主题都可能要重新改一遍，或是为了方便管理，则可以选择插件版。<br>如果是本来就修改了源文件，也不介意再多修改这一个，则可以选择源文件版。</p>
-]]></content>
-      <categories>
-        <category>教程</category>
-      </categories>
-      <tags>
-        <tag>Butterfly</tag>
-        <tag>hexo</tag>
-      </tags>
-  </entry>
-  <entry>
-    <title>Butterfly主题添加本地搜索功能</title>
-    <url>/undefined/f2a576c2.html</url>
-    <content><![CDATA[<p>安装插件：</p>
-<figure class="highlight bash"><table><tr><td class="code"><pre><span class="line">npm install hexo-generator-search --save</span><br></pre></td></tr></table></figure>
-
-<p>修改_config.yml文件，添加以下内容</p>
-<figure class="highlight yml"><table><tr><td class="code"><pre><span class="line"><span class="comment"># 添加本地搜索</span></span><br><span class="line"><span class="attr">search:</span></span><br><span class="line">  <span class="attr">path:</span> <span class="string">search.xml</span></span><br><span class="line">  <span class="attr">field:</span> <span class="string">post</span></span><br><span class="line">  <span class="attr">content:</span> <span class="literal">true</span></span><br><span class="line">  <span class="attr">format:</span> <span class="string">html</span></span><br></pre></td></tr></table></figure>
-
-<p>修改_config.butterfly.yml文件，添加以下内容</p>
-<figure class="highlight yml"><table><tr><td class="code"><pre><span class="line"><span class="comment"># Local search</span></span><br><span class="line"><span class="attr">local_search:</span></span><br><span class="line">  <span class="attr">enable:</span> <span class="literal">true</span></span><br><span class="line">  <span class="comment"># Preload the search data when the page loads.</span></span><br><span class="line">  <span class="attr">preload:</span> <span class="literal">false</span></span><br><span class="line">  <span class="comment"># Show top n results per article, show all results by setting to -1</span></span><br><span class="line">  <span class="attr">top_n_per_article:</span> <span class="number">1</span></span><br><span class="line">  <span class="comment"># Unescape html strings to the readable one.</span></span><br><span class="line">  <span class="attr">unescape:</span> <span class="literal">false</span></span><br><span class="line">  <span class="attr">CDN:</span></span><br></pre></td></tr></table></figure>
-
 ]]></content>
       <categories>
         <category>教程</category>
@@ -2001,24 +2001,6 @@
       </tags>
   </entry>
   <entry>
-    <title>SICK区扫调试步骤</title>
-    <url>/undefined/af80d2f7.html</url>
-    <content><![CDATA[<p><img src="https://img.051516.xyz/202303041357323.JPG" alt="幻灯片1"><br><img src="https://img.051516.xyz/202303041357782.JPG" alt="幻灯片2"></p>
-<p><img src="https://img.051516.xyz/202303041358093.JPG" alt="幻灯片3"></p>
-<p><img src="https://img.051516.xyz/202303041358392.JPG" alt="幻灯片4"></p>
-<p><img src="https://img.051516.xyz/202303041358744.JPG" alt="幻灯片5"></p>
-<p><img src="https://img.051516.xyz/202303041358489.JPG" alt="幻灯片6"></p>
-<p><img src="https://img.051516.xyz/202303041358180.JPG" alt="幻灯片7"></p>
-<p><img src="https://img.051516.xyz/202303041358561.JPG" alt="幻灯片8"></p>
-]]></content>
-      <categories>
-        <category>教程</category>
-      </categories>
-      <tags>
-        <tag>SICK</tag>
-      </tags>
-  </entry>
-  <entry>
     <title>SINAMICS G120D CU250-2PN速度控制调试步骤</title>
     <url>/undefined/908d3d13.html</url>
     <content><![CDATA[<p>1、打开SINAMICS STARTER软件，创建项目；<br>选择菜单Project -&gt; New…<br>或使用快捷按钮创建新项目。<br><img src="https://img.051516.xyz/20250523225816269.png" alt="image-20250523222741743"><br><img src="https://img.051516.xyz/20250523225840938.png" alt="image-20250523222747691"></p>
@@ -2079,6 +2061,24 @@
 <p>9、故障和警告列表。<br>详见附件列表。</p>
 <p><strong>G120D Fault and Warning List.pdf</strong>：<a class="btn-beautify pink larger" href="https://pan.yuqi.fun/d/%E5%A4%A9%E7%BF%BC%E4%BA%91%E7%9B%98/%E8%B5%84%E6%96%99/%E6%96%87%E6%A1%A3/G120D%20Fault%20and%20Warning%20List.pdf" title="点击下载"><i class="far fa-hand-point-right"></i><span>点击下载</span></a></p>
 ]]></content>
+  </entry>
+  <entry>
+    <title>SICK区扫调试步骤</title>
+    <url>/undefined/af80d2f7.html</url>
+    <content><![CDATA[<p><img src="https://img.051516.xyz/202303041357323.JPG" alt="幻灯片1"><br><img src="https://img.051516.xyz/202303041357782.JPG" alt="幻灯片2"></p>
+<p><img src="https://img.051516.xyz/202303041358093.JPG" alt="幻灯片3"></p>
+<p><img src="https://img.051516.xyz/202303041358392.JPG" alt="幻灯片4"></p>
+<p><img src="https://img.051516.xyz/202303041358744.JPG" alt="幻灯片5"></p>
+<p><img src="https://img.051516.xyz/202303041358489.JPG" alt="幻灯片6"></p>
+<p><img src="https://img.051516.xyz/202303041358180.JPG" alt="幻灯片7"></p>
+<p><img src="https://img.051516.xyz/202303041358561.JPG" alt="幻灯片8"></p>
+]]></content>
+      <categories>
+        <category>教程</category>
+      </categories>
+      <tags>
+        <tag>SICK</tag>
+      </tags>
   </entry>
   <entry>
     <title>V2,R.a,y.A——新一代Linux客户端安装配置教程</title>
