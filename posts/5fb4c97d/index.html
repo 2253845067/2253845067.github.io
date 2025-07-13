@@ -1,0 +1,234 @@
+<!DOCTYPE html><html lang="zh-CN" data-theme="light"><head><meta charset="UTF-8"><meta http-equiv="X-UA-Compatible" content="IE=edge"><meta name="viewport" content="width=device-width, initial-scale=1.0,viewport-fit=cover"><title>安卓14 + HttpCanary 抓包设置 | 与亓のBlog</title><meta name="author" content="与亓"><meta name="copyright" content="与亓"><meta name="format-detection" content="telephone=no"><meta name="theme-color" content="#ffffff"><meta name="description" content="前言这两天使用 HttpCanary 抓包，无法安装证书，如下图，搜索找到了解决办法。本教程适合安卓14 + 无法安装证书，以及解决“系统证书”和“目标App使用固定证书”的问题。  准备工作 手机需要root，安装好 Magisk 和 Xposed 框架（比如 LSPosed）；  下载安装 【MT管理器】 （或其他类似文件管理器），并授予 root 权限。点这里 查看链接 下载里面3个文件，安">
+<meta property="og:type" content="article">
+<meta property="og:title" content="安卓14 + HttpCanary 抓包设置">
+<meta property="og:url" content="https://blog.ikun.ink/posts/5fb4c97d/index.html">
+<meta property="og:site_name" content="与亓のBlog">
+<meta property="og:description" content="前言这两天使用 HttpCanary 抓包，无法安装证书，如下图，搜索找到了解决办法。本教程适合安卓14 + 无法安装证书，以及解决“系统证书”和“目标App使用固定证书”的问题。  准备工作 手机需要root，安装好 Magisk 和 Xposed 框架（比如 LSPosed）；  下载安装 【MT管理器】 （或其他类似文件管理器），并授予 root 权限。点这里 查看链接 下载里面3个文件，安">
+<meta property="og:locale" content="zh_CN">
+<meta property="og:image" content="https://img.051516.xyz/202311130928852.jpg">
+<meta property="article:published_time" content="2023-11-13T00:00:00.000Z">
+<meta property="article:modified_time" content="2023-11-13T00:00:00.000Z">
+<meta property="article:author" content="与亓">
+<meta property="article:tag" content="手机">
+<meta name="twitter:card" content="summary">
+<meta name="twitter:image" content="https://img.051516.xyz/202311130928852.jpg"><link rel="shortcut icon" href="https://img.051516.xyz/202302272018985.jpg"><link rel="canonical" href="https://blog.ikun.ink/posts/5fb4c97d/index.html"><link rel="preconnect" href="//cdn.jsdelivr.net"/><link rel="preconnect" href="//busuanzi.ibruce.info"/><link rel="stylesheet" href="/css/index.css"><link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/@fortawesome/fontawesome-free/css/all.min.css"><script>
+    (() => {
+      
+    const saveToLocal = {
+      set: (key, value, ttl) => {
+        if (!ttl) return
+        const expiry = Date.now() + ttl * 86400000
+        localStorage.setItem(key, JSON.stringify({ value, expiry }))
+      },
+      get: key => {
+        const itemStr = localStorage.getItem(key)
+        if (!itemStr) return undefined
+        const { value, expiry } = JSON.parse(itemStr)
+        if (Date.now() > expiry) {
+          localStorage.removeItem(key)
+          return undefined
+        }
+        return value
+      }
+    }
+
+    window.btf = {
+      saveToLocal,
+      getScript: (url, attr = {}) => new Promise((resolve, reject) => {
+        const script = document.createElement('script')
+        script.src = url
+        script.async = true
+        Object.entries(attr).forEach(([key, val]) => script.setAttribute(key, val))
+        script.onload = script.onreadystatechange = () => {
+          if (!script.readyState || /loaded|complete/.test(script.readyState)) resolve()
+        }
+        script.onerror = reject
+        document.head.appendChild(script)
+      }),
+      getCSS: (url, id) => new Promise((resolve, reject) => {
+        const link = document.createElement('link')
+        link.rel = 'stylesheet'
+        link.href = url
+        if (id) link.id = id
+        link.onload = link.onreadystatechange = () => {
+          if (!link.readyState || /loaded|complete/.test(link.readyState)) resolve()
+        }
+        link.onerror = reject
+        document.head.appendChild(link)
+      }),
+      addGlobalFn: (key, fn, name = false, parent = window) => {
+        if (!false && key.startsWith('pjax')) return
+        const globalFn = parent.globalFn || {}
+        globalFn[key] = globalFn[key] || {}
+        globalFn[key][name || Object.keys(globalFn[key]).length] = fn
+        parent.globalFn = globalFn
+      }
+    }
+  
+      
+      const activateDarkMode = () => {
+        document.documentElement.setAttribute('data-theme', 'dark')
+        if (document.querySelector('meta[name="theme-color"]') !== null) {
+          document.querySelector('meta[name="theme-color"]').setAttribute('content', '#0d0d0d')
+        }
+      }
+      const activateLightMode = () => {
+        document.documentElement.setAttribute('data-theme', 'light')
+        if (document.querySelector('meta[name="theme-color"]') !== null) {
+          document.querySelector('meta[name="theme-color"]').setAttribute('content', '#ffffff')
+        }
+      }
+
+      btf.activateDarkMode = activateDarkMode
+      btf.activateLightMode = activateLightMode
+
+      const theme = saveToLocal.get('theme')
+    
+          theme === 'dark' ? activateDarkMode() : theme === 'light' ? activateLightMode() : null
+        
+      
+      const asideStatus = saveToLocal.get('aside-status')
+      if (asideStatus !== undefined) {
+        document.documentElement.classList.toggle('hide-aside', asideStatus === 'hide')
+      }
+    
+      
+    const detectApple = () => {
+      if (/iPad|iPhone|iPod|Macintosh/.test(navigator.userAgent)) {
+        document.documentElement.classList.add('apple')
+      }
+    }
+    detectApple()
+  
+    })()
+  </script><script>const GLOBAL_CONFIG = {
+  root: '/',
+  algolia: undefined,
+  localSearch: {"path":"/search.xml","preload":false,"top_n_per_article":1,"unescape":false,"languages":{"hits_empty":"未找到符合您查询的内容：${query}","hits_stats":"共找到 ${hits} 篇文章"}},
+  translate: undefined,
+  highlight: {"plugin":"highlight.js","highlightCopy":true,"highlightLang":true,"highlightHeightLimit":false,"highlightFullpage":false,"highlightMacStyle":false},
+  copy: {
+    success: '复制成功',
+    error: '复制失败',
+    noSupport: '浏览器不支持'
+  },
+  relativeDate: {
+    homepage: false,
+    post: false
+  },
+  runtime: '',
+  dateSuffix: {
+    just: '刚刚',
+    min: '分钟前',
+    hour: '小时前',
+    day: '天前',
+    month: '个月前'
+  },
+  copyright: undefined,
+  lightbox: 'null',
+  Snackbar: undefined,
+  infinitegrid: {
+    js: 'https://cdn.jsdelivr.net/npm/@egjs/infinitegrid/dist/infinitegrid.min.js',
+    buttonText: '加载更多'
+  },
+  isPhotoFigcaption: false,
+  islazyload: false,
+  isAnchor: false,
+  percent: {
+    toc: true,
+    rightside: false,
+  },
+  autoDarkmode: false
+}</script><script id="config-diff">var GLOBAL_CONFIG_SITE = {
+  title: '安卓14 + HttpCanary 抓包设置',
+  isPost: true,
+  isHome: false,
+  isHighlightShrink: false,
+  isToc: true,
+  isShuoshuo: false
+}</script><script defer src="https://cloud.umami.is/script.js" data-website-id="7a9dd579-35a7-4d3b-ae6e-22ccbc0a4946"></script><meta name="generator" content="Hexo 7.3.0"><link rel="alternate" href="/atom.xml" title="与亓のBlog" type="application/atom+xml">
+</head><body><div id="sidebar"><div id="menu-mask"></div><div id="sidebar-menus"><div class="avatar-img text-center"><img src="https://img.051516.xyz/202302272017976.jpg" onerror="onerror=null;src='/img/friend_404.gif'" alt="avatar"/></div><div class="site-data text-center"><a href="/archives/"><div class="headline">文章</div><div class="length-num">52</div></a><a href="/tags/"><div class="headline">标签</div><div class="length-num">30</div></a><a href="/categories/"><div class="headline">分类</div><div class="length-num">5</div></a></div><div class="menus_items"><div class="menus_item"><a class="site-page" href="/"><i class="fa-fw fa fa-home"></i><span> 主页</span></a></div><div class="menus_item"><span class="site-page group"><i class="fa-fw fa fa-graduation-cap"></i><span> 博文</span><i class="fas fa-chevron-down"></i></span><ul class="menus_item_child"><li><a class="site-page child" href="/archives/"><i class="fa-fw fa fa-folder-open"></i><span> 归档</span></a></li><li><a class="site-page child" href="/categories/"><i class="fa-fw fa fa-archive"></i><span> 分类</span></a></li><li><a class="site-page child" href="/tags/"><i class="fa-fw fa fa-tags"></i><span> 标签</span></a></li></ul></div><div class="menus_item"><a class="site-page" target="_blank" rel="noopener" href="https://pan.yuqi.fun:81"><i class="fa-fw fas fa-cloud"></i><span> 与亓云盘</span></a></div><div class="menus_item"><a class="site-page" target="_blank" rel="noopener" href="https://cloud.umami.is/share/Q8SJoWf5SvHArEGp/blog.ikun.ink"><i class="fa-fw fas fa-bar-chart"></i><span> 访问量统计</span></a></div><div class="menus_item"><a class="site-page" href="/link/"><i class="fa-fw fa fa-link"></i><span> 友链</span></a></div><div class="menus_item"><a class="site-page" href="/comment/"><i class="fa-fw fa fa-paper-plane"></i><span> 留言板</span></a></div><div class="menus_item"><a class="site-page" href="/about/"><i class="fa-fw fa fa-heart"></i><span> 关于</span></a></div></div></div></div><div class="post" id="body-wrap"><header class="post-bg" id="page-header" style="background-image: url(https://img.051516.xyz/202311130928852.jpg);"><nav id="nav"><span id="blog-info"><a class="nav-site-title" href="/"><span class="site-name">与亓のBlog</span></a><a class="nav-page-title" href="/"><span class="site-name">安卓14 + HttpCanary 抓包设置</span></a></span><div id="menus"><div id="search-button"><span class="site-page social-icon search"><i class="fas fa-search fa-fw"></i><span> 搜索</span></span></div><div class="menus_items"><div class="menus_item"><a class="site-page" href="/"><i class="fa-fw fa fa-home"></i><span> 主页</span></a></div><div class="menus_item"><span class="site-page group"><i class="fa-fw fa fa-graduation-cap"></i><span> 博文</span><i class="fas fa-chevron-down"></i></span><ul class="menus_item_child"><li><a class="site-page child" href="/archives/"><i class="fa-fw fa fa-folder-open"></i><span> 归档</span></a></li><li><a class="site-page child" href="/categories/"><i class="fa-fw fa fa-archive"></i><span> 分类</span></a></li><li><a class="site-page child" href="/tags/"><i class="fa-fw fa fa-tags"></i><span> 标签</span></a></li></ul></div><div class="menus_item"><a class="site-page" target="_blank" rel="noopener" href="https://pan.yuqi.fun:81"><i class="fa-fw fas fa-cloud"></i><span> 与亓云盘</span></a></div><div class="menus_item"><a class="site-page" target="_blank" rel="noopener" href="https://cloud.umami.is/share/Q8SJoWf5SvHArEGp/blog.ikun.ink"><i class="fa-fw fas fa-bar-chart"></i><span> 访问量统计</span></a></div><div class="menus_item"><a class="site-page" href="/link/"><i class="fa-fw fa fa-link"></i><span> 友链</span></a></div><div class="menus_item"><a class="site-page" href="/comment/"><i class="fa-fw fa fa-paper-plane"></i><span> 留言板</span></a></div><div class="menus_item"><a class="site-page" href="/about/"><i class="fa-fw fa fa-heart"></i><span> 关于</span></a></div></div><div id="toggle-menu"><span class="site-page"><i class="fas fa-bars fa-fw"></i></span></div></div></nav><div id="post-info"><h1 class="post-title">安卓14 + HttpCanary 抓包设置</h1><div id="post-meta"><div class="meta-firstline"><span class="post-meta-date"><i class="far fa-calendar-alt fa-fw post-meta-icon"></i><span class="post-meta-label">发表于</span><time class="post-meta-date-created" datetime="2023-11-13T00:00:00.000Z" title="发表于 2023-11-13 00:00:00">2023-11-13</time><span class="post-meta-separator">|</span><i class="fas fa-history fa-fw post-meta-icon"></i><span class="post-meta-label">更新于</span><time class="post-meta-date-updated" datetime="2023-11-13T00:00:00.000Z" title="更新于 2023-11-13 00:00:00">2023-11-13</time></span><span class="post-meta-categories"><span class="post-meta-separator">|</span><i class="fas fa-inbox fa-fw post-meta-icon"></i><a class="post-meta-categories" href="/categories/%E6%95%99%E7%A8%8B/">教程</a></span></div><div class="meta-secondline"><span class="post-meta-separator">|</span><span class="post-meta-pv-cv" id="" data-flag-title=""><i class="far fa-eye fa-fw post-meta-icon"></i><span class="post-meta-label">浏览量:</span><span id="busuanzi_value_page_pv"><i class="fa-solid fa-spinner fa-spin"></i></span></span></div></div></div></header><main class="layout" id="content-inner"><div id="post"><article class="container post-content" id="article-container"><h1 id="前言"><a href="#前言" class="headerlink" title="前言"></a>前言</h1><p>这两天使用 HttpCanary 抓包，无法安装证书，如下图，搜索找到了解决办法。本教程适合安卓14 + 无法安装证书，以及解决“系统证书”和“目标App使用固定证书”的问题。</p>
+<p><img src="https://img.051516.xyz/202311130929372.jpg"></p>
+<h1 id="准备工作"><a href="#准备工作" class="headerlink" title="准备工作"></a>准备工作</h1><ol>
+<li><p>手机需要root，安装好 Magisk 和 Xposed 框架（比如 LSPosed）；</p>
+</li>
+<li><p>下载安装 <a target="_blank" rel="noopener" href="http://www.coolapk.com/apk/bin.mt.plus">【MT管理器】</a> （或其他类似文件管理器），并授予 root 权限。点这里 <a target="_blank" rel="noopener" href="https://www.123pan.com/s/bAORVv-Epkl.html">查看链接</a> 下载里面3个文件，安装 HttpCanary_3.3.5.apk，其他两个待用。</p>
+</li>
+</ol>
+<p>说明：HttpCanary_3.3.5.apk：HttpCanary 安装包，原版无修改；HttpCanary根证书.zip：Magisk 模块，将HttpCanary根证书添加至系统CA目录，证书文件需自己添加；TrustMeAlready_1.11.apk：Xposed模块，解决“目标app使用固定证书，无法抓包”。</p>
+<h1 id="安装证书"><a href="#安装证书" class="headerlink" title="安装证书"></a>安装证书</h1><p>1.安装 HttpCanary 后，打开软件，若“安装根证书”无法安装点“跳过”即可，进入软件后，即可退出软件；<br>2.MT管理器打开 &#x2F;data&#x2F;user&#x2F;0&#x2F;com.guoshi.httpcanary&#x2F;cache，新建名为 HttpCanary.jks 的空文件；然后把 HttpCanary.p12 和 HttpCanary.pem 两个文件复制到其他文件夹里（比如 Download 文件夹），后面要用到，如下图。</p>
+<p><img src="https://img.051516.xyz/202311130932355.gif"></p>
+<p>3.打开 设置→安全→加密与凭据→安装证书，不同机型可能不同，也可以在设置搜索”安装证书”打开。这里需要安装三个证书（本人测试安装“CA 证书”即可，推荐全部安装）：</p>
+<ol>
+<li>点击 <strong>CA 证书</strong>，它会提示<strong>您的数据将不再是私密的</strong>，点<strong>仍然安装</strong>。找到刚才放证书的文件夹，选择 HttpCanary.pem 。 显示<strong>已安装CA证书</strong>。</li>
+<li>点击 <strong>xxx和应用用户证书</strong>，选择 HttpCanary.p12 ，密码为 HttpCanary（推荐复制，避免输错），证书名称为 <strong>xxx and Apps</strong>（xxx看图）。</li>
+<li>点击<strong>WLAN证书</strong>，选择 HttpCanary.p12 ，密码为 HttpCanary，证书名称为 WiFi。</li>
+</ol>
+<p>至此，用户证书安装完毕，点开用户凭据会看到有三个证书，如下图。<br><img src="https://img.051516.xyz/202311130934065.jpg"></p>
+<h1 id="添加根证书至系统"><a href="#添加根证书至系统" class="headerlink" title="添加根证书至系统"></a>添加根证书至系统</h1><p>由于从Android 7.0版本开始，系统不再信任安装的用户证书，可能会导致无法抓取SSL&#x2F;TLS加密数据包或者无网络等问题，如下图。因此需要将HttpCanary根证书添加至系统CA目录，此操作需要在Root设备上进行。<br><img src="https://img.051516.xyz/202311130935681.jpg"><br>1.直接移动根证书<br>打开 HttpCanary→设置→HttpCanary根证书→添加根证书至系统（Root）→移动。若成功，则可以跳过此部分；若显示下图，则说明 system 分区没有解锁，可以通过 Magisk 模块移动根证书，接着看下面内容。<br><img src="https://img.051516.xyz/202311130935077.jpg"><br>2.通过 Magisk 模块移动根证书<br>(1) MT管理器打开 &#x2F;data&#x2F;misc&#x2F;user&#x2F;0&#x2F;cacerts-added&#x2F; ，安装完用户证书后，这个路径下面会生成一个 .0格式证书文件。在MT管理器另一侧窗口打开之前下载好的 HttpCanary根证书.zip ，打开到 HttpCanary根证书.zip&#x2F;system&#x2F;etc&#x2F;security&#x2F;cacerts&#x2F; 路径。<br>然后长按 .0格式文件，添加到 HttpCanary根证书.zip&#x2F;system&#x2F;etc&#x2F;security&#x2F;cacerts&#x2F; 里，如下图。<br><img src="https://img.051516.xyz/202311130936670.gif"><br>(2) 打开 Magisk→模块→从本地安装→选择“HttpCanary根证书.zip”→确定安装，安装完成后重启手机。<br>如下图，若打开 &#x2F;system&#x2F;etc&#x2F;security&#x2F;cacerts&#x2F; 路径，可以找到和 &#x2F;data&#x2F;misc&#x2F;user&#x2F;0&#x2F;cacerts-added&#x2F; 路径下相同的 .0文件，说明已成功把 HttpCanary根证书添加至系统CA目录。<br><img src="https://img.051516.xyz/202311130936693.jpg"></p>
+<h1 id="解决“目标App使用固定证书”问题"><a href="#解决“目标App使用固定证书”问题" class="headerlink" title="解决“目标App使用固定证书”问题"></a>解决“目标App使用固定证书”问题</h1><p>如下图，在将HttpCanary根证书添加至系统CA目录后，对部分APP抓包仍会报错：目标App使用固定证书。<br><img src="https://img.051516.xyz/202311130937716.jpg"><br>解决办法是：安装前面下载好的“TrustMeAlready_1.11.apk”，安装完成在 LSPosed 中启用模块，勾选系统框架和需要抓包的APP，如下图。重启手机，一定要重启手机，否则不会生效。<br><img src="https://img.051516.xyz/202311130937034.jpg"><br>在完成上面设置后就可以愉快地抓包了。</p>
+<h1 id="参考文章"><a href="#参考文章" class="headerlink" title="参考文章"></a>参考文章</h1><p><a target="_blank" rel="noopener" href="https://www.coolapk.com/feed/45789599?shareKey=Yjc1OGRiZDAwOWYwNjU1MTc5ZTk~&shareUid=922742&shareFrom=com.coolapk.market_13.3.6">https://www.coolapk.com/feed/45789599?shareKey=Yjc1OGRiZDAwOWYwNjU1MTc5ZTk~&amp;shareUid=922742&amp;shareFrom=com.coolapk.market_13.3.6</a></p>
+<p><a target="_blank" rel="noopener" href="https://www.coolapk.com/feed/43608693">https://www.coolapk.com/feed/43608693</a></p>
+<h1 id="非系统SLL库抓包"><a href="#非系统SLL库抓包" class="headerlink" title="非系统SLL库抓包"></a>非系统SLL库抓包</h1><p>某些应用用的是非系统SLL库，比如某音，此教程无效。可以参考下面教程：<br><a target="_blank" rel="noopener" href="https://bbs.kanxue.com/thread-271968.htm">https://bbs.kanxue.com/thread-271968.htm</a> </p>
+<p><a target="_blank" rel="noopener" href="https://bbs.kanxue.com/thread-276015.htm">https://bbs.kanxue.com/thread-276015.htm</a> </p>
+<h1 id="tips"><a href="#tips" class="headerlink" title="tips"></a>tips</h1><p>HttpCanary 太久没有更新了，问题很多。大家可以关注一下同作者的新作 Reqable，未来会出安卓版，官网 <a target="_blank" rel="noopener" href="https://reqable.com/zh-CN/">https://reqable.com/zh-CN/</a> 。</p>
+</article><div class="post-copyright"><div class="post-copyright__author"><span class="post-copyright-meta"><i class="fas fa-circle-user fa-fw"></i>文章作者: </span><span class="post-copyright-info"><a href="https://blog.ikun.ink">与亓</a></span></div><div class="post-copyright__type"><span class="post-copyright-meta"><i class="fas fa-square-arrow-up-right fa-fw"></i>文章链接: </span><span class="post-copyright-info"><a href="https://blog.ikun.ink/posts/5fb4c97d/">https://blog.ikun.ink/posts/5fb4c97d/</a></span></div><div class="post-copyright__notice"><span class="post-copyright-meta"><i class="fas fa-circle-exclamation fa-fw"></i>版权声明: </span><span class="post-copyright-info">本博客所有文章除特别声明外，均采用 <a href="https://creativecommons.org/licenses/by-nc-sa/4.0/" target="_blank">CC BY-NC-SA 4.0</a> 许可协议。转载请注明来源 <a href="https://blog.ikun.ink" target="_blank">与亓のBlog</a>！</span></div></div><div class="tag_share"><div class="post-meta__tag-list"><a class="post-meta__tags" href="/tags/%E6%89%8B%E6%9C%BA/">手机</a></div><div class="post-share"><div class="social-share" data-image="https://img.051516.xyz/202311130928852.jpg" data-sites="facebook,twitter,wechat,weibo,qq"></div><link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/butterfly-extsrc/sharejs/dist/css/share.min.css" media="print" onload="this.media='all'"><script src="https://cdn.jsdelivr.net/npm/butterfly-extsrc/sharejs/dist/js/social-share.min.js" defer></script></div></div><nav class="pagination-post" id="pagination"><a class="pagination-related" href="/posts/f2a576c2/" title="Butterfly主题添加本地搜索功能"><img class="cover" src="https://img.051516.xyz/202311301711683.jpg" onerror="onerror=null;src='/img/404.jpg'" alt="cover of previous post"><div class="info"><div class="info-1"><div class="info-item-1">上一篇</div><div class="info-item-2">Butterfly主题添加本地搜索功能</div></div><div class="info-2"><div class="info-item-1">安装插件： 1npm install hexo-generator-search --save  修改_config.yml文件，添加以下内容 123456# 添加本地搜索search:  path: search.xml  field: post  content: true  format: html  修改_config.butterfly.yml文件，添加以下内容 12345678910# Local searchlocal_search:  enable: true  # Preload the search data when the page loads.  preload: false  # Show top n results per article, show all results by setting to -1  top_n_per_article: 1  # Unescape html strings to the readable one.  unescape: false  CDN:  </div></div></div></a><a class="pagination-related" href="/posts/af28068c/" title="x-ui最稳妥的魔术面板"><img class="cover" src="https://img.051516.xyz/202311061447833.jpg" onerror="onerror=null;src='/img/404.jpg'" alt="cover of next post"><div class="info text-right"><div class="info-1"><div class="info-item-1">下一篇</div><div class="info-item-2">x-ui最稳妥的魔术面板</div></div><div class="info-2"><div class="info-item-1">最近经常有人被封端口，我自己搭的这个方案没被封过，现在分享出来。 系统：Debian10-11首先要确保自己的vps是纯净的系统，不要商家预装的，在系统启动后操作DD重装脚本进行安装纯净版系统 第一步：DD重装Debian10系统：1wget -N --no-check-certificate https://raw.githubusercontent.com/qingee/dd/master/InstallNET.sh &amp;&amp; chmod +x InstallNET.sh &amp;&amp; ./InstallNET.sh -d 10 -v 64 -p &quot;notetoday&quot; -port &quot;22&quot;  系统root密码：notetoday更改root密码：passwd 或者 passwd root输入你想要设置的密码即可，在ssh命令窗口输入密码不显示是正常的 第二步：安装WARP接管VPS的出站ip（加入香港节点WireGuard异常：可以去Github） apt updateapt install curl -yapt...</div></div></div></a></nav><hr class="custom-hr"/><div id="post-comment"><div class="comment-head"><div class="comment-headline"><i class="fas fa-comments fa-fw"></i><span> 评论</span></div></div><div class="comment-wrap"><div><div id="twikoo-wrap"></div></div></div></div></div><div class="aside-content" id="aside-content"><div class="card-widget card-info text-center"><div class="avatar-img"><img src="https://img.051516.xyz/202302272017976.jpg" onerror="this.onerror=null;this.src='/img/friend_404.gif'" alt="avatar"/></div><div class="author-info-name">与亓</div><div class="author-info-description"></div><div class="site-data"><a href="/archives/"><div class="headline">文章</div><div class="length-num">52</div></a><a href="/tags/"><div class="headline">标签</div><div class="length-num">30</div></a><a href="/categories/"><div class="headline">分类</div><div class="length-num">5</div></a></div><a id="card-info-btn" target="_blank" rel="noopener" href="https://github.com/2253845067"><i class="fab fa-github"></i><span>Follow Me</span></a><div class="card-info-social-icons"><a class="social-icon" href="https://github.com/2253845067" target="_blank" title="Github"><i class="fab fa-github"></i></a><a class="social-icon" href="mailto:2253845067@qq.com" target="_blank" title="Email"><i class="fas fa-envelope"></i></a></div></div><div class="card-widget card-announcement"><div class="item-headline"><i class="fas fa-bullhorn fa-shake"></i><span>公告</span></div><div class="announcement_content">This is my Blog</div></div><div class="sticky_layout"><div class="card-widget" id="card-toc"><div class="item-headline"><i class="fas fa-stream"></i><span>目录</span><span class="toc-percentage"></span></div><div class="toc-content"><ol class="toc"><li class="toc-item toc-level-1"><a class="toc-link" href="#%E5%89%8D%E8%A8%80"><span class="toc-number">1.</span> <span class="toc-text">前言</span></a></li><li class="toc-item toc-level-1"><a class="toc-link" href="#%E5%87%86%E5%A4%87%E5%B7%A5%E4%BD%9C"><span class="toc-number">2.</span> <span class="toc-text">准备工作</span></a></li><li class="toc-item toc-level-1"><a class="toc-link" href="#%E5%AE%89%E8%A3%85%E8%AF%81%E4%B9%A6"><span class="toc-number">3.</span> <span class="toc-text">安装证书</span></a></li><li class="toc-item toc-level-1"><a class="toc-link" href="#%E6%B7%BB%E5%8A%A0%E6%A0%B9%E8%AF%81%E4%B9%A6%E8%87%B3%E7%B3%BB%E7%BB%9F"><span class="toc-number">4.</span> <span class="toc-text">添加根证书至系统</span></a></li><li class="toc-item toc-level-1"><a class="toc-link" href="#%E8%A7%A3%E5%86%B3%E2%80%9C%E7%9B%AE%E6%A0%87App%E4%BD%BF%E7%94%A8%E5%9B%BA%E5%AE%9A%E8%AF%81%E4%B9%A6%E2%80%9D%E9%97%AE%E9%A2%98"><span class="toc-number">5.</span> <span class="toc-text">解决“目标App使用固定证书”问题</span></a></li><li class="toc-item toc-level-1"><a class="toc-link" href="#%E5%8F%82%E8%80%83%E6%96%87%E7%AB%A0"><span class="toc-number">6.</span> <span class="toc-text">参考文章</span></a></li><li class="toc-item toc-level-1"><a class="toc-link" href="#%E9%9D%9E%E7%B3%BB%E7%BB%9FSLL%E5%BA%93%E6%8A%93%E5%8C%85"><span class="toc-number">7.</span> <span class="toc-text">非系统SLL库抓包</span></a></li><li class="toc-item toc-level-1"><a class="toc-link" href="#tips"><span class="toc-number">8.</span> <span class="toc-text">tips</span></a></li></ol></div></div><div class="card-widget card-recent-post"><div class="item-headline"><i class="fas fa-history"></i><span>最新文章</span></div><div class="aside-list"><div class="aside-list-item"><a class="thumbnail" href="/posts/175f8f8b/" title="SEW MOVIDRIVE MDX61B调试步骤"><img src="https://img.051516.xyz/20250524223858577.jpg" onerror="this.onerror=null;this.src='/img/404.jpg'" alt="SEW MOVIDRIVE MDX61B调试步骤"/></a><div class="content"><a class="title" href="/posts/175f8f8b/" title="SEW MOVIDRIVE MDX61B调试步骤">SEW MOVIDRIVE MDX61B调试步骤</a><time datetime="2025-05-24T00:00:00.000Z" title="发表于 2025-05-24 00:00:00">2025-05-24</time></div></div><div class="aside-list-item"><a class="thumbnail" href="/posts/421934fd/" title="SEW-MC07B变频器-MOTION--STUDIO软件调试步骤、方法和技巧"><img src="https://img.051516.xyz/20250524210846940.jpg" onerror="this.onerror=null;this.src='/img/404.jpg'" alt="SEW-MC07B变频器-MOTION--STUDIO软件调试步骤、方法和技巧"/></a><div class="content"><a class="title" href="/posts/421934fd/" title="SEW-MC07B变频器-MOTION--STUDIO软件调试步骤、方法和技巧">SEW-MC07B变频器-MOTION--STUDIO软件调试步骤、方法和技巧</a><time datetime="2025-05-24T00:00:00.000Z" title="发表于 2025-05-24 00:00:00">2025-05-24</time></div></div><div class="aside-list-item"><a class="thumbnail" href="/posts/908d3d13/" title="SINAMICS G120D CU250-2PN速度控制调试步骤"><img src="https://img.051516.xyz/20250523231546696.jpg" onerror="this.onerror=null;this.src='/img/404.jpg'" alt="SINAMICS G120D CU250-2PN速度控制调试步骤"/></a><div class="content"><a class="title" href="/posts/908d3d13/" title="SINAMICS G120D CU250-2PN速度控制调试步骤">SINAMICS G120D CU250-2PN速度控制调试步骤</a><time datetime="2025-05-23T00:00:00.000Z" title="发表于 2025-05-23 00:00:00">2025-05-23</time></div></div><div class="aside-list-item"><a class="thumbnail" href="/posts/7f12cab4/" title="MOVIFIT参数配置"><img src="https://img.051516.xyz/20250522194040873.jpg" onerror="this.onerror=null;this.src='/img/404.jpg'" alt="MOVIFIT参数配置"/></a><div class="content"><a class="title" href="/posts/7f12cab4/" title="MOVIFIT参数配置">MOVIFIT参数配置</a><time datetime="2025-05-22T00:00:00.000Z" title="发表于 2025-05-22 00:00:00">2025-05-22</time></div></div><div class="aside-list-item"><a class="thumbnail" href="/posts/4f7419e2/" title="移载机SEW MOVIDRIVE 变频器配置手册（双编码器）"><img src="https://img.051516.xyz/20250522212705870.jpg" onerror="this.onerror=null;this.src='/img/404.jpg'" alt="移载机SEW MOVIDRIVE 变频器配置手册（双编码器）"/></a><div class="content"><a class="title" href="/posts/4f7419e2/" title="移载机SEW MOVIDRIVE 变频器配置手册（双编码器）">移载机SEW MOVIDRIVE 变频器配置手册（双编码器）</a><time datetime="2025-05-22T00:00:00.000Z" title="发表于 2025-05-22 00:00:00">2025-05-22</time></div></div></div></div></div></div></main><footer id="footer"><div id="footer-wrap"><div class="copyright">&copy;2019 - 2025 By 与亓</div><div class="framework-info"><span>框架 </span><a target="_blank" rel="noopener" href="https://hexo.io">Hexo</a><span class="footer-separator">|</span><span>主题 </span><a target="_blank" rel="noopener" href="https://github.com/jerryc127/hexo-theme-butterfly">Butterfly</a></div></div></footer></div><div id="rightside"><div id="rightside-config-hide"><button id="readmode" type="button" title="阅读模式"><i class="fas fa-book-open"></i></button><button id="darkmode" type="button" title="日间和夜间模式切换"><i class="fas fa-adjust"></i></button><button id="hide-aside-btn" type="button" title="单栏和双栏切换"><i class="fas fa-arrows-alt-h"></i></button></div><div id="rightside-config-show"><button id="rightside-config" type="button" title="设置"><i class="fas fa-cog fa-spin"></i></button><button class="close" id="mobile-toc-button" type="button" title="目录"><i class="fas fa-list-ul"></i></button><a id="to_comment" href="#post-comment" title="前往评论"><i class="fas fa-comments"></i></a><button id="go-up" type="button" title="回到顶部"><span class="scroll-percent"></span><i class="fas fa-arrow-up"></i></button></div></div><div><script src="/js/utils.js"></script><script src="/js/main.js"></script><div class="js-pjax"><script>(() => {
+  const isShuoshuo = GLOBAL_CONFIG_SITE.isShuoshuo
+  const option = null
+
+  const getCount = () => {
+    const countELement = document.getElementById('twikoo-count')
+    if(!countELement) return
+    twikoo.getCommentsCount({
+      envId: 'https://tw.yuqi.im/',
+      region: '',
+      urls: [window.location.pathname],
+      includeReply: false
+    }).then(res => {
+      countELement.textContent = res[0].count
+    }).catch(err => {
+      console.error(err)
+    })
+  }
+
+  const init = (el = document, path = location.pathname) => {
+    twikoo.init({
+      el: el.querySelector('#twikoo-wrap'),
+      envId: 'https://tw.yuqi.im/',
+      region: '',
+      onCommentLoaded: () => {
+        btf.loadLightbox(document.querySelectorAll('#twikoo .tk-content img:not(.tk-owo-emotion)'))
+      },
+      ...option,
+      path: isShuoshuo ? path : (option && option.path) || path
+    })
+
+    GLOBAL_CONFIG_SITE.isPost && getCount()
+
+    isShuoshuo && (window.shuoshuoComment.destroyTwikoo = () => {
+      if (el.children.length) {
+        el.innerHTML = ''
+        el.classList.add('no-comment')
+      }
+    })
+  }
+
+  const loadTwikoo = (el, path) => {
+    if (typeof twikoo === 'object') setTimeout(() => init(el, path), 0)
+    else btf.getScript('https://cdn.jsdelivr.net/npm/twikoo/dist/twikoo.all.min.js').then(() => init(el, path))
+  }
+
+  if (isShuoshuo) {
+    'Twikoo' === 'Twikoo'
+      ? window.shuoshuoComment = { loadComment: loadTwikoo }
+      : window.loadOtherComment = loadTwikoo
+    return
+  }
+
+  if ('Twikoo' === 'Twikoo' || !true) {
+    if (true) btf.loadComment(document.getElementById('twikoo-wrap'), loadTwikoo)
+    else loadTwikoo()
+  } else {
+    window.loadOtherComment = loadTwikoo
+  }
+})()</script></div><script async data-pjax src="//busuanzi.ibruce.info/busuanzi/2.3/busuanzi.pure.mini.js"></script><div id="local-search"><div class="search-dialog"><nav class="search-nav"><span class="search-dialog-title">搜索</span><span id="loading-status"></span><button class="search-close-button"><i class="fas fa-times"></i></button></nav><div class="text-center" id="loading-database"><i class="fas fa-spinner fa-pulse"></i><span>  数据加载中</span></div><div class="search-wrap"><div id="local-search-input"><div class="local-search-box"><input class="local-search-box--input" placeholder="搜索文章" type="text"/></div></div><hr/><div id="local-search-results"></div><div id="local-search-stats-wrap"></div></div></div><div id="search-mask"></div><script src="/js/search/local-search.js"></script></div></div></body></html>

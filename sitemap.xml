@@ -2,33 +2,6 @@
 <urlset xmlns="http://www.sitemaps.org/schemas/sitemap/0.9">
   
   <url>
-    <loc>https://blog.ikun.ink/about/index.html</loc>
-    
-    <lastmod>2025-07-13</lastmod>
-    
-    <changefreq>monthly</changefreq>
-    <priority>0.6</priority>
-  </url>
-  
-  <url>
-    <loc>https://blog.ikun.ink/archives/index.html</loc>
-    
-    <lastmod>2025-07-13</lastmod>
-    
-    <changefreq>monthly</changefreq>
-    <priority>0.6</priority>
-  </url>
-  
-  <url>
-    <loc>https://blog.ikun.ink/categories/index.html</loc>
-    
-    <lastmod>2025-07-13</lastmod>
-    
-    <changefreq>monthly</changefreq>
-    <priority>0.6</priority>
-  </url>
-  
-  <url>
     <loc>https://blog.ikun.ink/comment/index.html</loc>
     
     <lastmod>2025-07-13</lastmod>
@@ -56,7 +29,34 @@
   </url>
   
   <url>
-    <loc>https://blog.ikun.ink/undefined/175f8f8b.html</loc>
+    <loc>https://blog.ikun.ink/about/index.html</loc>
+    
+    <lastmod>2025-07-13</lastmod>
+    
+    <changefreq>monthly</changefreq>
+    <priority>0.6</priority>
+  </url>
+  
+  <url>
+    <loc>https://blog.ikun.ink/archives/index.html</loc>
+    
+    <lastmod>2025-07-13</lastmod>
+    
+    <changefreq>monthly</changefreq>
+    <priority>0.6</priority>
+  </url>
+  
+  <url>
+    <loc>https://blog.ikun.ink/categories/index.html</loc>
+    
+    <lastmod>2025-07-13</lastmod>
+    
+    <changefreq>monthly</changefreq>
+    <priority>0.6</priority>
+  </url>
+  
+  <url>
+    <loc>https://blog.ikun.ink/posts/175f8f8b/</loc>
     
     <lastmod>2025-05-24</lastmod>
     
@@ -65,7 +65,7 @@
   </url>
   
   <url>
-    <loc>https://blog.ikun.ink/undefined/421934fd.html</loc>
+    <loc>https://blog.ikun.ink/posts/421934fd/</loc>
     
     <lastmod>2025-05-24</lastmod>
     
@@ -74,7 +74,7 @@
   </url>
   
   <url>
-    <loc>https://blog.ikun.ink/undefined/908d3d13.html</loc>
+    <loc>https://blog.ikun.ink/posts/908d3d13/</loc>
     
     <lastmod>2025-05-23</lastmod>
     
@@ -83,7 +83,7 @@
   </url>
   
   <url>
-    <loc>https://blog.ikun.ink/undefined/7f12cab4.html</loc>
+    <loc>https://blog.ikun.ink/posts/7f12cab4/</loc>
     
     <lastmod>2025-05-22</lastmod>
     
@@ -92,7 +92,7 @@
   </url>
   
   <url>
-    <loc>https://blog.ikun.ink/undefined/4f7419e2.html</loc>
+    <loc>https://blog.ikun.ink/posts/4f7419e2/</loc>
     
     <lastmod>2025-05-22</lastmod>
     
@@ -101,7 +101,7 @@
   </url>
   
   <url>
-    <loc>https://blog.ikun.ink/undefined/f5fecf87.html</loc>
+    <loc>https://blog.ikun.ink/posts/f5fecf87/</loc>
     
     <lastmod>2025-05-20</lastmod>
     
@@ -110,7 +110,7 @@
   </url>
   
   <url>
-    <loc>https://blog.ikun.ink/undefined/2622eae5.html</loc>
+    <loc>https://blog.ikun.ink/posts/2622eae5/</loc>
     
     <lastmod>2025-05-10</lastmod>
     
@@ -119,7 +119,7 @@
   </url>
   
   <url>
-    <loc>https://blog.ikun.ink/undefined/c4294855.html</loc>
+    <loc>https://blog.ikun.ink/posts/c4294855/</loc>
     
     <lastmod>2025-01-05</lastmod>
     
@@ -128,7 +128,7 @@
   </url>
   
   <url>
-    <loc>https://blog.ikun.ink/undefined/aad1ff9e.html</loc>
+    <loc>https://blog.ikun.ink/posts/aad1ff9e/</loc>
     
     <lastmod>2025-01-03</lastmod>
     
@@ -137,7 +137,7 @@
   </url>
   
   <url>
-    <loc>https://blog.ikun.ink/undefined/6469b43f.html</loc>
+    <loc>https://blog.ikun.ink/posts/6469b43f/</loc>
     
     <lastmod>2024-12-31</lastmod>
     
@@ -146,7 +146,7 @@
   </url>
   
   <url>
-    <loc>https://blog.ikun.ink/undefined/8277e0e6.html</loc>
+    <loc>https://blog.ikun.ink/posts/8277e0e6/</loc>
     
     <lastmod>2024-12-29</lastmod>
     
@@ -155,7 +155,7 @@
   </url>
   
   <url>
-    <loc>https://blog.ikun.ink/undefined/57946227.html</loc>
+    <loc>https://blog.ikun.ink/posts/57946227/</loc>
     
     <lastmod>2024-12-28</lastmod>
     
@@ -164,7 +164,7 @@
   </url>
   
   <url>
-    <loc>https://blog.ikun.ink/undefined/a580ef34.html</loc>
+    <loc>https://blog.ikun.ink/posts/a580ef34/</loc>
     
     <lastmod>2024-04-05</lastmod>
     
@@ -173,7 +173,7 @@
   </url>
   
   <url>
-    <loc>https://blog.ikun.ink/undefined/af89448b.html</loc>
+    <loc>https://blog.ikun.ink/posts/af89448b/</loc>
     
     <lastmod>2024-01-12</lastmod>
     
@@ -182,7 +182,7 @@
   </url>
   
   <url>
-    <loc>https://blog.ikun.ink/undefined/97aa67fb.html</loc>
+    <loc>https://blog.ikun.ink/posts/97aa67fb/</loc>
     
     <lastmod>2023-12-12</lastmod>
     
@@ -191,7 +191,7 @@
   </url>
   
   <url>
-    <loc>https://blog.ikun.ink/undefined/ee2e5bab.html</loc>
+    <loc>https://blog.ikun.ink/posts/ee2e5bab/</loc>
     
     <lastmod>2023-12-12</lastmod>
     
@@ -200,7 +200,7 @@
   </url>
   
   <url>
-    <loc>https://blog.ikun.ink/undefined/3529204a.html</loc>
+    <loc>https://blog.ikun.ink/posts/3529204a/</loc>
     
     <lastmod>2023-12-11</lastmod>
     
@@ -209,7 +209,7 @@
   </url>
   
   <url>
-    <loc>https://blog.ikun.ink/undefined/d604b8c7.html</loc>
+    <loc>https://blog.ikun.ink/posts/d604b8c7/</loc>
     
     <lastmod>2023-12-08</lastmod>
     
@@ -218,7 +218,7 @@
   </url>
   
   <url>
-    <loc>https://blog.ikun.ink/undefined/d167335e.html</loc>
+    <loc>https://blog.ikun.ink/posts/d167335e/</loc>
     
     <lastmod>2023-12-03</lastmod>
     
@@ -227,7 +227,7 @@
   </url>
   
   <url>
-    <loc>https://blog.ikun.ink/undefined/f2a576c2.html</loc>
+    <loc>https://blog.ikun.ink/posts/f2a576c2/</loc>
     
     <lastmod>2023-11-30</lastmod>
     
@@ -236,7 +236,7 @@
   </url>
   
   <url>
-    <loc>https://blog.ikun.ink/undefined/5fb4c97d.html</loc>
+    <loc>https://blog.ikun.ink/posts/5fb4c97d/</loc>
     
     <lastmod>2023-11-13</lastmod>
     
@@ -245,7 +245,7 @@
   </url>
   
   <url>
-    <loc>https://blog.ikun.ink/undefined/af28068c.html</loc>
+    <loc>https://blog.ikun.ink/posts/af28068c/</loc>
     
     <lastmod>2023-11-06</lastmod>
     
@@ -254,7 +254,7 @@
   </url>
   
   <url>
-    <loc>https://blog.ikun.ink/undefined/7db8067.html</loc>
+    <loc>https://blog.ikun.ink/posts/7db8067/</loc>
     
     <lastmod>2023-11-06</lastmod>
     
@@ -263,7 +263,7 @@
   </url>
   
   <url>
-    <loc>https://blog.ikun.ink/undefined/1b7388f.html</loc>
+    <loc>https://blog.ikun.ink/posts/1b7388f/</loc>
     
     <lastmod>2023-10-26</lastmod>
     
@@ -272,7 +272,7 @@
   </url>
   
   <url>
-    <loc>https://blog.ikun.ink/undefined/756577dc.html</loc>
+    <loc>https://blog.ikun.ink/posts/756577dc/</loc>
     
     <lastmod>2023-10-06</lastmod>
     
@@ -281,7 +281,7 @@
   </url>
   
   <url>
-    <loc>https://blog.ikun.ink/undefined/2c4b11e5.html</loc>
+    <loc>https://blog.ikun.ink/posts/2c4b11e5/</loc>
     
     <lastmod>2023-09-28</lastmod>
     
@@ -290,7 +290,7 @@
   </url>
   
   <url>
-    <loc>https://blog.ikun.ink/undefined/2419758f.html</loc>
+    <loc>https://blog.ikun.ink/posts/2419758f/</loc>
     
     <lastmod>2023-05-05</lastmod>
     
@@ -299,7 +299,7 @@
   </url>
   
   <url>
-    <loc>https://blog.ikun.ink/undefined/3117353a.html</loc>
+    <loc>https://blog.ikun.ink/posts/3117353a/</loc>
     
     <lastmod>2023-05-05</lastmod>
     
@@ -308,7 +308,7 @@
   </url>
   
   <url>
-    <loc>https://blog.ikun.ink/undefined/72c5b323.html</loc>
+    <loc>https://blog.ikun.ink/posts/72c5b323/</loc>
     
     <lastmod>2023-04-28</lastmod>
     
@@ -317,7 +317,7 @@
   </url>
   
   <url>
-    <loc>https://blog.ikun.ink/undefined/d7b14abe.html</loc>
+    <loc>https://blog.ikun.ink/posts/d7b14abe/</loc>
     
     <lastmod>2023-04-22</lastmod>
     
@@ -326,7 +326,7 @@
   </url>
   
   <url>
-    <loc>https://blog.ikun.ink/undefined/a53fea94.html</loc>
+    <loc>https://blog.ikun.ink/posts/a53fea94/</loc>
     
     <lastmod>2023-04-10</lastmod>
     
@@ -335,7 +335,7 @@
   </url>
   
   <url>
-    <loc>https://blog.ikun.ink/undefined/428849a6.html</loc>
+    <loc>https://blog.ikun.ink/posts/428849a6/</loc>
     
     <lastmod>2023-04-09</lastmod>
     
@@ -344,7 +344,7 @@
   </url>
   
   <url>
-    <loc>https://blog.ikun.ink/undefined/f5caf0fa.html</loc>
+    <loc>https://blog.ikun.ink/posts/f5caf0fa/</loc>
     
     <lastmod>2023-04-09</lastmod>
     
@@ -353,7 +353,7 @@
   </url>
   
   <url>
-    <loc>https://blog.ikun.ink/undefined/15b05887.html</loc>
+    <loc>https://blog.ikun.ink/posts/15b05887/</loc>
     
     <lastmod>2023-03-30</lastmod>
     
@@ -362,7 +362,7 @@
   </url>
   
   <url>
-    <loc>https://blog.ikun.ink/undefined/27cbce44.html</loc>
+    <loc>https://blog.ikun.ink/posts/27cbce44/</loc>
     
     <lastmod>2023-03-23</lastmod>
     
@@ -371,7 +371,7 @@
   </url>
   
   <url>
-    <loc>https://blog.ikun.ink/undefined/77efc3f1.html</loc>
+    <loc>https://blog.ikun.ink/posts/77efc3f1/</loc>
     
     <lastmod>2023-03-14</lastmod>
     
@@ -380,7 +380,7 @@
   </url>
   
   <url>
-    <loc>https://blog.ikun.ink/undefined/bda2f0d3.html</loc>
+    <loc>https://blog.ikun.ink/posts/bda2f0d3/</loc>
     
     <lastmod>2023-03-06</lastmod>
     
@@ -389,7 +389,7 @@
   </url>
   
   <url>
-    <loc>https://blog.ikun.ink/undefined/42e51b95.html</loc>
+    <loc>https://blog.ikun.ink/posts/42e51b95/</loc>
     
     <lastmod>2023-03-06</lastmod>
     
@@ -398,7 +398,7 @@
   </url>
   
   <url>
-    <loc>https://blog.ikun.ink/undefined/21c693ea.html</loc>
+    <loc>https://blog.ikun.ink/posts/21c693ea/</loc>
     
     <lastmod>2023-03-05</lastmod>
     
@@ -407,7 +407,7 @@
   </url>
   
   <url>
-    <loc>https://blog.ikun.ink/undefined/4cd4322f.html</loc>
+    <loc>https://blog.ikun.ink/posts/4cd4322f/</loc>
     
     <lastmod>2023-03-04</lastmod>
     
@@ -416,7 +416,7 @@
   </url>
   
   <url>
-    <loc>https://blog.ikun.ink/undefined/e4c152dc.html</loc>
+    <loc>https://blog.ikun.ink/posts/e4c152dc/</loc>
     
     <lastmod>2023-03-04</lastmod>
     
@@ -425,7 +425,7 @@
   </url>
   
   <url>
-    <loc>https://blog.ikun.ink/undefined/af80d2f7.html</loc>
+    <loc>https://blog.ikun.ink/posts/af80d2f7/</loc>
     
     <lastmod>2023-03-04</lastmod>
     
@@ -434,7 +434,7 @@
   </url>
   
   <url>
-    <loc>https://blog.ikun.ink/undefined/5836c89e.html</loc>
+    <loc>https://blog.ikun.ink/posts/5836c89e/</loc>
     
     <lastmod>2023-03-03</lastmod>
     
@@ -443,7 +443,7 @@
   </url>
   
   <url>
-    <loc>https://blog.ikun.ink/undefined/ef6f9b71.html</loc>
+    <loc>https://blog.ikun.ink/posts/ef6f9b71/</loc>
     
     <lastmod>2023-02-28</lastmod>
     
@@ -452,7 +452,7 @@
   </url>
   
   <url>
-    <loc>https://blog.ikun.ink/undefined/7ae0e921.html</loc>
+    <loc>https://blog.ikun.ink/posts/7ae0e921/</loc>
     
     <lastmod>2023-02-26</lastmod>
     
@@ -461,7 +461,7 @@
   </url>
   
   <url>
-    <loc>https://blog.ikun.ink/undefined/1082bb6d.html</loc>
+    <loc>https://blog.ikun.ink/posts/1082bb6d/</loc>
     
     <lastmod>2023-02-26</lastmod>
     
@@ -470,7 +470,7 @@
   </url>
   
   <url>
-    <loc>https://blog.ikun.ink/undefined/f9dbe722.html</loc>
+    <loc>https://blog.ikun.ink/posts/f9dbe722/</loc>
     
     <lastmod>2023-02-26</lastmod>
     
@@ -479,7 +479,7 @@
   </url>
   
   <url>
-    <loc>https://blog.ikun.ink/undefined/f7d3fad8.html</loc>
+    <loc>https://blog.ikun.ink/posts/f7d3fad8/</loc>
     
     <lastmod>2022-06-17</lastmod>
     
@@ -488,7 +488,7 @@
   </url>
   
   <url>
-    <loc>https://blog.ikun.ink/undefined/12482e7.html</loc>
+    <loc>https://blog.ikun.ink/posts/12482e7/</loc>
     
     <lastmod>2022-06-10</lastmod>
     
@@ -497,7 +497,7 @@
   </url>
   
   <url>
-    <loc>https://blog.ikun.ink/undefined/e79fa3f4.html</loc>
+    <loc>https://blog.ikun.ink/posts/e79fa3f4/</loc>
     
     <lastmod>2022-06-08</lastmod>
     
@@ -506,7 +506,7 @@
   </url>
   
   <url>
-    <loc>https://blog.ikun.ink/undefined/57ee7c1d.html</loc>
+    <loc>https://blog.ikun.ink/posts/57ee7c1d/</loc>
     
     <lastmod>2022-06-07</lastmod>
     
@@ -515,7 +515,7 @@
   </url>
   
   <url>
-    <loc>https://blog.ikun.ink/undefined/1f49e4a4.html</loc>
+    <loc>https://blog.ikun.ink/posts/1f49e4a4/</loc>
     
     <lastmod>2022-06-02</lastmod>
     

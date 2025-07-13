@@ -1,0 +1,350 @@
+<!DOCTYPE html><html lang="zh-CN" data-theme="light"><head><meta charset="UTF-8"><meta http-equiv="X-UA-Compatible" content="IE=edge"><meta name="viewport" content="width=device-width, initial-scale=1.0,viewport-fit=cover"><title>SEW-MDX61B变频器定位控制调试流程 | 与亓のBlog</title><meta name="author" content="与亓"><meta name="copyright" content="与亓"><meta name="format-detection" content="telephone=no"><meta name="theme-color" content="#ffffff"><meta name="description" content="一、 调试准备操作系统及调试软件操作系统：Windows 7 64 位操作系统 调试软件：MotionStudio 6.10 SP1(6.1.0.1)  硬件系统变频器:MDX61B0015-5A3 SEW 电机:DRL80S4BE2HR&#x2F;FG&#x2F;TF&#x2F;AS7W  变频器接线图  电机接线图 二、 变频器调试连接变频器双击桌面图标  弹出如下对话框：  选择通讯方式">
+<meta property="og:type" content="article">
+<meta property="og:title" content="SEW-MDX61B变频器定位控制调试流程">
+<meta property="og:url" content="https://blog.ikun.ink/posts/e4c152dc/index.html">
+<meta property="og:site_name" content="与亓のBlog">
+<meta property="og:description" content="一、 调试准备操作系统及调试软件操作系统：Windows 7 64 位操作系统 调试软件：MotionStudio 6.10 SP1(6.1.0.1)  硬件系统变频器:MDX61B0015-5A3 SEW 电机:DRL80S4BE2HR&#x2F;FG&#x2F;TF&#x2F;AS7W  变频器接线图  电机接线图 二、 变频器调试连接变频器双击桌面图标  弹出如下对话框：  选择通讯方式">
+<meta property="og:locale" content="zh_CN">
+<meta property="og:image" content="https://img.051516.xyz/202303040925243.jpg">
+<meta property="article:published_time" content="2023-03-04T00:00:00.000Z">
+<meta property="article:modified_time" content="2023-03-04T00:00:00.000Z">
+<meta property="article:author" content="与亓">
+<meta property="article:tag" content="SEW">
+<meta name="twitter:card" content="summary">
+<meta name="twitter:image" content="https://img.051516.xyz/202303040925243.jpg"><link rel="shortcut icon" href="https://img.051516.xyz/202302272018985.jpg"><link rel="canonical" href="https://blog.ikun.ink/posts/e4c152dc/index.html"><link rel="preconnect" href="//cdn.jsdelivr.net"/><link rel="preconnect" href="//busuanzi.ibruce.info"/><link rel="stylesheet" href="/css/index.css"><link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/@fortawesome/fontawesome-free/css/all.min.css"><script>
+    (() => {
+      
+    const saveToLocal = {
+      set: (key, value, ttl) => {
+        if (!ttl) return
+        const expiry = Date.now() + ttl * 86400000
+        localStorage.setItem(key, JSON.stringify({ value, expiry }))
+      },
+      get: key => {
+        const itemStr = localStorage.getItem(key)
+        if (!itemStr) return undefined
+        const { value, expiry } = JSON.parse(itemStr)
+        if (Date.now() > expiry) {
+          localStorage.removeItem(key)
+          return undefined
+        }
+        return value
+      }
+    }
+
+    window.btf = {
+      saveToLocal,
+      getScript: (url, attr = {}) => new Promise((resolve, reject) => {
+        const script = document.createElement('script')
+        script.src = url
+        script.async = true
+        Object.entries(attr).forEach(([key, val]) => script.setAttribute(key, val))
+        script.onload = script.onreadystatechange = () => {
+          if (!script.readyState || /loaded|complete/.test(script.readyState)) resolve()
+        }
+        script.onerror = reject
+        document.head.appendChild(script)
+      }),
+      getCSS: (url, id) => new Promise((resolve, reject) => {
+        const link = document.createElement('link')
+        link.rel = 'stylesheet'
+        link.href = url
+        if (id) link.id = id
+        link.onload = link.onreadystatechange = () => {
+          if (!link.readyState || /loaded|complete/.test(link.readyState)) resolve()
+        }
+        link.onerror = reject
+        document.head.appendChild(link)
+      }),
+      addGlobalFn: (key, fn, name = false, parent = window) => {
+        if (!false && key.startsWith('pjax')) return
+        const globalFn = parent.globalFn || {}
+        globalFn[key] = globalFn[key] || {}
+        globalFn[key][name || Object.keys(globalFn[key]).length] = fn
+        parent.globalFn = globalFn
+      }
+    }
+  
+      
+      const activateDarkMode = () => {
+        document.documentElement.setAttribute('data-theme', 'dark')
+        if (document.querySelector('meta[name="theme-color"]') !== null) {
+          document.querySelector('meta[name="theme-color"]').setAttribute('content', '#0d0d0d')
+        }
+      }
+      const activateLightMode = () => {
+        document.documentElement.setAttribute('data-theme', 'light')
+        if (document.querySelector('meta[name="theme-color"]') !== null) {
+          document.querySelector('meta[name="theme-color"]').setAttribute('content', '#ffffff')
+        }
+      }
+
+      btf.activateDarkMode = activateDarkMode
+      btf.activateLightMode = activateLightMode
+
+      const theme = saveToLocal.get('theme')
+    
+          theme === 'dark' ? activateDarkMode() : theme === 'light' ? activateLightMode() : null
+        
+      
+      const asideStatus = saveToLocal.get('aside-status')
+      if (asideStatus !== undefined) {
+        document.documentElement.classList.toggle('hide-aside', asideStatus === 'hide')
+      }
+    
+      
+    const detectApple = () => {
+      if (/iPad|iPhone|iPod|Macintosh/.test(navigator.userAgent)) {
+        document.documentElement.classList.add('apple')
+      }
+    }
+    detectApple()
+  
+    })()
+  </script><script>const GLOBAL_CONFIG = {
+  root: '/',
+  algolia: undefined,
+  localSearch: {"path":"/search.xml","preload":false,"top_n_per_article":1,"unescape":false,"languages":{"hits_empty":"未找到符合您查询的内容：${query}","hits_stats":"共找到 ${hits} 篇文章"}},
+  translate: undefined,
+  highlight: {"plugin":"highlight.js","highlightCopy":true,"highlightLang":true,"highlightHeightLimit":false,"highlightFullpage":false,"highlightMacStyle":false},
+  copy: {
+    success: '复制成功',
+    error: '复制失败',
+    noSupport: '浏览器不支持'
+  },
+  relativeDate: {
+    homepage: false,
+    post: false
+  },
+  runtime: '',
+  dateSuffix: {
+    just: '刚刚',
+    min: '分钟前',
+    hour: '小时前',
+    day: '天前',
+    month: '个月前'
+  },
+  copyright: undefined,
+  lightbox: 'null',
+  Snackbar: undefined,
+  infinitegrid: {
+    js: 'https://cdn.jsdelivr.net/npm/@egjs/infinitegrid/dist/infinitegrid.min.js',
+    buttonText: '加载更多'
+  },
+  isPhotoFigcaption: false,
+  islazyload: false,
+  isAnchor: false,
+  percent: {
+    toc: true,
+    rightside: false,
+  },
+  autoDarkmode: false
+}</script><script id="config-diff">var GLOBAL_CONFIG_SITE = {
+  title: 'SEW-MDX61B变频器定位控制调试流程',
+  isPost: true,
+  isHome: false,
+  isHighlightShrink: false,
+  isToc: true,
+  isShuoshuo: false
+}</script><script defer src="https://cloud.umami.is/script.js" data-website-id="7a9dd579-35a7-4d3b-ae6e-22ccbc0a4946"></script><meta name="generator" content="Hexo 7.3.0"><link rel="alternate" href="/atom.xml" title="与亓のBlog" type="application/atom+xml">
+</head><body><div id="sidebar"><div id="menu-mask"></div><div id="sidebar-menus"><div class="avatar-img text-center"><img src="https://img.051516.xyz/202302272017976.jpg" onerror="onerror=null;src='/img/friend_404.gif'" alt="avatar"/></div><div class="site-data text-center"><a href="/archives/"><div class="headline">文章</div><div class="length-num">52</div></a><a href="/tags/"><div class="headline">标签</div><div class="length-num">30</div></a><a href="/categories/"><div class="headline">分类</div><div class="length-num">5</div></a></div><div class="menus_items"><div class="menus_item"><a class="site-page" href="/"><i class="fa-fw fa fa-home"></i><span> 主页</span></a></div><div class="menus_item"><span class="site-page group"><i class="fa-fw fa fa-graduation-cap"></i><span> 博文</span><i class="fas fa-chevron-down"></i></span><ul class="menus_item_child"><li><a class="site-page child" href="/archives/"><i class="fa-fw fa fa-folder-open"></i><span> 归档</span></a></li><li><a class="site-page child" href="/categories/"><i class="fa-fw fa fa-archive"></i><span> 分类</span></a></li><li><a class="site-page child" href="/tags/"><i class="fa-fw fa fa-tags"></i><span> 标签</span></a></li></ul></div><div class="menus_item"><a class="site-page" target="_blank" rel="noopener" href="https://pan.yuqi.fun:81"><i class="fa-fw fas fa-cloud"></i><span> 与亓云盘</span></a></div><div class="menus_item"><a class="site-page" target="_blank" rel="noopener" href="https://cloud.umami.is/share/Q8SJoWf5SvHArEGp/blog.ikun.ink"><i class="fa-fw fas fa-bar-chart"></i><span> 访问量统计</span></a></div><div class="menus_item"><a class="site-page" href="/link/"><i class="fa-fw fa fa-link"></i><span> 友链</span></a></div><div class="menus_item"><a class="site-page" href="/comment/"><i class="fa-fw fa fa-paper-plane"></i><span> 留言板</span></a></div><div class="menus_item"><a class="site-page" href="/about/"><i class="fa-fw fa fa-heart"></i><span> 关于</span></a></div></div></div></div><div class="post" id="body-wrap"><header class="post-bg" id="page-header" style="background-image: url(https://img.051516.xyz/202303040925243.jpg);"><nav id="nav"><span id="blog-info"><a class="nav-site-title" href="/"><span class="site-name">与亓のBlog</span></a><a class="nav-page-title" href="/"><span class="site-name">SEW-MDX61B变频器定位控制调试流程</span></a></span><div id="menus"><div id="search-button"><span class="site-page social-icon search"><i class="fas fa-search fa-fw"></i><span> 搜索</span></span></div><div class="menus_items"><div class="menus_item"><a class="site-page" href="/"><i class="fa-fw fa fa-home"></i><span> 主页</span></a></div><div class="menus_item"><span class="site-page group"><i class="fa-fw fa fa-graduation-cap"></i><span> 博文</span><i class="fas fa-chevron-down"></i></span><ul class="menus_item_child"><li><a class="site-page child" href="/archives/"><i class="fa-fw fa fa-folder-open"></i><span> 归档</span></a></li><li><a class="site-page child" href="/categories/"><i class="fa-fw fa fa-archive"></i><span> 分类</span></a></li><li><a class="site-page child" href="/tags/"><i class="fa-fw fa fa-tags"></i><span> 标签</span></a></li></ul></div><div class="menus_item"><a class="site-page" target="_blank" rel="noopener" href="https://pan.yuqi.fun:81"><i class="fa-fw fas fa-cloud"></i><span> 与亓云盘</span></a></div><div class="menus_item"><a class="site-page" target="_blank" rel="noopener" href="https://cloud.umami.is/share/Q8SJoWf5SvHArEGp/blog.ikun.ink"><i class="fa-fw fas fa-bar-chart"></i><span> 访问量统计</span></a></div><div class="menus_item"><a class="site-page" href="/link/"><i class="fa-fw fa fa-link"></i><span> 友链</span></a></div><div class="menus_item"><a class="site-page" href="/comment/"><i class="fa-fw fa fa-paper-plane"></i><span> 留言板</span></a></div><div class="menus_item"><a class="site-page" href="/about/"><i class="fa-fw fa fa-heart"></i><span> 关于</span></a></div></div><div id="toggle-menu"><span class="site-page"><i class="fas fa-bars fa-fw"></i></span></div></div></nav><div id="post-info"><h1 class="post-title">SEW-MDX61B变频器定位控制调试流程</h1><div id="post-meta"><div class="meta-firstline"><span class="post-meta-date"><i class="far fa-calendar-alt fa-fw post-meta-icon"></i><span class="post-meta-label">发表于</span><time class="post-meta-date-created" datetime="2023-03-04T00:00:00.000Z" title="发表于 2023-03-04 00:00:00">2023-03-04</time><span class="post-meta-separator">|</span><i class="fas fa-history fa-fw post-meta-icon"></i><span class="post-meta-label">更新于</span><time class="post-meta-date-updated" datetime="2023-03-04T00:00:00.000Z" title="更新于 2023-03-04 00:00:00">2023-03-04</time></span><span class="post-meta-categories"><span class="post-meta-separator">|</span><i class="fas fa-inbox fa-fw post-meta-icon"></i><a class="post-meta-categories" href="/categories/%E6%95%99%E7%A8%8B/">教程</a></span></div><div class="meta-secondline"><span class="post-meta-separator">|</span><span class="post-meta-pv-cv" id="" data-flag-title=""><i class="far fa-eye fa-fw post-meta-icon"></i><span class="post-meta-label">浏览量:</span><span id="busuanzi_value_page_pv"><i class="fa-solid fa-spinner fa-spin"></i></span></span></div></div></div></header><main class="layout" id="content-inner"><div id="post"><article class="container post-content" id="article-container"><h1 id="一、-调试准备"><a href="#一、-调试准备" class="headerlink" title="一、 调试准备"></a>一、 调试准备</h1><h2 id="操作系统及调试软件"><a href="#操作系统及调试软件" class="headerlink" title="操作系统及调试软件"></a>操作系统及调试软件</h2><p>操作系统：Windows 7 64 位操作系统</p>
+<p>调试软件：MotionStudio 6.10 SP1(6.1.0.1)</p>
+<p><img src="https://img.051516.xyz/202303040926661.png" alt="image-20230304092617110"></p>
+<h2 id="硬件系统"><a href="#硬件系统" class="headerlink" title="硬件系统"></a>硬件系统</h2><p>变频器:MDX61B0015-5A3</p>
+<p>SEW 电机:DRL80S4BE2HR&#x2F;FG&#x2F;TF&#x2F;AS7W</p>
+<p><img src="https://img.051516.xyz/202303040926342.png" alt="image-20230304092645922"></p>
+<p>变频器接线图</p>
+<p><img src="https://img.051516.xyz/202303040927995.png" alt="image-20230304092703871"></p>
+<p>电机接线图</p>
+<h1 id="二、-变频器调试"><a href="#二、-变频器调试" class="headerlink" title="二、 变频器调试"></a>二、 变频器调试</h1><h2 id="连接变频器"><a href="#连接变频器" class="headerlink" title="连接变频器"></a>连接变频器</h2><p>双击桌面图标</p>
+<p><img src="https://img.051516.xyz/202303040952856.png" alt="image-20230304095222325"></p>
+<p>弹出如下对话框：</p>
+<p><img src="https://img.051516.xyz/202303040953210.png" alt="image-20230304095259154"></p>
+<p>选择通讯方式</p>
+<p><img src="https://img.051516.xyz/202303040953625.png" alt="image-20230304095323312"></p>
+<p>SEW 软件提供如下几种方式与变频器进行连接（如图所示），常用的有如下几种方式：</p>
+<p>1、 Serial：SEW 专用的编程电缆，可对变频器进行所有操作，电缆长度有限，有距离限制；</p>
+<p>2、 Ethernet：普通网线即可连接调试，可使用无线路由器进行连接调试，现场使用方便，但部分操作无法通过网线实现；</p>
+<p><img src="https://img.051516.xyz/202303040953996.png" alt="image-20230304095350111"></p>
+<p>本例中使用 Ethernet 方式进行调试，还需进行如下设置；点击“Edit”按钮，出现如下画面：</p>
+<p><img src="https://img.051516.xyz/202303040954982.png" alt="image-20230304095406063"></p>
+<p>点击“Network adapter”按钮，选择当前与变频器连接的网卡；</p>
+<p><img src="https://img.051516.xyz/202303040954180.png" alt="image-20230304095421274"></p>
+<p>通讯设置完成后，扫描网络，连接 SEW 变频器；</p>
+<p><img src="https://img.051516.xyz/202303040954245.png" alt="image-20230304095434251"></p>
+<p>扫描出的设备如下图所示；</p>
+<p><img src="https://img.051516.xyz/202303040955356.png" alt="image-20230304095521462"></p>
+<p>到这里 MotionStudio 软件已经和 SEW 变频器之间建立了连接；</p>
+<h2 id="电机初始化设置"><a href="#电机初始化设置" class="headerlink" title="电机初始化设置"></a>电机初始化设置</h2><p>在“Working with the unit”选项卡中选择“Startup”按钮；</p>
+<p><img src="https://img.051516.xyz/202303040955983.png" alt="image-20230304095559180"></p>
+<p>弹出参数初始化界面，点击“Perform startup”按钮进行参数初始化操作；</p>
+<p><img src="https://img.051516.xyz/202303040956383.png" alt="image-20230304095613347"></p>
+<p>点击“Start-up Set”按钮；</p>
+<p><img src="https://img.051516.xyz/202303040956901.png" alt="image-20230304095626113"></p>
+<p>选择“Execute complete start-up”选项，点击“下一步”；</p>
+<p><img src="https://img.051516.xyz/202303040956529.png" alt="image-20230304095637652"></p>
+<p>选择变频器与电机之间的控制方式：</p>
+<p>1、Stand-alone motor：独立电机控制（常用控制方式）</p>
+<p>1.1、Standard（V&#x2F;F）：VF 曲线控制（简单的速度控制选用）</p>
+<p>1.2、Vector-controlled&#x2F;Servo：矢量控制&#x2F;伺服（带有编码器的选用）</p>
+<p>2、Several identical motors：多个相同电机控制</p>
+<p>3、Several different motors：多个不同电机控制</p>
+<p><img src="https://img.051516.xyz/202303040956041.png" alt="image-20230304095652122"></p>
+<p>电机铭牌参数</p>
+<p><img src="https://img.051516.xyz/202303040957275.png" alt="image-20230304095730201"></p>
+<p>选择电机类型；</p>
+<p><img src="https://img.051516.xyz/202303040957021.png" alt="image-20230304095745060"></p>
+<p>按照电机铭牌参数填写下列参数；</p>
+<p><img src="https://img.051516.xyz/202303040958901.png" alt="image-20230304095817473"></p>
+<p><img src="https://img.051516.xyz/20230519103325.jpg"></p>
+<p>选择是否使用编码器；</p>
+<p><img src="https://img.051516.xyz/202303040958326.png" alt="image-20230304095829175"></p>
+<p>选择应用模式</p>
+<p>1、 Speed control: 速度控制</p>
+<p>2、 Use hoist:举升控制（如升降机、吊具等选择此项）</p>
+<p>3、 Positioniong with IPOS: IPOS-位置控制（精定位控制设备）</p>
+<p>4、 Use torque control: 转矩控制（电机恒转矩输出应用）</p>
+<p><img src="https://img.051516.xyz/202303040958826.png" alt="image-20230304095851579"></p>
+<p>选择 CFC&#x2F;VFC 控制方式</p>
+<p><img src="https://img.051516.xyz/202303040959914.png" alt="image-20230304095903084"></p>
+<p>CFC 与 VFC 控制方式的区别（<strong>建议一般应用时选择 CFC，滚床、升降机、吊具等举升设备应用时选择 VFC</strong>）</p>
+<p><img src="https://img.051516.xyz/202303040959527.png" alt="image-20230304095927588"></p>
+<p>选择 CFC 控制模式后，出现如下界面；</p>
+<p><img src="https://img.051516.xyz/202303040959383.png" alt="image-20230304095941380"></p>
+<p>参数说明:</p>
+<p>1、 Load inertia:负载惯量，该参数一般由电机厂家提供，如未提供该参数，可由以下方法计算：</p>
+<p>a、 Jx&#x3D;m*r2，m&#x3D;质量，r&#x3D;半径；</p>
+<p>b、 单击“Testing”，让设备在实际工作状态运动几次，这时变频器会自动上传测得的数据；</p>
+<p>c、 经验值，水平运动设备的负载惯量为 J0 motor 的 8-15 倍，举升运动设备的负载惯量为 J0 motor 的 3-5 倍；</p>
+<p>2、 Drive:输入电动机是否有减速机；</p>
+<p>3、 Brake:输入电动机是否有制动；</p>
+<p>4、 Z fan:输入电动机是否有高惯量风扇；</p>
+<p>设置电机参数</p>
+<p><img src="https://img.051516.xyz/202312111103582.png" alt="image-20230304100030601"></p>
+<p>速度控制参数，建议使用系统推荐参数</p>
+<p><img src="https://img.051516.xyz/202303041000456.png" alt="image-20230304100044388"></p>
+<p>设置变频器参数</p>
+<p><img src="https://img.051516.xyz/202303041001369.png" alt="image-20230304100103567"></p>
+<p>设置完成，下载参数至变频器;（注:需在强电断开时才能下载）</p>
+<p><img src="https://img.051516.xyz/202303041001845.png" alt="image-20230304100113996"></p>
+<h2 id="MotionStudio-驱动电机"><a href="#MotionStudio-驱动电机" class="headerlink" title="MotionStudio 驱动电机"></a>MotionStudio 驱动电机</h2><p>设置完成变频器参数后，使用 MotionStudio 软件手动来驱动电动机，用来验证电机接线、抱闸接线、编码器接线的正确性及机械可动性；</p>
+<p>在“Working with the unit”选项卡中选择“Manual mode”按钮；</p>
+<p><img src="https://img.051516.xyz/202303041001886.png" alt="image-20230304100152963"></p>
+<p>弹出如下画面</p>
+<p><img src="https://img.051516.xyz/202303041002321.png" alt="image-20230304100211350"></p>
+<h2 id="扩展总线定位模式"><a href="#扩展总线定位模式" class="headerlink" title="扩展总线定位模式"></a>扩展总线定位模式</h2><p>在“Working with the unit”选项卡中选择“Extended positioning via bus”按钮；</p>
+<p><img src="https://img.051516.xyz/202303041002042.png" alt="image-20230304100235226"></p>
+<p>设置通讯方式及通讯超时响应</p>
+<p><img src="https://img.051516.xyz/202303041002291.png" alt="image-20230304100250403"></p>
+<p>外部机械参数设定，该参数应由机械设计人员提供，参数设置只影响编码器在 PLC 中的反馈值；</p>
+<p><img src="https://img.051516.xyz/202303041003278.png" alt="image-20230304100307195"></p>
+<p>设置软限位，速度，寻零方式等</p>
+<p><img src="https://img.051516.xyz/202303041003888.png" alt="image-20230304100322091"></p>
+<p>设置完成，下载至 SEW 变频器；下载完成后需修改外部 IO 端子定义；</p>
+<p><img src="https://img.051516.xyz/202303041003578.png" alt="image-20230304100333912"></p>
+<p>外部 IO 端子设置如下图所示，DI00 系统默认为外部使能，无法修改，在使用外部总线通讯控制时，DI00 端子需置“1”；</p>
+<p><img src="https://img.051516.xyz/202303041003141.png" alt="image-20230304100346059"></p>
+<p>上图外部端子定义如下：</p>
+<p>DI01：正转限位(常闭信号，高电平有效)</p>
+<p>DI02：反转限位(常闭信号，高电平有效)</p>
+<p>DI03：参考零点</p>
+<p>实际应用过程中需根据外部硬件接线来定义外部 IO 端子功能；</p>
+<p>下载完成后，进入如下界面；</p>
+<p><img src="https://img.051516.xyz/202303041004444.png" alt="image-20230304100417286"></p>
+<p>控制字&amp;状态字说明</p>
+<p><img src="https://img.051516.xyz/202303041050162.png" alt="image-20230304105042971"></p>
+<p><img src="https://img.051516.xyz/202303041051938.png" alt="image-20230304105059924"></p>
+<p>控制字说明</p>
+<p><img src="https://img.051516.xyz/202303041051439.png" alt="image-20230304105111411"></p>
+<p>Mode high 与 Mode low 两位组合使用，表示三种控制模式：</p>
+<p>10：寻零模式；01：JOG 模式；11：定位模式；</p>
+<p>状态字说明</p>
+<p><img src="https://img.051516.xyz/202303041051178.png" alt="image-20230304105123436"></p>
+<h2 id="寻零模式说明"><a href="#寻零模式说明" class="headerlink" title="寻零模式说明"></a>寻零模式说明</h2><p>扩展总线定位模式设定完成后，变频器可在定位模式下运转，但还需要根据现场实际情况设定零点，确定寻零方式；SEW 变频器中提供了 9 种寻零的方式，需在 903 参数中设定；</p>
+<p><img src="https://img.051516.xyz/202303041051271.png" alt="image-20230304105152349"></p>
+<p>具体寻零型式如下列所述：</p>
+<p><img src="https://img.051516.xyz/202303041052868.png" alt="image-20230304105213054"></p>
+<p>除了型式 8，参考运行必须在变频器“Ready”和“Enable”状态才可进行；</p>
+<p><img src="https://img.051516.xyz/202303041052111.png" alt="image-20230304105231116"></p>
+<h1 id="AMA0801配置"><a href="#AMA0801配置" class="headerlink" title="AMA0801配置"></a>AMA0801配置</h1><h2 id="一字库位"><a href="#一字库位" class="headerlink" title="一字库位"></a>一字库位</h2><p><img src="https://img.051516.xyz/202305191047.png" alt="202305191047"></p>
+<p><img src="https://img.051516.xyz/202305191048.png" alt="202305191048"></p>
+<p><img src="https://img.051516.xyz/202305191049.png" alt="202305191049"></p>
+<p><img src="https://img.051516.xyz/202305191050.png" alt="202305191050"></p>
+<h2 id="校零"><a href="#校零" class="headerlink" title="校零"></a>校零</h2><p><img src="https://img.051516.xyz/20230519105000.jpg" alt="20230519105000"></p>
+<h1 id="附录-1：转台提速使用参数"><a href="#附录-1：转台提速使用参数" class="headerlink" title="附录 1：转台提速使用参数"></a>附录 1：转台提速使用参数</h1><p><img src="https://img.051516.xyz/202303041055137.png" alt="image-20230304105509097"></p>
+<p><img src="https://img.051516.xyz/202303041055825.png" alt="image-20230304105516864"></p>
+<p>扩展总线定位模式中的设置：</p>
+<p><img src="https://img.051516.xyz/202303041055879.png" alt="image-20230304105536031"></p>
+<h1 id="附录-2：举升设备相关参数"><a href="#附录-2：举升设备相关参数" class="headerlink" title="附录 2：举升设备相关参数"></a>附录 2：举升设备相关参数</h1><p>升降设备需设置抱闸相关参数</p>
+<p><img src="https://img.051516.xyz/202303041055375.png" alt="image-20230304105555636"></p>
+<p>731：电机启动抱闸打开参数，变频器启动 0.15 秒输出正常扭矩，此时变频器认为抱闸已经打开，参数默认值 0.1，在升降设备中，若启动时设备有向下掉的动作，<strong>此参数可适当减小</strong>;</p>
+<p>732：电机停止抱闸失电参数，在抱闸断电 0.35 秒后，变频器才停止工作，参数默认值 0.2，若升降设备停止时设备有向下掉的动作，<strong>此参数可适当增大</strong>;</p>
+<h1 id="附录-3：常见故障解决方案"><a href="#附录-3：常见故障解决方案" class="headerlink" title="附录 3：常见故障解决方案"></a>附录 3：常见故障解决方案</h1><h2 id="1、-变频器-F08-故障，转速监视；"><a href="#1、-变频器-F08-故障，转速监视；" class="headerlink" title="1、 变频器 F08 故障，转速监视；"></a>1、 变频器 F08 故障，转速监视；</h2><p>故障现象：电机运行一段时间（时间很短，&lt;1s）,变频器即报 F08 故障；</p>
+<p>故障原因：编码器连接或电机旋转方向不正确；</p>
+<p>临时措施：修改 P500 或 P502 参数（关闭转速监控）；</p>
+<p>后期解决：检查电机相位；检查编码器连接，成对调换 A&#x2F;A-和 B&#x2F;B-;</p>
+<h2 id="2、变频器-F14-故障，编码器；"><a href="#2、变频器-F14-故障，编码器；" class="headerlink" title="2、变频器 F14 故障，编码器；"></a>2、变频器 F14 故障，编码器；</h2><p>故障现象：变频器启动运行即报 F14 故障；</p>
+<p>故障原因：编码器电缆屏蔽未正确连接；</p>
+<p>临时措施：断开变频器供电电源，等待一段时间再上电（如无效则需立即检查编码屏蔽）；</p>
+<p>后期解决：检查编码器屏蔽层连接；编码器电缆是否存在强电干扰；</p>
+<h1 id="附录4：相关文档"><a href="#附录4：相关文档" class="headerlink" title="附录4：相关文档"></a>附录4：相关文档</h1><p>MDX61B应用手册：<a target="_blank" rel="noopener" href="https://www.sew-eurodrive.cn/os/dud/?tab=documents&country=CN&language=zh_cn&doc_lang=zh-CN,en-US&doc_type=G,D,F,CD,DD&search=FA362820">https://www.sew-eurodrive.cn/os/dud/?tab=documents&amp;country=CN&amp;language=zh_cn&amp;doc_lang=zh-CN,en-US&amp;doc_type=G,D,F,CD,DD&amp;search=FA362820</a></p>
+</article><div class="post-copyright"><div class="post-copyright__author"><span class="post-copyright-meta"><i class="fas fa-circle-user fa-fw"></i>文章作者: </span><span class="post-copyright-info"><a href="https://blog.ikun.ink">与亓</a></span></div><div class="post-copyright__type"><span class="post-copyright-meta"><i class="fas fa-square-arrow-up-right fa-fw"></i>文章链接: </span><span class="post-copyright-info"><a href="https://blog.ikun.ink/posts/e4c152dc/">https://blog.ikun.ink/posts/e4c152dc/</a></span></div><div class="post-copyright__notice"><span class="post-copyright-meta"><i class="fas fa-circle-exclamation fa-fw"></i>版权声明: </span><span class="post-copyright-info">本博客所有文章除特别声明外，均采用 <a href="https://creativecommons.org/licenses/by-nc-sa/4.0/" target="_blank">CC BY-NC-SA 4.0</a> 许可协议。转载请注明来源 <a href="https://blog.ikun.ink" target="_blank">与亓のBlog</a>！</span></div></div><div class="tag_share"><div class="post-meta__tag-list"><a class="post-meta__tags" href="/tags/SEW/">SEW</a></div><div class="post-share"><div class="social-share" data-image="https://img.051516.xyz/202303040925243.jpg" data-sites="facebook,twitter,wechat,weibo,qq"></div><link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/butterfly-extsrc/sharejs/dist/css/share.min.css" media="print" onload="this.media='all'"><script src="https://cdn.jsdelivr.net/npm/butterfly-extsrc/sharejs/dist/js/social-share.min.js" defer></script></div></div><nav class="pagination-post" id="pagination"><a class="pagination-related" href="/posts/4cd4322f/" title="hexo中插入PDF"><img class="cover" src="https://img.051516.xyz/202303041311965.jpg" onerror="onerror=null;src='/img/404.jpg'" alt="cover of previous post"><div class="info"><div class="info-1"><div class="info-item-1">上一篇</div><div class="info-item-2">hexo中插入PDF</div></div><div class="info-2"><div class="info-item-1">安装 hexo-pdf1npm install --save hexo-pdf  本地 PDF 引用最简单的引用方法：把相应 pdf 文件存到source 文件夹下，引用格式为： 1&#123;% pdf /引用文档名字.pdf %&#125;  当然，你也可以新建一个文件夹方便管理 PDF 文档（）在这里我主要参考了https://www.jianshu.com/p/cccc7058a08c，但是它并没有解决问题 orz 经过苦逼的尝试发现缺少&#x2F; 也就是说，方法为： xxxxxxxxxx .md 文件中的 HTML 代码要用  和  包起来，使其能正确编译里面的代码。markdown 1&#123;% pdf /pdf/xxx.pdf %&#125;  尝试后可以看到，hexo-pdf 对 PDF 文档展示效果非常不错 lol </div></div></div></a><a class="pagination-related" href="/posts/af80d2f7/" title="SICK区扫调试步骤"><img class="cover" src="https://img.051516.xyz/202303041313374.jpg" onerror="onerror=null;src='/img/404.jpg'" alt="cover of next post"><div class="info text-right"><div class="info-1"><div class="info-item-1">下一篇</div><div class="info-item-2">SICK区扫调试步骤</div></div><div class="info-2"><div class="info-item-1">       </div></div></div></a></nav><hr class="custom-hr"/><div id="post-comment"><div class="comment-head"><div class="comment-headline"><i class="fas fa-comments fa-fw"></i><span> 评论</span></div></div><div class="comment-wrap"><div><div id="twikoo-wrap"></div></div></div></div></div><div class="aside-content" id="aside-content"><div class="card-widget card-info text-center"><div class="avatar-img"><img src="https://img.051516.xyz/202302272017976.jpg" onerror="this.onerror=null;this.src='/img/friend_404.gif'" alt="avatar"/></div><div class="author-info-name">与亓</div><div class="author-info-description"></div><div class="site-data"><a href="/archives/"><div class="headline">文章</div><div class="length-num">52</div></a><a href="/tags/"><div class="headline">标签</div><div class="length-num">30</div></a><a href="/categories/"><div class="headline">分类</div><div class="length-num">5</div></a></div><a id="card-info-btn" target="_blank" rel="noopener" href="https://github.com/2253845067"><i class="fab fa-github"></i><span>Follow Me</span></a><div class="card-info-social-icons"><a class="social-icon" href="https://github.com/2253845067" target="_blank" title="Github"><i class="fab fa-github"></i></a><a class="social-icon" href="mailto:2253845067@qq.com" target="_blank" title="Email"><i class="fas fa-envelope"></i></a></div></div><div class="card-widget card-announcement"><div class="item-headline"><i class="fas fa-bullhorn fa-shake"></i><span>公告</span></div><div class="announcement_content">This is my Blog</div></div><div class="sticky_layout"><div class="card-widget" id="card-toc"><div class="item-headline"><i class="fas fa-stream"></i><span>目录</span><span class="toc-percentage"></span></div><div class="toc-content"><ol class="toc"><li class="toc-item toc-level-1"><a class="toc-link" href="#%E4%B8%80%E3%80%81-%E8%B0%83%E8%AF%95%E5%87%86%E5%A4%87"><span class="toc-number">1.</span> <span class="toc-text">一、 调试准备</span></a><ol class="toc-child"><li class="toc-item toc-level-2"><a class="toc-link" href="#%E6%93%8D%E4%BD%9C%E7%B3%BB%E7%BB%9F%E5%8F%8A%E8%B0%83%E8%AF%95%E8%BD%AF%E4%BB%B6"><span class="toc-number">1.1.</span> <span class="toc-text">操作系统及调试软件</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#%E7%A1%AC%E4%BB%B6%E7%B3%BB%E7%BB%9F"><span class="toc-number">1.2.</span> <span class="toc-text">硬件系统</span></a></li></ol></li><li class="toc-item toc-level-1"><a class="toc-link" href="#%E4%BA%8C%E3%80%81-%E5%8F%98%E9%A2%91%E5%99%A8%E8%B0%83%E8%AF%95"><span class="toc-number">2.</span> <span class="toc-text">二、 变频器调试</span></a><ol class="toc-child"><li class="toc-item toc-level-2"><a class="toc-link" href="#%E8%BF%9E%E6%8E%A5%E5%8F%98%E9%A2%91%E5%99%A8"><span class="toc-number">2.1.</span> <span class="toc-text">连接变频器</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#%E7%94%B5%E6%9C%BA%E5%88%9D%E5%A7%8B%E5%8C%96%E8%AE%BE%E7%BD%AE"><span class="toc-number">2.2.</span> <span class="toc-text">电机初始化设置</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#MotionStudio-%E9%A9%B1%E5%8A%A8%E7%94%B5%E6%9C%BA"><span class="toc-number">2.3.</span> <span class="toc-text">MotionStudio 驱动电机</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#%E6%89%A9%E5%B1%95%E6%80%BB%E7%BA%BF%E5%AE%9A%E4%BD%8D%E6%A8%A1%E5%BC%8F"><span class="toc-number">2.4.</span> <span class="toc-text">扩展总线定位模式</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#%E5%AF%BB%E9%9B%B6%E6%A8%A1%E5%BC%8F%E8%AF%B4%E6%98%8E"><span class="toc-number">2.5.</span> <span class="toc-text">寻零模式说明</span></a></li></ol></li><li class="toc-item toc-level-1"><a class="toc-link" href="#AMA0801%E9%85%8D%E7%BD%AE"><span class="toc-number">3.</span> <span class="toc-text">AMA0801配置</span></a><ol class="toc-child"><li class="toc-item toc-level-2"><a class="toc-link" href="#%E4%B8%80%E5%AD%97%E5%BA%93%E4%BD%8D"><span class="toc-number">3.1.</span> <span class="toc-text">一字库位</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#%E6%A0%A1%E9%9B%B6"><span class="toc-number">3.2.</span> <span class="toc-text">校零</span></a></li></ol></li><li class="toc-item toc-level-1"><a class="toc-link" href="#%E9%99%84%E5%BD%95-1%EF%BC%9A%E8%BD%AC%E5%8F%B0%E6%8F%90%E9%80%9F%E4%BD%BF%E7%94%A8%E5%8F%82%E6%95%B0"><span class="toc-number">4.</span> <span class="toc-text">附录 1：转台提速使用参数</span></a></li><li class="toc-item toc-level-1"><a class="toc-link" href="#%E9%99%84%E5%BD%95-2%EF%BC%9A%E4%B8%BE%E5%8D%87%E8%AE%BE%E5%A4%87%E7%9B%B8%E5%85%B3%E5%8F%82%E6%95%B0"><span class="toc-number">5.</span> <span class="toc-text">附录 2：举升设备相关参数</span></a></li><li class="toc-item toc-level-1"><a class="toc-link" href="#%E9%99%84%E5%BD%95-3%EF%BC%9A%E5%B8%B8%E8%A7%81%E6%95%85%E9%9A%9C%E8%A7%A3%E5%86%B3%E6%96%B9%E6%A1%88"><span class="toc-number">6.</span> <span class="toc-text">附录 3：常见故障解决方案</span></a><ol class="toc-child"><li class="toc-item toc-level-2"><a class="toc-link" href="#1%E3%80%81-%E5%8F%98%E9%A2%91%E5%99%A8-F08-%E6%95%85%E9%9A%9C%EF%BC%8C%E8%BD%AC%E9%80%9F%E7%9B%91%E8%A7%86%EF%BC%9B"><span class="toc-number">6.1.</span> <span class="toc-text">1、 变频器 F08 故障，转速监视；</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#2%E3%80%81%E5%8F%98%E9%A2%91%E5%99%A8-F14-%E6%95%85%E9%9A%9C%EF%BC%8C%E7%BC%96%E7%A0%81%E5%99%A8%EF%BC%9B"><span class="toc-number">6.2.</span> <span class="toc-text">2、变频器 F14 故障，编码器；</span></a></li></ol></li><li class="toc-item toc-level-1"><a class="toc-link" href="#%E9%99%84%E5%BD%954%EF%BC%9A%E7%9B%B8%E5%85%B3%E6%96%87%E6%A1%A3"><span class="toc-number">7.</span> <span class="toc-text">附录4：相关文档</span></a></li></ol></div></div><div class="card-widget card-recent-post"><div class="item-headline"><i class="fas fa-history"></i><span>最新文章</span></div><div class="aside-list"><div class="aside-list-item"><a class="thumbnail" href="/posts/175f8f8b/" title="SEW MOVIDRIVE MDX61B调试步骤"><img src="https://img.051516.xyz/20250524223858577.jpg" onerror="this.onerror=null;this.src='/img/404.jpg'" alt="SEW MOVIDRIVE MDX61B调试步骤"/></a><div class="content"><a class="title" href="/posts/175f8f8b/" title="SEW MOVIDRIVE MDX61B调试步骤">SEW MOVIDRIVE MDX61B调试步骤</a><time datetime="2025-05-24T00:00:00.000Z" title="发表于 2025-05-24 00:00:00">2025-05-24</time></div></div><div class="aside-list-item"><a class="thumbnail" href="/posts/421934fd/" title="SEW-MC07B变频器-MOTION--STUDIO软件调试步骤、方法和技巧"><img src="https://img.051516.xyz/20250524210846940.jpg" onerror="this.onerror=null;this.src='/img/404.jpg'" alt="SEW-MC07B变频器-MOTION--STUDIO软件调试步骤、方法和技巧"/></a><div class="content"><a class="title" href="/posts/421934fd/" title="SEW-MC07B变频器-MOTION--STUDIO软件调试步骤、方法和技巧">SEW-MC07B变频器-MOTION--STUDIO软件调试步骤、方法和技巧</a><time datetime="2025-05-24T00:00:00.000Z" title="发表于 2025-05-24 00:00:00">2025-05-24</time></div></div><div class="aside-list-item"><a class="thumbnail" href="/posts/908d3d13/" title="SINAMICS G120D CU250-2PN速度控制调试步骤"><img src="https://img.051516.xyz/20250523231546696.jpg" onerror="this.onerror=null;this.src='/img/404.jpg'" alt="SINAMICS G120D CU250-2PN速度控制调试步骤"/></a><div class="content"><a class="title" href="/posts/908d3d13/" title="SINAMICS G120D CU250-2PN速度控制调试步骤">SINAMICS G120D CU250-2PN速度控制调试步骤</a><time datetime="2025-05-23T00:00:00.000Z" title="发表于 2025-05-23 00:00:00">2025-05-23</time></div></div><div class="aside-list-item"><a class="thumbnail" href="/posts/7f12cab4/" title="MOVIFIT参数配置"><img src="https://img.051516.xyz/20250522194040873.jpg" onerror="this.onerror=null;this.src='/img/404.jpg'" alt="MOVIFIT参数配置"/></a><div class="content"><a class="title" href="/posts/7f12cab4/" title="MOVIFIT参数配置">MOVIFIT参数配置</a><time datetime="2025-05-22T00:00:00.000Z" title="发表于 2025-05-22 00:00:00">2025-05-22</time></div></div><div class="aside-list-item"><a class="thumbnail" href="/posts/4f7419e2/" title="移载机SEW MOVIDRIVE 变频器配置手册（双编码器）"><img src="https://img.051516.xyz/20250522212705870.jpg" onerror="this.onerror=null;this.src='/img/404.jpg'" alt="移载机SEW MOVIDRIVE 变频器配置手册（双编码器）"/></a><div class="content"><a class="title" href="/posts/4f7419e2/" title="移载机SEW MOVIDRIVE 变频器配置手册（双编码器）">移载机SEW MOVIDRIVE 变频器配置手册（双编码器）</a><time datetime="2025-05-22T00:00:00.000Z" title="发表于 2025-05-22 00:00:00">2025-05-22</time></div></div></div></div></div></div></main><footer id="footer"><div id="footer-wrap"><div class="copyright">&copy;2019 - 2025 By 与亓</div><div class="framework-info"><span>框架 </span><a target="_blank" rel="noopener" href="https://hexo.io">Hexo</a><span class="footer-separator">|</span><span>主题 </span><a target="_blank" rel="noopener" href="https://github.com/jerryc127/hexo-theme-butterfly">Butterfly</a></div></div></footer></div><div id="rightside"><div id="rightside-config-hide"><button id="readmode" type="button" title="阅读模式"><i class="fas fa-book-open"></i></button><button id="darkmode" type="button" title="日间和夜间模式切换"><i class="fas fa-adjust"></i></button><button id="hide-aside-btn" type="button" title="单栏和双栏切换"><i class="fas fa-arrows-alt-h"></i></button></div><div id="rightside-config-show"><button id="rightside-config" type="button" title="设置"><i class="fas fa-cog fa-spin"></i></button><button class="close" id="mobile-toc-button" type="button" title="目录"><i class="fas fa-list-ul"></i></button><a id="to_comment" href="#post-comment" title="前往评论"><i class="fas fa-comments"></i></a><button id="go-up" type="button" title="回到顶部"><span class="scroll-percent"></span><i class="fas fa-arrow-up"></i></button></div></div><div><script src="/js/utils.js"></script><script src="/js/main.js"></script><div class="js-pjax"><script>(() => {
+  const isShuoshuo = GLOBAL_CONFIG_SITE.isShuoshuo
+  const option = null
+
+  const getCount = () => {
+    const countELement = document.getElementById('twikoo-count')
+    if(!countELement) return
+    twikoo.getCommentsCount({
+      envId: 'https://tw.yuqi.im/',
+      region: '',
+      urls: [window.location.pathname],
+      includeReply: false
+    }).then(res => {
+      countELement.textContent = res[0].count
+    }).catch(err => {
+      console.error(err)
+    })
+  }
+
+  const init = (el = document, path = location.pathname) => {
+    twikoo.init({
+      el: el.querySelector('#twikoo-wrap'),
+      envId: 'https://tw.yuqi.im/',
+      region: '',
+      onCommentLoaded: () => {
+        btf.loadLightbox(document.querySelectorAll('#twikoo .tk-content img:not(.tk-owo-emotion)'))
+      },
+      ...option,
+      path: isShuoshuo ? path : (option && option.path) || path
+    })
+
+    GLOBAL_CONFIG_SITE.isPost && getCount()
+
+    isShuoshuo && (window.shuoshuoComment.destroyTwikoo = () => {
+      if (el.children.length) {
+        el.innerHTML = ''
+        el.classList.add('no-comment')
+      }
+    })
+  }
+
+  const loadTwikoo = (el, path) => {
+    if (typeof twikoo === 'object') setTimeout(() => init(el, path), 0)
+    else btf.getScript('https://cdn.jsdelivr.net/npm/twikoo/dist/twikoo.all.min.js').then(() => init(el, path))
+  }
+
+  if (isShuoshuo) {
+    'Twikoo' === 'Twikoo'
+      ? window.shuoshuoComment = { loadComment: loadTwikoo }
+      : window.loadOtherComment = loadTwikoo
+    return
+  }
+
+  if ('Twikoo' === 'Twikoo' || !true) {
+    if (true) btf.loadComment(document.getElementById('twikoo-wrap'), loadTwikoo)
+    else loadTwikoo()
+  } else {
+    window.loadOtherComment = loadTwikoo
+  }
+})()</script></div><script async data-pjax src="//busuanzi.ibruce.info/busuanzi/2.3/busuanzi.pure.mini.js"></script><div id="local-search"><div class="search-dialog"><nav class="search-nav"><span class="search-dialog-title">搜索</span><span id="loading-status"></span><button class="search-close-button"><i class="fas fa-times"></i></button></nav><div class="text-center" id="loading-database"><i class="fas fa-spinner fa-pulse"></i><span>  数据加载中</span></div><div class="search-wrap"><div id="local-search-input"><div class="local-search-box"><input class="local-search-box--input" placeholder="搜索文章" type="text"/></div></div><hr/><div id="local-search-results"></div><div id="local-search-stats-wrap"></div></div></div><div id="search-mask"></div><script src="/js/search/local-search.js"></script></div></div></body></html>

@@ -1,0 +1,258 @@
+<!DOCTYPE html><html lang="zh-CN" data-theme="light"><head><meta charset="UTF-8"><meta http-equiv="X-UA-Compatible" content="IE=edge"><meta name="viewport" content="width=device-width, initial-scale=1.0,viewport-fit=cover"><title>短信转发神器,合宙 Air780E,700E 开发板刷机教程 | 与亓のBlog</title><meta name="author" content="与亓"><meta name="copyright" content="与亓"><meta name="format-detection" content="telephone=no"><meta name="theme-color" content="#ffffff"><meta name="description" content="此教程只针对拿板子做短信转发器用，其他高阶操作（定位、联网、语音）需要自由拓展发挥。 官网资料Air780E : https:&#x2F;&#x2F;doc.openluat.com&#x2F;wiki&#x2F;37?wiki_page_id&#x3D;4454 Air700E : https:&#x2F;&#x2F;doc.openluat.com&#x2F;wiki&#x2F;44?wiki_page_id&#x3D;4730  刷机前的准备下载Lua固件烧录工具Luatools_v2.7">
+<meta property="og:type" content="article">
+<meta property="og:title" content="短信转发神器,合宙 Air780E,700E 开发板刷机教程">
+<meta property="og:url" content="https://blog.ikun.ink/posts/15b05887/index.html">
+<meta property="og:site_name" content="与亓のBlog">
+<meta property="og:description" content="此教程只针对拿板子做短信转发器用，其他高阶操作（定位、联网、语音）需要自由拓展发挥。 官网资料Air780E : https:&#x2F;&#x2F;doc.openluat.com&#x2F;wiki&#x2F;37?wiki_page_id&#x3D;4454 Air700E : https:&#x2F;&#x2F;doc.openluat.com&#x2F;wiki&#x2F;44?wiki_page_id&#x3D;4730  刷机前的准备下载Lua固件烧录工具Luatools_v2.7">
+<meta property="og:locale" content="zh_CN">
+<meta property="og:image" content="https://img.051516.xyz/202303300807996.jpg">
+<meta property="article:published_time" content="2023-03-30T00:00:00.000Z">
+<meta property="article:modified_time" content="2023-03-30T00:00:00.000Z">
+<meta property="article:author" content="与亓">
+<meta property="article:tag" content="短信转发">
+<meta name="twitter:card" content="summary">
+<meta name="twitter:image" content="https://img.051516.xyz/202303300807996.jpg"><link rel="shortcut icon" href="https://img.051516.xyz/202302272018985.jpg"><link rel="canonical" href="https://blog.ikun.ink/posts/15b05887/index.html"><link rel="preconnect" href="//cdn.jsdelivr.net"/><link rel="preconnect" href="//busuanzi.ibruce.info"/><link rel="stylesheet" href="/css/index.css"><link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/@fortawesome/fontawesome-free/css/all.min.css"><script>
+    (() => {
+      
+    const saveToLocal = {
+      set: (key, value, ttl) => {
+        if (!ttl) return
+        const expiry = Date.now() + ttl * 86400000
+        localStorage.setItem(key, JSON.stringify({ value, expiry }))
+      },
+      get: key => {
+        const itemStr = localStorage.getItem(key)
+        if (!itemStr) return undefined
+        const { value, expiry } = JSON.parse(itemStr)
+        if (Date.now() > expiry) {
+          localStorage.removeItem(key)
+          return undefined
+        }
+        return value
+      }
+    }
+
+    window.btf = {
+      saveToLocal,
+      getScript: (url, attr = {}) => new Promise((resolve, reject) => {
+        const script = document.createElement('script')
+        script.src = url
+        script.async = true
+        Object.entries(attr).forEach(([key, val]) => script.setAttribute(key, val))
+        script.onload = script.onreadystatechange = () => {
+          if (!script.readyState || /loaded|complete/.test(script.readyState)) resolve()
+        }
+        script.onerror = reject
+        document.head.appendChild(script)
+      }),
+      getCSS: (url, id) => new Promise((resolve, reject) => {
+        const link = document.createElement('link')
+        link.rel = 'stylesheet'
+        link.href = url
+        if (id) link.id = id
+        link.onload = link.onreadystatechange = () => {
+          if (!link.readyState || /loaded|complete/.test(link.readyState)) resolve()
+        }
+        link.onerror = reject
+        document.head.appendChild(link)
+      }),
+      addGlobalFn: (key, fn, name = false, parent = window) => {
+        if (!false && key.startsWith('pjax')) return
+        const globalFn = parent.globalFn || {}
+        globalFn[key] = globalFn[key] || {}
+        globalFn[key][name || Object.keys(globalFn[key]).length] = fn
+        parent.globalFn = globalFn
+      }
+    }
+  
+      
+      const activateDarkMode = () => {
+        document.documentElement.setAttribute('data-theme', 'dark')
+        if (document.querySelector('meta[name="theme-color"]') !== null) {
+          document.querySelector('meta[name="theme-color"]').setAttribute('content', '#0d0d0d')
+        }
+      }
+      const activateLightMode = () => {
+        document.documentElement.setAttribute('data-theme', 'light')
+        if (document.querySelector('meta[name="theme-color"]') !== null) {
+          document.querySelector('meta[name="theme-color"]').setAttribute('content', '#ffffff')
+        }
+      }
+
+      btf.activateDarkMode = activateDarkMode
+      btf.activateLightMode = activateLightMode
+
+      const theme = saveToLocal.get('theme')
+    
+          theme === 'dark' ? activateDarkMode() : theme === 'light' ? activateLightMode() : null
+        
+      
+      const asideStatus = saveToLocal.get('aside-status')
+      if (asideStatus !== undefined) {
+        document.documentElement.classList.toggle('hide-aside', asideStatus === 'hide')
+      }
+    
+      
+    const detectApple = () => {
+      if (/iPad|iPhone|iPod|Macintosh/.test(navigator.userAgent)) {
+        document.documentElement.classList.add('apple')
+      }
+    }
+    detectApple()
+  
+    })()
+  </script><script>const GLOBAL_CONFIG = {
+  root: '/',
+  algolia: undefined,
+  localSearch: {"path":"/search.xml","preload":false,"top_n_per_article":1,"unescape":false,"languages":{"hits_empty":"未找到符合您查询的内容：${query}","hits_stats":"共找到 ${hits} 篇文章"}},
+  translate: undefined,
+  highlight: {"plugin":"highlight.js","highlightCopy":true,"highlightLang":true,"highlightHeightLimit":false,"highlightFullpage":false,"highlightMacStyle":false},
+  copy: {
+    success: '复制成功',
+    error: '复制失败',
+    noSupport: '浏览器不支持'
+  },
+  relativeDate: {
+    homepage: false,
+    post: false
+  },
+  runtime: '',
+  dateSuffix: {
+    just: '刚刚',
+    min: '分钟前',
+    hour: '小时前',
+    day: '天前',
+    month: '个月前'
+  },
+  copyright: undefined,
+  lightbox: 'null',
+  Snackbar: undefined,
+  infinitegrid: {
+    js: 'https://cdn.jsdelivr.net/npm/@egjs/infinitegrid/dist/infinitegrid.min.js',
+    buttonText: '加载更多'
+  },
+  isPhotoFigcaption: false,
+  islazyload: false,
+  isAnchor: false,
+  percent: {
+    toc: true,
+    rightside: false,
+  },
+  autoDarkmode: false
+}</script><script id="config-diff">var GLOBAL_CONFIG_SITE = {
+  title: '短信转发神器,合宙 Air780E,700E 开发板刷机教程',
+  isPost: true,
+  isHome: false,
+  isHighlightShrink: false,
+  isToc: true,
+  isShuoshuo: false
+}</script><script defer src="https://cloud.umami.is/script.js" data-website-id="7a9dd579-35a7-4d3b-ae6e-22ccbc0a4946"></script><meta name="generator" content="Hexo 7.3.0"><link rel="alternate" href="/atom.xml" title="与亓のBlog" type="application/atom+xml">
+</head><body><div id="sidebar"><div id="menu-mask"></div><div id="sidebar-menus"><div class="avatar-img text-center"><img src="https://img.051516.xyz/202302272017976.jpg" onerror="onerror=null;src='/img/friend_404.gif'" alt="avatar"/></div><div class="site-data text-center"><a href="/archives/"><div class="headline">文章</div><div class="length-num">52</div></a><a href="/tags/"><div class="headline">标签</div><div class="length-num">30</div></a><a href="/categories/"><div class="headline">分类</div><div class="length-num">5</div></a></div><div class="menus_items"><div class="menus_item"><a class="site-page" href="/"><i class="fa-fw fa fa-home"></i><span> 主页</span></a></div><div class="menus_item"><span class="site-page group"><i class="fa-fw fa fa-graduation-cap"></i><span> 博文</span><i class="fas fa-chevron-down"></i></span><ul class="menus_item_child"><li><a class="site-page child" href="/archives/"><i class="fa-fw fa fa-folder-open"></i><span> 归档</span></a></li><li><a class="site-page child" href="/categories/"><i class="fa-fw fa fa-archive"></i><span> 分类</span></a></li><li><a class="site-page child" href="/tags/"><i class="fa-fw fa fa-tags"></i><span> 标签</span></a></li></ul></div><div class="menus_item"><a class="site-page" target="_blank" rel="noopener" href="https://pan.yuqi.fun:81"><i class="fa-fw fas fa-cloud"></i><span> 与亓云盘</span></a></div><div class="menus_item"><a class="site-page" target="_blank" rel="noopener" href="https://cloud.umami.is/share/Q8SJoWf5SvHArEGp/blog.ikun.ink"><i class="fa-fw fas fa-bar-chart"></i><span> 访问量统计</span></a></div><div class="menus_item"><a class="site-page" href="/link/"><i class="fa-fw fa fa-link"></i><span> 友链</span></a></div><div class="menus_item"><a class="site-page" href="/comment/"><i class="fa-fw fa fa-paper-plane"></i><span> 留言板</span></a></div><div class="menus_item"><a class="site-page" href="/about/"><i class="fa-fw fa fa-heart"></i><span> 关于</span></a></div></div></div></div><div class="post" id="body-wrap"><header class="post-bg" id="page-header" style="background-image: url(https://img.051516.xyz/202303300807996.jpg);"><nav id="nav"><span id="blog-info"><a class="nav-site-title" href="/"><span class="site-name">与亓のBlog</span></a><a class="nav-page-title" href="/"><span class="site-name">短信转发神器,合宙 Air780E,700E 开发板刷机教程</span></a></span><div id="menus"><div id="search-button"><span class="site-page social-icon search"><i class="fas fa-search fa-fw"></i><span> 搜索</span></span></div><div class="menus_items"><div class="menus_item"><a class="site-page" href="/"><i class="fa-fw fa fa-home"></i><span> 主页</span></a></div><div class="menus_item"><span class="site-page group"><i class="fa-fw fa fa-graduation-cap"></i><span> 博文</span><i class="fas fa-chevron-down"></i></span><ul class="menus_item_child"><li><a class="site-page child" href="/archives/"><i class="fa-fw fa fa-folder-open"></i><span> 归档</span></a></li><li><a class="site-page child" href="/categories/"><i class="fa-fw fa fa-archive"></i><span> 分类</span></a></li><li><a class="site-page child" href="/tags/"><i class="fa-fw fa fa-tags"></i><span> 标签</span></a></li></ul></div><div class="menus_item"><a class="site-page" target="_blank" rel="noopener" href="https://pan.yuqi.fun:81"><i class="fa-fw fas fa-cloud"></i><span> 与亓云盘</span></a></div><div class="menus_item"><a class="site-page" target="_blank" rel="noopener" href="https://cloud.umami.is/share/Q8SJoWf5SvHArEGp/blog.ikun.ink"><i class="fa-fw fas fa-bar-chart"></i><span> 访问量统计</span></a></div><div class="menus_item"><a class="site-page" href="/link/"><i class="fa-fw fa fa-link"></i><span> 友链</span></a></div><div class="menus_item"><a class="site-page" href="/comment/"><i class="fa-fw fa fa-paper-plane"></i><span> 留言板</span></a></div><div class="menus_item"><a class="site-page" href="/about/"><i class="fa-fw fa fa-heart"></i><span> 关于</span></a></div></div><div id="toggle-menu"><span class="site-page"><i class="fas fa-bars fa-fw"></i></span></div></div></nav><div id="post-info"><h1 class="post-title">短信转发神器,合宙 Air780E,700E 开发板刷机教程</h1><div id="post-meta"><div class="meta-firstline"><span class="post-meta-date"><i class="far fa-calendar-alt fa-fw post-meta-icon"></i><span class="post-meta-label">发表于</span><time class="post-meta-date-created" datetime="2023-03-30T00:00:00.000Z" title="发表于 2023-03-30 00:00:00">2023-03-30</time><span class="post-meta-separator">|</span><i class="fas fa-history fa-fw post-meta-icon"></i><span class="post-meta-label">更新于</span><time class="post-meta-date-updated" datetime="2023-03-30T00:00:00.000Z" title="更新于 2023-03-30 00:00:00">2023-03-30</time></span><span class="post-meta-categories"><span class="post-meta-separator">|</span><i class="fas fa-inbox fa-fw post-meta-icon"></i><a class="post-meta-categories" href="/categories/%E6%95%99%E7%A8%8B/">教程</a></span></div><div class="meta-secondline"><span class="post-meta-separator">|</span><span class="post-meta-pv-cv" id="" data-flag-title=""><i class="far fa-eye fa-fw post-meta-icon"></i><span class="post-meta-label">浏览量:</span><span id="busuanzi_value_page_pv"><i class="fa-solid fa-spinner fa-spin"></i></span></span></div></div></div></header><main class="layout" id="content-inner"><div id="post"><article class="container post-content" id="article-container"><p>此教程只针对拿板子做短信转发器用，其他高阶操作（定位、联网、语音）需要自由拓展发挥。</p>
+<h1 id="官网资料"><a href="#官网资料" class="headerlink" title="官网资料"></a>官网资料</h1><p>Air780E : <a target="_blank" rel="noopener" href="https://doc.openluat.com/wiki/37?wiki_page_id=4454">https://doc.openluat.com/wiki/37?wiki_page_id=4454</a></p>
+<p>Air700E : <a target="_blank" rel="noopener" href="https://doc.openluat.com/wiki/44?wiki_page_id=4730">https://doc.openluat.com/wiki/44?wiki_page_id=4730</a></p>
+<p><img src="https://img.051516.xyz/202303300802872.webp" alt="img"></p>
+<h1 id="刷机前的准备"><a href="#刷机前的准备" class="headerlink" title="刷机前的准备"></a>刷机前的准备</h1><h2 id="下载Lua固件烧录工具Luatools-v2-7z"><a href="#下载Lua固件烧录工具Luatools-v2-7z" class="headerlink" title="下载Lua固件烧录工具Luatools_v2.7z"></a>下载Lua固件烧录工具Luatools_v2.7z</h2><p>下载地址：<a target="_blank" rel="noopener" href="https://luatos.com/luatools/download/last">https://luatos.com/luatools/download/last</a></p>
+<p>大概看一下这个工具的安装使用教程<a target="_blank" rel="noopener" href="https://doc.openluat.com/wiki/37?wiki_page_id=4489">https://doc.openluat.com/wiki/37?wiki_page_id=4489</a></p>
+<h2 id="下载EC618芯片的固件"><a href="#下载EC618芯片的固件" class="headerlink" title="下载EC618芯片的固件"></a>下载EC618芯片的固件</h2><p>这一步也可以省略，第三步的脚本里面包含最新固件</p>
+<p>直接下载合宙编译发布的正式版内核固件：打开<a target="_blank" rel="noopener" href="https://gitee.com/openLuat/LuatOS/releases">https://gitee.com/openLuat/LuatOS/releases</a> 后，搜索LuatOS-SoC#EC618下载需要的版本；</p>
+<p>截至2023.3.15固件最新版本LuatOS-SoC#EC618 V1105 <a target="_blank" rel="noopener" href="https://gitee.com/openLuat/LuatOS/releases/download/v0007.ec618.v1105/core_V1105.zip">https://gitee.com/openLuat/LuatOS/releases/download/v0007.ec618.v1105/core_V1105.zip</a></p>
+<p>（#是替换符，替换@，便于阅读）</p>
+<h2 id="下载软件脚本"><a href="#下载软件脚本" class="headerlink" title="下载软件脚本"></a>下载软件脚本</h2><p><a target="_blank" rel="noopener" href="https://github.com/lageev/air780e-forwarder">https://github.com/lageev/air780e-forwarder</a></p>
+<p><img src="https://img.051516.xyz/202303300803714.webp" alt="img"></p>
+<p>一般直接压缩压缩包就可以，如果你想后续跟着这个仓库更新，可以用git克隆到本地。</p>
+<p>这个github仓库里有两个文件夹，core里面放的是固件，script里面放的是脚本。</p>
+<p><img src="https://img.051516.xyz/202303300803027.webp" alt="img"></p>
+<p>soc后缀的是固件，lua后缀的是脚本。</p>
+<p>选择固件的时候，任选一个，固件的文件名写了固件不同的功能和版本，有的是基础固件，有的是带TTS的，RNDIS是带网卡能力的，一般选FULL（全都有）就可以了。</p>
+<p>选择脚本的时候，需要全选。</p>
+<p>这里说的「选」，是指第二步，烧录的时候选择「文件」，这里先不管。</p>
+<p>脚本在烧录之前需要手动改一下config.lua 文件的代码，填写你自己的token或者webhook地址</p>
+<p><img src="https://img.051516.xyz/202303300803773.webp" alt="img"></p>
+<p>如上图，需要先填写「NOTIFY_TYPE」字段，这里支持多选，支持上面注释的例子里面的渠道。</p>
+<p>比如你想同时推送到bark和钉钉,第四行代码就是NOTIFY_TYPE&#x3D;{“bark”,”dingtalk”}，以此类推，只有一个推送渠道的时候，大括号可以省略。</p>
+<p>改写完「NOTIFY_TYPE」字段，还需要改下面的webhook地址，需要你去对应的软件获取，具体方法自己解决，代码里已经给了相关的文档地址。</p>
+<p>这里举个bark的例子，如果你的iOS设备上安装了bark，</p>
+<p>打开首页会有很多网址</p>
+<p>比如 <a target="_blank" rel="noopener" href="https://api.day.app/xxxxxxxxxx">https://api.day.app/xxxxxxxxxx</a></p>
+<p>xxxxxxx所代表的就是bark的key，只需要把这个key复制到config.lua 中 BARK_KEY中即可，API字段不用变（如果你没有自己部署Bark的话）。</p>
+<p><img src="https://img.051516.xyz/202303300803629.webp" alt="img"></p>
+<p>在config.lua 代码中填写完你自己的配置，保存之后，其他的就不要动了。</p>
+<h1 id="烧录固件和脚本"><a href="#烧录固件和脚本" class="headerlink" title="烧录固件和脚本"></a>烧录固件和脚本</h1><p>这里的烧录固件就相当于刷机，刷ROM，脚本就相当于安装App。</p>
+<p>由于开发板自身没有用户界面，所以所有的安装操作都是通过烧录完成的。需要用USB-C数据线将电脑和开发板连接，剩下的所有操作都在LuaTool里面。</p>
+<p>首先将开发板连接电脑，先不要开机。</p>
+<p>按照下图步骤操作</p>
+<p>1、勾选「4G模块USB打印」</p>
+<p>2、选择右上方「项目管理按钮」</p>
+<p>3、创建项目，项目名随意，主要是区分每次刷的脚本和固件</p>
+<p>4、选择电脑中已经下载好的固件</p>
+<p>5、选择电脑中已经下载好的脚本</p>
+<p>6、点击「下载底层和脚本」</p>
+<p><img src="https://img.051516.xyz/202303300803467.webp" alt="img"></p>
+<p><img src="https://img.051516.xyz/202303300804588.webp" alt="img">点击「下载底层和脚本」之后，软件会有文字提示，「正在准备xxx」「正在下载xxx」</p>
+<p>这时候，同时按住电源键和BOOT键，软件有反应了再松手（提示「发现下载端口」），这时候固件和脚本会自动刷入，知道提示下载完成。</p>
+<p>提示：700E和780E的按键一样，可以参考文章开头的大图，从左往右依次是「电源键」「重置键」「BOOT键」</p>
+<p>这时，烧录操作全部完成，可以开机使用了。</p>
+<p>这里多说一句，如果以后你想刷别的脚本，就直接新建项目选择背的脚本就行了，然后刷的时候点击「下载脚本」就行了，固件不用选，因为你只是更换脚本。</p>
+<h1 id="使用"><a href="#使用" class="headerlink" title="使用"></a>使用</h1><p>日常使用插卡，接上电源即可（普通的USB-C接5V USB即可）。需要看日志可以连接电脑，使用Luatools查看。记得打开上面说的「4G模块USB打印」。</p>
+<p>现在Air700E官网仅售9.9，780E仅售39。</p>
+<p>700仅支持移动卡，780E支持移动＋联通。</p>
+</article><div class="post-copyright"><div class="post-copyright__author"><span class="post-copyright-meta"><i class="fas fa-circle-user fa-fw"></i>文章作者: </span><span class="post-copyright-info"><a href="https://blog.ikun.ink">与亓</a></span></div><div class="post-copyright__type"><span class="post-copyright-meta"><i class="fas fa-square-arrow-up-right fa-fw"></i>文章链接: </span><span class="post-copyright-info"><a href="https://blog.ikun.ink/posts/15b05887/">https://blog.ikun.ink/posts/15b05887/</a></span></div><div class="post-copyright__notice"><span class="post-copyright-meta"><i class="fas fa-circle-exclamation fa-fw"></i>版权声明: </span><span class="post-copyright-info">本博客所有文章除特别声明外，均采用 <a href="https://creativecommons.org/licenses/by-nc-sa/4.0/" target="_blank">CC BY-NC-SA 4.0</a> 许可协议。转载请注明来源 <a href="https://blog.ikun.ink" target="_blank">与亓のBlog</a>！</span></div></div><div class="tag_share"><div class="post-meta__tag-list"><a class="post-meta__tags" href="/tags/%E7%9F%AD%E4%BF%A1%E8%BD%AC%E5%8F%91/">短信转发</a></div><div class="post-share"><div class="social-share" data-image="https://img.051516.xyz/202303300807996.jpg" data-sites="facebook,twitter,wechat,weibo,qq"></div><link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/butterfly-extsrc/sharejs/dist/css/share.min.css" media="print" onload="this.media='all'"><script src="https://cdn.jsdelivr.net/npm/butterfly-extsrc/sharejs/dist/js/social-share.min.js" defer></script></div></div><nav class="pagination-post" id="pagination"><a class="pagination-related" href="/posts/f5caf0fa/" title="李跳跳2.2正式版"><img class="cover" src="https://img.051516.xyz/202304091217576.jpg" onerror="onerror=null;src='/img/404.jpg'" alt="cover of previous post"><div class="info"><div class="info-1"><div class="info-item-1">上一篇</div><div class="info-item-2">李跳跳2.2正式版</div></div><div class="info-2"><div class="info-item-1">无论你是哪个版本的李跳跳，都建议更新啊喂。 更新日志1.省电优化。 2.响应速度优化。 3.内置算法优化。 4.适配更多APP。 5.修复已知BUG。 6.修复用户反馈的问题。 7.适配圆形倒计时广告。 8.优化微信自动勾选原图。 9.新增无障碍服务异常检测。 10.自定义规则优化，支持关闭任意个连续弹窗。 11.自定义规则优化，支持同一弹窗点击多个位置。 12.自定义规则优化，遇到流氓弹窗容易误点广告的问题。 13.优化短时间内弹出多个弹窗无法全部关闭的问题。 14.过滤一些不合理输入，减少系统资源损耗。 15.自定义规则支持CheckBox状态判断。 16.修复华为系统下的特定BUG。 17.适配华为系统下的特定广告。 18.特定APP新增特定算法。 19.适配特定系统的优化。 20.支持自定义点击序列。 21.优化节点过滤逻辑。 22.支持覆盖内置规则。 23.无障碍标签完善。 24.优化部分文案。 25.更换新图标。 26.更换包名(无奈之举)。 下载地址免登陆下载：https://www.123pan.com/s/bAORVv-QGQl.html  </div></div></div></a><a class="pagination-related" href="/posts/27cbce44/" title="记中兴MF932改串"><img class="cover" src="https://img.051516.xyz/202303232017586.jpg" onerror="onerror=null;src='/img/404.jpg'" alt="cover of next post"><div class="info text-right"><div class="info-1"><div class="info-item-1">下一篇</div><div class="info-item-2">记中兴MF932改串</div></div><div class="info-2"><div class="info-item-1">注意！改串需要自己将串号写入NV文件中，我也不知道怎么写入，本教程只做参考，不会生成改串的NV文件就不用再往下看了。** 下载资料包点击下载  安装驱动以及AT工具 安装驱动和AT工具都是一直默认下一步，驱动的话安装完成会有弹窗，再次点击Update Driver就行，安装完成关闭即可。  改串步骤随身WiFi开机连接电脑，双击开端口.exe  然后打开AT工具  选择带AT的端口，波特率115200  输入AT，点击发送，返回OK则连接成功  输入 1AT+zmode=1  拔掉随身WiFi然后重连 在资料包文件夹打开命令提示符（CMD）,地址栏输入并回车  按照下面的命令进行操作 备份原来NV 1adb pull /mnt/nvrofs/nvroall.bin C:\Users\YUQI\Desktop\（C:\Users\YUQI\Desktop\ 是保存的文件存放路径）  清除设备NV 12adb shell mount -o remount,rw /mnt nvrofsadb shell rm -rf...</div></div></div></a></nav><hr class="custom-hr"/><div id="post-comment"><div class="comment-head"><div class="comment-headline"><i class="fas fa-comments fa-fw"></i><span> 评论</span></div></div><div class="comment-wrap"><div><div id="twikoo-wrap"></div></div></div></div></div><div class="aside-content" id="aside-content"><div class="card-widget card-info text-center"><div class="avatar-img"><img src="https://img.051516.xyz/202302272017976.jpg" onerror="this.onerror=null;this.src='/img/friend_404.gif'" alt="avatar"/></div><div class="author-info-name">与亓</div><div class="author-info-description"></div><div class="site-data"><a href="/archives/"><div class="headline">文章</div><div class="length-num">52</div></a><a href="/tags/"><div class="headline">标签</div><div class="length-num">30</div></a><a href="/categories/"><div class="headline">分类</div><div class="length-num">5</div></a></div><a id="card-info-btn" target="_blank" rel="noopener" href="https://github.com/2253845067"><i class="fab fa-github"></i><span>Follow Me</span></a><div class="card-info-social-icons"><a class="social-icon" href="https://github.com/2253845067" target="_blank" title="Github"><i class="fab fa-github"></i></a><a class="social-icon" href="mailto:2253845067@qq.com" target="_blank" title="Email"><i class="fas fa-envelope"></i></a></div></div><div class="card-widget card-announcement"><div class="item-headline"><i class="fas fa-bullhorn fa-shake"></i><span>公告</span></div><div class="announcement_content">This is my Blog</div></div><div class="sticky_layout"><div class="card-widget" id="card-toc"><div class="item-headline"><i class="fas fa-stream"></i><span>目录</span><span class="toc-percentage"></span></div><div class="toc-content"><ol class="toc"><li class="toc-item toc-level-1"><a class="toc-link" href="#%E5%AE%98%E7%BD%91%E8%B5%84%E6%96%99"><span class="toc-number">1.</span> <span class="toc-text">官网资料</span></a></li><li class="toc-item toc-level-1"><a class="toc-link" href="#%E5%88%B7%E6%9C%BA%E5%89%8D%E7%9A%84%E5%87%86%E5%A4%87"><span class="toc-number">2.</span> <span class="toc-text">刷机前的准备</span></a><ol class="toc-child"><li class="toc-item toc-level-2"><a class="toc-link" href="#%E4%B8%8B%E8%BD%BDLua%E5%9B%BA%E4%BB%B6%E7%83%A7%E5%BD%95%E5%B7%A5%E5%85%B7Luatools-v2-7z"><span class="toc-number">2.1.</span> <span class="toc-text">下载Lua固件烧录工具Luatools_v2.7z</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#%E4%B8%8B%E8%BD%BDEC618%E8%8A%AF%E7%89%87%E7%9A%84%E5%9B%BA%E4%BB%B6"><span class="toc-number">2.2.</span> <span class="toc-text">下载EC618芯片的固件</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#%E4%B8%8B%E8%BD%BD%E8%BD%AF%E4%BB%B6%E8%84%9A%E6%9C%AC"><span class="toc-number">2.3.</span> <span class="toc-text">下载软件脚本</span></a></li></ol></li><li class="toc-item toc-level-1"><a class="toc-link" href="#%E7%83%A7%E5%BD%95%E5%9B%BA%E4%BB%B6%E5%92%8C%E8%84%9A%E6%9C%AC"><span class="toc-number">3.</span> <span class="toc-text">烧录固件和脚本</span></a></li><li class="toc-item toc-level-1"><a class="toc-link" href="#%E4%BD%BF%E7%94%A8"><span class="toc-number">4.</span> <span class="toc-text">使用</span></a></li></ol></div></div><div class="card-widget card-recent-post"><div class="item-headline"><i class="fas fa-history"></i><span>最新文章</span></div><div class="aside-list"><div class="aside-list-item"><a class="thumbnail" href="/posts/175f8f8b/" title="SEW MOVIDRIVE MDX61B调试步骤"><img src="https://img.051516.xyz/20250524223858577.jpg" onerror="this.onerror=null;this.src='/img/404.jpg'" alt="SEW MOVIDRIVE MDX61B调试步骤"/></a><div class="content"><a class="title" href="/posts/175f8f8b/" title="SEW MOVIDRIVE MDX61B调试步骤">SEW MOVIDRIVE MDX61B调试步骤</a><time datetime="2025-05-24T00:00:00.000Z" title="发表于 2025-05-24 00:00:00">2025-05-24</time></div></div><div class="aside-list-item"><a class="thumbnail" href="/posts/421934fd/" title="SEW-MC07B变频器-MOTION--STUDIO软件调试步骤、方法和技巧"><img src="https://img.051516.xyz/20250524210846940.jpg" onerror="this.onerror=null;this.src='/img/404.jpg'" alt="SEW-MC07B变频器-MOTION--STUDIO软件调试步骤、方法和技巧"/></a><div class="content"><a class="title" href="/posts/421934fd/" title="SEW-MC07B变频器-MOTION--STUDIO软件调试步骤、方法和技巧">SEW-MC07B变频器-MOTION--STUDIO软件调试步骤、方法和技巧</a><time datetime="2025-05-24T00:00:00.000Z" title="发表于 2025-05-24 00:00:00">2025-05-24</time></div></div><div class="aside-list-item"><a class="thumbnail" href="/posts/908d3d13/" title="SINAMICS G120D CU250-2PN速度控制调试步骤"><img src="https://img.051516.xyz/20250523231546696.jpg" onerror="this.onerror=null;this.src='/img/404.jpg'" alt="SINAMICS G120D CU250-2PN速度控制调试步骤"/></a><div class="content"><a class="title" href="/posts/908d3d13/" title="SINAMICS G120D CU250-2PN速度控制调试步骤">SINAMICS G120D CU250-2PN速度控制调试步骤</a><time datetime="2025-05-23T00:00:00.000Z" title="发表于 2025-05-23 00:00:00">2025-05-23</time></div></div><div class="aside-list-item"><a class="thumbnail" href="/posts/7f12cab4/" title="MOVIFIT参数配置"><img src="https://img.051516.xyz/20250522194040873.jpg" onerror="this.onerror=null;this.src='/img/404.jpg'" alt="MOVIFIT参数配置"/></a><div class="content"><a class="title" href="/posts/7f12cab4/" title="MOVIFIT参数配置">MOVIFIT参数配置</a><time datetime="2025-05-22T00:00:00.000Z" title="发表于 2025-05-22 00:00:00">2025-05-22</time></div></div><div class="aside-list-item"><a class="thumbnail" href="/posts/4f7419e2/" title="移载机SEW MOVIDRIVE 变频器配置手册（双编码器）"><img src="https://img.051516.xyz/20250522212705870.jpg" onerror="this.onerror=null;this.src='/img/404.jpg'" alt="移载机SEW MOVIDRIVE 变频器配置手册（双编码器）"/></a><div class="content"><a class="title" href="/posts/4f7419e2/" title="移载机SEW MOVIDRIVE 变频器配置手册（双编码器）">移载机SEW MOVIDRIVE 变频器配置手册（双编码器）</a><time datetime="2025-05-22T00:00:00.000Z" title="发表于 2025-05-22 00:00:00">2025-05-22</time></div></div></div></div></div></div></main><footer id="footer"><div id="footer-wrap"><div class="copyright">&copy;2019 - 2025 By 与亓</div><div class="framework-info"><span>框架 </span><a target="_blank" rel="noopener" href="https://hexo.io">Hexo</a><span class="footer-separator">|</span><span>主题 </span><a target="_blank" rel="noopener" href="https://github.com/jerryc127/hexo-theme-butterfly">Butterfly</a></div></div></footer></div><div id="rightside"><div id="rightside-config-hide"><button id="readmode" type="button" title="阅读模式"><i class="fas fa-book-open"></i></button><button id="darkmode" type="button" title="日间和夜间模式切换"><i class="fas fa-adjust"></i></button><button id="hide-aside-btn" type="button" title="单栏和双栏切换"><i class="fas fa-arrows-alt-h"></i></button></div><div id="rightside-config-show"><button id="rightside-config" type="button" title="设置"><i class="fas fa-cog fa-spin"></i></button><button class="close" id="mobile-toc-button" type="button" title="目录"><i class="fas fa-list-ul"></i></button><a id="to_comment" href="#post-comment" title="前往评论"><i class="fas fa-comments"></i></a><button id="go-up" type="button" title="回到顶部"><span class="scroll-percent"></span><i class="fas fa-arrow-up"></i></button></div></div><div><script src="/js/utils.js"></script><script src="/js/main.js"></script><div class="js-pjax"><script>(() => {
+  const isShuoshuo = GLOBAL_CONFIG_SITE.isShuoshuo
+  const option = null
+
+  const getCount = () => {
+    const countELement = document.getElementById('twikoo-count')
+    if(!countELement) return
+    twikoo.getCommentsCount({
+      envId: 'https://tw.yuqi.im/',
+      region: '',
+      urls: [window.location.pathname],
+      includeReply: false
+    }).then(res => {
+      countELement.textContent = res[0].count
+    }).catch(err => {
+      console.error(err)
+    })
+  }
+
+  const init = (el = document, path = location.pathname) => {
+    twikoo.init({
+      el: el.querySelector('#twikoo-wrap'),
+      envId: 'https://tw.yuqi.im/',
+      region: '',
+      onCommentLoaded: () => {
+        btf.loadLightbox(document.querySelectorAll('#twikoo .tk-content img:not(.tk-owo-emotion)'))
+      },
+      ...option,
+      path: isShuoshuo ? path : (option && option.path) || path
+    })
+
+    GLOBAL_CONFIG_SITE.isPost && getCount()
+
+    isShuoshuo && (window.shuoshuoComment.destroyTwikoo = () => {
+      if (el.children.length) {
+        el.innerHTML = ''
+        el.classList.add('no-comment')
+      }
+    })
+  }
+
+  const loadTwikoo = (el, path) => {
+    if (typeof twikoo === 'object') setTimeout(() => init(el, path), 0)
+    else btf.getScript('https://cdn.jsdelivr.net/npm/twikoo/dist/twikoo.all.min.js').then(() => init(el, path))
+  }
+
+  if (isShuoshuo) {
+    'Twikoo' === 'Twikoo'
+      ? window.shuoshuoComment = { loadComment: loadTwikoo }
+      : window.loadOtherComment = loadTwikoo
+    return
+  }
+
+  if ('Twikoo' === 'Twikoo' || !true) {
+    if (true) btf.loadComment(document.getElementById('twikoo-wrap'), loadTwikoo)
+    else loadTwikoo()
+  } else {
+    window.loadOtherComment = loadTwikoo
+  }
+})()</script></div><script async data-pjax src="//busuanzi.ibruce.info/busuanzi/2.3/busuanzi.pure.mini.js"></script><div id="local-search"><div class="search-dialog"><nav class="search-nav"><span class="search-dialog-title">搜索</span><span id="loading-status"></span><button class="search-close-button"><i class="fas fa-times"></i></button></nav><div class="text-center" id="loading-database"><i class="fas fa-spinner fa-pulse"></i><span>  数据加载中</span></div><div class="search-wrap"><div id="local-search-input"><div class="local-search-box"><input class="local-search-box--input" placeholder="搜索文章" type="text"/></div></div><hr/><div id="local-search-results"></div><div id="local-search-stats-wrap"></div></div></div><div id="search-mask"></div><script src="/js/search/local-search.js"></script></div></div></body></html>
