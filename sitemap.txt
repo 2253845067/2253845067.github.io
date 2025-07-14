@@ -1,9 +1,9 @@
+https://blog.ikun.ink/categories/index.html
 https://blog.ikun.ink/comment/index.html
 https://blog.ikun.ink/link/index.html
 https://blog.ikun.ink/tags/index.html
 https://blog.ikun.ink/about/index.html
 https://blog.ikun.ink/archives/index.html
-https://blog.ikun.ink/categories/index.html
 https://blog.ikun.ink/posts/175f8f8b/
 https://blog.ikun.ink/posts/421934fd/
 https://blog.ikun.ink/posts/908d3d13/
