@@ -1,24 +1,6 @@
 <?xml version="1.0" encoding="utf-8"?>
 <search>
   <entry>
-    <title>5G21第二批刷机以及不同作者间的固件切换</title>
-    <url>/posts/7ae0e921/</url>
-    <content><![CDATA[<p>lean 的 q-wrt 可以进行 webui 直接更新 进入 webui 后依次点击系统-服务&#x2F;备份-刷写新的固件上传固件后升级。切记不要勾选保留配置。<br>切换到志平或狂风固件请使用 winscp 等工具上传到 tmp 目录后，ssh 输入以下的命令，记得先 cd 到 tmp 目录。</p>
-<figure class="highlight plaintext"><table><tr><td class="code"><pre><span class="line">sysupgrade -F -n xxx.bin</span><br></pre></td></tr></table></figure>
-
-<p>或者使用以下命令强刷</p>
-<figure class="highlight plaintext"><table><tr><td class="code"><pre><span class="line">sysupgrade -F -n -v xxx.bin</span><br></pre></td></tr></table></figure>
-
-<p><strong>xxx 为固件名字</strong></p>
-]]></content>
-      <categories>
-        <category>网络设备</category>
-      </categories>
-      <tags>
-        <tag>OpenWrt</tag>
-      </tags>
-  </entry>
-  <entry>
     <title>1panel面板部署哪吒监控v1</title>
     <url>/posts/aad1ff9e/</url>
     <content><![CDATA[<h1 id="域名解析"><a href="#域名解析" class="headerlink" title="域名解析"></a>域名解析</h1><p>面板域名以<code>nezha.a.com</code>为例</p>
@@ -73,6 +55,24 @@
       </categories>
       <tags>
         <tag>运维工具</tag>
+      </tags>
+  </entry>
+  <entry>
+    <title>5G21第二批刷机以及不同作者间的固件切换</title>
+    <url>/posts/7ae0e921/</url>
+    <content><![CDATA[<p>lean 的 q-wrt 可以进行 webui 直接更新 进入 webui 后依次点击系统-服务&#x2F;备份-刷写新的固件上传固件后升级。切记不要勾选保留配置。<br>切换到志平或狂风固件请使用 winscp 等工具上传到 tmp 目录后，ssh 输入以下的命令，记得先 cd 到 tmp 目录。</p>
+<figure class="highlight plaintext"><table><tr><td class="code"><pre><span class="line">sysupgrade -F -n xxx.bin</span><br></pre></td></tr></table></figure>
+
+<p>或者使用以下命令强刷</p>
+<figure class="highlight plaintext"><table><tr><td class="code"><pre><span class="line">sysupgrade -F -n -v xxx.bin</span><br></pre></td></tr></table></figure>
+
+<p><strong>xxx 为固件名字</strong></p>
+]]></content>
+      <categories>
+        <category>网络设备</category>
+      </categories>
+      <tags>
+        <tag>OpenWrt</tag>
       </tags>
   </entry>
   <entry>
@@ -483,6 +483,28 @@
       </tags>
   </entry>
   <entry>
+    <title>hexo中插入PDF</title>
+    <url>/posts/4cd4322f/</url>
+    <content><![CDATA[<h2 id="安装-hexo-pdf"><a href="#安装-hexo-pdf" class="headerlink" title="安装 hexo-pdf"></a>安装 hexo-pdf</h2><figure class="highlight text"><table><tr><td class="code"><pre><span class="line">npm install --save hexo-pdf</span><br></pre></td></tr></table></figure>
+
+<h2 id="本地-PDF-引用"><a href="#本地-PDF-引用" class="headerlink" title="本地 PDF 引用"></a>本地 PDF 引用</h2><p>最简单的引用方法：把相应 pdf 文件存到<strong>source 文件夹</strong>下，引用格式为：</p>
+<figure class="highlight text"><table><tr><td class="code"><pre><span class="line">&#123;% pdf /引用文档名字.pdf %&#125;</span><br></pre></td></tr></table></figure>
+
+<p>当然，你也可以新建一个文件夹方便管理 PDF 文档（）在这里我主要参考了<a href="https://link.zhihu.com/?target=https://www.jianshu.com/p/cccc7058a08c">https://www.jianshu.com/p/cccc7058a08c</a>，但是它并没有解决问题 orz 经过苦逼的尝试发现缺少&#x2F;</p>
+<p><strong>也就是说，方法为：</strong></p>
+<p>xxxxxxxxxx .md 文件中的 HTML 代码要用  和  包起来，使其能正确编译里面的代码。markdown</p>
+<figure class="highlight text"><table><tr><td class="code"><pre><span class="line">&#123;% pdf /pdf/xxx.pdf %&#125;</span><br></pre></td></tr></table></figure>
+
+<p>尝试后可以看到，hexo-pdf 对 PDF 文档展示效果非常不错 lol</p>
+]]></content>
+      <categories>
+        <category>教程</category>
+      </categories>
+      <tags>
+        <tag>hexo</tag>
+      </tags>
+  </entry>
+  <entry>
     <title>HTML总复习</title>
     <url>/posts/e79fa3f4/</url>
     <content><![CDATA[<h1 id="导读"><a href="#导读" class="headerlink" title="导读"></a>导读</h1><h2 id="网页"><a href="#网页" class="headerlink" title="网页"></a>网页</h2><p>网站是指在因特网中根据一定的规则，使用<strong>HTML</strong>等制作的用于展示特定内容相关的网页集合</p>
@@ -877,46 +899,6 @@
       </tags>
   </entry>
   <entry>
-    <title>hexo中插入PDF</title>
-    <url>/posts/4cd4322f/</url>
-    <content><![CDATA[<h2 id="安装-hexo-pdf"><a href="#安装-hexo-pdf" class="headerlink" title="安装 hexo-pdf"></a>安装 hexo-pdf</h2><figure class="highlight text"><table><tr><td class="code"><pre><span class="line">npm install --save hexo-pdf</span><br></pre></td></tr></table></figure>
-
-<h2 id="本地-PDF-引用"><a href="#本地-PDF-引用" class="headerlink" title="本地 PDF 引用"></a>本地 PDF 引用</h2><p>最简单的引用方法：把相应 pdf 文件存到<strong>source 文件夹</strong>下，引用格式为：</p>
-<figure class="highlight text"><table><tr><td class="code"><pre><span class="line">&#123;% pdf /引用文档名字.pdf %&#125;</span><br></pre></td></tr></table></figure>
-
-<p>当然，你也可以新建一个文件夹方便管理 PDF 文档（）在这里我主要参考了<a href="https://link.zhihu.com/?target=https://www.jianshu.com/p/cccc7058a08c">https://www.jianshu.com/p/cccc7058a08c</a>，但是它并没有解决问题 orz 经过苦逼的尝试发现缺少&#x2F;</p>
-<p><strong>也就是说，方法为：</strong></p>
-<p>xxxxxxxxxx .md 文件中的 HTML 代码要用  和  包起来，使其能正确编译里面的代码。markdown</p>
-<figure class="highlight text"><table><tr><td class="code"><pre><span class="line">&#123;% pdf /pdf/xxx.pdf %&#125;</span><br></pre></td></tr></table></figure>
-
-<p>尝试后可以看到，hexo-pdf 对 PDF 文档展示效果非常不错 lol</p>
-]]></content>
-      <categories>
-        <category>教程</category>
-      </categories>
-      <tags>
-        <tag>hexo</tag>
-      </tags>
-  </entry>
-  <entry>
-    <title>Hexo建立一个独立的HTML页面</title>
-    <url>/posts/12482e7/</url>
-    <content><![CDATA[<p>Hexo 是一个轻量、快速，简单和强大的博客框架，当我们需要发布博文的时候，只需要将写好的文章（MarkDown 文件）放入本地的 <code>\source\_posts</code> 文件夹，然后再推送上去就行了，原理就是当我们在执行 <code>hexo g</code> 命令时，<code>.md</code> 文件就会被转化成 HTML 文件，但是有时候我们需要新建一个独立的页面，这个页面不使用主题的渲染，具有自己独立的样式，可以放一些自己的作品，相册什么的，以下就介绍这种独立页面的实现方法。</p>
-<h1 id="方法一："><a href="#方法一：" class="headerlink" title="方法一："></a>方法一：</h1><p>使用 Hexo 提供的跳过渲染配置，在博客根目录的配置文件 <code>_config.yml</code> 里找到 <code>skip_render</code> 关键字，在后面添加想要跳过渲染的页面，比如我们创建 <code>\source\about\index.html</code>， 配置文件填写：<code>skip_render: about\**</code>，那么就表示 <code>\source\about</code> 里所有的文件将跳过渲染，里面的文件将会被直接复制到 public 文件夹，此时就会得到一个独立的 about 页面；官方文档：<a href="https://hexo.io/docs/configuration">https://hexo.io/docs/configuration</a></p>
-<h1 id="方法-2"><a href="#方法-2" class="headerlink" title="方法 2"></a>方法 2</h1><p>在文章头部的 Front-matter 里添加配置 <code>layout: false</code> 来跳过渲染配置，比如我们要使 about 页面跳过渲染，创建 <code>\source\about\index.md</code>，将这个页面的相关 HTML 代码写进<code>.md</code>文件并保存，然后在 <code>index.md</code> 的头部写入：</p>
-<figure class="highlight markdown"><table><tr><td class="code"><pre><span class="line">---</span><br><span class="line"><span class="section">layout: false</span></span><br><span class="line"><span class="section">---</span></span><br><span class="line"></span><br><span class="line">&#123;% raw %&#125;</span><br><span class="line">xxxxxxxxxxxxx</span><br><span class="line">xx HTML 代码 xx</span><br><span class="line">xxxxxxxxxxxxx</span><br><span class="line">&#123;% endraw %&#125;</span><br></pre></td></tr></table></figure>
-
-<p>PS：Front-matter 是 <code>.md</code> 文件最上方以 — 分隔的区域，用于指定个别文件的变量，官方文档：<a href="https://hexo.io/docs/front-matter">https://hexo.io/docs/front-matter</a></p>
-<figure class="highlight markdown"><table><tr><td class="code"><pre><span class="line">.md 文件中的 HTML 代码要用 &#123;% raw %&#125; 和 &#123;% endraw %&#125; 包起来，使其能正确编译里面的代码。</span><br></pre></td></tr></table></figure>
-]]></content>
-      <categories>
-        <category>教程</category>
-      </categories>
-      <tags>
-        <tag>hexo</tag>
-      </tags>
-  </entry>
-  <entry>
     <title>Hexo博客部署到云服务器</title>
     <url>/posts/bda2f0d3/</url>
     <content><![CDATA[<h1 id="将Hexo部署到云服务器"><a href="#将Hexo部署到云服务器" class="headerlink" title="将Hexo部署到云服务器"></a>将<code>Hexo</code>部署到云服务器</h1><p>为了解决<code>Hexo</code>部署到 <a href="https://github.com/">GitHub</a> 访问速度慢的问题，我们可以将<code>Hexo</code>部署到云服务器上。</p>
@@ -992,6 +974,24 @@
       </categories>
       <tags>
         <tag>Hexo</tag>
+      </tags>
+  </entry>
+  <entry>
+    <title>Hexo建立一个独立的HTML页面</title>
+    <url>/posts/12482e7/</url>
+    <content><![CDATA[<p>Hexo 是一个轻量、快速，简单和强大的博客框架，当我们需要发布博文的时候，只需要将写好的文章（MarkDown 文件）放入本地的 <code>\source\_posts</code> 文件夹，然后再推送上去就行了，原理就是当我们在执行 <code>hexo g</code> 命令时，<code>.md</code> 文件就会被转化成 HTML 文件，但是有时候我们需要新建一个独立的页面，这个页面不使用主题的渲染，具有自己独立的样式，可以放一些自己的作品，相册什么的，以下就介绍这种独立页面的实现方法。</p>
+<h1 id="方法一："><a href="#方法一：" class="headerlink" title="方法一："></a>方法一：</h1><p>使用 Hexo 提供的跳过渲染配置，在博客根目录的配置文件 <code>_config.yml</code> 里找到 <code>skip_render</code> 关键字，在后面添加想要跳过渲染的页面，比如我们创建 <code>\source\about\index.html</code>， 配置文件填写：<code>skip_render: about\**</code>，那么就表示 <code>\source\about</code> 里所有的文件将跳过渲染，里面的文件将会被直接复制到 public 文件夹，此时就会得到一个独立的 about 页面；官方文档：<a href="https://hexo.io/docs/configuration">https://hexo.io/docs/configuration</a></p>
+<h1 id="方法-2"><a href="#方法-2" class="headerlink" title="方法 2"></a>方法 2</h1><p>在文章头部的 Front-matter 里添加配置 <code>layout: false</code> 来跳过渲染配置，比如我们要使 about 页面跳过渲染，创建 <code>\source\about\index.md</code>，将这个页面的相关 HTML 代码写进<code>.md</code>文件并保存，然后在 <code>index.md</code> 的头部写入：</p>
+<figure class="highlight markdown"><table><tr><td class="code"><pre><span class="line">---</span><br><span class="line"><span class="section">layout: false</span></span><br><span class="line"><span class="section">---</span></span><br><span class="line"></span><br><span class="line">&#123;% raw %&#125;</span><br><span class="line">xxxxxxxxxxxxx</span><br><span class="line">xx HTML 代码 xx</span><br><span class="line">xxxxxxxxxxxxx</span><br><span class="line">&#123;% endraw %&#125;</span><br></pre></td></tr></table></figure>
+
+<p>PS：Front-matter 是 <code>.md</code> 文件最上方以 — 分隔的区域，用于指定个别文件的变量，官方文档：<a href="https://hexo.io/docs/front-matter">https://hexo.io/docs/front-matter</a></p>
+<figure class="highlight markdown"><table><tr><td class="code"><pre><span class="line">.md 文件中的 HTML 代码要用 &#123;% raw %&#125; 和 &#123;% endraw %&#125; 包起来，使其能正确编译里面的代码。</span><br></pre></td></tr></table></figure>
+]]></content>
+      <categories>
+        <category>教程</category>
+      </categories>
+      <tags>
+        <tag>hexo</tag>
       </tags>
   </entry>
   <entry>
@@ -2512,40 +2512,6 @@
       </tags>
   </entry>
   <entry>
-    <title>利用CF Workers搭建Github加速服务</title>
-    <url>/posts/ee2e5bab/</url>
-    <content><![CDATA[<h1 id="利用CF-Workers搭建GH-Proxy服务"><a href="#利用CF-Workers搭建GH-Proxy服务" class="headerlink" title="利用CF Workers搭建GH-Proxy服务"></a>利用CF Workers搭建GH-Proxy服务</h1><blockquote>
-<p>项目地址：<a href="https://github.com/hunshcn/gh-proxy">hunshcn&#x2F;gh-proxy: github release、archive以及项目文件的加速项目</a><br>项目简介：github release、archive以及项目文件的加速项目，支持clone，有Cloudflare Workers无服务器版本以及Python版本</p>
-</blockquote>
-<ol>
-<li>注册一个CloudFlare账户</li>
-<li>进入<a href="https://workers.cloudflare.com/">CF Workers</a>页面，点击 <strong>创建应用程序 <img src="https://img.051516.xyz/202312120902203.png" alt="img"></strong></li>
-<li>点击 <strong>创建Worker <img src="https://img.051516.xyz/202312120902204.png" alt="img"></strong></li>
-<li>按需填写 <strong>名称</strong>，点击右下角 <strong>部署</strong><br><img src="https://img.051516.xyz/202312120902205.png" alt="img"></li>
-<li>点击 <strong>编辑代码</strong><img src="https://img.051516.xyz/202312120902206.png" alt="img"></li>
-<li>将代码<strong>复制并替换编辑框里的内容</strong>，点击右边的 <strong>保存并部署</strong>，返回刚才的管理页面</li>
-</ol>
-<blockquote>
-<p>代码地址：<a href="https://cdn.jsdelivr.net/gh/hunshcn/gh-proxy@master/index.js">cdn.jsdelivr.net&#x2F;gh&#x2F;hunshcn&#x2F;gh-proxy@master&#x2F;index.js</a></p>
-</blockquote>
-<p><img src="https://img.051516.xyz/202312120902207.png" alt="img"></p>
-<ol>
-<li>点击<strong>查看链接</strong>，显示如下界面即为成功<img src="https://img.051516.xyz/202312120902208.png" alt="img"></li>
-</ol>
-<p><img src="https://img.051516.xyz/202312120902209.png" alt="img"></p>
-<blockquote>
-<h2 id="Cloudflare-Workers计费"><a href="#Cloudflare-Workers计费" class="headerlink" title="Cloudflare Workers计费"></a>Cloudflare Workers计费</h2><p>到 <code>overview</code> 页面可参看使用情况。免费版每天有 10 万次免费请求，并且有每分钟1000次请求的限制。</p>
-<p>如果不够用，可升级到 $5 的高级版本，每月可用 1000 万次请求（超出部分 $0.5&#x2F;百万次请求）。</p>
-</blockquote>
-]]></content>
-      <categories>
-        <category>网络技术</category>
-      </categories>
-      <tags>
-        <tag>前端部署</tag>
-      </tags>
-  </entry>
-  <entry>
     <title>在WSL2中使用Clash Verge代理连接</title>
     <url>/posts/af89448b/</url>
     <content><![CDATA[<blockquote>
@@ -2577,6 +2543,40 @@
       </categories>
       <tags>
         <tag>网络代理</tag>
+      </tags>
+  </entry>
+  <entry>
+    <title>利用CF Workers搭建Github加速服务</title>
+    <url>/posts/ee2e5bab/</url>
+    <content><![CDATA[<h1 id="利用CF-Workers搭建GH-Proxy服务"><a href="#利用CF-Workers搭建GH-Proxy服务" class="headerlink" title="利用CF Workers搭建GH-Proxy服务"></a>利用CF Workers搭建GH-Proxy服务</h1><blockquote>
+<p>项目地址：<a href="https://github.com/hunshcn/gh-proxy">hunshcn&#x2F;gh-proxy: github release、archive以及项目文件的加速项目</a><br>项目简介：github release、archive以及项目文件的加速项目，支持clone，有Cloudflare Workers无服务器版本以及Python版本</p>
+</blockquote>
+<ol>
+<li>注册一个CloudFlare账户</li>
+<li>进入<a href="https://workers.cloudflare.com/">CF Workers</a>页面，点击 <strong>创建应用程序 <img src="https://img.051516.xyz/202312120902203.png" alt="img"></strong></li>
+<li>点击 <strong>创建Worker <img src="https://img.051516.xyz/202312120902204.png" alt="img"></strong></li>
+<li>按需填写 <strong>名称</strong>，点击右下角 <strong>部署</strong><br><img src="https://img.051516.xyz/202312120902205.png" alt="img"></li>
+<li>点击 <strong>编辑代码</strong><img src="https://img.051516.xyz/202312120902206.png" alt="img"></li>
+<li>将代码<strong>复制并替换编辑框里的内容</strong>，点击右边的 <strong>保存并部署</strong>，返回刚才的管理页面</li>
+</ol>
+<blockquote>
+<p>代码地址：<a href="https://cdn.jsdelivr.net/gh/hunshcn/gh-proxy@master/index.js">cdn.jsdelivr.net&#x2F;gh&#x2F;hunshcn&#x2F;gh-proxy@master&#x2F;index.js</a></p>
+</blockquote>
+<p><img src="https://img.051516.xyz/202312120902207.png" alt="img"></p>
+<ol>
+<li>点击<strong>查看链接</strong>，显示如下界面即为成功<img src="https://img.051516.xyz/202312120902208.png" alt="img"></li>
+</ol>
+<p><img src="https://img.051516.xyz/202312120902209.png" alt="img"></p>
+<blockquote>
+<h2 id="Cloudflare-Workers计费"><a href="#Cloudflare-Workers计费" class="headerlink" title="Cloudflare Workers计费"></a>Cloudflare Workers计费</h2><p>到 <code>overview</code> 页面可参看使用情况。免费版每天有 10 万次免费请求，并且有每分钟1000次请求的限制。</p>
+<p>如果不够用，可升级到 $5 的高级版本，每月可用 1000 万次请求（超出部分 $0.5&#x2F;百万次请求）。</p>
+</blockquote>
+]]></content>
+      <categories>
+        <category>网络技术</category>
+      </categories>
+      <tags>
+        <tag>前端部署</tag>
       </tags>
   </entry>
   <entry>
@@ -2958,6 +2958,21 @@
       </tags>
   </entry>
   <entry>
+    <title>电脑谷歌浏览器糖心使用教程</title>
+    <url>/posts/77efc3f1/</url>
+    <content><![CDATA[<p>1、先安装油猴插件<br><a href="https://greasyfork.org/scripts/461743-%E7%B3%96%E5%BF%83/code/%E7%B3%96%E5%BF%83.user.js">油猴插件</a><br>2、安装更改 ua 插件（挂梯子扶墙，打开 chrome 应用商店安装）<br><a href="https://chrome.google.com/webstore/detail/user-agent-switcher-and-m/bhchdcejhohfmigjafbampogmaanbfkg">https://chrome.google.com/webstore/detail/user-agent-switcher-and-m/bhchdcejhohfmigjafbampogmaanbfkg</a><br>3、按照这个教程(使用拓展插件进行修改)设置 ua<br><a href="https://blog.csdn.net/m0_46665077/article/details/125713310#22__31">https://blog.csdn.net/m0_46665077/article/details/125713310#22__31</a><br>下面是 UA：</p>
+<figure class="highlight plaintext"><table><tr><td class="code"><pre><span class="line">Mozilla/5.0(iPhone;CPUiPhoneOS11_4_1likeMacOSX)AppleWebKit/537.36(KHTML,likeGecko)Chrome/77.0.3865.116MobileSafari/11.0Mobile/58.0Firefox/12F70Safari/537.36Quark/3.8.4.128UCBrowser/12.0.4.985baiduboxapp/3.2.5.10MQQBrowser/7.2.1.2965XiaoMi/MiuiBrowser/11.9.2SearchCraft/2.0.0ALiSearchApp/2.4AliApp(TB/9.5.6)BingWeb/6.2TBS/537.36Weiyun/6.9.37(Android)Weiyun(zh-Hans)/537.36</span><br></pre></td></tr></table></figure>
+
+<p>4、最后打开网址<a href="https://txh016.com/">https://txh016.com</a>奔放</p>
+]]></content>
+      <categories>
+        <category>油猴脚本</category>
+      </categories>
+      <tags>
+        <tag>18+</tag>
+      </tags>
+  </entry>
+  <entry>
     <title>短信转发神器,合宙 Air780E,700E 开发板刷机教程</title>
     <url>/posts/15b05887/</url>
     <content><![CDATA[<p>此教程只针对拿板子做短信转发器用，其他高阶操作（定位、联网、语音）需要自由拓展发挥。</p>
@@ -3015,21 +3030,6 @@
       </categories>
       <tags>
         <tag>短信转发</tag>
-      </tags>
-  </entry>
-  <entry>
-    <title>电脑谷歌浏览器糖心使用教程</title>
-    <url>/posts/77efc3f1/</url>
-    <content><![CDATA[<p>1、先安装油猴插件<br><a href="https://greasyfork.org/scripts/461743-%E7%B3%96%E5%BF%83/code/%E7%B3%96%E5%BF%83.user.js">油猴插件</a><br>2、安装更改 ua 插件（挂梯子扶墙，打开 chrome 应用商店安装）<br><a href="https://chrome.google.com/webstore/detail/user-agent-switcher-and-m/bhchdcejhohfmigjafbampogmaanbfkg">https://chrome.google.com/webstore/detail/user-agent-switcher-and-m/bhchdcejhohfmigjafbampogmaanbfkg</a><br>3、按照这个教程(使用拓展插件进行修改)设置 ua<br><a href="https://blog.csdn.net/m0_46665077/article/details/125713310#22__31">https://blog.csdn.net/m0_46665077/article/details/125713310#22__31</a><br>下面是 UA：</p>
-<figure class="highlight plaintext"><table><tr><td class="code"><pre><span class="line">Mozilla/5.0(iPhone;CPUiPhoneOS11_4_1likeMacOSX)AppleWebKit/537.36(KHTML,likeGecko)Chrome/77.0.3865.116MobileSafari/11.0Mobile/58.0Firefox/12F70Safari/537.36Quark/3.8.4.128UCBrowser/12.0.4.985baiduboxapp/3.2.5.10MQQBrowser/7.2.1.2965XiaoMi/MiuiBrowser/11.9.2SearchCraft/2.0.0ALiSearchApp/2.4AliApp(TB/9.5.6)BingWeb/6.2TBS/537.36Weiyun/6.9.37(Android)Weiyun(zh-Hans)/537.36</span><br></pre></td></tr></table></figure>
-
-<p>4、最后打开网址<a href="https://txh016.com/">https://txh016.com</a>奔放</p>
-]]></content>
-      <categories>
-        <category>油猴脚本</category>
-      </categories>
-      <tags>
-        <tag>18+</tag>
       </tags>
   </entry>
   <entry>
@@ -3290,24 +3290,6 @@
       </tags>
   </entry>
   <entry>
-    <title>谷歌浏览器设置关闭搜索记录</title>
-    <url>/posts/42e51b95/</url>
-    <content><![CDATA[<p><strong>将 Chrome 的 History 文件设置为可读即可。</strong><br>操作方法：<br>1 、在 Chrome 浏览器地址栏中输入</p>
-<figure class="highlight html"><table><tr><td class="code"><pre><span class="line">chrome://version/</span><br></pre></td></tr></table></figure>
-
-<p>2 、复制<strong>个人资料路径</strong>，关闭 Chrome 浏览器并到资源管理器中打开刚才复制的“个人资料路径”</p>
-<p><img src="https://img.051516.xyz/202303062045271.png" alt="image-20230306204551884"></p>
-<p>3 、找到History文件并删除，然后新建一个History文件，对History文件，右键—属性，勾选只读。</p>
-<p><img src="https://img.051516.xyz/202303062048179.png" alt="image-20230306204804357"></p>
-]]></content>
-      <categories>
-        <category>隐私安全</category>
-      </categories>
-      <tags>
-        <tag>Google浏览器</tag>
-      </tags>
-  </entry>
-  <entry>
     <title>记中兴MF932改串</title>
     <url>/posts/27cbce44/</url>
     <content><![CDATA[<h1 id="注意！"><a href="#注意！" class="headerlink" title="注意！"></a>注意！</h1><p><strong>改串需要自己将串号写入NV文件中，我也不知道怎么写入，本教程只做参考，不会生成改串的NV文件就不用再往下看了。</strong>**</p>
@@ -3352,6 +3334,24 @@
       </categories>
       <tags>
         <tag>随身WiFi</tag>
+      </tags>
+  </entry>
+  <entry>
+    <title>谷歌浏览器设置关闭搜索记录</title>
+    <url>/posts/42e51b95/</url>
+    <content><![CDATA[<p><strong>将 Chrome 的 History 文件设置为可读即可。</strong><br>操作方法：<br>1 、在 Chrome 浏览器地址栏中输入</p>
+<figure class="highlight html"><table><tr><td class="code"><pre><span class="line">chrome://version/</span><br></pre></td></tr></table></figure>
+
+<p>2 、复制<strong>个人资料路径</strong>，关闭 Chrome 浏览器并到资源管理器中打开刚才复制的“个人资料路径”</p>
+<p><img src="https://img.051516.xyz/202303062045271.png" alt="image-20230306204551884"></p>
+<p>3 、找到History文件并删除，然后新建一个History文件，对History文件，右键—属性，勾选只读。</p>
+<p><img src="https://img.051516.xyz/202303062048179.png" alt="image-20230306204804357"></p>
+]]></content>
+      <categories>
+        <category>隐私安全</category>
+      </categories>
+      <tags>
+        <tag>Google浏览器</tag>
       </tags>
   </entry>
   <entry>
