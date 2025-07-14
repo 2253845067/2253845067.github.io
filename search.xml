@@ -12,10 +12,10 @@
 <p><strong>xxx 为固件名字</strong></p>
 ]]></content>
       <categories>
-        <category>教程</category>
+        <category>网络设备</category>
       </categories>
       <tags>
-        <tag>路由器</tag>
+        <tag>OpenWrt</tag>
       </tags>
   </entry>
   <entry>
@@ -68,6 +68,12 @@
 <li>在个人信息里面绑定即可</li>
 </ol>
 ]]></content>
+      <categories>
+        <category>运维技术</category>
+      </categories>
+      <tags>
+        <tag>运维工具</tag>
+      </tags>
   </entry>
   <entry>
     <title>ABPLC通过Modbus TCP读取设备压力值</title>
@@ -237,10 +243,10 @@
 <p><a href="https://yunzhongzhuan.com.publicdn.com/download/2764040/QDbjnDZ5/Modbus+TCP+Server+-+AOI+based+code+for+ControlLogix+v+2.04.00+zh.pdf">Modbus TCP服务端AOI中文文档</a></p>
 ]]></content>
       <categories>
-        <category>教程</category>
+        <category>工业自动化</category>
       </categories>
       <tags>
-        <tag>PLC</tag>
+        <tag>工业通信</tag>
       </tags>
   </entry>
   <entry>
@@ -292,7 +298,7 @@
 <p>上面的网站就有很多模型，可以根据自己喜好进行下载添加</p>
 ]]></content>
       <categories>
-        <category>教程</category>
+        <category>人工智能</category>
       </categories>
       <tags>
         <tag>AI绘画</tag>
@@ -343,10 +349,10 @@
 <h1 id="五、结束"><a href="#五、结束" class="headerlink" title="五、结束"></a>五、结束</h1><p>祝大家用得开心，有问题可以去 GitHub 提 <a href="https://github.com/Xhofe/alist/issues">Issues</a>，也可以在评论区互相交流探讨。</p>
 ]]></content>
       <categories>
-        <category>教程</category>
+        <category>文件管理</category>
       </categories>
       <tags>
-        <tag>Alist</tag>
+        <tag>网盘聚合</tag>
       </tags>
   </entry>
   <entry>
@@ -378,11 +384,10 @@
 <p>如果像我一样，不想每次升级主题都可能要重新改一遍，或是为了方便管理，则可以选择插件版。<br>如果是本来就修改了源文件，也不介意再多修改这一个，则可以选择源文件版。</p>
 ]]></content>
       <categories>
-        <category>教程</category>
+        <category>博客运维</category>
       </categories>
       <tags>
-        <tag>Butterfly</tag>
-        <tag>hexo</tag>
+        <tag>Hexo</tag>
       </tags>
   </entry>
   <entry>
@@ -399,11 +404,10 @@
 
 ]]></content>
       <categories>
-        <category>教程</category>
+        <category>博客运维</category>
       </categories>
       <tags>
-        <tag>Butterfly</tag>
-        <tag>hexo</tag>
+        <tag>Hexo</tag>
       </tags>
   </entry>
   <entry>
@@ -472,10 +476,10 @@
 <h1 id="项目地址"><a href="#项目地址" class="headerlink" title="项目地址"></a>项目地址</h1><p><a href="https://github.com/Repcz/Tool">https://github.com/Repcz/Tool</a></p>
 ]]></content>
       <categories>
-        <category>教程</category>
+        <category>网络技术</category>
       </categories>
       <tags>
-        <tag>科学上网</tag>
+        <tag>网络代理</tag>
       </tags>
   </entry>
   <entry>
@@ -895,6 +899,24 @@
       </tags>
   </entry>
   <entry>
+    <title>Hexo建立一个独立的HTML页面</title>
+    <url>/posts/12482e7/</url>
+    <content><![CDATA[<p>Hexo 是一个轻量、快速，简单和强大的博客框架，当我们需要发布博文的时候，只需要将写好的文章（MarkDown 文件）放入本地的 <code>\source\_posts</code> 文件夹，然后再推送上去就行了，原理就是当我们在执行 <code>hexo g</code> 命令时，<code>.md</code> 文件就会被转化成 HTML 文件，但是有时候我们需要新建一个独立的页面，这个页面不使用主题的渲染，具有自己独立的样式，可以放一些自己的作品，相册什么的，以下就介绍这种独立页面的实现方法。</p>
+<h1 id="方法一："><a href="#方法一：" class="headerlink" title="方法一："></a>方法一：</h1><p>使用 Hexo 提供的跳过渲染配置，在博客根目录的配置文件 <code>_config.yml</code> 里找到 <code>skip_render</code> 关键字，在后面添加想要跳过渲染的页面，比如我们创建 <code>\source\about\index.html</code>， 配置文件填写：<code>skip_render: about\**</code>，那么就表示 <code>\source\about</code> 里所有的文件将跳过渲染，里面的文件将会被直接复制到 public 文件夹，此时就会得到一个独立的 about 页面；官方文档：<a href="https://hexo.io/docs/configuration">https://hexo.io/docs/configuration</a></p>
+<h1 id="方法-2"><a href="#方法-2" class="headerlink" title="方法 2"></a>方法 2</h1><p>在文章头部的 Front-matter 里添加配置 <code>layout: false</code> 来跳过渲染配置，比如我们要使 about 页面跳过渲染，创建 <code>\source\about\index.md</code>，将这个页面的相关 HTML 代码写进<code>.md</code>文件并保存，然后在 <code>index.md</code> 的头部写入：</p>
+<figure class="highlight markdown"><table><tr><td class="code"><pre><span class="line">---</span><br><span class="line"><span class="section">layout: false</span></span><br><span class="line"><span class="section">---</span></span><br><span class="line"></span><br><span class="line">&#123;% raw %&#125;</span><br><span class="line">xxxxxxxxxxxxx</span><br><span class="line">xx HTML 代码 xx</span><br><span class="line">xxxxxxxxxxxxx</span><br><span class="line">&#123;% endraw %&#125;</span><br></pre></td></tr></table></figure>
+
+<p>PS：Front-matter 是 <code>.md</code> 文件最上方以 — 分隔的区域，用于指定个别文件的变量，官方文档：<a href="https://hexo.io/docs/front-matter">https://hexo.io/docs/front-matter</a></p>
+<figure class="highlight markdown"><table><tr><td class="code"><pre><span class="line">.md 文件中的 HTML 代码要用 &#123;% raw %&#125; 和 &#123;% endraw %&#125; 包起来，使其能正确编译里面的代码。</span><br></pre></td></tr></table></figure>
+]]></content>
+      <categories>
+        <category>教程</category>
+      </categories>
+      <tags>
+        <tag>hexo</tag>
+      </tags>
+  </entry>
+  <entry>
     <title>Hexo博客部署到云服务器</title>
     <url>/posts/bda2f0d3/</url>
     <content><![CDATA[<h1 id="将Hexo部署到云服务器"><a href="#将Hexo部署到云服务器" class="headerlink" title="将Hexo部署到云服务器"></a>将<code>Hexo</code>部署到云服务器</h1><p>为了解决<code>Hexo</code>部署到 <a href="https://github.com/">GitHub</a> 访问速度慢的问题，我们可以将<code>Hexo</code>部署到云服务器上。</p>
@@ -966,28 +988,10 @@
 <p>现在就可以用 你的域名来访问博客了。</p>
 ]]></content>
       <categories>
-        <category>教程</category>
+        <category>博客运维</category>
       </categories>
       <tags>
-        <tag>hexo</tag>
-      </tags>
-  </entry>
-  <entry>
-    <title>Hexo建立一个独立的HTML页面</title>
-    <url>/posts/12482e7/</url>
-    <content><![CDATA[<p>Hexo 是一个轻量、快速，简单和强大的博客框架，当我们需要发布博文的时候，只需要将写好的文章（MarkDown 文件）放入本地的 <code>\source\_posts</code> 文件夹，然后再推送上去就行了，原理就是当我们在执行 <code>hexo g</code> 命令时，<code>.md</code> 文件就会被转化成 HTML 文件，但是有时候我们需要新建一个独立的页面，这个页面不使用主题的渲染，具有自己独立的样式，可以放一些自己的作品，相册什么的，以下就介绍这种独立页面的实现方法。</p>
-<h1 id="方法一："><a href="#方法一：" class="headerlink" title="方法一："></a>方法一：</h1><p>使用 Hexo 提供的跳过渲染配置，在博客根目录的配置文件 <code>_config.yml</code> 里找到 <code>skip_render</code> 关键字，在后面添加想要跳过渲染的页面，比如我们创建 <code>\source\about\index.html</code>， 配置文件填写：<code>skip_render: about\**</code>，那么就表示 <code>\source\about</code> 里所有的文件将跳过渲染，里面的文件将会被直接复制到 public 文件夹，此时就会得到一个独立的 about 页面；官方文档：<a href="https://hexo.io/docs/configuration">https://hexo.io/docs/configuration</a></p>
-<h1 id="方法-2"><a href="#方法-2" class="headerlink" title="方法 2"></a>方法 2</h1><p>在文章头部的 Front-matter 里添加配置 <code>layout: false</code> 来跳过渲染配置，比如我们要使 about 页面跳过渲染，创建 <code>\source\about\index.md</code>，将这个页面的相关 HTML 代码写进<code>.md</code>文件并保存，然后在 <code>index.md</code> 的头部写入：</p>
-<figure class="highlight markdown"><table><tr><td class="code"><pre><span class="line">---</span><br><span class="line"><span class="section">layout: false</span></span><br><span class="line"><span class="section">---</span></span><br><span class="line"></span><br><span class="line">&#123;% raw %&#125;</span><br><span class="line">xxxxxxxxxxxxx</span><br><span class="line">xx HTML 代码 xx</span><br><span class="line">xxxxxxxxxxxxx</span><br><span class="line">&#123;% endraw %&#125;</span><br></pre></td></tr></table></figure>
-
-<p>PS：Front-matter 是 <code>.md</code> 文件最上方以 — 分隔的区域，用于指定个别文件的变量，官方文档：<a href="https://hexo.io/docs/front-matter">https://hexo.io/docs/front-matter</a></p>
-<figure class="highlight markdown"><table><tr><td class="code"><pre><span class="line">.md 文件中的 HTML 代码要用 &#123;% raw %&#125; 和 &#123;% endraw %&#125; 包起来，使其能正确编译里面的代码。</span><br></pre></td></tr></table></figure>
-]]></content>
-      <categories>
-        <category>教程</category>
-      </categories>
-      <tags>
-        <tag>hexo</tag>
+        <tag>Hexo</tag>
       </tags>
   </entry>
   <entry>
@@ -1076,10 +1080,10 @@
 <p>生成好后会自动同步到服务器本地，然后访问你的域名就可以看见服务器端部署的博客了。</p>
 ]]></content>
       <categories>
-        <category>教程</category>
+        <category>博客运维</category>
       </categories>
       <tags>
-        <tag>hexo</tag>
+        <tag>Hexo</tag>
       </tags>
   </entry>
   <entry>
@@ -2250,10 +2254,10 @@
 </ol>
 ]]></content>
       <categories>
-        <category>教程</category>
+        <category>开发工具</category>
       </categories>
       <tags>
-        <tag>git</tag>
+        <tag>Git</tag>
       </tags>
   </entry>
   <entry>
@@ -2433,10 +2437,10 @@
 <p>3、再次登录系统时，记得使用新的root密码。</p>
 ]]></content>
       <categories>
-        <category>教程</category>
+        <category>运维技术</category>
       </categories>
       <tags>
-        <tag>服务器</tag>
+        <tag>运维工具</tag>
       </tags>
   </entry>
   <entry>
@@ -2501,7 +2505,7 @@
 <p>获取到这这个密码输入到解锁 sim 卡服务的地方即可。<br>解锁后再拔掉开机，看到 SIM 已解锁。<br>然后插入 SIM 就可以上网了，如果恢复出厂需要再执行以上操作。</p>
 ]]></content>
       <categories>
-        <category>教程</category>
+        <category>移动通信</category>
       </categories>
       <tags>
         <tag>随身WiFi</tag>
@@ -2535,10 +2539,10 @@
 </blockquote>
 ]]></content>
       <categories>
-        <category>教程</category>
+        <category>网络技术</category>
       </categories>
       <tags>
-        <tag>网站</tag>
+        <tag>前端部署</tag>
       </tags>
   </entry>
   <entry>
@@ -2569,10 +2573,10 @@
 <h1 id="参考资料"><a href="#参考资料" class="headerlink" title="参考资料"></a>参考资料</h1><p><a href="https://zhuanlan.zhihu.com/p/153124468">为 WSL2 一键设置代理 (zhihu.com)</a><br><a href="https://www.chenyudong.com/archives/sudo-keep-env.html">sudo保持前用用户的env环境变量 (chenyudong.com, 已失效)</a></p>
 ]]></content>
       <categories>
-        <category>教程</category>
+        <category>网络技术</category>
       </categories>
       <tags>
-        <tag>科学上网</tag>
+        <tag>网络代理</tag>
       </tags>
   </entry>
   <entry>
@@ -2599,10 +2603,10 @@
 <figure class="highlight cmd"><table><tr><td class="code"><pre><span class="line">cnpm install hexo-cli -g</span><br><span class="line">git clone 你备份的仓库地址</span><br><span class="line">cnpm install</span><br></pre></td></tr></table></figure>
 ]]></content>
       <categories>
-        <category>教程</category>
+        <category>博客运维</category>
       </categories>
       <tags>
-        <tag>hexo</tag>
+        <tag>Hexo</tag>
       </tags>
   </entry>
   <entry>
@@ -2635,10 +2639,10 @@
 <h1 id="tips"><a href="#tips" class="headerlink" title="tips"></a>tips</h1><p>HttpCanary 太久没有更新了，问题很多。大家可以关注一下同作者的新作 Reqable，未来会出安卓版，官网 <a href="https://reqable.com/zh-CN/">https://reqable.com/zh-CN/</a> 。</p>
 ]]></content>
       <categories>
-        <category>教程</category>
+        <category>网络安全</category>
       </categories>
       <tags>
-        <tag>手机</tag>
+        <tag>网络抓包</tag>
       </tags>
   </entry>
   <entry>
@@ -2666,7 +2670,7 @@
 <p>3.重启虚拟机即可</p>
 ]]></content>
       <categories>
-        <category>教程</category>
+        <category>故障排除</category>
       </categories>
       <tags>
         <tag>虚拟机</tag>
@@ -2808,9 +2812,15 @@
 <p>SKY-BOX</p>
 <figure class="highlight plaintext"><table><tr><td class="code"><pre><span class="line">wget -O box.sh https://raw.githubusercontent.com/BlueSkyXN/SKY-BOX/main/box.sh &amp;&amp; chmod +x box.sh &amp;&amp; clear &amp;&amp; ./box.sh</span><br></pre></td></tr></table></figure>
 ]]></content>
+      <categories>
+        <category>运维技术</category>
+      </categories>
+      <tags>
+        <tag>运维工具</tag>
+      </tags>
   </entry>
   <entry>
-    <title>最佳免费NPV方式-workers搭建vless使用</title>
+    <title>最佳免费VPN方式-workers搭建vless使用</title>
     <url>/posts/1b7388f/</url>
     <content><![CDATA[<h2 id="资源："><a href="#资源：" class="headerlink" title="资源："></a>资源：</h2><h6 id="WIN"><a href="#WIN" class="headerlink" title="WIN:"></a><strong>WIN:</strong></h6><p>v2rayN 最新版<a href="https://github.com/2dust/v2rayN/releases">下载地址&gt;&gt;</a></p>
 <p>cloudflare<a href="https://dash.cloudflare.com/">网站链接&gt;&gt;</a></p>
@@ -2901,10 +2911,10 @@
 <p>**speedtest測速-**<a href="https://www.speedtest.net/">https://www.speedtest.net/</a></p>
 ]]></content>
       <categories>
-        <category>教程</category>
+        <category>网络技术</category>
       </categories>
       <tags>
-        <tag>NPV</tag>
+        <tag>网络代理</tag>
       </tags>
   </entry>
   <entry>
@@ -2941,25 +2951,10 @@
 <p><img src="https://img.051516.xyz/202304091214921.png" alt="image-20230409121412470"></p>
 ]]></content>
       <categories>
-        <category>软件分享</category>
+        <category>效率工具</category>
       </categories>
       <tags>
-        <tag>安卓软件</tag>
-      </tags>
-  </entry>
-  <entry>
-    <title>电脑谷歌浏览器糖心使用教程</title>
-    <url>/posts/77efc3f1/</url>
-    <content><![CDATA[<p>1、先安装油猴插件<br><a href="https://greasyfork.org/scripts/461743-%E7%B3%96%E5%BF%83/code/%E7%B3%96%E5%BF%83.user.js">油猴插件</a><br>2、安装更改 ua 插件（挂梯子扶墙，打开 chrome 应用商店安装）<br><a href="https://chrome.google.com/webstore/detail/user-agent-switcher-and-m/bhchdcejhohfmigjafbampogmaanbfkg">https://chrome.google.com/webstore/detail/user-agent-switcher-and-m/bhchdcejhohfmigjafbampogmaanbfkg</a><br>3、按照这个教程(使用拓展插件进行修改)设置 ua<br><a href="https://blog.csdn.net/m0_46665077/article/details/125713310#22__31">https://blog.csdn.net/m0_46665077/article/details/125713310#22__31</a><br>下面是 UA：</p>
-<figure class="highlight plaintext"><table><tr><td class="code"><pre><span class="line">Mozilla/5.0(iPhone;CPUiPhoneOS11_4_1likeMacOSX)AppleWebKit/537.36(KHTML,likeGecko)Chrome/77.0.3865.116MobileSafari/11.0Mobile/58.0Firefox/12F70Safari/537.36Quark/3.8.4.128UCBrowser/12.0.4.985baiduboxapp/3.2.5.10MQQBrowser/7.2.1.2965XiaoMi/MiuiBrowser/11.9.2SearchCraft/2.0.0ALiSearchApp/2.4AliApp(TB/9.5.6)BingWeb/6.2TBS/537.36Weiyun/6.9.37(Android)Weiyun(zh-Hans)/537.36</span><br></pre></td></tr></table></figure>
-
-<p>4、最后打开网址<a href="https://txh016.com/">https://txh016.com</a>奔放</p>
-]]></content>
-      <categories>
-        <category>教程</category>
-      </categories>
-      <tags>
-        <tag>18+</tag>
+        <tag>安卓应用</tag>
       </tags>
   </entry>
   <entry>
@@ -3016,10 +3011,25 @@
 <p>700仅支持移动卡，780E支持移动＋联通。</p>
 ]]></content>
       <categories>
-        <category>教程</category>
+        <category>硬件改造</category>
       </categories>
       <tags>
         <tag>短信转发</tag>
+      </tags>
+  </entry>
+  <entry>
+    <title>电脑谷歌浏览器糖心使用教程</title>
+    <url>/posts/77efc3f1/</url>
+    <content><![CDATA[<p>1、先安装油猴插件<br><a href="https://greasyfork.org/scripts/461743-%E7%B3%96%E5%BF%83/code/%E7%B3%96%E5%BF%83.user.js">油猴插件</a><br>2、安装更改 ua 插件（挂梯子扶墙，打开 chrome 应用商店安装）<br><a href="https://chrome.google.com/webstore/detail/user-agent-switcher-and-m/bhchdcejhohfmigjafbampogmaanbfkg">https://chrome.google.com/webstore/detail/user-agent-switcher-and-m/bhchdcejhohfmigjafbampogmaanbfkg</a><br>3、按照这个教程(使用拓展插件进行修改)设置 ua<br><a href="https://blog.csdn.net/m0_46665077/article/details/125713310#22__31">https://blog.csdn.net/m0_46665077/article/details/125713310#22__31</a><br>下面是 UA：</p>
+<figure class="highlight plaintext"><table><tr><td class="code"><pre><span class="line">Mozilla/5.0(iPhone;CPUiPhoneOS11_4_1likeMacOSX)AppleWebKit/537.36(KHTML,likeGecko)Chrome/77.0.3865.116MobileSafari/11.0Mobile/58.0Firefox/12F70Safari/537.36Quark/3.8.4.128UCBrowser/12.0.4.985baiduboxapp/3.2.5.10MQQBrowser/7.2.1.2965XiaoMi/MiuiBrowser/11.9.2SearchCraft/2.0.0ALiSearchApp/2.4AliApp(TB/9.5.6)BingWeb/6.2TBS/537.36Weiyun/6.9.37(Android)Weiyun(zh-Hans)/537.36</span><br></pre></td></tr></table></figure>
+
+<p>4、最后打开网址<a href="https://txh016.com/">https://txh016.com</a>奔放</p>
+]]></content>
+      <categories>
+        <category>油猴脚本</category>
+      </categories>
+      <tags>
+        <tag>18+</tag>
       </tags>
   </entry>
   <entry>
@@ -3153,11 +3163,10 @@
 <p>中国国际机场<a href="https://cnnic.pub/#/register?code=gr8guOWR">https://cnnic.pub/#/register?code=gr8guOWR</a></p>
 ]]></content>
       <categories>
-        <category>教程</category>
+        <category>网络技术</category>
       </categories>
       <tags>
-        <tag>免流</tag>
-        <tag>CFM</tag>
+        <tag>网络代理</tag>
       </tags>
   </entry>
   <entry>
@@ -3273,6 +3282,30 @@
 <p>设置完成这些参数，可以测试运行电机。</p>
 <p><img src="https://img.051516.xyz/20250522212158850.png" alt="image-20250522210558705"></p>
 ]]></content>
+      <categories>
+        <category>工业自动化</category>
+      </categories>
+      <tags>
+        <tag>MOVIDRIVE</tag>
+      </tags>
+  </entry>
+  <entry>
+    <title>谷歌浏览器设置关闭搜索记录</title>
+    <url>/posts/42e51b95/</url>
+    <content><![CDATA[<p><strong>将 Chrome 的 History 文件设置为可读即可。</strong><br>操作方法：<br>1 、在 Chrome 浏览器地址栏中输入</p>
+<figure class="highlight html"><table><tr><td class="code"><pre><span class="line">chrome://version/</span><br></pre></td></tr></table></figure>
+
+<p>2 、复制<strong>个人资料路径</strong>，关闭 Chrome 浏览器并到资源管理器中打开刚才复制的“个人资料路径”</p>
+<p><img src="https://img.051516.xyz/202303062045271.png" alt="image-20230306204551884"></p>
+<p>3 、找到History文件并删除，然后新建一个History文件，对History文件，右键—属性，勾选只读。</p>
+<p><img src="https://img.051516.xyz/202303062048179.png" alt="image-20230306204804357"></p>
+]]></content>
+      <categories>
+        <category>隐私安全</category>
+      </categories>
+      <tags>
+        <tag>Google浏览器</tag>
+      </tags>
   </entry>
   <entry>
     <title>记中兴MF932改串</title>
@@ -3315,28 +3348,10 @@
 <p>完成</p>
 ]]></content>
       <categories>
-        <category>教程</category>
+        <category>移动通信</category>
       </categories>
       <tags>
         <tag>随身WiFi</tag>
-      </tags>
-  </entry>
-  <entry>
-    <title>谷歌浏览器设置关闭搜索记录</title>
-    <url>/posts/42e51b95/</url>
-    <content><![CDATA[<p><strong>将 Chrome 的 History 文件设置为可读即可。</strong><br>操作方法：<br>1 、在 Chrome 浏览器地址栏中输入</p>
-<figure class="highlight html"><table><tr><td class="code"><pre><span class="line">chrome://version/</span><br></pre></td></tr></table></figure>
-
-<p>2 、复制<strong>个人资料路径</strong>，关闭 Chrome 浏览器并到资源管理器中打开刚才复制的“个人资料路径”</p>
-<p><img src="https://img.051516.xyz/202303062045271.png" alt="image-20230306204551884"></p>
-<p>3 、找到History文件并删除，然后新建一个History文件，对History文件，右键—属性，勾选只读。</p>
-<p><img src="https://img.051516.xyz/202303062048179.png" alt="image-20230306204804357"></p>
-]]></content>
-      <categories>
-        <category>教程</category>
-      </categories>
-      <tags>
-        <tag>Google浏览器</tag>
       </tags>
   </entry>
   <entry>
@@ -3426,6 +3441,12 @@
 <p><img src="https://img.051516.xyz/202411241536675.png" alt="image-20241124153306459"></p>
 <p><img src="https://img.051516.xyz/202411241536972.png" alt="image-20241124153505708"></p>
 <h1 id="画面"><a href="#画面" class="headerlink" title="画面"></a>画面</h1>]]></content>
+      <categories>
+        <category>工业自动化</category>
+      </categories>
+      <tags>
+        <tag>工业软件</tag>
+      </tags>
   </entry>
   <entry>
     <title>针对Prodiag现场License弹窗的解决方法</title>
@@ -3450,5 +3471,11 @@
 <p><img src="https://img.051516.xyz/20250510170821004.png" alt="image-20250510165833281"></p>
 <p>注意：授权传送之后会提示成功，传送成功后授权若消失重新使用EKb安装一遍即可出现。</p>
 ]]></content>
+      <categories>
+        <category>工业自动化</category>
+      </categories>
+      <tags>
+        <tag>工业软件</tag>
+      </tags>
   </entry>
 </search>
