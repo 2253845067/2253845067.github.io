@@ -582,13 +582,6 @@
   </url>
   
   <url>
-    <loc>https://yuqi.im/tags/hexo/</loc>
-    <lastmod>2025-07-14</lastmod>
-    <changefreq>weekly</changefreq>
-    <priority>0.2</priority>
-  </url>
-  
-  <url>
     <loc>https://yuqi.im/tags/HTML/</loc>
     <lastmod>2025-07-14</lastmod>
     <changefreq>weekly</changefreq>
@@ -604,6 +597,13 @@
   
   <url>
     <loc>https://yuqi.im/tags/%E5%89%8D%E7%AB%AF/</loc>
+    <lastmod>2025-07-14</lastmod>
+    <changefreq>weekly</changefreq>
+    <priority>0.2</priority>
+  </url>
+  
+  <url>
+    <loc>https://yuqi.im/tags/hexo/</loc>
     <lastmod>2025-07-14</lastmod>
     <changefreq>weekly</changefreq>
     <priority>0.2</priority>
@@ -801,14 +801,14 @@
   </url>
   
   <url>
-    <loc>https://yuqi.im/categories/%E6%95%99%E7%A8%8B/</loc>
+    <loc>https://yuqi.im/categories/%E5%89%8D%E7%AB%AF/</loc>
     <lastmod>2025-07-14</lastmod>
     <changefreq>weekly</changefreq>
     <priority>0.2</priority>
   </url>
   
   <url>
-    <loc>https://yuqi.im/categories/%E5%89%8D%E7%AB%AF/</loc>
+    <loc>https://yuqi.im/categories/%E6%95%99%E7%A8%8B/</loc>
     <lastmod>2025-07-14</lastmod>
     <changefreq>weekly</changefreq>
     <priority>0.2</priority>

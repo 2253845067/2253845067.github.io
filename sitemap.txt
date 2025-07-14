@@ -64,10 +64,10 @@ https://yuqi.im/tags/AI%E7%BB%98%E7%94%BB/
 https://yuqi.im/tags/%E7%BD%91%E7%9B%98%E8%81%9A%E5%90%88/
 https://yuqi.im/tags/Hexo/
 https://yuqi.im/tags/%E7%BD%91%E7%BB%9C%E4%BB%A3%E7%90%86/
-https://yuqi.im/tags/hexo/
 https://yuqi.im/tags/HTML/
 https://yuqi.im/tags/css/
 https://yuqi.im/tags/%E5%89%8D%E7%AB%AF/
+https://yuqi.im/tags/hexo/
 https://yuqi.im/tags/%E8%B7%AF%E7%94%B1%E5%99%A8/
 https://yuqi.im/tags/%E5%85%B6%E4%BB%96/
 https://yuqi.im/tags/Openwrt/
@@ -95,8 +95,8 @@ https://yuqi.im/categories/%E4%BA%BA%E5%B7%A5%E6%99%BA%E8%83%BD/
 https://yuqi.im/categories/%E6%96%87%E4%BB%B6%E7%AE%A1%E7%90%86/
 https://yuqi.im/categories/%E5%8D%9A%E5%AE%A2%E8%BF%90%E7%BB%B4/
 https://yuqi.im/categories/%E7%BD%91%E7%BB%9C%E6%8A%80%E6%9C%AF/
-https://yuqi.im/categories/%E6%95%99%E7%A8%8B/
 https://yuqi.im/categories/%E5%89%8D%E7%AB%AF/
+https://yuqi.im/categories/%E6%95%99%E7%A8%8B/
 https://yuqi.im/categories/%E5%85%B6%E4%BB%96/
 https://yuqi.im/categories/%E4%B8%8A%E7%BD%91/
 https://yuqi.im/categories/%E5%BC%80%E5%8F%91%E5%B7%A5%E5%85%B7/
