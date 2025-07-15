@@ -868,12 +868,10 @@
 <p><code>cols=&quot;每行中的字符数&quot;，rows=&quot;显示的行数&quot;</code><br>&#x3D;&#x3D;实际开发不常用，基本依靠 CSS<br>🍔🍔🍔</p>
 ]]></content>
       <categories>
-        <category>前端</category>
+        <category>学习笔记</category>
       </categories>
       <tags>
         <tag>HTML</tag>
-        <tag>css</tag>
-        <tag>前端</tag>
       </tags>
   </entry>
   <entry>
@@ -892,10 +890,10 @@
 <p>尝试后可以看到，hexo-pdf 对 PDF 文档展示效果非常不错 lol</p>
 ]]></content>
       <categories>
-        <category>教程</category>
+        <category>博客运维</category>
       </categories>
       <tags>
-        <tag>hexo</tag>
+        <tag>Hexo</tag>
       </tags>
   </entry>
   <entry>
@@ -988,10 +986,10 @@
 <figure class="highlight markdown"><table><tr><td class="code"><pre><span class="line">.md 文件中的 HTML 代码要用 &#123;% raw %&#125; 和 &#123;% endraw %&#125; 包起来，使其能正确编译里面的代码。</span><br></pre></td></tr></table></figure>
 ]]></content>
       <categories>
-        <category>教程</category>
+        <category>博客运维</category>
       </categories>
       <tags>
-        <tag>hexo</tag>
+        <tag>Hexo</tag>
       </tags>
   </entry>
   <entry>
@@ -1106,6 +1104,12 @@
 <p>下一页需要设置转速为铭牌额定转速，最小转速60改为0，其他的不动</p>
 <p>15、以上参数设置完成后电机FINISH将参数下载到变频器中。变频器参数设置完成<br><img src="https://img.051516.xyz/20250522194233764.jpg" alt="img"></p>
 ]]></content>
+      <categories>
+        <category>工业自动化</category>
+      </categories>
+      <tags>
+        <tag>MOVIDRIVE</tag>
+      </tags>
   </entry>
   <entry>
     <title>MT7981B安博通ABT_ASR3000刷机指南</title>
@@ -1131,10 +1135,10 @@
 <h1 id="转载于恩山无线论坛"><a href="#转载于恩山无线论坛" class="headerlink" title="转载于恩山无线论坛"></a>转载于恩山无线论坛</h1><p><a href="https://www.right.com.cn/forum/thread-8302537-1-1.html">https://www.right.com.cn/forum/thread-8302537-1-1.html</a></p>
 ]]></content>
       <categories>
-        <category>教程</category>
+        <category>网络设备</category>
       </categories>
       <tags>
-        <tag>路由器</tag>
+        <tag>OpenWrt</tag>
       </tags>
   </entry>
   <entry>
@@ -1146,10 +1150,10 @@
 <p>更多的关键词待你挖掘</p>
 ]]></content>
       <categories>
-        <category>其他</category>
+        <category>公共存档器</category>
       </categories>
       <tags>
-        <tag>其他</tag>
+        <tag>18+</tag>
       </tags>
   </entry>
   <entry>
@@ -1213,7 +1217,7 @@
 </ol>
 ]]></content>
       <categories>
-        <category>教程</category>
+        <category>网络设备</category>
       </categories>
       <tags>
         <tag>Openwrt</tag>
@@ -1356,10 +1360,10 @@
 
 ]]></content>
       <categories>
-        <category>教程</category>
+        <category>网络设备</category>
       </categories>
       <tags>
-        <tag>路由器</tag>
+        <tag>iStoreOS</tag>
       </tags>
   </entry>
   <entry>
@@ -1442,6 +1446,12 @@
 <p><a href="https://13fe9ff.webp.li/2024/11/2fa7cd4b16b469345b8e628d88affae2.png"><img src="https://img.051516.xyz/202412291104441.png" alt="img"></a></p>
 <p><a href="https://13fe9ff.webp.li/2024/11/6a16b8185a435cf9b807dbcc894d92e1.png"><img src="https://img.051516.xyz/202412291104466.png" alt="img"></a></p>
 <h1 id=""><a href="#" class="headerlink" title=""></a></h1>]]></content>
+      <categories>
+        <category>博客运维</category>
+      </categories>
+      <tags>
+        <tag>Hexo</tag>
+      </tags>
   </entry>
   <entry>
     <title>R探长 甲骨文云开机脚本</title>
@@ -1510,10 +1520,10 @@
 
 ]]></content>
       <categories>
-        <category>教程</category>
+        <category>运维技术</category>
       </categories>
       <tags>
-        <tag>服务器</tag>
+        <tag>运维工具</tag>
       </tags>
   </entry>
   <entry>
@@ -1682,6 +1692,12 @@
 <p>48、若后期设备应用有更改，需初始化控制器，可在“parameter tree”P802中选择“delivery state”，将控制器还原为出厂状态。</p>
 <p><img src="https://img.051516.xyz/20250524223317731.png" alt="image-20250524213949868"></p>
 ]]></content>
+      <categories>
+        <category>工业自动化</category>
+      </categories>
+      <tags>
+        <tag>MOVIDRIVE</tag>
+      </tags>
   </entry>
   <entry>
     <title>SEW MOVIPRO调试步骤</title>
@@ -1785,6 +1801,12 @@
 <p>20、巡参模式控制字<br><img src="https://img.051516.xyz/20250522195310346.jpg" alt="img"></p>
 <p>21、定位模式状态字。定位的前提是变频器必须巡参，需要设置目的值、速度、加减速度<br><img src="https://img.051516.xyz/20250522195316220.jpg" alt="img"></p>
 ]]></content>
+      <categories>
+        <category>工业自动化</category>
+      </categories>
+      <tags>
+        <tag>MOVIDRIVE</tag>
+      </tags>
   </entry>
   <entry>
     <title>SEW Scope曲线监控</title>
@@ -1797,60 +1819,12 @@
 <h3 id="进入Scope界面后点击记录设置，出现我们刚才设置的模板，点击Start按钮准备记录Scope曲线。在HMI上手动操作滑台动作就会自动触发记录运行曲线"><a href="#进入Scope界面后点击记录设置，出现我们刚才设置的模板，点击Start按钮准备记录Scope曲线。在HMI上手动操作滑台动作就会自动触发记录运行曲线" class="headerlink" title="进入Scope界面后点击记录设置，出现我们刚才设置的模板，点击Start按钮准备记录Scope曲线。在HMI上手动操作滑台动作就会自动触发记录运行曲线"></a>进入Scope界面后点击记录设置，出现我们刚才设置的模板，点击Start按钮准备记录Scope曲线。在HMI上手动操作滑台动作就会自动触发记录运行曲线</h3><p><strong>注意：根据模板里面的设置，最大记录时间为40.96s，因此来回滑动的时间需要控制在40s以内，否则超时的那部分运行曲线无法获取。如果需要调整最大记录时间，可以调整Sample Time。</strong></p>
 <p><img src="https://img.051516.xyz/202501051439213.png" alt="image-20250105143805277"></p>
 ]]></content>
-  </entry>
-  <entry>
-    <title>SEW-MC07B变频器-MOTION--STUDIO软件调试步骤、方法和技巧</title>
-    <url>/posts/421934fd/</url>
-    <content><![CDATA[<p><img src="https://img.051516.xyz/20250524205528464.PNG" alt="4"></p>
-<p><img src="https://img.051516.xyz/20250524205547050.PNG" alt="5"></p>
-<p><img src="https://img.051516.xyz/20250524205627985.PNG" alt="6"></p>
-<p><img src="https://img.051516.xyz/20250524205645010.PNG" alt="7"></p>
-<p><img src="https://img.051516.xyz/20250524205656950.PNG" alt="8"></p>
-<p><img src="https://img.051516.xyz/20250524205709394.PNG" alt="9"></p>
-<p><img src="https://img.051516.xyz/20250524205720726.PNG" alt="10"></p>
-<p><img src="https://img.051516.xyz/20250524205733378.PNG" alt="11"></p>
-<p><img src="https://img.051516.xyz/20250524205754775.PNG" alt="12"></p>
-<p><img src="https://img.051516.xyz/20250524205811663.PNG" alt="13"></p>
-<p><img src="https://img.051516.xyz/20250524205821221.PNG" alt="14"></p>
-<p><img src="https://img.051516.xyz/20250524205834316.PNG" alt="15"></p>
-<p><img src="https://img.051516.xyz/20250524205843533.PNG" alt="16"></p>
-<p><img src="https://img.051516.xyz/20250524205901797.PNG" alt="17"></p>
-<p><img src="https://img.051516.xyz/20250524205914973.PNG" alt="18"></p>
-<p><img src="https://img.051516.xyz/20250524205928160.PNG" alt="19"></p>
-<p><img src="https://img.051516.xyz/20250524205940302.PNG" alt="20"></p>
-<p><img src="https://img.051516.xyz/20250524205950644.PNG" alt="21"></p>
-<p><img src="https://img.051516.xyz/20250524210006913.PNG" alt="22"></p>
-<p><img src="https://img.051516.xyz/20250524210029075.PNG" alt="23"></p>
-<p><img src="https://img.051516.xyz/20250524210042996.PNG" alt="24"></p>
-<p><img src="https://img.051516.xyz/20250524210105981.PNG" alt="25"></p>
-<p><img src="https://img.051516.xyz/20250524210122505.PNG" alt="26"></p>
-<p><img src="https://img.051516.xyz/20250524210136340.PNG" alt="27"></p>
-<p><img src="https://img.051516.xyz/20250524210145600.PNG" alt="28"></p>
-<p><img src="https://img.051516.xyz/20250524210156379.PNG" alt="29"></p>
-<p><img src="https://img.051516.xyz/20250524210210502.PNG" alt="30"></p>
-<p><img src="https://img.051516.xyz/20250524210234883.PNG" alt="31"></p>
-<p><img src="https://img.051516.xyz/20250524210248367.PNG" alt="32"></p>
-<p><img src="https://img.051516.xyz/20250524210258079.PNG" alt="33"></p>
-<p><img src="https://img.051516.xyz/20250524210309675.PNG" alt="34"></p>
-<p><img src="https://img.051516.xyz/20250524210319649.PNG" alt="35"></p>
-<p><img src="https://img.051516.xyz/20250524210333008.PNG" alt="36"></p>
-<p><img src="https://img.051516.xyz/20250524210342988.PNG" alt="37"></p>
-<p><img src="https://img.051516.xyz/20250524210354944.PNG" alt="38"></p>
-<p><img src="https://img.051516.xyz/20250524210407861.PNG" alt="39"></p>
-<p><img src="https://img.051516.xyz/20250524210423100.PNG" alt="40"></p>
-<p><img src="https://img.051516.xyz/20250524210434359.PNG" alt="41"></p>
-<p><img src="https://img.051516.xyz/20250524210450567.PNG" alt="42"></p>
-<p><img src="https://img.051516.xyz/20250524210503106.PNG" alt="43"></p>
-<p><img src="https://img.051516.xyz/20250524210515428.PNG" alt="44"></p>
-<p><img src="https://img.051516.xyz/20250524210527098.PNG" alt="45"></p>
-<p><img src="https://img.051516.xyz/20250524210537936.PNG" alt="46"></p>
-<p><img src="https://img.051516.xyz/20250524210549531.PNG" alt="47"></p>
-<p><img src="https://img.051516.xyz/20250524210601981.PNG" alt="48"></p>
-<p><img src="https://img.051516.xyz/20250524210614094.PNG" alt="49"></p>
-<p><img src="https://img.051516.xyz/20250524210627091.PNG" alt="50"></p>
-<p><img src="https://img.051516.xyz/20250524210637201.PNG" alt="51"></p>
-<p><img src="https://img.051516.xyz/20250524210647926.PNG" alt="52"></p>
-]]></content>
+      <categories>
+        <category>工业自动化</category>
+      </categories>
+      <tags>
+        <tag>MOVIDRIVE</tag>
+      </tags>
   </entry>
   <entry>
     <title>SEW-MDX61B变频器定位控制调试流程</title>
@@ -1998,10 +1972,70 @@
 <h1 id="附录4：相关文档"><a href="#附录4：相关文档" class="headerlink" title="附录4：相关文档"></a>附录4：相关文档</h1><p>MDX61B应用手册：<a href="https://www.sew-eurodrive.cn/os/dud/?tab=documents&country=CN&language=zh_cn&doc_lang=zh-CN,en-US&doc_type=G,D,F,CD,DD&search=FA362820">https://www.sew-eurodrive.cn/os/dud/?tab=documents&amp;country=CN&amp;language=zh_cn&amp;doc_lang=zh-CN,en-US&amp;doc_type=G,D,F,CD,DD&amp;search=FA362820</a></p>
 ]]></content>
       <categories>
-        <category>教程</category>
+        <category>工业自动化</category>
       </categories>
       <tags>
-        <tag>SEW</tag>
+        <tag>MOVIDRIVE</tag>
+      </tags>
+  </entry>
+  <entry>
+    <title>SEW-MC07B变频器-MOTION--STUDIO软件调试步骤、方法和技巧</title>
+    <url>/posts/421934fd/</url>
+    <content><![CDATA[<p><img src="https://img.051516.xyz/20250524205528464.PNG" alt="4"></p>
+<p><img src="https://img.051516.xyz/20250524205547050.PNG" alt="5"></p>
+<p><img src="https://img.051516.xyz/20250524205627985.PNG" alt="6"></p>
+<p><img src="https://img.051516.xyz/20250524205645010.PNG" alt="7"></p>
+<p><img src="https://img.051516.xyz/20250524205656950.PNG" alt="8"></p>
+<p><img src="https://img.051516.xyz/20250524205709394.PNG" alt="9"></p>
+<p><img src="https://img.051516.xyz/20250524205720726.PNG" alt="10"></p>
+<p><img src="https://img.051516.xyz/20250524205733378.PNG" alt="11"></p>
+<p><img src="https://img.051516.xyz/20250524205754775.PNG" alt="12"></p>
+<p><img src="https://img.051516.xyz/20250524205811663.PNG" alt="13"></p>
+<p><img src="https://img.051516.xyz/20250524205821221.PNG" alt="14"></p>
+<p><img src="https://img.051516.xyz/20250524205834316.PNG" alt="15"></p>
+<p><img src="https://img.051516.xyz/20250524205843533.PNG" alt="16"></p>
+<p><img src="https://img.051516.xyz/20250524205901797.PNG" alt="17"></p>
+<p><img src="https://img.051516.xyz/20250524205914973.PNG" alt="18"></p>
+<p><img src="https://img.051516.xyz/20250524205928160.PNG" alt="19"></p>
+<p><img src="https://img.051516.xyz/20250524205940302.PNG" alt="20"></p>
+<p><img src="https://img.051516.xyz/20250524205950644.PNG" alt="21"></p>
+<p><img src="https://img.051516.xyz/20250524210006913.PNG" alt="22"></p>
+<p><img src="https://img.051516.xyz/20250524210029075.PNG" alt="23"></p>
+<p><img src="https://img.051516.xyz/20250524210042996.PNG" alt="24"></p>
+<p><img src="https://img.051516.xyz/20250524210105981.PNG" alt="25"></p>
+<p><img src="https://img.051516.xyz/20250524210122505.PNG" alt="26"></p>
+<p><img src="https://img.051516.xyz/20250524210136340.PNG" alt="27"></p>
+<p><img src="https://img.051516.xyz/20250524210145600.PNG" alt="28"></p>
+<p><img src="https://img.051516.xyz/20250524210156379.PNG" alt="29"></p>
+<p><img src="https://img.051516.xyz/20250524210210502.PNG" alt="30"></p>
+<p><img src="https://img.051516.xyz/20250524210234883.PNG" alt="31"></p>
+<p><img src="https://img.051516.xyz/20250524210248367.PNG" alt="32"></p>
+<p><img src="https://img.051516.xyz/20250524210258079.PNG" alt="33"></p>
+<p><img src="https://img.051516.xyz/20250524210309675.PNG" alt="34"></p>
+<p><img src="https://img.051516.xyz/20250524210319649.PNG" alt="35"></p>
+<p><img src="https://img.051516.xyz/20250524210333008.PNG" alt="36"></p>
+<p><img src="https://img.051516.xyz/20250524210342988.PNG" alt="37"></p>
+<p><img src="https://img.051516.xyz/20250524210354944.PNG" alt="38"></p>
+<p><img src="https://img.051516.xyz/20250524210407861.PNG" alt="39"></p>
+<p><img src="https://img.051516.xyz/20250524210423100.PNG" alt="40"></p>
+<p><img src="https://img.051516.xyz/20250524210434359.PNG" alt="41"></p>
+<p><img src="https://img.051516.xyz/20250524210450567.PNG" alt="42"></p>
+<p><img src="https://img.051516.xyz/20250524210503106.PNG" alt="43"></p>
+<p><img src="https://img.051516.xyz/20250524210515428.PNG" alt="44"></p>
+<p><img src="https://img.051516.xyz/20250524210527098.PNG" alt="45"></p>
+<p><img src="https://img.051516.xyz/20250524210537936.PNG" alt="46"></p>
+<p><img src="https://img.051516.xyz/20250524210549531.PNG" alt="47"></p>
+<p><img src="https://img.051516.xyz/20250524210601981.PNG" alt="48"></p>
+<p><img src="https://img.051516.xyz/20250524210614094.PNG" alt="49"></p>
+<p><img src="https://img.051516.xyz/20250524210627091.PNG" alt="50"></p>
+<p><img src="https://img.051516.xyz/20250524210637201.PNG" alt="51"></p>
+<p><img src="https://img.051516.xyz/20250524210647926.PNG" alt="52"></p>
+]]></content>
+      <categories>
+        <category>工业自动化</category>
+      </categories>
+      <tags>
+        <tag>MOVIDRIVE</tag>
       </tags>
   </entry>
   <entry>
@@ -2016,7 +2050,7 @@
 <p><img src="https://img.051516.xyz/202303041358561.JPG" alt="幻灯片8"></p>
 ]]></content>
       <categories>
-        <category>教程</category>
+        <category>工业自动化</category>
       </categories>
       <tags>
         <tag>SICK</tag>
@@ -2083,9 +2117,15 @@
 <p>9、故障和警告列表。<br>详见附件列表。</p>
 <p><strong>G120D Fault and Warning List.pdf</strong>：<a class="btn-beautify pink larger" href="https://pan.yuqi.fun/d/%E5%A4%A9%E7%BF%BC%E4%BA%91%E7%9B%98/%E8%B5%84%E6%96%99/%E6%96%87%E6%A1%A3/G120D%20Fault%20and%20Warning%20List.pdf" title="点击下载"><i class="far fa-hand-point-right"></i><span>点击下载</span></a></p>
 ]]></content>
+      <categories>
+        <category>工业自动化</category>
+      </categories>
+      <tags>
+        <tag>SINAMICS</tag>
+      </tags>
   </entry>
   <entry>
-    <title>V2,R.a,y.A——新一代Linux客户端安装配置教程</title>
+    <title>V2RayA——新一代Linux客户端安装配置教程</title>
     <url>/posts/a53fea94/</url>
     <content><![CDATA[<h1 id="前言"><a href="#前言" class="headerlink" title="前言"></a>前言</h1><p>上一次我们介绍的Qv2ray还是有一些同学不会安装，而且Qv2ray也不再更新了，所以我就另外去找了，刚好找到一个安装配置都非常简单的软件，也就是本章的主角——v2rayA</p>
 <h1 id="特性"><a href="#特性" class="headerlink" title="特性"></a>特性</h1><p><img src="https://img.051516.xyz/202304100749200.png" alt="img"></p>
@@ -2131,10 +2171,10 @@
 <p>官网：<a href="https://v2raya.org/">点我直达</a></p>
 ]]></content>
       <categories>
-        <category>上网</category>
+        <category>网络技术</category>
       </categories>
       <tags>
-        <tag>v2</tag>
+        <tag>网络代理</tag>
       </tags>
   </entry>
   <entry>
@@ -2156,10 +2196,10 @@
 <p>推荐使用tmux后台工具</p>
 ]]></content>
       <categories>
-        <category>教程</category>
+        <category>运维技术</category>
       </categories>
       <tags>
-        <tag>服务器</tag>
+        <tag>运维工具</tag>
       </tags>
   </entry>
   <entry>
@@ -2217,10 +2257,10 @@
 <p><strong>不是用了这个协议就一定不会被封，世界上没有100%的事情</strong></p>
 ]]></content>
       <categories>
-        <category>教程</category>
+        <category>网络技术</category>
       </categories>
       <tags>
-        <tag>VPS</tag>
+        <tag>网络代理</tag>
       </tags>
   </entry>
   <entry>
@@ -2306,10 +2346,10 @@
 <p>视频2：<a href="https://bulianglin.com/archives/hysteria2.html">https://bulianglin.com/archives/hysteria2.html</a></p>
 ]]></content>
       <categories>
-        <category>教程</category>
+        <category>网络技术</category>
       </categories>
       <tags>
-        <tag>服务器</tag>
+        <tag>网络代理</tag>
       </tags>
   </entry>
   <entry>
@@ -2335,10 +2375,10 @@
 <figure class="highlight plaintext"><table><tr><td class="code"><pre><span class="line">tmux kill-session -t my1</span><br><span class="line">crl+d</span><br></pre></td></tr></table></figure>
 ]]></content>
       <categories>
-        <category>教程</category>
+        <category>运维技术</category>
       </categories>
       <tags>
-        <tag>服务器</tag>
+        <tag>运维工具</tag>
       </tags>
   </entry>
   <entry>
@@ -2388,10 +2428,10 @@
 <p>或者海外宝塔：<a href="https://www.aapanel.com/new/download.html">https://www.aapanel.com/new/download.html</a></p>
 ]]></content>
       <categories>
-        <category>教程</category>
+        <category>网络技术</category>
       </categories>
       <tags>
-        <tag>VPN</tag>
+        <tag>网络代理</tag>
       </tags>
   </entry>
   <entry>
@@ -2512,40 +2552,6 @@
       </tags>
   </entry>
   <entry>
-    <title>在WSL2中使用Clash Verge代理连接</title>
-    <url>/posts/af89448b/</url>
-    <content><![CDATA[<blockquote>
-<p>本文撰写时基于的系统和版本是 Ubuntu 22.04, 如果你使用其他版本或其他发行版，则下文提到的部分步骤与你的实际情况可能有所出入。</p>
-</blockquote>
-<blockquote>
-<p>在 WSL2 中配置环境时，依赖下载经常因为网络问题极其缓慢甚至失败。在整合了各方资料及个人实践后，我总结了在 WSL2 中通过 Clash Verge 设置代理的方法，供大家参考。</p>
-</blockquote>
-<h1 id="在-Clash-客户端内的操作"><a href="#在-Clash-客户端内的操作" class="headerlink" title="在 Clash 客户端内的操作"></a>在 Clash 客户端内的操作</h1><p>打开客户端的局域网连接开关。<br>记录下客户端内的端口，如这里是 <code>7897</code>. 一般默认端口为 <code>7897</code>。</p>
-<p><img src="https://img.051516.xyz/202312131053554.png"></p>
-<h1 id="修改-bashrc"><a href="#修改-bashrc" class="headerlink" title="修改 .bashrc"></a>修改 <code>.bashrc</code></h1><p>使用文本编辑器编辑 <code>.bashrc</code>，在文件末尾根据第 1 步记录的数据，加入三行内容：</p>
-<figure class="highlight shell"><table><tr><td class="code"><pre><span class="line">nano ~/.bashrc</span><br></pre></td></tr></table></figure>
-
-<figure class="highlight bash"><table><tr><td class="code"><pre><span class="line">host_ip=$(<span class="built_in">cat</span> /etc/resolv.conf |grep <span class="string">&quot;nameserver&quot;</span> |<span class="built_in">cut</span> -f 2 -d <span class="string">&quot; &quot;</span>)</span><br><span class="line"><span class="built_in">export</span> http_proxy=<span class="string">&quot;http://<span class="variable">$host_ip</span>:[端口]&quot;</span></span><br><span class="line"><span class="built_in">export</span> https_proxy=<span class="string">&quot;http://<span class="variable">$host_ip</span>:[端口]&quot;</span></span><br></pre></td></tr></table></figure>
-
-<p>如图所示，修改完后保存即可。<br><img src="https://img.051516.xyz/202312131053167.png"></p>
-<h1 id="使-root-用户保留先前设置的环境变量"><a href="#使-root-用户保留先前设置的环境变量" class="headerlink" title="使 root 用户保留先前设置的环境变量"></a>使 root 用户保留先前设置的环境变量</h1><p>在使用 <code>sudo</code> 执行命令时，之前设置的环境变量并不会生效，需要进一步设置。<br>输入 <code>sudo visudo</code></p>
-<p>取消相应行的注释 (删除行首的 <code>#</code>) 即可.<br><img src="https://img.051516.xyz/202312131053399.png"></p>
-<p>如果你使用 Ubuntu 20.04, 加入以下内容并保存。</p>
-<figure class="highlight bash"><table><tr><td class="code"><pre><span class="line">Defaults env_keep=<span class="string">&quot;http_proxy https_proxy&quot;</span></span><br></pre></td></tr></table></figure>
-
-<p><img src="https://img.051516.xyz/202312131053583.png"></p>
-<h1 id="测试"><a href="#测试" class="headerlink" title="测试"></a>测试</h1><p>输入 <code>source ~/.bashrc</code> 使文件修改生效。</p>
-<p>可以通过输入 <code>echo $http_proxy</code> 验证修改是否成功。<br>输入 <code>wget www.google.com</code>, 可以发现连接成功，至此大功告成，如图所示。<br><img src="https://s2.loli.net/2022/10/05/UIQ8LhuROaXq6S2.png"></p>
-<h1 id="参考资料"><a href="#参考资料" class="headerlink" title="参考资料"></a>参考资料</h1><p><a href="https://zhuanlan.zhihu.com/p/153124468">为 WSL2 一键设置代理 (zhihu.com)</a><br><a href="https://www.chenyudong.com/archives/sudo-keep-env.html">sudo保持前用用户的env环境变量 (chenyudong.com, 已失效)</a></p>
-]]></content>
-      <categories>
-        <category>网络技术</category>
-      </categories>
-      <tags>
-        <tag>网络代理</tag>
-      </tags>
-  </entry>
-  <entry>
     <title>利用CF Workers搭建Github加速服务</title>
     <url>/posts/ee2e5bab/</url>
     <content><![CDATA[<h1 id="利用CF-Workers搭建GH-Proxy服务"><a href="#利用CF-Workers搭建GH-Proxy服务" class="headerlink" title="利用CF Workers搭建GH-Proxy服务"></a>利用CF Workers搭建GH-Proxy服务</h1><blockquote>
@@ -2580,6 +2586,40 @@
       </tags>
   </entry>
   <entry>
+    <title>在WSL2中使用Clash Verge代理连接</title>
+    <url>/posts/af89448b/</url>
+    <content><![CDATA[<blockquote>
+<p>本文撰写时基于的系统和版本是 Ubuntu 22.04, 如果你使用其他版本或其他发行版，则下文提到的部分步骤与你的实际情况可能有所出入。</p>
+</blockquote>
+<blockquote>
+<p>在 WSL2 中配置环境时，依赖下载经常因为网络问题极其缓慢甚至失败。在整合了各方资料及个人实践后，我总结了在 WSL2 中通过 Clash Verge 设置代理的方法，供大家参考。</p>
+</blockquote>
+<h1 id="在-Clash-客户端内的操作"><a href="#在-Clash-客户端内的操作" class="headerlink" title="在 Clash 客户端内的操作"></a>在 Clash 客户端内的操作</h1><p>打开客户端的局域网连接开关。<br>记录下客户端内的端口，如这里是 <code>7897</code>. 一般默认端口为 <code>7897</code>。</p>
+<p><img src="https://img.051516.xyz/202312131053554.png"></p>
+<h1 id="修改-bashrc"><a href="#修改-bashrc" class="headerlink" title="修改 .bashrc"></a>修改 <code>.bashrc</code></h1><p>使用文本编辑器编辑 <code>.bashrc</code>，在文件末尾根据第 1 步记录的数据，加入三行内容：</p>
+<figure class="highlight shell"><table><tr><td class="code"><pre><span class="line">nano ~/.bashrc</span><br></pre></td></tr></table></figure>
+
+<figure class="highlight bash"><table><tr><td class="code"><pre><span class="line">host_ip=$(<span class="built_in">cat</span> /etc/resolv.conf |grep <span class="string">&quot;nameserver&quot;</span> |<span class="built_in">cut</span> -f 2 -d <span class="string">&quot; &quot;</span>)</span><br><span class="line"><span class="built_in">export</span> http_proxy=<span class="string">&quot;http://<span class="variable">$host_ip</span>:[端口]&quot;</span></span><br><span class="line"><span class="built_in">export</span> https_proxy=<span class="string">&quot;http://<span class="variable">$host_ip</span>:[端口]&quot;</span></span><br></pre></td></tr></table></figure>
+
+<p>如图所示，修改完后保存即可。<br><img src="https://img.051516.xyz/202312131053167.png"></p>
+<h1 id="使-root-用户保留先前设置的环境变量"><a href="#使-root-用户保留先前设置的环境变量" class="headerlink" title="使 root 用户保留先前设置的环境变量"></a>使 root 用户保留先前设置的环境变量</h1><p>在使用 <code>sudo</code> 执行命令时，之前设置的环境变量并不会生效，需要进一步设置。<br>输入 <code>sudo visudo</code></p>
+<p>取消相应行的注释 (删除行首的 <code>#</code>) 即可.<br><img src="https://img.051516.xyz/202312131053399.png"></p>
+<p>如果你使用 Ubuntu 20.04, 加入以下内容并保存。</p>
+<figure class="highlight bash"><table><tr><td class="code"><pre><span class="line">Defaults env_keep=<span class="string">&quot;http_proxy https_proxy&quot;</span></span><br></pre></td></tr></table></figure>
+
+<p><img src="https://img.051516.xyz/202312131053583.png"></p>
+<h1 id="测试"><a href="#测试" class="headerlink" title="测试"></a>测试</h1><p>输入 <code>source ~/.bashrc</code> 使文件修改生效。</p>
+<p>可以通过输入 <code>echo $http_proxy</code> 验证修改是否成功。<br>输入 <code>wget www.google.com</code>, 可以发现连接成功，至此大功告成，如图所示。<br><img src="https://s2.loli.net/2022/10/05/UIQ8LhuROaXq6S2.png"></p>
+<h1 id="参考资料"><a href="#参考资料" class="headerlink" title="参考资料"></a>参考资料</h1><p><a href="https://zhuanlan.zhihu.com/p/153124468">为 WSL2 一键设置代理 (zhihu.com)</a><br><a href="https://www.chenyudong.com/archives/sudo-keep-env.html">sudo保持前用用户的env环境变量 (chenyudong.com, 已失效)</a></p>
+]]></content>
+      <categories>
+        <category>网络技术</category>
+      </categories>
+      <tags>
+        <tag>网络代理</tag>
+      </tags>
+  </entry>
+  <entry>
     <title>备份Hexo博客到开源仓库</title>
     <url>/posts/5836c89e/</url>
     <content><![CDATA[<p>本教程以 gitee 举例，GitHub 同理。</p>
@@ -2607,6 +2647,37 @@
       </categories>
       <tags>
         <tag>Hexo</tag>
+      </tags>
+  </entry>
+  <entry>
+    <title>安装了VMware Tools，但无法实现文件的拖拽和复制粘贴---解决方案</title>
+    <url>/posts/a580ef34/</url>
+    <content><![CDATA[<p>环境：Windows11，VMware17Pro，ubuntu-23.10.1</p>
+<p>我给虚拟机装好Ubuntu系统后，它默认是安装好vmtools的</p>
+<p>而且这些选项默认是勾选的，但是我无法实现宿主机和虚拟机之间文件的拖拽和复制粘贴</p>
+<p>如果你遇到了和我一样的问题，且网上很多博文提供的解决方案都无法解决你的问题，那么请往下看</p>
+<p>我试了各路大神的解决方案，基本都行不通</p>
+<p>只有一篇标题和这个问题相关度不高的文章，提到了一种重装VMware tools的方法，我试了一下终于解决了问题</p>
+<p> 这里要说一下，网上的很多文章用cd里带的VMware tools压缩包来重新安装（还要手动输yes的那个方法），我试了，根本没有用</p>
+<p>毕竟初始安装的就是那个版本，再重新安装一下并没有意义</p>
+<p>真正的解决方案其实很方便：</p>
+<p>打开终端</p>
+<p>1.卸载VMware Tools</p>
+<figure class="highlight plaintext"><table><tr><td class="code"><pre><span class="line">sudo apt-get autoremove open-vm-tools</span><br></pre></td></tr></table></figure>
+
+<p>2.联网安装VMware tools</p>
+<figure class="highlight plaintext"><table><tr><td class="code"><pre><span class="line">sudo apt-get install open-vm-tools-desktop</span><br></pre></td></tr></table></figure>
+
+<p>如果出错了，就执行下面两行命令</p>
+<figure class="highlight plaintext"><table><tr><td class="code"><pre><span class="line">sudo apt-get update</span><br><span class="line">sudo apt-get install open-vm-tools-desktop fuse</span><br></pre></td></tr></table></figure>
+
+<p>3.重启虚拟机即可</p>
+]]></content>
+      <categories>
+        <category>故障排除</category>
+      </categories>
+      <tags>
+        <tag>虚拟机</tag>
       </tags>
   </entry>
   <entry>
@@ -2786,37 +2857,6 @@
       </categories>
       <tags>
         <tag>运维工具</tag>
-      </tags>
-  </entry>
-  <entry>
-    <title>安装了VMware Tools，但无法实现文件的拖拽和复制粘贴---解决方案</title>
-    <url>/posts/a580ef34/</url>
-    <content><![CDATA[<p>环境：Windows11，VMware17Pro，ubuntu-23.10.1</p>
-<p>我给虚拟机装好Ubuntu系统后，它默认是安装好vmtools的</p>
-<p>而且这些选项默认是勾选的，但是我无法实现宿主机和虚拟机之间文件的拖拽和复制粘贴</p>
-<p>如果你遇到了和我一样的问题，且网上很多博文提供的解决方案都无法解决你的问题，那么请往下看</p>
-<p>我试了各路大神的解决方案，基本都行不通</p>
-<p>只有一篇标题和这个问题相关度不高的文章，提到了一种重装VMware tools的方法，我试了一下终于解决了问题</p>
-<p> 这里要说一下，网上的很多文章用cd里带的VMware tools压缩包来重新安装（还要手动输yes的那个方法），我试了，根本没有用</p>
-<p>毕竟初始安装的就是那个版本，再重新安装一下并没有意义</p>
-<p>真正的解决方案其实很方便：</p>
-<p>打开终端</p>
-<p>1.卸载VMware Tools</p>
-<figure class="highlight plaintext"><table><tr><td class="code"><pre><span class="line">sudo apt-get autoremove open-vm-tools</span><br></pre></td></tr></table></figure>
-
-<p>2.联网安装VMware tools</p>
-<figure class="highlight plaintext"><table><tr><td class="code"><pre><span class="line">sudo apt-get install open-vm-tools-desktop</span><br></pre></td></tr></table></figure>
-
-<p>如果出错了，就执行下面两行命令</p>
-<figure class="highlight plaintext"><table><tr><td class="code"><pre><span class="line">sudo apt-get update</span><br><span class="line">sudo apt-get install open-vm-tools-desktop fuse</span><br></pre></td></tr></table></figure>
-
-<p>3.重启虚拟机即可</p>
-]]></content>
-      <categories>
-        <category>故障排除</category>
-      </categories>
-      <tags>
-        <tag>虚拟机</tag>
       </tags>
   </entry>
   <entry>
