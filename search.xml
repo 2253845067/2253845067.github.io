@@ -1827,6 +1827,66 @@
       </tags>
   </entry>
   <entry>
+    <title>SEW-MC07B变频器-MOTION--STUDIO软件调试步骤、方法和技巧</title>
+    <url>/posts/421934fd/</url>
+    <content><![CDATA[<p><img src="https://img.051516.xyz/20250524205528464.PNG" alt="4"></p>
+<p><img src="https://img.051516.xyz/20250524205547050.PNG" alt="5"></p>
+<p><img src="https://img.051516.xyz/20250524205627985.PNG" alt="6"></p>
+<p><img src="https://img.051516.xyz/20250524205645010.PNG" alt="7"></p>
+<p><img src="https://img.051516.xyz/20250524205656950.PNG" alt="8"></p>
+<p><img src="https://img.051516.xyz/20250524205709394.PNG" alt="9"></p>
+<p><img src="https://img.051516.xyz/20250524205720726.PNG" alt="10"></p>
+<p><img src="https://img.051516.xyz/20250524205733378.PNG" alt="11"></p>
+<p><img src="https://img.051516.xyz/20250524205754775.PNG" alt="12"></p>
+<p><img src="https://img.051516.xyz/20250524205811663.PNG" alt="13"></p>
+<p><img src="https://img.051516.xyz/20250524205821221.PNG" alt="14"></p>
+<p><img src="https://img.051516.xyz/20250524205834316.PNG" alt="15"></p>
+<p><img src="https://img.051516.xyz/20250524205843533.PNG" alt="16"></p>
+<p><img src="https://img.051516.xyz/20250524205901797.PNG" alt="17"></p>
+<p><img src="https://img.051516.xyz/20250524205914973.PNG" alt="18"></p>
+<p><img src="https://img.051516.xyz/20250524205928160.PNG" alt="19"></p>
+<p><img src="https://img.051516.xyz/20250524205940302.PNG" alt="20"></p>
+<p><img src="https://img.051516.xyz/20250524205950644.PNG" alt="21"></p>
+<p><img src="https://img.051516.xyz/20250524210006913.PNG" alt="22"></p>
+<p><img src="https://img.051516.xyz/20250524210029075.PNG" alt="23"></p>
+<p><img src="https://img.051516.xyz/20250524210042996.PNG" alt="24"></p>
+<p><img src="https://img.051516.xyz/20250524210105981.PNG" alt="25"></p>
+<p><img src="https://img.051516.xyz/20250524210122505.PNG" alt="26"></p>
+<p><img src="https://img.051516.xyz/20250524210136340.PNG" alt="27"></p>
+<p><img src="https://img.051516.xyz/20250524210145600.PNG" alt="28"></p>
+<p><img src="https://img.051516.xyz/20250524210156379.PNG" alt="29"></p>
+<p><img src="https://img.051516.xyz/20250524210210502.PNG" alt="30"></p>
+<p><img src="https://img.051516.xyz/20250524210234883.PNG" alt="31"></p>
+<p><img src="https://img.051516.xyz/20250524210248367.PNG" alt="32"></p>
+<p><img src="https://img.051516.xyz/20250524210258079.PNG" alt="33"></p>
+<p><img src="https://img.051516.xyz/20250524210309675.PNG" alt="34"></p>
+<p><img src="https://img.051516.xyz/20250524210319649.PNG" alt="35"></p>
+<p><img src="https://img.051516.xyz/20250524210333008.PNG" alt="36"></p>
+<p><img src="https://img.051516.xyz/20250524210342988.PNG" alt="37"></p>
+<p><img src="https://img.051516.xyz/20250524210354944.PNG" alt="38"></p>
+<p><img src="https://img.051516.xyz/20250524210407861.PNG" alt="39"></p>
+<p><img src="https://img.051516.xyz/20250524210423100.PNG" alt="40"></p>
+<p><img src="https://img.051516.xyz/20250524210434359.PNG" alt="41"></p>
+<p><img src="https://img.051516.xyz/20250524210450567.PNG" alt="42"></p>
+<p><img src="https://img.051516.xyz/20250524210503106.PNG" alt="43"></p>
+<p><img src="https://img.051516.xyz/20250524210515428.PNG" alt="44"></p>
+<p><img src="https://img.051516.xyz/20250524210527098.PNG" alt="45"></p>
+<p><img src="https://img.051516.xyz/20250524210537936.PNG" alt="46"></p>
+<p><img src="https://img.051516.xyz/20250524210549531.PNG" alt="47"></p>
+<p><img src="https://img.051516.xyz/20250524210601981.PNG" alt="48"></p>
+<p><img src="https://img.051516.xyz/20250524210614094.PNG" alt="49"></p>
+<p><img src="https://img.051516.xyz/20250524210627091.PNG" alt="50"></p>
+<p><img src="https://img.051516.xyz/20250524210637201.PNG" alt="51"></p>
+<p><img src="https://img.051516.xyz/20250524210647926.PNG" alt="52"></p>
+]]></content>
+      <categories>
+        <category>工业自动化</category>
+      </categories>
+      <tags>
+        <tag>MOVIDRIVE</tag>
+      </tags>
+  </entry>
+  <entry>
     <title>SEW-MDX61B变频器定位控制调试流程</title>
     <url>/posts/e4c152dc/</url>
     <content><![CDATA[<h1 id="一、-调试准备"><a href="#一、-调试准备" class="headerlink" title="一、 调试准备"></a>一、 调试准备</h1><h2 id="操作系统及调试软件"><a href="#操作系统及调试软件" class="headerlink" title="操作系统及调试软件"></a>操作系统及调试软件</h2><p>操作系统：Windows 7 64 位操作系统</p>
@@ -1970,66 +2030,6 @@
 <p>临时措施：断开变频器供电电源，等待一段时间再上电（如无效则需立即检查编码屏蔽）；</p>
 <p>后期解决：检查编码器屏蔽层连接；编码器电缆是否存在强电干扰；</p>
 <h1 id="附录4：相关文档"><a href="#附录4：相关文档" class="headerlink" title="附录4：相关文档"></a>附录4：相关文档</h1><p>MDX61B应用手册：<a href="https://www.sew-eurodrive.cn/os/dud/?tab=documents&country=CN&language=zh_cn&doc_lang=zh-CN,en-US&doc_type=G,D,F,CD,DD&search=FA362820">https://www.sew-eurodrive.cn/os/dud/?tab=documents&amp;country=CN&amp;language=zh_cn&amp;doc_lang=zh-CN,en-US&amp;doc_type=G,D,F,CD,DD&amp;search=FA362820</a></p>
-]]></content>
-      <categories>
-        <category>工业自动化</category>
-      </categories>
-      <tags>
-        <tag>MOVIDRIVE</tag>
-      </tags>
-  </entry>
-  <entry>
-    <title>SEW-MC07B变频器-MOTION--STUDIO软件调试步骤、方法和技巧</title>
-    <url>/posts/421934fd/</url>
-    <content><![CDATA[<p><img src="https://img.051516.xyz/20250524205528464.PNG" alt="4"></p>
-<p><img src="https://img.051516.xyz/20250524205547050.PNG" alt="5"></p>
-<p><img src="https://img.051516.xyz/20250524205627985.PNG" alt="6"></p>
-<p><img src="https://img.051516.xyz/20250524205645010.PNG" alt="7"></p>
-<p><img src="https://img.051516.xyz/20250524205656950.PNG" alt="8"></p>
-<p><img src="https://img.051516.xyz/20250524205709394.PNG" alt="9"></p>
-<p><img src="https://img.051516.xyz/20250524205720726.PNG" alt="10"></p>
-<p><img src="https://img.051516.xyz/20250524205733378.PNG" alt="11"></p>
-<p><img src="https://img.051516.xyz/20250524205754775.PNG" alt="12"></p>
-<p><img src="https://img.051516.xyz/20250524205811663.PNG" alt="13"></p>
-<p><img src="https://img.051516.xyz/20250524205821221.PNG" alt="14"></p>
-<p><img src="https://img.051516.xyz/20250524205834316.PNG" alt="15"></p>
-<p><img src="https://img.051516.xyz/20250524205843533.PNG" alt="16"></p>
-<p><img src="https://img.051516.xyz/20250524205901797.PNG" alt="17"></p>
-<p><img src="https://img.051516.xyz/20250524205914973.PNG" alt="18"></p>
-<p><img src="https://img.051516.xyz/20250524205928160.PNG" alt="19"></p>
-<p><img src="https://img.051516.xyz/20250524205940302.PNG" alt="20"></p>
-<p><img src="https://img.051516.xyz/20250524205950644.PNG" alt="21"></p>
-<p><img src="https://img.051516.xyz/20250524210006913.PNG" alt="22"></p>
-<p><img src="https://img.051516.xyz/20250524210029075.PNG" alt="23"></p>
-<p><img src="https://img.051516.xyz/20250524210042996.PNG" alt="24"></p>
-<p><img src="https://img.051516.xyz/20250524210105981.PNG" alt="25"></p>
-<p><img src="https://img.051516.xyz/20250524210122505.PNG" alt="26"></p>
-<p><img src="https://img.051516.xyz/20250524210136340.PNG" alt="27"></p>
-<p><img src="https://img.051516.xyz/20250524210145600.PNG" alt="28"></p>
-<p><img src="https://img.051516.xyz/20250524210156379.PNG" alt="29"></p>
-<p><img src="https://img.051516.xyz/20250524210210502.PNG" alt="30"></p>
-<p><img src="https://img.051516.xyz/20250524210234883.PNG" alt="31"></p>
-<p><img src="https://img.051516.xyz/20250524210248367.PNG" alt="32"></p>
-<p><img src="https://img.051516.xyz/20250524210258079.PNG" alt="33"></p>
-<p><img src="https://img.051516.xyz/20250524210309675.PNG" alt="34"></p>
-<p><img src="https://img.051516.xyz/20250524210319649.PNG" alt="35"></p>
-<p><img src="https://img.051516.xyz/20250524210333008.PNG" alt="36"></p>
-<p><img src="https://img.051516.xyz/20250524210342988.PNG" alt="37"></p>
-<p><img src="https://img.051516.xyz/20250524210354944.PNG" alt="38"></p>
-<p><img src="https://img.051516.xyz/20250524210407861.PNG" alt="39"></p>
-<p><img src="https://img.051516.xyz/20250524210423100.PNG" alt="40"></p>
-<p><img src="https://img.051516.xyz/20250524210434359.PNG" alt="41"></p>
-<p><img src="https://img.051516.xyz/20250524210450567.PNG" alt="42"></p>
-<p><img src="https://img.051516.xyz/20250524210503106.PNG" alt="43"></p>
-<p><img src="https://img.051516.xyz/20250524210515428.PNG" alt="44"></p>
-<p><img src="https://img.051516.xyz/20250524210527098.PNG" alt="45"></p>
-<p><img src="https://img.051516.xyz/20250524210537936.PNG" alt="46"></p>
-<p><img src="https://img.051516.xyz/20250524210549531.PNG" alt="47"></p>
-<p><img src="https://img.051516.xyz/20250524210601981.PNG" alt="48"></p>
-<p><img src="https://img.051516.xyz/20250524210614094.PNG" alt="49"></p>
-<p><img src="https://img.051516.xyz/20250524210627091.PNG" alt="50"></p>
-<p><img src="https://img.051516.xyz/20250524210637201.PNG" alt="51"></p>
-<p><img src="https://img.051516.xyz/20250524210647926.PNG" alt="52"></p>
 ]]></content>
       <categories>
         <category>工业自动化</category>
@@ -2650,37 +2650,6 @@
       </tags>
   </entry>
   <entry>
-    <title>安装了VMware Tools，但无法实现文件的拖拽和复制粘贴---解决方案</title>
-    <url>/posts/a580ef34/</url>
-    <content><![CDATA[<p>环境：Windows11，VMware17Pro，ubuntu-23.10.1</p>
-<p>我给虚拟机装好Ubuntu系统后，它默认是安装好vmtools的</p>
-<p>而且这些选项默认是勾选的，但是我无法实现宿主机和虚拟机之间文件的拖拽和复制粘贴</p>
-<p>如果你遇到了和我一样的问题，且网上很多博文提供的解决方案都无法解决你的问题，那么请往下看</p>
-<p>我试了各路大神的解决方案，基本都行不通</p>
-<p>只有一篇标题和这个问题相关度不高的文章，提到了一种重装VMware tools的方法，我试了一下终于解决了问题</p>
-<p> 这里要说一下，网上的很多文章用cd里带的VMware tools压缩包来重新安装（还要手动输yes的那个方法），我试了，根本没有用</p>
-<p>毕竟初始安装的就是那个版本，再重新安装一下并没有意义</p>
-<p>真正的解决方案其实很方便：</p>
-<p>打开终端</p>
-<p>1.卸载VMware Tools</p>
-<figure class="highlight plaintext"><table><tr><td class="code"><pre><span class="line">sudo apt-get autoremove open-vm-tools</span><br></pre></td></tr></table></figure>
-
-<p>2.联网安装VMware tools</p>
-<figure class="highlight plaintext"><table><tr><td class="code"><pre><span class="line">sudo apt-get install open-vm-tools-desktop</span><br></pre></td></tr></table></figure>
-
-<p>如果出错了，就执行下面两行命令</p>
-<figure class="highlight plaintext"><table><tr><td class="code"><pre><span class="line">sudo apt-get update</span><br><span class="line">sudo apt-get install open-vm-tools-desktop fuse</span><br></pre></td></tr></table></figure>
-
-<p>3.重启虚拟机即可</p>
-]]></content>
-      <categories>
-        <category>故障排除</category>
-      </categories>
-      <tags>
-        <tag>虚拟机</tag>
-      </tags>
-  </entry>
-  <entry>
     <title>安卓14 + HttpCanary 抓包设置</title>
     <url>/posts/5fb4c97d/</url>
     <content><![CDATA[<h1 id="前言"><a href="#前言" class="headerlink" title="前言"></a>前言</h1><p>这两天使用 HttpCanary 抓包，无法安装证书，如下图，搜索找到了解决办法。本教程适合安卓14 + 无法安装证书，以及解决“系统证书”和“目标App使用固定证书”的问题。</p>
@@ -2714,6 +2683,37 @@
       </categories>
       <tags>
         <tag>网络抓包</tag>
+      </tags>
+  </entry>
+  <entry>
+    <title>安装了VMware Tools，但无法实现文件的拖拽和复制粘贴---解决方案</title>
+    <url>/posts/a580ef34/</url>
+    <content><![CDATA[<p>环境：Windows11，VMware17Pro，ubuntu-23.10.1</p>
+<p>我给虚拟机装好Ubuntu系统后，它默认是安装好vmtools的</p>
+<p>而且这些选项默认是勾选的，但是我无法实现宿主机和虚拟机之间文件的拖拽和复制粘贴</p>
+<p>如果你遇到了和我一样的问题，且网上很多博文提供的解决方案都无法解决你的问题，那么请往下看</p>
+<p>我试了各路大神的解决方案，基本都行不通</p>
+<p>只有一篇标题和这个问题相关度不高的文章，提到了一种重装VMware tools的方法，我试了一下终于解决了问题</p>
+<p> 这里要说一下，网上的很多文章用cd里带的VMware tools压缩包来重新安装（还要手动输yes的那个方法），我试了，根本没有用</p>
+<p>毕竟初始安装的就是那个版本，再重新安装一下并没有意义</p>
+<p>真正的解决方案其实很方便：</p>
+<p>打开终端</p>
+<p>1.卸载VMware Tools</p>
+<figure class="highlight plaintext"><table><tr><td class="code"><pre><span class="line">sudo apt-get autoremove open-vm-tools</span><br></pre></td></tr></table></figure>
+
+<p>2.联网安装VMware tools</p>
+<figure class="highlight plaintext"><table><tr><td class="code"><pre><span class="line">sudo apt-get install open-vm-tools-desktop</span><br></pre></td></tr></table></figure>
+
+<p>如果出错了，就执行下面两行命令</p>
+<figure class="highlight plaintext"><table><tr><td class="code"><pre><span class="line">sudo apt-get update</span><br><span class="line">sudo apt-get install open-vm-tools-desktop fuse</span><br></pre></td></tr></table></figure>
+
+<p>3.重启虚拟机即可</p>
+]]></content>
+      <categories>
+        <category>故障排除</category>
+      </categories>
+      <tags>
+        <tag>虚拟机</tag>
       </tags>
   </entry>
   <entry>
@@ -3073,6 +3073,126 @@
       </tags>
   </entry>
   <entry>
+    <title>移载机SEW MOVIDRIVE 变频器配置手册（双编码器）</title>
+    <url>/posts/4f7419e2/</url>
+    <content><![CDATA[<h1 id="一、SEW变频器Startup"><a href="#一、SEW变频器Startup" class="headerlink" title="一、SEW变频器Startup"></a>一、SEW变频器Startup</h1><p>安装好MOVITOOL软件</p>
+<p><img src="https://img.051516.xyz/20250522211420768.png" alt="image-20250522204456926"></p>
+<p>打开创建好的项目开始配置通信连接</p>
+<p><img src="https://img.051516.xyz/20250522211428346.png" alt="image-20250522204525245"></p>
+<p>下面以以太网连接为例</p>
+<p><img src="https://img.051516.xyz/20250522211435174.png" alt="image-20250522204553577"></p>
+<p><img src="https://img.051516.xyz/20250522211440753.png" alt="image-20250522204622864"></p>
+<p>当设置完成后，请一路OK回到软件管理画面</p>
+<p><img src="https://img.051516.xyz/20250522211452463.png" alt="image-20250522204646120"></p>
+<p>通信配置正确的软件界面状态</p>
+<p><img src="https://img.051516.xyz/20250522211500726.png" alt="image-20250522204707808"></p>
+<p>单击红色刷新图标</p>
+<p><img src="https://img.051516.xyz/20250522211506743.png" alt="image-20250522204732227"></p>
+<p>一切准备就绪后，单击已连接的变频器。会在软件管理中罗列出当前各项功能菜单。</p>
+<p><img src="https://img.051516.xyz/20250522211526791.png" alt="image-20250522204750498"></p>
+<p>下面我们开始参数配置：</p>
+<p>参数设置一</p>
+<p>单击参数列表</p>
+<p><img src="https://img.051516.xyz/20250522211536263.png" alt="image-20250522204832268"></p>
+<p><img src="https://img.051516.xyz/20250522211545286.png" alt="image-20250522204848233"></p>
+<p>变频器参数重置完成后，回到SEW管理器画面选择</p>
+<p><img src="https://img.051516.xyz/20250522211551830.png" alt="image-20250522204903815"></p>
+<p>开始电机参数配置。</p>
+<p>第一步配置电机基本参数参数</p>
+<p>第二步配置变频器参数</p>
+<p>第三步配置IPOS参数</p>
+<p>出现下图配置画面：</p>
+<p><img src="https://img.051516.xyz/20250522211556970.png" alt="image-20250522204922056"></p>
+<p><img src="https://img.051516.xyz/20250522211605460.png" alt="image-20250522204935064"></p>
+<p><img src="https://img.051516.xyz/20250522211612151.png" alt="image-20250522204948929"></p>
+<p>选择矢量\伺服控制</p>
+<p><img src="https://img.051516.xyz/20250522211636487.png" alt="image-20250522205011792"></p>
+<p>选择下一步。</p>
+<p><img src="https://img.051516.xyz/20250522211621582.png" alt="image-20250522205025251"></p>
+<p>选择电机类型。</p>
+<p><img src="https://img.051516.xyz/20250522211648706.png" alt="image-20250522205042278"></p>
+<p>选择电机对应的型号和输入电源的额定电压和频率值</p>
+<p><img src="https://img.051516.xyz/20250522211659160.png" alt="image-20250522205058945"></p>
+<p>选择使用的编码器</p>
+<p><img src="https://img.051516.xyz/20250522211705047.png" alt="image-20250522205115647"></p>
+<p>选择变频器IPOS工作模式。</p>
+<p><img src="https://img.051516.xyz/20250522211711639.png" alt="image-20250522205143590"></p>
+<p>选择压频控制（VFC）模式</p>
+<p><img src="https://img.051516.xyz/20250522211718088.png" alt="image-20250522205154059"></p>
+<p>惯性选择</p>
+<p>弹出下图</p>
+<p><img src="https://img.051516.xyz/20250522211739760.png" alt="image-20250522205329862"></p>
+<p>选择是否启用电机抱闸。</p>
+<p><img src="https://img.051516.xyz/20250522211747415.png" alt="image-20250522205348345"></p>
+<p>参数设置part1</p>
+<p><img src="https://img.051516.xyz/20250522211819997.png" alt="image-20250522205423812"></p>
+<p>参数设置part2</p>
+<p><img src="https://img.051516.xyz/20250522211831478.png" alt="image-20250522205442378"></p>
+<p>参数设置part3</p>
+<p><img src="https://img.051516.xyz/20250522211836809.png" alt="image-20250522205459889"></p>
+<p>点击“下载”，然后单击“设置变频器，“完成”</p>
+<p><img src="https://img.051516.xyz/20250522211843403.png" alt="image-20250522205518921"></p>
+<h1 id="二、SEW变频器总线扩展定位设置"><a href="#二、SEW变频器总线扩展定位设置" class="headerlink" title="二、SEW变频器总线扩展定位设置"></a>二、SEW变频器总线扩展定位设置</h1><p>点击2.SEW总线扩展定位，定位块设置。</p>
+<p><img src="https://img.051516.xyz/20250522211849177.png" alt="image-20250522205619412"></p>
+<p><img src="https://img.051516.xyz/20250522205630853.png" alt="image-20250522205630853"></p>
+<p><img src="https://img.051516.xyz/20250522211912978.png" alt="image-20250522205642616"></p>
+<p>选择位移编码器类型</p>
+<p><img src="https://img.051516.xyz/20250522211919035.png" alt="image-20250522205658095"></p>
+<p><img src="https://img.051516.xyz/20250522211934232.png" alt="image-20250522205706074"></p>
+<p><img src="https://img.051516.xyz/20250522211923657.png" alt="image-20250522205711381"></p>
+<p><img src="https://img.051516.xyz/20250522211941581.png" alt="image-20250522205717432"></p>
+<p>移载机内置编码器和外置编码器匹配。</p>
+<p><img src="https://img.051516.xyz/20250522211948129.png" alt="image-20250522205733747"></p>
+<p>提示：做这一步时，如果出现电机不能转动，或产生报警不能通过编码器匹配。需要检查以下内容：</p>
+<p>1电机不能转动：</p>
+<p>a可能是由于变频器的安全24V未给</p>
+<p>b电机抱闸未打开</p>
+<p>c机械设备运动到极限位置或被锁定</p>
+<p>2变频器报警：a速度故障编码器线缆有接触不良或错误如同下图</p>
+<p><img src="https://img.051516.xyz/20250522211957143.png" alt="image-20250522205831537"></p>
+<p>单击下一步</p>
+<p><img src="https://img.051516.xyz/20250522212003541.png" alt="image-20250522205846506"></p>
+<p>单击下一步</p>
+<p><img src="https://img.051516.xyz/20250522212010638.png" alt="image-20250522205903857"></p>
+<p>单击下一步</p>
+<p><img src="https://img.051516.xyz/20250522212020133.png" alt="image-20250522205929872"></p>
+<p>编码器匹配通过后点击下一步，进入下图画面传送参考位置。</p>
+<p>提示：传送参考位置前请断开变频器安全24V电源，否则会弹出禁止修改提示框；修改成功后也会弹出提示框，根据提示继续配置。</p>
+<p><img src="https://img.051516.xyz/20250522212026198.png" alt="image-20250522205951899"></p>
+<p>单击“完成”。</p>
+<p><img src="https://img.051516.xyz/20250522212032184.png" alt="image-20250522210003836"></p>
+<h1 id="三、-IPOS配置"><a href="#三、-IPOS配置" class="headerlink" title="三、 IPOS配置"></a>三、 IPOS配置</h1><p><img src="https://img.051516.xyz/20250522212039234.png" alt="image-20250522210033621"></p>
+<p>设置通信总线类型为Profinet，单击下一步</p>
+<p><img src="https://img.051516.xyz/20250522212044956.png" alt="image-20250522210130165"></p>
+<p>参数设置单击下一步</p>
+<p><img src="https://img.051516.xyz/20250522212052156.png" alt="image-20250522210205472"></p>
+<p>变频器软限位，及参考类型设置单击下一步</p>
+<p><img src="https://img.051516.xyz/20250522212058553.png" alt="image-20250522210229213"></p>
+<p><img src="https://img.051516.xyz/20250522212105838.png" alt="image-20250522210236898"></p>
+<p>选择“否“不保存</p>
+<p>下载配置的参数，提示：下载参数需要断开变频器的安全24V电源</p>
+<p><img src="https://img.051516.xyz/20250522212111341.png" alt="image-20250522210301645"></p>
+<p>点“yes”监控状态</p>
+<p><img src="https://img.051516.xyz/20250522212118310.png" alt="image-20250522210316464"></p>
+<p><img src="https://img.051516.xyz/20250522212125742.png" alt="image-20250522210352603"></p>
+<p>参考设置No.1</p>
+<p><img src="https://img.051516.xyz/20250522212132048.png" alt="image-20250522210417474"></p>
+<p>参考设置No.2</p>
+<p><img src="https://img.051516.xyz/20250522212143689.png" alt="image-20250522210438966"></p>
+<p>参考设置No.3</p>
+<p>选择PO1 第2,3,9,13 位，点击“SendPA”Start reference，编码器反馈值为0（PI2&#x2F;3 Actual position&#x3D;0）</p>
+<p><img src="https://img.051516.xyz/20250522212151212.png" alt="image-20250522210537816"></p>
+<p>设置完成这些参数，可以测试运行电机。</p>
+<p><img src="https://img.051516.xyz/20250522212158850.png" alt="image-20250522210558705"></p>
+]]></content>
+      <categories>
+        <category>工业自动化</category>
+      </categories>
+      <tags>
+        <tag>MOVIDRIVE</tag>
+      </tags>
+  </entry>
+  <entry>
     <title>神秘模块入门教程（Android端）</title>
     <url>/posts/d7b14abe/</url>
     <content><![CDATA[<p><strong>使用前提</strong><br>1.已经安装Magisk或KernelSU的安卓设备</p>
@@ -3207,126 +3327,6 @@
       </categories>
       <tags>
         <tag>网络代理</tag>
-      </tags>
-  </entry>
-  <entry>
-    <title>移载机SEW MOVIDRIVE 变频器配置手册（双编码器）</title>
-    <url>/posts/4f7419e2/</url>
-    <content><![CDATA[<h1 id="一、SEW变频器Startup"><a href="#一、SEW变频器Startup" class="headerlink" title="一、SEW变频器Startup"></a>一、SEW变频器Startup</h1><p>安装好MOVITOOL软件</p>
-<p><img src="https://img.051516.xyz/20250522211420768.png" alt="image-20250522204456926"></p>
-<p>打开创建好的项目开始配置通信连接</p>
-<p><img src="https://img.051516.xyz/20250522211428346.png" alt="image-20250522204525245"></p>
-<p>下面以以太网连接为例</p>
-<p><img src="https://img.051516.xyz/20250522211435174.png" alt="image-20250522204553577"></p>
-<p><img src="https://img.051516.xyz/20250522211440753.png" alt="image-20250522204622864"></p>
-<p>当设置完成后，请一路OK回到软件管理画面</p>
-<p><img src="https://img.051516.xyz/20250522211452463.png" alt="image-20250522204646120"></p>
-<p>通信配置正确的软件界面状态</p>
-<p><img src="https://img.051516.xyz/20250522211500726.png" alt="image-20250522204707808"></p>
-<p>单击红色刷新图标</p>
-<p><img src="https://img.051516.xyz/20250522211506743.png" alt="image-20250522204732227"></p>
-<p>一切准备就绪后，单击已连接的变频器。会在软件管理中罗列出当前各项功能菜单。</p>
-<p><img src="https://img.051516.xyz/20250522211526791.png" alt="image-20250522204750498"></p>
-<p>下面我们开始参数配置：</p>
-<p>参数设置一</p>
-<p>单击参数列表</p>
-<p><img src="https://img.051516.xyz/20250522211536263.png" alt="image-20250522204832268"></p>
-<p><img src="https://img.051516.xyz/20250522211545286.png" alt="image-20250522204848233"></p>
-<p>变频器参数重置完成后，回到SEW管理器画面选择</p>
-<p><img src="https://img.051516.xyz/20250522211551830.png" alt="image-20250522204903815"></p>
-<p>开始电机参数配置。</p>
-<p>第一步配置电机基本参数参数</p>
-<p>第二步配置变频器参数</p>
-<p>第三步配置IPOS参数</p>
-<p>出现下图配置画面：</p>
-<p><img src="https://img.051516.xyz/20250522211556970.png" alt="image-20250522204922056"></p>
-<p><img src="https://img.051516.xyz/20250522211605460.png" alt="image-20250522204935064"></p>
-<p><img src="https://img.051516.xyz/20250522211612151.png" alt="image-20250522204948929"></p>
-<p>选择矢量\伺服控制</p>
-<p><img src="https://img.051516.xyz/20250522211636487.png" alt="image-20250522205011792"></p>
-<p>选择下一步。</p>
-<p><img src="https://img.051516.xyz/20250522211621582.png" alt="image-20250522205025251"></p>
-<p>选择电机类型。</p>
-<p><img src="https://img.051516.xyz/20250522211648706.png" alt="image-20250522205042278"></p>
-<p>选择电机对应的型号和输入电源的额定电压和频率值</p>
-<p><img src="https://img.051516.xyz/20250522211659160.png" alt="image-20250522205058945"></p>
-<p>选择使用的编码器</p>
-<p><img src="https://img.051516.xyz/20250522211705047.png" alt="image-20250522205115647"></p>
-<p>选择变频器IPOS工作模式。</p>
-<p><img src="https://img.051516.xyz/20250522211711639.png" alt="image-20250522205143590"></p>
-<p>选择压频控制（VFC）模式</p>
-<p><img src="https://img.051516.xyz/20250522211718088.png" alt="image-20250522205154059"></p>
-<p>惯性选择</p>
-<p>弹出下图</p>
-<p><img src="https://img.051516.xyz/20250522211739760.png" alt="image-20250522205329862"></p>
-<p>选择是否启用电机抱闸。</p>
-<p><img src="https://img.051516.xyz/20250522211747415.png" alt="image-20250522205348345"></p>
-<p>参数设置part1</p>
-<p><img src="https://img.051516.xyz/20250522211819997.png" alt="image-20250522205423812"></p>
-<p>参数设置part2</p>
-<p><img src="https://img.051516.xyz/20250522211831478.png" alt="image-20250522205442378"></p>
-<p>参数设置part3</p>
-<p><img src="https://img.051516.xyz/20250522211836809.png" alt="image-20250522205459889"></p>
-<p>点击“下载”，然后单击“设置变频器，“完成”</p>
-<p><img src="https://img.051516.xyz/20250522211843403.png" alt="image-20250522205518921"></p>
-<h1 id="二、SEW变频器总线扩展定位设置"><a href="#二、SEW变频器总线扩展定位设置" class="headerlink" title="二、SEW变频器总线扩展定位设置"></a>二、SEW变频器总线扩展定位设置</h1><p>点击2.SEW总线扩展定位，定位块设置。</p>
-<p><img src="https://img.051516.xyz/20250522211849177.png" alt="image-20250522205619412"></p>
-<p><img src="https://img.051516.xyz/20250522205630853.png" alt="image-20250522205630853"></p>
-<p><img src="https://img.051516.xyz/20250522211912978.png" alt="image-20250522205642616"></p>
-<p>选择位移编码器类型</p>
-<p><img src="https://img.051516.xyz/20250522211919035.png" alt="image-20250522205658095"></p>
-<p><img src="https://img.051516.xyz/20250522211934232.png" alt="image-20250522205706074"></p>
-<p><img src="https://img.051516.xyz/20250522211923657.png" alt="image-20250522205711381"></p>
-<p><img src="https://img.051516.xyz/20250522211941581.png" alt="image-20250522205717432"></p>
-<p>移载机内置编码器和外置编码器匹配。</p>
-<p><img src="https://img.051516.xyz/20250522211948129.png" alt="image-20250522205733747"></p>
-<p>提示：做这一步时，如果出现电机不能转动，或产生报警不能通过编码器匹配。需要检查以下内容：</p>
-<p>1电机不能转动：</p>
-<p>a可能是由于变频器的安全24V未给</p>
-<p>b电机抱闸未打开</p>
-<p>c机械设备运动到极限位置或被锁定</p>
-<p>2变频器报警：a速度故障编码器线缆有接触不良或错误如同下图</p>
-<p><img src="https://img.051516.xyz/20250522211957143.png" alt="image-20250522205831537"></p>
-<p>单击下一步</p>
-<p><img src="https://img.051516.xyz/20250522212003541.png" alt="image-20250522205846506"></p>
-<p>单击下一步</p>
-<p><img src="https://img.051516.xyz/20250522212010638.png" alt="image-20250522205903857"></p>
-<p>单击下一步</p>
-<p><img src="https://img.051516.xyz/20250522212020133.png" alt="image-20250522205929872"></p>
-<p>编码器匹配通过后点击下一步，进入下图画面传送参考位置。</p>
-<p>提示：传送参考位置前请断开变频器安全24V电源，否则会弹出禁止修改提示框；修改成功后也会弹出提示框，根据提示继续配置。</p>
-<p><img src="https://img.051516.xyz/20250522212026198.png" alt="image-20250522205951899"></p>
-<p>单击“完成”。</p>
-<p><img src="https://img.051516.xyz/20250522212032184.png" alt="image-20250522210003836"></p>
-<h1 id="三、-IPOS配置"><a href="#三、-IPOS配置" class="headerlink" title="三、 IPOS配置"></a>三、 IPOS配置</h1><p><img src="https://img.051516.xyz/20250522212039234.png" alt="image-20250522210033621"></p>
-<p>设置通信总线类型为Profinet，单击下一步</p>
-<p><img src="https://img.051516.xyz/20250522212044956.png" alt="image-20250522210130165"></p>
-<p>参数设置单击下一步</p>
-<p><img src="https://img.051516.xyz/20250522212052156.png" alt="image-20250522210205472"></p>
-<p>变频器软限位，及参考类型设置单击下一步</p>
-<p><img src="https://img.051516.xyz/20250522212058553.png" alt="image-20250522210229213"></p>
-<p><img src="https://img.051516.xyz/20250522212105838.png" alt="image-20250522210236898"></p>
-<p>选择“否“不保存</p>
-<p>下载配置的参数，提示：下载参数需要断开变频器的安全24V电源</p>
-<p><img src="https://img.051516.xyz/20250522212111341.png" alt="image-20250522210301645"></p>
-<p>点“yes”监控状态</p>
-<p><img src="https://img.051516.xyz/20250522212118310.png" alt="image-20250522210316464"></p>
-<p><img src="https://img.051516.xyz/20250522212125742.png" alt="image-20250522210352603"></p>
-<p>参考设置No.1</p>
-<p><img src="https://img.051516.xyz/20250522212132048.png" alt="image-20250522210417474"></p>
-<p>参考设置No.2</p>
-<p><img src="https://img.051516.xyz/20250522212143689.png" alt="image-20250522210438966"></p>
-<p>参考设置No.3</p>
-<p>选择PO1 第2,3,9,13 位，点击“SendPA”Start reference，编码器反馈值为0（PI2&#x2F;3 Actual position&#x3D;0）</p>
-<p><img src="https://img.051516.xyz/20250522212151212.png" alt="image-20250522210537816"></p>
-<p>设置完成这些参数，可以测试运行电机。</p>
-<p><img src="https://img.051516.xyz/20250522212158850.png" alt="image-20250522210558705"></p>
-]]></content>
-      <categories>
-        <category>工业自动化</category>
-      </categories>
-      <tags>
-        <tag>MOVIDRIVE</tag>
       </tags>
   </entry>
   <entry>
