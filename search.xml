@@ -1,6 +1,24 @@
 <?xml version="1.0" encoding="utf-8"?>
 <search>
   <entry>
+    <title>5G21第二批刷机以及不同作者间的固件切换</title>
+    <url>/posts/7ae0e921/</url>
+    <content><![CDATA[<p>lean 的 q-wrt 可以进行 webui 直接更新 进入 webui 后依次点击系统-服务&#x2F;备份-刷写新的固件上传固件后升级。切记不要勾选保留配置。<br>切换到志平或狂风固件请使用 winscp 等工具上传到 tmp 目录后，ssh 输入以下的命令，记得先 cd 到 tmp 目录。</p>
+<figure class="highlight plaintext"><table><tr><td class="code"><pre><span class="line">sysupgrade -F -n xxx.bin</span><br></pre></td></tr></table></figure>
+
+<p>或者使用以下命令强刷</p>
+<figure class="highlight plaintext"><table><tr><td class="code"><pre><span class="line">sysupgrade -F -n -v xxx.bin</span><br></pre></td></tr></table></figure>
+
+<p><strong>xxx 为固件名字</strong></p>
+]]></content>
+      <categories>
+        <category>网络设备</category>
+      </categories>
+      <tags>
+        <tag>OpenWrt</tag>
+      </tags>
+  </entry>
+  <entry>
     <title>1panel面板部署哪吒监控v1</title>
     <url>/posts/aad1ff9e/</url>
     <content><![CDATA[<h1 id="域名解析"><a href="#域名解析" class="headerlink" title="域名解析"></a>域名解析</h1><p>面板域名以<code>nezha.a.com</code>为例</p>
@@ -55,24 +73,6 @@
       </categories>
       <tags>
         <tag>运维工具</tag>
-      </tags>
-  </entry>
-  <entry>
-    <title>5G21第二批刷机以及不同作者间的固件切换</title>
-    <url>/posts/7ae0e921/</url>
-    <content><![CDATA[<p>lean 的 q-wrt 可以进行 webui 直接更新 进入 webui 后依次点击系统-服务&#x2F;备份-刷写新的固件上传固件后升级。切记不要勾选保留配置。<br>切换到志平或狂风固件请使用 winscp 等工具上传到 tmp 目录后，ssh 输入以下的命令，记得先 cd 到 tmp 目录。</p>
-<figure class="highlight plaintext"><table><tr><td class="code"><pre><span class="line">sysupgrade -F -n xxx.bin</span><br></pre></td></tr></table></figure>
-
-<p>或者使用以下命令强刷</p>
-<figure class="highlight plaintext"><table><tr><td class="code"><pre><span class="line">sysupgrade -F -n -v xxx.bin</span><br></pre></td></tr></table></figure>
-
-<p><strong>xxx 为固件名字</strong></p>
-]]></content>
-      <categories>
-        <category>网络设备</category>
-      </categories>
-      <tags>
-        <tag>OpenWrt</tag>
       </tags>
   </entry>
   <entry>
@@ -2301,6 +2301,35 @@
       </tags>
   </entry>
   <entry>
+    <title>tmux后台工具使用方法</title>
+    <url>/posts/3117353a/</url>
+    <content><![CDATA[<p>tmux多路后台会话功能 即使SSH断开程序也可以在内置会话中执行 实现后台稳定运行<br><img src="https://img.051516.xyz/202305051618430.png"></p>
+<p>有长时间任务或者后台程序运行需求大家可以使用tmux，比如编译程序，推流直播，SSH连接不稳定等等场景需求。你可以把这些程序存放到一个独立会话中，让他自己运作，完全不影响SSH主会话。</p>
+<p>即使SSH断了，你在tmux中的程序也不会断连。</p>
+<p>安装</p>
+<figure class="highlight plaintext"><table><tr><td class="code"><pre><span class="line">apt update -y &amp;&amp; apt install -y tmux</span><br></pre></td></tr></table></figure>
+
+<p>创建一个会话进入（可多开N个后台会话）</p>
+<figure class="highlight plaintext"><table><tr><td class="code"><pre><span class="line">tmux new -s my1</span><br></pre></td></tr></table></figure>
+<p><img src="https://img.051516.xyz/202305051620536.png"></p>
+<p>退出会话不中断 Crl+b然后d</p>
+<p>重新进入会话</p>
+<figure class="highlight plaintext"><table><tr><td class="code"><pre><span class="line">tmux attach-session -t my1</span><br></pre></td></tr></table></figure>
+
+<p>查看所有tmux会话</p>
+<figure class="highlight plaintext"><table><tr><td class="code"><pre><span class="line">tmux list-sessions</span><br></pre></td></tr></table></figure>
+
+<p>删除会话</p>
+<figure class="highlight plaintext"><table><tr><td class="code"><pre><span class="line">tmux kill-session -t my1</span><br><span class="line">crl+d</span><br></pre></td></tr></table></figure>
+]]></content>
+      <categories>
+        <category>运维技术</category>
+      </categories>
+      <tags>
+        <tag>运维工具</tag>
+      </tags>
+  </entry>
+  <entry>
     <title>hysteria2与reality共存安装</title>
     <url>/posts/756577dc/</url>
     <content><![CDATA[<h1 id="前言"><a href="#前言" class="headerlink" title="前言"></a>前言</h1><p>1.目前伪装最好的两种协议，一个代表tcp协议（reality）的目前巅峰，一个新型UDP协议（hysteria2）的宠儿。<br>2.这次用的sing-box搭建 <a href="https://sing-box.sagernet.org/zh">https://sing-box.sagernet.org/zh</a> 因为简单。之前一直用八合一，最大的问题就是各种伪装后，机器就只能拿来科学上网了，因为安装Nginx，搭建个网页啥的都很麻烦。<br>3.教程亮点，无需自备域名。<br>3.passwall发现没有类似的设置教程，所以出一个。</p>
@@ -2350,35 +2379,6 @@
       </categories>
       <tags>
         <tag>网络代理</tag>
-      </tags>
-  </entry>
-  <entry>
-    <title>tmux后台工具使用方法</title>
-    <url>/posts/3117353a/</url>
-    <content><![CDATA[<p>tmux多路后台会话功能 即使SSH断开程序也可以在内置会话中执行 实现后台稳定运行<br><img src="https://img.051516.xyz/202305051618430.png"></p>
-<p>有长时间任务或者后台程序运行需求大家可以使用tmux，比如编译程序，推流直播，SSH连接不稳定等等场景需求。你可以把这些程序存放到一个独立会话中，让他自己运作，完全不影响SSH主会话。</p>
-<p>即使SSH断了，你在tmux中的程序也不会断连。</p>
-<p>安装</p>
-<figure class="highlight plaintext"><table><tr><td class="code"><pre><span class="line">apt update -y &amp;&amp; apt install -y tmux</span><br></pre></td></tr></table></figure>
-
-<p>创建一个会话进入（可多开N个后台会话）</p>
-<figure class="highlight plaintext"><table><tr><td class="code"><pre><span class="line">tmux new -s my1</span><br></pre></td></tr></table></figure>
-<p><img src="https://img.051516.xyz/202305051620536.png"></p>
-<p>退出会话不中断 Crl+b然后d</p>
-<p>重新进入会话</p>
-<figure class="highlight plaintext"><table><tr><td class="code"><pre><span class="line">tmux attach-session -t my1</span><br></pre></td></tr></table></figure>
-
-<p>查看所有tmux会话</p>
-<figure class="highlight plaintext"><table><tr><td class="code"><pre><span class="line">tmux list-sessions</span><br></pre></td></tr></table></figure>
-
-<p>删除会话</p>
-<figure class="highlight plaintext"><table><tr><td class="code"><pre><span class="line">tmux kill-session -t my1</span><br><span class="line">crl+d</span><br></pre></td></tr></table></figure>
-]]></content>
-      <categories>
-        <category>运维技术</category>
-      </categories>
-      <tags>
-        <tag>运维工具</tag>
       </tags>
   </entry>
   <entry>
@@ -3330,6 +3330,24 @@
       </tags>
   </entry>
   <entry>
+    <title>谷歌浏览器设置关闭搜索记录</title>
+    <url>/posts/42e51b95/</url>
+    <content><![CDATA[<p><strong>将 Chrome 的 History 文件设置为可读即可。</strong><br>操作方法：<br>1 、在 Chrome 浏览器地址栏中输入</p>
+<figure class="highlight html"><table><tr><td class="code"><pre><span class="line">chrome://version/</span><br></pre></td></tr></table></figure>
+
+<p>2 、复制<strong>个人资料路径</strong>，关闭 Chrome 浏览器并到资源管理器中打开刚才复制的“个人资料路径”</p>
+<p><img src="https://img.051516.xyz/202303062045271.png" alt="image-20230306204551884"></p>
+<p>3 、找到History文件并删除，然后新建一个History文件，对History文件，右键—属性，勾选只读。</p>
+<p><img src="https://img.051516.xyz/202303062048179.png" alt="image-20230306204804357"></p>
+]]></content>
+      <categories>
+        <category>隐私安全</category>
+      </categories>
+      <tags>
+        <tag>Google浏览器</tag>
+      </tags>
+  </entry>
+  <entry>
     <title>记中兴MF932改串</title>
     <url>/posts/27cbce44/</url>
     <content><![CDATA[<h1 id="注意！"><a href="#注意！" class="headerlink" title="注意！"></a>注意！</h1><p><strong>改串需要自己将串号写入NV文件中，我也不知道怎么写入，本教程只做参考，不会生成改串的NV文件就不用再往下看了。</strong>**</p>
@@ -3374,24 +3392,6 @@
       </categories>
       <tags>
         <tag>随身WiFi</tag>
-      </tags>
-  </entry>
-  <entry>
-    <title>谷歌浏览器设置关闭搜索记录</title>
-    <url>/posts/42e51b95/</url>
-    <content><![CDATA[<p><strong>将 Chrome 的 History 文件设置为可读即可。</strong><br>操作方法：<br>1 、在 Chrome 浏览器地址栏中输入</p>
-<figure class="highlight html"><table><tr><td class="code"><pre><span class="line">chrome://version/</span><br></pre></td></tr></table></figure>
-
-<p>2 、复制<strong>个人资料路径</strong>，关闭 Chrome 浏览器并到资源管理器中打开刚才复制的“个人资料路径”</p>
-<p><img src="https://img.051516.xyz/202303062045271.png" alt="image-20230306204551884"></p>
-<p>3 、找到History文件并删除，然后新建一个History文件，对History文件，右键—属性，勾选只读。</p>
-<p><img src="https://img.051516.xyz/202303062048179.png" alt="image-20230306204804357"></p>
-]]></content>
-      <categories>
-        <category>隐私安全</category>
-      </categories>
-      <tags>
-        <tag>Google浏览器</tag>
       </tags>
   </entry>
   <entry>
