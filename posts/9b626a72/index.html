@@ -1,0 +1,236 @@
+<!DOCTYPE html><html lang="zh-CN" data-theme="light"><head><meta charset="UTF-8"><meta http-equiv="X-UA-Compatible" content="IE=edge"><meta name="viewport" content="width=device-width, initial-scale=1.0,viewport-fit=cover"><title>手搓xray配置文件 | 与亓のBlog</title><meta name="author" content="与亓"><meta name="copyright" content="与亓"><meta name="format-detection" content="telephone=no"><meta name="theme-color" content="#ffffff"><meta name="description" content="从零开始手动编写Xray配置文件的完整教程，包含核心参数解析、协议选择、路由规则及性能优化技巧，适合高级用户定制化需求。">
+<meta property="og:type" content="article">
+<meta property="og:title" content="手搓xray配置文件">
+<meta property="og:url" content="https://yuqi.im/posts/9b626a72/index.html">
+<meta property="og:site_name" content="与亓のBlog">
+<meta property="og:description" content="从零开始手动编写Xray配置文件的完整教程，包含核心参数解析、协议选择、路由规则及性能优化技巧，适合高级用户定制化需求。">
+<meta property="og:locale" content="zh_CN">
+<meta property="og:image" content="https://img.051516.xyz/20250718125343514.jpg">
+<meta property="article:published_time" content="2025-07-17T16:00:00.000Z">
+<meta property="article:modified_time" content="2025-07-17T16:00:00.000Z">
+<meta property="article:author" content="与亓">
+<meta property="article:tag" content="网络代理">
+<meta name="twitter:card" content="summary">
+<meta name="twitter:image" content="https://img.051516.xyz/20250718125343514.jpg"><script type="application/ld+json">{
+  "@context": "https://schema.org",
+  "@type": "BlogPosting",
+  "headline": "手搓xray配置文件",
+  "url": "https://yuqi.im/posts/9b626a72/",
+  "image": "https://img.051516.xyz/20250718125343514.jpg",
+  "datePublished": "2025-07-17T16:00:00.000Z",
+  "dateModified": "2025-07-17T16:00:00.000Z",
+  "author": [
+    {
+      "@type": "Person",
+      "name": "与亓",
+      "url": "https://yuqi.im"
+    }
+  ]
+}</script><link rel="shortcut icon" href="https://img.051516.xyz/202302272018985.jpg"><link rel="canonical" href="https://yuqi.im/posts/9b626a72/index.html"><link rel="preconnect" href="//cdn.jsdelivr.net"/><link rel="stylesheet" href="/css/index.css"><link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/@fortawesome/fontawesome-free/css/all.min.css"><script>
+    (() => {
+      
+    const saveToLocal = {
+      set: (key, value, ttl) => {
+        if (!ttl) return
+        const expiry = Date.now() + ttl * 86400000
+        localStorage.setItem(key, JSON.stringify({ value, expiry }))
+      },
+      get: key => {
+        const itemStr = localStorage.getItem(key)
+        if (!itemStr) return undefined
+        const { value, expiry } = JSON.parse(itemStr)
+        if (Date.now() > expiry) {
+          localStorage.removeItem(key)
+          return undefined
+        }
+        return value
+      }
+    }
+
+    window.btf = {
+      saveToLocal,
+      getScript: (url, attr = {}) => new Promise((resolve, reject) => {
+        const script = document.createElement('script')
+        script.src = url
+        script.async = true
+        Object.entries(attr).forEach(([key, val]) => script.setAttribute(key, val))
+        script.onload = script.onreadystatechange = () => {
+          if (!script.readyState || /loaded|complete/.test(script.readyState)) resolve()
+        }
+        script.onerror = reject
+        document.head.appendChild(script)
+      }),
+      getCSS: (url, id) => new Promise((resolve, reject) => {
+        const link = document.createElement('link')
+        link.rel = 'stylesheet'
+        link.href = url
+        if (id) link.id = id
+        link.onload = link.onreadystatechange = () => {
+          if (!link.readyState || /loaded|complete/.test(link.readyState)) resolve()
+        }
+        link.onerror = reject
+        document.head.appendChild(link)
+      }),
+      addGlobalFn: (key, fn, name = false, parent = window) => {
+        if (!false && key.startsWith('pjax')) return
+        const globalFn = parent.globalFn || {}
+        globalFn[key] = globalFn[key] || {}
+        globalFn[key][name || Object.keys(globalFn[key]).length] = fn
+        parent.globalFn = globalFn
+      }
+    }
+  
+      
+      const activateDarkMode = () => {
+        document.documentElement.setAttribute('data-theme', 'dark')
+        if (document.querySelector('meta[name="theme-color"]') !== null) {
+          document.querySelector('meta[name="theme-color"]').setAttribute('content', '#0d0d0d')
+        }
+      }
+      const activateLightMode = () => {
+        document.documentElement.setAttribute('data-theme', 'light')
+        if (document.querySelector('meta[name="theme-color"]') !== null) {
+          document.querySelector('meta[name="theme-color"]').setAttribute('content', '#ffffff')
+        }
+      }
+
+      btf.activateDarkMode = activateDarkMode
+      btf.activateLightMode = activateLightMode
+
+      const theme = saveToLocal.get('theme')
+    
+          theme === 'dark' ? activateDarkMode() : theme === 'light' ? activateLightMode() : null
+        
+      
+      const asideStatus = saveToLocal.get('aside-status')
+      if (asideStatus !== undefined) {
+        document.documentElement.classList.toggle('hide-aside', asideStatus === 'hide')
+      }
+    
+      
+    const detectApple = () => {
+      if (/iPad|iPhone|iPod|Macintosh/.test(navigator.userAgent)) {
+        document.documentElement.classList.add('apple')
+      }
+    }
+    detectApple()
+  
+    })()
+  </script><script>const GLOBAL_CONFIG = {
+  root: '/',
+  algolia: undefined,
+  localSearch: {"path":"/search.xml","preload":false,"top_n_per_article":1,"unescape":false,"languages":{"hits_empty":"未找到符合您查询的内容：${query}","hits_stats":"共找到 ${hits} 篇文章"}},
+  translate: undefined,
+  highlight: {"plugin":"highlight.js","highlightCopy":true,"highlightLang":true,"highlightHeightLimit":false,"highlightFullpage":false,"highlightMacStyle":false},
+  copy: {
+    success: '复制成功',
+    error: '复制失败',
+    noSupport: '浏览器不支持'
+  },
+  relativeDate: {
+    homepage: false,
+    post: false
+  },
+  runtime: '',
+  dateSuffix: {
+    just: '刚刚',
+    min: '分钟前',
+    hour: '小时前',
+    day: '天前',
+    month: '个月前'
+  },
+  copyright: undefined,
+  lightbox: 'null',
+  Snackbar: undefined,
+  infinitegrid: {
+    js: 'https://cdn.jsdelivr.net/npm/@egjs/infinitegrid/dist/infinitegrid.min.js',
+    buttonText: '加载更多'
+  },
+  isPhotoFigcaption: false,
+  islazyloadPlugin: false,
+  isAnchor: false,
+  percent: {
+    toc: true,
+    rightside: false,
+  },
+  autoDarkmode: false
+}</script><script id="config-diff">var GLOBAL_CONFIG_SITE = {
+  title: '手搓xray配置文件',
+  isHighlightShrink: false,
+  isToc: false,
+  pageType: 'post'
+}</script><script defer src="https://cloud.umami.is/script.js" data-website-id="7c06aeea-722b-4ad7-9255-4cc2b50044be"></script><meta name="generator" content="Hexo 7.3.0"><link rel="alternate" href="/atom.xml" title="与亓のBlog" type="application/atom+xml">
+</head><body><div id="sidebar"><div id="menu-mask"></div><div id="sidebar-menus"><div class="avatar-img text-center"><img src="https://img.051516.xyz/202302272017976.jpg" onerror="this.onerror=null;this.src='/img/friend_404.gif'" alt="avatar"/></div><div class="site-data text-center"><a href="/archives/"><div class="headline">文章</div><div class="length-num">55</div></a><a href="/tags/"><div class="headline">标签</div><div class="length-num">24</div></a><a href="/categories/"><div class="headline">分类</div><div class="length-num">17</div></a></div><div class="menus_items"><div class="menus_item"><a class="site-page" href="/"><i class="fa-fw fa fa-home"></i><span> 主页</span></a></div><div class="menus_item"><span class="site-page group"><i class="fa-fw fa fa-graduation-cap"></i><span> 博文</span><i class="fas fa-chevron-down"></i></span><ul class="menus_item_child"><li><a class="site-page child" href="/archives/"><i class="fa-fw fa fa-folder-open"></i><span> 归档</span></a></li><li><a class="site-page child" href="/categories/"><i class="fa-fw fa fa-archive"></i><span> 分类</span></a></li><li><a class="site-page child" href="/tags/"><i class="fa-fw fa fa-tags"></i><span> 标签</span></a></li></ul></div><div class="menus_item"><a class="site-page" target="_blank" rel="noopener" href="https://pan.yuqi.fun:81"><i class="fa-fw fas fa-cloud"></i><span> 与亓云盘</span></a></div><div class="menus_item"><a class="site-page" target="_blank" rel="noopener" href="https://cloud.umami.is/share/2ewyVCnIAXHh4rRQ/yuqi.im"><i class="fa-fw fas fa-bar-chart"></i><span> 访问量统计</span></a></div><div class="menus_item"><a class="site-page" href="/link/"><i class="fa-fw fa fa-link"></i><span> 友链</span></a></div><div class="menus_item"><a class="site-page" href="/comment/"><i class="fa-fw fa fa-paper-plane"></i><span> 留言板</span></a></div><div class="menus_item"><a class="site-page" href="/about/"><i class="fa-fw fa fa-heart"></i><span> 关于</span></a></div></div></div></div><div class="post" id="body-wrap"><header class="post-bg" id="page-header" style="background-image: url(https://img.051516.xyz/20250718125313081.jpg);"><nav id="nav"><span id="blog-info"><a class="nav-site-title" href="/"><span class="site-name">与亓のBlog</span></a><a class="nav-page-title" href="/"><span class="site-name">手搓xray配置文件</span><span class="site-name"><i class="fa-solid fa-circle-arrow-left"></i><span>  返回首页</span></span></a></span><div id="menus"><div id="search-button"><span class="site-page social-icon search"><i class="fas fa-search fa-fw"></i><span> 搜索</span></span></div><div class="menus_items"><div class="menus_item"><a class="site-page" href="/"><i class="fa-fw fa fa-home"></i><span> 主页</span></a></div><div class="menus_item"><span class="site-page group"><i class="fa-fw fa fa-graduation-cap"></i><span> 博文</span><i class="fas fa-chevron-down"></i></span><ul class="menus_item_child"><li><a class="site-page child" href="/archives/"><i class="fa-fw fa fa-folder-open"></i><span> 归档</span></a></li><li><a class="site-page child" href="/categories/"><i class="fa-fw fa fa-archive"></i><span> 分类</span></a></li><li><a class="site-page child" href="/tags/"><i class="fa-fw fa fa-tags"></i><span> 标签</span></a></li></ul></div><div class="menus_item"><a class="site-page" target="_blank" rel="noopener" href="https://pan.yuqi.fun:81"><i class="fa-fw fas fa-cloud"></i><span> 与亓云盘</span></a></div><div class="menus_item"><a class="site-page" target="_blank" rel="noopener" href="https://cloud.umami.is/share/2ewyVCnIAXHh4rRQ/yuqi.im"><i class="fa-fw fas fa-bar-chart"></i><span> 访问量统计</span></a></div><div class="menus_item"><a class="site-page" href="/link/"><i class="fa-fw fa fa-link"></i><span> 友链</span></a></div><div class="menus_item"><a class="site-page" href="/comment/"><i class="fa-fw fa fa-paper-plane"></i><span> 留言板</span></a></div><div class="menus_item"><a class="site-page" href="/about/"><i class="fa-fw fa fa-heart"></i><span> 关于</span></a></div></div><div id="toggle-menu"><span class="site-page"><i class="fas fa-bars fa-fw"></i></span></div></div></nav><div id="post-info"><h1 class="post-title">手搓xray配置文件</h1><div id="post-meta"><div class="meta-firstline"><span class="post-meta-date"><i class="far fa-calendar-alt fa-fw post-meta-icon"></i><span class="post-meta-label">发表于</span><time class="post-meta-date-created" datetime="2025-07-17T16:00:00.000Z" title="发表于 2025-07-18 00:00:00">2025-07-18</time><span class="post-meta-separator">|</span><i class="fas fa-history fa-fw post-meta-icon"></i><span class="post-meta-label">更新于</span><time class="post-meta-date-updated" datetime="2025-07-17T16:00:00.000Z" title="更新于 2025-07-18 00:00:00">2025-07-18</time></span><span class="post-meta-categories"><span class="post-meta-separator">|</span><i class="fas fa-inbox fa-fw post-meta-icon"></i><a class="post-meta-categories" href="/categories/%E7%BD%91%E7%BB%9C%E6%8A%80%E6%9C%AF/">网络技术</a></span></div><div class="meta-secondline"></div></div></div></header><main class="layout" id="content-inner"><div id="post"><article class="container post-content" id="article-container"><div id="post-outdate-notice" data="{&quot;limitDay&quot;:180,&quot;messagePrev&quot;:&quot;It has been&quot;,&quot;messageNext&quot;:&quot;days since the last update, the content of the article may be outdated.&quot;,&quot;postUpdate&quot;:&quot;2025-07-18 00:00:00&quot;}" hidden></div><p>手搓xray很简单</p>
+<p>1.安装xray</p>
+<p>bash -c “$(curl -L <a target="_blank" rel="noopener" href="https://github.com/XTLS/Xray-install/raw/main/install-release.sh">https://github.com/XTLS/Xray-install/raw/main/install-release.sh</a>)” @ install</p>
+<p>2.配置文件</p>
+<p>nano &#x2F;usr&#x2F;local&#x2F;etc&#x2F;xray&#x2F;config.json</p>
+<p>3.配置示例</p>
+<figure class="highlight json"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br><span class="line">27</span><br><span class="line">28</span><br><span class="line">29</span><br><span class="line">30</span><br><span class="line">31</span><br><span class="line">32</span><br><span class="line">33</span><br><span class="line">34</span><br><span class="line">35</span><br><span class="line">36</span><br><span class="line">37</span><br><span class="line">38</span><br><span class="line">39</span><br><span class="line">40</span><br><span class="line">41</span><br><span class="line">42</span><br><span class="line">43</span><br><span class="line">44</span><br><span class="line">45</span><br><span class="line">46</span><br><span class="line">47</span><br><span class="line">48</span><br><span class="line">49</span><br><span class="line">50</span><br><span class="line">51</span><br><span class="line">52</span><br><span class="line">53</span><br><span class="line">54</span><br><span class="line">55</span><br><span class="line">56</span><br><span class="line">57</span><br><span class="line">58</span><br><span class="line">59</span><br><span class="line">60</span><br><span class="line">61</span><br><span class="line">62</span><br><span class="line">63</span><br><span class="line">64</span><br><span class="line">65</span><br><span class="line">66</span><br><span class="line">67</span><br></pre></td><td class="code"><pre><span class="line"><span class="punctuation">&#123;</span></span><br><span class="line">    <span class="attr">&quot;log&quot;</span><span class="punctuation">:</span> <span class="punctuation">&#123;</span></span><br><span class="line">        <span class="attr">&quot;loglevel&quot;</span><span class="punctuation">:</span> <span class="string">&quot;warning&quot;</span></span><br><span class="line">    <span class="punctuation">&#125;</span><span class="punctuation">,</span></span><br><span class="line">    <span class="attr">&quot;routing&quot;</span><span class="punctuation">:</span> <span class="punctuation">&#123;</span></span><br><span class="line">        <span class="attr">&quot;domainStrategy&quot;</span><span class="punctuation">:</span> <span class="string">&quot;AsIs&quot;</span><span class="punctuation">,</span></span><br><span class="line">        <span class="attr">&quot;rules&quot;</span><span class="punctuation">:</span> <span class="punctuation">[</span></span><br><span class="line">            <span class="punctuation">&#123;</span></span><br><span class="line">                <span class="attr">&quot;type&quot;</span><span class="punctuation">:</span> <span class="string">&quot;field&quot;</span><span class="punctuation">,</span></span><br><span class="line">                <span class="attr">&quot;ip&quot;</span><span class="punctuation">:</span> <span class="punctuation">[</span></span><br><span class="line">                    <span class="string">&quot;geoip:private&quot;</span></span><br><span class="line">                <span class="punctuation">]</span><span class="punctuation">,</span></span><br><span class="line">                <span class="attr">&quot;outboundTag&quot;</span><span class="punctuation">:</span> <span class="string">&quot;block&quot;</span></span><br><span class="line">            <span class="punctuation">&#125;</span></span><br><span class="line">        <span class="punctuation">]</span></span><br><span class="line">    <span class="punctuation">&#125;</span><span class="punctuation">,</span></span><br><span class="line">    <span class="attr">&quot;inbounds&quot;</span><span class="punctuation">:</span> <span class="punctuation">[</span></span><br><span class="line">    <span class="punctuation">&#123;</span></span><br><span class="line">      <span class="attr">&quot;tag&quot;</span><span class="punctuation">:</span> <span class="string">&quot;VLESS-REALITY-56265&quot;</span><span class="punctuation">,</span><span class="comment">//命名</span></span><br><span class="line">      <span class="attr">&quot;port&quot;</span><span class="punctuation">:</span> <span class="number">56265</span><span class="punctuation">,</span><span class="comment">//端口</span></span><br><span class="line">      <span class="attr">&quot;listen&quot;</span><span class="punctuation">:</span> <span class="string">&quot;0.0.0.0&quot;</span><span class="punctuation">,</span></span><br><span class="line">      <span class="attr">&quot;protocol&quot;</span><span class="punctuation">:</span> <span class="string">&quot;vless&quot;</span><span class="punctuation">,</span></span><br><span class="line">      <span class="attr">&quot;settings&quot;</span><span class="punctuation">:</span> <span class="punctuation">&#123;</span></span><br><span class="line">        <span class="attr">&quot;clients&quot;</span><span class="punctuation">:</span> <span class="punctuation">[</span></span><br><span class="line">          <span class="punctuation">&#123;</span></span><br><span class="line">            <span class="attr">&quot;id&quot;</span><span class="punctuation">:</span> <span class="string">&quot; &quot;</span><span class="punctuation">,</span><span class="comment">// 装好xray后，执行 xray uuid 生成</span></span><br><span class="line">            <span class="attr">&quot;flow&quot;</span><span class="punctuation">:</span> <span class="string">&quot;xtls-rprx-vision&quot;</span></span><br><span class="line">          <span class="punctuation">&#125;</span></span><br><span class="line">        <span class="punctuation">]</span><span class="punctuation">,</span></span><br><span class="line">        <span class="attr">&quot;decryption&quot;</span><span class="punctuation">:</span> <span class="string">&quot;none&quot;</span></span><br><span class="line">      <span class="punctuation">&#125;</span><span class="punctuation">,</span></span><br><span class="line">      <span class="attr">&quot;streamSettings&quot;</span><span class="punctuation">:</span> <span class="punctuation">&#123;</span></span><br><span class="line">        <span class="attr">&quot;network&quot;</span><span class="punctuation">:</span> <span class="string">&quot;tcp&quot;</span><span class="punctuation">,</span></span><br><span class="line">        <span class="attr">&quot;security&quot;</span><span class="punctuation">:</span> <span class="string">&quot;reality&quot;</span><span class="punctuation">,</span></span><br><span class="line">        <span class="attr">&quot;realitySettings&quot;</span><span class="punctuation">:</span> <span class="punctuation">&#123;</span></span><br><span class="line">          <span class="attr">&quot;dest&quot;</span><span class="punctuation">:</span> <span class="string">&quot;yahoo.com:443&quot;</span><span class="punctuation">,</span><span class="comment">//选择自己要偷的域名</span></span><br><span class="line">          <span class="attr">&quot;serverNames&quot;</span><span class="punctuation">:</span> <span class="punctuation">[</span></span><br><span class="line">            <span class="string">&quot;yahoo.com&quot;</span><span class="punctuation">,</span></span><br><span class="line">            <span class="string">&quot;&quot;</span></span><br><span class="line">          <span class="punctuation">]</span><span class="punctuation">,</span></span><br><span class="line">          <span class="attr">&quot;publicKey&quot;</span><span class="punctuation">:</span> <span class="string">&quot; &quot;</span><span class="punctuation">,</span><span class="comment">//xray x25519生成</span></span><br><span class="line">          <span class="attr">&quot;privateKey&quot;</span><span class="punctuation">:</span> <span class="string">&quot; &quot;</span><span class="punctuation">,</span><span class="comment">//同上</span></span><br><span class="line">          <span class="attr">&quot;shortIds&quot;</span><span class="punctuation">:</span> <span class="punctuation">[</span></span><br><span class="line">            <span class="string">&quot;135a&quot;</span>  <span class="comment">//openssl rand -hex 8生成，或者留空</span></span><br><span class="line">          <span class="punctuation">]</span></span><br><span class="line">        <span class="punctuation">&#125;</span></span><br><span class="line">      <span class="punctuation">&#125;</span><span class="punctuation">,</span></span><br><span class="line">      <span class="attr">&quot;sniffing&quot;</span><span class="punctuation">:</span> <span class="punctuation">&#123;</span></span><br><span class="line">        <span class="attr">&quot;enabled&quot;</span><span class="punctuation">:</span> <span class="literal"><span class="keyword">true</span></span><span class="punctuation">,</span></span><br><span class="line">        <span class="attr">&quot;destOverride&quot;</span><span class="punctuation">:</span> <span class="punctuation">[</span></span><br><span class="line">          <span class="string">&quot;http&quot;</span><span class="punctuation">,</span></span><br><span class="line">          <span class="string">&quot;tls&quot;</span></span><br><span class="line">        <span class="punctuation">]</span></span><br><span class="line">      <span class="punctuation">&#125;</span></span><br><span class="line">    <span class="punctuation">&#125;</span></span><br><span class="line">  <span class="punctuation">]</span><span class="punctuation">,</span></span><br><span class="line">    <span class="attr">&quot;outbounds&quot;</span><span class="punctuation">:</span> <span class="punctuation">[</span></span><br><span class="line">        <span class="punctuation">&#123;</span></span><br><span class="line">            <span class="attr">&quot;protocol&quot;</span><span class="punctuation">:</span> <span class="string">&quot;freedom&quot;</span><span class="punctuation">,</span></span><br><span class="line">            <span class="attr">&quot;tag&quot;</span><span class="punctuation">:</span> <span class="string">&quot;direct&quot;</span></span><br><span class="line">        <span class="punctuation">&#125;</span><span class="punctuation">,</span></span><br><span class="line">        <span class="punctuation">&#123;</span></span><br><span class="line">            <span class="attr">&quot;protocol&quot;</span><span class="punctuation">:</span> <span class="string">&quot;blackhole&quot;</span><span class="punctuation">,</span></span><br><span class="line">            <span class="attr">&quot;tag&quot;</span><span class="punctuation">:</span> <span class="string">&quot;block&quot;</span></span><br><span class="line">        <span class="punctuation">&#125;</span></span><br><span class="line">    <span class="punctuation">]</span></span><br><span class="line"><span class="punctuation">&#125;</span></span><br></pre></td></tr></table></figure>
+
+<p>4.重启xray</p>
+<p>systemctl restart xray</p>
+<p>5.查看xray状态</p>
+<p>systemctl status xray</p>
+<p>6.设置开机启动</p>
+<p>systemctl enable xray</p>
+</article><div class="post-copyright"><div class="post-copyright__author"><span class="post-copyright-meta"><i class="fas fa-circle-user fa-fw"></i>文章作者: </span><span class="post-copyright-info"><a href="https://yuqi.im">与亓</a></span></div><div class="post-copyright__type"><span class="post-copyright-meta"><i class="fas fa-square-arrow-up-right fa-fw"></i>文章链接: </span><span class="post-copyright-info"><a href="https://yuqi.im/posts/9b626a72/">https://yuqi.im/posts/9b626a72/</a></span></div><div class="post-copyright__notice"><span class="post-copyright-meta"><i class="fas fa-circle-exclamation fa-fw"></i>版权声明: </span><span class="post-copyright-info">本博客所有文章除特别声明外，均采用 <a href="https://creativecommons.org/licenses/by-nc-sa/4.0/" target="_blank">CC BY-NC-SA 4.0</a> 许可协议。转载请注明来源 <a href="https://yuqi.im" target="_blank">与亓のBlog</a>！</span></div></div><div class="tag_share"><div class="post-meta__tag-list"><a class="post-meta__tags" href="/tags/%E7%BD%91%E7%BB%9C%E4%BB%A3%E7%90%86/">网络代理</a></div><div class="post-share"><div class="social-share" data-image="https://img.051516.xyz/20250718125343514.jpg" data-sites="facebook,twitter,wechat,weibo,qq"></div><link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/butterfly-extsrc/sharejs/dist/css/share.min.css" media="print" onload="this.media='all'"><script src="https://cdn.jsdelivr.net/npm/butterfly-extsrc/sharejs/dist/js/social-share.min.js" defer></script></div></div><nav class="pagination-post" id="pagination"><a class="pagination-related full-width" href="/posts/db238e4c/" title="S120伺服断开STO会掉位置的解决方法"><img class="cover" src="https://img.051516.xyz/20250718123601682.jpg" onerror="onerror=null;src='/img/404.jpg'" alt="cover of next post"><div class="info text-right"><div class="info-1"><div class="info-item-1">下一篇</div><div class="info-item-2">S120伺服断开STO会掉位置的解决方法</div></div><div class="info-2"><div class="info-item-1">针对SINAMICS S120伺服系统在STO触发后位置丢失问题的完整解决策略，包含参数配置、硬件选型和备份电源方案。</div></div></div></a></nav><div class="relatedPosts"><div class="headline"><i class="fas fa-thumbs-up fa-fw"></i><span>相关推荐</span></div><div class="relatedPosts-list"><a class="pagination-related" href="/posts/97aa67fb/" title="Clash Verge规则配置"><img class="cover" src="https://img.051516.xyz/202312120920244.jpg" alt="cover"><div class="info text-center"><div class="info-1"><div class="info-item-1"><i class="far fa-calendar-alt fa-fw"></i> 2023-12-12</div><div class="info-item-2">Clash Verge规则配置</div></div><div class="info-2"><div class="info-item-1">详细介绍 Clash Verge 的规则配置方法，包括代理规则、策略组设置以及常见问题解决方案。</div></div></div></a><a class="pagination-related" href="/posts/a53fea94/" title="V2RayA——新一代Linux客户端安装配置教程"><img class="cover" src="https://img.051516.xyz/202304100748922.png" alt="cover"><div class="info text-center"><div class="info-1"><div class="info-item-1"><i class="far fa-calendar-alt fa-fw"></i> 2023-04-10</div><div class="info-item-2">V2RayA——新一代Linux客户端安装配置教程</div></div><div class="info-2"><div class="info-item-1">V2RayA 是一款基于 V2Ray 内核的新一代 Linux 代理客户端，本教程详细讲解其安装、配置及使用技巧，助您轻松搭建代理环境。</div></div></div></a><a class="pagination-related" href="/posts/428849a6/" title="Xray最新协议Reality搭建"><img class="cover" src="https://img.051516.xyz/202304090833709.jpg" alt="cover"><div class="info text-center"><div class="info-1"><div class="info-item-1"><i class="far fa-calendar-alt fa-fw"></i> 2023-04-09</div><div class="info-item-2">Xray最新协议Reality搭建</div></div><div class="info-2"><div class="info-item-1">Xray Reality协议完整搭建教程，包含一键部署、手动配置及性能优化方案，支持多端口伪装与抗封锁特性。</div></div></div></a><a class="pagination-related" href="/posts/756577dc/" title="hysteria2与reality共存安装"><img class="cover" src="https://img.051516.xyz/202311061038989.jpg" alt="cover"><div class="info text-center"><div class="info-1"><div class="info-item-1"><i class="far fa-calendar-alt fa-fw"></i> 2023-10-06</div><div class="info-item-2">hysteria2与reality共存安装</div></div><div class="info-2"><div class="info-item-1">在单台服务器上实现Hysteria2与Reality协议共存部署，包含端口配置、路由规则优化及性能调优方案，解决协议冲突问题。</div></div></div></a><a class="pagination-related" href="/posts/af28068c/" title="x-ui最稳妥的魔术面板"><img class="cover" src="https://img.051516.xyz/202311061447833.jpg" alt="cover"><div class="info text-center"><div class="info-1"><div class="info-item-1"><i class="far fa-calendar-alt fa-fw"></i> 2023-11-06</div><div class="info-item-2">x-ui最稳妥的魔术面板</div></div><div class="info-2"><div class="info-item-1">X-UI 魔术面板的稳妥配置方法，包含安全设置、性能优化及常见问题解决方案，助您搭建稳定高效的代理服务。</div></div></div></a><a class="pagination-related" href="/posts/af89448b/" title="在WSL2中使用Clash Verge代理连接"><img class="cover" src="https://img.051516.xyz/202312131055743.jpg" alt="cover"><div class="info text-center"><div class="info-1"><div class="info-item-1"><i class="far fa-calendar-alt fa-fw"></i> 2023-12-13</div><div class="info-item-2">在WSL2中使用Clash Verge代理连接</div></div><div class="info-2"><div class="info-item-1">详细指导在WSL2中通过Windows宿主机的Clash Verge实现网络代理，解决开发环境网络访问问题。包含系统代理、环境变量和DNS配置。</div></div></div></a></div></div><hr class="custom-hr"/><div id="post-comment"><div class="comment-head"><div class="comment-headline"><i class="fas fa-comments fa-fw"></i><span> 评论</span></div></div><div class="comment-wrap"><div><div id="twikoo-wrap"></div></div></div></div></div><div class="aside-content" id="aside-content"><div class="card-widget card-info text-center"><div class="avatar-img"><img src="https://img.051516.xyz/202302272017976.jpg" onerror="this.onerror=null;this.src='/img/friend_404.gif'" alt="avatar"/></div><div class="author-info-name">与亓</div><div class="author-info-description">与亓的个人技术博客，分享编程开发、系统架构与生活思考</div><div class="site-data"><a href="/archives/"><div class="headline">文章</div><div class="length-num">55</div></a><a href="/tags/"><div class="headline">标签</div><div class="length-num">24</div></a><a href="/categories/"><div class="headline">分类</div><div class="length-num">17</div></a></div><a id="card-info-btn" target="_blank" rel="noopener" href="https://github.com/2253845067"><i class="fab fa-github"></i><span>Follow Me</span></a><div class="card-info-social-icons"><a class="social-icon" href="https://github.com/2253845067" target="_blank" title="Github"><i class="fab fa-github"></i></a><a class="social-icon" href="mailto:2253845067@qq.com" target="_blank" title="Email"><i class="fas fa-envelope"></i></a></div></div><div class="card-widget card-announcement"><div class="item-headline"><i class="fas fa-bullhorn fa-shake"></i><span>公告</span></div><div class="announcement_content">This is my Blog</div></div><div class="sticky_layout"><div class="card-widget card-recent-post"><div class="item-headline"><i class="fas fa-history"></i><span>最新文章</span></div><div class="aside-list"><div class="aside-list-item"><a class="thumbnail" href="/posts/ff857dd0/" title="Balluff-IOLINK模块在TIA软件上调试"><img src="https://img.051516.xyz/20250718123257626.jpg" onerror="this.onerror=null;this.src='/img/404.jpg'" alt="Balluff-IOLINK模块在TIA软件上调试"/></a><div class="content"><a class="title" href="/posts/ff857dd0/" title="Balluff-IOLINK模块在TIA软件上调试">Balluff-IOLINK模块在TIA软件上调试</a><time datetime="2025-07-17T16:00:00.000Z" title="发表于 2025-07-18 00:00:00">2025-07-18</time></div></div><div class="aside-list-item"><a class="thumbnail" href="/posts/db238e4c/" title="S120伺服断开STO会掉位置的解决方法"><img src="https://img.051516.xyz/20250718123601682.jpg" onerror="this.onerror=null;this.src='/img/404.jpg'" alt="S120伺服断开STO会掉位置的解决方法"/></a><div class="content"><a class="title" href="/posts/db238e4c/" title="S120伺服断开STO会掉位置的解决方法">S120伺服断开STO会掉位置的解决方法</a><time datetime="2025-07-17T16:00:00.000Z" title="发表于 2025-07-18 00:00:00">2025-07-18</time></div></div><div class="aside-list-item"><a class="thumbnail" href="/posts/9b626a72/" title="手搓xray配置文件"><img src="https://img.051516.xyz/20250718125343514.jpg" onerror="this.onerror=null;this.src='/img/404.jpg'" alt="手搓xray配置文件"/></a><div class="content"><a class="title" href="/posts/9b626a72/" title="手搓xray配置文件">手搓xray配置文件</a><time datetime="2025-07-17T16:00:00.000Z" title="发表于 2025-07-18 00:00:00">2025-07-18</time></div></div><div class="aside-list-item"><a class="thumbnail" href="/posts/175f8f8b/" title="SEW MOVIDRIVE MDX61B调试步骤"><img src="https://img.051516.xyz/20250524223858577.jpg" onerror="this.onerror=null;this.src='/img/404.jpg'" alt="SEW MOVIDRIVE MDX61B调试步骤"/></a><div class="content"><a class="title" href="/posts/175f8f8b/" title="SEW MOVIDRIVE MDX61B调试步骤">SEW MOVIDRIVE MDX61B调试步骤</a><time datetime="2025-05-23T16:00:00.000Z" title="发表于 2025-05-24 00:00:00">2025-05-24</time></div></div><div class="aside-list-item"><a class="thumbnail" href="/posts/421934fd/" title="SEW-MC07B变频器-MOTION--STUDIO软件调试步骤、方法和技巧"><img src="https://img.051516.xyz/20250524210846940.jpg" onerror="this.onerror=null;this.src='/img/404.jpg'" alt="SEW-MC07B变频器-MOTION--STUDIO软件调试步骤、方法和技巧"/></a><div class="content"><a class="title" href="/posts/421934fd/" title="SEW-MC07B变频器-MOTION--STUDIO软件调试步骤、方法和技巧">SEW-MC07B变频器-MOTION--STUDIO软件调试步骤、方法和技巧</a><time datetime="2025-05-23T16:00:00.000Z" title="发表于 2025-05-24 00:00:00">2025-05-24</time></div></div></div></div></div></div></main><footer id="footer"><div class="footer-other"><div class="footer-copyright"><span class="copyright">&copy;2025 By 与亓</span><span class="framework-info"><span>框架 </span><a target="_blank" rel="noopener" href="https://hexo.io">Hexo 7.3.0</a><span class="footer-separator">|</span><span>主题 </span><a target="_blank" rel="noopener" href="https://github.com/jerryc127/hexo-theme-butterfly">Butterfly 5.4.2</a></span></div></div></footer></div><div id="rightside"><div id="rightside-config-hide"><button id="readmode" type="button" title="阅读模式"><i class="fas fa-book-open"></i></button><button id="darkmode" type="button" title="日间和夜间模式切换"><i class="fas fa-adjust"></i></button><button id="hide-aside-btn" type="button" title="单栏和双栏切换"><i class="fas fa-arrows-alt-h"></i></button></div><div id="rightside-config-show"><button id="rightside-config" type="button" title="设置"><i class="fas fa-cog fa-spin"></i></button><a id="to_comment" href="#post-comment" title="前往评论"><i class="fas fa-comments"></i></a><button id="go-up" type="button" title="回到顶部"><span class="scroll-percent"></span><i class="fas fa-arrow-up"></i></button></div></div><div><script src="/js/utils.js"></script><script src="/js/main.js"></script><div class="js-pjax"><script>(() => {
+  const isShuoshuo = GLOBAL_CONFIG_SITE.pageType === 'shuoshuo'
+  const option = null
+
+  const getCount = () => {
+    const countELement = document.getElementById('twikoo-count')
+    if(!countELement) return
+    twikoo.getCommentsCount({
+      envId: 'https://tw.yuqi.im/',
+      region: '',
+      urls: [window.location.pathname],
+      includeReply: false
+    }).then(res => {
+      countELement.textContent = res[0].count
+    }).catch(err => {
+      console.error(err)
+    })
+  }
+
+  const init = (el = document, path = location.pathname) => {
+    twikoo.init({
+      el: el.querySelector('#twikoo-wrap'),
+      envId: 'https://tw.yuqi.im/',
+      region: '',
+      onCommentLoaded: () => {
+        btf.loadLightbox(document.querySelectorAll('#twikoo .tk-content img:not(.tk-owo-emotion)'))
+      },
+      ...option,
+      path: isShuoshuo ? path : (option && option.path) || path
+    })
+
+    GLOBAL_CONFIG_SITE.pageType === 'post' && getCount()
+
+    isShuoshuo && (window.shuoshuoComment.destroyTwikoo = () => {
+      if (el.children.length) {
+        el.innerHTML = ''
+        el.classList.add('no-comment')
+      }
+    })
+  }
+
+  const loadTwikoo = (el, path) => {
+    if (typeof twikoo === 'object') setTimeout(() => init(el, path), 0)
+    else btf.getScript('https://cdn.jsdelivr.net/npm/twikoo/dist/twikoo.all.min.js').then(() => init(el, path))
+  }
+
+  if (isShuoshuo) {
+    'Twikoo' === 'Twikoo'
+      ? window.shuoshuoComment = { loadComment: loadTwikoo }
+      : window.loadOtherComment = loadTwikoo
+    return
+  }
+
+  if ('Twikoo' === 'Twikoo' || !true) {
+    if (true) btf.loadComment(document.getElementById('twikoo-wrap'), loadTwikoo)
+    else loadTwikoo()
+  } else {
+    window.loadOtherComment = loadTwikoo
+  }
+})()</script></div><div id="local-search"><div class="search-dialog"><nav class="search-nav"><span class="search-dialog-title">搜索</span><span id="loading-status"></span><button class="search-close-button"><i class="fas fa-times"></i></button></nav><div class="text-center" id="loading-database"><i class="fas fa-spinner fa-pulse"></i><span>  数据加载中</span></div><div class="search-wrap"><div id="local-search-input"><div class="local-search-box"><input class="local-search-box--input" placeholder="搜索文章" type="text"/></div></div><hr/><div id="local-search-results"></div><div id="local-search-stats-wrap"></div></div></div><div id="search-mask"></div><script src="/js/search/local-search.js"></script></div></div></body></html>
