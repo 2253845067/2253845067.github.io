@@ -729,28 +729,6 @@
       </tags>
   </entry>
   <entry>
-    <title>hexo中插入PDF</title>
-    <url>/posts/4cd4322f/</url>
-    <content><![CDATA[<h2 id="安装-hexo-pdf"><a href="#安装-hexo-pdf" class="headerlink" title="安装 hexo-pdf"></a>安装 hexo-pdf</h2><figure class="highlight text"><table><tr><td class="code"><pre><span class="line">npm install --save hexo-pdf</span><br></pre></td></tr></table></figure>
-
-<h2 id="本地-PDF-引用"><a href="#本地-PDF-引用" class="headerlink" title="本地 PDF 引用"></a>本地 PDF 引用</h2><p>最简单的引用方法：把相应 pdf 文件存到<strong>source 文件夹</strong>下，引用格式为：</p>
-<figure class="highlight text"><table><tr><td class="code"><pre><span class="line">&#123;% pdf /引用文档名字.pdf %&#125;</span><br></pre></td></tr></table></figure>
-
-<p>当然，你也可以新建一个文件夹方便管理 PDF 文档（）在这里我主要参考了<a href="https://link.zhihu.com/?target=https://www.jianshu.com/p/cccc7058a08c">https://www.jianshu.com/p/cccc7058a08c</a>，但是它并没有解决问题 orz 经过苦逼的尝试发现缺少&#x2F;</p>
-<p><strong>也就是说，方法为：</strong></p>
-<p>xxxxxxxxxx .md 文件中的 HTML 代码要用  和  包起来，使其能正确编译里面的代码。markdown</p>
-<figure class="highlight text"><table><tr><td class="code"><pre><span class="line">&#123;% pdf /pdf/xxx.pdf %&#125;</span><br></pre></td></tr></table></figure>
-
-<p>尝试后可以看到，hexo-pdf 对 PDF 文档展示效果非常不错 lol</p>
-]]></content>
-      <categories>
-        <category>博客运维</category>
-      </categories>
-      <tags>
-        <tag>Hexo</tag>
-      </tags>
-  </entry>
-  <entry>
     <title>HTML总复习</title>
     <url>/posts/e79fa3f4/</url>
     <content><![CDATA[<h1 id="导读"><a href="#导读" class="headerlink" title="导读"></a>导读</h1><h2 id="网页"><a href="#网页" class="headerlink" title="网页"></a>网页</h2><p>网站是指在因特网中根据一定的规则，使用<strong>HTML</strong>等制作的用于展示特定内容相关的网页集合</p>
@@ -1143,6 +1121,28 @@
       </tags>
   </entry>
   <entry>
+    <title>hexo中插入PDF</title>
+    <url>/posts/4cd4322f/</url>
+    <content><![CDATA[<h2 id="安装-hexo-pdf"><a href="#安装-hexo-pdf" class="headerlink" title="安装 hexo-pdf"></a>安装 hexo-pdf</h2><figure class="highlight text"><table><tr><td class="code"><pre><span class="line">npm install --save hexo-pdf</span><br></pre></td></tr></table></figure>
+
+<h2 id="本地-PDF-引用"><a href="#本地-PDF-引用" class="headerlink" title="本地 PDF 引用"></a>本地 PDF 引用</h2><p>最简单的引用方法：把相应 pdf 文件存到<strong>source 文件夹</strong>下，引用格式为：</p>
+<figure class="highlight text"><table><tr><td class="code"><pre><span class="line">&#123;% pdf /引用文档名字.pdf %&#125;</span><br></pre></td></tr></table></figure>
+
+<p>当然，你也可以新建一个文件夹方便管理 PDF 文档（）在这里我主要参考了<a href="https://link.zhihu.com/?target=https://www.jianshu.com/p/cccc7058a08c">https://www.jianshu.com/p/cccc7058a08c</a>，但是它并没有解决问题 orz 经过苦逼的尝试发现缺少&#x2F;</p>
+<p><strong>也就是说，方法为：</strong></p>
+<p>xxxxxxxxxx .md 文件中的 HTML 代码要用  和  包起来，使其能正确编译里面的代码。markdown</p>
+<figure class="highlight text"><table><tr><td class="code"><pre><span class="line">&#123;% pdf /pdf/xxx.pdf %&#125;</span><br></pre></td></tr></table></figure>
+
+<p>尝试后可以看到，hexo-pdf 对 PDF 文档展示效果非常不错 lol</p>
+]]></content>
+      <categories>
+        <category>博客运维</category>
+      </categories>
+      <tags>
+        <tag>Hexo</tag>
+      </tags>
+  </entry>
+  <entry>
     <title>Hexo博客部署到云服务器</title>
     <url>/posts/bda2f0d3/</url>
     <content><![CDATA[<h1 id="将Hexo部署到云服务器"><a href="#将Hexo部署到云服务器" class="headerlink" title="将Hexo部署到云服务器"></a>将<code>Hexo</code>部署到云服务器</h1><p>为了解决<code>Hexo</code>部署到 <a href="https://github.com/">GitHub</a> 访问速度慢的问题，我们可以将<code>Hexo</code>部署到云服务器上。</p>
@@ -1212,6 +1212,24 @@
 <figure class="highlight bash"><table><tr><td class="code"><pre><span class="line">hexo clean <span class="comment"># 清除缓存</span></span><br><span class="line">hexo g <span class="comment"># 生成网页</span></span><br><span class="line">hexo d <span class="comment"># 部署</span></span><br></pre></td></tr></table></figure>
 
 <p>现在就可以用 你的域名来访问博客了。</p>
+]]></content>
+      <categories>
+        <category>博客运维</category>
+      </categories>
+      <tags>
+        <tag>Hexo</tag>
+      </tags>
+  </entry>
+  <entry>
+    <title>Hexo建立一个独立的HTML页面</title>
+    <url>/posts/12482e7/</url>
+    <content><![CDATA[<p>Hexo 是一个轻量、快速，简单和强大的博客框架，当我们需要发布博文的时候，只需要将写好的文章（MarkDown 文件）放入本地的 <code>\source\_posts</code> 文件夹，然后再推送上去就行了，原理就是当我们在执行 <code>hexo g</code> 命令时，<code>.md</code> 文件就会被转化成 HTML 文件，但是有时候我们需要新建一个独立的页面，这个页面不使用主题的渲染，具有自己独立的样式，可以放一些自己的作品，相册什么的，以下就介绍这种独立页面的实现方法。</p>
+<h1 id="方法一："><a href="#方法一：" class="headerlink" title="方法一："></a>方法一：</h1><p>使用 Hexo 提供的跳过渲染配置，在博客根目录的配置文件 <code>_config.yml</code> 里找到 <code>skip_render</code> 关键字，在后面添加想要跳过渲染的页面，比如我们创建 <code>\source\about\index.html</code>， 配置文件填写：<code>skip_render: about\**</code>，那么就表示 <code>\source\about</code> 里所有的文件将跳过渲染，里面的文件将会被直接复制到 public 文件夹，此时就会得到一个独立的 about 页面；官方文档：<a href="https://hexo.io/docs/configuration">https://hexo.io/docs/configuration</a></p>
+<h1 id="方法-2"><a href="#方法-2" class="headerlink" title="方法 2"></a>方法 2</h1><p>在文章头部的 Front-matter 里添加配置 <code>layout: false</code> 来跳过渲染配置，比如我们要使 about 页面跳过渲染，创建 <code>\source\about\index.md</code>，将这个页面的相关 HTML 代码写进<code>.md</code>文件并保存，然后在 <code>index.md</code> 的头部写入：</p>
+<figure class="highlight markdown"><table><tr><td class="code"><pre><span class="line">---</span><br><span class="line"><span class="section">layout: false</span></span><br><span class="line"><span class="section">---</span></span><br><span class="line"></span><br><span class="line">&#123;% raw %&#125;</span><br><span class="line">xxxxxxxxxxxxx</span><br><span class="line">xx HTML 代码 xx</span><br><span class="line">xxxxxxxxxxxxx</span><br><span class="line">&#123;% endraw %&#125;</span><br></pre></td></tr></table></figure>
+
+<p>PS：Front-matter 是 <code>.md</code> 文件最上方以 — 分隔的区域，用于指定个别文件的变量，官方文档：<a href="https://hexo.io/docs/front-matter">https://hexo.io/docs/front-matter</a></p>
+<figure class="highlight markdown"><table><tr><td class="code"><pre><span class="line">.md 文件中的 HTML 代码要用 &#123;% raw %&#125; 和 &#123;% endraw %&#125; 包起来，使其能正确编译里面的代码。</span><br></pre></td></tr></table></figure>
 ]]></content>
       <categories>
         <category>博客运维</category>
@@ -1313,24 +1331,6 @@
       </tags>
   </entry>
   <entry>
-    <title>Hexo建立一个独立的HTML页面</title>
-    <url>/posts/12482e7/</url>
-    <content><![CDATA[<p>Hexo 是一个轻量、快速，简单和强大的博客框架，当我们需要发布博文的时候，只需要将写好的文章（MarkDown 文件）放入本地的 <code>\source\_posts</code> 文件夹，然后再推送上去就行了，原理就是当我们在执行 <code>hexo g</code> 命令时，<code>.md</code> 文件就会被转化成 HTML 文件，但是有时候我们需要新建一个独立的页面，这个页面不使用主题的渲染，具有自己独立的样式，可以放一些自己的作品，相册什么的，以下就介绍这种独立页面的实现方法。</p>
-<h1 id="方法一："><a href="#方法一：" class="headerlink" title="方法一："></a>方法一：</h1><p>使用 Hexo 提供的跳过渲染配置，在博客根目录的配置文件 <code>_config.yml</code> 里找到 <code>skip_render</code> 关键字，在后面添加想要跳过渲染的页面，比如我们创建 <code>\source\about\index.html</code>， 配置文件填写：<code>skip_render: about\**</code>，那么就表示 <code>\source\about</code> 里所有的文件将跳过渲染，里面的文件将会被直接复制到 public 文件夹，此时就会得到一个独立的 about 页面；官方文档：<a href="https://hexo.io/docs/configuration">https://hexo.io/docs/configuration</a></p>
-<h1 id="方法-2"><a href="#方法-2" class="headerlink" title="方法 2"></a>方法 2</h1><p>在文章头部的 Front-matter 里添加配置 <code>layout: false</code> 来跳过渲染配置，比如我们要使 about 页面跳过渲染，创建 <code>\source\about\index.md</code>，将这个页面的相关 HTML 代码写进<code>.md</code>文件并保存，然后在 <code>index.md</code> 的头部写入：</p>
-<figure class="highlight markdown"><table><tr><td class="code"><pre><span class="line">---</span><br><span class="line"><span class="section">layout: false</span></span><br><span class="line"><span class="section">---</span></span><br><span class="line"></span><br><span class="line">&#123;% raw %&#125;</span><br><span class="line">xxxxxxxxxxxxx</span><br><span class="line">xx HTML 代码 xx</span><br><span class="line">xxxxxxxxxxxxx</span><br><span class="line">&#123;% endraw %&#125;</span><br></pre></td></tr></table></figure>
-
-<p>PS：Front-matter 是 <code>.md</code> 文件最上方以 — 分隔的区域，用于指定个别文件的变量，官方文档：<a href="https://hexo.io/docs/front-matter">https://hexo.io/docs/front-matter</a></p>
-<figure class="highlight markdown"><table><tr><td class="code"><pre><span class="line">.md 文件中的 HTML 代码要用 &#123;% raw %&#125; 和 &#123;% endraw %&#125; 包起来，使其能正确编译里面的代码。</span><br></pre></td></tr></table></figure>
-]]></content>
-      <categories>
-        <category>博客运维</category>
-      </categories>
-      <tags>
-        <tag>Hexo</tag>
-      </tags>
-  </entry>
-  <entry>
     <title>MOVIFIT参数配置</title>
     <url>/posts/7f12cab4/</url>
     <content><![CDATA[<p>1、 链接变频器，待变频器配置扫描到motion studio。如下图：<br><img src="https://img.051516.xyz/20250522194120280.jpg" alt="img"></p>
@@ -1355,6 +1355,21 @@
       </categories>
       <tags>
         <tag>MOVIDRIVE</tag>
+      </tags>
+  </entry>
+  <entry>
+    <title>OnlyFans 公共存档器 免费查看OnlyFans付费内容-Coomer</title>
+    <url>/posts/1082bb6d/</url>
+    <content><![CDATA[<p>Coomer，一个 OnlyFans 公共存档器，可以免费查看 OnlyFans 付费内容，上面所以内容都由网友搬运、贡献的 OnlyFans 付费内容，想要查看哪位艺术家、作者的付费内容，直接搜索名字即可免费查看 OnlyFans 上的付费内容，当然你也可以共享你的。</p>
+<p>地址：<a href="https://coomer.party/">https://coomer.party/</a></p>
+<p>可以尝试点击&gt;creators&gt;然后搜索 ‘hongkongdoll’ ，‘juneliu’；</p>
+<p>更多的关键词待你挖掘</p>
+]]></content>
+      <categories>
+        <category>公共存档器</category>
+      </categories>
+      <tags>
+        <tag>18+</tag>
       </tags>
   </entry>
   <entry>
@@ -1385,88 +1400,6 @@
       </categories>
       <tags>
         <tag>OpenWrt</tag>
-      </tags>
-  </entry>
-  <entry>
-    <title>OnlyFans 公共存档器 免费查看OnlyFans付费内容-Coomer</title>
-    <url>/posts/1082bb6d/</url>
-    <content><![CDATA[<p>Coomer，一个 OnlyFans 公共存档器，可以免费查看 OnlyFans 付费内容，上面所以内容都由网友搬运、贡献的 OnlyFans 付费内容，想要查看哪位艺术家、作者的付费内容，直接搜索名字即可免费查看 OnlyFans 上的付费内容，当然你也可以共享你的。</p>
-<p>地址：<a href="https://coomer.party/">https://coomer.party/</a></p>
-<p>可以尝试点击&gt;creators&gt;然后搜索 ‘hongkongdoll’ ，‘juneliu’；</p>
-<p>更多的关键词待你挖掘</p>
-]]></content>
-      <categories>
-        <category>公共存档器</category>
-      </categories>
-      <tags>
-        <tag>18+</tag>
-      </tags>
-  </entry>
-  <entry>
-    <title>Openwrt编译</title>
-    <url>/posts/72c5b323/</url>
-    <content><![CDATA[<h1 id="注意"><a href="#注意" class="headerlink" title="注意"></a>注意</h1><ol>
-<li><strong>不要用 root 用户进行编译</strong></li>
-<li>国内用户编译前最好准备好梯子</li>
-<li>默认登陆 IP 192.168.1.1 密码 password</li>
-</ol>
-<h1 id="编译命令"><a href="#编译命令" class="headerlink" title="编译命令"></a>编译命令</h1><ol>
-<li><p>首先装好 Linux 系统，推荐 Debian 11 或 Ubuntu LTS</p>
-</li>
-<li><p>安装编译依赖</p>
-</li>
-</ol>
-<figure class="highlight bash"><table><tr><td class="code"><pre><span class="line"><span class="built_in">sudo</span> apt update -y</span><br><span class="line"><span class="built_in">sudo</span> apt full-upgrade -y</span><br><span class="line"><span class="built_in">sudo</span> apt install -y ack antlr3 asciidoc autoconf automake autopoint binutils bison build-essential \</span><br><span class="line">bzip2 ccache cmake cpio curl device-tree-compiler fastjar flex gawk gettext gcc-multilib g++-multilib \</span><br><span class="line">git gperf haveged help2man intltool libc6-dev-i386 libelf-dev libglib2.0-dev libgmp3-dev libltdl-dev \</span><br><span class="line">libmpc-dev libmpfr-dev libncurses5-dev libncursesw5-dev libreadline-dev libssl-dev libtool lrzsz \</span><br><span class="line">mkisofs msmtp nano ninja-build p7zip p7zip-full patch pkgconf python2.7 python3 python3-pyelftools \</span><br><span class="line">libpython3-dev qemu-utils rsync scons squashfs-tools subversion swig texinfo uglifyjs upx-ucl unzip \</span><br><span class="line">vim wget xmlto xxd zlib1g-dev</span><br></pre></td></tr></table></figure>
-
-<ol start="3">
-<li>下载源代码，更新 feeds 并选择配置<br>lede源：<a href="https://github.com/coolsnowwolf/lede">https://github.com/coolsnowwolf/lede</a><br>插件库：<a href="https://github.com/kenzok8/small-package">https://github.com/kenzok8/small-package</a><br>西瓜皮：<a href="https://github.com/6ang996/lede/tree/rk356x-xgp_support">https://github.com/6ang996/lede/tree/rk356x-xgp_support</a><br>克隆指定分支：git clone -b 分支 源</li>
-</ol>
-<figure class="highlight bash"><table><tr><td class="code"><pre><span class="line">git <span class="built_in">clone</span> https://github.com/coolsnowwolf/lede</span><br><span class="line"><span class="built_in">cd</span> lede</span><br><span class="line"><span class="built_in">echo</span> <span class="string">&#x27;src-git small8 https://github.com/kenzok8/small-package&#x27;</span> &gt;&gt;feeds.conf.default</span><br><span class="line">./scripts/feeds update -a</span><br><span class="line">./scripts/feeds install -a</span><br><span class="line">make menuconfig</span><br></pre></td></tr></table></figure>
-
-<ol start="4">
-<li>下载 dl 库，编译固件<br>（-j 后面是线程数，第一次编译推荐用单线程）</li>
-</ol>
- <figure class="highlight bash"><table><tr><td class="code"><pre><span class="line">make download -j8</span><br><span class="line">make V=s -j1</span><br><span class="line"><span class="keyword">time</span> make V=s -j$(<span class="built_in">nproc</span>)可以看到编译用时</span><br></pre></td></tr></table></figure>
-
-<p>本套代码保证肯定可以编译成功。里面包括了 R23 所有源代码，包括 IPK 的。</p>
-<p>你可以自由使用，但源码编译二次发布请注明我的 GitHub 仓库链接。谢谢合作！</p>
-<p>二次编译：</p>
-<figure class="highlight bash"><table><tr><td class="code"><pre><span class="line"><span class="built_in">cd</span> lede</span><br><span class="line">git pull</span><br><span class="line">./scripts/feeds update -a</span><br><span class="line">./scripts/feeds install -a</span><br><span class="line">make defconfig</span><br><span class="line">make download -j8</span><br><span class="line">make V=s -j$(<span class="built_in">nproc</span>)</span><br></pre></td></tr></table></figure>
-
-<p>如果需要重新配置：</p>
-<figure class="highlight bash"><table><tr><td class="code"><pre><span class="line"><span class="built_in">rm</span> -rf ./tmp &amp;&amp; <span class="built_in">rm</span> -rf .config</span><br><span class="line">make menuconfig</span><br><span class="line">make V=s -j$(<span class="built_in">nproc</span>)</span><br></pre></td></tr></table></figure>
-
-<p>编译完成后输出路径：bin&#x2F;targets</p>
-<h2 id="如果你使用-WSL-WSL2-进行编译"><a href="#如果你使用-WSL-WSL2-进行编译" class="headerlink" title="如果你使用 WSL&#x2F;WSL2 进行编译"></a>如果你使用 WSL&#x2F;WSL2 进行编译</h2><p>由于 WSL 的 PATH 中包含带有空格的 Windows 路径，有可能会导致编译失败，请在 <code>make</code> 前面加上：</p>
-<figure class="highlight bash"><table><tr><td class="code"><pre><span class="line">PATH=/usr/local/sbin:/usr/local/bin:/usr/sbin:/usr/bin:/sbin:/bin</span><br></pre></td></tr></table></figure>
-
-<h2 id="macOS-原生系统进行编译"><a href="#macOS-原生系统进行编译" class="headerlink" title="macOS 原生系统进行编译"></a>macOS 原生系统进行编译</h2><ol>
-<li><p>在 AppStore 中安装 Xcode</p>
-</li>
-<li><p>安装 Homebrew：</p>
-</li>
-</ol>
-<figure class="highlight bash"><table><tr><td class="code"><pre><span class="line">/usr/bin/ruby -e <span class="string">&quot;<span class="subst">$(curl -fsSL https://raw.githubusercontent.com/Homebrew/install/master/install)</span>&quot;</span></span><br></pre></td></tr></table></figure>
-
-<ol start="3">
-<li>使用 Homebrew 安装工具链、依赖与基础软件包:</li>
-</ol>
-<figure class="highlight bash"><table><tr><td class="code"><pre><span class="line">brew <span class="built_in">unlink</span> awk</span><br><span class="line">brew install coreutils diffutils findutils gawk gnu-getopt gnu-tar grep make ncurses pkg-config wget quilt xz</span><br><span class="line">brew install gcc@11</span><br></pre></td></tr></table></figure>
-
-<ol start="4">
-<li>然后输入以下命令，添加到系统环境变量中：</li>
-</ol>
-<figure class="highlight bash"><table><tr><td class="code"><pre><span class="line"><span class="built_in">echo</span> <span class="string">&#x27;export PATH=&quot;/usr/local/opt/coreutils/libexec/gnubin:$PATH&quot;&#x27;</span> &gt;&gt; ~/.bashrc</span><br><span class="line"><span class="built_in">echo</span> <span class="string">&#x27;export PATH=&quot;/usr/local/opt/findutils/libexec/gnubin:$PATH&quot;&#x27;</span> &gt;&gt; ~/.bashrc</span><br><span class="line"><span class="built_in">echo</span> <span class="string">&#x27;export PATH=&quot;/usr/local/opt/gnu-getopt/bin:$PATH&quot;&#x27;</span> &gt;&gt; ~/.bashrc</span><br><span class="line"><span class="built_in">echo</span> <span class="string">&#x27;export PATH=&quot;/usr/local/opt/gnu-tar/libexec/gnubin:$PATH&quot;&#x27;</span> &gt;&gt; ~/.bashrc</span><br><span class="line"><span class="built_in">echo</span> <span class="string">&#x27;export PATH=&quot;/usr/local/opt/grep/libexec/gnubin:$PATH&quot;&#x27;</span> &gt;&gt; ~/.bashrc</span><br><span class="line"><span class="built_in">echo</span> <span class="string">&#x27;export PATH=&quot;/usr/local/opt/gnu-sed/libexec/gnubin:$PATH&quot;&#x27;</span> &gt;&gt; ~/.bashrc</span><br><span class="line"><span class="built_in">echo</span> <span class="string">&#x27;export PATH=&quot;/usr/local/opt/make/libexec/gnubin:$PATH&quot;&#x27;</span> &gt;&gt; ~/.bashrc</span><br></pre></td></tr></table></figure>
-
-<ol start="5">
-<li>重新加载一下 shell 启动文件 <code>source ~/.bashrc</code>，然后输入 <code>bash</code> 进入 bash shell，就可以和 Linux 一样正常编译了</li>
-</ol>
-]]></content>
-      <categories>
-        <category>网络设备</category>
-      </categories>
-      <tags>
-        <tag>Openwrt</tag>
       </tags>
   </entry>
   <entry>
@@ -1610,6 +1543,73 @@
       </categories>
       <tags>
         <tag>iStoreOS</tag>
+      </tags>
+  </entry>
+  <entry>
+    <title>Openwrt编译</title>
+    <url>/posts/72c5b323/</url>
+    <content><![CDATA[<h1 id="注意"><a href="#注意" class="headerlink" title="注意"></a>注意</h1><ol>
+<li><strong>不要用 root 用户进行编译</strong></li>
+<li>国内用户编译前最好准备好梯子</li>
+<li>默认登陆 IP 192.168.1.1 密码 password</li>
+</ol>
+<h1 id="编译命令"><a href="#编译命令" class="headerlink" title="编译命令"></a>编译命令</h1><ol>
+<li><p>首先装好 Linux 系统，推荐 Debian 11 或 Ubuntu LTS</p>
+</li>
+<li><p>安装编译依赖</p>
+</li>
+</ol>
+<figure class="highlight bash"><table><tr><td class="code"><pre><span class="line"><span class="built_in">sudo</span> apt update -y</span><br><span class="line"><span class="built_in">sudo</span> apt full-upgrade -y</span><br><span class="line"><span class="built_in">sudo</span> apt install -y ack antlr3 asciidoc autoconf automake autopoint binutils bison build-essential \</span><br><span class="line">bzip2 ccache cmake cpio curl device-tree-compiler fastjar flex gawk gettext gcc-multilib g++-multilib \</span><br><span class="line">git gperf haveged help2man intltool libc6-dev-i386 libelf-dev libglib2.0-dev libgmp3-dev libltdl-dev \</span><br><span class="line">libmpc-dev libmpfr-dev libncurses5-dev libncursesw5-dev libreadline-dev libssl-dev libtool lrzsz \</span><br><span class="line">mkisofs msmtp nano ninja-build p7zip p7zip-full patch pkgconf python2.7 python3 python3-pyelftools \</span><br><span class="line">libpython3-dev qemu-utils rsync scons squashfs-tools subversion swig texinfo uglifyjs upx-ucl unzip \</span><br><span class="line">vim wget xmlto xxd zlib1g-dev</span><br></pre></td></tr></table></figure>
+
+<ol start="3">
+<li>下载源代码，更新 feeds 并选择配置<br>lede源：<a href="https://github.com/coolsnowwolf/lede">https://github.com/coolsnowwolf/lede</a><br>插件库：<a href="https://github.com/kenzok8/small-package">https://github.com/kenzok8/small-package</a><br>西瓜皮：<a href="https://github.com/6ang996/lede/tree/rk356x-xgp_support">https://github.com/6ang996/lede/tree/rk356x-xgp_support</a><br>克隆指定分支：git clone -b 分支 源</li>
+</ol>
+<figure class="highlight bash"><table><tr><td class="code"><pre><span class="line">git <span class="built_in">clone</span> https://github.com/coolsnowwolf/lede</span><br><span class="line"><span class="built_in">cd</span> lede</span><br><span class="line"><span class="built_in">echo</span> <span class="string">&#x27;src-git small8 https://github.com/kenzok8/small-package&#x27;</span> &gt;&gt;feeds.conf.default</span><br><span class="line">./scripts/feeds update -a</span><br><span class="line">./scripts/feeds install -a</span><br><span class="line">make menuconfig</span><br></pre></td></tr></table></figure>
+
+<ol start="4">
+<li>下载 dl 库，编译固件<br>（-j 后面是线程数，第一次编译推荐用单线程）</li>
+</ol>
+ <figure class="highlight bash"><table><tr><td class="code"><pre><span class="line">make download -j8</span><br><span class="line">make V=s -j1</span><br><span class="line"><span class="keyword">time</span> make V=s -j$(<span class="built_in">nproc</span>)可以看到编译用时</span><br></pre></td></tr></table></figure>
+
+<p>本套代码保证肯定可以编译成功。里面包括了 R23 所有源代码，包括 IPK 的。</p>
+<p>你可以自由使用，但源码编译二次发布请注明我的 GitHub 仓库链接。谢谢合作！</p>
+<p>二次编译：</p>
+<figure class="highlight bash"><table><tr><td class="code"><pre><span class="line"><span class="built_in">cd</span> lede</span><br><span class="line">git pull</span><br><span class="line">./scripts/feeds update -a</span><br><span class="line">./scripts/feeds install -a</span><br><span class="line">make defconfig</span><br><span class="line">make download -j8</span><br><span class="line">make V=s -j$(<span class="built_in">nproc</span>)</span><br></pre></td></tr></table></figure>
+
+<p>如果需要重新配置：</p>
+<figure class="highlight bash"><table><tr><td class="code"><pre><span class="line"><span class="built_in">rm</span> -rf ./tmp &amp;&amp; <span class="built_in">rm</span> -rf .config</span><br><span class="line">make menuconfig</span><br><span class="line">make V=s -j$(<span class="built_in">nproc</span>)</span><br></pre></td></tr></table></figure>
+
+<p>编译完成后输出路径：bin&#x2F;targets</p>
+<h2 id="如果你使用-WSL-WSL2-进行编译"><a href="#如果你使用-WSL-WSL2-进行编译" class="headerlink" title="如果你使用 WSL&#x2F;WSL2 进行编译"></a>如果你使用 WSL&#x2F;WSL2 进行编译</h2><p>由于 WSL 的 PATH 中包含带有空格的 Windows 路径，有可能会导致编译失败，请在 <code>make</code> 前面加上：</p>
+<figure class="highlight bash"><table><tr><td class="code"><pre><span class="line">PATH=/usr/local/sbin:/usr/local/bin:/usr/sbin:/usr/bin:/sbin:/bin</span><br></pre></td></tr></table></figure>
+
+<h2 id="macOS-原生系统进行编译"><a href="#macOS-原生系统进行编译" class="headerlink" title="macOS 原生系统进行编译"></a>macOS 原生系统进行编译</h2><ol>
+<li><p>在 AppStore 中安装 Xcode</p>
+</li>
+<li><p>安装 Homebrew：</p>
+</li>
+</ol>
+<figure class="highlight bash"><table><tr><td class="code"><pre><span class="line">/usr/bin/ruby -e <span class="string">&quot;<span class="subst">$(curl -fsSL https://raw.githubusercontent.com/Homebrew/install/master/install)</span>&quot;</span></span><br></pre></td></tr></table></figure>
+
+<ol start="3">
+<li>使用 Homebrew 安装工具链、依赖与基础软件包:</li>
+</ol>
+<figure class="highlight bash"><table><tr><td class="code"><pre><span class="line">brew <span class="built_in">unlink</span> awk</span><br><span class="line">brew install coreutils diffutils findutils gawk gnu-getopt gnu-tar grep make ncurses pkg-config wget quilt xz</span><br><span class="line">brew install gcc@11</span><br></pre></td></tr></table></figure>
+
+<ol start="4">
+<li>然后输入以下命令，添加到系统环境变量中：</li>
+</ol>
+<figure class="highlight bash"><table><tr><td class="code"><pre><span class="line"><span class="built_in">echo</span> <span class="string">&#x27;export PATH=&quot;/usr/local/opt/coreutils/libexec/gnubin:$PATH&quot;&#x27;</span> &gt;&gt; ~/.bashrc</span><br><span class="line"><span class="built_in">echo</span> <span class="string">&#x27;export PATH=&quot;/usr/local/opt/findutils/libexec/gnubin:$PATH&quot;&#x27;</span> &gt;&gt; ~/.bashrc</span><br><span class="line"><span class="built_in">echo</span> <span class="string">&#x27;export PATH=&quot;/usr/local/opt/gnu-getopt/bin:$PATH&quot;&#x27;</span> &gt;&gt; ~/.bashrc</span><br><span class="line"><span class="built_in">echo</span> <span class="string">&#x27;export PATH=&quot;/usr/local/opt/gnu-tar/libexec/gnubin:$PATH&quot;&#x27;</span> &gt;&gt; ~/.bashrc</span><br><span class="line"><span class="built_in">echo</span> <span class="string">&#x27;export PATH=&quot;/usr/local/opt/grep/libexec/gnubin:$PATH&quot;&#x27;</span> &gt;&gt; ~/.bashrc</span><br><span class="line"><span class="built_in">echo</span> <span class="string">&#x27;export PATH=&quot;/usr/local/opt/gnu-sed/libexec/gnubin:$PATH&quot;&#x27;</span> &gt;&gt; ~/.bashrc</span><br><span class="line"><span class="built_in">echo</span> <span class="string">&#x27;export PATH=&quot;/usr/local/opt/make/libexec/gnubin:$PATH&quot;&#x27;</span> &gt;&gt; ~/.bashrc</span><br></pre></td></tr></table></figure>
+
+<ol start="5">
+<li>重新加载一下 shell 启动文件 <code>source ~/.bashrc</code>，然后输入 <code>bash</code> 进入 bash shell，就可以和 Linux 一样正常编译了</li>
+</ol>
+]]></content>
+      <categories>
+        <category>网络设备</category>
+      </categories>
+      <tags>
+        <tag>Openwrt</tag>
       </tags>
   </entry>
   <entry>
