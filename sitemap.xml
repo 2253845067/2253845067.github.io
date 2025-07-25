@@ -56,6 +56,15 @@
   </url>
   
   <url>
+    <loc>https://yuqi.im/posts/21fa371d/</loc>
+    
+    <lastmod>2025-07-24</lastmod>
+    
+    <changefreq>monthly</changefreq>
+    <priority>0.6</priority>
+  </url>
+  
+  <url>
     <loc>https://yuqi.im/posts/ee46e52f/</loc>
     
     <lastmod>2025-07-24</lastmod>
@@ -604,14 +613,14 @@
   </url>
   
   <url>
-    <loc>https://yuqi.im/tags/Balluff/</loc>
+    <loc>https://yuqi.im/tags/Hexo/</loc>
     <lastmod>2025-07-25</lastmod>
     <changefreq>weekly</changefreq>
     <priority>0.2</priority>
   </url>
   
   <url>
-    <loc>https://yuqi.im/tags/Hexo/</loc>
+    <loc>https://yuqi.im/tags/Balluff/</loc>
     <lastmod>2025-07-25</lastmod>
     <changefreq>weekly</changefreq>
     <priority>0.2</priority>
@@ -639,14 +648,14 @@
   </url>
   
   <url>
-    <loc>https://yuqi.im/tags/Openwrt/</loc>
+    <loc>https://yuqi.im/tags/18/</loc>
     <lastmod>2025-07-25</lastmod>
     <changefreq>weekly</changefreq>
     <priority>0.2</priority>
   </url>
   
   <url>
-    <loc>https://yuqi.im/tags/18/</loc>
+    <loc>https://yuqi.im/tags/Openwrt/</loc>
     <lastmod>2025-07-25</lastmod>
     <changefreq>weekly</changefreq>
     <priority>0.2</priority>

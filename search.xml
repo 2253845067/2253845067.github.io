@@ -356,6 +356,41 @@
       </tags>
   </entry>
   <entry>
+    <title>Butterfly主题添加一图流背景与顶部图修改</title>
+    <url>/posts/f7d3fad8/</url>
+    <content><![CDATA[<h2 id="介绍"><a href="#介绍" class="headerlink" title="介绍"></a>介绍</h2><p>本文将会详细介绍一图流背景与顶部图的修改过程。</p>
+<h2 id="设置图片"><a href="#设置图片" class="headerlink" title="设置图片"></a>设置图片</h2><p>这个是 <a href="https://butterfly.js.org/">Butterfly</a> 自带的功能，修改主题的配置文件 <code>_config.butterfly.yml</code>。</p>
+<p>编辑 <code>index_img</code>、<code>background</code>、<code>footer_bg</code> 选项。<br>设置网站背景，并将主页顶部图和页脚背景改为透明。<br>(需要将以下示例地址替换为自己的图片地址。)</p>
+<figure class="highlight yaml"><table><tr><td class="code"><pre><span class="line"><span class="comment"># Image (圖片設置)</span></span><br><span class="line"><span class="comment"># --------------------------------------</span></span><br><span class="line"></span><br><span class="line"><span class="comment"># The banner image of home page</span></span><br><span class="line"><span class="attr">index_img:</span> <span class="string">transparent</span></span><br><span class="line"></span><br><span class="line"><span class="comment"># Beautify/Effect (美化/效果)</span></span><br><span class="line"><span class="comment"># --------------------------------------</span></span><br><span class="line"></span><br><span class="line"><span class="comment"># Website Background (設置網站背景)</span></span><br><span class="line"><span class="comment"># can set it to color or image (可設置圖片 或者 顔色)</span></span><br><span class="line"><span class="comment"># The formal of image: url(http://xxxxxx.com/xxx.jpg)</span></span><br><span class="line"><span class="attr">background:</span> <span class="string">url(https://example.com/img/background.jpg)</span></span><br><span class="line"></span><br><span class="line"><span class="comment"># Footer Background</span></span><br><span class="line"><span class="attr">footer_bg:</span> <span class="string">transparent</span></span><br></pre></td></tr></table></figure>
+
+<h2 id="引入相关样式"><a href="#引入相关样式" class="headerlink" title="引入相关样式"></a>引入相关样式</h2><p>新建一个文件，位于 <code>source/css/modify.styl</code>，并增加以下内容。<br>(此处只是举例，也可以使用自己已有的样式文件。)</p>
+<figure class="highlight styl"><table><tr><td class="code"><pre><span class="line"><span class="keyword">@import</span> <span class="string">&#x27;nib&#x27;</span></span><br><span class="line"></span><br><span class="line"><span class="comment">// 顶部图</span></span><br><span class="line"><span class="selector-id">#page-header</span></span><br><span class="line">  &amp;, <span class="selector-pseudo">&amp;:before</span></span><br><span class="line">    <span class="attribute">background</span>: transparent <span class="meta">!important</span></span><br><span class="line">  &amp;<span class="selector-class">.post-bg</span>, &amp;<span class="selector-class">.not-home-page</span></span><br><span class="line">    <span class="attribute">height</span>: <span class="number">280px</span> <span class="meta">!important</span></span><br><span class="line">  <span class="selector-id">#post-info</span></span><br><span class="line">    <span class="attribute">bottom</span>: <span class="number">40px</span> <span class="meta">!important</span></span><br><span class="line">  <span class="selector-id">#page-site-info</span></span><br><span class="line">    <span class="attribute">top</span>: <span class="number">140px</span> <span class="meta">!important</span></span><br><span class="line"></span><br><span class="line">  <span class="keyword">@media</span> screen <span class="keyword">and</span> (<span class="attribute">max-width</span>: <span class="number">768px</span>)</span><br><span class="line">    &amp;.not-home-page</span><br><span class="line">      <span class="attribute">height</span>: <span class="number">200px</span> !important</span><br><span class="line">    #post-info</span><br><span class="line">      bottom: <span class="number">10px</span> !important</span><br><span class="line">    #page-site-info</span><br><span class="line">      top: <span class="number">100px</span> !important</span><br><span class="line"></span><br><span class="line">.top-img</span><br><span class="line">  <span class="attribute">height</span>: <span class="number">250px</span></span><br><span class="line">  margin: -<span class="number">50px</span> -<span class="number">40px</span> <span class="number">50px</span></span><br><span class="line">  border-top-left-radius: inherit</span><br><span class="line">  border-top-right-radius: inherit</span><br><span class="line">  background-position: center center</span><br><span class="line">  background-size: cover</span><br><span class="line">  transition: all <span class="number">0.3s</span></span><br><span class="line"></span><br><span class="line">  @media screen <span class="keyword">and</span> (<span class="attribute">max-width</span>: <span class="number">768px</span>)</span><br><span class="line">    <span class="attribute">height</span>: <span class="number">230px</span></span><br><span class="line">    margin: -<span class="number">36px</span> -<span class="number">14px</span> <span class="number">36px</span></span><br><span class="line"></span><br><span class="line">  [data-theme=&#x27;dark&#x27;] &amp;</span><br><span class="line">    filter: brightness(<span class="number">0.8</span>)</span><br><span class="line"></span><br><span class="line">// 页脚</span><br><span class="line">#footer:before</span><br><span class="line">  background-color: alpha(#FFF, .<span class="number">5</span>)</span><br><span class="line"></span><br><span class="line">  [data-theme=&#x27;dark&#x27;] &amp;</span><br><span class="line">    background-color: alpha(#<span class="number">000</span>, .<span class="number">5</span>)</span><br><span class="line"></span><br><span class="line">#footer-wrap, #footer-wrap a</span><br><span class="line">  <span class="attribute">color</span>: #<span class="number">111</span></span><br><span class="line">  transition: unset</span><br><span class="line"></span><br><span class="line">  [data-theme=&#x27;dark&#x27;] &amp;</span><br><span class="line">    <span class="attribute">color</span>: var(--light-grey)</span><br></pre></td></tr></table></figure>
+
+<p>在主题配置文件 <code>_config.butterfly.yml</code> 的 <code>inject.head</code> 引入样式。</p>
+<figure class="highlight yaml"><table><tr><td class="code"><pre><span class="line"><span class="comment"># other (其他)</span></span><br><span class="line"><span class="comment"># --------------------------------------</span></span><br><span class="line"></span><br><span class="line"><span class="comment"># Inject</span></span><br><span class="line"><span class="comment"># Insert the code to head (before &#x27;&lt;/head&gt;&#x27; tag) and the bottom (before &#x27;&lt;/body&gt;&#x27; tag)</span></span><br><span class="line"><span class="comment"># 插入代码到头部 &lt;/head&gt; 之前 和 底部 &lt;/body&gt; 之前</span></span><br><span class="line"><span class="attr">inject:</span></span><br><span class="line">  <span class="attr">head:</span></span><br><span class="line">    <span class="bullet">-</span> <span class="string">&lt;link</span> <span class="string">rel=&quot;stylesheet&quot;</span> <span class="string">href=&quot;/css/modify.css&quot;&gt;</span></span><br></pre></td></tr></table></figure>
+
+<p><code>modify.styl</code> 会被 Hexo 渲染成 <code>modify.css</code> 文件，所以此处应为 <code>modify.css</code>。</p>
+<h2 id="增加插件脚本"><a href="#增加插件脚本" class="headerlink" title="增加插件脚本"></a>增加插件脚本</h2><p>因为使用了 <code>cheerio</code> 来解析 HTML，所以需要先安装此依赖。</p>
+<figure class="highlight cmd"><table><tr><td class="code"><pre><span class="line">npm install cheerio</span><br></pre></td></tr></table></figure>
+
+<p>新建一个文件，位于 <code>scripts/modify.js</code>，并增加以下内容。<br>(此处只是举例，也可以使用自己已有的插件脚本文件。)</p>
+<figure class="highlight js"><table><tr><td class="code"><pre><span class="line"><span class="meta">&quot;use strict&quot;</span>;</span><br><span class="line"><span class="keyword">const</span> cheerio = <span class="built_in">require</span>(<span class="string">&quot;cheerio&quot;</span>);</span><br><span class="line"></span><br><span class="line"><span class="comment">/**</span></span><br><span class="line"><span class="comment"> * 在页面插入新顶部图</span></span><br><span class="line"><span class="comment"> * <span class="doctag">@param</span> &#123;<span class="type">cheerio.Root</span>&#125; $ Root</span></span><br><span class="line"><span class="comment"> */</span></span><br><span class="line"><span class="keyword">function</span> <span class="title function_">insertTopImg</span>(<span class="params">$</span>) &#123;</span><br><span class="line">  <span class="keyword">let</span> header = $(<span class="string">&quot;#page-header&quot;</span>);</span><br><span class="line">  <span class="keyword">if</span> (header.<span class="property">length</span> === <span class="number">0</span>) <span class="keyword">return</span>;</span><br><span class="line">  <span class="keyword">let</span> background = header.<span class="title function_">css</span>(<span class="string">&quot;background-image&quot;</span>);</span><br><span class="line">  <span class="keyword">if</span> (!background) <span class="keyword">return</span>;</span><br><span class="line">  $(<span class="string">&quot;#post, #page, #archive, #tag, #category&quot;</span>).<span class="title function_">prepend</span>(</span><br><span class="line">    <span class="string">`&lt;div class=&quot;top-img&quot; style=&quot;background-image: <span class="subst">$&#123;background&#125;</span>;&quot;&gt;&lt;/div&gt;`</span></span><br><span class="line">  );</span><br><span class="line">&#125;</span><br><span class="line"></span><br><span class="line">hexo.<span class="property">extend</span>.<span class="property">filter</span>.<span class="title function_">register</span>(<span class="string">&quot;after_render:html&quot;</span>, <span class="keyword">function</span> (<span class="params">str, data</span>) &#123;</span><br><span class="line">  <span class="keyword">let</span> $ = cheerio.<span class="title function_">load</span>(str, &#123;</span><br><span class="line">    <span class="attr">decodeEntities</span>: <span class="literal">false</span>,</span><br><span class="line">  &#125;);</span><br><span class="line">  <span class="title function_">insertTopImg</span>($);</span><br><span class="line">  <span class="keyword">return</span> $.<span class="title function_">html</span>();</span><br><span class="line">&#125;);</span><br></pre></td></tr></table></figure>
+
+<h2 id="大功告成"><a href="#大功告成" class="headerlink" title="大功告成"></a>大功告成</h2><p>👏 恭喜你完成了修改，可以使用以下命令进行预览。</p>
+<figure class="highlight cmd"><table><tr><td class="code"><pre><span class="line">hexo cl</span><br><span class="line">hexo g</span><br><span class="line">hexo s</span><br></pre></td></tr></table></figure>
+
+<h2 id="后记"><a href="#后记" class="headerlink" title="后记"></a>后记</h2><p>其实在早些时候，有篇最终效果差不多的修改教程。<br><a href="https://www.nesxc.com/">@Nesxc</a> 大佬写的<a href="https://www.nesxc.com/60/">butterfly 文章页美化教程</a>。<br>是通过直接修改主题源文件的方式实现的。<br>而本文的修改方式是使用了 Hexo 的<a href="https://hexo.io/zh-cn/docs/plugins">插件</a>系统实现的。</p>
+<p>插件版的优点是更新主题时，只要结构变化不大，便无需任何操作即可继续使用。并且在管理上比较方便。<br>源文件版的优点是效率会略高一点，毕竟是直接修改的主题源文件。</p>
+<p>如果像我一样，不想每次升级主题都可能要重新改一遍，或是为了方便管理，则可以选择插件版。<br>如果是本来就修改了源文件，也不介意再多修改这一个，则可以选择源文件版。</p>
+]]></content>
+      <categories>
+        <category>博客运维</category>
+      </categories>
+      <tags>
+        <tag>Hexo</tag>
+      </tags>
+  </entry>
+  <entry>
     <title>Balluff-IOLINK模块在TIA软件上调试</title>
     <url>/posts/ff857dd0/</url>
     <content><![CDATA[<h2 id="样例连接"><a href="#样例连接" class="headerlink" title="样例连接"></a><strong>样例连接</strong></h2><p><img src="https://img.051516.xyz/20250718122225962.png" alt="image-20241226101741875"></p>
@@ -599,41 +634,6 @@
       </categories>
       <tags>
         <tag>Balluff</tag>
-      </tags>
-  </entry>
-  <entry>
-    <title>Butterfly主题添加一图流背景与顶部图修改</title>
-    <url>/posts/f7d3fad8/</url>
-    <content><![CDATA[<h2 id="介绍"><a href="#介绍" class="headerlink" title="介绍"></a>介绍</h2><p>本文将会详细介绍一图流背景与顶部图的修改过程。</p>
-<h2 id="设置图片"><a href="#设置图片" class="headerlink" title="设置图片"></a>设置图片</h2><p>这个是 <a href="https://butterfly.js.org/">Butterfly</a> 自带的功能，修改主题的配置文件 <code>_config.butterfly.yml</code>。</p>
-<p>编辑 <code>index_img</code>、<code>background</code>、<code>footer_bg</code> 选项。<br>设置网站背景，并将主页顶部图和页脚背景改为透明。<br>(需要将以下示例地址替换为自己的图片地址。)</p>
-<figure class="highlight yaml"><table><tr><td class="code"><pre><span class="line"><span class="comment"># Image (圖片設置)</span></span><br><span class="line"><span class="comment"># --------------------------------------</span></span><br><span class="line"></span><br><span class="line"><span class="comment"># The banner image of home page</span></span><br><span class="line"><span class="attr">index_img:</span> <span class="string">transparent</span></span><br><span class="line"></span><br><span class="line"><span class="comment"># Beautify/Effect (美化/效果)</span></span><br><span class="line"><span class="comment"># --------------------------------------</span></span><br><span class="line"></span><br><span class="line"><span class="comment"># Website Background (設置網站背景)</span></span><br><span class="line"><span class="comment"># can set it to color or image (可設置圖片 或者 顔色)</span></span><br><span class="line"><span class="comment"># The formal of image: url(http://xxxxxx.com/xxx.jpg)</span></span><br><span class="line"><span class="attr">background:</span> <span class="string">url(https://example.com/img/background.jpg)</span></span><br><span class="line"></span><br><span class="line"><span class="comment"># Footer Background</span></span><br><span class="line"><span class="attr">footer_bg:</span> <span class="string">transparent</span></span><br></pre></td></tr></table></figure>
-
-<h2 id="引入相关样式"><a href="#引入相关样式" class="headerlink" title="引入相关样式"></a>引入相关样式</h2><p>新建一个文件，位于 <code>source/css/modify.styl</code>，并增加以下内容。<br>(此处只是举例，也可以使用自己已有的样式文件。)</p>
-<figure class="highlight styl"><table><tr><td class="code"><pre><span class="line"><span class="keyword">@import</span> <span class="string">&#x27;nib&#x27;</span></span><br><span class="line"></span><br><span class="line"><span class="comment">// 顶部图</span></span><br><span class="line"><span class="selector-id">#page-header</span></span><br><span class="line">  &amp;, <span class="selector-pseudo">&amp;:before</span></span><br><span class="line">    <span class="attribute">background</span>: transparent <span class="meta">!important</span></span><br><span class="line">  &amp;<span class="selector-class">.post-bg</span>, &amp;<span class="selector-class">.not-home-page</span></span><br><span class="line">    <span class="attribute">height</span>: <span class="number">280px</span> <span class="meta">!important</span></span><br><span class="line">  <span class="selector-id">#post-info</span></span><br><span class="line">    <span class="attribute">bottom</span>: <span class="number">40px</span> <span class="meta">!important</span></span><br><span class="line">  <span class="selector-id">#page-site-info</span></span><br><span class="line">    <span class="attribute">top</span>: <span class="number">140px</span> <span class="meta">!important</span></span><br><span class="line"></span><br><span class="line">  <span class="keyword">@media</span> screen <span class="keyword">and</span> (<span class="attribute">max-width</span>: <span class="number">768px</span>)</span><br><span class="line">    &amp;.not-home-page</span><br><span class="line">      <span class="attribute">height</span>: <span class="number">200px</span> !important</span><br><span class="line">    #post-info</span><br><span class="line">      bottom: <span class="number">10px</span> !important</span><br><span class="line">    #page-site-info</span><br><span class="line">      top: <span class="number">100px</span> !important</span><br><span class="line"></span><br><span class="line">.top-img</span><br><span class="line">  <span class="attribute">height</span>: <span class="number">250px</span></span><br><span class="line">  margin: -<span class="number">50px</span> -<span class="number">40px</span> <span class="number">50px</span></span><br><span class="line">  border-top-left-radius: inherit</span><br><span class="line">  border-top-right-radius: inherit</span><br><span class="line">  background-position: center center</span><br><span class="line">  background-size: cover</span><br><span class="line">  transition: all <span class="number">0.3s</span></span><br><span class="line"></span><br><span class="line">  @media screen <span class="keyword">and</span> (<span class="attribute">max-width</span>: <span class="number">768px</span>)</span><br><span class="line">    <span class="attribute">height</span>: <span class="number">230px</span></span><br><span class="line">    margin: -<span class="number">36px</span> -<span class="number">14px</span> <span class="number">36px</span></span><br><span class="line"></span><br><span class="line">  [data-theme=&#x27;dark&#x27;] &amp;</span><br><span class="line">    filter: brightness(<span class="number">0.8</span>)</span><br><span class="line"></span><br><span class="line">// 页脚</span><br><span class="line">#footer:before</span><br><span class="line">  background-color: alpha(#FFF, .<span class="number">5</span>)</span><br><span class="line"></span><br><span class="line">  [data-theme=&#x27;dark&#x27;] &amp;</span><br><span class="line">    background-color: alpha(#<span class="number">000</span>, .<span class="number">5</span>)</span><br><span class="line"></span><br><span class="line">#footer-wrap, #footer-wrap a</span><br><span class="line">  <span class="attribute">color</span>: #<span class="number">111</span></span><br><span class="line">  transition: unset</span><br><span class="line"></span><br><span class="line">  [data-theme=&#x27;dark&#x27;] &amp;</span><br><span class="line">    <span class="attribute">color</span>: var(--light-grey)</span><br></pre></td></tr></table></figure>
-
-<p>在主题配置文件 <code>_config.butterfly.yml</code> 的 <code>inject.head</code> 引入样式。</p>
-<figure class="highlight yaml"><table><tr><td class="code"><pre><span class="line"><span class="comment"># other (其他)</span></span><br><span class="line"><span class="comment"># --------------------------------------</span></span><br><span class="line"></span><br><span class="line"><span class="comment"># Inject</span></span><br><span class="line"><span class="comment"># Insert the code to head (before &#x27;&lt;/head&gt;&#x27; tag) and the bottom (before &#x27;&lt;/body&gt;&#x27; tag)</span></span><br><span class="line"><span class="comment"># 插入代码到头部 &lt;/head&gt; 之前 和 底部 &lt;/body&gt; 之前</span></span><br><span class="line"><span class="attr">inject:</span></span><br><span class="line">  <span class="attr">head:</span></span><br><span class="line">    <span class="bullet">-</span> <span class="string">&lt;link</span> <span class="string">rel=&quot;stylesheet&quot;</span> <span class="string">href=&quot;/css/modify.css&quot;&gt;</span></span><br></pre></td></tr></table></figure>
-
-<p><code>modify.styl</code> 会被 Hexo 渲染成 <code>modify.css</code> 文件，所以此处应为 <code>modify.css</code>。</p>
-<h2 id="增加插件脚本"><a href="#增加插件脚本" class="headerlink" title="增加插件脚本"></a>增加插件脚本</h2><p>因为使用了 <code>cheerio</code> 来解析 HTML，所以需要先安装此依赖。</p>
-<figure class="highlight cmd"><table><tr><td class="code"><pre><span class="line">npm install cheerio</span><br></pre></td></tr></table></figure>
-
-<p>新建一个文件，位于 <code>scripts/modify.js</code>，并增加以下内容。<br>(此处只是举例，也可以使用自己已有的插件脚本文件。)</p>
-<figure class="highlight js"><table><tr><td class="code"><pre><span class="line"><span class="meta">&quot;use strict&quot;</span>;</span><br><span class="line"><span class="keyword">const</span> cheerio = <span class="built_in">require</span>(<span class="string">&quot;cheerio&quot;</span>);</span><br><span class="line"></span><br><span class="line"><span class="comment">/**</span></span><br><span class="line"><span class="comment"> * 在页面插入新顶部图</span></span><br><span class="line"><span class="comment"> * <span class="doctag">@param</span> &#123;<span class="type">cheerio.Root</span>&#125; $ Root</span></span><br><span class="line"><span class="comment"> */</span></span><br><span class="line"><span class="keyword">function</span> <span class="title function_">insertTopImg</span>(<span class="params">$</span>) &#123;</span><br><span class="line">  <span class="keyword">let</span> header = $(<span class="string">&quot;#page-header&quot;</span>);</span><br><span class="line">  <span class="keyword">if</span> (header.<span class="property">length</span> === <span class="number">0</span>) <span class="keyword">return</span>;</span><br><span class="line">  <span class="keyword">let</span> background = header.<span class="title function_">css</span>(<span class="string">&quot;background-image&quot;</span>);</span><br><span class="line">  <span class="keyword">if</span> (!background) <span class="keyword">return</span>;</span><br><span class="line">  $(<span class="string">&quot;#post, #page, #archive, #tag, #category&quot;</span>).<span class="title function_">prepend</span>(</span><br><span class="line">    <span class="string">`&lt;div class=&quot;top-img&quot; style=&quot;background-image: <span class="subst">$&#123;background&#125;</span>;&quot;&gt;&lt;/div&gt;`</span></span><br><span class="line">  );</span><br><span class="line">&#125;</span><br><span class="line"></span><br><span class="line">hexo.<span class="property">extend</span>.<span class="property">filter</span>.<span class="title function_">register</span>(<span class="string">&quot;after_render:html&quot;</span>, <span class="keyword">function</span> (<span class="params">str, data</span>) &#123;</span><br><span class="line">  <span class="keyword">let</span> $ = cheerio.<span class="title function_">load</span>(str, &#123;</span><br><span class="line">    <span class="attr">decodeEntities</span>: <span class="literal">false</span>,</span><br><span class="line">  &#125;);</span><br><span class="line">  <span class="title function_">insertTopImg</span>($);</span><br><span class="line">  <span class="keyword">return</span> $.<span class="title function_">html</span>();</span><br><span class="line">&#125;);</span><br></pre></td></tr></table></figure>
-
-<h2 id="大功告成"><a href="#大功告成" class="headerlink" title="大功告成"></a>大功告成</h2><p>👏 恭喜你完成了修改，可以使用以下命令进行预览。</p>
-<figure class="highlight cmd"><table><tr><td class="code"><pre><span class="line">hexo cl</span><br><span class="line">hexo g</span><br><span class="line">hexo s</span><br></pre></td></tr></table></figure>
-
-<h2 id="后记"><a href="#后记" class="headerlink" title="后记"></a>后记</h2><p>其实在早些时候，有篇最终效果差不多的修改教程。<br><a href="https://www.nesxc.com/">@Nesxc</a> 大佬写的<a href="https://www.nesxc.com/60/">butterfly 文章页美化教程</a>。<br>是通过直接修改主题源文件的方式实现的。<br>而本文的修改方式是使用了 Hexo 的<a href="https://hexo.io/zh-cn/docs/plugins">插件</a>系统实现的。</p>
-<p>插件版的优点是更新主题时，只要结构变化不大，便无需任何操作即可继续使用。并且在管理上比较方便。<br>源文件版的优点是效率会略高一点，毕竟是直接修改的主题源文件。</p>
-<p>如果像我一样，不想每次升级主题都可能要重新改一遍，或是为了方便管理，则可以选择插件版。<br>如果是本来就修改了源文件，也不介意再多修改这一个，则可以选择源文件版。</p>
-]]></content>
-      <categories>
-        <category>博客运维</category>
-      </categories>
-      <tags>
-        <tag>Hexo</tag>
       </tags>
   </entry>
   <entry>
@@ -1143,6 +1143,39 @@
       </tags>
   </entry>
   <entry>
+    <title>Hexo博客自动更新到1panel</title>
+    <url>/posts/21fa371d/</url>
+    <content><![CDATA[<h2 id="SSH执行拉取"><a href="#SSH执行拉取" class="headerlink" title="SSH执行拉取"></a>SSH执行拉取</h2><p>下面实现通过Github action，链接服务器SSH，并在服务器中执行拉取的命令。</p>
+<h3 id="获取密钥密码"><a href="#获取密钥密码" class="headerlink" title="获取密钥密码"></a>获取密钥密码</h3><p>实现1Panel本地静态文件自动更新，建议使用密钥登录，安全性更高，首先在1Panel中的密钥信息，生成密码和密钥，以便于后面登录：</p>
+<p><img src="https://img.051516.xyz/20250725184844649.png" alt="image-20250725184025195"></p>
+<h3 id="添加变量"><a href="#添加变量" class="headerlink" title="添加变量"></a>添加变量</h3><p>此次添加变量较多，有：SERVER_IP，USERNAME，PASSPHRASE，KEY，PORT五个变量，如下：</p>
+<ul>
+<li>SERVER_IP：服务器IP</li>
+<li>USERNAME：SSH链接用户名，一般为root</li>
+<li>PASSPHRASE：密钥密码，用来提升强度用</li>
+<li>KEY：密钥</li>
+<li>PORT：SSH登录端口，一般为22</li>
+</ul>
+<h3 id="克隆仓库"><a href="#克隆仓库" class="headerlink" title="克隆仓库"></a>克隆仓库</h3><p>此时，需要在服务器手动克隆一次仓库，这样才能获得git配置，后面才可以通过直接在目录下git pull实现增量拉取，相比于克隆一个新的仓库，速度更快。</p>
+<p>先创建静态仓库网站，比如yuqi.im，最终的静态目录如下：</p>
+<p><img src="https://img.051516.xyz/20250725184852593.png" alt="image-20250725184225719"></p>
+<p>在任意目录下克隆一次Blog静态资源仓库，因为1Panel不支持自定义部署目录，所以需要将克隆下来的文件夹内的所有文件，包括.git文件夹，复制到index文件夹内，或者直接在index目录内克隆，这样才能确保后续可以直接在index文件夹内，执行拉取命令，实现文件更新。</p>
+<p>如果在前面你选择的是github存储构建产物静态文件，你可以用ghproxy之类的镜像拉取，后面git pull也会走这个链接，但是不太建议，因为一般这种镜像都不太稳定，可能需要频繁更换。</p>
+<h3 id="添加工作流"><a href="#添加工作流" class="headerlink" title="添加工作流"></a>添加工作流</h3><p>下面就可以修改action实现推送时自动拉取了，在部署的下方添加另一个工作流：</p>
+<figure class="highlight yaml"><table><tr><td class="code"><pre><span class="line"><span class="bullet">-</span> <span class="attr">name:</span> <span class="string">服务器执行拉取命令</span></span><br><span class="line">  <span class="attr">uses:</span> <span class="string">appleboy/ssh-action@v1</span></span><br><span class="line">  <span class="attr">with:</span></span><br><span class="line">    <span class="attr">host:</span> <span class="string">$&#123;&#123;</span> <span class="string">secrets.SERVER_IP</span> <span class="string">&#125;&#125;</span></span><br><span class="line">    <span class="attr">username:</span> <span class="string">$&#123;&#123;</span> <span class="string">secrets.USERNAME</span> <span class="string">&#125;&#125;</span></span><br><span class="line">    <span class="attr">key:</span> <span class="string">$&#123;&#123;</span> <span class="string">secrets.KEY</span> <span class="string">&#125;&#125;</span></span><br><span class="line">    <span class="attr">passphrase:</span> <span class="string">$&#123;&#123;</span> <span class="string">secrets.PASSPHRASE</span> <span class="string">&#125;&#125;</span></span><br><span class="line">    <span class="attr">port:</span> <span class="string">$&#123;&#123;</span> <span class="string">secrets.PORT</span> <span class="string">&#125;&#125;</span></span><br><span class="line">    <span class="attr">script:</span> <span class="string">|</span></span><br><span class="line"><span class="string">      cd /opt/1panel/www/sites/yuqi.im/index/</span></span><br><span class="line"><span class="string">      git config --global --add safe.directory &quot;$(pwd)&quot;</span></span><br><span class="line"><span class="string">      git fetch --all --depth=1</span></span><br><span class="line"><span class="string">      git reset --hard origin/main</span></span><br><span class="line"><span class="string">      git pull --depth=1</span></span><br><span class="line"><span class="string">      echo &quot;✅ 已拉取 page 分支最新内容&quot;</span></span><br></pre></td></tr></table></figure>
+
+<p>再次尝试修改并触发，如果一切正常，仓库文件自动触发推送到服务器应该就实现了！</p>
+<p>在最下面，这里采用了强制拉取，并且只保留了深度为一的拉取记录，这样可以防止由于文件冲突导致可能拉取不下来的问题，并且控制了拉去的日志文件大小。</p>
+<h2 id="参考出处"><a href="#参考出处" class="headerlink" title="参考出处"></a>参考出处</h2><p><a href="https://blog.liushen.fun/posts/327826ac">https://blog.liushen.fun/posts/327826ac</a></p>
+]]></content>
+      <categories>
+        <category>博客运维</category>
+      </categories>
+      <tags>
+        <tag>Hexo</tag>
+      </tags>
+  </entry>
+  <entry>
     <title>Hexo博客部署到云服务器</title>
     <url>/posts/bda2f0d3/</url>
     <content><![CDATA[<h1 id="将Hexo部署到云服务器"><a href="#将Hexo部署到云服务器" class="headerlink" title="将Hexo部署到云服务器"></a>将<code>Hexo</code>部署到云服务器</h1><p>为了解决<code>Hexo</code>部署到 <a href="https://github.com/">GitHub</a> 访问速度慢的问题，我们可以将<code>Hexo</code>部署到云服务器上。</p>
@@ -1388,6 +1421,21 @@
       </tags>
   </entry>
   <entry>
+    <title>OnlyFans 公共存档器 免费查看OnlyFans付费内容-Coomer</title>
+    <url>/posts/1082bb6d/</url>
+    <content><![CDATA[<p>Coomer，一个 OnlyFans 公共存档器，可以免费查看 OnlyFans 付费内容，上面所以内容都由网友搬运、贡献的 OnlyFans 付费内容，想要查看哪位艺术家、作者的付费内容，直接搜索名字即可免费查看 OnlyFans 上的付费内容，当然你也可以共享你的。</p>
+<p>地址：<a href="https://coomer.party/">https://coomer.party/</a></p>
+<p>可以尝试点击&gt;creators&gt;然后搜索 ‘hongkongdoll’ ，‘juneliu’；</p>
+<p>更多的关键词待你挖掘</p>
+]]></content>
+      <categories>
+        <category>公共存档器</category>
+      </categories>
+      <tags>
+        <tag>18+</tag>
+      </tags>
+  </entry>
+  <entry>
     <title>Openwrt编译</title>
     <url>/posts/72c5b323/</url>
     <content><![CDATA[<h1 id="注意"><a href="#注意" class="headerlink" title="注意"></a>注意</h1><ol>
@@ -1452,21 +1500,6 @@
       </categories>
       <tags>
         <tag>Openwrt</tag>
-      </tags>
-  </entry>
-  <entry>
-    <title>OnlyFans 公共存档器 免费查看OnlyFans付费内容-Coomer</title>
-    <url>/posts/1082bb6d/</url>
-    <content><![CDATA[<p>Coomer，一个 OnlyFans 公共存档器，可以免费查看 OnlyFans 付费内容，上面所以内容都由网友搬运、贡献的 OnlyFans 付费内容，想要查看哪位艺术家、作者的付费内容，直接搜索名字即可免费查看 OnlyFans 上的付费内容，当然你也可以共享你的。</p>
-<p>地址：<a href="https://coomer.party/">https://coomer.party/</a></p>
-<p>可以尝试点击&gt;creators&gt;然后搜索 ‘hongkongdoll’ ，‘juneliu’；</p>
-<p>更多的关键词待你挖掘</p>
-]]></content>
-      <categories>
-        <category>公共存档器</category>
-      </categories>
-      <tags>
-        <tag>18+</tag>
       </tags>
   </entry>
   <entry>
