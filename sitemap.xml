@@ -38,7 +38,7 @@
   </url>
   
   <url>
-    <loc>https://yuqi.im/tags/index.html</loc>
+    <loc>https://yuqi.im/link/index.html</loc>
     
     <lastmod>2025-07-25</lastmod>
     
@@ -47,7 +47,7 @@
   </url>
   
   <url>
-    <loc>https://yuqi.im/link/index.html</loc>
+    <loc>https://yuqi.im/tags/index.html</loc>
     
     <lastmod>2025-07-25</lastmod>
     
@@ -281,7 +281,7 @@
   </url>
   
   <url>
-    <loc>https://yuqi.im/posts/7db8067/</loc>
+    <loc>https://yuqi.im/posts/af28068c/</loc>
     
     <lastmod>2023-11-05</lastmod>
     
@@ -290,7 +290,7 @@
   </url>
   
   <url>
-    <loc>https://yuqi.im/posts/af28068c/</loc>
+    <loc>https://yuqi.im/posts/7db8067/</loc>
     
     <lastmod>2023-11-05</lastmod>
     
@@ -639,14 +639,14 @@
   </url>
   
   <url>
-    <loc>https://yuqi.im/tags/18/</loc>
+    <loc>https://yuqi.im/tags/Openwrt/</loc>
     <lastmod>2025-07-25</lastmod>
     <changefreq>weekly</changefreq>
     <priority>0.2</priority>
   </url>
   
   <url>
-    <loc>https://yuqi.im/tags/Openwrt/</loc>
+    <loc>https://yuqi.im/tags/18/</loc>
     <lastmod>2025-07-25</lastmod>
     <changefreq>weekly</changefreq>
     <priority>0.2</priority>
