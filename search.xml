@@ -637,26 +637,6 @@
       </tags>
   </entry>
   <entry>
-    <title>Butterfly主题添加本地搜索功能</title>
-    <url>/posts/f2a576c2/</url>
-    <content><![CDATA[<p>安装插件：</p>
-<figure class="highlight bash"><table><tr><td class="code"><pre><span class="line">npm install hexo-generator-search --save</span><br></pre></td></tr></table></figure>
-
-<p>修改_config.yml文件，添加以下内容</p>
-<figure class="highlight yml"><table><tr><td class="code"><pre><span class="line"><span class="comment"># 添加本地搜索</span></span><br><span class="line"><span class="attr">search:</span></span><br><span class="line">  <span class="attr">path:</span> <span class="string">search.xml</span></span><br><span class="line">  <span class="attr">field:</span> <span class="string">post</span></span><br><span class="line">  <span class="attr">content:</span> <span class="literal">true</span></span><br><span class="line">  <span class="attr">format:</span> <span class="string">html</span></span><br></pre></td></tr></table></figure>
-
-<p>修改_config.butterfly.yml文件，添加以下内容</p>
-<figure class="highlight yml"><table><tr><td class="code"><pre><span class="line"><span class="comment"># Local search</span></span><br><span class="line"><span class="attr">local_search:</span></span><br><span class="line">  <span class="attr">enable:</span> <span class="literal">true</span></span><br><span class="line">  <span class="comment"># Preload the search data when the page loads.</span></span><br><span class="line">  <span class="attr">preload:</span> <span class="literal">false</span></span><br><span class="line">  <span class="comment"># Show top n results per article, show all results by setting to -1</span></span><br><span class="line">  <span class="attr">top_n_per_article:</span> <span class="number">1</span></span><br><span class="line">  <span class="comment"># Unescape html strings to the readable one.</span></span><br><span class="line">  <span class="attr">unescape:</span> <span class="literal">false</span></span><br><span class="line">  <span class="attr">CDN:</span></span><br></pre></td></tr></table></figure>
-
-]]></content>
-      <categories>
-        <category>博客运维</category>
-      </categories>
-      <tags>
-        <tag>Hexo</tag>
-      </tags>
-  </entry>
-  <entry>
     <title>Clash Verge规则配置</title>
     <url>/posts/97aa67fb/</url>
     <content><![CDATA[<h1 id="下载Clash-Meta内核客户端"><a href="#下载Clash-Meta内核客户端" class="headerlink" title="下载Clash.Meta内核客户端"></a>下载Clash.Meta内核客户端</h1><ul>
@@ -1118,6 +1098,26 @@
       </categories>
       <tags>
         <tag>HTML</tag>
+      </tags>
+  </entry>
+  <entry>
+    <title>Butterfly主题添加本地搜索功能</title>
+    <url>/posts/f2a576c2/</url>
+    <content><![CDATA[<p>安装插件：</p>
+<figure class="highlight bash"><table><tr><td class="code"><pre><span class="line">npm install hexo-generator-search --save</span><br></pre></td></tr></table></figure>
+
+<p>修改_config.yml文件，添加以下内容</p>
+<figure class="highlight yml"><table><tr><td class="code"><pre><span class="line"><span class="comment"># 添加本地搜索</span></span><br><span class="line"><span class="attr">search:</span></span><br><span class="line">  <span class="attr">path:</span> <span class="string">search.xml</span></span><br><span class="line">  <span class="attr">field:</span> <span class="string">post</span></span><br><span class="line">  <span class="attr">content:</span> <span class="literal">true</span></span><br><span class="line">  <span class="attr">format:</span> <span class="string">html</span></span><br></pre></td></tr></table></figure>
+
+<p>修改_config.butterfly.yml文件，添加以下内容</p>
+<figure class="highlight yml"><table><tr><td class="code"><pre><span class="line"><span class="comment"># Local search</span></span><br><span class="line"><span class="attr">local_search:</span></span><br><span class="line">  <span class="attr">enable:</span> <span class="literal">true</span></span><br><span class="line">  <span class="comment"># Preload the search data when the page loads.</span></span><br><span class="line">  <span class="attr">preload:</span> <span class="literal">false</span></span><br><span class="line">  <span class="comment"># Show top n results per article, show all results by setting to -1</span></span><br><span class="line">  <span class="attr">top_n_per_article:</span> <span class="number">1</span></span><br><span class="line">  <span class="comment"># Unescape html strings to the readable one.</span></span><br><span class="line">  <span class="attr">unescape:</span> <span class="literal">false</span></span><br><span class="line">  <span class="attr">CDN:</span></span><br></pre></td></tr></table></figure>
+
+]]></content>
+      <categories>
+        <category>博客运维</category>
+      </categories>
+      <tags>
+        <tag>Hexo</tag>
       </tags>
   </entry>
   <entry>
@@ -1773,55 +1773,6 @@
       </tags>
   </entry>
   <entry>
-    <title>S120伺服断开STO会掉位置的解决方法</title>
-    <url>/posts/db238e4c/</url>
-    <content><![CDATA[<h1 id="原因分析"><a href="#原因分析" class="headerlink" title="原因分析"></a><strong>原因分析</strong></h1><p>西门子S120伺服断开STO在作为上下移动的移动应用时，可能会因为负载较重，当断开STO安全信号，或者断开电源，伺服抱闸启用时仍然会往下掉位置。</p>
-<p>当遇到这种情况，通常是因为伺服电机断电时，电机抱闸还没有动作到位；我们可以适当调整抱闸释放时间和STO关断时伺服断电时间。</p>
-<h1 id="调整参数"><a href="#调整参数" class="headerlink" title="调整参数"></a><strong>调整参数</strong></h1><p>我们可以通过STARTER软件调整抱闸释放时间和STO关断时伺服断电时间。</p>
-<blockquote>
-<p>注意伺服抱闸释放时间不宜延时过久，不然伺服断电后可能停止过慢。</p>
-</blockquote>
-<h2 id="连接S120伺服"><a href="#连接S120伺服" class="headerlink" title="连接S120伺服"></a><strong>连接S120伺服</strong></h2><p>打开SARTER软件，选择该项目文件，然后点击在线，并上载参数。</p>
-<p><img src="https://img.051516.xyz/20250718123650798.png" alt="image-20241227194431060"></p>
-<h2 id="调整抱闸关闭时间"><a href="#调整抱闸关闭时间" class="headerlink" title="调整抱闸关闭时间"></a><strong>调整抱闸关闭时间</strong></h2><p>在项目设备中找到需要修改的伺服，并找到伺服抱闸参数设置。</p>
-<p><img src="https://img.051516.xyz/20250718123702632.png" alt="image-20241227194912262"></p>
-<p>根据实际情况调整伺服抱闸参数</p>
-<blockquote>
-<p>注意：调整伺服参数后，请及时保存数据到ROM中，以防数据丢失。</p>
-</blockquote>
-<p><img src="https://img.051516.xyz/20250718123709501.png" alt="image-20241227194957428"></p>
-<h2 id="调整STO关断时的停止时间"><a href="#调整STO关断时的停止时间" class="headerlink" title="调整STO关断时的停止时间"></a><strong>调整STO关断时的停止时间</strong></h2><p>在项目设备中找到需要修改的伺服，并找到伺服安全参数设置。</p>
-<p><img src="https://img.051516.xyz/20250718123718419.png" alt="image-20241227195418276"></p>
-<p>点击激活安全设置，然后再点击安全基本设置。</p>
-<p><img src="https://img.051516.xyz/20250718123725709.png" alt="image-20241227195656570"></p>
-<p>进入STO安全设置，点击STO，SBC，SS1.</p>
-<p><img src="https://img.051516.xyz/20250718123733043.png" alt="image-20241228155222419"></p>
-<p>如图所示，修改安全停止时间，修改完成后关闭该页面。</p>
-<blockquote>
-<p>注意：安全停止时间不能设置过长，建议比抱闸延时长10MS左右即可。</p>
-</blockquote>
-<p><img src="https://img.051516.xyz/20250718123739141.png" alt="image-20241228155335455"></p>
-<p>关闭设置页面后，返回安全设置页面。再次点击激活设置。</p>
-<p><img src="https://img.051516.xyz/20250718123746528.png" alt="image-20241228155628566"></p>
-<p>提示需验证密码。</p>
-<p><img src="https://img.051516.xyz/20250718123754848.png" alt="image-20241228155702905"></p>
-<p>在该页面中重新验证密码。</p>
-<blockquote>
-<p>注意：第一个为旧密码，默认0；第二个、第三个为新密码，如果无需修改密码，可仍然填0.</p>
-</blockquote>
-<p><img src="https://img.051516.xyz/20250718123800622.png" alt="image-20241228155754050"></p>
-<p>点击OK，确认保存。</p>
-<p><img src="https://img.051516.xyz/20250718123811054.png" alt="image-20241228155918043"></p>
-<p>最后点击该按钮，将配置保存到ROM中。</p>
-]]></content>
-      <categories>
-        <category>工业自动化</category>
-      </categories>
-      <tags>
-        <tag>SINAMICS</tag>
-      </tags>
-  </entry>
-  <entry>
     <title>SEW MOVIDRIVE MDX61B调试步骤</title>
     <url>/posts/175f8f8b/</url>
     <content><![CDATA[<h1 id="通用配置"><a href="#通用配置" class="headerlink" title="通用配置"></a>通用配置</h1><p>1、打开MOVITOOLS MotionStudio软件，创建项目；</p>
@@ -2104,6 +2055,55 @@
       </tags>
   </entry>
   <entry>
+    <title>S120伺服断开STO会掉位置的解决方法</title>
+    <url>/posts/db238e4c/</url>
+    <content><![CDATA[<h1 id="原因分析"><a href="#原因分析" class="headerlink" title="原因分析"></a><strong>原因分析</strong></h1><p>西门子S120伺服断开STO在作为上下移动的移动应用时，可能会因为负载较重，当断开STO安全信号，或者断开电源，伺服抱闸启用时仍然会往下掉位置。</p>
+<p>当遇到这种情况，通常是因为伺服电机断电时，电机抱闸还没有动作到位；我们可以适当调整抱闸释放时间和STO关断时伺服断电时间。</p>
+<h1 id="调整参数"><a href="#调整参数" class="headerlink" title="调整参数"></a><strong>调整参数</strong></h1><p>我们可以通过STARTER软件调整抱闸释放时间和STO关断时伺服断电时间。</p>
+<blockquote>
+<p>注意伺服抱闸释放时间不宜延时过久，不然伺服断电后可能停止过慢。</p>
+</blockquote>
+<h2 id="连接S120伺服"><a href="#连接S120伺服" class="headerlink" title="连接S120伺服"></a><strong>连接S120伺服</strong></h2><p>打开SARTER软件，选择该项目文件，然后点击在线，并上载参数。</p>
+<p><img src="https://img.051516.xyz/20250718123650798.png" alt="image-20241227194431060"></p>
+<h2 id="调整抱闸关闭时间"><a href="#调整抱闸关闭时间" class="headerlink" title="调整抱闸关闭时间"></a><strong>调整抱闸关闭时间</strong></h2><p>在项目设备中找到需要修改的伺服，并找到伺服抱闸参数设置。</p>
+<p><img src="https://img.051516.xyz/20250718123702632.png" alt="image-20241227194912262"></p>
+<p>根据实际情况调整伺服抱闸参数</p>
+<blockquote>
+<p>注意：调整伺服参数后，请及时保存数据到ROM中，以防数据丢失。</p>
+</blockquote>
+<p><img src="https://img.051516.xyz/20250718123709501.png" alt="image-20241227194957428"></p>
+<h2 id="调整STO关断时的停止时间"><a href="#调整STO关断时的停止时间" class="headerlink" title="调整STO关断时的停止时间"></a><strong>调整STO关断时的停止时间</strong></h2><p>在项目设备中找到需要修改的伺服，并找到伺服安全参数设置。</p>
+<p><img src="https://img.051516.xyz/20250718123718419.png" alt="image-20241227195418276"></p>
+<p>点击激活安全设置，然后再点击安全基本设置。</p>
+<p><img src="https://img.051516.xyz/20250718123725709.png" alt="image-20241227195656570"></p>
+<p>进入STO安全设置，点击STO，SBC，SS1.</p>
+<p><img src="https://img.051516.xyz/20250718123733043.png" alt="image-20241228155222419"></p>
+<p>如图所示，修改安全停止时间，修改完成后关闭该页面。</p>
+<blockquote>
+<p>注意：安全停止时间不能设置过长，建议比抱闸延时长10MS左右即可。</p>
+</blockquote>
+<p><img src="https://img.051516.xyz/20250718123739141.png" alt="image-20241228155335455"></p>
+<p>关闭设置页面后，返回安全设置页面。再次点击激活设置。</p>
+<p><img src="https://img.051516.xyz/20250718123746528.png" alt="image-20241228155628566"></p>
+<p>提示需验证密码。</p>
+<p><img src="https://img.051516.xyz/20250718123754848.png" alt="image-20241228155702905"></p>
+<p>在该页面中重新验证密码。</p>
+<blockquote>
+<p>注意：第一个为旧密码，默认0；第二个、第三个为新密码，如果无需修改密码，可仍然填0.</p>
+</blockquote>
+<p><img src="https://img.051516.xyz/20250718123800622.png" alt="image-20241228155754050"></p>
+<p>点击OK，确认保存。</p>
+<p><img src="https://img.051516.xyz/20250718123811054.png" alt="image-20241228155918043"></p>
+<p>最后点击该按钮，将配置保存到ROM中。</p>
+]]></content>
+      <categories>
+        <category>工业自动化</category>
+      </categories>
+      <tags>
+        <tag>SINAMICS</tag>
+      </tags>
+  </entry>
+  <entry>
     <title>SEW Scope曲线监控</title>
     <url>/posts/c4294855/</url>
     <content><![CDATA[<h3 id="打开备份的SEW文件，点击Scope"><a href="#打开备份的SEW文件，点击Scope" class="headerlink" title="打开备份的SEW文件，点击Scope"></a>打开备份的SEW文件，点击Scope</h3><p><img src="https://img.051516.xyz/202501051439031.png" alt="image-20250105143536600"></p>
@@ -2183,6 +2183,576 @@
 <p><img src="https://img.051516.xyz/20250524210627091.PNG" alt="50"></p>
 <p><img src="https://img.051516.xyz/20250524210637201.PNG" alt="51"></p>
 <p><img src="https://img.051516.xyz/20250524210647926.PNG" alt="52"></p>
+]]></content>
+      <categories>
+        <category>工业自动化</category>
+      </categories>
+      <tags>
+        <tag>MOVIDRIVE</tag>
+      </tags>
+  </entry>
+  <entry>
+    <title>SEW-MDX61B-同步伺服调试方法</title>
+    <url>/posts/ee46e52f/</url>
+    <content><![CDATA[<h1 id="一、使用-MOTION-STUDIO-软件配置电机"><a href="#一、使用-MOTION-STUDIO-软件配置电机" class="headerlink" title="一、使用 MOTION STUDIO 软件配置电机"></a>一、使用 MOTION STUDIO 软件配置电机</h1><p>1、打开MOVITOOLS MotionStudio软件，创建项目</p>
+<p><img src="https://img.051516.xyz/20250725155738367.png"></p>
+<p><img src="https://img.051516.xyz/20250725155738368.png"></p>
+<p>2、选择连接方式</p>
+<p><img src="https://img.051516.xyz/20250725155738369.png"></p>
+<p>3、用网线连接电脑和MDX61B控制器网络接口，并设置电脑IP与MDX61B控制器IP处于同一网段，扫描网络上的设备</p>
+<p><img src="https://img.051516.xyz/20250725155738370.png"></p>
+<p>4、需初始化控制器，可在Parameter tree的P802中选择Delivery state，将控制器还原为出厂状态</p>
+<p><img src="https://img.051516.xyz/20250725155738371.png"></p>
+<p><img src="https://img.051516.xyz/20250725155738372.png"></p>
+<p>5、点击Startup中的Perform startup，开始电机初始化</p>
+<p><img src="https://img.051516.xyz/20250725155738373.png"></p>
+<p><img src="https://img.051516.xyz/20250725155738374.png"></p>
+<p>6、本次参考的电机</p>
+<p><img src="https://img.051516.xyz/20250725155738375.png"></p>
+<p>7、点击Startup set-1，进行Parameter set-1设置（ 如果需要两套参数运行，Parameter set-2设置采取同样步骤）</p>
+<p><img src="https://img.051516.xyz/20250725155738377.png"></p>
+<p>8、选择Execute complete start-up（执行完整的初始化）</p>
+<p><img src="https://img.051516.xyz/20250725155738378.png"></p>
+<p>9、选择Stand-alone motor &gt; Vector-controlled&#x2F;Servo（独立电机 &gt; 矢量控制&#x2F;伺服电机）</p>
+<p><img src="https://img.051516.xyz/20250725155738379.png"></p>
+<p>10、所连接的编码器不包含任何电子铭牌数据</p>
+<p><img src="https://img.051516.xyz/20250725155738380.png"></p>
+<p>11、检查电机类型信息</p>
+<p><img src="https://img.051516.xyz/20250725155738381.png"></p>
+<p>12、选择正确的电机型号，输入电机额定电压、额定频率（一般默认），输入电源电压，选择编码器类型，定义参数P530“电机温度传感器类型”（例如TF&#x2F;TH），定义参数P835“电机温度传感器的响应”</p>
+<p><img src="https://img.051516.xyz/20250725155738382.png"></p>
+<p>13、选择Yes, I use the encoder（使用编码器）</p>
+<p><img src="https://img.051516.xyz/20250725155738383.png"></p>
+<p>14、操作模式选择Speed conrol（速度控制模式）</p>
+<p><img src="https://img.051516.xyz/20250725155738384.png"></p>
+<p>15、选择VFC（电压矢量控制）模式</p>
+<p>!<img src="https://img.051516.xyz/20250725155738385.png"></p>
+<p>16、准确填写WEISS计算的Load inertia（负载转动惯量），Brake选择WITH，Z fan选择WITHOUT </p>
+<p><img src="https://img.051516.xyz/20250725155738386.png"></p>
+<p>17、相关参数使用WEISS所提供参数表中的推荐参数，其它参数选择Apply Proposal（使用推荐值）</p>
+<p><img src="https://img.051516.xyz/20250725155738387.png"></p>
+<p>18、转速控制器参数选择Apply Proposal（使用推荐值）</p>
+<p><img src="https://img.051516.xyz/20250725155738388.png"></p>
+<p>19、主电机P100设定值源和P101控制信号源选择FIELDBUS，从电机P100设定值源选择MASTER-SBUS 1、P101控制信号源选择FIELDBUS，其它相关参数使用WEISS所提供参数表中的建议参数，剩余参数选择Apply Proposal（使用推荐值）</p>
+<p>主电机</p>
+<p><img src="https://img.051516.xyz/20250725155738389.png"></p>
+<p>从电机</p>
+<p><img src="https://img.051516.xyz/20250725155738390.png"></p>
+<p>20、点击完成，将初始化信息下载至控制器。如需配置parameter set-2，点击Download，再进行参数包2的配置</p>
+<p><img src="https://img.051516.xyz/20250725155738391.png"></p>
+<p>21、初始化完全完成后，会跳出提示框，点击确定</p>
+<p><img src="https://img.051516.xyz/20250725155738392.png"></p>
+<h1 id="二、使用-MOTION-STUDIOS-软件-手动操作模拟器直接驱动电机运行，以检测电机接线，编码器接线，电机特性配置是否良好"><a href="#二、使用-MOTION-STUDIOS-软件-手动操作模拟器直接驱动电机运行，以检测电机接线，编码器接线，电机特性配置是否良好" class="headerlink" title="二、使用 MOTION STUDIOS 软件-手动操作模拟器直接驱动电机运行，以检测电机接线，编码器接线，电机特性配置是否良好"></a>二、使用 MOTION STUDIOS 软件-手动操作模拟器直接驱动电机运行，以检测电机接线，编码器接线，电机特性配置是否良好</h1><p>1、进入手动操作页面</p>
+<p><img src="https://img.051516.xyz/20250725155738393.png"></p>
+<p>2、点击Activate manual mode，激活手动模式</p>
+<p><img src="https://img.051516.xyz/20250725155738394.png"></p>
+<p>3、选择控制速度，旋转方向，点击start或stop进行启停控制</p>
+<p><img src="https://img.051516.xyz/20250725155738395.png"></p>
+<p>4、手动模式下，转台运行正常后，点击Deactivate manual mode，选择是，退出手动模式</p>
+<p><img src="https://img.051516.xyz/20250725155738396.png"></p>
+<h1 id="三、使用-MOTION-STUDIO-软件设定参数"><a href="#三、使用-MOTION-STUDIO-软件设定参数" class="headerlink" title="三、使用 MOTION STUDIO 软件设定参数"></a>三、使用 MOTION STUDIO 软件设定参数</h1><h2 id="总线位置控制-6PD-Profinet-IO-双驱力矩分配升降-带增量型编码器"><a href="#总线位置控制-6PD-Profinet-IO-双驱力矩分配升降-带增量型编码器" class="headerlink" title="总线位置控制-6PD-Profinet IO-双驱力矩分配升降-带增量型编码器"></a>总线位置控制-6PD-Profinet IO-双驱力矩分配升降-带增量型编码器</h2><h3 id="1、主机参数"><a href="#1、主机参数" class="headerlink" title="1、主机参数"></a>1、主机参数</h3><table>
+<thead>
+<tr>
+<th></th>
+<th></th>
+<th></th>
+</tr>
+</thead>
+<tbody><tr>
+<td>100</td>
+<td>设为 Fieldbus</td>
+<td>总线控制</td>
+</tr>
+<tr>
+<td>101</td>
+<td>设为 Fieldbus</td>
+<td>总线控制</td>
+</tr>
+<tr>
+<td>130</td>
+<td>设为所需值</td>
+<td>速度控制时 CW 顺时针运行加速斜坡时间</td>
+</tr>
+<tr>
+<td>131</td>
+<td>设为所需值</td>
+<td>速度控制时 CW 顺时针运行减速斜坡时间</td>
+</tr>
+<tr>
+<td>132</td>
+<td>设为所需值</td>
+<td>速度控制时 CCW 逆时针运行加速斜坡时间</td>
+</tr>
+<tr>
+<td>133</td>
+<td>设为所需值</td>
+<td>速度控制时 CCW 逆时针运行减速斜坡时间</td>
+</tr>
+<tr>
+<td>136</td>
+<td>设为所需值</td>
+<td>当 ENABLE&#x2F;RAP.STOP 端子由 1 变为 0 时，电机的停转时间</td>
+</tr>
+<tr>
+<td>200</td>
+<td>设为所需值</td>
+<td>电机的速度环增益，系统会按电机配置时，输入的负载情况，设定建议值</td>
+</tr>
+<tr>
+<td>301</td>
+<td>设为 0</td>
+<td>输出最小转速</td>
+</tr>
+<tr>
+<td>302</td>
+<td>设为所需值</td>
+<td>输出最大转速</td>
+</tr>
+<tr>
+<td>303</td>
+<td>设为所需值</td>
+<td>输出最大电流限幅</td>
+</tr>
+<tr>
+<td>304</td>
+<td>设为所需值</td>
+<td>输出最大力矩限幅</td>
+</tr>
+<tr>
+<td>500</td>
+<td>设为 MOT. &amp; REGEN.MODE</td>
+<td>电机过载保护功能打开</td>
+</tr>
+<tr>
+<td>501</td>
+<td>设为所需值</td>
+<td>电机过载，达到参数 303 设定值后，多长时间才停机报警</td>
+</tr>
+<tr>
+<td>600</td>
+<td>设为 Enable&#x2F;stop</td>
+<td>输出使能</td>
+</tr>
+<tr>
+<td>601</td>
+<td>设为 Fault reset</td>
+<td>故障复位</td>
+</tr>
+<tr>
+<td>602</td>
+<td>设为 NO FUNCTION</td>
+<td>无功能</td>
+</tr>
+<tr>
+<td>603</td>
+<td>设为 NO FUNCTION</td>
+<td>无功能</td>
+</tr>
+<tr>
+<td>604</td>
+<td>设为&#x2F;External fault</td>
+<td>从机故障通知</td>
+</tr>
+<tr>
+<td>622</td>
+<td>设为 Rotating field ON</td>
+<td>电机是否运行</td>
+</tr>
+<tr>
+<td>623</td>
+<td>设为 IPOS in position</td>
+<td>目标位置到位</td>
+</tr>
+<tr>
+<td>624</td>
+<td>设为&#x2F;Fault</td>
+<td>故障报警</td>
+</tr>
+<tr>
+<td>700</td>
+<td>设为 Servo &amp; IPOS</td>
+<td>伺服位置控制模式</td>
+</tr>
+<tr>
+<td>731</td>
+<td>制动器释放时间，升降驱动时：设为 0.25s</td>
+<td>**升降控制时，起动时防溜车时间  **</td>
+</tr>
+<tr>
+<td>732</td>
+<td>制动器应用时间，升降驱动时：设为 0.25s</td>
+<td>**升降控制时，停止时防溜车时间  **</td>
+</tr>
+<tr>
+<td>750</td>
+<td>设为 Torque SBus</td>
+<td>力矩控制从机模式</td>
+</tr>
+<tr>
+<td>830</td>
+<td>设为 Rapid stop&#x2F;fault</td>
+<td>从机故障时立即停止输出，持续报警，等待复位信号</td>
+</tr>
+<tr>
+<td>831</td>
+<td>设为 Rapid stop&#x2F;fault</td>
+<td>PN 总线故障时立即停止输出，持续报警，等待复位信号</td>
+</tr>
+<tr>
+<td>836</td>
+<td>设为 Rapid stop&#x2F;fault</td>
+<td>SBUS 总线故障时立即停止输出，持续报警，等待复位信号</td>
+</tr>
+<tr>
+<td>870</td>
+<td>设为 IPOS PO data</td>
+<td>总线 PO1 定义，控制零点坐标系建立；发送速度值</td>
+</tr>
+<tr>
+<td>871</td>
+<td>设为 Setpoint position high</td>
+<td>总线 PO2 定义，发送要到达目标位置脉冲值高位</td>
+</tr>
+<tr>
+<td>872</td>
+<td>设为 Setpoint position low</td>
+<td>总线 PO3 定义，发送要到达目标位置脉冲值低位</td>
+</tr>
+<tr>
+<td>873</td>
+<td>设为 Status word 1</td>
+<td>总线 PI1 定义，反馈驱动器状态；到位信息</td>
+</tr>
+<tr>
+<td>874</td>
+<td>设为 Actual position high</td>
+<td>总线 PI2 定义，反馈当前位置脉冲值高位</td>
+</tr>
+<tr>
+<td>875</td>
+<td>设为 Actual position low</td>
+<td>总线 PI3 定义，反馈当前位置脉冲值低位</td>
+</tr>
+<tr>
+<td>876</td>
+<td>设为 Yes</td>
+<td>允许总线数据传输</td>
+</tr>
+<tr>
+<td>881</td>
+<td>设为 1</td>
+<td>主机 SBUS 总线地址</td>
+</tr>
+<tr>
+<td>882</td>
+<td>设为 1</td>
+<td>主从机 SBUS 总线组地址</td>
+</tr>
+<tr>
+<td>883</td>
+<td>设为 0.1</td>
+<td>主从机 SBUS 总线通讯监控时间</td>
+</tr>
+<tr>
+<td>910</td>
+<td>设为所需值</td>
+<td>位置控制运行时，电机的位置环增益，建议 **0.1-0.4  **</td>
+</tr>
+<tr>
+<td>911</td>
+<td>设为所需值</td>
+<td>位置控制运行时电机的加速时间</td>
+</tr>
+<tr>
+<td>912</td>
+<td>设为所需值</td>
+<td>位置控制运行时电机的减速时间</td>
+</tr>
+<tr>
+<td>922</td>
+<td>设为所需值</td>
+<td>目标位置到位窗口，**默认值 50  **</td>
+</tr>
+<tr>
+<td>923</td>
+<td>设为所需值</td>
+<td>位置运行曲线跟踪窗口，**默认值 5000  **</td>
+</tr>
+</tbody></table>
+<h3 id="2、从机参数"><a href="#2、从机参数" class="headerlink" title="2、从机参数"></a>2、从机参数</h3><table>
+<thead>
+<tr>
+<th></th>
+<th></th>
+<th></th>
+</tr>
+</thead>
+<tbody><tr>
+<td>100</td>
+<td>设为 Master SBus 1</td>
+<td>SBUS 总线控制</td>
+</tr>
+<tr>
+<td>101</td>
+<td>设为 Terminals</td>
+<td>端子控制</td>
+</tr>
+<tr>
+<td>130</td>
+<td>设为所需值</td>
+<td>速度控制时 CW 顺时针运行加速斜坡时间</td>
+</tr>
+<tr>
+<td>131</td>
+<td>设为所需值</td>
+<td>速度控制时 CW 顺时针运行减速斜坡时间</td>
+</tr>
+<tr>
+<td>132</td>
+<td>设为所需值</td>
+<td>速度控制时 CCW 逆时针运行加速斜坡时间</td>
+</tr>
+<tr>
+<td>133</td>
+<td>设为所需值</td>
+<td>速度控制时 CCW 逆时针运行减速斜坡时间</td>
+</tr>
+<tr>
+<td>136</td>
+<td>设为所需值</td>
+<td>当 ENABLE&#x2F;RAP.STOP 端子由 1 变为 0 时，电机的停转时间</td>
+</tr>
+<tr>
+<td>200</td>
+<td>设为所需值</td>
+<td>电机的速度环增益，系统会按电机配置时，输入的负载情况，设定建议值</td>
+</tr>
+<tr>
+<td>301</td>
+<td>设为 0</td>
+<td>输出最小转速</td>
+</tr>
+<tr>
+<td>302</td>
+<td>设为所需值</td>
+<td>输出最大转速</td>
+</tr>
+<tr>
+<td>303</td>
+<td>设为所需值</td>
+<td>输出最大电流限幅</td>
+</tr>
+<tr>
+<td>304</td>
+<td>设为所需值</td>
+<td>输出最大力矩限幅</td>
+</tr>
+<tr>
+<td>500</td>
+<td>设为 MOT. &amp; REGEN.MODE</td>
+<td>电机过载保护功能打开</td>
+</tr>
+<tr>
+<td>501</td>
+<td>设为所需值</td>
+<td>电机过载，达到参数 303 设定值后，多长时间才停机报警</td>
+</tr>
+<tr>
+<td>600</td>
+<td>设为 No function</td>
+<td>无功能</td>
+</tr>
+<tr>
+<td>601</td>
+<td>设为 Fault reset</td>
+<td>故障复位</td>
+</tr>
+<tr>
+<td>602</td>
+<td>设为 NO FUNCTION</td>
+<td>无功能</td>
+</tr>
+<tr>
+<td>603</td>
+<td>设为 NO FUNCTION</td>
+<td>无功能</td>
+</tr>
+<tr>
+<td>604</td>
+<td>设为 NO FUNCTION</td>
+<td>无功能</td>
+</tr>
+<tr>
+<td>621</td>
+<td>设为&#x2F;Fault</td>
+<td>故障报警</td>
+</tr>
+<tr>
+<td>622</td>
+<td>设为 Rotating field ON</td>
+<td>电机是否运行</td>
+</tr>
+<tr>
+<td>623</td>
+<td>设为 No function</td>
+<td>无功能</td>
+</tr>
+<tr>
+<td>624</td>
+<td>设为&#x2F;Fault</td>
+<td>故障报警</td>
+</tr>
+<tr>
+<td>700</td>
+<td>设为 Servo &amp; torque control</td>
+<td>伺服力矩控制模式</td>
+</tr>
+<tr>
+<td>731</td>
+<td>制动器释放时间，升降驱动时：设为 0.25s</td>
+<td><strong>升降控制时，起动时防溜车时间</strong></td>
+</tr>
+<tr>
+<td>732</td>
+<td>制动器应用时间，升降驱动时：设为 0.25s</td>
+<td><strong>升降控制时，停止时防溜车时间</strong></td>
+</tr>
+<tr>
+<td>750</td>
+<td>设为 Master&#x2F;slave off</td>
+<td>主机功能关闭</td>
+</tr>
+<tr>
+<td>830</td>
+<td>设为 Rapid stop&#x2F;fault</td>
+<td>从机故障时立即停止输出，持续报警，等待复位信号</td>
+</tr>
+<tr>
+<td>831</td>
+<td>设为 Rapid stop&#x2F;fault</td>
+<td>PN 总线故障时立即停止输出，持续报警，等待复位信号</td>
+</tr>
+<tr>
+<td>836</td>
+<td>设为 Rapid stop&#x2F;fault</td>
+<td>SBUS 总线故障时立即停止输出，持续报警，等待复位信号</td>
+</tr>
+<tr>
+<td>870</td>
+<td>设为 Control word 1</td>
+<td>总线 PO1 定义，控制电机启动，停止</td>
+</tr>
+<tr>
+<td>871</td>
+<td>设为 Setpoint current</td>
+<td>总线 PO2 定义，发送从机需要输出的力矩值</td>
+</tr>
+<tr>
+<td>872</td>
+<td>设为 IPOS PO data</td>
+<td>总线 PO3 定义，保留未使用</td>
+</tr>
+<tr>
+<td>873</td>
+<td>设为 Status word 1</td>
+<td>总线 PI1 定义，反馈驱动器状态</td>
+</tr>
+<tr>
+<td>874</td>
+<td>设为 Actual speed</td>
+<td>总线 PI2 定义，反馈当前电机运行的速度</td>
+</tr>
+<tr>
+<td>875</td>
+<td>设为 IPOS PI data</td>
+<td>总线 PI3 定义，保留未使用</td>
+</tr>
+<tr>
+<td>876</td>
+<td>设为 Yes</td>
+<td>允许总线数据传输</td>
+</tr>
+<tr>
+<td>881</td>
+<td>设为 2</td>
+<td>主机 SBUS 总线地址</td>
+</tr>
+<tr>
+<td>882</td>
+<td>设为 1</td>
+<td>主从机 SBUS 总线组地址</td>
+</tr>
+<tr>
+<td>883</td>
+<td>设为 0.1</td>
+<td>主从机 SBUS 总线通讯监控时间</td>
+</tr>
+</tbody></table>
+<h2 id="总线速度控制-6PD-Profinet-IO-双驱力矩分配板链-带增量型编码器"><a href="#总线速度控制-6PD-Profinet-IO-双驱力矩分配板链-带增量型编码器" class="headerlink" title="总线速度控制-6PD-Profinet IO-双驱力矩分配板链-带增量型编码器"></a>总线速度控制-6PD-Profinet IO-双驱力矩分配板链-带增量型编码器</h2><h3 id="1、主机参数-1"><a href="#1、主机参数-1" class="headerlink" title="1、主机参数"></a>1、主机参数</h3><h3 id="2、从机参数-1"><a href="#2、从机参数-1" class="headerlink" title="2、从机参数"></a>2、从机参数</h3><h1 id="四、接线"><a href="#四、接线" class="headerlink" title="四、接线"></a>四、接线</h1><p>**主机与从机的X12端口需对接  **</p>
+<table>
+<thead>
+<tr>
+<th>主机端子</th>
+<th>从机端子</th>
+</tr>
+</thead>
+<tbody><tr>
+<td>DGND</td>
+<td>DGBD</td>
+</tr>
+<tr>
+<td>SC11</td>
+<td>SC11</td>
+</tr>
+<tr>
+<td>SC12</td>
+<td>SC12</td>
+</tr>
+</tbody></table>
+<h1 id="五、拨码"><a href="#五、拨码" class="headerlink" title="五、拨码"></a>五、拨码</h1><p>**从机 S12 需置于 ON 处  **</p>
+<p><img src="https://img.051516.xyz/20250725155738397.png"></p>
+<h1 id="六、总线使用说明"><a href="#六、总线使用说明" class="headerlink" title="六、总线使用说明"></a>六、总线使用说明</h1><h2 id="总线位置控制-6PD-Profinet-IO-双驱力矩分配升降-带增量型编码器-1"><a href="#总线位置控制-6PD-Profinet-IO-双驱力矩分配升降-带增量型编码器-1" class="headerlink" title="总线位置控制-6PD-Profinet IO-双驱力矩分配升降-带增量型编码器"></a>总线位置控制-6PD-Profinet IO-双驱力矩分配升降-带增量型编码器</h2><h3 id="PLC-设定至变频器值"><a href="#PLC-设定至变频器值" class="headerlink" title="PLC 设定至变频器值"></a>PLC 设定至变频器值</h3><p>**PO1 : **IPOS PO-DATA  </p>
+<p>第一个 PO 字发 1 至驱动器，表示将当前位置的坐标清零，建立机械坐标系；发其它数值至驱动器，表示设定所需的速度，比例为 0.1，如需按 500rpm 运行，发 5000 即可</p>
+<p>如 PO1 对应 QW256，直接赋值到 QW256 即可</p>
+<p>**PO2 : **Setpoint position high ；**PO3 : **Setpoint position low</p>
+<p>所需电机要到达的位置可通过总线第二和第三个 PO字双字格式进行控制</p>
+<p>如 PO2 对应 QW258；PO3 对应 QW260；</p>
+<p>想让电机运行到 1000000 脉冲（电机 4096 脉冲&#x2F;转）的目标位置，直接赋值到 QD258 即可  </p>
+<p><strong>PO4 :</strong> IMAX  </p>
+<p>表示设定所需输出的最大力矩，比例为 0.1，如需按 70%输出限幅，发 700 即可</p>
+<p>如 PO4 对应 QW262，直接赋值到 QW262 即可</p>
+<p>**PO5 : **Accelerating ramp  </p>
+<p>表示设定所需加速斜坡时间，比例为 1:1ms，如需按 3s斜坡加速，发 3000 即可</p>
+<p>如 PO5 对应 QW264，直接赋值到 QW264 即可  </p>
+<p>**PO6 : **Deceleration ramp  </p>
+<p>表示设定所需减速斜坡时间，比例为 1:1ms，如需按 2s斜坡加速，发 2000 即可<br>如 PO6 对应 QW266，直接赋值到 QW266 即可</p>
+<h3 id="变频器反馈至-PLC-值"><a href="#变频器反馈至-PLC-值" class="headerlink" title="变频器反馈至 PLC 值"></a>变频器反馈至 PLC 值</h3><p>**PI1 : **Status word 1 （状态字 1）</p>
+<p><img src="https://img.051516.xyz/20250725155738398.png"></p>
+<p><img src="https://img.051516.xyz/20250725155738399.png"></p>
+<p>当第 5 位为 1 时，表示变频器有报警；高 8 位（8-15 位）的整型数值为报警代码（代码含义请看 SEW_MDX61B 驱动控制器系统手册英文版 Edition2010.8 第620-636 页）<br>当第 5 位为 0 时，表示变频器没有报警；高 8 位（8-15 位）的整型数值为变频器运行状态代码（代码含义请看 SEW_MDX61B 驱动控制器系统手册英文版Edition2010.8 第 609 页）<br>如 PI1 对应 IW256<br>想知道系统的相应状态，直接从 IW256 读值即可</p>
+<p>**PI2 : **Actual position high ；**PI3 : **Actual position low  </p>
+<p>伺服系统的当前位置坐标可通过总线第二和第三个 PI 字双字格式读上来<br>如 PI2 对应 IW258；PI3 对应 IW260；<br>想知道电机运行到什么位置，直接从 ID258 读值即可</p>
+<p><strong>PI4 :</strong> Actual speed<br>如 PI4 对应 IW262<br>想知道电机运行的速度，直接从 IW262 读值即可<br>比例为 0.1，如读取值为 6000，则实际值为 600rpm</p>
+<p><strong>PI5 :</strong> Actual current<br>如 PI5 对应 IW264<br>想知道电机实际输出的有功电流（力矩），直接从 IW264 读值即可</p>
+<p><strong>PI6 :</strong> OUTPUTS<br>如 PI6 对应 IW266<br>想知道驱动器的 DO 输出状态，直接从 IW266 读值即可</p>
+<h2 id="总线速度控制-6PD-Profinet-IO-双驱力矩分配板链-带增量型编码器-1"><a href="#总线速度控制-6PD-Profinet-IO-双驱力矩分配板链-带增量型编码器-1" class="headerlink" title="总线速度控制-6PD-Profinet IO-双驱力矩分配板链-带增量型编码器"></a>总线速度控制-6PD-Profinet IO-双驱力矩分配板链-带增量型编码器</h2><h3 id="PLC-设定至变频器值-1"><a href="#PLC-设定至变频器值-1" class="headerlink" title="PLC 设定至变频器值"></a>PLC 设定至变频器值</h3><h3 id="变频器反馈至-PLC-值-1"><a href="#变频器反馈至-PLC-值-1" class="headerlink" title="变频器反馈至 PLC 值"></a>变频器反馈至 PLC 值</h3><h1 id="七、使用-MOTION-STUDIO-软件，输入驱动器内位控程序"><a href="#七、使用-MOTION-STUDIO-软件，输入驱动器内位控程序" class="headerlink" title="七、使用 MOTION STUDIO 软件，输入驱动器内位控程序"></a>七、使用 MOTION STUDIO 软件，输入驱动器内位控程序</h1><h2 id="总线位置控制-6PD-Profinet-IO-双驱力矩分配升降-带增量型编码器-2"><a href="#总线位置控制-6PD-Profinet-IO-双驱力矩分配升降-带增量型编码器-2" class="headerlink" title="总线位置控制-6PD-Profinet IO-双驱力矩分配升降-带增量型编码器"></a>总线位置控制-6PD-Profinet IO-双驱力矩分配升降-带增量型编码器</h2><p>总线位控模式运行时，伺服控制器内接口程序  </p>
+<figure class="highlight plaintext"><table><tr><td class="code"><pre><span class="line">SET H200 = 3 //设定接口格式：外部总线数据传输</span><br><span class="line">SET H201 = 6 //设定接口格式：6 个PO</span><br><span class="line">SET H211 = 6 //设定接口格式：6 个PI</span><br><span class="line">M2: GETSYS H200 = PO-DATA //接收 PO 数据值</span><br><span class="line">SET H222 = H202</span><br><span class="line">SET H223 = H202</span><br><span class="line">SETSYS POP.SPEED C(CW) = H222 //对运行速度赋值</span><br><span class="line">SETSYS IMAX = H205 //对最大输出力矩赋值</span><br><span class="line">SET H226 = H206</span><br><span class="line">SET H227 = H207</span><br><span class="line">SETSYS POP.RAMP = H226 //对加减速时间赋值</span><br><span class="line">SET H492 = H499 //对运行的目标位置赋值</span><br><span class="line">SETSYS PI-DATA = H211 //读取 PI 数据值</span><br><span class="line">GETSYS H215 = ACT . SPEED //读取实际运行速度值</span><br><span class="line">GETSYS H216 = ACTUAL . CURRENT //读取实际输出力矩值</span><br><span class="line">SET H217 = H521 //读取输出点的状态值</span><br><span class="line">JMP H202 == 1, M1 //置零点坐标条件；</span><br><span class="line">RET</span><br><span class="line">M1: SET H511 = 0 //如果总线传送的第一个字值为 1，将当前的位置坐标置为 0（建立坐标系）；</span><br><span class="line">WAIT 100ms</span><br><span class="line">JMP UNCONDITIONED , M2</span><br><span class="line">RET</span><br><span class="line">END</span><br></pre></td></tr></table></figure>
+
+<p>由于此程序利用总线第一个传送字既作为速度传送，也作为置坐标指令传送，因此在发送时应根据实际情况进行：</p>
+<p>由于此程序利用总线第一个传送字既作为速度传送，也作为置坐标指令传送，因此在发送时应根据实际情况进行：</p>
+<p>如：总线第一个传送字发送 1 到伺服系统内，伺服系统将按 0.1rpm（0.1的比例），以及第二和第三个传送字发来的目标坐标值进行定位运行；但由于也同时将当前的位置坐标置为 0，如果第二和第三个传送字发来的目标坐标值与 0不同，伺服系统将按 0.1rpm 不断朝一个方向运行；</p>
+<p>在需要进行回零操作时，应先将系统运行到机械零点位置，然后将ENABLE&#x2F;RAP.STOP 端子置为 0，等待 50ms 后在给第一个传送字发送 1，则伺服驱动器坐标系清零；<br>然后在给第一个传送字发 送 0，第二和第三个传送字发送 0，然后 将ENABLE&#x2F;RAP.STOP 端子置为 1，伺服系统进入 0 速力矩保持状态，等待运行；</p>
+<p>如果仅将第一个传送字发送 0，第二和第三个传送字发送的坐标值与当前的坐标值不同，在将 ENABLE&#x2F;RAP.STOP 端子置为 1 后，伺服系统会以极低的速度朝第二和第三个传送字发送的坐标值运行，而不会以 0 速停在原地。</p>
+<p>当 ENABLE&#x2F;RAP.STOP 端子为 1 时，不能发送回零指令，不恰当的操作会导致系统报警停机。</p>
+<p>当①系统断电又重新上电，②系统报警停机复位，以及③对伺服系统作初始化配置后，系统内部的坐标系都会被更改，应重新做回零运行，建立正确的系统坐标系。</p>
+<h1 id="电磁干扰屏蔽安装要求"><a href="#电磁干扰屏蔽安装要求" class="headerlink" title="电磁干扰屏蔽安装要求"></a>电磁干扰屏蔽安装要求</h1><p>伺服控制器至伺服电机的动力电缆需采用带屏蔽层，屏蔽层从头至尾不应有断层，并用金属夹可靠紧固，大面积接地  </p>
+<p><img src="https://img.051516.xyz/20250725155738400.png"></p>
+<p>编码器线需采用专用带屏蔽层双绞线，并用金属夹将屏蔽层可靠紧固接地，屏蔽层从头至尾不应有断层。  </p>
+<p><img src="https://img.051516.xyz/20250725155738401.png"></p>
+<p><img src="https://img.051516.xyz/20250725155738402.png"></p>
+<p><img src="https://img.051516.xyz/20250725155738403.png"></p>
+<p>电磁干扰屏蔽处理不当：**会出现总线易受干扰掉线；编码器脉冲信号接受错误，定位精度差；对电机进行零速控制时，电机会自行转动等故障现象。  **</p>
+<h1 id="资料下载"><a href="#资料下载" class="headerlink" title="资料下载"></a>资料下载</h1><p>MOVIDRIVE® MDX60B &#x2F; 61B 操作手册：<a href="https://download.sew-eurodrive.com/download/pdf/11300558.pdf">https://download.sew-eurodrive.com/download/pdf/11300558.pdf</a><br>MOVITOOLS MotionStudio：<a href="https://www.sew-eurodrive.cn/os/dud/?tab=software&country=CN&language=zh_cn&search=MotionStudio">https://www.sew-eurodrive.cn/os/dud/?tab=software&amp;country=CN&amp;language=zh_cn&amp;search=MotionStudio</a></p>
 ]]></content>
       <categories>
         <category>工业自动化</category>
@@ -2687,59 +3257,6 @@
       </tags>
   </entry>
   <entry>
-    <title>x-ui最稳妥的魔术面板</title>
-    <url>/posts/af28068c/</url>
-    <content><![CDATA[<p><strong>最近经常有人被封端口，我自己搭的这个方案没被封过，现在分享出来。</strong></p>
-<h2 id="系统：Debian10-11"><a href="#系统：Debian10-11" class="headerlink" title="系统：Debian10-11"></a>系统：Debian10-11</h2><p>首先要确保自己的vps是纯净的系统，不要商家预装的，在系统启动后操作DD重装脚本进行安装纯净版系统</p>
-<h2 id="第一步：DD重装Debian10系统："><a href="#第一步：DD重装Debian10系统：" class="headerlink" title="第一步：DD重装Debian10系统："></a>第一步：DD重装Debian10系统：</h2><figure class="highlight shell"><table><tr><td class="code"><pre><span class="line">wget -N --no-check-certificate https://raw.githubusercontent.com/qingee/dd/master/InstallNET.sh &amp;&amp; chmod +x InstallNET.sh &amp;&amp; ./InstallNET.sh -d 10 -v 64 -p &quot;notetoday&quot; -port &quot;22&quot;</span><br></pre></td></tr></table></figure>
-
-<p>系统root密码：<code>notetoday</code><br>更改root密码：<code>passwd</code> 或者 <code>passwd root</code>输入你想要设置的密码即可，在ssh命令窗口输入密码<code>不显示是正常的</code></p>
-<h2 id="第二步：安装WARP接管VPS的出站ip（加入香港节点WireGuard异常：可以去Github）"><a href="#第二步：安装WARP接管VPS的出站ip（加入香港节点WireGuard异常：可以去Github）" class="headerlink" title="第二步：安装WARP接管VPS的出站ip（加入香港节点WireGuard异常：可以去Github）"></a>第二步：安装WARP接管VPS的出站ip（加入香港节点WireGuard异常：可以去<a href="https://github.com/fscarmen/warp">Github</a>）</h2><blockquote>
-<p>apt update<br>apt install curl -y<br>apt install gnupg2 -y<br>apt install wget -y<br># 自动配置 WARP WireGuard IPv4 网络<br>bash &lt;(curl -fsSL git.io&#x2F;warp.sh) 4<br>echo “1” &gt; &#x2F;proc&#x2F;sys&#x2F;net&#x2F;ipv6&#x2F;conf&#x2F;all&#x2F;disable_ipv6</p>
-</blockquote>
-<p>这个配置后你vps向外请求的所有ip都不是本机的真实ip，速度可能会有所影响，但是会很安全</p>
-<h2 id="第三步：-安装适用于流媒体的XanMod内核开启BBR2（FQ-PIE）："><a href="#第三步：-安装适用于流媒体的XanMod内核开启BBR2（FQ-PIE）：" class="headerlink" title="第三步： 安装适用于流媒体的XanMod内核开启BBR2（FQ+PIE）："></a>第三步： 安装适用于流媒体的XanMod内核开启BBR2（FQ+PIE）：</h2><blockquote>
-<ol>
-<li>Register the PGP key:</li>
-</ol>
-<figure class="highlight shell"><table><tr><td class="code"><pre><span class="line">wget -qO - https://dl.xanmod.org/archive.key | sudo gpg --dearmor -o /usr/share/keyrings/xanmod-archive-keyring.gpg</span><br></pre></td></tr></table></figure>
-
-<ol start="2">
-<li>Add the repository:</li>
-</ol>
-<figure class="highlight shell"><table><tr><td class="code"><pre><span class="line">echo &#x27;deb [signed-by=/usr/share/keyrings/xanmod-archive-keyring.gpg] http://deb.xanmod.org releases main&#x27; | sudo tee /etc/apt/sources.list.d/xanmod-release.list</span><br></pre></td></tr></table></figure>
-
-<ol start="3">
-<li>Then update and install:  <strong>⇲</strong> Check platform compatibility in <strong>x86-64 psABI level reference</strong> below.</li>
-</ol>
-<figure class="highlight shell"><table><tr><td class="code"><pre><span class="line">sudo apt update &amp;&amp; sudo apt install linux-xanmod-x64v3</span><br></pre></td></tr></table></figure>
-
-<ol start="4">
-<li>Reboot</li>
-</ol>
-</blockquote>
-<p>执行完命令代码后等待系统重启，重启完成后执行以下脚本开启<code>BBR2</code></p>
-<blockquote>
-<p>bash &lt;(curl -Lso- <a href="https://git.io/kernel.sh">https://git.io/kernel.sh</a>)</p>
-</blockquote>
-<p><a href=""><img src="https://img.051516.xyz/202311061449957.png" alt="2022-10-22T05:09:28.png"></a><br><a href=""><img src="https://img.051516.xyz/202311061450569.png" alt="2022-10-22T05:13:42.png"></a><br><a href=""><img src="https://img.051516.xyz/202311061450421.png" alt="2022-10-22T05:15:10.png"></a><br>再次运行上面的代码，查看参数是否和下图一样，如果是一样的就是开启成功了<br><a href=""><img src="https://img.051516.xyz/202311061450627.png" alt="2022-10-22T05:17:17.png"></a> </p>
-<h2 id="第四步：安装x-ui面板"><a href="#第四步：安装x-ui面板" class="headerlink" title="第四步：安装x-ui面板"></a><strong>第四步：安装x-ui面板</strong></h2><blockquote>
-</blockquote>
-<h2 id="PS：安装VPS开源MW控制面板（要装就装，不装也没事）"><a href="#PS：安装VPS开源MW控制面板（要装就装，不装也没事）" class="headerlink" title="PS：安装VPS开源MW控制面板（要装就装，不装也没事）"></a><strong>PS：安装VPS开源MW控制面板（要装就装，不装也没事）</strong></h2><p>使用这套配置操作，所有IP 都是CDNip</p>
-<p><a href="https://www.notetoday.net/note/111.html">Linux主机开源面板：mdserver-web，完全免费，界面仿宝塔面板</a></p>
-<figure class="highlight shell"><table><tr><td class="code"><pre><span class="line">curl -fsSL https://gcore.jsdelivr.net/gh/midoks/mdserver-web@latest/scripts/install.sh | bash</span><br><span class="line">curl -fsSL  https://raw.githubusercontent.com/midoks/mdserver-web/dev/scripts/update_dev.sh | bash</span><br></pre></td></tr></table></figure>
-
-<p><a href=""><img src="https://img.051516.xyz/202311061450166.png" alt="2022-10-22T05:25:00.png"></a><br>记住控制面板的信息登录上去后在安全里<code>关闭防火墙</code></p>
-<p>或者海外宝塔：<a href="https://www.aapanel.com/new/download.html">https://www.aapanel.com/new/download.html</a></p>
-]]></content>
-      <categories>
-        <category>网络技术</category>
-      </categories>
-      <tags>
-        <tag>网络代理</tag>
-      </tags>
-  </entry>
-  <entry>
     <title>一键DD纯净系统脚本 CentOS/Debian/Ubuntu</title>
     <url>/posts/7db8067/</url>
     <content><![CDATA[<p>基本所有的VPS服务器商家，都会提供免费的Linux系统供安装，比如CentOS、Debian、Ubuntu等。那为什么还要使用一键DD脚本重装&#x2F;更换系统呢？</p>
@@ -2854,6 +3371,59 @@
       </categories>
       <tags>
         <tag>随身WiFi</tag>
+      </tags>
+  </entry>
+  <entry>
+    <title>x-ui最稳妥的魔术面板</title>
+    <url>/posts/af28068c/</url>
+    <content><![CDATA[<p><strong>最近经常有人被封端口，我自己搭的这个方案没被封过，现在分享出来。</strong></p>
+<h2 id="系统：Debian10-11"><a href="#系统：Debian10-11" class="headerlink" title="系统：Debian10-11"></a>系统：Debian10-11</h2><p>首先要确保自己的vps是纯净的系统，不要商家预装的，在系统启动后操作DD重装脚本进行安装纯净版系统</p>
+<h2 id="第一步：DD重装Debian10系统："><a href="#第一步：DD重装Debian10系统：" class="headerlink" title="第一步：DD重装Debian10系统："></a>第一步：DD重装Debian10系统：</h2><figure class="highlight shell"><table><tr><td class="code"><pre><span class="line">wget -N --no-check-certificate https://raw.githubusercontent.com/qingee/dd/master/InstallNET.sh &amp;&amp; chmod +x InstallNET.sh &amp;&amp; ./InstallNET.sh -d 10 -v 64 -p &quot;notetoday&quot; -port &quot;22&quot;</span><br></pre></td></tr></table></figure>
+
+<p>系统root密码：<code>notetoday</code><br>更改root密码：<code>passwd</code> 或者 <code>passwd root</code>输入你想要设置的密码即可，在ssh命令窗口输入密码<code>不显示是正常的</code></p>
+<h2 id="第二步：安装WARP接管VPS的出站ip（加入香港节点WireGuard异常：可以去Github）"><a href="#第二步：安装WARP接管VPS的出站ip（加入香港节点WireGuard异常：可以去Github）" class="headerlink" title="第二步：安装WARP接管VPS的出站ip（加入香港节点WireGuard异常：可以去Github）"></a>第二步：安装WARP接管VPS的出站ip（加入香港节点WireGuard异常：可以去<a href="https://github.com/fscarmen/warp">Github</a>）</h2><blockquote>
+<p>apt update<br>apt install curl -y<br>apt install gnupg2 -y<br>apt install wget -y<br># 自动配置 WARP WireGuard IPv4 网络<br>bash &lt;(curl -fsSL git.io&#x2F;warp.sh) 4<br>echo “1” &gt; &#x2F;proc&#x2F;sys&#x2F;net&#x2F;ipv6&#x2F;conf&#x2F;all&#x2F;disable_ipv6</p>
+</blockquote>
+<p>这个配置后你vps向外请求的所有ip都不是本机的真实ip，速度可能会有所影响，但是会很安全</p>
+<h2 id="第三步：-安装适用于流媒体的XanMod内核开启BBR2（FQ-PIE）："><a href="#第三步：-安装适用于流媒体的XanMod内核开启BBR2（FQ-PIE）：" class="headerlink" title="第三步： 安装适用于流媒体的XanMod内核开启BBR2（FQ+PIE）："></a>第三步： 安装适用于流媒体的XanMod内核开启BBR2（FQ+PIE）：</h2><blockquote>
+<ol>
+<li>Register the PGP key:</li>
+</ol>
+<figure class="highlight shell"><table><tr><td class="code"><pre><span class="line">wget -qO - https://dl.xanmod.org/archive.key | sudo gpg --dearmor -o /usr/share/keyrings/xanmod-archive-keyring.gpg</span><br></pre></td></tr></table></figure>
+
+<ol start="2">
+<li>Add the repository:</li>
+</ol>
+<figure class="highlight shell"><table><tr><td class="code"><pre><span class="line">echo &#x27;deb [signed-by=/usr/share/keyrings/xanmod-archive-keyring.gpg] http://deb.xanmod.org releases main&#x27; | sudo tee /etc/apt/sources.list.d/xanmod-release.list</span><br></pre></td></tr></table></figure>
+
+<ol start="3">
+<li>Then update and install:  <strong>⇲</strong> Check platform compatibility in <strong>x86-64 psABI level reference</strong> below.</li>
+</ol>
+<figure class="highlight shell"><table><tr><td class="code"><pre><span class="line">sudo apt update &amp;&amp; sudo apt install linux-xanmod-x64v3</span><br></pre></td></tr></table></figure>
+
+<ol start="4">
+<li>Reboot</li>
+</ol>
+</blockquote>
+<p>执行完命令代码后等待系统重启，重启完成后执行以下脚本开启<code>BBR2</code></p>
+<blockquote>
+<p>bash &lt;(curl -Lso- <a href="https://git.io/kernel.sh">https://git.io/kernel.sh</a>)</p>
+</blockquote>
+<p><a href=""><img src="https://img.051516.xyz/202311061449957.png" alt="2022-10-22T05:09:28.png"></a><br><a href=""><img src="https://img.051516.xyz/202311061450569.png" alt="2022-10-22T05:13:42.png"></a><br><a href=""><img src="https://img.051516.xyz/202311061450421.png" alt="2022-10-22T05:15:10.png"></a><br>再次运行上面的代码，查看参数是否和下图一样，如果是一样的就是开启成功了<br><a href=""><img src="https://img.051516.xyz/202311061450627.png" alt="2022-10-22T05:17:17.png"></a> </p>
+<h2 id="第四步：安装x-ui面板"><a href="#第四步：安装x-ui面板" class="headerlink" title="第四步：安装x-ui面板"></a><strong>第四步：安装x-ui面板</strong></h2><blockquote>
+</blockquote>
+<h2 id="PS：安装VPS开源MW控制面板（要装就装，不装也没事）"><a href="#PS：安装VPS开源MW控制面板（要装就装，不装也没事）" class="headerlink" title="PS：安装VPS开源MW控制面板（要装就装，不装也没事）"></a><strong>PS：安装VPS开源MW控制面板（要装就装，不装也没事）</strong></h2><p>使用这套配置操作，所有IP 都是CDNip</p>
+<p><a href="https://www.notetoday.net/note/111.html">Linux主机开源面板：mdserver-web，完全免费，界面仿宝塔面板</a></p>
+<figure class="highlight shell"><table><tr><td class="code"><pre><span class="line">curl -fsSL https://gcore.jsdelivr.net/gh/midoks/mdserver-web@latest/scripts/install.sh | bash</span><br><span class="line">curl -fsSL  https://raw.githubusercontent.com/midoks/mdserver-web/dev/scripts/update_dev.sh | bash</span><br></pre></td></tr></table></figure>
+
+<p><a href=""><img src="https://img.051516.xyz/202311061450166.png" alt="2022-10-22T05:25:00.png"></a><br>记住控制面板的信息登录上去后在安全里<code>关闭防火墙</code></p>
+<p>或者海外宝塔：<a href="https://www.aapanel.com/new/download.html">https://www.aapanel.com/new/download.html</a></p>
+]]></content>
+      <categories>
+        <category>网络技术</category>
+      </categories>
+      <tags>
+        <tag>网络代理</tag>
       </tags>
   </entry>
   <entry>
@@ -3190,46 +3760,6 @@
       </tags>
   </entry>
   <entry>
-    <title>李跳跳2.2正式版</title>
-    <url>/posts/f5caf0fa/</url>
-    <content><![CDATA[<p><strong>无论你是哪个版本的李跳跳，都建议更新啊喂。</strong></p>
-<h1 id="更新日志"><a href="#更新日志" class="headerlink" title="更新日志"></a>更新日志</h1><p>1.省电优化。</p>
-<p>2.响应速度优化。</p>
-<p>3.内置算法优化。</p>
-<p>4.适配更多APP。</p>
-<p>5.修复已知BUG。</p>
-<p>6.修复用户反馈的问题。</p>
-<p>7.适配圆形倒计时广告。</p>
-<p>8.优化微信自动勾选原图。</p>
-<p>9.新增无障碍服务异常检测。</p>
-<p>10.自定义规则优化，支持关闭任意个连续弹窗。</p>
-<p>11.自定义规则优化，支持同一弹窗点击多个位置。</p>
-<p>12.自定义规则优化，遇到流氓弹窗容易误点广告的问题。</p>
-<p>13.优化短时间内弹出多个弹窗无法全部关闭的问题。</p>
-<p>14.过滤一些不合理输入，减少系统资源损耗。</p>
-<p>15.自定义规则支持CheckBox状态判断。</p>
-<p>16.修复华为系统下的特定BUG。</p>
-<p>17.适配华为系统下的特定广告。</p>
-<p>18.特定APP新增特定算法。</p>
-<p>19.适配特定系统的优化。</p>
-<p>20.支持自定义点击序列。</p>
-<p>21.优化节点过滤逻辑。</p>
-<p>22.支持覆盖内置规则。</p>
-<p>23.无障碍标签完善。</p>
-<p>24.优化部分文案。</p>
-<p>25.更换新图标。</p>
-<p>26.更换包名(无奈之举)。</p>
-<h1 id="下载地址"><a href="#下载地址" class="headerlink" title="下载地址"></a>下载地址</h1><p>免登陆下载：<a href="https://www.123pan.com/s/bAORVv-QGQl.html">https://www.123pan.com/s/bAORVv-QGQl.html</a></p>
-<p><img src="https://img.051516.xyz/202304091214921.png" alt="image-20230409121412470"></p>
-]]></content>
-      <categories>
-        <category>效率工具</category>
-      </categories>
-      <tags>
-        <tag>安卓应用</tag>
-      </tags>
-  </entry>
-  <entry>
     <title>最佳免费VPN方式-workers搭建vless使用</title>
     <url>/posts/1b7388f/</url>
     <content><![CDATA[<h2 id="资源："><a href="#资源：" class="headerlink" title="资源："></a>资源：</h2><h6 id="WIN"><a href="#WIN" class="headerlink" title="WIN:"></a><strong>WIN:</strong></h6><p>v2rayN 最新版<a href="https://github.com/2dust/v2rayN/releases">下载地址&gt;&gt;</a></p>
@@ -3325,6 +3855,46 @@
       </categories>
       <tags>
         <tag>网络代理</tag>
+      </tags>
+  </entry>
+  <entry>
+    <title>李跳跳2.2正式版</title>
+    <url>/posts/f5caf0fa/</url>
+    <content><![CDATA[<p><strong>无论你是哪个版本的李跳跳，都建议更新啊喂。</strong></p>
+<h1 id="更新日志"><a href="#更新日志" class="headerlink" title="更新日志"></a>更新日志</h1><p>1.省电优化。</p>
+<p>2.响应速度优化。</p>
+<p>3.内置算法优化。</p>
+<p>4.适配更多APP。</p>
+<p>5.修复已知BUG。</p>
+<p>6.修复用户反馈的问题。</p>
+<p>7.适配圆形倒计时广告。</p>
+<p>8.优化微信自动勾选原图。</p>
+<p>9.新增无障碍服务异常检测。</p>
+<p>10.自定义规则优化，支持关闭任意个连续弹窗。</p>
+<p>11.自定义规则优化，支持同一弹窗点击多个位置。</p>
+<p>12.自定义规则优化，遇到流氓弹窗容易误点广告的问题。</p>
+<p>13.优化短时间内弹出多个弹窗无法全部关闭的问题。</p>
+<p>14.过滤一些不合理输入，减少系统资源损耗。</p>
+<p>15.自定义规则支持CheckBox状态判断。</p>
+<p>16.修复华为系统下的特定BUG。</p>
+<p>17.适配华为系统下的特定广告。</p>
+<p>18.特定APP新增特定算法。</p>
+<p>19.适配特定系统的优化。</p>
+<p>20.支持自定义点击序列。</p>
+<p>21.优化节点过滤逻辑。</p>
+<p>22.支持覆盖内置规则。</p>
+<p>23.无障碍标签完善。</p>
+<p>24.优化部分文案。</p>
+<p>25.更换新图标。</p>
+<p>26.更换包名(无奈之举)。</p>
+<h1 id="下载地址"><a href="#下载地址" class="headerlink" title="下载地址"></a>下载地址</h1><p>免登陆下载：<a href="https://www.123pan.com/s/bAORVv-QGQl.html">https://www.123pan.com/s/bAORVv-QGQl.html</a></p>
+<p><img src="https://img.051516.xyz/202304091214921.png" alt="image-20230409121412470"></p>
+]]></content>
+      <categories>
+        <category>效率工具</category>
+      </categories>
+      <tags>
+        <tag>安卓应用</tag>
       </tags>
   </entry>
   <entry>
