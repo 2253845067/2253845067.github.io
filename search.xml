@@ -2165,6 +2165,66 @@
       </tags>
   </entry>
   <entry>
+    <title>SEW-MC07B变频器-MOTION--STUDIO软件调试步骤、方法和技巧</title>
+    <url>/posts/421934fd/</url>
+    <content><![CDATA[<p><img src="https://img.051516.xyz/20250524205528464.PNG" alt="4"></p>
+<p><img src="https://img.051516.xyz/20250524205547050.PNG" alt="5"></p>
+<p><img src="https://img.051516.xyz/20250524205627985.PNG" alt="6"></p>
+<p><img src="https://img.051516.xyz/20250524205645010.PNG" alt="7"></p>
+<p><img src="https://img.051516.xyz/20250524205656950.PNG" alt="8"></p>
+<p><img src="https://img.051516.xyz/20250524205709394.PNG" alt="9"></p>
+<p><img src="https://img.051516.xyz/20250524205720726.PNG" alt="10"></p>
+<p><img src="https://img.051516.xyz/20250524205733378.PNG" alt="11"></p>
+<p><img src="https://img.051516.xyz/20250524205754775.PNG" alt="12"></p>
+<p><img src="https://img.051516.xyz/20250524205811663.PNG" alt="13"></p>
+<p><img src="https://img.051516.xyz/20250524205821221.PNG" alt="14"></p>
+<p><img src="https://img.051516.xyz/20250524205834316.PNG" alt="15"></p>
+<p><img src="https://img.051516.xyz/20250524205843533.PNG" alt="16"></p>
+<p><img src="https://img.051516.xyz/20250524205901797.PNG" alt="17"></p>
+<p><img src="https://img.051516.xyz/20250524205914973.PNG" alt="18"></p>
+<p><img src="https://img.051516.xyz/20250524205928160.PNG" alt="19"></p>
+<p><img src="https://img.051516.xyz/20250524205940302.PNG" alt="20"></p>
+<p><img src="https://img.051516.xyz/20250524205950644.PNG" alt="21"></p>
+<p><img src="https://img.051516.xyz/20250524210006913.PNG" alt="22"></p>
+<p><img src="https://img.051516.xyz/20250524210029075.PNG" alt="23"></p>
+<p><img src="https://img.051516.xyz/20250524210042996.PNG" alt="24"></p>
+<p><img src="https://img.051516.xyz/20250524210105981.PNG" alt="25"></p>
+<p><img src="https://img.051516.xyz/20250524210122505.PNG" alt="26"></p>
+<p><img src="https://img.051516.xyz/20250524210136340.PNG" alt="27"></p>
+<p><img src="https://img.051516.xyz/20250524210145600.PNG" alt="28"></p>
+<p><img src="https://img.051516.xyz/20250524210156379.PNG" alt="29"></p>
+<p><img src="https://img.051516.xyz/20250524210210502.PNG" alt="30"></p>
+<p><img src="https://img.051516.xyz/20250524210234883.PNG" alt="31"></p>
+<p><img src="https://img.051516.xyz/20250524210248367.PNG" alt="32"></p>
+<p><img src="https://img.051516.xyz/20250524210258079.PNG" alt="33"></p>
+<p><img src="https://img.051516.xyz/20250524210309675.PNG" alt="34"></p>
+<p><img src="https://img.051516.xyz/20250524210319649.PNG" alt="35"></p>
+<p><img src="https://img.051516.xyz/20250524210333008.PNG" alt="36"></p>
+<p><img src="https://img.051516.xyz/20250524210342988.PNG" alt="37"></p>
+<p><img src="https://img.051516.xyz/20250524210354944.PNG" alt="38"></p>
+<p><img src="https://img.051516.xyz/20250524210407861.PNG" alt="39"></p>
+<p><img src="https://img.051516.xyz/20250524210423100.PNG" alt="40"></p>
+<p><img src="https://img.051516.xyz/20250524210434359.PNG" alt="41"></p>
+<p><img src="https://img.051516.xyz/20250524210450567.PNG" alt="42"></p>
+<p><img src="https://img.051516.xyz/20250524210503106.PNG" alt="43"></p>
+<p><img src="https://img.051516.xyz/20250524210515428.PNG" alt="44"></p>
+<p><img src="https://img.051516.xyz/20250524210527098.PNG" alt="45"></p>
+<p><img src="https://img.051516.xyz/20250524210537936.PNG" alt="46"></p>
+<p><img src="https://img.051516.xyz/20250524210549531.PNG" alt="47"></p>
+<p><img src="https://img.051516.xyz/20250524210601981.PNG" alt="48"></p>
+<p><img src="https://img.051516.xyz/20250524210614094.PNG" alt="49"></p>
+<p><img src="https://img.051516.xyz/20250524210627091.PNG" alt="50"></p>
+<p><img src="https://img.051516.xyz/20250524210637201.PNG" alt="51"></p>
+<p><img src="https://img.051516.xyz/20250524210647926.PNG" alt="52"></p>
+]]></content>
+      <categories>
+        <category>工业自动化</category>
+      </categories>
+      <tags>
+        <tag>MOVIDRIVE</tag>
+      </tags>
+  </entry>
+  <entry>
     <title>SEW-MDX61B-同步伺服调试方法</title>
     <url>/posts/ee46e52f/</url>
     <content><![CDATA[<h1 id="一、使用-MOTION-STUDIO-软件配置电机"><a href="#一、使用-MOTION-STUDIO-软件配置电机" class="headerlink" title="一、使用 MOTION STUDIO 软件配置电机"></a>一、使用 MOTION STUDIO 软件配置电机</h1><p>1、打开MOVITOOLS MotionStudio软件，创建项目</p>
@@ -2349,12 +2409,12 @@
 <tr>
 <td>731</td>
 <td>制动器释放时间，升降驱动时：设为 0.25s</td>
-<td>**升降控制时，起动时防溜车时间  **</td>
+<td><strong>升降控制时，起动时防溜车时间</strong></td>
 </tr>
 <tr>
 <td>732</td>
 <td>制动器应用时间，升降驱动时：设为 0.25s</td>
-<td>**升降控制时，停止时防溜车时间  **</td>
+<td><strong>升降控制时，停止时防溜车时间</strong></td>
 </tr>
 <tr>
 <td>750</td>
@@ -2429,7 +2489,7 @@
 <tr>
 <td>910</td>
 <td>设为所需值</td>
-<td>位置控制运行时，电机的位置环增益，建议 **0.1-0.4  **</td>
+<td>位置控制运行时，电机的位置环增益，建议 <strong>0.1-0.4</strong></td>
 </tr>
 <tr>
 <td>911</td>
@@ -2444,12 +2504,12 @@
 <tr>
 <td>922</td>
 <td>设为所需值</td>
-<td>目标位置到位窗口，**默认值 50  **</td>
+<td>目标位置到位窗口，<strong>默认值 50</strong></td>
 </tr>
 <tr>
 <td>923</td>
 <td>设为所需值</td>
-<td>位置运行曲线跟踪窗口，**默认值 5000  **</td>
+<td>位置运行曲线跟踪窗口，<strong>默认值 5000</strong></td>
 </tr>
 </tbody></table>
 <h3 id="2、从机参数"><a href="#2、从机参数" class="headerlink" title="2、从机参数"></a>2、从机参数</h3><table>
@@ -2661,7 +2721,7 @@
 <td>主从机 SBUS 总线通讯监控时间</td>
 </tr>
 </tbody></table>
-<h2 id="总线速度控制-6PD-Profinet-IO-双驱力矩分配板链-带增量型编码器"><a href="#总线速度控制-6PD-Profinet-IO-双驱力矩分配板链-带增量型编码器" class="headerlink" title="总线速度控制-6PD-Profinet IO-双驱力矩分配板链-带增量型编码器"></a>总线速度控制-6PD-Profinet IO-双驱力矩分配板链-带增量型编码器</h2><h3 id="1、主机参数-1"><a href="#1、主机参数-1" class="headerlink" title="1、主机参数"></a>1、主机参数</h3><h3 id="2、从机参数-1"><a href="#2、从机参数-1" class="headerlink" title="2、从机参数"></a>2、从机参数</h3><h1 id="四、接线"><a href="#四、接线" class="headerlink" title="四、接线"></a>四、接线</h1><p>**主机与从机的X12端口需对接  **</p>
+<h2 id="总线速度控制-6PD-Profinet-IO-双驱力矩分配板链-带增量型编码器"><a href="#总线速度控制-6PD-Profinet-IO-双驱力矩分配板链-带增量型编码器" class="headerlink" title="总线速度控制-6PD-Profinet IO-双驱力矩分配板链-带增量型编码器"></a>总线速度控制-6PD-Profinet IO-双驱力矩分配板链-带增量型编码器</h2><h3 id="1、主机参数-1"><a href="#1、主机参数-1" class="headerlink" title="1、主机参数"></a>1、主机参数</h3><h3 id="2、从机参数-1"><a href="#2、从机参数-1" class="headerlink" title="2、从机参数"></a>2、从机参数</h3><h1 id="四、接线"><a href="#四、接线" class="headerlink" title="四、接线"></a>四、接线</h1><p><strong>主机与从机的X12端口需对接</strong></p>
 <table>
 <thead>
 <tr>
@@ -2682,28 +2742,28 @@
 <td>SC12</td>
 </tr>
 </tbody></table>
-<h1 id="五、拨码"><a href="#五、拨码" class="headerlink" title="五、拨码"></a>五、拨码</h1><p>**从机 S12 需置于 ON 处  **</p>
+<h1 id="五、拨码"><a href="#五、拨码" class="headerlink" title="五、拨码"></a>五、拨码</h1><p><strong>从机 S12 需置于 ON 处</strong></p>
 <p><img src="https://img.051516.xyz/20250725155738397.png"></p>
-<h1 id="六、总线使用说明"><a href="#六、总线使用说明" class="headerlink" title="六、总线使用说明"></a>六、总线使用说明</h1><h2 id="总线位置控制-6PD-Profinet-IO-双驱力矩分配升降-带增量型编码器-1"><a href="#总线位置控制-6PD-Profinet-IO-双驱力矩分配升降-带增量型编码器-1" class="headerlink" title="总线位置控制-6PD-Profinet IO-双驱力矩分配升降-带增量型编码器"></a>总线位置控制-6PD-Profinet IO-双驱力矩分配升降-带增量型编码器</h2><h3 id="PLC-设定至变频器值"><a href="#PLC-设定至变频器值" class="headerlink" title="PLC 设定至变频器值"></a>PLC 设定至变频器值</h3><p>**PO1 : **IPOS PO-DATA  </p>
+<h1 id="六、总线使用说明"><a href="#六、总线使用说明" class="headerlink" title="六、总线使用说明"></a>六、总线使用说明</h1><h2 id="总线位置控制-6PD-Profinet-IO-双驱力矩分配升降-带增量型编码器-1"><a href="#总线位置控制-6PD-Profinet-IO-双驱力矩分配升降-带增量型编码器-1" class="headerlink" title="总线位置控制-6PD-Profinet IO-双驱力矩分配升降-带增量型编码器"></a>总线位置控制-6PD-Profinet IO-双驱力矩分配升降-带增量型编码器</h2><h3 id="PLC-设定至变频器值"><a href="#PLC-设定至变频器值" class="headerlink" title="PLC 设定至变频器值"></a>PLC 设定至变频器值</h3><p>**PO1 :**IPOS PO-DATA  </p>
 <p>第一个 PO 字发 1 至驱动器，表示将当前位置的坐标清零，建立机械坐标系；发其它数值至驱动器，表示设定所需的速度，比例为 0.1，如需按 500rpm 运行，发 5000 即可</p>
 <p>如 PO1 对应 QW256，直接赋值到 QW256 即可</p>
-<p>**PO2 : **Setpoint position high ；**PO3 : **Setpoint position low</p>
+<p>**PO2 :**Setpoint position high ；**PO3 :**Setpoint position low</p>
 <p>所需电机要到达的位置可通过总线第二和第三个 PO字双字格式进行控制</p>
 <p>如 PO2 对应 QW258；PO3 对应 QW260；</p>
 <p>想让电机运行到 1000000 脉冲（电机 4096 脉冲&#x2F;转）的目标位置，直接赋值到 QD258 即可  </p>
 <p><strong>PO4 :</strong> IMAX  </p>
 <p>表示设定所需输出的最大力矩，比例为 0.1，如需按 70%输出限幅，发 700 即可</p>
 <p>如 PO4 对应 QW262，直接赋值到 QW262 即可</p>
-<p>**PO5 : **Accelerating ramp  </p>
+<p>**PO5 :**Accelerating ramp  </p>
 <p>表示设定所需加速斜坡时间，比例为 1:1ms，如需按 3s斜坡加速，发 3000 即可</p>
 <p>如 PO5 对应 QW264，直接赋值到 QW264 即可  </p>
-<p>**PO6 : **Deceleration ramp  </p>
+<p>**PO6 :**Deceleration ramp  </p>
 <p>表示设定所需减速斜坡时间，比例为 1:1ms，如需按 2s斜坡加速，发 2000 即可<br>如 PO6 对应 QW266，直接赋值到 QW266 即可</p>
-<h3 id="变频器反馈至-PLC-值"><a href="#变频器反馈至-PLC-值" class="headerlink" title="变频器反馈至 PLC 值"></a>变频器反馈至 PLC 值</h3><p>**PI1 : **Status word 1 （状态字 1）</p>
+<h3 id="变频器反馈至-PLC-值"><a href="#变频器反馈至-PLC-值" class="headerlink" title="变频器反馈至 PLC 值"></a>变频器反馈至 PLC 值</h3><p>**PI1 :**Status word 1 （状态字 1）</p>
 <p><img src="https://img.051516.xyz/20250725155738398.png"></p>
 <p><img src="https://img.051516.xyz/20250725155738399.png"></p>
 <p>当第 5 位为 1 时，表示变频器有报警；高 8 位（8-15 位）的整型数值为报警代码（代码含义请看 SEW_MDX61B 驱动控制器系统手册英文版 Edition2010.8 第620-636 页）<br>当第 5 位为 0 时，表示变频器没有报警；高 8 位（8-15 位）的整型数值为变频器运行状态代码（代码含义请看 SEW_MDX61B 驱动控制器系统手册英文版Edition2010.8 第 609 页）<br>如 PI1 对应 IW256<br>想知道系统的相应状态，直接从 IW256 读值即可</p>
-<p>**PI2 : **Actual position high ；**PI3 : **Actual position low  </p>
+<p>**PI2 :**Actual position high ；**PI3 :**Actual position low  </p>
 <p>伺服系统的当前位置坐标可通过总线第二和第三个 PI 字双字格式读上来<br>如 PI2 对应 IW258；PI3 对应 IW260；<br>想知道电机运行到什么位置，直接从 ID258 读值即可</p>
 <p><strong>PI4 :</strong> Actual speed<br>如 PI4 对应 IW262<br>想知道电机运行的速度，直接从 IW262 读值即可<br>比例为 0.1，如读取值为 6000，则实际值为 600rpm</p>
 <p><strong>PI5 :</strong> Actual current<br>如 PI5 对应 IW264<br>想知道电机实际输出的有功电流（力矩），直接从 IW264 读值即可</p>
@@ -2724,68 +2784,8 @@
 <p><img src="https://img.051516.xyz/20250725155738401.png"></p>
 <p><img src="https://img.051516.xyz/20250725155738402.png"></p>
 <p><img src="https://img.051516.xyz/20250725155738403.png"></p>
-<p>电磁干扰屏蔽处理不当：**会出现总线易受干扰掉线；编码器脉冲信号接受错误，定位精度差；对电机进行零速控制时，电机会自行转动等故障现象。  **</p>
+<p>电磁干扰屏蔽处理不当：<strong>会出现总线易受干扰掉线；编码器脉冲信号接受错误，定位精度差；对电机进行零速控制时，电机会自行转动等故障现象。</strong></p>
 <h1 id="资料下载"><a href="#资料下载" class="headerlink" title="资料下载"></a>资料下载</h1><p>MOVIDRIVE® MDX60B &#x2F; 61B 操作手册：<a href="https://download.sew-eurodrive.com/download/pdf/11300558.pdf">https://download.sew-eurodrive.com/download/pdf/11300558.pdf</a><br>MOVITOOLS MotionStudio：<a href="https://www.sew-eurodrive.cn/os/dud/?tab=software&country=CN&language=zh_cn&search=MotionStudio">https://www.sew-eurodrive.cn/os/dud/?tab=software&amp;country=CN&amp;language=zh_cn&amp;search=MotionStudio</a></p>
-]]></content>
-      <categories>
-        <category>工业自动化</category>
-      </categories>
-      <tags>
-        <tag>MOVIDRIVE</tag>
-      </tags>
-  </entry>
-  <entry>
-    <title>SEW-MC07B变频器-MOTION--STUDIO软件调试步骤、方法和技巧</title>
-    <url>/posts/421934fd/</url>
-    <content><![CDATA[<p><img src="https://img.051516.xyz/20250524205528464.PNG" alt="4"></p>
-<p><img src="https://img.051516.xyz/20250524205547050.PNG" alt="5"></p>
-<p><img src="https://img.051516.xyz/20250524205627985.PNG" alt="6"></p>
-<p><img src="https://img.051516.xyz/20250524205645010.PNG" alt="7"></p>
-<p><img src="https://img.051516.xyz/20250524205656950.PNG" alt="8"></p>
-<p><img src="https://img.051516.xyz/20250524205709394.PNG" alt="9"></p>
-<p><img src="https://img.051516.xyz/20250524205720726.PNG" alt="10"></p>
-<p><img src="https://img.051516.xyz/20250524205733378.PNG" alt="11"></p>
-<p><img src="https://img.051516.xyz/20250524205754775.PNG" alt="12"></p>
-<p><img src="https://img.051516.xyz/20250524205811663.PNG" alt="13"></p>
-<p><img src="https://img.051516.xyz/20250524205821221.PNG" alt="14"></p>
-<p><img src="https://img.051516.xyz/20250524205834316.PNG" alt="15"></p>
-<p><img src="https://img.051516.xyz/20250524205843533.PNG" alt="16"></p>
-<p><img src="https://img.051516.xyz/20250524205901797.PNG" alt="17"></p>
-<p><img src="https://img.051516.xyz/20250524205914973.PNG" alt="18"></p>
-<p><img src="https://img.051516.xyz/20250524205928160.PNG" alt="19"></p>
-<p><img src="https://img.051516.xyz/20250524205940302.PNG" alt="20"></p>
-<p><img src="https://img.051516.xyz/20250524205950644.PNG" alt="21"></p>
-<p><img src="https://img.051516.xyz/20250524210006913.PNG" alt="22"></p>
-<p><img src="https://img.051516.xyz/20250524210029075.PNG" alt="23"></p>
-<p><img src="https://img.051516.xyz/20250524210042996.PNG" alt="24"></p>
-<p><img src="https://img.051516.xyz/20250524210105981.PNG" alt="25"></p>
-<p><img src="https://img.051516.xyz/20250524210122505.PNG" alt="26"></p>
-<p><img src="https://img.051516.xyz/20250524210136340.PNG" alt="27"></p>
-<p><img src="https://img.051516.xyz/20250524210145600.PNG" alt="28"></p>
-<p><img src="https://img.051516.xyz/20250524210156379.PNG" alt="29"></p>
-<p><img src="https://img.051516.xyz/20250524210210502.PNG" alt="30"></p>
-<p><img src="https://img.051516.xyz/20250524210234883.PNG" alt="31"></p>
-<p><img src="https://img.051516.xyz/20250524210248367.PNG" alt="32"></p>
-<p><img src="https://img.051516.xyz/20250524210258079.PNG" alt="33"></p>
-<p><img src="https://img.051516.xyz/20250524210309675.PNG" alt="34"></p>
-<p><img src="https://img.051516.xyz/20250524210319649.PNG" alt="35"></p>
-<p><img src="https://img.051516.xyz/20250524210333008.PNG" alt="36"></p>
-<p><img src="https://img.051516.xyz/20250524210342988.PNG" alt="37"></p>
-<p><img src="https://img.051516.xyz/20250524210354944.PNG" alt="38"></p>
-<p><img src="https://img.051516.xyz/20250524210407861.PNG" alt="39"></p>
-<p><img src="https://img.051516.xyz/20250524210423100.PNG" alt="40"></p>
-<p><img src="https://img.051516.xyz/20250524210434359.PNG" alt="41"></p>
-<p><img src="https://img.051516.xyz/20250524210450567.PNG" alt="42"></p>
-<p><img src="https://img.051516.xyz/20250524210503106.PNG" alt="43"></p>
-<p><img src="https://img.051516.xyz/20250524210515428.PNG" alt="44"></p>
-<p><img src="https://img.051516.xyz/20250524210527098.PNG" alt="45"></p>
-<p><img src="https://img.051516.xyz/20250524210537936.PNG" alt="46"></p>
-<p><img src="https://img.051516.xyz/20250524210549531.PNG" alt="47"></p>
-<p><img src="https://img.051516.xyz/20250524210601981.PNG" alt="48"></p>
-<p><img src="https://img.051516.xyz/20250524210614094.PNG" alt="49"></p>
-<p><img src="https://img.051516.xyz/20250524210627091.PNG" alt="50"></p>
-<p><img src="https://img.051516.xyz/20250524210637201.PNG" alt="51"></p>
-<p><img src="https://img.051516.xyz/20250524210647926.PNG" alt="52"></p>
 ]]></content>
       <categories>
         <category>工业自动化</category>
@@ -3594,37 +3594,6 @@
       </tags>
   </entry>
   <entry>
-    <title>安装了VMware Tools，但无法实现文件的拖拽和复制粘贴---解决方案</title>
-    <url>/posts/a580ef34/</url>
-    <content><![CDATA[<p>环境：Windows11，VMware17Pro，ubuntu-23.10.1</p>
-<p>我给虚拟机装好Ubuntu系统后，它默认是安装好vmtools的</p>
-<p>而且这些选项默认是勾选的，但是我无法实现宿主机和虚拟机之间文件的拖拽和复制粘贴</p>
-<p>如果你遇到了和我一样的问题，且网上很多博文提供的解决方案都无法解决你的问题，那么请往下看</p>
-<p>我试了各路大神的解决方案，基本都行不通</p>
-<p>只有一篇标题和这个问题相关度不高的文章，提到了一种重装VMware tools的方法，我试了一下终于解决了问题</p>
-<p> 这里要说一下，网上的很多文章用cd里带的VMware tools压缩包来重新安装（还要手动输yes的那个方法），我试了，根本没有用</p>
-<p>毕竟初始安装的就是那个版本，再重新安装一下并没有意义</p>
-<p>真正的解决方案其实很方便：</p>
-<p>打开终端</p>
-<p>1.卸载VMware Tools</p>
-<figure class="highlight plaintext"><table><tr><td class="code"><pre><span class="line">sudo apt-get autoremove open-vm-tools</span><br></pre></td></tr></table></figure>
-
-<p>2.联网安装VMware tools</p>
-<figure class="highlight plaintext"><table><tr><td class="code"><pre><span class="line">sudo apt-get install open-vm-tools-desktop</span><br></pre></td></tr></table></figure>
-
-<p>如果出错了，就执行下面两行命令</p>
-<figure class="highlight plaintext"><table><tr><td class="code"><pre><span class="line">sudo apt-get update</span><br><span class="line">sudo apt-get install open-vm-tools-desktop fuse</span><br></pre></td></tr></table></figure>
-
-<p>3.重启虚拟机即可</p>
-]]></content>
-      <categories>
-        <category>故障排除</category>
-      </categories>
-      <tags>
-        <tag>虚拟机</tag>
-      </tags>
-  </entry>
-  <entry>
     <title>常用VPS脚本</title>
     <url>/posts/6469b43f/</url>
     <content><![CDATA[<h2 id="1、DD重装脚本"><a href="#1、DD重装脚本" class="headerlink" title="1、DD重装脚本"></a>1、DD重装脚本</h2><p>史上最强脚本</p>
@@ -3768,6 +3737,37 @@
       </tags>
   </entry>
   <entry>
+    <title>安装了VMware Tools，但无法实现文件的拖拽和复制粘贴---解决方案</title>
+    <url>/posts/a580ef34/</url>
+    <content><![CDATA[<p>环境：Windows11，VMware17Pro，ubuntu-23.10.1</p>
+<p>我给虚拟机装好Ubuntu系统后，它默认是安装好vmtools的</p>
+<p>而且这些选项默认是勾选的，但是我无法实现宿主机和虚拟机之间文件的拖拽和复制粘贴</p>
+<p>如果你遇到了和我一样的问题，且网上很多博文提供的解决方案都无法解决你的问题，那么请往下看</p>
+<p>我试了各路大神的解决方案，基本都行不通</p>
+<p>只有一篇标题和这个问题相关度不高的文章，提到了一种重装VMware tools的方法，我试了一下终于解决了问题</p>
+<p> 这里要说一下，网上的很多文章用cd里带的VMware tools压缩包来重新安装（还要手动输yes的那个方法），我试了，根本没有用</p>
+<p>毕竟初始安装的就是那个版本，再重新安装一下并没有意义</p>
+<p>真正的解决方案其实很方便：</p>
+<p>打开终端</p>
+<p>1.卸载VMware Tools</p>
+<figure class="highlight plaintext"><table><tr><td class="code"><pre><span class="line">sudo apt-get autoremove open-vm-tools</span><br></pre></td></tr></table></figure>
+
+<p>2.联网安装VMware tools</p>
+<figure class="highlight plaintext"><table><tr><td class="code"><pre><span class="line">sudo apt-get install open-vm-tools-desktop</span><br></pre></td></tr></table></figure>
+
+<p>如果出错了，就执行下面两行命令</p>
+<figure class="highlight plaintext"><table><tr><td class="code"><pre><span class="line">sudo apt-get update</span><br><span class="line">sudo apt-get install open-vm-tools-desktop fuse</span><br></pre></td></tr></table></figure>
+
+<p>3.重启虚拟机即可</p>
+]]></content>
+      <categories>
+        <category>故障排除</category>
+      </categories>
+      <tags>
+        <tag>虚拟机</tag>
+      </tags>
+  </entry>
+  <entry>
     <title>手搓xray配置文件</title>
     <url>/posts/9b626a72/</url>
     <content><![CDATA[<p>手搓xray很简单</p>
@@ -3891,6 +3891,21 @@
       </tags>
   </entry>
   <entry>
+    <title>电脑谷歌浏览器糖心使用教程</title>
+    <url>/posts/77efc3f1/</url>
+    <content><![CDATA[<p>1、先安装油猴插件<br><a href="https://greasyfork.org/scripts/461743-%E7%B3%96%E5%BF%83/code/%E7%B3%96%E5%BF%83.user.js">油猴插件</a><br>2、安装更改 ua 插件（挂梯子扶墙，打开 chrome 应用商店安装）<br><a href="https://chrome.google.com/webstore/detail/user-agent-switcher-and-m/bhchdcejhohfmigjafbampogmaanbfkg">https://chrome.google.com/webstore/detail/user-agent-switcher-and-m/bhchdcejhohfmigjafbampogmaanbfkg</a><br>3、按照这个教程(使用拓展插件进行修改)设置 ua<br><a href="https://blog.csdn.net/m0_46665077/article/details/125713310#22__31">https://blog.csdn.net/m0_46665077/article/details/125713310#22__31</a><br>下面是 UA：</p>
+<figure class="highlight plaintext"><table><tr><td class="code"><pre><span class="line">Mozilla/5.0(iPhone;CPUiPhoneOS11_4_1likeMacOSX)AppleWebKit/537.36(KHTML,likeGecko)Chrome/77.0.3865.116MobileSafari/11.0Mobile/58.0Firefox/12F70Safari/537.36Quark/3.8.4.128UCBrowser/12.0.4.985baiduboxapp/3.2.5.10MQQBrowser/7.2.1.2965XiaoMi/MiuiBrowser/11.9.2SearchCraft/2.0.0ALiSearchApp/2.4AliApp(TB/9.5.6)BingWeb/6.2TBS/537.36Weiyun/6.9.37(Android)Weiyun(zh-Hans)/537.36</span><br></pre></td></tr></table></figure>
+
+<p>4、最后打开网址<a href="https://txh016.com/">https://txh016.com</a>奔放</p>
+]]></content>
+      <categories>
+        <category>油猴脚本</category>
+      </categories>
+      <tags>
+        <tag>18+</tag>
+      </tags>
+  </entry>
+  <entry>
     <title>李跳跳2.2正式版</title>
     <url>/posts/f5caf0fa/</url>
     <content><![CDATA[<p><strong>无论你是哪个版本的李跳跳，都建议更新啊喂。</strong></p>
@@ -3928,21 +3943,6 @@
       </categories>
       <tags>
         <tag>安卓应用</tag>
-      </tags>
-  </entry>
-  <entry>
-    <title>电脑谷歌浏览器糖心使用教程</title>
-    <url>/posts/77efc3f1/</url>
-    <content><![CDATA[<p>1、先安装油猴插件<br><a href="https://greasyfork.org/scripts/461743-%E7%B3%96%E5%BF%83/code/%E7%B3%96%E5%BF%83.user.js">油猴插件</a><br>2、安装更改 ua 插件（挂梯子扶墙，打开 chrome 应用商店安装）<br><a href="https://chrome.google.com/webstore/detail/user-agent-switcher-and-m/bhchdcejhohfmigjafbampogmaanbfkg">https://chrome.google.com/webstore/detail/user-agent-switcher-and-m/bhchdcejhohfmigjafbampogmaanbfkg</a><br>3、按照这个教程(使用拓展插件进行修改)设置 ua<br><a href="https://blog.csdn.net/m0_46665077/article/details/125713310#22__31">https://blog.csdn.net/m0_46665077/article/details/125713310#22__31</a><br>下面是 UA：</p>
-<figure class="highlight plaintext"><table><tr><td class="code"><pre><span class="line">Mozilla/5.0(iPhone;CPUiPhoneOS11_4_1likeMacOSX)AppleWebKit/537.36(KHTML,likeGecko)Chrome/77.0.3865.116MobileSafari/11.0Mobile/58.0Firefox/12F70Safari/537.36Quark/3.8.4.128UCBrowser/12.0.4.985baiduboxapp/3.2.5.10MQQBrowser/7.2.1.2965XiaoMi/MiuiBrowser/11.9.2SearchCraft/2.0.0ALiSearchApp/2.4AliApp(TB/9.5.6)BingWeb/6.2TBS/537.36Weiyun/6.9.37(Android)Weiyun(zh-Hans)/537.36</span><br></pre></td></tr></table></figure>
-
-<p>4、最后打开网址<a href="https://txh016.com/">https://txh016.com</a>奔放</p>
-]]></content>
-      <categories>
-        <category>油猴脚本</category>
-      </categories>
-      <tags>
-        <tag>18+</tag>
       </tags>
   </entry>
   <entry>
@@ -4310,6 +4310,24 @@
       </tags>
   </entry>
   <entry>
+    <title>谷歌浏览器设置关闭搜索记录</title>
+    <url>/posts/42e51b95/</url>
+    <content><![CDATA[<p><strong>将 Chrome 的 History 文件设置为可读即可。</strong><br>操作方法：<br>1 、在 Chrome 浏览器地址栏中输入</p>
+<figure class="highlight html"><table><tr><td class="code"><pre><span class="line">chrome://version/</span><br></pre></td></tr></table></figure>
+
+<p>2 、复制<strong>个人资料路径</strong>，关闭 Chrome 浏览器并到资源管理器中打开刚才复制的“个人资料路径”</p>
+<p><img src="https://img.051516.xyz/202303062045271.png" alt="image-20230306204551884"></p>
+<p>3 、找到History文件并删除，然后新建一个History文件，对History文件，右键—属性，勾选只读。</p>
+<p><img src="https://img.051516.xyz/202303062048179.png" alt="image-20230306204804357"></p>
+]]></content>
+      <categories>
+        <category>隐私安全</category>
+      </categories>
+      <tags>
+        <tag>Google浏览器</tag>
+      </tags>
+  </entry>
+  <entry>
     <title>贵阳吉利程序解析</title>
     <url>/posts/57946227/</url>
     <content><![CDATA[<h1 id="程序框架"><a href="#程序框架" class="headerlink" title="程序框架"></a>程序框架</h1><p><strong>_00_Organization_Blocks</strong>：系统组织块</p>
@@ -4401,24 +4419,6 @@
       </categories>
       <tags>
         <tag>工业软件</tag>
-      </tags>
-  </entry>
-  <entry>
-    <title>谷歌浏览器设置关闭搜索记录</title>
-    <url>/posts/42e51b95/</url>
-    <content><![CDATA[<p><strong>将 Chrome 的 History 文件设置为可读即可。</strong><br>操作方法：<br>1 、在 Chrome 浏览器地址栏中输入</p>
-<figure class="highlight html"><table><tr><td class="code"><pre><span class="line">chrome://version/</span><br></pre></td></tr></table></figure>
-
-<p>2 、复制<strong>个人资料路径</strong>，关闭 Chrome 浏览器并到资源管理器中打开刚才复制的“个人资料路径”</p>
-<p><img src="https://img.051516.xyz/202303062045271.png" alt="image-20230306204551884"></p>
-<p>3 、找到History文件并删除，然后新建一个History文件，对History文件，右键—属性，勾选只读。</p>
-<p><img src="https://img.051516.xyz/202303062048179.png" alt="image-20230306204804357"></p>
-]]></content>
-      <categories>
-        <category>隐私安全</category>
-      </categories>
-      <tags>
-        <tag>Google浏览器</tag>
       </tags>
   </entry>
   <entry>
