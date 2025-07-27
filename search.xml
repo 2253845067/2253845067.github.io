@@ -1147,7 +1147,7 @@
     <url>/posts/21fa371d/</url>
     <content><![CDATA[<h2 id="SSH执行拉取"><a href="#SSH执行拉取" class="headerlink" title="SSH执行拉取"></a>SSH执行拉取</h2><p>下面实现通过Github action，链接服务器SSH，并在服务器中执行拉取的命令。</p>
 <h3 id="获取密钥密码"><a href="#获取密钥密码" class="headerlink" title="获取密钥密码"></a>获取密钥密码</h3><p>实现1Panel本地静态文件自动更新，建议使用密钥登录，安全性更高，首先在1Panel中的密钥信息，生成密码和密钥，以便于后面登录：</p>
-<p><img src="https://img.051516.xyz/20250725184844649.png" alt="image-20250725184025195"></p>
+<p><img src="https://img.yuqi.im/20250725184844649.png" alt="image-20250725184025195"></p>
 <h3 id="添加变量"><a href="#添加变量" class="headerlink" title="添加变量"></a>添加变量</h3><p>此次添加变量较多，有：SERVER_IP，USERNAME，PASSPHRASE，KEY，PORT五个变量，如下：</p>
 <ul>
 <li>SERVER_IP：服务器IP</li>
@@ -1158,7 +1158,7 @@
 </ul>
 <h3 id="克隆仓库"><a href="#克隆仓库" class="headerlink" title="克隆仓库"></a>克隆仓库</h3><p>此时，需要在服务器手动克隆一次仓库，这样才能获得git配置，后面才可以通过直接在目录下git pull实现增量拉取，相比于克隆一个新的仓库，速度更快。</p>
 <p>先创建静态仓库网站，比如yuqi.im，最终的静态目录如下：</p>
-<p><img src="https://img.051516.xyz/20250725184852593.png" alt="image-20250725184225719"></p>
+<p><img src="https://img.yuqi.im/20250725184852593.png" alt="image-20250725184225719"></p>
 <p>在任意目录下克隆一次Blog静态资源仓库，因为1Panel不支持自定义部署目录，所以需要将克隆下来的文件夹内的所有文件，包括.git文件夹，复制到index文件夹内，或者直接在index目录内克隆，这样才能确保后续可以直接在index文件夹内，执行拉取命令，实现文件更新。</p>
 <p>如果在前面你选择的是github存储构建产物静态文件，你可以用ghproxy之类的镜像拉取，后面git pull也会走这个链接，但是不太建议，因为一般这种镜像都不太稳定，可能需要频繁更换。</p>
 <h3 id="添加工作流"><a href="#添加工作流" class="headerlink" title="添加工作流"></a>添加工作流</h3><p>下面就可以修改action实现推送时自动拉取了，在部署的下方添加另一个工作流：</p>
@@ -1167,6 +1167,24 @@
 <p>再次尝试修改并触发，如果一切正常，仓库文件自动触发推送到服务器应该就实现了！</p>
 <p>在最下面，这里采用了强制拉取，并且只保留了深度为一的拉取记录，这样可以防止由于文件冲突导致可能拉取不下来的问题，并且控制了拉去的日志文件大小。</p>
 <h2 id="参考出处"><a href="#参考出处" class="headerlink" title="参考出处"></a>参考出处</h2><p><a href="https://blog.liushen.fun/posts/327826ac">https://blog.liushen.fun/posts/327826ac</a></p>
+]]></content>
+      <categories>
+        <category>博客运维</category>
+      </categories>
+      <tags>
+        <tag>Hexo</tag>
+      </tags>
+  </entry>
+  <entry>
+    <title>Hexo建立一个独立的HTML页面</title>
+    <url>/posts/12482e7/</url>
+    <content><![CDATA[<p>Hexo 是一个轻量、快速，简单和强大的博客框架，当我们需要发布博文的时候，只需要将写好的文章（MarkDown 文件）放入本地的 <code>\source\_posts</code> 文件夹，然后再推送上去就行了，原理就是当我们在执行 <code>hexo g</code> 命令时，<code>.md</code> 文件就会被转化成 HTML 文件，但是有时候我们需要新建一个独立的页面，这个页面不使用主题的渲染，具有自己独立的样式，可以放一些自己的作品，相册什么的，以下就介绍这种独立页面的实现方法。</p>
+<h1 id="方法一："><a href="#方法一：" class="headerlink" title="方法一："></a>方法一：</h1><p>使用 Hexo 提供的跳过渲染配置，在博客根目录的配置文件 <code>_config.yml</code> 里找到 <code>skip_render</code> 关键字，在后面添加想要跳过渲染的页面，比如我们创建 <code>\source\about\index.html</code>， 配置文件填写：<code>skip_render: about\**</code>，那么就表示 <code>\source\about</code> 里所有的文件将跳过渲染，里面的文件将会被直接复制到 public 文件夹，此时就会得到一个独立的 about 页面；官方文档：<a href="https://hexo.io/docs/configuration">https://hexo.io/docs/configuration</a></p>
+<h1 id="方法-2"><a href="#方法-2" class="headerlink" title="方法 2"></a>方法 2</h1><p>在文章头部的 Front-matter 里添加配置 <code>layout: false</code> 来跳过渲染配置，比如我们要使 about 页面跳过渲染，创建 <code>\source\about\index.md</code>，将这个页面的相关 HTML 代码写进<code>.md</code>文件并保存，然后在 <code>index.md</code> 的头部写入：</p>
+<figure class="highlight markdown"><table><tr><td class="code"><pre><span class="line">---</span><br><span class="line"><span class="section">layout: false</span></span><br><span class="line"><span class="section">---</span></span><br><span class="line"></span><br><span class="line">&#123;% raw %&#125;</span><br><span class="line">xxxxxxxxxxxxx</span><br><span class="line">xx HTML 代码 xx</span><br><span class="line">xxxxxxxxxxxxx</span><br><span class="line">&#123;% endraw %&#125;</span><br></pre></td></tr></table></figure>
+
+<p>PS：Front-matter 是 <code>.md</code> 文件最上方以 — 分隔的区域，用于指定个别文件的变量，官方文档：<a href="https://hexo.io/docs/front-matter">https://hexo.io/docs/front-matter</a></p>
+<figure class="highlight markdown"><table><tr><td class="code"><pre><span class="line">.md 文件中的 HTML 代码要用 &#123;% raw %&#125; 和 &#123;% endraw %&#125; 包起来，使其能正确编译里面的代码。</span><br></pre></td></tr></table></figure>
 ]]></content>
       <categories>
         <category>博客运维</category>
@@ -1245,24 +1263,6 @@
 <figure class="highlight bash"><table><tr><td class="code"><pre><span class="line">hexo clean <span class="comment"># 清除缓存</span></span><br><span class="line">hexo g <span class="comment"># 生成网页</span></span><br><span class="line">hexo d <span class="comment"># 部署</span></span><br></pre></td></tr></table></figure>
 
 <p>现在就可以用 你的域名来访问博客了。</p>
-]]></content>
-      <categories>
-        <category>博客运维</category>
-      </categories>
-      <tags>
-        <tag>Hexo</tag>
-      </tags>
-  </entry>
-  <entry>
-    <title>Hexo建立一个独立的HTML页面</title>
-    <url>/posts/12482e7/</url>
-    <content><![CDATA[<p>Hexo 是一个轻量、快速，简单和强大的博客框架，当我们需要发布博文的时候，只需要将写好的文章（MarkDown 文件）放入本地的 <code>\source\_posts</code> 文件夹，然后再推送上去就行了，原理就是当我们在执行 <code>hexo g</code> 命令时，<code>.md</code> 文件就会被转化成 HTML 文件，但是有时候我们需要新建一个独立的页面，这个页面不使用主题的渲染，具有自己独立的样式，可以放一些自己的作品，相册什么的，以下就介绍这种独立页面的实现方法。</p>
-<h1 id="方法一："><a href="#方法一：" class="headerlink" title="方法一："></a>方法一：</h1><p>使用 Hexo 提供的跳过渲染配置，在博客根目录的配置文件 <code>_config.yml</code> 里找到 <code>skip_render</code> 关键字，在后面添加想要跳过渲染的页面，比如我们创建 <code>\source\about\index.html</code>， 配置文件填写：<code>skip_render: about\**</code>，那么就表示 <code>\source\about</code> 里所有的文件将跳过渲染，里面的文件将会被直接复制到 public 文件夹，此时就会得到一个独立的 about 页面；官方文档：<a href="https://hexo.io/docs/configuration">https://hexo.io/docs/configuration</a></p>
-<h1 id="方法-2"><a href="#方法-2" class="headerlink" title="方法 2"></a>方法 2</h1><p>在文章头部的 Front-matter 里添加配置 <code>layout: false</code> 来跳过渲染配置，比如我们要使 about 页面跳过渲染，创建 <code>\source\about\index.md</code>，将这个页面的相关 HTML 代码写进<code>.md</code>文件并保存，然后在 <code>index.md</code> 的头部写入：</p>
-<figure class="highlight markdown"><table><tr><td class="code"><pre><span class="line">---</span><br><span class="line"><span class="section">layout: false</span></span><br><span class="line"><span class="section">---</span></span><br><span class="line"></span><br><span class="line">&#123;% raw %&#125;</span><br><span class="line">xxxxxxxxxxxxx</span><br><span class="line">xx HTML 代码 xx</span><br><span class="line">xxxxxxxxxxxxx</span><br><span class="line">&#123;% endraw %&#125;</span><br></pre></td></tr></table></figure>
-
-<p>PS：Front-matter 是 <code>.md</code> 文件最上方以 — 分隔的区域，用于指定个别文件的变量，官方文档：<a href="https://hexo.io/docs/front-matter">https://hexo.io/docs/front-matter</a></p>
-<figure class="highlight markdown"><table><tr><td class="code"><pre><span class="line">.md 文件中的 HTML 代码要用 &#123;% raw %&#125; 和 &#123;% endraw %&#125; 包起来，使其能正确编译里面的代码。</span><br></pre></td></tr></table></figure>
 ]]></content>
       <categories>
         <category>博客运维</category>
@@ -3594,6 +3594,37 @@
       </tags>
   </entry>
   <entry>
+    <title>安装了VMware Tools，但无法实现文件的拖拽和复制粘贴---解决方案</title>
+    <url>/posts/a580ef34/</url>
+    <content><![CDATA[<p>环境：Windows11，VMware17Pro，ubuntu-23.10.1</p>
+<p>我给虚拟机装好Ubuntu系统后，它默认是安装好vmtools的</p>
+<p>而且这些选项默认是勾选的，但是我无法实现宿主机和虚拟机之间文件的拖拽和复制粘贴</p>
+<p>如果你遇到了和我一样的问题，且网上很多博文提供的解决方案都无法解决你的问题，那么请往下看</p>
+<p>我试了各路大神的解决方案，基本都行不通</p>
+<p>只有一篇标题和这个问题相关度不高的文章，提到了一种重装VMware tools的方法，我试了一下终于解决了问题</p>
+<p> 这里要说一下，网上的很多文章用cd里带的VMware tools压缩包来重新安装（还要手动输yes的那个方法），我试了，根本没有用</p>
+<p>毕竟初始安装的就是那个版本，再重新安装一下并没有意义</p>
+<p>真正的解决方案其实很方便：</p>
+<p>打开终端</p>
+<p>1.卸载VMware Tools</p>
+<figure class="highlight plaintext"><table><tr><td class="code"><pre><span class="line">sudo apt-get autoremove open-vm-tools</span><br></pre></td></tr></table></figure>
+
+<p>2.联网安装VMware tools</p>
+<figure class="highlight plaintext"><table><tr><td class="code"><pre><span class="line">sudo apt-get install open-vm-tools-desktop</span><br></pre></td></tr></table></figure>
+
+<p>如果出错了，就执行下面两行命令</p>
+<figure class="highlight plaintext"><table><tr><td class="code"><pre><span class="line">sudo apt-get update</span><br><span class="line">sudo apt-get install open-vm-tools-desktop fuse</span><br></pre></td></tr></table></figure>
+
+<p>3.重启虚拟机即可</p>
+]]></content>
+      <categories>
+        <category>故障排除</category>
+      </categories>
+      <tags>
+        <tag>虚拟机</tag>
+      </tags>
+  </entry>
+  <entry>
     <title>常用VPS脚本</title>
     <url>/posts/6469b43f/</url>
     <content><![CDATA[<h2 id="1、DD重装脚本"><a href="#1、DD重装脚本" class="headerlink" title="1、DD重装脚本"></a>1、DD重装脚本</h2><p>史上最强脚本</p>
@@ -3737,37 +3768,6 @@
       </tags>
   </entry>
   <entry>
-    <title>安装了VMware Tools，但无法实现文件的拖拽和复制粘贴---解决方案</title>
-    <url>/posts/a580ef34/</url>
-    <content><![CDATA[<p>环境：Windows11，VMware17Pro，ubuntu-23.10.1</p>
-<p>我给虚拟机装好Ubuntu系统后，它默认是安装好vmtools的</p>
-<p>而且这些选项默认是勾选的，但是我无法实现宿主机和虚拟机之间文件的拖拽和复制粘贴</p>
-<p>如果你遇到了和我一样的问题，且网上很多博文提供的解决方案都无法解决你的问题，那么请往下看</p>
-<p>我试了各路大神的解决方案，基本都行不通</p>
-<p>只有一篇标题和这个问题相关度不高的文章，提到了一种重装VMware tools的方法，我试了一下终于解决了问题</p>
-<p> 这里要说一下，网上的很多文章用cd里带的VMware tools压缩包来重新安装（还要手动输yes的那个方法），我试了，根本没有用</p>
-<p>毕竟初始安装的就是那个版本，再重新安装一下并没有意义</p>
-<p>真正的解决方案其实很方便：</p>
-<p>打开终端</p>
-<p>1.卸载VMware Tools</p>
-<figure class="highlight plaintext"><table><tr><td class="code"><pre><span class="line">sudo apt-get autoremove open-vm-tools</span><br></pre></td></tr></table></figure>
-
-<p>2.联网安装VMware tools</p>
-<figure class="highlight plaintext"><table><tr><td class="code"><pre><span class="line">sudo apt-get install open-vm-tools-desktop</span><br></pre></td></tr></table></figure>
-
-<p>如果出错了，就执行下面两行命令</p>
-<figure class="highlight plaintext"><table><tr><td class="code"><pre><span class="line">sudo apt-get update</span><br><span class="line">sudo apt-get install open-vm-tools-desktop fuse</span><br></pre></td></tr></table></figure>
-
-<p>3.重启虚拟机即可</p>
-]]></content>
-      <categories>
-        <category>故障排除</category>
-      </categories>
-      <tags>
-        <tag>虚拟机</tag>
-      </tags>
-  </entry>
-  <entry>
     <title>手搓xray配置文件</title>
     <url>/posts/9b626a72/</url>
     <content><![CDATA[<p>手搓xray很简单</p>
@@ -3891,21 +3891,6 @@
       </tags>
   </entry>
   <entry>
-    <title>电脑谷歌浏览器糖心使用教程</title>
-    <url>/posts/77efc3f1/</url>
-    <content><![CDATA[<p>1、先安装油猴插件<br><a href="https://greasyfork.org/scripts/461743-%E7%B3%96%E5%BF%83/code/%E7%B3%96%E5%BF%83.user.js">油猴插件</a><br>2、安装更改 ua 插件（挂梯子扶墙，打开 chrome 应用商店安装）<br><a href="https://chrome.google.com/webstore/detail/user-agent-switcher-and-m/bhchdcejhohfmigjafbampogmaanbfkg">https://chrome.google.com/webstore/detail/user-agent-switcher-and-m/bhchdcejhohfmigjafbampogmaanbfkg</a><br>3、按照这个教程(使用拓展插件进行修改)设置 ua<br><a href="https://blog.csdn.net/m0_46665077/article/details/125713310#22__31">https://blog.csdn.net/m0_46665077/article/details/125713310#22__31</a><br>下面是 UA：</p>
-<figure class="highlight plaintext"><table><tr><td class="code"><pre><span class="line">Mozilla/5.0(iPhone;CPUiPhoneOS11_4_1likeMacOSX)AppleWebKit/537.36(KHTML,likeGecko)Chrome/77.0.3865.116MobileSafari/11.0Mobile/58.0Firefox/12F70Safari/537.36Quark/3.8.4.128UCBrowser/12.0.4.985baiduboxapp/3.2.5.10MQQBrowser/7.2.1.2965XiaoMi/MiuiBrowser/11.9.2SearchCraft/2.0.0ALiSearchApp/2.4AliApp(TB/9.5.6)BingWeb/6.2TBS/537.36Weiyun/6.9.37(Android)Weiyun(zh-Hans)/537.36</span><br></pre></td></tr></table></figure>
-
-<p>4、最后打开网址<a href="https://txh016.com/">https://txh016.com</a>奔放</p>
-]]></content>
-      <categories>
-        <category>油猴脚本</category>
-      </categories>
-      <tags>
-        <tag>18+</tag>
-      </tags>
-  </entry>
-  <entry>
     <title>李跳跳2.2正式版</title>
     <url>/posts/f5caf0fa/</url>
     <content><![CDATA[<p><strong>无论你是哪个版本的李跳跳，都建议更新啊喂。</strong></p>
@@ -3943,6 +3928,21 @@
       </categories>
       <tags>
         <tag>安卓应用</tag>
+      </tags>
+  </entry>
+  <entry>
+    <title>电脑谷歌浏览器糖心使用教程</title>
+    <url>/posts/77efc3f1/</url>
+    <content><![CDATA[<p>1、先安装油猴插件<br><a href="https://greasyfork.org/scripts/461743-%E7%B3%96%E5%BF%83/code/%E7%B3%96%E5%BF%83.user.js">油猴插件</a><br>2、安装更改 ua 插件（挂梯子扶墙，打开 chrome 应用商店安装）<br><a href="https://chrome.google.com/webstore/detail/user-agent-switcher-and-m/bhchdcejhohfmigjafbampogmaanbfkg">https://chrome.google.com/webstore/detail/user-agent-switcher-and-m/bhchdcejhohfmigjafbampogmaanbfkg</a><br>3、按照这个教程(使用拓展插件进行修改)设置 ua<br><a href="https://blog.csdn.net/m0_46665077/article/details/125713310#22__31">https://blog.csdn.net/m0_46665077/article/details/125713310#22__31</a><br>下面是 UA：</p>
+<figure class="highlight plaintext"><table><tr><td class="code"><pre><span class="line">Mozilla/5.0(iPhone;CPUiPhoneOS11_4_1likeMacOSX)AppleWebKit/537.36(KHTML,likeGecko)Chrome/77.0.3865.116MobileSafari/11.0Mobile/58.0Firefox/12F70Safari/537.36Quark/3.8.4.128UCBrowser/12.0.4.985baiduboxapp/3.2.5.10MQQBrowser/7.2.1.2965XiaoMi/MiuiBrowser/11.9.2SearchCraft/2.0.0ALiSearchApp/2.4AliApp(TB/9.5.6)BingWeb/6.2TBS/537.36Weiyun/6.9.37(Android)Weiyun(zh-Hans)/537.36</span><br></pre></td></tr></table></figure>
+
+<p>4、最后打开网址<a href="https://txh016.com/">https://txh016.com</a>奔放</p>
+]]></content>
+      <categories>
+        <category>油猴脚本</category>
+      </categories>
+      <tags>
+        <tag>18+</tag>
       </tags>
   </entry>
   <entry>
