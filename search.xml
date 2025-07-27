@@ -1421,21 +1421,6 @@
       </tags>
   </entry>
   <entry>
-    <title>OnlyFans 公共存档器 免费查看OnlyFans付费内容-Coomer</title>
-    <url>/posts/1082bb6d/</url>
-    <content><![CDATA[<p>Coomer，一个 OnlyFans 公共存档器，可以免费查看 OnlyFans 付费内容，上面所以内容都由网友搬运、贡献的 OnlyFans 付费内容，想要查看哪位艺术家、作者的付费内容，直接搜索名字即可免费查看 OnlyFans 上的付费内容，当然你也可以共享你的。</p>
-<p>地址：<a href="https://coomer.party/">https://coomer.party/</a></p>
-<p>可以尝试点击&gt;creators&gt;然后搜索 ‘hongkongdoll’ ，‘juneliu’；</p>
-<p>更多的关键词待你挖掘</p>
-]]></content>
-      <categories>
-        <category>公共存档器</category>
-      </categories>
-      <tags>
-        <tag>18+</tag>
-      </tags>
-  </entry>
-  <entry>
     <title>Openwrt编译</title>
     <url>/posts/72c5b323/</url>
     <content><![CDATA[<h1 id="注意"><a href="#注意" class="headerlink" title="注意"></a>注意</h1><ol>
@@ -1503,90 +1488,18 @@
       </tags>
   </entry>
   <entry>
-    <title>Qexo 一个美观、强大的在线 静态博客 管理器</title>
-    <url>/posts/8277e0e6/</url>
-    <content><![CDATA[<h1 id="前言"><a href="#前言" class="headerlink" title="前言"></a>前言</h1><p><strong>Hexo</strong> 是一款快速、高效的静态博客框架。通过 <a href="http://daringfireball.net/projects/markdown/">Markdown</a> 语法，只需几秒便可生成高质量的静态网页。</p>
-<p>最近，我成功实现了在多设备间灵活管理博客并发布内容。一位网友提到 <strong>Qexo</strong>，一个为 Hexo 增加后台功能的工具，它让发布博客变得像发微博一样简单。深入了解后，我发现它非常强大，不仅可以用手机随时随地发表文章，还极大提升了操作便捷性。</p>
-<p>尽管安装过程中遇到了一些问题，但最终都顺利解决。我将整理经验分享，希望能帮助更多人。</p>
-<hr>
-<h1 id="Qexo-简介"><a href="#Qexo-简介" class="headerlink" title="Qexo 简介"></a>Qexo 简介</h1><p><strong>Qexo</strong> 是一个快速、美观且功能丰富的在线 Hexo 管理器，支持通过 Vercel 免费部署，仅需配置一个数据库即可使用。</p>
-<h2 id="主要功能"><a href="#主要功能" class="headerlink" title="主要功能"></a>主要功能</h2><ul>
-<li>自定义图床上传图片</li>
-<li>在线编辑与页面管理</li>
-<li>开放 API 接口</li>
-<li>自动检查更新并一键更新</li>
-<li>快速管理友情链接</li>
-<li>短文分享（类似微博功能）</li>
-<li>自动填充文章模板</li>
-</ul>
-<p><strong>项目地址</strong>：<a href="https://www.oplog.cn/qexo/start.html">Qexo 官方文档</a></p>
-<hr>
-<h1 id="一、配置-GitHub-自动化部署"><a href="#一、配置-GitHub-自动化部署" class="headerlink" title="一、配置 GitHub 自动化部署"></a>一、配置 GitHub 自动化部署</h1><h2 id="1-获取-GitHub-Token"><a href="#1-获取-GitHub-Token" class="headerlink" title="1. 获取 GitHub Token"></a>1. 获取 GitHub Token</h2><ol>
-<li>打开 <strong>Personal settings</strong> -&gt; <strong>Developer settings</strong> -&gt; <strong>Personal access tokens</strong></li>
-<li>设置权限为 <strong>repo</strong> 和 <strong>public repo</strong></li>
-</ol>
-<p><img src="https://img.yuqi.im/202412291101351.png" alt="313f2ca0d7d3ea811d7e7be8ad6bcd4b"></p>
-<ol>
-<li>保存生成的 Token（丢失后无法恢复，只能重新生成）</li>
-<li>在博客代码仓库的 <strong>Secrets</strong> 中添加名为 <strong>PERSONAL_TOKEN</strong> 的变量，后续步骤将用到。</li>
-</ol>
-<p><img src="https://img.yuqi.im/202412291102866.png" alt="f69e8dd9266ba1336ddddff00a67ffc6"></p>
-<h2 id="2-创建-GitHub-Actions"><a href="#2-创建-GitHub-Actions" class="headerlink" title="2. 创建 GitHub Actions"></a>2. 创建 GitHub Actions</h2><ol>
-<li>在博客仓库页面，点击 <strong>Actions</strong>。</li>
-<li>选择 <strong>Set up a workflow yourself</strong>。</li>
-</ol>
-<p><a href="https://13fe9ff.webp.li/2024/11/b425061c44375abea8ca5a8a01091038.png"><img src="https://img.yuqi.im/202412291104224.png" alt="img"></a></p>
-<ol>
-<li>输入以下 YAML 配置并点击 <strong>Start commit</strong> ：</li>
-</ol>
-<figure class="highlight yaml"><table><tr><td class="code"><pre><span class="line"><span class="attr">name:</span> <span class="string">Deploy</span> <span class="string">Hexo</span> <span class="string">to</span> <span class="string">GitHub</span> <span class="string">Pages</span></span><br><span class="line"></span><br><span class="line"><span class="attr">on:</span></span><br><span class="line">  <span class="attr">push:</span></span><br><span class="line">    <span class="attr">branches:</span></span><br><span class="line">      <span class="bullet">-</span> <span class="string">main</span> <span class="comment"># 或你使用的默认分支名称</span></span><br><span class="line"></span><br><span class="line"><span class="attr">jobs:</span></span><br><span class="line">  <span class="attr">deploy:</span></span><br><span class="line">    <span class="attr">runs-on:</span> <span class="string">ubuntu-latest</span></span><br><span class="line"></span><br><span class="line">    <span class="attr">steps:</span></span><br><span class="line">      <span class="bullet">-</span> <span class="attr">name:</span> <span class="string">Checkout</span> <span class="string">blog</span> <span class="string">source</span></span><br><span class="line">        <span class="attr">uses:</span> <span class="string">actions/checkout@v2</span></span><br><span class="line">        <span class="attr">with:</span></span><br><span class="line">          <span class="attr">path:</span> <span class="string">blog</span></span><br><span class="line"></span><br><span class="line">      <span class="bullet">-</span> <span class="attr">name:</span> <span class="string">Set</span> <span class="string">up</span> <span class="string">Node.js</span></span><br><span class="line">        <span class="attr">uses:</span> <span class="string">actions/setup-node@v1</span></span><br><span class="line">        <span class="attr">with:</span></span><br><span class="line">          <span class="attr">node-version:</span> <span class="string">&quot;16&quot;</span> <span class="comment"># 设置 Node.js 版本</span></span><br><span class="line"></span><br><span class="line">      <span class="bullet">-</span> <span class="attr">name:</span> <span class="string">Cache</span> <span class="string">dependencies</span></span><br><span class="line">        <span class="attr">uses:</span> <span class="string">actions/cache@v2</span></span><br><span class="line">        <span class="attr">with:</span></span><br><span class="line">          <span class="attr">path:</span> <span class="string">node_modules</span></span><br><span class="line">          <span class="attr">key:</span> <span class="string">$&#123;&#123;</span> <span class="string">runner.os</span> <span class="string">&#125;&#125;-node-$&#123;&#123;</span> <span class="string">hashFiles(&#x27;**/package-lock.json&#x27;)</span> <span class="string">&#125;&#125;</span></span><br><span class="line">          <span class="attr">restore-keys:</span> <span class="string">|</span></span><br><span class="line"><span class="string">            $&#123;&#123; runner.os &#125;&#125;-node-</span></span><br><span class="line"><span class="string"></span></span><br><span class="line">      <span class="bullet">-</span> <span class="attr">name:</span> <span class="string">Install</span> <span class="string">dependencies</span></span><br><span class="line">        <span class="attr">run:</span> <span class="string">npm</span> <span class="string">install</span></span><br><span class="line">        <span class="attr">working-directory:</span> <span class="string">./blog</span></span><br><span class="line"></span><br><span class="line">      <span class="bullet">-</span> <span class="attr">name:</span> <span class="string">Install</span> <span class="string">Hexo</span> <span class="string">CLI</span></span><br><span class="line">        <span class="attr">run:</span> <span class="string">npm</span> <span class="string">install</span> <span class="string">-g</span> <span class="string">hexo-cli</span></span><br><span class="line">        <span class="attr">working-directory:</span> <span class="string">./blog</span></span><br><span class="line"></span><br><span class="line">      <span class="bullet">-</span> <span class="attr">name:</span> <span class="string">Generate</span> <span class="string">static</span> <span class="string">pages</span></span><br><span class="line">        <span class="attr">run:</span> <span class="string">hexo</span> <span class="string">generate</span></span><br><span class="line">        <span class="attr">working-directory:</span> <span class="string">./blog</span></span><br><span class="line"></span><br><span class="line">      <span class="bullet">-</span> <span class="attr">name:</span> <span class="string">Deploy</span> <span class="string">to</span> <span class="string">GitHub</span> <span class="string">Pages</span></span><br><span class="line">        <span class="attr">uses:</span> <span class="string">peaceiris/actions-gh-pages@v3</span></span><br><span class="line">        <span class="attr">with:</span></span><br><span class="line">          <span class="attr">personal_token:</span> <span class="string">$&#123;&#123;</span> <span class="string">secrets.PERSONAL_TOKEN</span> <span class="string">&#125;&#125;</span></span><br><span class="line">          <span class="attr">publish_dir:</span> <span class="string">./blog/public</span></span><br><span class="line">          <span class="attr">external_repository:</span> <span class="string">username/username.github.io</span> <span class="comment"># 更改为你的 GitHub Pages 仓库, username 是你的用户名</span></span><br><span class="line">          <span class="attr">publish_branch:</span> <span class="string">main</span> <span class="comment"># GitHub Pages 分支</span></span><br></pre></td></tr></table></figure>
-
-<p>参考文档：</p>
-<ul>
-<li><a href="https://www.oplog.cn/archives/24998.html">Hexo 自动化部署教程</a></li>
-<li><a href="https://hackergavin.com/2024/01/11/hexo-automate-deploy/">利用 GitHub Actions 实现自动化部署 Hexo 到 Github Pages</a></li>
-</ul>
-<hr>
-<h1 id="二、通过-Vercel-部署-Qexo"><a href="#二、通过-Vercel-部署-Qexo" class="headerlink" title="二、通过 Vercel 部署 Qexo"></a>二、通过 Vercel 部署 Qexo</h1><h2 id="1-一键部署"><a href="#1-一键部署" class="headerlink" title="1. 一键部署"></a>1. 一键部署</h2><p>点击以下按钮完成一键部署：<a href="https://vercel.com/new/clone?repository-url=https://github.com/am-abudu/Qexo">Vercel 一键部署</a></p>
-<blockquote>
-<p><strong>注意</strong>：首次部署可能会出现错误提示，可忽略并继续后续步骤。</p>
-</blockquote>
-<h2 id="2-修改-Node-js-版本"><a href="#2-修改-Node-js-版本" class="headerlink" title="2. 修改 Node.js 版本"></a>2. 修改 Node.js 版本</h2><p>由于 <strong><a href="https://vercel.com/docs/functions/runtimes/python#python-dependencies">Vercel 的已知问题</a>，需将项目的 Node.js 版本调整为</strong> <strong>18.x</strong>。<br>路径：<strong>Settings -&gt; General -&gt; Node.js Version</strong></p>
-<h2 id="3-创建-Vercel-数据库"><a href="#3-创建-Vercel-数据库" class="headerlink" title="3. 创建 Vercel 数据库"></a>3. 创建 Vercel 数据库</h2><ol>
-<li>进入<a href="https://vercel.com/dashboard/stores">Vercel Storage 页面</a>。</li>
-<li>点击 *<strong>Create Database</strong>，选择 <strong>Neon</strong> ，设置区域为 <strong>Washington, DC., USA - iad1</strong>，创建免费数据库。</li>
-</ol>
-<h2 id="4-绑定项目"><a href="#4-绑定项目" class="headerlink" title="4. 绑定项目"></a>4. 绑定项目</h2><p>在 <strong>Projects</strong> 页面选择对应项目，点击 <strong>Connect Project</strong> 进行绑定。</p>
-<h2 id="5-部署-Qexo"><a href="#5-部署-Qexo" class="headerlink" title="5. 部署 Qexo"></a>5. 部署 Qexo</h2><p>回到项目页面，点击<strong>Redeploy</strong> 开始部署。部署完成后，无报错即可访问域名进入初始化页面。</p>
-<hr>
-<h1 id="初始化配置"><a href="#初始化配置" class="headerlink" title="初始化配置"></a>初始化配置</h1><p><a href="https://13fe9ff.webp.li/2024/11/d14a6a28fa42dc905ad1f9572d280abb.png"><img src="https://13fe9ff.webp.li/2024/11/d14a6a28fa42dc905ad1f9572d280abb.png" alt="img"></a></p>
-<p><a href="https://13fe9ff.webp.li/2024/11/8781b5e062a34509ccf39ed0000e8033.png"><img src="https://img.yuqi.im/202412291104276.png" alt="img"></a></p>
-<h2 id="GitHub-配置"><a href="#GitHub-配置" class="headerlink" title="GitHub 配置"></a>GitHub 配置</h2><p><a href="https://13fe9ff.webp.li/2024/11/7f4e9a472b66f4a2b73ae1c8e035b4ef.png"><img src="https://img.yuqi.im/202412291104301.png" alt="img"></a><br>填写博客源码所在仓库的分支名称，例如：</p>
-<figure class="highlight plaintext"><table><tr><td class="code"><pre><span class="line">plaintext</span><br><span class="line">master</span><br></pre></td></tr></table></figure>
-
-<h2 id="GitHub-密钥"><a href="#GitHub-密钥" class="headerlink" title="GitHub 密钥"></a>GitHub 密钥</h2><p>填写生成的 GitHub Token，例如：</p>
-<figure class="highlight plaintext"><table><tr><td class="code"><pre><span class="line">plaintext</span><br><span class="line">wrq_P8sYPlYA9fjMlOPEYSKA84xxxxxxxxxxxxxx</span><br></pre></td></tr></table></figure>
-
-<h2 id="仓库路径"><a href="#仓库路径" class="headerlink" title="仓库路径"></a>仓库路径</h2><p>若 Hexo 源码在仓库根目录，则留空；否则填写路径：</p>
-<figure class="highlight plaintext"><table><tr><td class="code"><pre><span class="line">plaintext</span><br><span class="line">path/</span><br></pre></td></tr></table></figure>
-
-<p><a href="https://13fe9ff.webp.li/2024/11/f2f7c6b57196afa6652292807698db91.png"><img src="https://img.yuqi.im/202412291104319.png" alt="img"></a></p>
-<p><a href="https://13fe9ff.webp.li/2024/11/5e4c876cd000a6d5f5da45bb256c963e.png"><img src="https://img.yuqi.im/202412291104350.png" alt="img"></a></p>
-<p><a href="https://13fe9ff.webp.li/2024/11/bcc3ab289c7a355ed8116d92faddba80.png"><img src="https://img.yuqi.im/202412291104386.png" alt="img"></a></p>
-<h2 id="Vercel-配置"><a href="#Vercel-配置" class="headerlink" title="Vercel 配置"></a>Vercel 配置</h2><ul>
-<li><strong>VERCEL_TOKEN</strong>：在<a href="https://vercel.com/account/tokens">Vercel 账户设置</a> 中生成。</li>
-<li><strong>PROJECT_ID</strong>：在 <strong>Project Settings -&gt; General -&gt; Project ID</strong> 中找到。</li>
-</ul>
-<p>配置完成后，即可登录后台管理博客内容。</p>
-<p><a href="https://13fe9ff.webp.li/2024/11/df6b8e762d048854683e5e31f6e262f2.png"><img src="https://img.yuqi.im/202412291104412.png" alt="img"></a></p>
-<p><a href="https://13fe9ff.webp.li/2024/11/2fa7cd4b16b469345b8e628d88affae2.png"><img src="https://img.yuqi.im/202412291104441.png" alt="img"></a></p>
-<p><a href="https://13fe9ff.webp.li/2024/11/6a16b8185a435cf9b807dbcc894d92e1.png"><img src="https://img.yuqi.im/202412291104466.png" alt="img"></a></p>
-<h1 id=""><a href="#" class="headerlink" title=""></a></h1>]]></content>
+    <title>OnlyFans 公共存档器 免费查看OnlyFans付费内容-Coomer</title>
+    <url>/posts/1082bb6d/</url>
+    <content><![CDATA[<p>Coomer，一个 OnlyFans 公共存档器，可以免费查看 OnlyFans 付费内容，上面所以内容都由网友搬运、贡献的 OnlyFans 付费内容，想要查看哪位艺术家、作者的付费内容，直接搜索名字即可免费查看 OnlyFans 上的付费内容，当然你也可以共享你的。</p>
+<p>地址：<a href="https://coomer.party/">https://coomer.party/</a></p>
+<p>可以尝试点击&gt;creators&gt;然后搜索 ‘hongkongdoll’ ，‘juneliu’；</p>
+<p>更多的关键词待你挖掘</p>
+]]></content>
       <categories>
-        <category>博客运维</category>
+        <category>公共存档器</category>
       </categories>
       <tags>
-        <tag>Hexo</tag>
+        <tag>18+</tag>
       </tags>
   </entry>
   <entry>
@@ -1730,6 +1643,93 @@
       </categories>
       <tags>
         <tag>iStoreOS</tag>
+      </tags>
+  </entry>
+  <entry>
+    <title>Qexo 一个美观、强大的在线 静态博客 管理器</title>
+    <url>/posts/8277e0e6/</url>
+    <content><![CDATA[<h1 id="前言"><a href="#前言" class="headerlink" title="前言"></a>前言</h1><p><strong>Hexo</strong> 是一款快速、高效的静态博客框架。通过 <a href="http://daringfireball.net/projects/markdown/">Markdown</a> 语法，只需几秒便可生成高质量的静态网页。</p>
+<p>最近，我成功实现了在多设备间灵活管理博客并发布内容。一位网友提到 <strong>Qexo</strong>，一个为 Hexo 增加后台功能的工具，它让发布博客变得像发微博一样简单。深入了解后，我发现它非常强大，不仅可以用手机随时随地发表文章，还极大提升了操作便捷性。</p>
+<p>尽管安装过程中遇到了一些问题，但最终都顺利解决。我将整理经验分享，希望能帮助更多人。</p>
+<hr>
+<h1 id="Qexo-简介"><a href="#Qexo-简介" class="headerlink" title="Qexo 简介"></a>Qexo 简介</h1><p><strong>Qexo</strong> 是一个快速、美观且功能丰富的在线 Hexo 管理器，支持通过 Vercel 免费部署，仅需配置一个数据库即可使用。</p>
+<h2 id="主要功能"><a href="#主要功能" class="headerlink" title="主要功能"></a>主要功能</h2><ul>
+<li>自定义图床上传图片</li>
+<li>在线编辑与页面管理</li>
+<li>开放 API 接口</li>
+<li>自动检查更新并一键更新</li>
+<li>快速管理友情链接</li>
+<li>短文分享（类似微博功能）</li>
+<li>自动填充文章模板</li>
+</ul>
+<p><strong>项目地址</strong>：<a href="https://www.oplog.cn/qexo/start.html">Qexo 官方文档</a></p>
+<hr>
+<h1 id="一、配置-GitHub-自动化部署"><a href="#一、配置-GitHub-自动化部署" class="headerlink" title="一、配置 GitHub 自动化部署"></a>一、配置 GitHub 自动化部署</h1><h2 id="1-获取-GitHub-Token"><a href="#1-获取-GitHub-Token" class="headerlink" title="1. 获取 GitHub Token"></a>1. 获取 GitHub Token</h2><ol>
+<li>打开 <strong>Personal settings</strong> -&gt; <strong>Developer settings</strong> -&gt; <strong>Personal access tokens</strong></li>
+<li>设置权限为 <strong>repo</strong> 和 <strong>public repo</strong></li>
+</ol>
+<p><img src="https://img.yuqi.im/202412291101351.png" alt="313f2ca0d7d3ea811d7e7be8ad6bcd4b"></p>
+<ol>
+<li>保存生成的 Token（丢失后无法恢复，只能重新生成）</li>
+<li>在博客代码仓库的 <strong>Secrets</strong> 中添加名为 <strong>PERSONAL_TOKEN</strong> 的变量，后续步骤将用到。</li>
+</ol>
+<p><img src="https://img.yuqi.im/202412291102866.png" alt="f69e8dd9266ba1336ddddff00a67ffc6"></p>
+<h2 id="2-创建-GitHub-Actions"><a href="#2-创建-GitHub-Actions" class="headerlink" title="2. 创建 GitHub Actions"></a>2. 创建 GitHub Actions</h2><ol>
+<li>在博客仓库页面，点击 <strong>Actions</strong>。</li>
+<li>选择 <strong>Set up a workflow yourself</strong>。</li>
+</ol>
+<p><a href="https://13fe9ff.webp.li/2024/11/b425061c44375abea8ca5a8a01091038.png"><img src="https://img.yuqi.im/202412291104224.png" alt="img"></a></p>
+<ol>
+<li>输入以下 YAML 配置并点击 <strong>Start commit</strong> ：</li>
+</ol>
+<figure class="highlight yaml"><table><tr><td class="code"><pre><span class="line"><span class="attr">name:</span> <span class="string">Deploy</span> <span class="string">Hexo</span> <span class="string">to</span> <span class="string">GitHub</span> <span class="string">Pages</span></span><br><span class="line"></span><br><span class="line"><span class="attr">on:</span></span><br><span class="line">  <span class="attr">push:</span></span><br><span class="line">    <span class="attr">branches:</span></span><br><span class="line">      <span class="bullet">-</span> <span class="string">main</span> <span class="comment"># 或你使用的默认分支名称</span></span><br><span class="line"></span><br><span class="line"><span class="attr">jobs:</span></span><br><span class="line">  <span class="attr">deploy:</span></span><br><span class="line">    <span class="attr">runs-on:</span> <span class="string">ubuntu-latest</span></span><br><span class="line"></span><br><span class="line">    <span class="attr">steps:</span></span><br><span class="line">      <span class="bullet">-</span> <span class="attr">name:</span> <span class="string">Checkout</span> <span class="string">blog</span> <span class="string">source</span></span><br><span class="line">        <span class="attr">uses:</span> <span class="string">actions/checkout@v2</span></span><br><span class="line">        <span class="attr">with:</span></span><br><span class="line">          <span class="attr">path:</span> <span class="string">blog</span></span><br><span class="line"></span><br><span class="line">      <span class="bullet">-</span> <span class="attr">name:</span> <span class="string">Set</span> <span class="string">up</span> <span class="string">Node.js</span></span><br><span class="line">        <span class="attr">uses:</span> <span class="string">actions/setup-node@v1</span></span><br><span class="line">        <span class="attr">with:</span></span><br><span class="line">          <span class="attr">node-version:</span> <span class="string">&quot;16&quot;</span> <span class="comment"># 设置 Node.js 版本</span></span><br><span class="line"></span><br><span class="line">      <span class="bullet">-</span> <span class="attr">name:</span> <span class="string">Cache</span> <span class="string">dependencies</span></span><br><span class="line">        <span class="attr">uses:</span> <span class="string">actions/cache@v2</span></span><br><span class="line">        <span class="attr">with:</span></span><br><span class="line">          <span class="attr">path:</span> <span class="string">node_modules</span></span><br><span class="line">          <span class="attr">key:</span> <span class="string">$&#123;&#123;</span> <span class="string">runner.os</span> <span class="string">&#125;&#125;-node-$&#123;&#123;</span> <span class="string">hashFiles(&#x27;**/package-lock.json&#x27;)</span> <span class="string">&#125;&#125;</span></span><br><span class="line">          <span class="attr">restore-keys:</span> <span class="string">|</span></span><br><span class="line"><span class="string">            $&#123;&#123; runner.os &#125;&#125;-node-</span></span><br><span class="line"><span class="string"></span></span><br><span class="line">      <span class="bullet">-</span> <span class="attr">name:</span> <span class="string">Install</span> <span class="string">dependencies</span></span><br><span class="line">        <span class="attr">run:</span> <span class="string">npm</span> <span class="string">install</span></span><br><span class="line">        <span class="attr">working-directory:</span> <span class="string">./blog</span></span><br><span class="line"></span><br><span class="line">      <span class="bullet">-</span> <span class="attr">name:</span> <span class="string">Install</span> <span class="string">Hexo</span> <span class="string">CLI</span></span><br><span class="line">        <span class="attr">run:</span> <span class="string">npm</span> <span class="string">install</span> <span class="string">-g</span> <span class="string">hexo-cli</span></span><br><span class="line">        <span class="attr">working-directory:</span> <span class="string">./blog</span></span><br><span class="line"></span><br><span class="line">      <span class="bullet">-</span> <span class="attr">name:</span> <span class="string">Generate</span> <span class="string">static</span> <span class="string">pages</span></span><br><span class="line">        <span class="attr">run:</span> <span class="string">hexo</span> <span class="string">generate</span></span><br><span class="line">        <span class="attr">working-directory:</span> <span class="string">./blog</span></span><br><span class="line"></span><br><span class="line">      <span class="bullet">-</span> <span class="attr">name:</span> <span class="string">Deploy</span> <span class="string">to</span> <span class="string">GitHub</span> <span class="string">Pages</span></span><br><span class="line">        <span class="attr">uses:</span> <span class="string">peaceiris/actions-gh-pages@v3</span></span><br><span class="line">        <span class="attr">with:</span></span><br><span class="line">          <span class="attr">personal_token:</span> <span class="string">$&#123;&#123;</span> <span class="string">secrets.PERSONAL_TOKEN</span> <span class="string">&#125;&#125;</span></span><br><span class="line">          <span class="attr">publish_dir:</span> <span class="string">./blog/public</span></span><br><span class="line">          <span class="attr">external_repository:</span> <span class="string">username/username.github.io</span> <span class="comment"># 更改为你的 GitHub Pages 仓库, username 是你的用户名</span></span><br><span class="line">          <span class="attr">publish_branch:</span> <span class="string">main</span> <span class="comment"># GitHub Pages 分支</span></span><br></pre></td></tr></table></figure>
+
+<p>参考文档：</p>
+<ul>
+<li><a href="https://www.oplog.cn/archives/24998.html">Hexo 自动化部署教程</a></li>
+<li><a href="https://hackergavin.com/2024/01/11/hexo-automate-deploy/">利用 GitHub Actions 实现自动化部署 Hexo 到 Github Pages</a></li>
+</ul>
+<hr>
+<h1 id="二、通过-Vercel-部署-Qexo"><a href="#二、通过-Vercel-部署-Qexo" class="headerlink" title="二、通过 Vercel 部署 Qexo"></a>二、通过 Vercel 部署 Qexo</h1><h2 id="1-一键部署"><a href="#1-一键部署" class="headerlink" title="1. 一键部署"></a>1. 一键部署</h2><p>点击以下按钮完成一键部署：<a href="https://vercel.com/new/clone?repository-url=https://github.com/am-abudu/Qexo">Vercel 一键部署</a></p>
+<blockquote>
+<p><strong>注意</strong>：首次部署可能会出现错误提示，可忽略并继续后续步骤。</p>
+</blockquote>
+<h2 id="2-修改-Node-js-版本"><a href="#2-修改-Node-js-版本" class="headerlink" title="2. 修改 Node.js 版本"></a>2. 修改 Node.js 版本</h2><p>由于 <strong><a href="https://vercel.com/docs/functions/runtimes/python#python-dependencies">Vercel 的已知问题</a>，需将项目的 Node.js 版本调整为</strong> <strong>18.x</strong>。<br>路径：<strong>Settings -&gt; General -&gt; Node.js Version</strong></p>
+<h2 id="3-创建-Vercel-数据库"><a href="#3-创建-Vercel-数据库" class="headerlink" title="3. 创建 Vercel 数据库"></a>3. 创建 Vercel 数据库</h2><ol>
+<li>进入<a href="https://vercel.com/dashboard/stores">Vercel Storage 页面</a>。</li>
+<li>点击 *<strong>Create Database</strong>，选择 <strong>Neon</strong> ，设置区域为 <strong>Washington, DC., USA - iad1</strong>，创建免费数据库。</li>
+</ol>
+<h2 id="4-绑定项目"><a href="#4-绑定项目" class="headerlink" title="4. 绑定项目"></a>4. 绑定项目</h2><p>在 <strong>Projects</strong> 页面选择对应项目，点击 <strong>Connect Project</strong> 进行绑定。</p>
+<h2 id="5-部署-Qexo"><a href="#5-部署-Qexo" class="headerlink" title="5. 部署 Qexo"></a>5. 部署 Qexo</h2><p>回到项目页面，点击<strong>Redeploy</strong> 开始部署。部署完成后，无报错即可访问域名进入初始化页面。</p>
+<hr>
+<h1 id="初始化配置"><a href="#初始化配置" class="headerlink" title="初始化配置"></a>初始化配置</h1><p><a href="https://13fe9ff.webp.li/2024/11/d14a6a28fa42dc905ad1f9572d280abb.png"><img src="https://13fe9ff.webp.li/2024/11/d14a6a28fa42dc905ad1f9572d280abb.png" alt="img"></a></p>
+<p><a href="https://13fe9ff.webp.li/2024/11/8781b5e062a34509ccf39ed0000e8033.png"><img src="https://img.yuqi.im/202412291104276.png" alt="img"></a></p>
+<h2 id="GitHub-配置"><a href="#GitHub-配置" class="headerlink" title="GitHub 配置"></a>GitHub 配置</h2><p><a href="https://13fe9ff.webp.li/2024/11/7f4e9a472b66f4a2b73ae1c8e035b4ef.png"><img src="https://img.yuqi.im/202412291104301.png" alt="img"></a><br>填写博客源码所在仓库的分支名称，例如：</p>
+<figure class="highlight plaintext"><table><tr><td class="code"><pre><span class="line">plaintext</span><br><span class="line">master</span><br></pre></td></tr></table></figure>
+
+<h2 id="GitHub-密钥"><a href="#GitHub-密钥" class="headerlink" title="GitHub 密钥"></a>GitHub 密钥</h2><p>填写生成的 GitHub Token，例如：</p>
+<figure class="highlight plaintext"><table><tr><td class="code"><pre><span class="line">plaintext</span><br><span class="line">wrq_P8sYPlYA9fjMlOPEYSKA84xxxxxxxxxxxxxx</span><br></pre></td></tr></table></figure>
+
+<h2 id="仓库路径"><a href="#仓库路径" class="headerlink" title="仓库路径"></a>仓库路径</h2><p>若 Hexo 源码在仓库根目录，则留空；否则填写路径：</p>
+<figure class="highlight plaintext"><table><tr><td class="code"><pre><span class="line">plaintext</span><br><span class="line">path/</span><br></pre></td></tr></table></figure>
+
+<p><a href="https://13fe9ff.webp.li/2024/11/f2f7c6b57196afa6652292807698db91.png"><img src="https://img.yuqi.im/202412291104319.png" alt="img"></a></p>
+<p><a href="https://13fe9ff.webp.li/2024/11/5e4c876cd000a6d5f5da45bb256c963e.png"><img src="https://img.yuqi.im/202412291104350.png" alt="img"></a></p>
+<p><a href="https://13fe9ff.webp.li/2024/11/bcc3ab289c7a355ed8116d92faddba80.png"><img src="https://img.yuqi.im/202412291104386.png" alt="img"></a></p>
+<h2 id="Vercel-配置"><a href="#Vercel-配置" class="headerlink" title="Vercel 配置"></a>Vercel 配置</h2><ul>
+<li><strong>VERCEL_TOKEN</strong>：在<a href="https://vercel.com/account/tokens">Vercel 账户设置</a> 中生成。</li>
+<li><strong>PROJECT_ID</strong>：在 <strong>Project Settings -&gt; General -&gt; Project ID</strong> 中找到。</li>
+</ul>
+<p>配置完成后，即可登录后台管理博客内容。</p>
+<p><a href="https://13fe9ff.webp.li/2024/11/df6b8e762d048854683e5e31f6e262f2.png"><img src="https://img.yuqi.im/202412291104412.png" alt="img"></a></p>
+<p><a href="https://13fe9ff.webp.li/2024/11/2fa7cd4b16b469345b8e628d88affae2.png"><img src="https://img.yuqi.im/202412291104441.png" alt="img"></a></p>
+<p><a href="https://13fe9ff.webp.li/2024/11/6a16b8185a435cf9b807dbcc894d92e1.png"><img src="https://img.yuqi.im/202412291104466.png" alt="img"></a></p>
+<h1 id=""><a href="#" class="headerlink" title=""></a></h1>]]></content>
+      <categories>
+        <category>博客运维</category>
+      </categories>
+      <tags>
+        <tag>Hexo</tag>
       </tags>
   </entry>
   <entry>
@@ -2156,6 +2156,66 @@
 <p>上载后会按颜色显示所抓的曲线，可以将光标在曲线上拖动，即可查看对应那一时间纵向每个曲线对应的数据</p>
 <p><img src="https://img.yuqi.im/20250722124743640.png" alt="image-20250722124742576"></p>
 <p>蓝色实际速度与绿色设定速度之间差距越小，速度环参数设定越合理。如出现波动需要重新设置转动惯量。</p>
+]]></content>
+      <categories>
+        <category>工业自动化</category>
+      </categories>
+      <tags>
+        <tag>MOVIDRIVE</tag>
+      </tags>
+  </entry>
+  <entry>
+    <title>SEW-MC07B变频器-MOTION--STUDIO软件调试步骤、方法和技巧</title>
+    <url>/posts/421934fd/</url>
+    <content><![CDATA[<p><img src="https://img.yuqi.im/20250524205528464.PNG" alt="4"></p>
+<p><img src="https://img.yuqi.im/20250524205547050.PNG" alt="5"></p>
+<p><img src="https://img.yuqi.im/20250524205627985.PNG" alt="6"></p>
+<p><img src="https://img.yuqi.im/20250524205645010.PNG" alt="7"></p>
+<p><img src="https://img.yuqi.im/20250524205656950.PNG" alt="8"></p>
+<p><img src="https://img.yuqi.im/20250524205709394.PNG" alt="9"></p>
+<p><img src="https://img.yuqi.im/20250524205720726.PNG" alt="10"></p>
+<p><img src="https://img.yuqi.im/20250524205733378.PNG" alt="11"></p>
+<p><img src="https://img.yuqi.im/20250524205754775.PNG" alt="12"></p>
+<p><img src="https://img.yuqi.im/20250524205811663.PNG" alt="13"></p>
+<p><img src="https://img.yuqi.im/20250524205821221.PNG" alt="14"></p>
+<p><img src="https://img.yuqi.im/20250524205834316.PNG" alt="15"></p>
+<p><img src="https://img.yuqi.im/20250524205843533.PNG" alt="16"></p>
+<p><img src="https://img.yuqi.im/20250524205901797.PNG" alt="17"></p>
+<p><img src="https://img.yuqi.im/20250524205914973.PNG" alt="18"></p>
+<p><img src="https://img.yuqi.im/20250524205928160.PNG" alt="19"></p>
+<p><img src="https://img.yuqi.im/20250524205940302.PNG" alt="20"></p>
+<p><img src="https://img.yuqi.im/20250524205950644.PNG" alt="21"></p>
+<p><img src="https://img.yuqi.im/20250524210006913.PNG" alt="22"></p>
+<p><img src="https://img.yuqi.im/20250524210029075.PNG" alt="23"></p>
+<p><img src="https://img.yuqi.im/20250524210042996.PNG" alt="24"></p>
+<p><img src="https://img.yuqi.im/20250524210105981.PNG" alt="25"></p>
+<p><img src="https://img.yuqi.im/20250524210122505.PNG" alt="26"></p>
+<p><img src="https://img.yuqi.im/20250524210136340.PNG" alt="27"></p>
+<p><img src="https://img.yuqi.im/20250524210145600.PNG" alt="28"></p>
+<p><img src="https://img.yuqi.im/20250524210156379.PNG" alt="29"></p>
+<p><img src="https://img.yuqi.im/20250524210210502.PNG" alt="30"></p>
+<p><img src="https://img.yuqi.im/20250524210234883.PNG" alt="31"></p>
+<p><img src="https://img.yuqi.im/20250524210248367.PNG" alt="32"></p>
+<p><img src="https://img.yuqi.im/20250524210258079.PNG" alt="33"></p>
+<p><img src="https://img.yuqi.im/20250524210309675.PNG" alt="34"></p>
+<p><img src="https://img.yuqi.im/20250524210319649.PNG" alt="35"></p>
+<p><img src="https://img.yuqi.im/20250524210333008.PNG" alt="36"></p>
+<p><img src="https://img.yuqi.im/20250524210342988.PNG" alt="37"></p>
+<p><img src="https://img.yuqi.im/20250524210354944.PNG" alt="38"></p>
+<p><img src="https://img.yuqi.im/20250524210407861.PNG" alt="39"></p>
+<p><img src="https://img.yuqi.im/20250524210423100.PNG" alt="40"></p>
+<p><img src="https://img.yuqi.im/20250524210434359.PNG" alt="41"></p>
+<p><img src="https://img.yuqi.im/20250524210450567.PNG" alt="42"></p>
+<p><img src="https://img.yuqi.im/20250524210503106.PNG" alt="43"></p>
+<p><img src="https://img.yuqi.im/20250524210515428.PNG" alt="44"></p>
+<p><img src="https://img.yuqi.im/20250524210527098.PNG" alt="45"></p>
+<p><img src="https://img.yuqi.im/20250524210537936.PNG" alt="46"></p>
+<p><img src="https://img.yuqi.im/20250524210549531.PNG" alt="47"></p>
+<p><img src="https://img.yuqi.im/20250524210601981.PNG" alt="48"></p>
+<p><img src="https://img.yuqi.im/20250524210614094.PNG" alt="49"></p>
+<p><img src="https://img.yuqi.im/20250524210627091.PNG" alt="50"></p>
+<p><img src="https://img.yuqi.im/20250524210637201.PNG" alt="51"></p>
+<p><img src="https://img.yuqi.im/20250524210647926.PNG" alt="52"></p>
 ]]></content>
       <categories>
         <category>工业自动化</category>
@@ -2699,7 +2759,7 @@
 <p>如 PO5 对应 QW264，直接赋值到 QW264 即可  </p>
 <p><strong>PO6 :</strong> Deceleration ramp  </p>
 <p>表示设定所需减速斜坡时间，比例为 1:1ms，如需按 2s斜坡加速，发 2000 即可<br>如 PO6 对应 QW266，直接赋值到 QW266 即可</p>
-<h3 id="变频器反馈至-PLC-值"><a href="#变频器反馈至-PLC-值" class="headerlink" title="变频器反馈至 PLC 值"></a>变频器反馈至 PLC 值</h3><p>**PI1 :**Status word 1 （状态字 1）</p>
+<h3 id="变频器反馈至-PLC-值"><a href="#变频器反馈至-PLC-值" class="headerlink" title="变频器反馈至 PLC 值"></a>变频器反馈至 PLC 值</h3><p><strong>PI1 :</strong> Status word 1 （状态字 1）</p>
 <p><img src="https://img.yuqi.im/20250725155738398.png"></p>
 <p><img src="https://img.yuqi.im/20250725155738399.png"></p>
 <p>当第 5 位为 1 时，表示变频器有报警；高 8 位（8-15 位）的整型数值为报警代码（代码含义请看 SEW_MDX61B 驱动控制器系统手册英文版 Edition2010.8 第620-636 页）<br>当第 5 位为 0 时，表示变频器没有报警；高 8 位（8-15 位）的整型数值为变频器运行状态代码（代码含义请看 SEW_MDX61B 驱动控制器系统手册英文版Edition2010.8 第 609 页）<br>如 PI1 对应 IW256<br>想知道系统的相应状态，直接从 IW256 读值即可</p>
@@ -2726,66 +2786,6 @@
 <p><img src="https://img.yuqi.im/20250725155738403.png"></p>
 <p>电磁干扰屏蔽处理不当：<strong>会出现总线易受干扰掉线；编码器脉冲信号接受错误，定位精度差；对电机进行零速控制时，电机会自行转动等故障现象。</strong></p>
 <h1 id="资料下载"><a href="#资料下载" class="headerlink" title="资料下载"></a>资料下载</h1><p>MOVIDRIVE® MDX60B &#x2F; 61B 操作手册：<a href="https://download.sew-eurodrive.com/download/pdf/11300558.pdf">https://download.sew-eurodrive.com/download/pdf/11300558.pdf</a><br>MOVITOOLS MotionStudio：<a href="https://www.sew-eurodrive.cn/os/dud/?tab=software&country=CN&language=zh_cn&search=MotionStudio">https://www.sew-eurodrive.cn/os/dud/?tab=software&amp;country=CN&amp;language=zh_cn&amp;search=MotionStudio</a></p>
-]]></content>
-      <categories>
-        <category>工业自动化</category>
-      </categories>
-      <tags>
-        <tag>MOVIDRIVE</tag>
-      </tags>
-  </entry>
-  <entry>
-    <title>SEW-MC07B变频器-MOTION--STUDIO软件调试步骤、方法和技巧</title>
-    <url>/posts/421934fd/</url>
-    <content><![CDATA[<p><img src="https://img.yuqi.im/20250524205528464.PNG" alt="4"></p>
-<p><img src="https://img.yuqi.im/20250524205547050.PNG" alt="5"></p>
-<p><img src="https://img.yuqi.im/20250524205627985.PNG" alt="6"></p>
-<p><img src="https://img.yuqi.im/20250524205645010.PNG" alt="7"></p>
-<p><img src="https://img.yuqi.im/20250524205656950.PNG" alt="8"></p>
-<p><img src="https://img.yuqi.im/20250524205709394.PNG" alt="9"></p>
-<p><img src="https://img.yuqi.im/20250524205720726.PNG" alt="10"></p>
-<p><img src="https://img.yuqi.im/20250524205733378.PNG" alt="11"></p>
-<p><img src="https://img.yuqi.im/20250524205754775.PNG" alt="12"></p>
-<p><img src="https://img.yuqi.im/20250524205811663.PNG" alt="13"></p>
-<p><img src="https://img.yuqi.im/20250524205821221.PNG" alt="14"></p>
-<p><img src="https://img.yuqi.im/20250524205834316.PNG" alt="15"></p>
-<p><img src="https://img.yuqi.im/20250524205843533.PNG" alt="16"></p>
-<p><img src="https://img.yuqi.im/20250524205901797.PNG" alt="17"></p>
-<p><img src="https://img.yuqi.im/20250524205914973.PNG" alt="18"></p>
-<p><img src="https://img.yuqi.im/20250524205928160.PNG" alt="19"></p>
-<p><img src="https://img.yuqi.im/20250524205940302.PNG" alt="20"></p>
-<p><img src="https://img.yuqi.im/20250524205950644.PNG" alt="21"></p>
-<p><img src="https://img.yuqi.im/20250524210006913.PNG" alt="22"></p>
-<p><img src="https://img.yuqi.im/20250524210029075.PNG" alt="23"></p>
-<p><img src="https://img.yuqi.im/20250524210042996.PNG" alt="24"></p>
-<p><img src="https://img.yuqi.im/20250524210105981.PNG" alt="25"></p>
-<p><img src="https://img.yuqi.im/20250524210122505.PNG" alt="26"></p>
-<p><img src="https://img.yuqi.im/20250524210136340.PNG" alt="27"></p>
-<p><img src="https://img.yuqi.im/20250524210145600.PNG" alt="28"></p>
-<p><img src="https://img.yuqi.im/20250524210156379.PNG" alt="29"></p>
-<p><img src="https://img.yuqi.im/20250524210210502.PNG" alt="30"></p>
-<p><img src="https://img.yuqi.im/20250524210234883.PNG" alt="31"></p>
-<p><img src="https://img.yuqi.im/20250524210248367.PNG" alt="32"></p>
-<p><img src="https://img.yuqi.im/20250524210258079.PNG" alt="33"></p>
-<p><img src="https://img.yuqi.im/20250524210309675.PNG" alt="34"></p>
-<p><img src="https://img.yuqi.im/20250524210319649.PNG" alt="35"></p>
-<p><img src="https://img.yuqi.im/20250524210333008.PNG" alt="36"></p>
-<p><img src="https://img.yuqi.im/20250524210342988.PNG" alt="37"></p>
-<p><img src="https://img.yuqi.im/20250524210354944.PNG" alt="38"></p>
-<p><img src="https://img.yuqi.im/20250524210407861.PNG" alt="39"></p>
-<p><img src="https://img.yuqi.im/20250524210423100.PNG" alt="40"></p>
-<p><img src="https://img.yuqi.im/20250524210434359.PNG" alt="41"></p>
-<p><img src="https://img.yuqi.im/20250524210450567.PNG" alt="42"></p>
-<p><img src="https://img.yuqi.im/20250524210503106.PNG" alt="43"></p>
-<p><img src="https://img.yuqi.im/20250524210515428.PNG" alt="44"></p>
-<p><img src="https://img.yuqi.im/20250524210527098.PNG" alt="45"></p>
-<p><img src="https://img.yuqi.im/20250524210537936.PNG" alt="46"></p>
-<p><img src="https://img.yuqi.im/20250524210549531.PNG" alt="47"></p>
-<p><img src="https://img.yuqi.im/20250524210601981.PNG" alt="48"></p>
-<p><img src="https://img.yuqi.im/20250524210614094.PNG" alt="49"></p>
-<p><img src="https://img.yuqi.im/20250524210627091.PNG" alt="50"></p>
-<p><img src="https://img.yuqi.im/20250524210637201.PNG" alt="51"></p>
-<p><img src="https://img.yuqi.im/20250524210647926.PNG" alt="52"></p>
 ]]></content>
       <categories>
         <category>工业自动化</category>

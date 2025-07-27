@@ -692,7 +692,7 @@
 <p>如 PO5 对应 QW264，直接赋值到 QW264 即可  </p>
 <p><strong>PO6 :</strong> Deceleration ramp  </p>
 <p>表示设定所需减速斜坡时间，比例为 1:1ms，如需按 2s斜坡加速，发 2000 即可<br>如 PO6 对应 QW266，直接赋值到 QW266 即可</p>
-<h3 id="变频器反馈至-PLC-值"><a href="#变频器反馈至-PLC-值" class="headerlink" title="变频器反馈至 PLC 值"></a>变频器反馈至 PLC 值</h3><p>**PI1 :**Status word 1 （状态字 1）</p>
+<h3 id="变频器反馈至-PLC-值"><a href="#变频器反馈至-PLC-值" class="headerlink" title="变频器反馈至 PLC 值"></a>变频器反馈至 PLC 值</h3><p><strong>PI1 :</strong> Status word 1 （状态字 1）</p>
 <p><img src="https://img.yuqi.im/20250725155738398.png"></p>
 <p><img src="https://img.yuqi.im/20250725155738399.png"></p>
 <p>当第 5 位为 1 时，表示变频器有报警；高 8 位（8-15 位）的整型数值为报警代码（代码含义请看 SEW_MDX61B 驱动控制器系统手册英文版 Edition2010.8 第620-636 页）<br>当第 5 位为 0 时，表示变频器没有报警；高 8 位（8-15 位）的整型数值为变频器运行状态代码（代码含义请看 SEW_MDX61B 驱动控制器系统手册英文版Edition2010.8 第 609 页）<br>如 PI1 对应 IW256<br>想知道系统的相应状态，直接从 IW256 读值即可</p>

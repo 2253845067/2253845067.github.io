@@ -2,7 +2,7 @@
 <urlset xmlns="http://www.sitemaps.org/schemas/sitemap/0.9">
   
   <url>
-    <loc>https://yuqi.im/tags/index.html</loc>
+    <loc>https://yuqi.im/about/index.html</loc>
     
     <lastmod>2025-07-27</lastmod>
     
@@ -20,7 +20,7 @@
   </url>
   
   <url>
-    <loc>https://yuqi.im/about/index.html</loc>
+    <loc>https://yuqi.im/categories/index.html</loc>
     
     <lastmod>2025-07-27</lastmod>
     
@@ -47,7 +47,7 @@
   </url>
   
   <url>
-    <loc>https://yuqi.im/categories/index.html</loc>
+    <loc>https://yuqi.im/tags/index.html</loc>
     
     <lastmod>2025-07-27</lastmod>
     
@@ -648,14 +648,14 @@
   </url>
   
   <url>
-    <loc>https://yuqi.im/tags/18/</loc>
+    <loc>https://yuqi.im/tags/Openwrt/</loc>
     <lastmod>2025-07-27</lastmod>
     <changefreq>weekly</changefreq>
     <priority>0.2</priority>
   </url>
   
   <url>
-    <loc>https://yuqi.im/tags/Openwrt/</loc>
+    <loc>https://yuqi.im/tags/18/</loc>
     <lastmod>2025-07-27</lastmod>
     <changefreq>weekly</changefreq>
     <priority>0.2</priority>
