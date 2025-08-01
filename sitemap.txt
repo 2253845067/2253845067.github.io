@@ -4,6 +4,7 @@ https://yuqi.im/categories/index.html
 https://yuqi.im/comment/index.html
 https://yuqi.im/link/index.html
 https://yuqi.im/tags/index.html
+https://yuqi.im/posts/a99e9fee/
 https://yuqi.im/posts/21fa371d/
 https://yuqi.im/posts/ee46e52f/
 https://yuqi.im/posts/c4294855/
@@ -70,10 +71,11 @@ https://yuqi.im/tags/%E7%BD%91%E7%9B%98%E8%81%9A%E5%90%88/
 https://yuqi.im/tags/Balluff/
 https://yuqi.im/tags/Hexo/
 https://yuqi.im/tags/%E7%BD%91%E7%BB%9C%E4%BB%A3%E7%90%86/
+https://yuqi.im/tags/Fuwari/
 https://yuqi.im/tags/HTML/
 https://yuqi.im/tags/MOVIDRIVE/
-https://yuqi.im/tags/Openwrt/
 https://yuqi.im/tags/18/
+https://yuqi.im/tags/Openwrt/
 https://yuqi.im/tags/iStoreOS/
 https://yuqi.im/tags/SINAMICS/
 https://yuqi.im/tags/SICK/

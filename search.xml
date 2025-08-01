@@ -729,6 +729,94 @@
       </tags>
   </entry>
   <entry>
+    <title>Fuwari搭建</title>
+    <url>/posts/a99e9fee/</url>
+    <content><![CDATA[<h1 id="准备开始"><a href="#准备开始" class="headerlink" title="准备开始"></a>准备开始</h1><ol>
+<li><a href="https://git-scm.com/downloads">安装Git</a>或者<a href="https://github.com/apps/desktop">安装GitHub Desktop</a>来对Github进行操作</li>
+<li><a href="https://nodejs.org/en">安装Node.js</a>来搭建博客</li>
+<li>一个<a href="https://github.com/">Github</a>账号用于存放Fuwari文件</li>
+<li>一个<a href="https://app.netlify.com/">Netlify</a>账号创建一个Pages并且绑定域名支持访问</li>
+<li><a href="https://www.marktext.cc/">安装MarkText</a>或者<a href="https://typoraio.cn/">安装Typora</a>来编辑MarkDown</li>
+</ol>
+<h1 id="本地部署Fuwari"><a href="#本地部署Fuwari" class="headerlink" title="本地部署Fuwari"></a>本地部署Fuwari</h1><ol>
+<li>使用此模板<a href="https://github.com/saicaca/fuwari/generate">生成新仓库</a>或 Fork 此仓库</li>
+<li>Clone 仓库到本地，执行 <code>pnpm install</code> 和 <code>pnpm add sharp</code> 以安装依赖  <ul>
+<li>若未安装 <a href="https://pnpm.io/">pnpm</a>，执行 <code>npm install -g pnpm</code></li>
+</ul>
+</li>
+</ol>
+<h1 id="修改Fuwari的基本信息"><a href="#修改Fuwari的基本信息" class="headerlink" title="修改Fuwari的基本信息"></a>修改Fuwari的基本信息</h1><p>根目录下的 <code>src</code> 文件夹中，你可以找到 <code>config.ts</code> 来修改你的Fuwari基本信息</p>
+<ol>
+<li>站点信息&amp;顶部图</li>
+</ol>
+<figure class="highlight plaintext"><table><tr><td class="code"><pre><span class="line">export const siteConfig: SiteConfig = &#123;</span><br><span class="line">  title: &#x27;你的标题&#x27;,</span><br><span class="line">  subtitle: &#x27;你的副标题&#x27;,</span><br><span class="line">  lang: &#x27;zh_CN&#x27;,  // &#x27;en&#x27;, &#x27;zh_CN&#x27;, &#x27;zh_TW&#x27;, &#x27;ja&#x27;, &#x27;ko&#x27;</span><br><span class="line">  themeColor: &#123;  // 主题色部分，按个人喜好配置</span><br><span class="line">    hue: 250,</span><br><span class="line">    fixed: false,</span><br><span class="line">  &#125;,</span><br><span class="line">  banner: &#123;</span><br><span class="line">    enable: true,  // 是否开启顶部图</span><br><span class="line">    src: &#x27;assets/images/你的图片&#x27;,  // 顶部图存放路径</span><br><span class="line">    position: &#x27;center&#x27;,  //  defaults或者center</span><br><span class="line">    credit: &#123;</span><br><span class="line">      enable: true,  // 是否显示顶部图文本描述</span><br><span class="line">      text: &#x27;想显示的文本&#x27;,  // 输入文本等描述</span><br><span class="line">      url: &#x27;https://xxxxxxxxxxxxx&#x27;  // 顶部图的来源url等</span><br><span class="line">    &#125;</span><br><span class="line">  &#125;,</span><br></pre></td></tr></table></figure>
+
+<ol start="2">
+<li>顶部导航栏github部分</li>
+</ol>
+<figure class="highlight plaintext"><table><tr><td class="code"><pre><span class="line">export const navBarConfig: NavBarConfig = &#123;</span><br><span class="line">  links: [</span><br><span class="line">    LinkPreset.Home,</span><br><span class="line">    LinkPreset.Archive,</span><br><span class="line">    LinkPreset.About,</span><br><span class="line">    &#123;</span><br><span class="line">      name: &#x27;GitHub&#x27;,</span><br><span class="line">      url: &#x27;https://github.com/saicaca/fuwari&#x27;,  // 想要跳转的url</span><br><span class="line">      external: true,  //是否显示外部链接图标并将在新标签中打开</span><br><span class="line">    &#125;,</span><br><span class="line">  ],</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+
+<ol start="3">
+<li>左侧信息页配置</li>
+</ol>
+<figure class="highlight plaintext"><table><tr><td class="code"><pre><span class="line">export const profileConfig: ProfileConfig = &#123;</span><br><span class="line">  avatar: &#x27;assets/images/avatar.png&#x27;,  // 头像图片文件路径</span><br><span class="line">  name: &#x27;AULyPc&#x27;,     // 你的昵称</span><br><span class="line">  bio: &#x27;这片大地...&#x27;,  // 你的签名</span><br><span class="line">  links: [           // 社交栏配置</span><br><span class="line">    &#123;</span><br><span class="line">      name: &#x27;Twitter&#x27;,</span><br><span class="line">      icon: &#x27;fa6-brands:twitter&#x27;,  // https://icones.js.org/ icon图标网站</span><br><span class="line">      url: &#x27;https://twitter.com/AULyPc1&#x27;,</span><br><span class="line">    &#125;,</span><br><span class="line">    &#123;</span><br><span class="line">      name: &#x27;Steam&#x27;,</span><br><span class="line">      icon: &#x27;fa6-brands:steam&#x27;,</span><br><span class="line">      url: &#x27;https://steamcommunity.com/profiles/76561198813644850/&#x27;,</span><br><span class="line">    &#125;,</span><br><span class="line">    &#123;</span><br><span class="line">      name: &#x27;GitHub&#x27;,</span><br><span class="line">      icon: &#x27;fa6-brands:github&#x27;,</span><br><span class="line">      url: &#x27;https://github.com/AULyPc&#x27;,</span><br><span class="line">    &#125;,</span><br><span class="line">    &#123;</span><br><span class="line">      name: &#x27;Email&#x27;,</span><br><span class="line">      icon: &#x27;material-symbols:mail&#x27;,</span><br><span class="line">      url: &#x27;mailto:cecilybenson8@gmail.com&#x27;,</span><br><span class="line">    &#125;,</span><br><span class="line">  ],</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+
+<h1 id="编写文章"><a href="#编写文章" class="headerlink" title="编写文章"></a>编写文章</h1><p>执行 <code>pnpm new-post &lt;filename&gt;</code> 创建新文章页面后<br>就可以在 <code>src/content/posts/</code> 目录中编辑你的第一篇文章了</p>
+<p>文章需包含以下内容</p>
+<figure class="highlight plaintext"><table><tr><td class="code"><pre><span class="line">---</span><br><span class="line">title: My First Blog Post  &lt;!-- 你的文章标题 --&gt;</span><br><span class="line">published: 2023-09-09  &lt;!-- 文章发布时间 --&gt;</span><br><span class="line">description: This is the first post of my new Astro blog.  &lt;!-- 简单描述你的文章，可有可无 --&gt;</span><br><span class="line">image: /images/cover.jpg  &lt;!-- 文章主页的封面，可有可无 --&gt;</span><br><span class="line">tags: [Foo, Bar]  &lt;!-- 文章标签 --&gt;</span><br><span class="line">category: Front-end  &lt;!-- 文章分类 --&gt;</span><br><span class="line">draft: false  &lt;!-- 文文章是否为草稿，默认false；设置为true后部署后不可见，但本地开发预览时仍可见 --&gt;</span><br><span class="line">language: &#x27;&#x27;  &lt;!-- 可有可无，按需设置 --&gt;</span><br><span class="line">---</span><br></pre></td></tr></table></figure>
+
+<h1 id="本地预览，然后发布到Github"><a href="#本地预览，然后发布到Github" class="headerlink" title="本地预览，然后发布到Github"></a>本地预览，然后发布到Github</h1><ol>
+<li><p>配置好博客信息并编写好文章之后，在项目根目录执行：<code>pnpm dev</code>，稍等片刻，就可以本地预览你的博客了</p>
+</li>
+<li><p>预览之后使用Git将我们所做的更改发布到Github</p>
+</li>
+</ol>
+<h1 id="将博客部署到Netlify"><a href="#将博客部署到Netlify" class="headerlink" title="将博客部署到Netlify"></a>将博客部署到Netlify</h1><ol>
+<li>进入<a href="https://app.netlify.com/">Netlify</a>官网，使用Github账号登陆或者用邮箱进行注册</li>
+<li>点击添加新项目-&gt;导入现有项目</li>
+</ol>
+<p><img src="https://img.yuqi.im/20250802030903812.png" alt="image-20250802025259435"></p>
+<ol start="3">
+<li>连接到Github</li>
+</ol>
+<p><img src="https://img.yuqi.im/20250802030910929.png" alt="image-20250802025502586"></p>
+<ol start="4">
+<li>选择你的博客</li>
+</ol>
+<p><img src="https://img.yuqi.im/20250802030924372.png" alt="image-20250802025549333"></p>
+<ol start="5">
+<li>输入你的项目名称后点击部署</li>
+</ol>
+<p><img src="https://img.yuqi.im/20250802030930935.png" alt="image-20250802025730707"></p>
+<p><img src="https://img.yuqi.im/20250802030936268.png" alt="image-20250802025744743"></p>
+<ol start="6">
+<li>点击域名管理-&gt;添加域-&gt;添加已拥有的域名</li>
+</ol>
+<p><img src="https://img.yuqi.im/20250802030946310.png" alt="image-20250802030006681"></p>
+<ol start="7">
+<li>输入域名后点击核实-&gt;添加子域名</li>
+</ol>
+<p><img src="https://img.yuqi.im/20250802030952107.png" alt="image-20250802030107986"></p>
+<p><img src="https://img.yuqi.im/20250802030956194.png" alt="image-20250802030154171"></p>
+<ol start="8">
+<li>等待添加DNS解析记录，我们去域名管理的地方把DNS解析添加上即可</li>
+</ol>
+<p><img src="https://img.yuqi.im/20250802031001158.png" alt="image-20250802030300114"></p>
+<p><img src="https://img.yuqi.im/20250802031005689.png" alt="image-20250802030319944"></p>
+<p><img src="https://img.yuqi.im/20250802031011750.png" alt="image-20250802030500744"></p>
+<ol start="9">
+<li>等待SSL&#x2F;TLS证书申请下来后，直接访问设置好的域名就可以进入博客了</li>
+</ol>
+<h1 id="最后"><a href="#最后" class="headerlink" title="最后"></a>最后</h1><p>你只需要在本地编写文章，然后使用Git将更改推送到远程仓库，Netlify就会自动部署，更新你的博客！</p>
+]]></content>
+      <categories>
+        <category>博客运维</category>
+      </categories>
+      <tags>
+        <tag>Fuwari</tag>
+      </tags>
+  </entry>
+  <entry>
     <title>HTML总复习</title>
     <url>/posts/e79fa3f4/</url>
     <content><![CDATA[<h1 id="导读"><a href="#导读" class="headerlink" title="导读"></a>导读</h1><h2 id="网页"><a href="#网页" class="headerlink" title="网页"></a>网页</h2><p>网站是指在因特网中根据一定的规则，使用<strong>HTML</strong>等制作的用于展示特定内容相关的网页集合</p>
@@ -1421,6 +1509,21 @@
       </tags>
   </entry>
   <entry>
+    <title>OnlyFans 公共存档器 免费查看OnlyFans付费内容-Coomer</title>
+    <url>/posts/1082bb6d/</url>
+    <content><![CDATA[<p>Coomer，一个 OnlyFans 公共存档器，可以免费查看 OnlyFans 付费内容，上面所以内容都由网友搬运、贡献的 OnlyFans 付费内容，想要查看哪位艺术家、作者的付费内容，直接搜索名字即可免费查看 OnlyFans 上的付费内容，当然你也可以共享你的。</p>
+<p>地址：<a href="https://coomer.party/">https://coomer.party/</a></p>
+<p>可以尝试点击&gt;creators&gt;然后搜索 ‘hongkongdoll’ ，‘juneliu’；</p>
+<p>更多的关键词待你挖掘</p>
+]]></content>
+      <categories>
+        <category>公共存档器</category>
+      </categories>
+      <tags>
+        <tag>18+</tag>
+      </tags>
+  </entry>
+  <entry>
     <title>Openwrt编译</title>
     <url>/posts/72c5b323/</url>
     <content><![CDATA[<h1 id="注意"><a href="#注意" class="headerlink" title="注意"></a>注意</h1><ol>
@@ -1485,21 +1588,6 @@
       </categories>
       <tags>
         <tag>Openwrt</tag>
-      </tags>
-  </entry>
-  <entry>
-    <title>OnlyFans 公共存档器 免费查看OnlyFans付费内容-Coomer</title>
-    <url>/posts/1082bb6d/</url>
-    <content><![CDATA[<p>Coomer，一个 OnlyFans 公共存档器，可以免费查看 OnlyFans 付费内容，上面所以内容都由网友搬运、贡献的 OnlyFans 付费内容，想要查看哪位艺术家、作者的付费内容，直接搜索名字即可免费查看 OnlyFans 上的付费内容，当然你也可以共享你的。</p>
-<p>地址：<a href="https://coomer.party/">https://coomer.party/</a></p>
-<p>可以尝试点击&gt;creators&gt;然后搜索 ‘hongkongdoll’ ，‘juneliu’；</p>
-<p>更多的关键词待你挖掘</p>
-]]></content>
-      <categories>
-        <category>公共存档器</category>
-      </categories>
-      <tags>
-        <tag>18+</tag>
       </tags>
   </entry>
   <entry>
@@ -1855,6 +1943,115 @@
       </tags>
   </entry>
   <entry>
+    <title>SEW MOVIPRO调试步骤</title>
+    <url>/posts/f5fecf87/</url>
+    <content><![CDATA[<h1 id="创建项目-添加设备并配置"><a href="#创建项目-添加设备并配置" class="headerlink" title="创建项目-添加设备并配置"></a>创建项目-添加设备并配置</h1><p>1、打开MOVITOOLS MotionStudio软件，创建项目；<br><img src="https://img.yuqi.im/20250520230954862.png" alt="image-20250520230940811"></p>
+<p>2、用Ethernet线缆连接电脑和MoviPro控制器的service unit。点击“communication”，创建通讯方式；<br><img src="https://img.yuqi.im/20250520231006027.png" alt="image-20250520230948605"></p>
+<p>3、设备初始IP地址为192.168.10.4，将电脑IP地址与其设在同一网段下，点击“OK”即可建立Ethernet连接；如果设备IP地址已被更改，点击“edit”；<br><img src="https://img.yuqi.im/20250520231113431.png" alt="image-20250520224324421"></p>
+<p>4、添加新的IP地址；<br><img src="https://img.yuqi.im/20250520231011496.png" alt="image-20250520224341744"></p>
+<p>5、网络连接建立完成；<br><img src="https://img.yuqi.im/20250520231122633.png" alt="image-20250520224354597"></p>
+<p>6、扫描网络中的设备；<br><img src="https://img.yuqi.im/20250520231131139.png" alt="image-20250520224412310"></p>
+<p>7、设备扫描完成；<br><img src="https://img.yuqi.im/20250520231137902.png" alt="image-20250520224428869"></p>
+<p>8、点击设备属性；<br><img src="https://img.yuqi.im/20250520231146176.png" alt="image-20250520224518855"></p>
+<p>9、设置设备名称；<br><img src="https://img.yuqi.im/20250520231200252.png" alt="image-20250520224532942"></p>
+<p>8、进行设备硬件配置；<br><img src="https://img.yuqi.im/20250520231153579.png" alt="image-20250520224548176"></p>
+<p>11、选择需要配置的设备；<br><img src="https://img.yuqi.im/20250520231210043.png" alt="image-20250520224559520"></p>
+<p>12、点击“确定”；<br><img src="https://img.yuqi.im/20250520231221238.png" alt="image-20250520224613368"></p>
+<p>13、硬件配置完成；<br><img src="https://img.yuqi.im/20250520231228687.png" alt="image-20250520224629428"></p>
+<h1 id="配置电机参数"><a href="#配置电机参数" class="headerlink" title="配置电机参数"></a>配置电机参数</h1><p>14、进行power section初始化；<br><img src="https://img.yuqi.im/20250520231239923.png" alt="image-20250520224645469"></p>
+<p>15、点击“perform startup”，开始初始化；<br><img src="https://img.yuqi.im/20250520231248547.png" alt="image-20250520224657723"></p>
+<p>16、如果编码器中有电机的电子铭牌。选择接受编码器铭牌信息，点击“next”;<br><img src="https://img.yuqi.im/20250520231257891.png" alt="image-20250520224711463"></p>
+<p>17、如果编码器中没有电机的电子铭牌。需要对照电机铭牌，将编码器的电子铭牌手动输入 ；<br><img src="https://img.yuqi.im/20250520231305618.png" alt="image-20250520224722270"></p>
+<p>18、对照电机铭牌，确认编码器型号，之后点击“next”；<br><img src="https://img.yuqi.im/20250520231315922.png" alt="image-20250520224736776"></p>
+<p>19、编码器配置完成，点击“next”，开始电机初始化；<br><img src="https://img.yuqi.im/20250520231327038.png" alt="image-20250520224747069"></p>
+<p>20、点击“startup set-1”,进行parameter set-1设置；<br><img src="https://img.yuqi.im/20250520231334194.png" alt="image-20250520224801440"></p>
+<p>21、选择“Execute complete start-up（执行完整的初始化）”；<br><img src="https://img.yuqi.im/20250520231349687.png" alt="image-20250520224813064"></p>
+<p>22、选择“Stand-alone motor &gt; Vector-controlled&#x2F;Servo（独立电机 &gt; 矢量控制&#x2F;伺服电机）”；<br><img src="https://img.yuqi.im/20250520231358793.png" alt="image-20250520224822876"></p>
+<p>23、参照电机铭牌，检查电机及编码器信息是否准确；<br><img src="https://img.yuqi.im/20250520231410958.png" alt="image-20250520224837420"></p>
+<p>24、检查电机类型信息；<br><img src="https://img.yuqi.im/20250520231419435.png" alt="image-20250520224848845"></p>
+<p>25、输入电源电压，定义参数P835“电机温度传感器的响应”，定义参数P530“电机温度传感器类型”（例如TF&#x2F;TH）；<br><img src="https://img.yuqi.im/20250520231428193.png" alt="image-20250520224926604"></p>
+<p>26、选择“Yes, I use the encoder.（使用编码器）”；<br><img src="https://img.yuqi.im/20250520231436016.png" alt="image-20250520224938904"></p>
+<p>27、操作模式选择“Positioning with IPOS（IPOS程序定位模式）”；<br><img src="https://img.yuqi.im/20250520231442842.png" alt="image-20250520225002622"></p>
+<p>28、选择“CFC（电流矢量控制）模式”；<br><img src="https://img.yuqi.im/20250520231449119.png" alt="image-20250520225015957"></p>
+<p>29、准确填写WEISS计算的load inertia（负载转动惯量），drive选择“With Backlash”；<br><img src="https://img.yuqi.im/20250520231503423.png" alt="image-20250520225026004"></p>
+<p>30、相关参数使用WEISS所提供参数表中的建议参数，其它参数选择“Apply Proposal（使用推荐值）”；<br><img src="https://img.yuqi.im/20250520231511679.png" alt="image-20250520225036799"></p>
+<p>31、转速控制器参数选择“Apply Proposal（使用推荐值）”；<br><img src="https://img.yuqi.im/20250520231536940.png" alt="image-20250520225058582"></p>
+<p>32、 相关参数使用WEISS所提供参数表中的建议参数，剩余参数选择“Apply Proposal（使用推荐值）”；<br><img src="https://img.yuqi.im/20250520231544207.png" alt="image-20250520225108975"></p>
+<p>33、点击“完成”，将初始化信息下载至控制器。如需配置parameter set-2，点击“download”，再进行参数包2的配置；<br><img src="https://img.yuqi.im/20250520231552525.png" alt="image-20250520225121142"></p>
+<p>34、初始化完全完成后，会跳出提示框，点击“确定”；<br><img src="https://img.yuqi.im/20250520231600145.png" alt="image-20250520225138383"></p>
+<h1 id="设置其他参数"><a href="#设置其他参数" class="headerlink" title="设置其他参数"></a>设置其他参数</h1><p>35、点击“parameter tree”，进行WEISS所提供参数表中其它相关参数的设置；<br><img src="https://img.yuqi.im/20250520231606894.png" alt="image-20250520225149596"></p>
+<p>36、例如，P911定位斜坡1，P913&#x2F;P914运转转速CW&#x2F;CCW，P916斜坡形式需设为“Jerk-Limited”；<br><img src="https://img.yuqi.im/20250520231616480.png" alt="image-20250520225202404"></p>
+<p>37、例如，P933突变时间；<br><img src="https://img.yuqi.im/20250520231626629.png" alt="image-20250520225213331"></p>
+<h1 id="手动控制"><a href="#手动控制" class="headerlink" title="手动控制"></a>手动控制</h1><p>38、参数配置为在线实时进行，完成后，点击“manual mode”手动模式；<br><img src="https://img.yuqi.im/20250520231642297.png" alt="image-20250520225223204"></p>
+<p>39、点击“Activate manual mode”，激活手动模式。此时插上jumper plug，设置速度，方向，即可进行转台正反停控制；<br><img src="https://img.yuqi.im/20250520231656405.png" alt="image-20250520225234230"></p>
+<p>40、手动模式下，转台运行正常后，将转台旋转至机械零点位置，点击“Deactivate manual mode”，退出手动模式，拔下jumper plug;	<br><img src="https://img.yuqi.im/20250520231705779.png" alt="image-20250520225246305"></p>
+<h1 id="模块应用配置"><a href="#模块应用配置" class="headerlink" title="模块应用配置"></a>模块应用配置</h1><p>41、点击“Application Configurator”，进行模块应用配置；<br><img src="https://img.yuqi.im/20250520231712618.png" alt="image-20250520225301025"></p>
+<p>42、点击“Create new configuration”,创建新的模块应用配置；<br><img src="https://img.yuqi.im/20250520231719182.png" alt="image-20250520225312698"></p>
+<p>43、Application module 选择“transparent 6PD”;<br><img src="https://img.yuqi.im/20250520231726816.png" alt="image-20250520225325321"></p>
+<p>44、点击“configuration”，完成后标志变绿色，点击“next”；<br><img src="https://img.yuqi.im/20250520231734076.png" alt="image-20250520225340848"></p>
+<p>45、点击“Save complete configuration”，可保存应用配置文件；<br><img src="https://img.yuqi.im/20250520231740533.png" alt="image-20250520225402973"></p>
+<p>46、点击“Document configuration”,可将应用配置保存为.pdf文件；<br><img src="https://img.yuqi.im/20250520231747555.png" alt="image-20250520225422513"></p>
+<p>47、若应用配置软件版本不同，选择“with controller software”，将软件和应用配置下载至设备。过程持续可能20分钟，注意电脑和设备此时不能断电；<br><img src="https://img.yuqi.im/20250520231757343.png" alt="image-20250520225434600"></p>
+<p>48、点击“确定”，重启设备;<br><img src="https://img.yuqi.im/20250520231804084.png" alt="image-20250520225445136"></p>
+<p>49、应用配置完成；<br><img src="https://img.yuqi.im/20250520231811471.png" alt="image-20250520225459428"></p>
+<h1 id="配置AMA0801"><a href="#配置AMA0801" class="headerlink" title="配置AMA0801"></a>配置AMA0801</h1><p>50、创建AMA0801模块；<br><img src="https://img.yuqi.im/20250520231822010.png" alt="image-20250520225524162"></p>
+<p>51、点击“Load a configuration”，下载已保存的应用模块，或者点击“next”，开始初始化AMA0801模块；<br><img src="https://img.yuqi.im/20250520231828978.png" alt="image-20250520225540943"></p>
+<p>52、总线参数和控制器配置页面，“Application mode”选择“Binary setpoint”;<br><img src="https://img.yuqi.im/20250520231837827.png" alt="image-20250520225551310"></p>
+<p>53、刻度计算页面，“Diameter&#x2F;spindle pitch”的单位选择“inc”;<br><img src="https://img.yuqi.im/20250520231844945.png" alt="image-20250520225604832"></p>
+<p>54、参数和极限页面，若使用硬件限位开关，需将CW和CCW限位开关接到设备X5102_2，同时在软件上选择“YES”，“parameter tree”中将P603和P604端子功能设置为相应的限位功能。如果没有原点传感器，寻找参考点模式选择5，即将当前点作为原点。同时可根据WEISS参数表设置各种模式下极限速度；<br><img src="https://img.yuqi.im/20250520231851607.png" alt="image-20250520225621665"></p>
+<p>55、设置定位和点动模式高低速、加减速时间，以及 至设置设备行走各个位置的速度及加减速时间；<br><img src="https://img.yuqi.im/20250520231859909.png" alt="image-20250520225632316"></p>
+<p>56、设置定位窗口和设备行走的位置；<br><img src="https://img.yuqi.im/20250520231908210.png" alt="image-20250520225645477"></p>
+<p>57、设置cam switch；<br><img src="https://img.yuqi.im/20250520231915883.png" alt="image-20250520225706528"></p>
+<p>58、监控设置页面，建议使用其默认参数；<br><img src="https://img.yuqi.im/20250520231922866.png" alt="image-20250520225717710"></p>
+<p>59、点击“save configutation”，可保存AMA配置文件；<br><img src="https://img.yuqi.im/20250520231930036.png" alt="image-20250520225728063"></p>
+<p>60、点击“create documentation”，可将AMA配置保存为.pdf文件；<br><img src="https://img.yuqi.im/20250520231936652.png" alt="image-20250520225738609"></p>
+<p>61、点击“download”，将AMA应用模块配置下载至设备；<br><img src="https://img.yuqi.im/20250520231948547.png" alt="image-20250520225759312"></p>
+<h1 id="总线控制"><a href="#总线控制" class="headerlink" title="总线控制"></a>总线控制</h1><p>62、下载完成后，软件自动跳至总线控制监视器；<br><img src="https://img.yuqi.im/20250520232005174.png" alt="image-20250520225808792"></p>
+<p>63、点击“control”，确定弹出对话框；<br><img src="https://img.yuqi.im/20250520232013724.png" alt="image-20250520225818826"></p>
+<p>64、插上jumper plug，控制模式选为“reference mode（寻参模式）”，点击“start”，即可将当前机械零点设为电气零点；<br><img src="https://img.yuqi.im/20250520232021615.png" alt="image-20250520225830987"></p>
+<p>65、寻参结束后，PO2状态字中当前位置会变为0 inc;<br><img src="https://img.yuqi.im/20250520232029384.png" alt="image-20250520225841553"></p>
+<p>66、选择“jog mode（点动模式）”，即可模拟总线进行点动控制；<br><img src="https://img.yuqi.im/20250520232037665.png" alt="image-20250520225851198"></p>
+<p>67、选择“positioning mode（定位模式）”，选择位置，即可模拟总线进行定位控制；<br><img src="https://img.yuqi.im/20250520232045036.png" alt="image-20250520225859987"></p>
+<p>68、模拟总线控制转台运转正常之后，取消控制字，拔下jumper plug，点击“monitor”，退出控制模式；<br><img src="https://img.yuqi.im/20250520232051720.png" alt="image-20250520225909761"></p>
+<h1 id="数据管理"><a href="#数据管理" class="headerlink" title="数据管理"></a>数据管理</h1><p>69、点击“Datamanagement”；<br><img src="https://img.yuqi.im/20250520232100983.png" alt="image-20250520225920732"></p>
+<p>70、点击“upload”，将设备中数据备份到SD卡；<br><img src="https://img.yuqi.im/20250520232108798.png" alt="image-20250520225930647"></p>
+<p>71、点击“start upload”，开始备份数据；<br><img src="https://img.yuqi.im/20250520232116388.png" alt="image-20250520225958505"></p>
+<p>72、备份完成；<br><img src="https://img.yuqi.im/20250520232124675.png" alt="image-20250520225942038"></p>
+<p>73、点击“export”，将power section参数导出；<br><img src="https://img.yuqi.im/20250520232133052.png" alt="image-20250520230018000"></p>
+<p>74、点击“export”，将control and communication unit参数导出；<br><img src="https://img.yuqi.im/20250520232141408.png" alt="image-20250520230027041"></p>
+<p>75、点击“save”，保存项目；<br><img src="https://img.yuqi.im/20250520232149043.png" alt="image-20250520230037252"></p>
+<p>76、点击“export”，可将此项目导出为.exe文件；<br><img src="https://img.yuqi.im/20250520232157540.png" alt="image-20250520230047342"></p>
+<h1 id="初始化"><a href="#初始化" class="headerlink" title="初始化"></a>初始化</h1><p>77、若需初始化控制器，可在“parameter tree”P802中选择“delivery state”，将控制器还原为出厂状态。<br><img src="https://img.yuqi.im/20250520232205573.png" alt="image-20250520230056017"></p>
+<h1 id="补充"><a href="#补充" class="headerlink" title="补充"></a>补充</h1><p>1、变频器安全参照MOVIFIT设置右键点击20 Default<br><img src="https://img.yuqi.im/20250522195109917.jpg" alt="img"></p>
+<p>2、变频器硬件组态输入输出数据为 8 WORD.<br><img src="https://img.yuqi.im/20250522195116416.jpg" alt="img"></p>
+<p>3、选择<br><img src="https://img.yuqi.im/20250522195121633.jpg" alt="img"><br>读取编码器中电机参数 ，电机NEXT<br><img src="https://img.yuqi.im/20250522195127315.jpg" alt="img"></p>
+<p>4、开始设置变频器参数 电机START-UP SET1<br><img src="https://img.yuqi.im/20250522195131943.jpg" alt="img"></p>
+<p>5、选择完成执行参数初始化<br><img src="https://img.yuqi.im/20250522195136752.jpg" alt="img"></p>
+<p>6、选择私服控制<br><img src="https://img.yuqi.im/20250522195141348.jpg" alt="img"></p>
+<p>7、选择电机型号。本项目中是读取编码器中电机数据故无需设置<br><img src="https://img.yuqi.im/20250522195149268.jpg" alt="img"></p>
+<p>8、选择PositionWith IPOS<br><img src="https://img.yuqi.im/20250522195155150.jpg" alt="img"> </p>
+<p>9、选择矢量控制<br><img src="https://img.yuqi.im/20250522195201283.jpg" alt="img"></p>
+<p>10、设置电机转动惯量和抱闸应用<br><img src="https://img.yuqi.im/20250522195208507.jpg" alt="img"></p>
+<p>11、电机参数选择SEW建议值， APPLY PROPOSAL电机NEXT<br><img src="https://img.yuqi.im/20250522195215400.jpg" alt="img"></p>
+<p>12、参数设置完成，电机完成将参数下载到变频器、<br><img src="https://img.yuqi.im/20250522195221191.jpg" alt="img"></p>
+<p>13、设置变频器IPOS应用、选择Extened Positioning Via Bus<br><img src="https://img.yuqi.im/20250522195226479.jpg" alt="img"></p>
+<p>14、电机NEXT<br><img src="https://img.yuqi.im/20250522195231631.jpg" alt="img"></p>
+<p>15、设置滚床机械参数。由于采用脉冲定位方式故直接电机NEXT<br><img src="https://img.yuqi.im/20250522195237098.jpg" alt="img"></p>
+<p>16、设置变频器软限位和校零方式<br><img src="https://img.yuqi.im/20250522195242608.jpg" alt="img"></p>
+<p>17、参数设置完成电机DOWN load下载参数<br><img src="https://img.yuqi.im/20250522195249177.jpg" alt="img"></p>
+<p>18、选择YES可以查看变频器控制字和状态字<br><img src="https://img.yuqi.im/20250522195255788.jpg" alt="img"></p>
+<p>19、MONITOR MODE和 CONTROL模式可以监控变频器状态或者控制变频器定位（由PC控制）<br><img src="https://img.yuqi.im/20250522195303798.jpg" alt="img"></p>
+<p>20、巡参模式控制字<br><img src="https://img.yuqi.im/20250522195310346.jpg" alt="img"></p>
+<p>21、定位模式状态字。定位的前提是变频器必须巡参，需要设置目的值、速度、加减速度<br><img src="https://img.yuqi.im/20250522195316220.jpg" alt="img"></p>
+]]></content>
+      <categories>
+        <category>工业自动化</category>
+      </categories>
+      <tags>
+        <tag>MOVIDRIVE</tag>
+      </tags>
+  </entry>
+  <entry>
     <title>SEW MOVIDRIVE MDX61B调试步骤</title>
     <url>/posts/175f8f8b/</url>
     <content><![CDATA[<h1 id="通用配置"><a href="#通用配置" class="headerlink" title="通用配置"></a>通用配置</h1><p>1、打开MOVITOOLS MotionStudio软件，创建项目；</p>
@@ -2019,115 +2216,6 @@
 <p><img src="https://img.yuqi.im/20250524223312296.png" alt="image-20250524213941933"></p>
 <p>48、若后期设备应用有更改，需初始化控制器，可在“parameter tree”P802中选择“delivery state”，将控制器还原为出厂状态。</p>
 <p><img src="https://img.yuqi.im/20250524223317731.png" alt="image-20250524213949868"></p>
-]]></content>
-      <categories>
-        <category>工业自动化</category>
-      </categories>
-      <tags>
-        <tag>MOVIDRIVE</tag>
-      </tags>
-  </entry>
-  <entry>
-    <title>SEW MOVIPRO调试步骤</title>
-    <url>/posts/f5fecf87/</url>
-    <content><![CDATA[<h1 id="创建项目-添加设备并配置"><a href="#创建项目-添加设备并配置" class="headerlink" title="创建项目-添加设备并配置"></a>创建项目-添加设备并配置</h1><p>1、打开MOVITOOLS MotionStudio软件，创建项目；<br><img src="https://img.yuqi.im/20250520230954862.png" alt="image-20250520230940811"></p>
-<p>2、用Ethernet线缆连接电脑和MoviPro控制器的service unit。点击“communication”，创建通讯方式；<br><img src="https://img.yuqi.im/20250520231006027.png" alt="image-20250520230948605"></p>
-<p>3、设备初始IP地址为192.168.10.4，将电脑IP地址与其设在同一网段下，点击“OK”即可建立Ethernet连接；如果设备IP地址已被更改，点击“edit”；<br><img src="https://img.yuqi.im/20250520231113431.png" alt="image-20250520224324421"></p>
-<p>4、添加新的IP地址；<br><img src="https://img.yuqi.im/20250520231011496.png" alt="image-20250520224341744"></p>
-<p>5、网络连接建立完成；<br><img src="https://img.yuqi.im/20250520231122633.png" alt="image-20250520224354597"></p>
-<p>6、扫描网络中的设备；<br><img src="https://img.yuqi.im/20250520231131139.png" alt="image-20250520224412310"></p>
-<p>7、设备扫描完成；<br><img src="https://img.yuqi.im/20250520231137902.png" alt="image-20250520224428869"></p>
-<p>8、点击设备属性；<br><img src="https://img.yuqi.im/20250520231146176.png" alt="image-20250520224518855"></p>
-<p>9、设置设备名称；<br><img src="https://img.yuqi.im/20250520231200252.png" alt="image-20250520224532942"></p>
-<p>8、进行设备硬件配置；<br><img src="https://img.yuqi.im/20250520231153579.png" alt="image-20250520224548176"></p>
-<p>11、选择需要配置的设备；<br><img src="https://img.yuqi.im/20250520231210043.png" alt="image-20250520224559520"></p>
-<p>12、点击“确定”；<br><img src="https://img.yuqi.im/20250520231221238.png" alt="image-20250520224613368"></p>
-<p>13、硬件配置完成；<br><img src="https://img.yuqi.im/20250520231228687.png" alt="image-20250520224629428"></p>
-<h1 id="配置电机参数"><a href="#配置电机参数" class="headerlink" title="配置电机参数"></a>配置电机参数</h1><p>14、进行power section初始化；<br><img src="https://img.yuqi.im/20250520231239923.png" alt="image-20250520224645469"></p>
-<p>15、点击“perform startup”，开始初始化；<br><img src="https://img.yuqi.im/20250520231248547.png" alt="image-20250520224657723"></p>
-<p>16、如果编码器中有电机的电子铭牌。选择接受编码器铭牌信息，点击“next”;<br><img src="https://img.yuqi.im/20250520231257891.png" alt="image-20250520224711463"></p>
-<p>17、如果编码器中没有电机的电子铭牌。需要对照电机铭牌，将编码器的电子铭牌手动输入 ；<br><img src="https://img.yuqi.im/20250520231305618.png" alt="image-20250520224722270"></p>
-<p>18、对照电机铭牌，确认编码器型号，之后点击“next”；<br><img src="https://img.yuqi.im/20250520231315922.png" alt="image-20250520224736776"></p>
-<p>19、编码器配置完成，点击“next”，开始电机初始化；<br><img src="https://img.yuqi.im/20250520231327038.png" alt="image-20250520224747069"></p>
-<p>20、点击“startup set-1”,进行parameter set-1设置；<br><img src="https://img.yuqi.im/20250520231334194.png" alt="image-20250520224801440"></p>
-<p>21、选择“Execute complete start-up（执行完整的初始化）”；<br><img src="https://img.yuqi.im/20250520231349687.png" alt="image-20250520224813064"></p>
-<p>22、选择“Stand-alone motor &gt; Vector-controlled&#x2F;Servo（独立电机 &gt; 矢量控制&#x2F;伺服电机）”；<br><img src="https://img.yuqi.im/20250520231358793.png" alt="image-20250520224822876"></p>
-<p>23、参照电机铭牌，检查电机及编码器信息是否准确；<br><img src="https://img.yuqi.im/20250520231410958.png" alt="image-20250520224837420"></p>
-<p>24、检查电机类型信息；<br><img src="https://img.yuqi.im/20250520231419435.png" alt="image-20250520224848845"></p>
-<p>25、输入电源电压，定义参数P835“电机温度传感器的响应”，定义参数P530“电机温度传感器类型”（例如TF&#x2F;TH）；<br><img src="https://img.yuqi.im/20250520231428193.png" alt="image-20250520224926604"></p>
-<p>26、选择“Yes, I use the encoder.（使用编码器）”；<br><img src="https://img.yuqi.im/20250520231436016.png" alt="image-20250520224938904"></p>
-<p>27、操作模式选择“Positioning with IPOS（IPOS程序定位模式）”；<br><img src="https://img.yuqi.im/20250520231442842.png" alt="image-20250520225002622"></p>
-<p>28、选择“CFC（电流矢量控制）模式”；<br><img src="https://img.yuqi.im/20250520231449119.png" alt="image-20250520225015957"></p>
-<p>29、准确填写WEISS计算的load inertia（负载转动惯量），drive选择“With Backlash”；<br><img src="https://img.yuqi.im/20250520231503423.png" alt="image-20250520225026004"></p>
-<p>30、相关参数使用WEISS所提供参数表中的建议参数，其它参数选择“Apply Proposal（使用推荐值）”；<br><img src="https://img.yuqi.im/20250520231511679.png" alt="image-20250520225036799"></p>
-<p>31、转速控制器参数选择“Apply Proposal（使用推荐值）”；<br><img src="https://img.yuqi.im/20250520231536940.png" alt="image-20250520225058582"></p>
-<p>32、 相关参数使用WEISS所提供参数表中的建议参数，剩余参数选择“Apply Proposal（使用推荐值）”；<br><img src="https://img.yuqi.im/20250520231544207.png" alt="image-20250520225108975"></p>
-<p>33、点击“完成”，将初始化信息下载至控制器。如需配置parameter set-2，点击“download”，再进行参数包2的配置；<br><img src="https://img.yuqi.im/20250520231552525.png" alt="image-20250520225121142"></p>
-<p>34、初始化完全完成后，会跳出提示框，点击“确定”；<br><img src="https://img.yuqi.im/20250520231600145.png" alt="image-20250520225138383"></p>
-<h1 id="设置其他参数"><a href="#设置其他参数" class="headerlink" title="设置其他参数"></a>设置其他参数</h1><p>35、点击“parameter tree”，进行WEISS所提供参数表中其它相关参数的设置；<br><img src="https://img.yuqi.im/20250520231606894.png" alt="image-20250520225149596"></p>
-<p>36、例如，P911定位斜坡1，P913&#x2F;P914运转转速CW&#x2F;CCW，P916斜坡形式需设为“Jerk-Limited”；<br><img src="https://img.yuqi.im/20250520231616480.png" alt="image-20250520225202404"></p>
-<p>37、例如，P933突变时间；<br><img src="https://img.yuqi.im/20250520231626629.png" alt="image-20250520225213331"></p>
-<h1 id="手动控制"><a href="#手动控制" class="headerlink" title="手动控制"></a>手动控制</h1><p>38、参数配置为在线实时进行，完成后，点击“manual mode”手动模式；<br><img src="https://img.yuqi.im/20250520231642297.png" alt="image-20250520225223204"></p>
-<p>39、点击“Activate manual mode”，激活手动模式。此时插上jumper plug，设置速度，方向，即可进行转台正反停控制；<br><img src="https://img.yuqi.im/20250520231656405.png" alt="image-20250520225234230"></p>
-<p>40、手动模式下，转台运行正常后，将转台旋转至机械零点位置，点击“Deactivate manual mode”，退出手动模式，拔下jumper plug;	<br><img src="https://img.yuqi.im/20250520231705779.png" alt="image-20250520225246305"></p>
-<h1 id="模块应用配置"><a href="#模块应用配置" class="headerlink" title="模块应用配置"></a>模块应用配置</h1><p>41、点击“Application Configurator”，进行模块应用配置；<br><img src="https://img.yuqi.im/20250520231712618.png" alt="image-20250520225301025"></p>
-<p>42、点击“Create new configuration”,创建新的模块应用配置；<br><img src="https://img.yuqi.im/20250520231719182.png" alt="image-20250520225312698"></p>
-<p>43、Application module 选择“transparent 6PD”;<br><img src="https://img.yuqi.im/20250520231726816.png" alt="image-20250520225325321"></p>
-<p>44、点击“configuration”，完成后标志变绿色，点击“next”；<br><img src="https://img.yuqi.im/20250520231734076.png" alt="image-20250520225340848"></p>
-<p>45、点击“Save complete configuration”，可保存应用配置文件；<br><img src="https://img.yuqi.im/20250520231740533.png" alt="image-20250520225402973"></p>
-<p>46、点击“Document configuration”,可将应用配置保存为.pdf文件；<br><img src="https://img.yuqi.im/20250520231747555.png" alt="image-20250520225422513"></p>
-<p>47、若应用配置软件版本不同，选择“with controller software”，将软件和应用配置下载至设备。过程持续可能20分钟，注意电脑和设备此时不能断电；<br><img src="https://img.yuqi.im/20250520231757343.png" alt="image-20250520225434600"></p>
-<p>48、点击“确定”，重启设备;<br><img src="https://img.yuqi.im/20250520231804084.png" alt="image-20250520225445136"></p>
-<p>49、应用配置完成；<br><img src="https://img.yuqi.im/20250520231811471.png" alt="image-20250520225459428"></p>
-<h1 id="配置AMA0801"><a href="#配置AMA0801" class="headerlink" title="配置AMA0801"></a>配置AMA0801</h1><p>50、创建AMA0801模块；<br><img src="https://img.yuqi.im/20250520231822010.png" alt="image-20250520225524162"></p>
-<p>51、点击“Load a configuration”，下载已保存的应用模块，或者点击“next”，开始初始化AMA0801模块；<br><img src="https://img.yuqi.im/20250520231828978.png" alt="image-20250520225540943"></p>
-<p>52、总线参数和控制器配置页面，“Application mode”选择“Binary setpoint”;<br><img src="https://img.yuqi.im/20250520231837827.png" alt="image-20250520225551310"></p>
-<p>53、刻度计算页面，“Diameter&#x2F;spindle pitch”的单位选择“inc”;<br><img src="https://img.yuqi.im/20250520231844945.png" alt="image-20250520225604832"></p>
-<p>54、参数和极限页面，若使用硬件限位开关，需将CW和CCW限位开关接到设备X5102_2，同时在软件上选择“YES”，“parameter tree”中将P603和P604端子功能设置为相应的限位功能。如果没有原点传感器，寻找参考点模式选择5，即将当前点作为原点。同时可根据WEISS参数表设置各种模式下极限速度；<br><img src="https://img.yuqi.im/20250520231851607.png" alt="image-20250520225621665"></p>
-<p>55、设置定位和点动模式高低速、加减速时间，以及 至设置设备行走各个位置的速度及加减速时间；<br><img src="https://img.yuqi.im/20250520231859909.png" alt="image-20250520225632316"></p>
-<p>56、设置定位窗口和设备行走的位置；<br><img src="https://img.yuqi.im/20250520231908210.png" alt="image-20250520225645477"></p>
-<p>57、设置cam switch；<br><img src="https://img.yuqi.im/20250520231915883.png" alt="image-20250520225706528"></p>
-<p>58、监控设置页面，建议使用其默认参数；<br><img src="https://img.yuqi.im/20250520231922866.png" alt="image-20250520225717710"></p>
-<p>59、点击“save configutation”，可保存AMA配置文件；<br><img src="https://img.yuqi.im/20250520231930036.png" alt="image-20250520225728063"></p>
-<p>60、点击“create documentation”，可将AMA配置保存为.pdf文件；<br><img src="https://img.yuqi.im/20250520231936652.png" alt="image-20250520225738609"></p>
-<p>61、点击“download”，将AMA应用模块配置下载至设备；<br><img src="https://img.yuqi.im/20250520231948547.png" alt="image-20250520225759312"></p>
-<h1 id="总线控制"><a href="#总线控制" class="headerlink" title="总线控制"></a>总线控制</h1><p>62、下载完成后，软件自动跳至总线控制监视器；<br><img src="https://img.yuqi.im/20250520232005174.png" alt="image-20250520225808792"></p>
-<p>63、点击“control”，确定弹出对话框；<br><img src="https://img.yuqi.im/20250520232013724.png" alt="image-20250520225818826"></p>
-<p>64、插上jumper plug，控制模式选为“reference mode（寻参模式）”，点击“start”，即可将当前机械零点设为电气零点；<br><img src="https://img.yuqi.im/20250520232021615.png" alt="image-20250520225830987"></p>
-<p>65、寻参结束后，PO2状态字中当前位置会变为0 inc;<br><img src="https://img.yuqi.im/20250520232029384.png" alt="image-20250520225841553"></p>
-<p>66、选择“jog mode（点动模式）”，即可模拟总线进行点动控制；<br><img src="https://img.yuqi.im/20250520232037665.png" alt="image-20250520225851198"></p>
-<p>67、选择“positioning mode（定位模式）”，选择位置，即可模拟总线进行定位控制；<br><img src="https://img.yuqi.im/20250520232045036.png" alt="image-20250520225859987"></p>
-<p>68、模拟总线控制转台运转正常之后，取消控制字，拔下jumper plug，点击“monitor”，退出控制模式；<br><img src="https://img.yuqi.im/20250520232051720.png" alt="image-20250520225909761"></p>
-<h1 id="数据管理"><a href="#数据管理" class="headerlink" title="数据管理"></a>数据管理</h1><p>69、点击“Datamanagement”；<br><img src="https://img.yuqi.im/20250520232100983.png" alt="image-20250520225920732"></p>
-<p>70、点击“upload”，将设备中数据备份到SD卡；<br><img src="https://img.yuqi.im/20250520232108798.png" alt="image-20250520225930647"></p>
-<p>71、点击“start upload”，开始备份数据；<br><img src="https://img.yuqi.im/20250520232116388.png" alt="image-20250520225958505"></p>
-<p>72、备份完成；<br><img src="https://img.yuqi.im/20250520232124675.png" alt="image-20250520225942038"></p>
-<p>73、点击“export”，将power section参数导出；<br><img src="https://img.yuqi.im/20250520232133052.png" alt="image-20250520230018000"></p>
-<p>74、点击“export”，将control and communication unit参数导出；<br><img src="https://img.yuqi.im/20250520232141408.png" alt="image-20250520230027041"></p>
-<p>75、点击“save”，保存项目；<br><img src="https://img.yuqi.im/20250520232149043.png" alt="image-20250520230037252"></p>
-<p>76、点击“export”，可将此项目导出为.exe文件；<br><img src="https://img.yuqi.im/20250520232157540.png" alt="image-20250520230047342"></p>
-<h1 id="初始化"><a href="#初始化" class="headerlink" title="初始化"></a>初始化</h1><p>77、若需初始化控制器，可在“parameter tree”P802中选择“delivery state”，将控制器还原为出厂状态。<br><img src="https://img.yuqi.im/20250520232205573.png" alt="image-20250520230056017"></p>
-<h1 id="补充"><a href="#补充" class="headerlink" title="补充"></a>补充</h1><p>1、变频器安全参照MOVIFIT设置右键点击20 Default<br><img src="https://img.yuqi.im/20250522195109917.jpg" alt="img"></p>
-<p>2、变频器硬件组态输入输出数据为 8 WORD.<br><img src="https://img.yuqi.im/20250522195116416.jpg" alt="img"></p>
-<p>3、选择<br><img src="https://img.yuqi.im/20250522195121633.jpg" alt="img"><br>读取编码器中电机参数 ，电机NEXT<br><img src="https://img.yuqi.im/20250522195127315.jpg" alt="img"></p>
-<p>4、开始设置变频器参数 电机START-UP SET1<br><img src="https://img.yuqi.im/20250522195131943.jpg" alt="img"></p>
-<p>5、选择完成执行参数初始化<br><img src="https://img.yuqi.im/20250522195136752.jpg" alt="img"></p>
-<p>6、选择私服控制<br><img src="https://img.yuqi.im/20250522195141348.jpg" alt="img"></p>
-<p>7、选择电机型号。本项目中是读取编码器中电机数据故无需设置<br><img src="https://img.yuqi.im/20250522195149268.jpg" alt="img"></p>
-<p>8、选择PositionWith IPOS<br><img src="https://img.yuqi.im/20250522195155150.jpg" alt="img"> </p>
-<p>9、选择矢量控制<br><img src="https://img.yuqi.im/20250522195201283.jpg" alt="img"></p>
-<p>10、设置电机转动惯量和抱闸应用<br><img src="https://img.yuqi.im/20250522195208507.jpg" alt="img"></p>
-<p>11、电机参数选择SEW建议值， APPLY PROPOSAL电机NEXT<br><img src="https://img.yuqi.im/20250522195215400.jpg" alt="img"></p>
-<p>12、参数设置完成，电机完成将参数下载到变频器、<br><img src="https://img.yuqi.im/20250522195221191.jpg" alt="img"></p>
-<p>13、设置变频器IPOS应用、选择Extened Positioning Via Bus<br><img src="https://img.yuqi.im/20250522195226479.jpg" alt="img"></p>
-<p>14、电机NEXT<br><img src="https://img.yuqi.im/20250522195231631.jpg" alt="img"></p>
-<p>15、设置滚床机械参数。由于采用脉冲定位方式故直接电机NEXT<br><img src="https://img.yuqi.im/20250522195237098.jpg" alt="img"></p>
-<p>16、设置变频器软限位和校零方式<br><img src="https://img.yuqi.im/20250522195242608.jpg" alt="img"></p>
-<p>17、参数设置完成电机DOWN load下载参数<br><img src="https://img.yuqi.im/20250522195249177.jpg" alt="img"></p>
-<p>18、选择YES可以查看变频器控制字和状态字<br><img src="https://img.yuqi.im/20250522195255788.jpg" alt="img"></p>
-<p>19、MONITOR MODE和 CONTROL模式可以监控变频器状态或者控制变频器定位（由PC控制）<br><img src="https://img.yuqi.im/20250522195303798.jpg" alt="img"></p>
-<p>20、巡参模式控制字<br><img src="https://img.yuqi.im/20250522195310346.jpg" alt="img"></p>
-<p>21、定位模式状态字。定位的前提是变频器必须巡参，需要设置目的值、速度、加减速度<br><img src="https://img.yuqi.im/20250522195316220.jpg" alt="img"></p>
 ]]></content>
       <categories>
         <category>工业自动化</category>
@@ -3793,6 +3881,46 @@
       </tags>
   </entry>
   <entry>
+    <title>李跳跳2.2正式版</title>
+    <url>/posts/f5caf0fa/</url>
+    <content><![CDATA[<p><strong>无论你是哪个版本的李跳跳，都建议更新啊喂。</strong></p>
+<h1 id="更新日志"><a href="#更新日志" class="headerlink" title="更新日志"></a>更新日志</h1><p>1.省电优化。</p>
+<p>2.响应速度优化。</p>
+<p>3.内置算法优化。</p>
+<p>4.适配更多APP。</p>
+<p>5.修复已知BUG。</p>
+<p>6.修复用户反馈的问题。</p>
+<p>7.适配圆形倒计时广告。</p>
+<p>8.优化微信自动勾选原图。</p>
+<p>9.新增无障碍服务异常检测。</p>
+<p>10.自定义规则优化，支持关闭任意个连续弹窗。</p>
+<p>11.自定义规则优化，支持同一弹窗点击多个位置。</p>
+<p>12.自定义规则优化，遇到流氓弹窗容易误点广告的问题。</p>
+<p>13.优化短时间内弹出多个弹窗无法全部关闭的问题。</p>
+<p>14.过滤一些不合理输入，减少系统资源损耗。</p>
+<p>15.自定义规则支持CheckBox状态判断。</p>
+<p>16.修复华为系统下的特定BUG。</p>
+<p>17.适配华为系统下的特定广告。</p>
+<p>18.特定APP新增特定算法。</p>
+<p>19.适配特定系统的优化。</p>
+<p>20.支持自定义点击序列。</p>
+<p>21.优化节点过滤逻辑。</p>
+<p>22.支持覆盖内置规则。</p>
+<p>23.无障碍标签完善。</p>
+<p>24.优化部分文案。</p>
+<p>25.更换新图标。</p>
+<p>26.更换包名(无奈之举)。</p>
+<h1 id="下载地址"><a href="#下载地址" class="headerlink" title="下载地址"></a>下载地址</h1><p>免登陆下载：<a href="https://www.123pan.com/s/bAORVv-QGQl.html">https://www.123pan.com/s/bAORVv-QGQl.html</a></p>
+<p><img src="https://img.yuqi.im/202304091214921.png" alt="image-20230409121412470"></p>
+]]></content>
+      <categories>
+        <category>效率工具</category>
+      </categories>
+      <tags>
+        <tag>安卓应用</tag>
+      </tags>
+  </entry>
+  <entry>
     <title>最佳免费VPN方式-workers搭建vless使用</title>
     <url>/posts/1b7388f/</url>
     <content><![CDATA[<h2 id="资源："><a href="#资源：" class="headerlink" title="资源："></a>资源：</h2><h6 id="WIN"><a href="#WIN" class="headerlink" title="WIN:"></a><strong>WIN:</strong></h6><p>v2rayN 最新版<a href="https://github.com/2dust/v2rayN/releases">下载地址&gt;&gt;</a></p>
@@ -3888,46 +4016,6 @@
       </categories>
       <tags>
         <tag>网络代理</tag>
-      </tags>
-  </entry>
-  <entry>
-    <title>李跳跳2.2正式版</title>
-    <url>/posts/f5caf0fa/</url>
-    <content><![CDATA[<p><strong>无论你是哪个版本的李跳跳，都建议更新啊喂。</strong></p>
-<h1 id="更新日志"><a href="#更新日志" class="headerlink" title="更新日志"></a>更新日志</h1><p>1.省电优化。</p>
-<p>2.响应速度优化。</p>
-<p>3.内置算法优化。</p>
-<p>4.适配更多APP。</p>
-<p>5.修复已知BUG。</p>
-<p>6.修复用户反馈的问题。</p>
-<p>7.适配圆形倒计时广告。</p>
-<p>8.优化微信自动勾选原图。</p>
-<p>9.新增无障碍服务异常检测。</p>
-<p>10.自定义规则优化，支持关闭任意个连续弹窗。</p>
-<p>11.自定义规则优化，支持同一弹窗点击多个位置。</p>
-<p>12.自定义规则优化，遇到流氓弹窗容易误点广告的问题。</p>
-<p>13.优化短时间内弹出多个弹窗无法全部关闭的问题。</p>
-<p>14.过滤一些不合理输入，减少系统资源损耗。</p>
-<p>15.自定义规则支持CheckBox状态判断。</p>
-<p>16.修复华为系统下的特定BUG。</p>
-<p>17.适配华为系统下的特定广告。</p>
-<p>18.特定APP新增特定算法。</p>
-<p>19.适配特定系统的优化。</p>
-<p>20.支持自定义点击序列。</p>
-<p>21.优化节点过滤逻辑。</p>
-<p>22.支持覆盖内置规则。</p>
-<p>23.无障碍标签完善。</p>
-<p>24.优化部分文案。</p>
-<p>25.更换新图标。</p>
-<p>26.更换包名(无奈之举)。</p>
-<h1 id="下载地址"><a href="#下载地址" class="headerlink" title="下载地址"></a>下载地址</h1><p>免登陆下载：<a href="https://www.123pan.com/s/bAORVv-QGQl.html">https://www.123pan.com/s/bAORVv-QGQl.html</a></p>
-<p><img src="https://img.yuqi.im/202304091214921.png" alt="image-20230409121412470"></p>
-]]></content>
-      <categories>
-        <category>效率工具</category>
-      </categories>
-      <tags>
-        <tag>安卓应用</tag>
       </tags>
   </entry>
   <entry>
@@ -4328,6 +4416,36 @@
       </tags>
   </entry>
   <entry>
+    <title>针对Prodiag现场License弹窗的解决方法</title>
+    <url>/posts/2622eae5/</url>
+    <content><![CDATA[<p>问题：触摸屏报缺少相关的License Key</p>
+<p><img src="https://img.yuqi.im/20250510170721371.png" alt="image-20250510165712437"></p>
+<p>打开2018版EKB秘钥（无法找到秘钥，请更换此2018秘钥）</p>
+<p> <img src="https://img.yuqi.im/20250510170736105.png" alt="image-20250510165723510"></p>
+<p>选择此秘钥，安装长秘钥，</p>
+<p><img src="https://img.yuqi.im/20250510170745318.png" alt="image-20250510165728998"></p>
+<p>方法一：</p>
+<p>打开软件</p>
+<p><img src="https://img.yuqi.im/20250510170755265.png" alt="image-20250510165801227"></p>
+<p>选择下图秘钥—</p>
+<p><img src="https://img.yuqi.im/20250510170801052.png" alt="image-20250510165808104"></p>
+<p>找到下图秘钥–右键点击Transfer</p>
+<p>打开Tansfer 窗口，电脑与HMI屏幕连接后，可以找到需要下载的HMI设备（有具体IP地址），OK确认</p>
+<p><img src="https://img.yuqi.im/20250510170807531.png" alt="image-20250510165818850"></p>
+<p>方法二：也可以右键相关HMI的此属性，打开授权许可</p>
+<p><img src="https://img.yuqi.im/20250510170813884.png" alt="image-20250510165826870"></p>
+<p>找到相关HMI设备。</p>
+<p><img src="https://img.yuqi.im/20250510170821004.png" alt="image-20250510165833281"></p>
+<p>注意：授权传送之后会提示成功，传送成功后授权若消失重新使用EKb安装一遍即可出现。</p>
+]]></content>
+      <categories>
+        <category>工业自动化</category>
+      </categories>
+      <tags>
+        <tag>工业软件</tag>
+      </tags>
+  </entry>
+  <entry>
     <title>贵阳吉利程序解析</title>
     <url>/posts/57946227/</url>
     <content><![CDATA[<h1 id="程序框架"><a href="#程序框架" class="headerlink" title="程序框架"></a>程序框架</h1><p><strong>_00_Organization_Blocks</strong>：系统组织块</p>
@@ -4414,36 +4532,6 @@
 <p><img src="https://img.yuqi.im/202411241536675.png" alt="image-20241124153306459"></p>
 <p><img src="https://img.yuqi.im/202411241536972.png" alt="image-20241124153505708"></p>
 <h1 id="画面"><a href="#画面" class="headerlink" title="画面"></a>画面</h1>]]></content>
-      <categories>
-        <category>工业自动化</category>
-      </categories>
-      <tags>
-        <tag>工业软件</tag>
-      </tags>
-  </entry>
-  <entry>
-    <title>针对Prodiag现场License弹窗的解决方法</title>
-    <url>/posts/2622eae5/</url>
-    <content><![CDATA[<p>问题：触摸屏报缺少相关的License Key</p>
-<p><img src="https://img.yuqi.im/20250510170721371.png" alt="image-20250510165712437"></p>
-<p>打开2018版EKB秘钥（无法找到秘钥，请更换此2018秘钥）</p>
-<p> <img src="https://img.yuqi.im/20250510170736105.png" alt="image-20250510165723510"></p>
-<p>选择此秘钥，安装长秘钥，</p>
-<p><img src="https://img.yuqi.im/20250510170745318.png" alt="image-20250510165728998"></p>
-<p>方法一：</p>
-<p>打开软件</p>
-<p><img src="https://img.yuqi.im/20250510170755265.png" alt="image-20250510165801227"></p>
-<p>选择下图秘钥—</p>
-<p><img src="https://img.yuqi.im/20250510170801052.png" alt="image-20250510165808104"></p>
-<p>找到下图秘钥–右键点击Transfer</p>
-<p>打开Tansfer 窗口，电脑与HMI屏幕连接后，可以找到需要下载的HMI设备（有具体IP地址），OK确认</p>
-<p><img src="https://img.yuqi.im/20250510170807531.png" alt="image-20250510165818850"></p>
-<p>方法二：也可以右键相关HMI的此属性，打开授权许可</p>
-<p><img src="https://img.yuqi.im/20250510170813884.png" alt="image-20250510165826870"></p>
-<p>找到相关HMI设备。</p>
-<p><img src="https://img.yuqi.im/20250510170821004.png" alt="image-20250510165833281"></p>
-<p>注意：授权传送之后会提示成功，传送成功后授权若消失重新使用EKb安装一遍即可出现。</p>
-]]></content>
       <categories>
         <category>工业自动化</category>
       </categories>
