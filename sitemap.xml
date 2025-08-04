@@ -2,33 +2,6 @@
 <urlset xmlns="http://www.sitemaps.org/schemas/sitemap/0.9">
   
   <url>
-    <loc>https://yuqi.im/about/index.html</loc>
-    
-    <lastmod>2025-08-04</lastmod>
-    
-    <changefreq>monthly</changefreq>
-    <priority>0.6</priority>
-  </url>
-  
-  <url>
-    <loc>https://yuqi.im/archives/index.html</loc>
-    
-    <lastmod>2025-08-04</lastmod>
-    
-    <changefreq>monthly</changefreq>
-    <priority>0.6</priority>
-  </url>
-  
-  <url>
-    <loc>https://yuqi.im/categories/index.html</loc>
-    
-    <lastmod>2025-08-04</lastmod>
-    
-    <changefreq>monthly</changefreq>
-    <priority>0.6</priority>
-  </url>
-  
-  <url>
     <loc>https://yuqi.im/comment/index.html</loc>
     
     <lastmod>2025-08-04</lastmod>
@@ -48,6 +21,33 @@
   
   <url>
     <loc>https://yuqi.im/tags/index.html</loc>
+    
+    <lastmod>2025-08-04</lastmod>
+    
+    <changefreq>monthly</changefreq>
+    <priority>0.6</priority>
+  </url>
+  
+  <url>
+    <loc>https://yuqi.im/about/index.html</loc>
+    
+    <lastmod>2025-08-04</lastmod>
+    
+    <changefreq>monthly</changefreq>
+    <priority>0.6</priority>
+  </url>
+  
+  <url>
+    <loc>https://yuqi.im/archives/index.html</loc>
+    
+    <lastmod>2025-08-04</lastmod>
+    
+    <changefreq>monthly</changefreq>
+    <priority>0.6</priority>
+  </url>
+  
+  <url>
+    <loc>https://yuqi.im/categories/index.html</loc>
     
     <lastmod>2025-08-04</lastmod>
     
@@ -671,13 +671,6 @@
   </url>
   
   <url>
-    <loc>https://yuqi.im/tags/Openwrt/</loc>
-    <lastmod>2025-08-04</lastmod>
-    <changefreq>weekly</changefreq>
-    <priority>0.2</priority>
-  </url>
-  
-  <url>
     <loc>https://yuqi.im/tags/iStoreOS/</loc>
     <lastmod>2025-08-04</lastmod>
     <changefreq>weekly</changefreq>
@@ -686,6 +679,13 @@
   
   <url>
     <loc>https://yuqi.im/tags/SINAMICS/</loc>
+    <lastmod>2025-08-04</lastmod>
+    <changefreq>weekly</changefreq>
+    <priority>0.2</priority>
+  </url>
+  
+  <url>
+    <loc>https://yuqi.im/tags/Openwrt/</loc>
     <lastmod>2025-08-04</lastmod>
     <changefreq>weekly</changefreq>
     <priority>0.2</priority>
@@ -862,14 +862,14 @@
   </url>
   
   <url>
-    <loc>https://yuqi.im/categories/%E7%A1%AC%E4%BB%B6%E6%94%B9%E9%80%A0/</loc>
+    <loc>https://yuqi.im/categories/%E6%B2%B9%E7%8C%B4%E8%84%9A%E6%9C%AC/</loc>
     <lastmod>2025-08-04</lastmod>
     <changefreq>weekly</changefreq>
     <priority>0.2</priority>
   </url>
   
   <url>
-    <loc>https://yuqi.im/categories/%E6%B2%B9%E7%8C%B4%E8%84%9A%E6%9C%AC/</loc>
+    <loc>https://yuqi.im/categories/%E7%A1%AC%E4%BB%B6%E6%94%B9%E9%80%A0/</loc>
     <lastmod>2025-08-04</lastmod>
     <changefreq>weekly</changefreq>
     <priority>0.2</priority>
