@@ -1,24 +1,6 @@
 <?xml version="1.0" encoding="utf-8"?>
 <search>
   <entry>
-    <title>5G21第二批刷机以及不同作者间的固件切换</title>
-    <url>/posts/7ae0e921/</url>
-    <content><![CDATA[<p>lean 的 q-wrt 可以进行 webui 直接更新 进入 webui 后依次点击系统-服务&#x2F;备份-刷写新的固件上传固件后升级。切记不要勾选保留配置。<br>切换到志平或狂风固件请使用 winscp 等工具上传到 tmp 目录后，ssh 输入以下的命令，记得先 cd 到 tmp 目录。</p>
-<figure class="highlight plaintext"><table><tr><td class="code"><pre><span class="line">sysupgrade -F -n xxx.bin</span><br></pre></td></tr></table></figure>
-
-<p>或者使用以下命令强刷</p>
-<figure class="highlight plaintext"><table><tr><td class="code"><pre><span class="line">sysupgrade -F -n -v xxx.bin</span><br></pre></td></tr></table></figure>
-
-<p><strong>xxx 为固件名字</strong></p>
-]]></content>
-      <categories>
-        <category>网络设备</category>
-      </categories>
-      <tags>
-        <tag>OpenWrt</tag>
-      </tags>
-  </entry>
-  <entry>
     <title>1panel面板部署哪吒监控v1</title>
     <url>/posts/aad1ff9e/</url>
     <content><![CDATA[<h1 id="域名解析"><a href="#域名解析" class="headerlink" title="域名解析"></a>域名解析</h1><p>面板域名以<code>nezha.a.com</code>为例</p>
@@ -73,6 +55,24 @@
       </categories>
       <tags>
         <tag>运维工具</tag>
+      </tags>
+  </entry>
+  <entry>
+    <title>5G21第二批刷机以及不同作者间的固件切换</title>
+    <url>/posts/7ae0e921/</url>
+    <content><![CDATA[<p>lean 的 q-wrt 可以进行 webui 直接更新 进入 webui 后依次点击系统-服务&#x2F;备份-刷写新的固件上传固件后升级。切记不要勾选保留配置。<br>切换到志平或狂风固件请使用 winscp 等工具上传到 tmp 目录后，ssh 输入以下的命令，记得先 cd 到 tmp 目录。</p>
+<figure class="highlight plaintext"><table><tr><td class="code"><pre><span class="line">sysupgrade -F -n xxx.bin</span><br></pre></td></tr></table></figure>
+
+<p>或者使用以下命令强刷</p>
+<figure class="highlight plaintext"><table><tr><td class="code"><pre><span class="line">sysupgrade -F -n -v xxx.bin</span><br></pre></td></tr></table></figure>
+
+<p><strong>xxx 为固件名字</strong></p>
+]]></content>
+      <categories>
+        <category>网络设备</category>
+      </categories>
+      <tags>
+        <tag>OpenWrt</tag>
       </tags>
   </entry>
   <entry>
@@ -4186,6 +4186,76 @@
       </categories>
       <tags>
         <tag>网络代理</tag>
+      </tags>
+  </entry>
+  <entry>
+    <title>使用itzg/docker-minecraft-server快速搭建Minecraft服务器指南</title>
+    <url>/posts/d28cec10/</url>
+    <content><![CDATA[<h1 id="项目概述"><a href="#项目概述" class="headerlink" title="项目概述"></a>项目概述</h1><p><strong>itzg&#x2F;docker-minecraft-server</strong> 是一个基于Docker的Minecraft服务器镜像项目，它简化了Minecraft服务器的部署和管理流程。通过这个项目，用户可以轻松地在各种环境中运行Minecraft服务器，无需手动下载和配置服务器文件。</p>
+<h1 id="核心特点"><a href="#核心特点" class="headerlink" title="核心特点"></a>核心特点</h1><ol>
+<li><strong>自动下载最新版本</strong>：容器启动时会自动下载最新的稳定版Minecraft服务器</li>
+<li><strong>多版本支持</strong>：支持运行特定版本或最新的快照版</li>
+<li><strong>简化部署</strong>：通过简单的Docker命令即可启动服务器</li>
+<li><strong>持久化存储</strong>：支持将服务器数据挂载到宿主机</li>
+<li><strong>配置灵活</strong>：通过环境变量可自定义服务器参数</li>
+</ol>
+<h1 id="快速开始"><a href="#快速开始" class="headerlink" title="快速开始"></a>快速开始</h1><h2 id="基础部署方式"><a href="#基础部署方式" class="headerlink" title="基础部署方式"></a>基础部署方式</h2><p>要使用最新稳定版启动Minecraft服务器，只需运行以下Docker命令：</p>
+<figure class="highlight bash"><table><tr><td class="code"><pre><span class="line">docker run -d -it -p 25565:25565 -e EULA=TRUE itzg/minecraft-server</span><br></pre></td></tr></table></figure>
+
+<p>这个命令会：</p>
+<ul>
+<li>在后台运行容器(-d)</li>
+<li>分配一个伪终端(-it)</li>
+<li>将容器内的25565端口映射到宿主机的25565端口(-p 25565:25565)</li>
+<li>自动接受Mojang的EULA协议(-e EULA&#x3D;TRUE)</li>
+</ul>
+<h3 id="重要注意事项"><a href="#重要注意事项" class="headerlink" title="重要注意事项"></a>重要注意事项</h3><ol>
+<li><strong>EULA协议</strong>：必须设置<code>EULA=TRUE</code>环境变量，表示接受Mojang&#x2F;Microsoft的用户许可协议</li>
+<li><strong>安全警告</strong>：在没有设置<code>RCON_PASSWORD</code>的情况下，不要将RCON端口(25575)暴露到公网</li>
+<li><strong>持久化建议</strong>：长期运行的服务器建议使用数据卷或绑定挂载来保存数据</li>
+</ol>
+<h2 id="使用Docker-Compose部署"><a href="#使用Docker-Compose部署" class="headerlink" title="使用Docker Compose部署"></a>使用Docker Compose部署</h2><p>对于生产环境，推荐使用Docker Compose来管理服务器，这样可以更方便地进行配置和升级。</p>
+<h3 id="部署步骤"><a href="#部署步骤" class="headerlink" title="部署步骤"></a>部署步骤</h3><ol>
+<li>创建新目录并进入</li>
+<li>创建<code>docker-compose.yml</code>文件，内容如下：</li>
+</ol>
+<figure class="highlight yaml"><table><tr><td class="code"><pre><span class="line"><span class="attr">services:</span></span><br><span class="line">  <span class="attr">mc:</span></span><br><span class="line">    <span class="attr">image:</span> <span class="string">itzg/minecraft-server</span></span><br><span class="line">    <span class="attr">tty:</span> <span class="literal">true</span></span><br><span class="line">    <span class="attr">stdin_open:</span> <span class="literal">true</span></span><br><span class="line">    <span class="attr">ports:</span></span><br><span class="line">      <span class="bullet">-</span> <span class="string">&quot;25565:25565&quot;</span></span><br><span class="line">    <span class="attr">environment:</span></span><br><span class="line">      <span class="attr">EULA:</span> <span class="string">&quot;TRUE&quot;</span></span><br><span class="line">      <span class="attr">ONLINE_MODE:</span> <span class="string">&quot;FALSE&quot;</span></span><br><span class="line">    <span class="attr">volumes:</span></span><br><span class="line">      <span class="bullet">-</span> <span class="string">./data:/data</span></span><br><span class="line"></span><br></pre></td></tr></table></figure>
+
+<ol start="3">
+<li>运行<code>docker compose up -d</code>启动服务</li>
+<li>使用客户端连接服务器的IP和25565端口</li>
+</ol>
+<h3 id="管理命令"><a href="#管理命令" class="headerlink" title="管理命令"></a>管理命令</h3><ul>
+<li>查看日志：<code>docker compose logs -f</code></li>
+<li>检查状态：<code>docker compose ps</code></li>
+<li>停止服务：<code>docker compose stop</code></li>
+<li>更新配置：修改后再次运行<code>docker compose up -d</code></li>
+</ul>
+<h3 id="进阶配置"><a href="#进阶配置" class="headerlink" title="进阶配置"></a>进阶配置</h3><h4 id="版本控制"><a href="#版本控制" class="headerlink" title="版本控制"></a>版本控制</h4><p>默认情况下，容器会下载最新的”原版”Minecraft: Java Edition服务器。可以通过以下环境变量进行定制：</p>
+<p>VERSION：指定服务器版本<br>TYPE：指定服务器类型(如原版、Forge、Paper等)<br>MEMORY：限制容器内存（防卡顿）<br>ONLINE_MODE：关闭正版验证（离线模式）</p>
+<p>例如：</p>
+<figure class="highlight yaml"><table><tr><td class="code"><pre><span class="line"><span class="attr">environment:</span></span><br><span class="line">  <span class="attr">EULA:</span> <span class="string">&quot;TRUE&quot;</span></span><br><span class="line">  <span class="attr">VERSION:</span> <span class="string">&quot;1.20.1&quot;</span></span><br><span class="line">  <span class="attr">TYPE:</span> <span class="string">&quot;PAPER&quot;</span></span><br><span class="line">  <span class="attr">MEMORY:</span> <span class="string">&quot;2G&quot;</span></span><br><span class="line">  <span class="attr">ONLINE_MODE:</span> <span class="string">&quot;FALSE&quot;</span></span><br></pre></td></tr></table></figure>
+
+<h4 id="数据持久化"><a href="#数据持久化" class="headerlink" title="数据持久化"></a>数据持久化</h4><p>示例中的.&#x2F;data:&#x2F;data挂载将服务器数据保存在宿主机的data目录中，确保服务器重启后数据不会丢失。</p>
+<h1 id="最佳实践建议"><a href="#最佳实践建议" class="headerlink" title="最佳实践建议"></a>最佳实践建议</h1><ol>
+<li>资源限制：为容器设置适当的内存限制，避免影响宿主机性能</li>
+<li>定期备份：即使使用了数据卷，也应定期备份重要数据</li>
+<li>安全配置：设置强密码，限制RCON访问</li>
+<li>监控日志：定期检查服务器日志，及时发现并解决问题</li>
+</ol>
+<h1 id="适用场景"><a href="#适用场景" class="headerlink" title="适用场景"></a>适用场景</h1><p>这个Docker镜像非常适合以下场景：</p>
+<ul>
+<li>快速搭建测试服务器</li>
+<li>个人或小团体游戏</li>
+<li>需要频繁切换服务器版本的情况</li>
+<li>自动化部署和CI&#x2F;CD环境<br>通过使用itzg&#x2F;docker-minecraft-server项目，即使是Docker新手也能快速搭建和管理Minecraft服务器，大大降低了技术门槛。</li>
+</ul>
+]]></content>
+      <categories>
+        <category>服务器运维</category>
+      </categories>
+      <tags>
+        <tag>Minecraft</tag>
       </tags>
   </entry>
   <entry>
