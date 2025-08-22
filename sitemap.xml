@@ -2,33 +2,6 @@
 <urlset xmlns="http://www.sitemaps.org/schemas/sitemap/0.9">
   
   <url>
-    <loc>https://yuqi.im/about/index.html</loc>
-    
-    <lastmod>2025-08-22</lastmod>
-    
-    <changefreq>monthly</changefreq>
-    <priority>0.6</priority>
-  </url>
-  
-  <url>
-    <loc>https://yuqi.im/archives/index.html</loc>
-    
-    <lastmod>2025-08-22</lastmod>
-    
-    <changefreq>monthly</changefreq>
-    <priority>0.6</priority>
-  </url>
-  
-  <url>
-    <loc>https://yuqi.im/categories/index.html</loc>
-    
-    <lastmod>2025-08-22</lastmod>
-    
-    <changefreq>monthly</changefreq>
-    <priority>0.6</priority>
-  </url>
-  
-  <url>
     <loc>https://yuqi.im/comment/index.html</loc>
     
     <lastmod>2025-08-22</lastmod>
@@ -48,6 +21,33 @@
   
   <url>
     <loc>https://yuqi.im/tags/index.html</loc>
+    
+    <lastmod>2025-08-22</lastmod>
+    
+    <changefreq>monthly</changefreq>
+    <priority>0.6</priority>
+  </url>
+  
+  <url>
+    <loc>https://yuqi.im/about/index.html</loc>
+    
+    <lastmod>2025-08-22</lastmod>
+    
+    <changefreq>monthly</changefreq>
+    <priority>0.6</priority>
+  </url>
+  
+  <url>
+    <loc>https://yuqi.im/archives/index.html</loc>
+    
+    <lastmod>2025-08-22</lastmod>
+    
+    <changefreq>monthly</changefreq>
+    <priority>0.6</priority>
+  </url>
+  
+  <url>
+    <loc>https://yuqi.im/categories/index.html</loc>
     
     <lastmod>2025-08-22</lastmod>
     
@@ -596,13 +596,6 @@
 
   
   <url>
-    <loc>https://yuqi.im/tags/%E8%BF%90%E7%BB%B4%E5%B7%A5%E5%85%B7/</loc>
-    <lastmod>2025-08-22</lastmod>
-    <changefreq>weekly</changefreq>
-    <priority>0.2</priority>
-  </url>
-  
-  <url>
     <loc>https://yuqi.im/tags/OpenWrt/</loc>
     <lastmod>2025-08-22</lastmod>
     <changefreq>weekly</changefreq>
@@ -610,7 +603,7 @@
   </url>
   
   <url>
-    <loc>https://yuqi.im/tags/%E5%B7%A5%E4%B8%9A%E9%80%9A%E4%BF%A1/</loc>
+    <loc>https://yuqi.im/tags/%E8%BF%90%E7%BB%B4%E5%B7%A5%E5%85%B7/</loc>
     <lastmod>2025-08-22</lastmod>
     <changefreq>weekly</changefreq>
     <priority>0.2</priority>
@@ -618,6 +611,13 @@
   
   <url>
     <loc>https://yuqi.im/tags/AI%E7%BB%98%E7%94%BB/</loc>
+    <lastmod>2025-08-22</lastmod>
+    <changefreq>weekly</changefreq>
+    <priority>0.2</priority>
+  </url>
+  
+  <url>
+    <loc>https://yuqi.im/tags/%E5%B7%A5%E4%B8%9A%E9%80%9A%E4%BF%A1/</loc>
     <lastmod>2025-08-22</lastmod>
     <changefreq>weekly</changefreq>
     <priority>0.2</priority>
@@ -780,13 +780,6 @@
 
   
   <url>
-    <loc>https://yuqi.im/categories/%E8%BF%90%E7%BB%B4%E6%8A%80%E6%9C%AF/</loc>
-    <lastmod>2025-08-22</lastmod>
-    <changefreq>weekly</changefreq>
-    <priority>0.2</priority>
-  </url>
-  
-  <url>
     <loc>https://yuqi.im/categories/%E7%BD%91%E7%BB%9C%E8%AE%BE%E5%A4%87/</loc>
     <lastmod>2025-08-22</lastmod>
     <changefreq>weekly</changefreq>
@@ -794,7 +787,7 @@
   </url>
   
   <url>
-    <loc>https://yuqi.im/categories/%E5%B7%A5%E4%B8%9A%E8%87%AA%E5%8A%A8%E5%8C%96/</loc>
+    <loc>https://yuqi.im/categories/%E8%BF%90%E7%BB%B4%E6%8A%80%E6%9C%AF/</loc>
     <lastmod>2025-08-22</lastmod>
     <changefreq>weekly</changefreq>
     <priority>0.2</priority>
@@ -802,6 +795,13 @@
   
   <url>
     <loc>https://yuqi.im/categories/%E4%BA%BA%E5%B7%A5%E6%99%BA%E8%83%BD/</loc>
+    <lastmod>2025-08-22</lastmod>
+    <changefreq>weekly</changefreq>
+    <priority>0.2</priority>
+  </url>
+  
+  <url>
+    <loc>https://yuqi.im/categories/%E5%B7%A5%E4%B8%9A%E8%87%AA%E5%8A%A8%E5%8C%96/</loc>
     <lastmod>2025-08-22</lastmod>
     <changefreq>weekly</changefreq>
     <priority>0.2</priority>
