@@ -1,9 +1,10 @@
+https://yuqi.im/link/index.html
+https://yuqi.im/tags/index.html
 https://yuqi.im/about/index.html
 https://yuqi.im/archives/index.html
 https://yuqi.im/categories/index.html
 https://yuqi.im/comment/index.html
-https://yuqi.im/link/index.html
-https://yuqi.im/tags/index.html
+https://yuqi.im/posts/7db93401/
 https://yuqi.im/posts/9b626a72/
 https://yuqi.im/posts/d28cec10/
 https://yuqi.im/posts/a99e9fee/
@@ -81,6 +82,7 @@ https://yuqi.im/tags/iStoreOS/
 https://yuqi.im/tags/SINAMICS/
 https://yuqi.im/tags/SICK/
 https://yuqi.im/tags/Git/
+https://yuqi.im/tags/iMazing/
 https://yuqi.im/tags/%E9%9A%8F%E8%BA%ABWiFi/
 https://yuqi.im/tags/%E5%89%8D%E7%AB%AF%E9%83%A8%E7%BD%B2/
 https://yuqi.im/tags/%E7%BD%91%E7%BB%9C%E6%8A%93%E5%8C%85/
@@ -100,6 +102,7 @@ https://yuqi.im/categories/%E7%BD%91%E7%BB%9C%E6%8A%80%E6%9C%AF/
 https://yuqi.im/categories/%E5%AD%A6%E4%B9%A0%E7%AC%94%E8%AE%B0/
 https://yuqi.im/categories/%E5%85%AC%E5%85%B1%E5%AD%98%E6%A1%A3%E5%99%A8/
 https://yuqi.im/categories/%E5%BC%80%E5%8F%91%E5%B7%A5%E5%85%B7/
+https://yuqi.im/categories/%E8%BD%AF%E4%BB%B6%E6%95%99%E7%A8%8B/
 https://yuqi.im/categories/%E7%A7%BB%E5%8A%A8%E9%80%9A%E4%BF%A1/
 https://yuqi.im/categories/%E7%BD%91%E7%BB%9C%E5%AE%89%E5%85%A8/
 https://yuqi.im/categories/%E6%95%85%E9%9A%9C%E6%8E%92%E9%99%A4/
