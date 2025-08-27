@@ -1209,28 +1209,6 @@
       </tags>
   </entry>
   <entry>
-    <title>hexo中插入PDF</title>
-    <url>/posts/4cd4322f/</url>
-    <content><![CDATA[<h2 id="安装-hexo-pdf"><a href="#安装-hexo-pdf" class="headerlink" title="安装 hexo-pdf"></a>安装 hexo-pdf</h2><figure class="highlight text"><table><tr><td class="code"><pre><span class="line">npm install --save hexo-pdf</span><br></pre></td></tr></table></figure>
-
-<h2 id="本地-PDF-引用"><a href="#本地-PDF-引用" class="headerlink" title="本地 PDF 引用"></a>本地 PDF 引用</h2><p>最简单的引用方法：把相应 pdf 文件存到<strong>source 文件夹</strong>下，引用格式为：</p>
-<figure class="highlight text"><table><tr><td class="code"><pre><span class="line">&#123;% pdf /引用文档名字.pdf %&#125;</span><br></pre></td></tr></table></figure>
-
-<p>当然，你也可以新建一个文件夹方便管理 PDF 文档（）在这里我主要参考了<a href="https://link.zhihu.com/?target=https://www.jianshu.com/p/cccc7058a08c">https://www.jianshu.com/p/cccc7058a08c</a>，但是它并没有解决问题 orz 经过苦逼的尝试发现缺少&#x2F;</p>
-<p><strong>也就是说，方法为：</strong></p>
-<p>xxxxxxxxxx .md 文件中的 HTML 代码要用  和  包起来，使其能正确编译里面的代码。markdown</p>
-<figure class="highlight text"><table><tr><td class="code"><pre><span class="line">&#123;% pdf /pdf/xxx.pdf %&#125;</span><br></pre></td></tr></table></figure>
-
-<p>尝试后可以看到，hexo-pdf 对 PDF 文档展示效果非常不错 lol</p>
-]]></content>
-      <categories>
-        <category>博客运维</category>
-      </categories>
-      <tags>
-        <tag>Hexo</tag>
-      </tags>
-  </entry>
-  <entry>
     <title>Hexo博客自动更新到1panel</title>
     <url>/posts/21fa371d/</url>
     <content><![CDATA[<h2 id="SSH执行拉取"><a href="#SSH执行拉取" class="headerlink" title="SSH执行拉取"></a>SSH执行拉取</h2><p>下面实现通过Github action，链接服务器SSH，并在服务器中执行拉取的命令。</p>
@@ -1255,6 +1233,28 @@
 <p>再次尝试修改并触发，如果一切正常，仓库文件自动触发推送到服务器应该就实现了！</p>
 <p>在最下面，这里采用了强制拉取，并且只保留了深度为一的拉取记录，这样可以防止由于文件冲突导致可能拉取不下来的问题，并且控制了拉去的日志文件大小。</p>
 <h2 id="参考出处"><a href="#参考出处" class="headerlink" title="参考出处"></a>参考出处</h2><p><a href="https://blog.liushen.fun/posts/327826ac">https://blog.liushen.fun/posts/327826ac</a></p>
+]]></content>
+      <categories>
+        <category>博客运维</category>
+      </categories>
+      <tags>
+        <tag>Hexo</tag>
+      </tags>
+  </entry>
+  <entry>
+    <title>hexo中插入PDF</title>
+    <url>/posts/4cd4322f/</url>
+    <content><![CDATA[<h2 id="安装-hexo-pdf"><a href="#安装-hexo-pdf" class="headerlink" title="安装 hexo-pdf"></a>安装 hexo-pdf</h2><figure class="highlight text"><table><tr><td class="code"><pre><span class="line">npm install --save hexo-pdf</span><br></pre></td></tr></table></figure>
+
+<h2 id="本地-PDF-引用"><a href="#本地-PDF-引用" class="headerlink" title="本地 PDF 引用"></a>本地 PDF 引用</h2><p>最简单的引用方法：把相应 pdf 文件存到<strong>source 文件夹</strong>下，引用格式为：</p>
+<figure class="highlight text"><table><tr><td class="code"><pre><span class="line">&#123;% pdf /引用文档名字.pdf %&#125;</span><br></pre></td></tr></table></figure>
+
+<p>当然，你也可以新建一个文件夹方便管理 PDF 文档（）在这里我主要参考了<a href="https://link.zhihu.com/?target=https://www.jianshu.com/p/cccc7058a08c">https://www.jianshu.com/p/cccc7058a08c</a>，但是它并没有解决问题 orz 经过苦逼的尝试发现缺少&#x2F;</p>
+<p><strong>也就是说，方法为：</strong></p>
+<p>xxxxxxxxxx .md 文件中的 HTML 代码要用  和  包起来，使其能正确编译里面的代码。markdown</p>
+<figure class="highlight text"><table><tr><td class="code"><pre><span class="line">&#123;% pdf /pdf/xxx.pdf %&#125;</span><br></pre></td></tr></table></figure>
+
+<p>尝试后可以看到，hexo-pdf 对 PDF 文档展示效果非常不错 lol</p>
 ]]></content>
       <categories>
         <category>博客运维</category>
@@ -1449,6 +1449,413 @@
       </categories>
       <tags>
         <tag>Hexo</tag>
+      </tags>
+  </entry>
+  <entry>
+    <title>MOVIDRIVE MDX61B 故障表</title>
+    <url>/posts/9523144c/</url>
+    <content><![CDATA[<table>
+<thead>
+<tr>
+<th>故障码</th>
+<th>名称</th>
+<th>响应</th>
+<th>可能原因</th>
+<th>排除故障措施</th>
+</tr>
+</thead>
+<tbody><tr>
+<td>00</td>
+<td>无故障</td>
+<td>-</td>
+<td></td>
+<td></td>
+</tr>
+<tr>
+<td>01</td>
+<td>过电流</td>
+<td>立即关停</td>
+<td>·输出短路<br>·电动机太大<br>·输出级故障</td>
+<td>·清除短路<br>·连接较小电动机<br>·输出级故障时向SEW服务部征求意见</td>
+</tr>
+<tr>
+<td>03</td>
+<td>电机电缆接地故障</td>
+<td>立即关停</td>
+<td>·电动机电缆接地故障<br>·变频器接地故障<br>·电动机故障</td>
+<td>·消除接地故障<br>·向SEW服务部咨询</td>
+</tr>
+<tr>
+<td>04</td>
+<td>制动斩波器</td>
+<td>立即关停</td>
+<td>·回馈功率过大<br>·制动电阻器电路断开<br>·制动电阻器电路内短路<br>·过大的制动电阻<br>·制动斩波器损坏</td>
+<td>·延长减速斜坡<br>·检查制动电阻器的馈电电缆<br>·检查制动电阻器的技术数据<br>·更换MOVIDRIVE</td>
+</tr>
+<tr>
+<td>06</td>
+<td>供电的相线故障</td>
+<td>立即关停</td>
+<td>相线故障</td>
+<td>检查供电系统的引线</td>
+</tr>
+<tr>
+<td>07</td>
+<td>直流环节过电压</td>
+<td>立即关停</td>
+<td>直流环节的电压太高</td>
+<td>·延长减速斜坡<br>·检查制动电阻器的连接电缆<br>·检查制动电阻器的技术数据</td>
+</tr>
+<tr>
+<td>08</td>
+<td>转速监视</td>
+<td>立即关停</td>
+<td>·转速控制器或电流控制器（在没有编码器的VFC控制下）工作在设定的极限值，原因是机械过负载或供电系统或电动机相位故障<br/>·编码器没有正确连接或者旋转方向不正确<br/>·转矩控制时超过了nmax</td>
+<td>·减少负载<br>·增加减速时间设定值（P501或P503）<br>·检查编码器连接，必要时对调换A&#x2F;A B&#x2F;B<br>·检查编码器电源<br>·检查电流限制<br>·检查电动机电缆和电动机<br>·适当延长斜坡<br>·检查供电系统的相位</td>
+</tr>
+<tr>
+<td>09</td>
+<td>启动</td>
+<td>立即关停</td>
+<td>变频器未以选定的工作方式启动</td>
+<td>以合适的工作方式进行启动</td>
+</tr>
+<tr>
+<td>10</td>
+<td>IPOS-ILLOP</td>
+<td>紧急停止</td>
+<td>·IPOS程序运行时检测出不正确命令<br/>·命令执行中的不正确条件</td>
+<td>·检查程序存储器内容，必要时修正<br>·把正确的程序装入程序存储器中<br>·检查程序次序（~IPOS plus手册）</td>
+</tr>
+<tr>
+<td>11</td>
+<td>温度过高</td>
+<td>紧急停止</td>
+<td>·变频器的热过载</td>
+<td>减少负载和确保正常冷却</td>
+</tr>
+<tr>
+<td>13</td>
+<td>控制信号源</td>
+<td>立即关停</td>
+<td>控制信号源未确定或确定不正确</td>
+<td>设定正确的控制信号源（P101）</td>
+</tr>
+<tr>
+<td>14</td>
+<td>编码器</td>
+<td>立即关停</td>
+<td>·编码器电缆或屏蔽线未正确连接<br/>·编码器电缆短路&#x2F;开路</td>
+<td>检查编码器电缆和屏蔽线是否正确连接，短路和开路</td>
+</tr>
+<tr>
+<td>15</td>
+<td>内部24V</td>
+<td>立即关停</td>
+<td>无内部24V电源电压</td>
+<td>检查供电系统，如果故障再次发生，向SEW服务部咨询</td>
+</tr>
+<tr>
+<td>17-24</td>
+<td>系统故障</td>
+<td>立即关停</td>
+<td>变频器电子器件损坏，可能是EMC效应</td>
+<td>检查接地连接和屏蔽，必要时给予纠正。如果再次发生故障，联系SEW服务部支持</td>
+</tr>
+<tr>
+<td>25</td>
+<td>EEPROM</td>
+<td>快速停止</td>
+<td>方向有缓冲卡的EEPROM时出错</td>
+<td>·调出默认设定值，执行复位和重新设定参数<br>·如果故障再次发生，和SEW服务部联系<br>·更换有缓冲卡</td>
+</tr>
+<tr>
+<td>26</td>
+<td>外部端子</td>
+<td>紧急停止</td>
+<td>·通过可编程的输入读入了外部故障信号</td>
+<td>清除故障原因，对端子进行必要的重新编程</td>
+</tr>
+<tr>
+<td>27</td>
+<td>限位开关故障</td>
+<td>紧急停止</td>
+<td>·开路&#x2F;二个限位开关故障<br />·相对电动机的旋转方向调换了限位开关</td>
+<td>·检查限位开关的接线<br>·调整限位开关的连接<br>·对端子重新编程</td>
+</tr>
+<tr>
+<td>28</td>
+<td>现场总线超时中断</td>
+<td>快速停止</td>
+<td>·在配置的响应监视时间内未进行主-从通信</td>
+<td>·检查主站通信<br>·延长现场总线超时中断时间（P819）或关闭监视</td>
+</tr>
+<tr>
+<td>29</td>
+<td>磁到限位开关</td>
+<td>紧急停止</td>
+<td>在IPOS plus工作方式中已碰到限位开关</td>
+<td>·检查行程距离<br>·修正用户程序</td>
+</tr>
+<tr>
+<td>30</td>
+<td>紧急停止超时</td>
+<td>立即停止</td>
+<td>·传动装置过载<br />·紧急停止斜坡太短</td>
+<td>·检查工程设计<br>·延长紧急停止斜坡</td>
+</tr>
+<tr>
+<td>31</td>
+<td>TF传感器</td>
+<td>不响应</td>
+<td>·电动机太热，TF传感器已跳闸<br>·电动机的TF传感器未连接或连接不正确<br>·MOVIDRIVE和电动机上T下的连接已断开<br>·X10:1和X10:2之间没有跨接线</td>
+<td>·让电动机冷却并复位故障<br>·检查MOVIDRIVE和TF之间的连接<br>·如果未连接T，则将接X10:1和X10:2<br>·设定P835为“NO RESPONSE”</td>
+</tr>
+<tr>
+<td>32</td>
+<td>IPOS地址超出范围</td>
+<td>紧急停止</td>
+<td>违反基本编程规则，引起系统内推挽溢出</td>
+<td>检查和必要时修正IPOS plus用户程序（~IPOS plus手册）</td>
+</tr>
+<tr>
+<td>33</td>
+<td>设定值源</td>
+<td>立即关停</td>
+<td>设定值源未确定或确定不正确</td>
+<td>设定正确的设定值源（P100）</td>
+</tr>
+<tr>
+<td>34</td>
+<td>斜坡超时中断</td>
+<td>立即关停</td>
+<td>超过下降斜坡的时间，例如过载的原因</td>
+<td>·延长下降斜坡<br>·去掉过载</td>
+</tr>
+<tr>
+<td>35</td>
+<td>工作方式</td>
+<td>立即关停</td>
+<td>·工作方式未确定或确定不正确<br>·P916设定了一个斜坡功能，而这功能是需要MOVIDRIVE应用<br>·P916设定了一个斜坡功能，而这功能与所选应用功能不匹配</td>
+<td>·使用P700或P701设定正确的工作方式<br>·使用MOVIDRIVE应用版<br>·在“Startup→选择应用功能”菜单，选择与P916相匹配的应用功能</td>
+</tr>
+<tr>
+<td>36</td>
+<td>没有选件</td>
+<td>立即关停</td>
+<td>·选件卡的类型不允许<br>·该选件卡不许可，这种设定值源、控制号或工作方式<br />·为DIP11A设定了不正确的编码器类型</td>
+<td>·使用正确的选择卡<br>·设定正确的设定值源（P100）<br>·设定正确的控制信号源（P101）<br>·设定正确的工作方式（P700或P701）<br />·设定正确的编码器类型</td>
+</tr>
+<tr>
+<td>37</td>
+<td>系统看门狗</td>
+<td>立即关停</td>
+<td>执行系统软件时出错</td>
+<td>和SEW服务部联系</td>
+</tr>
+<tr>
+<td>38</td>
+<td>系统软件</td>
+<td>立即关停</td>
+<td>系统有错</td>
+<td>和SEW服务部联系</td>
+</tr>
+<tr>
+<td>39</td>
+<td>参考运转</td>
+<td>立即关停</td>
+<td>·参考凸轮故障或没有开关<br>·限位开关未正确连接<br>·参考运转期间改变了参考运转的类型</td>
+<td>·检查参考凸轮<br>·检查限位开关的连接<br>·检查参考运转的类型及应用的参数</td>
+</tr>
+<tr>
+<td>40</td>
+<td>增压同步</td>
+<td>立即关停</td>
+<td>仅用于DP11B或DRS11B；变频器和操作之间增压同步时的故障</td>
+<td>如果故障再次发生，安装一个新的选件卡</td>
+</tr>
+<tr>
+<td>41</td>
+<td>看门狗选件 IPOS看门狗</td>
+<td>立即关停</td>
+<td>·系统软件和选件软件之间通信时故障<br>·在IPOS程序中看门狗<br>·在MOVIDRIVE B中应用模块并未有效<br>·在使用应用模块时设置了错误的应用功能</td>
+<td>·和SEW服务部联系<br>·检查IPOS程序<br>·检查变频器是否激活应用版（P079）<br>·检查所选应用功能（P078）</td>
+</tr>
+<tr>
+<td>42</td>
+<td>滞后误差</td>
+<td>立即关停</td>
+<td>·增量编码器连接不正确<br>·加速斜坡太短<br>·位置控制器的P因子太小<br>·转速控制器参数设定不正确<br>·滞后误差的有限值太小</td>
+<td>·检查旋转编码器连接<br>·延长斜坡<br>·P因子设定成较大数值<br>·重新设定转速控制器参数<br>·增加滞后误差的有限值<br>·检查编码器、电动机和供电相位的接线<br>·检查机械部件能否自由运动，有无堵塞可能</td>
+</tr>
+<tr>
+<td>43</td>
+<td>RS485超时中断</td>
+<td>快速停止</td>
+<td>变频器和PC之间的通信中断</td>
+<td>检查变频器和PC之间的连接，必要时和SEW服务部联系</td>
+</tr>
+<tr>
+<td>44</td>
+<td>变频器和功率</td>
+<td>立即关停</td>
+<td>·变频器和功率（IkT值）超过125%<br>·IN-UL监控1触发</td>
+<td>·减少功率输入<br>·延长斜坡<br>·如果这几点不可能，使用较大的变频器<br>·检查P345&#x2F;P346<br>·减少负载<br>·选大的电机</td>
+</tr>
+<tr>
+<td>45</td>
+<td>初始化</td>
+<td>立即关停</td>
+<td>·未为功率部分的EEPROM设定参数，或者参数设定不正确<br>·选件卡没有和底板总线接触好</td>
+<td>·恢复出厂设定值。如果故障还不能复位，和SEW服务部联系<br>·正确插入选件卡</td>
+</tr>
+<tr>
+<td>46</td>
+<td>系统总线2超时中断</td>
+<td>快速停止</td>
+<td>·通过系统总线2通信时故障</td>
+<td>检查系统总线的连接</td>
+</tr>
+<tr>
+<td>47</td>
+<td>系统总线1超时中断</td>
+<td>快速停止</td>
+<td>·通过系统总线1通信时故障</td>
+<td>检查系统总线的连接</td>
+</tr>
+<tr>
+<td>48</td>
+<td>DRS硬件</td>
+<td>立即关停</td>
+<td>仅用于DRS11B：<br>·主站用的编码器信号有错<br>·同步运行所需的硬件故障</td>
+<td>·检查编码器接线<br>·安装新的同步运行板<br>·检查主&#x2F;同步编码器信号</td>
+</tr>
+<tr>
+<td>77</td>
+<td>IPOS控制字</td>
+<td>不响应</td>
+<td>仅IPOS工作方式中有：<br>·试图设定一个无效的自动方式（通过外部控制）<br>·设定P916&#x3D;BUSRAMP</td>
+<td>·检查和外部控制的串行连接<br>·检查外部控制的写入数值<br>·正确设定P916</td>
+</tr>
+<tr>
+<td>78</td>
+<td>IPOS软件限位开关</td>
+<td>不响应</td>
+<td>仅IPOS工作方式中有：<br />可编程的目标位置超出软件限位开关定界的行程距离&#x2F;。通过系统总线1通信时故障</td>
+<td>保证相同的硬件或执行出厂设定（参数&#x3D;出厂设定值）</td>
+</tr>
+<tr>
+<td>79</td>
+<td>HW配置(硬件配置)</td>
+<td>立即关停</td>
+<td>更换存贮器卡以后下列各项还是不匹配：<br />·功率<br />·额定电压<br />·品种的标识符<br />·变频器的范围<br />·应用或标准版本<br />·选件卡</td>
+<td>保证相同的硬件或执行出厂设定（参数&#x3D;出厂设定值）</td>
+</tr>
+<tr>
+<td>80</td>
+<td>转速记录错</td>
+<td>立即关停</td>
+<td>内部故障，RAM故障</td>
+<td>和SEW服务部联系</td>
+</tr>
+<tr>
+<td>81</td>
+<td>启动条件</td>
+<td>立即关停</td>
+<td>仅“VFC提升”工作方式中有：<br />预磁化阶段没有足够的电流注入电动机；<br />·电动机额定功率相对变频器额定功率太小<br />·电动机电缆横截面太小</td>
+<td>·检查启动数据，必要时重复启动<br />·检查变频器和电动机之间的连接<br />·检查电动机电缆的横截面，必要时加大</td>
+</tr>
+<tr>
+<td>82</td>
+<td>输出断开</td>
+<td>立即关停</td>
+<td>仅“VFC提升”工作方式中有：<br />·二相或所有输出相断开<br />·电动机额定功率相对变频器额定功率太小</td>
+<td>·检查变频器和电动机之间的连接<br />·检查启动数据，必要时重复启动</td>
+</tr>
+<tr>
+<td>84</td>
+<td>电动机保护</td>
+<td>紧急停止</td>
+<td>电动机利用率太高</td>
+<td>·减少负载<br />·延长斜坡<br />·实际较长的暂停时间</td>
+</tr>
+<tr>
+<td>86</td>
+<td>存贮器模块</td>
+<td>立即关停</td>
+<td>·没有存贮器卡<br />·编码器故障</td>
+<td>·拧紧液流螺钉<br />·插入和紧固存贮器卡<br />·更换存贮器卡</td>
+</tr>
+<tr>
+<td>87</td>
+<td>技术功能</td>
+<td>立即关停</td>
+<td>在标准版本中激活了技术功能</td>
+<td>禁止技术功能</td>
+</tr>
+<tr>
+<td>88</td>
+<td>快速启动</td>
+<td>立即关停</td>
+<td>仅“VFC n-CTRL”工作方式中有：变频器启动时实际转速&gt;500 l&#x2F;min</td>
+<td>只能在实际转速≤5000 l&#x2F;min时启动</td>
+</tr>
+<tr>
+<td>92</td>
+<td>DIP编码器故障</td>
+<td>故障显示</td>
+<td>编码器信号故障</td>
+<td>编码器可能被弄脏</td>
+</tr>
+<tr>
+<td>93</td>
+<td>DIP编码器故障</td>
+<td>紧急停止</td>
+<td>仅用于DIP11B选择：<br />编码器发出故障信号，例如电源故障；<br />·编码器和DIP之间的连接电缆未满足要求（双绞、屏蔽）<br />·对于电缆长度周期频率太高<br />·超过了编码器许可的最高转速&#x2F;加速度<br />·编码器的故障</td>
+<td>·检查编码器的连接<br />·检查连接电缆<br />·设定正确的周期频率<br />·减少设备的运转速度或斜坡<br />·安装新的绝对编码器</td>
+</tr>
+<tr>
+<td>94</td>
+<td>EEPROM校验</td>
+<td>立即关停</td>
+<td>变频器电子器件损坏，可能是EMC效应或缺陷引起的</td>
+<td>把变频器送往修理</td>
+</tr>
+<tr>
+<td>95</td>
+<td>DIP真实性有错</td>
+<td>紧急停止</td>
+<td>仅用于DIP11B选择：<br />不能确定真实性的位置；<br />·设定了不正确的编码器类型<br />·IPOS运转参数的设定不正确<br />·系统的分子&#x2F;分母设定不正确<br />·零点调整已执行<br />·编码器故障</td>
+<td>·设定正确的编码器类型<br />·检查IPOS运转参数<br />·检查运转速度<br />·修正系统的分子&#x2F;分母<br />·零点调整后复位<br />·安装新的绝对编码器</td>
+</tr>
+<tr>
+<td>97</td>
+<td>复制数据</td>
+<td>立即关停</td>
+<td>·存贮器卡不能写入或读出<br />·数据瞬时出错</td>
+<td>·重复复制过程<br />·恢复默认设定值（P802），并重复复制过程</td>
+</tr>
+<tr>
+<td>98</td>
+<td>CRC错误</td>
+<td>立即关停</td>
+<td>变频器内部故障，闪存出错</td>
+<td>把变频器送往修理</td>
+</tr>
+<tr>
+<td>99</td>
+<td>IPOS斜坡”计算错</td>
+<td>立即关停</td>
+<td>仅IPOS“斜坡”工作方式中有：<br />试图在变频器用正弦或二次方定位斜坡启动时更改斜坡时间和运转速度</td>
+<td>重写IPOS程序，使斜坡时间和运转速度只能在变频器禁止时更改</td>
+</tr>
+</tbody></table>
+]]></content>
+      <categories>
+        <category>工业自动化</category>
+      </categories>
+      <tags>
+        <tag>MOVIDRIVE</tag>
       </tags>
   </entry>
   <entry>

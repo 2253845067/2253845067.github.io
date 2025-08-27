@@ -1,0 +1,618 @@
+<!DOCTYPE html><html lang="zh-CN" data-theme="light"><head><meta charset="UTF-8"><meta http-equiv="X-UA-Compatible" content="IE=edge"><meta name="viewport" content="width=device-width, initial-scale=1.0,viewport-fit=cover"><title>MOVIDRIVE MDX61B 故障表 | 与亓のBlog</title><meta name="author" content="与亓"><meta name="copyright" content="与亓"><meta name="format-detection" content="telephone=no"><meta name="theme-color" content="#ffffff"><meta name="description" content="SEW MOVIDRIVE MDX61B变频器完整故障代码表，包含故障码00-99的详细信息，涵盖故障名称、系统响应、可能原因及排除措施，为设备维护和故障诊断提供专业参考。">
+<meta property="og:type" content="article">
+<meta property="og:title" content="MOVIDRIVE MDX61B 故障表">
+<meta property="og:url" content="https://yuqi.im/posts/9523144c/index.html">
+<meta property="og:site_name" content="与亓のBlog">
+<meta property="og:description" content="SEW MOVIDRIVE MDX61B变频器完整故障代码表，包含故障码00-99的详细信息，涵盖故障名称、系统响应、可能原因及排除措施，为设备维护和故障诊断提供专业参考。">
+<meta property="og:locale" content="zh_CN">
+<meta property="og:image" content="https://img.zzzg.top/20250827214650781.png">
+<meta property="article:published_time" content="2025-08-26T16:00:00.000Z">
+<meta property="article:modified_time" content="2025-08-26T16:00:00.000Z">
+<meta property="article:author" content="与亓">
+<meta property="article:tag" content="MOVIDRIVE">
+<meta name="twitter:card" content="summary">
+<meta name="twitter:image" content="https://img.zzzg.top/20250827214650781.png"><script type="application/ld+json">{
+  "@context": "https://schema.org",
+  "@type": "BlogPosting",
+  "headline": "MOVIDRIVE MDX61B 故障表",
+  "url": "https://yuqi.im/posts/9523144c/",
+  "image": "https://img.zzzg.top/20250827214650781.png",
+  "datePublished": "2025-08-26T16:00:00.000Z",
+  "dateModified": "2025-08-26T16:00:00.000Z",
+  "author": [
+    {
+      "@type": "Person",
+      "name": "与亓",
+      "url": "https://yuqi.im"
+    }
+  ]
+}</script><link rel="shortcut icon" href="https://img.zzzg.top/202302272018985.jpg"><link rel="canonical" href="https://yuqi.im/posts/9523144c/index.html"><link rel="preconnect" href="//cdn.jsdelivr.net"/><link rel="stylesheet" href="/css/index.css"><link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/@fortawesome/fontawesome-free/css/all.min.css"><script>
+    (() => {
+      
+    const saveToLocal = {
+      set: (key, value, ttl) => {
+        if (!ttl) return
+        const expiry = Date.now() + ttl * 86400000
+        localStorage.setItem(key, JSON.stringify({ value, expiry }))
+      },
+      get: key => {
+        const itemStr = localStorage.getItem(key)
+        if (!itemStr) return undefined
+        const { value, expiry } = JSON.parse(itemStr)
+        if (Date.now() > expiry) {
+          localStorage.removeItem(key)
+          return undefined
+        }
+        return value
+      }
+    }
+
+    window.btf = {
+      saveToLocal,
+      getScript: (url, attr = {}) => new Promise((resolve, reject) => {
+        const script = document.createElement('script')
+        script.src = url
+        script.async = true
+        Object.entries(attr).forEach(([key, val]) => script.setAttribute(key, val))
+        script.onload = script.onreadystatechange = () => {
+          if (!script.readyState || /loaded|complete/.test(script.readyState)) resolve()
+        }
+        script.onerror = reject
+        document.head.appendChild(script)
+      }),
+      getCSS: (url, id) => new Promise((resolve, reject) => {
+        const link = document.createElement('link')
+        link.rel = 'stylesheet'
+        link.href = url
+        if (id) link.id = id
+        link.onload = link.onreadystatechange = () => {
+          if (!link.readyState || /loaded|complete/.test(link.readyState)) resolve()
+        }
+        link.onerror = reject
+        document.head.appendChild(link)
+      }),
+      addGlobalFn: (key, fn, name = false, parent = window) => {
+        if (!false && key.startsWith('pjax')) return
+        const globalFn = parent.globalFn || {}
+        globalFn[key] = globalFn[key] || {}
+        globalFn[key][name || Object.keys(globalFn[key]).length] = fn
+        parent.globalFn = globalFn
+      }
+    }
+  
+      
+      const activateDarkMode = () => {
+        document.documentElement.setAttribute('data-theme', 'dark')
+        if (document.querySelector('meta[name="theme-color"]') !== null) {
+          document.querySelector('meta[name="theme-color"]').setAttribute('content', '#0d0d0d')
+        }
+      }
+      const activateLightMode = () => {
+        document.documentElement.setAttribute('data-theme', 'light')
+        if (document.querySelector('meta[name="theme-color"]') !== null) {
+          document.querySelector('meta[name="theme-color"]').setAttribute('content', '#ffffff')
+        }
+      }
+
+      btf.activateDarkMode = activateDarkMode
+      btf.activateLightMode = activateLightMode
+
+      const theme = saveToLocal.get('theme')
+    
+          theme === 'dark' ? activateDarkMode() : theme === 'light' ? activateLightMode() : null
+        
+      
+      const asideStatus = saveToLocal.get('aside-status')
+      if (asideStatus !== undefined) {
+        document.documentElement.classList.toggle('hide-aside', asideStatus === 'hide')
+      }
+    
+      
+    const detectApple = () => {
+      if (/iPad|iPhone|iPod|Macintosh/.test(navigator.userAgent)) {
+        document.documentElement.classList.add('apple')
+      }
+    }
+    detectApple()
+  
+    })()
+  </script><script>const GLOBAL_CONFIG = {
+  root: '/',
+  algolia: undefined,
+  localSearch: {"path":"/search.xml","preload":false,"top_n_per_article":1,"unescape":false,"languages":{"hits_empty":"未找到符合您查询的内容：${query}","hits_stats":"共找到 ${hits} 篇文章"}},
+  translate: undefined,
+  highlight: {"plugin":"highlight.js","highlightCopy":true,"highlightLang":true,"highlightHeightLimit":false,"highlightFullpage":false,"highlightMacStyle":false},
+  copy: {
+    success: '复制成功',
+    error: '复制失败',
+    noSupport: '浏览器不支持'
+  },
+  relativeDate: {
+    homepage: false,
+    post: false
+  },
+  runtime: '',
+  dateSuffix: {
+    just: '刚刚',
+    min: '分钟前',
+    hour: '小时前',
+    day: '天前',
+    month: '个月前'
+  },
+  copyright: undefined,
+  lightbox: 'null',
+  Snackbar: undefined,
+  infinitegrid: {
+    js: 'https://cdn.jsdelivr.net/npm/@egjs/infinitegrid/dist/infinitegrid.min.js',
+    buttonText: '加载更多'
+  },
+  isPhotoFigcaption: false,
+  islazyloadPlugin: false,
+  isAnchor: false,
+  percent: {
+    toc: true,
+    rightside: false,
+  },
+  autoDarkmode: false
+}</script><script id="config-diff">var GLOBAL_CONFIG_SITE = {
+  title: 'MOVIDRIVE MDX61B 故障表',
+  isHighlightShrink: false,
+  isToc: false,
+  pageType: 'post'
+}</script><script defer src="https://cloud.umami.is/script.js" data-website-id="7c06aeea-722b-4ad7-9255-4cc2b50044be"></script><meta name="generator" content="Hexo 7.3.0"><link rel="alternate" href="/atom.xml" title="与亓のBlog" type="application/atom+xml">
+</head><body><div id="sidebar"><div id="menu-mask"></div><div id="sidebar-menus"><div class="avatar-img text-center"><img src="https://img.zzzg.top/202302272017976.jpg" onerror="this.onerror=null;this.src='/img/friend_404.gif'" alt="avatar"/></div><div class="site-data text-center"><a href="/archives/"><div class="headline">文章</div><div class="length-num">61</div></a><a href="/tags/"><div class="headline">标签</div><div class="length-num">27</div></a><a href="/categories/"><div class="headline">分类</div><div class="length-num">19</div></a></div><div class="menus_items"><div class="menus_item"><a class="site-page" href="/"><i class="fa-fw fa fa-home"></i><span> 主页</span></a></div><div class="menus_item"><span class="site-page group"><i class="fa-fw fa fa-graduation-cap"></i><span> 博文</span><i class="fas fa-chevron-down"></i></span><ul class="menus_item_child"><li><a class="site-page child" href="/archives/"><i class="fa-fw fa fa-folder-open"></i><span> 归档</span></a></li><li><a class="site-page child" href="/categories/"><i class="fa-fw fa fa-archive"></i><span> 分类</span></a></li><li><a class="site-page child" href="/tags/"><i class="fa-fw fa fa-tags"></i><span> 标签</span></a></li></ul></div><div class="menus_item"><span class="site-page group"><i class="fa-fw fa fa-external-link"></i><span> 外链</span><i class="fas fa-chevron-down"></i></span><ul class="menus_item_child"><li><a class="site-page child" target="_blank" rel="noopener" href="https://zzzg.top"><i class="fa-fw fa fa-compass"></i><span> 与亓导航</span></a></li><li><a class="site-page child" target="_blank" rel="noopener" href="https://cloud.umami.is/share/2ewyVCnIAXHh4rRQ/yuqi.im"><i class="fa-fw fa fa-bar-chart"></i><span> 访问量统计</span></a></li></ul></div><div class="menus_item"><a class="site-page" href="/link/"><i class="fa-fw fa fa-link"></i><span> 友链</span></a></div><div class="menus_item"><a class="site-page" href="/comment/"><i class="fa-fw fa fa-paper-plane"></i><span> 留言板</span></a></div><div class="menus_item"><a class="site-page" href="/about/"><i class="fa-fw fa fa-heart"></i><span> 关于</span></a></div></div></div></div><div class="post" id="body-wrap"><header class="post-bg" id="page-header" style="background-image: url(https://img.zzzg.top/20250827214650781.png);"><nav id="nav"><span id="blog-info"><a class="nav-site-title" href="/"><span class="site-name">与亓のBlog</span></a><a class="nav-page-title" href="/"><span class="site-name">MOVIDRIVE MDX61B 故障表</span><span class="site-name"><i class="fa-solid fa-circle-arrow-left"></i><span>  返回首页</span></span></a></span><div id="menus"><div id="search-button"><span class="site-page social-icon search"><i class="fas fa-search fa-fw"></i><span> 搜索</span></span></div><div class="menus_items"><div class="menus_item"><a class="site-page" href="/"><i class="fa-fw fa fa-home"></i><span> 主页</span></a></div><div class="menus_item"><span class="site-page group"><i class="fa-fw fa fa-graduation-cap"></i><span> 博文</span><i class="fas fa-chevron-down"></i></span><ul class="menus_item_child"><li><a class="site-page child" href="/archives/"><i class="fa-fw fa fa-folder-open"></i><span> 归档</span></a></li><li><a class="site-page child" href="/categories/"><i class="fa-fw fa fa-archive"></i><span> 分类</span></a></li><li><a class="site-page child" href="/tags/"><i class="fa-fw fa fa-tags"></i><span> 标签</span></a></li></ul></div><div class="menus_item"><span class="site-page group"><i class="fa-fw fa fa-external-link"></i><span> 外链</span><i class="fas fa-chevron-down"></i></span><ul class="menus_item_child"><li><a class="site-page child" target="_blank" rel="noopener" href="https://zzzg.top"><i class="fa-fw fa fa-compass"></i><span> 与亓导航</span></a></li><li><a class="site-page child" target="_blank" rel="noopener" href="https://cloud.umami.is/share/2ewyVCnIAXHh4rRQ/yuqi.im"><i class="fa-fw fa fa-bar-chart"></i><span> 访问量统计</span></a></li></ul></div><div class="menus_item"><a class="site-page" href="/link/"><i class="fa-fw fa fa-link"></i><span> 友链</span></a></div><div class="menus_item"><a class="site-page" href="/comment/"><i class="fa-fw fa fa-paper-plane"></i><span> 留言板</span></a></div><div class="menus_item"><a class="site-page" href="/about/"><i class="fa-fw fa fa-heart"></i><span> 关于</span></a></div></div><div id="toggle-menu"><span class="site-page"><i class="fas fa-bars fa-fw"></i></span></div></div></nav><div id="post-info"><h1 class="post-title">MOVIDRIVE MDX61B 故障表</h1><div id="post-meta"><div class="meta-firstline"><span class="post-meta-date"><i class="far fa-calendar-alt fa-fw post-meta-icon"></i><span class="post-meta-label">发表于</span><time class="post-meta-date-created" datetime="2025-08-26T16:00:00.000Z" title="发表于 2025-08-27 00:00:00">2025-08-27</time><span class="post-meta-separator">|</span><i class="fas fa-history fa-fw post-meta-icon"></i><span class="post-meta-label">更新于</span><time class="post-meta-date-updated" datetime="2025-08-26T16:00:00.000Z" title="更新于 2025-08-27 00:00:00">2025-08-27</time></span><span class="post-meta-categories"><span class="post-meta-separator">|</span><i class="fas fa-inbox fa-fw post-meta-icon"></i><a class="post-meta-categories" href="/categories/%E5%B7%A5%E4%B8%9A%E8%87%AA%E5%8A%A8%E5%8C%96/">工业自动化</a></span></div><div class="meta-secondline"></div></div></div></header><main class="layout" id="content-inner"><div id="post"><article class="container post-content" id="article-container"><div id="post-outdate-notice" data="{&quot;limitDay&quot;:180,&quot;messagePrev&quot;:&quot;It has been&quot;,&quot;messageNext&quot;:&quot;days since the last update, the content of the article may be outdated.&quot;,&quot;postUpdate&quot;:&quot;2025-08-27 00:00:00&quot;}" hidden></div><table>
+<thead>
+<tr>
+<th>故障码</th>
+<th>名称</th>
+<th>响应</th>
+<th>可能原因</th>
+<th>排除故障措施</th>
+</tr>
+</thead>
+<tbody><tr>
+<td>00</td>
+<td>无故障</td>
+<td>-</td>
+<td></td>
+<td></td>
+</tr>
+<tr>
+<td>01</td>
+<td>过电流</td>
+<td>立即关停</td>
+<td>·输出短路<br>·电动机太大<br>·输出级故障</td>
+<td>·清除短路<br>·连接较小电动机<br>·输出级故障时向SEW服务部征求意见</td>
+</tr>
+<tr>
+<td>03</td>
+<td>电机电缆接地故障</td>
+<td>立即关停</td>
+<td>·电动机电缆接地故障<br>·变频器接地故障<br>·电动机故障</td>
+<td>·消除接地故障<br>·向SEW服务部咨询</td>
+</tr>
+<tr>
+<td>04</td>
+<td>制动斩波器</td>
+<td>立即关停</td>
+<td>·回馈功率过大<br>·制动电阻器电路断开<br>·制动电阻器电路内短路<br>·过大的制动电阻<br>·制动斩波器损坏</td>
+<td>·延长减速斜坡<br>·检查制动电阻器的馈电电缆<br>·检查制动电阻器的技术数据<br>·更换MOVIDRIVE</td>
+</tr>
+<tr>
+<td>06</td>
+<td>供电的相线故障</td>
+<td>立即关停</td>
+<td>相线故障</td>
+<td>检查供电系统的引线</td>
+</tr>
+<tr>
+<td>07</td>
+<td>直流环节过电压</td>
+<td>立即关停</td>
+<td>直流环节的电压太高</td>
+<td>·延长减速斜坡<br>·检查制动电阻器的连接电缆<br>·检查制动电阻器的技术数据</td>
+</tr>
+<tr>
+<td>08</td>
+<td>转速监视</td>
+<td>立即关停</td>
+<td>·转速控制器或电流控制器（在没有编码器的VFC控制下）工作在设定的极限值，原因是机械过负载或供电系统或电动机相位故障<br/>·编码器没有正确连接或者旋转方向不正确<br/>·转矩控制时超过了nmax</td>
+<td>·减少负载<br>·增加减速时间设定值（P501或P503）<br>·检查编码器连接，必要时对调换A&#x2F;A B&#x2F;B<br>·检查编码器电源<br>·检查电流限制<br>·检查电动机电缆和电动机<br>·适当延长斜坡<br>·检查供电系统的相位</td>
+</tr>
+<tr>
+<td>09</td>
+<td>启动</td>
+<td>立即关停</td>
+<td>变频器未以选定的工作方式启动</td>
+<td>以合适的工作方式进行启动</td>
+</tr>
+<tr>
+<td>10</td>
+<td>IPOS-ILLOP</td>
+<td>紧急停止</td>
+<td>·IPOS程序运行时检测出不正确命令<br/>·命令执行中的不正确条件</td>
+<td>·检查程序存储器内容，必要时修正<br>·把正确的程序装入程序存储器中<br>·检查程序次序（~IPOS plus手册）</td>
+</tr>
+<tr>
+<td>11</td>
+<td>温度过高</td>
+<td>紧急停止</td>
+<td>·变频器的热过载</td>
+<td>减少负载和确保正常冷却</td>
+</tr>
+<tr>
+<td>13</td>
+<td>控制信号源</td>
+<td>立即关停</td>
+<td>控制信号源未确定或确定不正确</td>
+<td>设定正确的控制信号源（P101）</td>
+</tr>
+<tr>
+<td>14</td>
+<td>编码器</td>
+<td>立即关停</td>
+<td>·编码器电缆或屏蔽线未正确连接<br/>·编码器电缆短路&#x2F;开路</td>
+<td>检查编码器电缆和屏蔽线是否正确连接，短路和开路</td>
+</tr>
+<tr>
+<td>15</td>
+<td>内部24V</td>
+<td>立即关停</td>
+<td>无内部24V电源电压</td>
+<td>检查供电系统，如果故障再次发生，向SEW服务部咨询</td>
+</tr>
+<tr>
+<td>17-24</td>
+<td>系统故障</td>
+<td>立即关停</td>
+<td>变频器电子器件损坏，可能是EMC效应</td>
+<td>检查接地连接和屏蔽，必要时给予纠正。如果再次发生故障，联系SEW服务部支持</td>
+</tr>
+<tr>
+<td>25</td>
+<td>EEPROM</td>
+<td>快速停止</td>
+<td>方向有缓冲卡的EEPROM时出错</td>
+<td>·调出默认设定值，执行复位和重新设定参数<br>·如果故障再次发生，和SEW服务部联系<br>·更换有缓冲卡</td>
+</tr>
+<tr>
+<td>26</td>
+<td>外部端子</td>
+<td>紧急停止</td>
+<td>·通过可编程的输入读入了外部故障信号</td>
+<td>清除故障原因，对端子进行必要的重新编程</td>
+</tr>
+<tr>
+<td>27</td>
+<td>限位开关故障</td>
+<td>紧急停止</td>
+<td>·开路&#x2F;二个限位开关故障<br />·相对电动机的旋转方向调换了限位开关</td>
+<td>·检查限位开关的接线<br>·调整限位开关的连接<br>·对端子重新编程</td>
+</tr>
+<tr>
+<td>28</td>
+<td>现场总线超时中断</td>
+<td>快速停止</td>
+<td>·在配置的响应监视时间内未进行主-从通信</td>
+<td>·检查主站通信<br>·延长现场总线超时中断时间（P819）或关闭监视</td>
+</tr>
+<tr>
+<td>29</td>
+<td>磁到限位开关</td>
+<td>紧急停止</td>
+<td>在IPOS plus工作方式中已碰到限位开关</td>
+<td>·检查行程距离<br>·修正用户程序</td>
+</tr>
+<tr>
+<td>30</td>
+<td>紧急停止超时</td>
+<td>立即停止</td>
+<td>·传动装置过载<br />·紧急停止斜坡太短</td>
+<td>·检查工程设计<br>·延长紧急停止斜坡</td>
+</tr>
+<tr>
+<td>31</td>
+<td>TF传感器</td>
+<td>不响应</td>
+<td>·电动机太热，TF传感器已跳闸<br>·电动机的TF传感器未连接或连接不正确<br>·MOVIDRIVE和电动机上T下的连接已断开<br>·X10:1和X10:2之间没有跨接线</td>
+<td>·让电动机冷却并复位故障<br>·检查MOVIDRIVE和TF之间的连接<br>·如果未连接T，则将接X10:1和X10:2<br>·设定P835为“NO RESPONSE”</td>
+</tr>
+<tr>
+<td>32</td>
+<td>IPOS地址超出范围</td>
+<td>紧急停止</td>
+<td>违反基本编程规则，引起系统内推挽溢出</td>
+<td>检查和必要时修正IPOS plus用户程序（~IPOS plus手册）</td>
+</tr>
+<tr>
+<td>33</td>
+<td>设定值源</td>
+<td>立即关停</td>
+<td>设定值源未确定或确定不正确</td>
+<td>设定正确的设定值源（P100）</td>
+</tr>
+<tr>
+<td>34</td>
+<td>斜坡超时中断</td>
+<td>立即关停</td>
+<td>超过下降斜坡的时间，例如过载的原因</td>
+<td>·延长下降斜坡<br>·去掉过载</td>
+</tr>
+<tr>
+<td>35</td>
+<td>工作方式</td>
+<td>立即关停</td>
+<td>·工作方式未确定或确定不正确<br>·P916设定了一个斜坡功能，而这功能是需要MOVIDRIVE应用<br>·P916设定了一个斜坡功能，而这功能与所选应用功能不匹配</td>
+<td>·使用P700或P701设定正确的工作方式<br>·使用MOVIDRIVE应用版<br>·在“Startup→选择应用功能”菜单，选择与P916相匹配的应用功能</td>
+</tr>
+<tr>
+<td>36</td>
+<td>没有选件</td>
+<td>立即关停</td>
+<td>·选件卡的类型不允许<br>·该选件卡不许可，这种设定值源、控制号或工作方式<br />·为DIP11A设定了不正确的编码器类型</td>
+<td>·使用正确的选择卡<br>·设定正确的设定值源（P100）<br>·设定正确的控制信号源（P101）<br>·设定正确的工作方式（P700或P701）<br />·设定正确的编码器类型</td>
+</tr>
+<tr>
+<td>37</td>
+<td>系统看门狗</td>
+<td>立即关停</td>
+<td>执行系统软件时出错</td>
+<td>和SEW服务部联系</td>
+</tr>
+<tr>
+<td>38</td>
+<td>系统软件</td>
+<td>立即关停</td>
+<td>系统有错</td>
+<td>和SEW服务部联系</td>
+</tr>
+<tr>
+<td>39</td>
+<td>参考运转</td>
+<td>立即关停</td>
+<td>·参考凸轮故障或没有开关<br>·限位开关未正确连接<br>·参考运转期间改变了参考运转的类型</td>
+<td>·检查参考凸轮<br>·检查限位开关的连接<br>·检查参考运转的类型及应用的参数</td>
+</tr>
+<tr>
+<td>40</td>
+<td>增压同步</td>
+<td>立即关停</td>
+<td>仅用于DP11B或DRS11B；变频器和操作之间增压同步时的故障</td>
+<td>如果故障再次发生，安装一个新的选件卡</td>
+</tr>
+<tr>
+<td>41</td>
+<td>看门狗选件 IPOS看门狗</td>
+<td>立即关停</td>
+<td>·系统软件和选件软件之间通信时故障<br>·在IPOS程序中看门狗<br>·在MOVIDRIVE B中应用模块并未有效<br>·在使用应用模块时设置了错误的应用功能</td>
+<td>·和SEW服务部联系<br>·检查IPOS程序<br>·检查变频器是否激活应用版（P079）<br>·检查所选应用功能（P078）</td>
+</tr>
+<tr>
+<td>42</td>
+<td>滞后误差</td>
+<td>立即关停</td>
+<td>·增量编码器连接不正确<br>·加速斜坡太短<br>·位置控制器的P因子太小<br>·转速控制器参数设定不正确<br>·滞后误差的有限值太小</td>
+<td>·检查旋转编码器连接<br>·延长斜坡<br>·P因子设定成较大数值<br>·重新设定转速控制器参数<br>·增加滞后误差的有限值<br>·检查编码器、电动机和供电相位的接线<br>·检查机械部件能否自由运动，有无堵塞可能</td>
+</tr>
+<tr>
+<td>43</td>
+<td>RS485超时中断</td>
+<td>快速停止</td>
+<td>变频器和PC之间的通信中断</td>
+<td>检查变频器和PC之间的连接，必要时和SEW服务部联系</td>
+</tr>
+<tr>
+<td>44</td>
+<td>变频器和功率</td>
+<td>立即关停</td>
+<td>·变频器和功率（IkT值）超过125%<br>·IN-UL监控1触发</td>
+<td>·减少功率输入<br>·延长斜坡<br>·如果这几点不可能，使用较大的变频器<br>·检查P345&#x2F;P346<br>·减少负载<br>·选大的电机</td>
+</tr>
+<tr>
+<td>45</td>
+<td>初始化</td>
+<td>立即关停</td>
+<td>·未为功率部分的EEPROM设定参数，或者参数设定不正确<br>·选件卡没有和底板总线接触好</td>
+<td>·恢复出厂设定值。如果故障还不能复位，和SEW服务部联系<br>·正确插入选件卡</td>
+</tr>
+<tr>
+<td>46</td>
+<td>系统总线2超时中断</td>
+<td>快速停止</td>
+<td>·通过系统总线2通信时故障</td>
+<td>检查系统总线的连接</td>
+</tr>
+<tr>
+<td>47</td>
+<td>系统总线1超时中断</td>
+<td>快速停止</td>
+<td>·通过系统总线1通信时故障</td>
+<td>检查系统总线的连接</td>
+</tr>
+<tr>
+<td>48</td>
+<td>DRS硬件</td>
+<td>立即关停</td>
+<td>仅用于DRS11B：<br>·主站用的编码器信号有错<br>·同步运行所需的硬件故障</td>
+<td>·检查编码器接线<br>·安装新的同步运行板<br>·检查主&#x2F;同步编码器信号</td>
+</tr>
+<tr>
+<td>77</td>
+<td>IPOS控制字</td>
+<td>不响应</td>
+<td>仅IPOS工作方式中有：<br>·试图设定一个无效的自动方式（通过外部控制）<br>·设定P916&#x3D;BUSRAMP</td>
+<td>·检查和外部控制的串行连接<br>·检查外部控制的写入数值<br>·正确设定P916</td>
+</tr>
+<tr>
+<td>78</td>
+<td>IPOS软件限位开关</td>
+<td>不响应</td>
+<td>仅IPOS工作方式中有：<br />可编程的目标位置超出软件限位开关定界的行程距离&#x2F;。通过系统总线1通信时故障</td>
+<td>保证相同的硬件或执行出厂设定（参数&#x3D;出厂设定值）</td>
+</tr>
+<tr>
+<td>79</td>
+<td>HW配置(硬件配置)</td>
+<td>立即关停</td>
+<td>更换存贮器卡以后下列各项还是不匹配：<br />·功率<br />·额定电压<br />·品种的标识符<br />·变频器的范围<br />·应用或标准版本<br />·选件卡</td>
+<td>保证相同的硬件或执行出厂设定（参数&#x3D;出厂设定值）</td>
+</tr>
+<tr>
+<td>80</td>
+<td>转速记录错</td>
+<td>立即关停</td>
+<td>内部故障，RAM故障</td>
+<td>和SEW服务部联系</td>
+</tr>
+<tr>
+<td>81</td>
+<td>启动条件</td>
+<td>立即关停</td>
+<td>仅“VFC提升”工作方式中有：<br />预磁化阶段没有足够的电流注入电动机；<br />·电动机额定功率相对变频器额定功率太小<br />·电动机电缆横截面太小</td>
+<td>·检查启动数据，必要时重复启动<br />·检查变频器和电动机之间的连接<br />·检查电动机电缆的横截面，必要时加大</td>
+</tr>
+<tr>
+<td>82</td>
+<td>输出断开</td>
+<td>立即关停</td>
+<td>仅“VFC提升”工作方式中有：<br />·二相或所有输出相断开<br />·电动机额定功率相对变频器额定功率太小</td>
+<td>·检查变频器和电动机之间的连接<br />·检查启动数据，必要时重复启动</td>
+</tr>
+<tr>
+<td>84</td>
+<td>电动机保护</td>
+<td>紧急停止</td>
+<td>电动机利用率太高</td>
+<td>·减少负载<br />·延长斜坡<br />·实际较长的暂停时间</td>
+</tr>
+<tr>
+<td>86</td>
+<td>存贮器模块</td>
+<td>立即关停</td>
+<td>·没有存贮器卡<br />·编码器故障</td>
+<td>·拧紧液流螺钉<br />·插入和紧固存贮器卡<br />·更换存贮器卡</td>
+</tr>
+<tr>
+<td>87</td>
+<td>技术功能</td>
+<td>立即关停</td>
+<td>在标准版本中激活了技术功能</td>
+<td>禁止技术功能</td>
+</tr>
+<tr>
+<td>88</td>
+<td>快速启动</td>
+<td>立即关停</td>
+<td>仅“VFC n-CTRL”工作方式中有：变频器启动时实际转速&gt;500 l&#x2F;min</td>
+<td>只能在实际转速≤5000 l&#x2F;min时启动</td>
+</tr>
+<tr>
+<td>92</td>
+<td>DIP编码器故障</td>
+<td>故障显示</td>
+<td>编码器信号故障</td>
+<td>编码器可能被弄脏</td>
+</tr>
+<tr>
+<td>93</td>
+<td>DIP编码器故障</td>
+<td>紧急停止</td>
+<td>仅用于DIP11B选择：<br />编码器发出故障信号，例如电源故障；<br />·编码器和DIP之间的连接电缆未满足要求（双绞、屏蔽）<br />·对于电缆长度周期频率太高<br />·超过了编码器许可的最高转速&#x2F;加速度<br />·编码器的故障</td>
+<td>·检查编码器的连接<br />·检查连接电缆<br />·设定正确的周期频率<br />·减少设备的运转速度或斜坡<br />·安装新的绝对编码器</td>
+</tr>
+<tr>
+<td>94</td>
+<td>EEPROM校验</td>
+<td>立即关停</td>
+<td>变频器电子器件损坏，可能是EMC效应或缺陷引起的</td>
+<td>把变频器送往修理</td>
+</tr>
+<tr>
+<td>95</td>
+<td>DIP真实性有错</td>
+<td>紧急停止</td>
+<td>仅用于DIP11B选择：<br />不能确定真实性的位置；<br />·设定了不正确的编码器类型<br />·IPOS运转参数的设定不正确<br />·系统的分子&#x2F;分母设定不正确<br />·零点调整已执行<br />·编码器故障</td>
+<td>·设定正确的编码器类型<br />·检查IPOS运转参数<br />·检查运转速度<br />·修正系统的分子&#x2F;分母<br />·零点调整后复位<br />·安装新的绝对编码器</td>
+</tr>
+<tr>
+<td>97</td>
+<td>复制数据</td>
+<td>立即关停</td>
+<td>·存贮器卡不能写入或读出<br />·数据瞬时出错</td>
+<td>·重复复制过程<br />·恢复默认设定值（P802），并重复复制过程</td>
+</tr>
+<tr>
+<td>98</td>
+<td>CRC错误</td>
+<td>立即关停</td>
+<td>变频器内部故障，闪存出错</td>
+<td>把变频器送往修理</td>
+</tr>
+<tr>
+<td>99</td>
+<td>IPOS斜坡”计算错</td>
+<td>立即关停</td>
+<td>仅IPOS“斜坡”工作方式中有：<br />试图在变频器用正弦或二次方定位斜坡启动时更改斜坡时间和运转速度</td>
+<td>重写IPOS程序，使斜坡时间和运转速度只能在变频器禁止时更改</td>
+</tr>
+</tbody></table>
+</article><div class="post-copyright"><div class="post-copyright__author"><span class="post-copyright-meta"><i class="fas fa-circle-user fa-fw"></i>文章作者: </span><span class="post-copyright-info"><a href="https://yuqi.im">与亓</a></span></div><div class="post-copyright__type"><span class="post-copyright-meta"><i class="fas fa-square-arrow-up-right fa-fw"></i>文章链接: </span><span class="post-copyright-info"><a href="https://yuqi.im/posts/9523144c/">https://yuqi.im/posts/9523144c/</a></span></div><div class="post-copyright__notice"><span class="post-copyright-meta"><i class="fas fa-circle-exclamation fa-fw"></i>版权声明: </span><span class="post-copyright-info">本博客所有文章除特别声明外，均采用 <a href="https://creativecommons.org/licenses/by-nc-sa/4.0/" target="_blank">CC BY-NC-SA 4.0</a> 许可协议。转载请注明来源 <a href="https://yuqi.im" target="_blank">与亓のBlog</a>！</span></div></div><div class="tag_share"><div class="post-meta__tag-list"><a class="post-meta__tags" href="/tags/MOVIDRIVE/">MOVIDRIVE</a></div><div class="post-share"><div class="social-share" data-image="https://img.zzzg.top/20250827214650781.png" data-sites="facebook,twitter,wechat,weibo,qq"></div><link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/butterfly-extsrc/sharejs/dist/css/share.min.css" media="print" onload="this.media='all'"><script src="https://cdn.jsdelivr.net/npm/butterfly-extsrc/sharejs/dist/js/social-share.min.js" defer></script></div></div><nav class="pagination-post" id="pagination"><a class="pagination-related" href="/posts/7db93401/" title="imazingapp文件使用方法"><img class="cover" src="https://img.zzzg.top/20250827004731106.png" onerror="onerror=null;src='/img/404.jpg'" alt="cover of previous post"><div class="info"><div class="info-1"><div class="info-item-1">上一篇</div><div class="info-item-2">imazingapp文件使用方法</div></div><div class="info-2"><div class="info-item-1">详细介绍如何使用iMazing软件恢复iOS应用数据，包括软件安装、设备设置、备份文件导入等完整操作流程和注意事项。</div></div></div></a><a class="pagination-related" href="/posts/d28cec10/" title="使用itzg/docker-minecraft-server快速搭建Minecraft服务器指南"><img class="cover" src="https://img.zzzg.top/20250813020636542.jpg" onerror="onerror=null;src='/img/404.jpg'" alt="cover of next post"><div class="info text-right"><div class="info-1"><div class="info-item-1">下一篇</div><div class="info-item-2">使用itzg/docker-minecraft-server快速搭建Minecraft服务器指南</div></div><div class="info-2"><div class="info-item-1">通过itzg/docker-minecraft-server镜像快速部署Minecraft服务器的完整指南，包含基础配置、版本控制、性能优化及Docker Compose生产级部署方案。</div></div></div></a></nav><div class="relatedPosts"><div class="headline"><i class="fas fa-thumbs-up fa-fw"></i><span>相关推荐</span></div><div class="relatedPosts-list"><a class="pagination-related" href="/posts/7f12cab4/" title="MOVIFIT参数配置"><img class="cover" src="https://img.zzzg.top/20250522194040873.jpg" alt="cover"><div class="info text-center"><div class="info-1"><div class="info-item-1"><i class="far fa-calendar-alt fa-fw"></i> 2025-05-22</div><div class="info-item-2">MOVIFIT参数配置</div></div><div class="info-2"><div class="info-item-1">详细解析MOVIFIT变频器参数配置方法，包含基础参数设置、高级功能调试及典型应用场景配置示例，适用于FC/SC系列变频器的工程应用。</div></div></div></a><a class="pagination-related" href="/posts/175f8f8b/" title="SEW MOVIDRIVE MDX61B调试步骤"><img class="cover" src="https://img.zzzg.top/20250524223858577.jpg" alt="cover"><div class="info text-center"><div class="info-1"><div class="info-item-1"><i class="far fa-calendar-alt fa-fw"></i> 2025-05-24</div><div class="info-item-2">SEW MOVIDRIVE MDX61B调试步骤</div></div><div class="info-2"><div class="info-item-1">SEW MOVIDRIVE MDX61B系列变频器从参数初始化到运动控制的逐步调试指南，包含基础接线、MOVITOOLS软件配置及常见报警解决方案。</div></div></div></a><a class="pagination-related" href="/posts/f5fecf87/" title="SEW MOVIPRO调试步骤"><img class="cover" src="https://img.zzzg.top/20250520233157609.jpg" alt="cover"><div class="info text-center"><div class="info-1"><div class="info-item-1"><i class="far fa-calendar-alt fa-fw"></i> 2025-05-20</div><div class="info-item-2">SEW MOVIPRO调试步骤</div></div><div class="info-2"><div class="info-item-1">详细解析SEW MOVIPRO伺服驱动系统的调试步骤，包含硬件连接、参数配置、软件设置及常见故障排查方法，适用于工业自动化项目应用。</div></div></div></a><a class="pagination-related" href="/posts/c4294855/" title="SEW Scope曲线监控"><img class="cover" src="https://img.zzzg.top/202501051441835.jpg" alt="cover"><div class="info text-center"><div class="info-1"><div class="info-item-1"><i class="far fa-calendar-alt fa-fw"></i> 2025-01-05</div><div class="info-item-2">SEW Scope曲线监控</div></div><div class="info-2"><div class="info-item-1">SEW Scope 曲线监控功能的完整使用指南，包含参数设置、触发条件配置、数据采集分析及常见应用场景，帮助优化伺服系统性能。</div></div></div></a><a class="pagination-related" href="/posts/421934fd/" title="SEW-MC07B变频器-MOTION--STUDIO软件调试步骤、方法和技巧"><img class="cover" src="https://img.zzzg.top/20250524210846940.jpg" alt="cover"><div class="info text-center"><div class="info-1"><div class="info-item-1"><i class="far fa-calendar-alt fa-fw"></i> 2025-05-24</div><div class="info-item-2">SEW-MC07B变频器-MOTION--STUDIO软件调试步骤、方法和技巧</div></div><div class="info-2"><div class="info-item-1">SEW-MC07B变频器通过MOTION STUDIO软件的完整调试流程，包含参数配置、运动曲线设置、在线监控及故障诊断技巧。</div></div></div></a><a class="pagination-related" href="/posts/ee46e52f/" title="SEW-MDX61B-同步伺服调试方法"><img class="cover" src="https://img.zzzg.top/20250725155635431.jpg" alt="cover"><div class="info text-center"><div class="info-1"><div class="info-item-1"><i class="far fa-calendar-alt fa-fw"></i> 2025-07-25</div><div class="info-item-2">SEW-MDX61B-同步伺服调试方法</div></div><div class="info-2"><div class="info-item-1">详细解析SEW-MDX61B变频器的同步控制调试流程，包含参数设置、硬件接线、软件配置及常见问题解决方案。</div></div></div></a></div></div><hr class="custom-hr"/><div id="post-comment"><div class="comment-head"><div class="comment-headline"><i class="fas fa-comments fa-fw"></i><span> 评论</span></div></div><div class="comment-wrap"><div><div id="twikoo-wrap"></div></div></div></div></div><div class="aside-content" id="aside-content"><div class="card-widget card-info text-center"><div class="avatar-img"><img src="https://img.zzzg.top/202302272017976.jpg" onerror="this.onerror=null;this.src='/img/friend_404.gif'" alt="avatar"/></div><div class="author-info-name">与亓</div><div class="author-info-description">与亓的个人技术博客，分享编程开发、系统架构与生活思考</div><div class="site-data"><a href="/archives/"><div class="headline">文章</div><div class="length-num">61</div></a><a href="/tags/"><div class="headline">标签</div><div class="length-num">27</div></a><a href="/categories/"><div class="headline">分类</div><div class="length-num">19</div></a></div><a id="card-info-btn" target="_blank" rel="noopener" href="https://github.com/2253845067"><i class="fab fa-github"></i><span>Follow Me</span></a><div class="card-info-social-icons"><a class="social-icon" href="https://github.com/2253845067" target="_blank" title="Github"><i class="fab fa-github"></i></a><a class="social-icon" href="mailto:2253845067@qq.com" target="_blank" title="Email"><i class="fas fa-envelope"></i></a></div></div><div class="card-widget card-announcement"><div class="item-headline"><i class="fas fa-bullhorn fa-shake"></i><span>公告</span></div><div class="announcement_content">This is my Blog</div></div><div class="sticky_layout"><div class="card-widget card-recent-post"><div class="item-headline"><i class="fas fa-history"></i><span>最新文章</span></div><div class="aside-list"><div class="aside-list-item"><a class="thumbnail" href="/posts/9523144c/" title="MOVIDRIVE MDX61B 故障表"><img src="https://img.zzzg.top/20250827214650781.png" onerror="this.onerror=null;this.src='/img/404.jpg'" alt="MOVIDRIVE MDX61B 故障表"/></a><div class="content"><a class="title" href="/posts/9523144c/" title="MOVIDRIVE MDX61B 故障表">MOVIDRIVE MDX61B 故障表</a><time datetime="2025-08-26T16:00:00.000Z" title="发表于 2025-08-27 00:00:00">2025-08-27</time></div></div><div class="aside-list-item"><a class="thumbnail" href="/posts/7db93401/" title="imazingapp文件使用方法"><img src="https://img.zzzg.top/20250827004731106.png" onerror="this.onerror=null;this.src='/img/404.jpg'" alt="imazingapp文件使用方法"/></a><div class="content"><a class="title" href="/posts/7db93401/" title="imazingapp文件使用方法">imazingapp文件使用方法</a><time datetime="2025-08-26T16:00:00.000Z" title="发表于 2025-08-27 00:00:00">2025-08-27</time></div></div><div class="aside-list-item"><a class="thumbnail" href="/posts/d28cec10/" title="使用itzg/docker-minecraft-server快速搭建Minecraft服务器指南"><img src="https://img.zzzg.top/20250813020636542.jpg" onerror="this.onerror=null;this.src='/img/404.jpg'" alt="使用itzg/docker-minecraft-server快速搭建Minecraft服务器指南"/></a><div class="content"><a class="title" href="/posts/d28cec10/" title="使用itzg/docker-minecraft-server快速搭建Minecraft服务器指南">使用itzg/docker-minecraft-server快速搭建Minecraft服务器指南</a><time datetime="2025-08-12T16:00:00.000Z" title="发表于 2025-08-13 00:00:00">2025-08-13</time></div></div><div class="aside-list-item"><a class="thumbnail" href="/posts/a99e9fee/" title="Fuwari搭建"><img src="https://img.zzzg.top/20250802022539181.jpg" onerror="this.onerror=null;this.src='/img/404.jpg'" alt="Fuwari搭建"/></a><div class="content"><a class="title" href="/posts/a99e9fee/" title="Fuwari搭建">Fuwari搭建</a><time datetime="2025-08-01T16:00:00.000Z" title="发表于 2025-08-02 00:00:00">2025-08-02</time></div></div><div class="aside-list-item"><a class="thumbnail" href="/posts/21fa371d/" title="Hexo博客自动更新到1panel"><img src="https://img.zzzg.top/20250725185527965.png" onerror="this.onerror=null;this.src='/img/404.jpg'" alt="Hexo博客自动更新到1panel"/></a><div class="content"><a class="title" href="/posts/21fa371d/" title="Hexo博客自动更新到1panel">Hexo博客自动更新到1panel</a><time datetime="2025-07-24T16:00:00.000Z" title="发表于 2025-07-25 00:00:00">2025-07-25</time></div></div></div></div></div></div></main><footer id="footer"><div class="footer-other"><div class="footer-copyright"><span class="copyright">&copy;2025 By 与亓</span><span class="framework-info"><span>框架 </span><a target="_blank" rel="noopener" href="https://hexo.io">Hexo 7.3.0</a><span class="footer-separator">|</span><span>主题 </span><a target="_blank" rel="noopener" href="https://github.com/jerryc127/hexo-theme-butterfly">Butterfly 5.4.2</a></span></div></div></footer></div><div id="rightside"><div id="rightside-config-hide"><button id="readmode" type="button" title="阅读模式"><i class="fas fa-book-open"></i></button><button id="darkmode" type="button" title="日间和夜间模式切换"><i class="fas fa-adjust"></i></button><button id="hide-aside-btn" type="button" title="单栏和双栏切换"><i class="fas fa-arrows-alt-h"></i></button></div><div id="rightside-config-show"><button id="rightside-config" type="button" title="设置"><i class="fas fa-cog fa-spin"></i></button><a id="to_comment" href="#post-comment" title="前往评论"><i class="fas fa-comments"></i></a><button id="go-up" type="button" title="回到顶部"><span class="scroll-percent"></span><i class="fas fa-arrow-up"></i></button></div></div><div><script src="/js/utils.js"></script><script src="/js/main.js"></script><div class="js-pjax"><script>(() => {
+  const isShuoshuo = GLOBAL_CONFIG_SITE.pageType === 'shuoshuo'
+  const option = null
+
+  const getCount = () => {
+    const countELement = document.getElementById('twikoo-count')
+    if(!countELement) return
+    twikoo.getCommentsCount({
+      envId: 'https://tw.yuqi.im/.netlify/functions/twikoo',
+      region: '',
+      urls: [window.location.pathname],
+      includeReply: false
+    }).then(res => {
+      countELement.textContent = res[0].count
+    }).catch(err => {
+      console.error(err)
+    })
+  }
+
+  const init = (el = document, path = location.pathname) => {
+    twikoo.init({
+      el: el.querySelector('#twikoo-wrap'),
+      envId: 'https://tw.yuqi.im/.netlify/functions/twikoo',
+      region: '',
+      onCommentLoaded: () => {
+        btf.loadLightbox(document.querySelectorAll('#twikoo .tk-content img:not(.tk-owo-emotion)'))
+      },
+      ...option,
+      path: isShuoshuo ? path : (option && option.path) || path
+    })
+
+    GLOBAL_CONFIG_SITE.pageType === 'post' && getCount()
+
+    isShuoshuo && (window.shuoshuoComment.destroyTwikoo = () => {
+      if (el.children.length) {
+        el.innerHTML = ''
+        el.classList.add('no-comment')
+      }
+    })
+  }
+
+  const loadTwikoo = (el, path) => {
+    if (typeof twikoo === 'object') setTimeout(() => init(el, path), 0)
+    else btf.getScript('https://cdn.jsdelivr.net/npm/twikoo/dist/twikoo.all.min.js').then(() => init(el, path))
+  }
+
+  if (isShuoshuo) {
+    'Twikoo' === 'Twikoo'
+      ? window.shuoshuoComment = { loadComment: loadTwikoo }
+      : window.loadOtherComment = loadTwikoo
+    return
+  }
+
+  if ('Twikoo' === 'Twikoo' || !true) {
+    if (true) btf.loadComment(document.getElementById('twikoo-wrap'), loadTwikoo)
+    else loadTwikoo()
+  } else {
+    window.loadOtherComment = loadTwikoo
+  }
+})()</script></div><div id="local-search"><div class="search-dialog"><nav class="search-nav"><span class="search-dialog-title">搜索</span><span id="loading-status"></span><button class="search-close-button"><i class="fas fa-times"></i></button></nav><div class="text-center" id="loading-database"><i class="fas fa-spinner fa-pulse"></i><span>  数据加载中</span></div><div class="search-wrap"><div id="local-search-input"><div class="local-search-box"><input class="local-search-box--input" placeholder="搜索文章" type="text"/></div></div><hr/><div id="local-search-results"></div><div id="local-search-stats-wrap"></div></div></div><div id="search-mask"></div><script src="/js/search/local-search.js"></script></div></div></body></html>
