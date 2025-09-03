@@ -1,9 +1,9 @@
-https://yuqi.im/link/index.html
-https://yuqi.im/tags/index.html
 https://yuqi.im/about/index.html
 https://yuqi.im/archives/index.html
 https://yuqi.im/categories/index.html
 https://yuqi.im/comment/index.html
+https://yuqi.im/link/index.html
+https://yuqi.im/tags/index.html
 https://yuqi.im/posts/9b626a72/
 https://yuqi.im/posts/9523144c/
 https://yuqi.im/posts/7db93401/
