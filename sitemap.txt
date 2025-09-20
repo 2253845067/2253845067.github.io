@@ -1,9 +1,10 @@
+https://yuqi.im/link/index.html
+https://yuqi.im/tags/index.html
 https://yuqi.im/about/index.html
 https://yuqi.im/archives/index.html
 https://yuqi.im/categories/index.html
 https://yuqi.im/comment/index.html
-https://yuqi.im/link/index.html
-https://yuqi.im/tags/index.html
+https://yuqi.im/posts/3b8d36fd/
 https://yuqi.im/posts/9b626a72/
 https://yuqi.im/posts/9523144c/
 https://yuqi.im/posts/7db93401/
@@ -83,6 +84,7 @@ https://yuqi.im/tags/iStoreOS/
 https://yuqi.im/tags/SINAMICS/
 https://yuqi.im/tags/SICK/
 https://yuqi.im/tags/Git/
+https://yuqi.im/tags/GSEE-TECH/
 https://yuqi.im/tags/iMazing/
 https://yuqi.im/tags/%E9%9A%8F%E8%BA%ABWiFi/
 https://yuqi.im/tags/%E5%89%8D%E7%AB%AF%E9%83%A8%E7%BD%B2/

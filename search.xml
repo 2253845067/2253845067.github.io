@@ -817,28 +817,6 @@
       </tags>
   </entry>
   <entry>
-    <title>hexo中插入PDF</title>
-    <url>/posts/4cd4322f/</url>
-    <content><![CDATA[<h2 id="安装-hexo-pdf"><a href="#安装-hexo-pdf" class="headerlink" title="安装 hexo-pdf"></a>安装 hexo-pdf</h2><figure class="highlight text"><table><tr><td class="code"><pre><span class="line">npm install --save hexo-pdf</span><br></pre></td></tr></table></figure>
-
-<h2 id="本地-PDF-引用"><a href="#本地-PDF-引用" class="headerlink" title="本地 PDF 引用"></a>本地 PDF 引用</h2><p>最简单的引用方法：把相应 pdf 文件存到<strong>source 文件夹</strong>下，引用格式为：</p>
-<figure class="highlight text"><table><tr><td class="code"><pre><span class="line">&#123;% pdf /引用文档名字.pdf %&#125;</span><br></pre></td></tr></table></figure>
-
-<p>当然，你也可以新建一个文件夹方便管理 PDF 文档（）在这里我主要参考了<a href="https://link.zhihu.com/?target=https://www.jianshu.com/p/cccc7058a08c">https://www.jianshu.com/p/cccc7058a08c</a>，但是它并没有解决问题 orz 经过苦逼的尝试发现缺少&#x2F;</p>
-<p><strong>也就是说，方法为：</strong></p>
-<p>xxxxxxxxxx .md 文件中的 HTML 代码要用  和  包起来，使其能正确编译里面的代码。markdown</p>
-<figure class="highlight text"><table><tr><td class="code"><pre><span class="line">&#123;% pdf /pdf/xxx.pdf %&#125;</span><br></pre></td></tr></table></figure>
-
-<p>尝试后可以看到，hexo-pdf 对 PDF 文档展示效果非常不错 lol</p>
-]]></content>
-      <categories>
-        <category>博客运维</category>
-      </categories>
-      <tags>
-        <tag>Hexo</tag>
-      </tags>
-  </entry>
-  <entry>
     <title>HTML总复习</title>
     <url>/posts/e79fa3f4/</url>
     <content><![CDATA[<h1 id="导读"><a href="#导读" class="headerlink" title="导读"></a>导读</h1><h2 id="网页"><a href="#网页" class="headerlink" title="网页"></a>网页</h2><p>网站是指在因特网中根据一定的规则，使用<strong>HTML</strong>等制作的用于展示特定内容相关的网页集合</p>
@@ -1228,6 +1206,28 @@
       </categories>
       <tags>
         <tag>HTML</tag>
+      </tags>
+  </entry>
+  <entry>
+    <title>hexo中插入PDF</title>
+    <url>/posts/4cd4322f/</url>
+    <content><![CDATA[<h2 id="安装-hexo-pdf"><a href="#安装-hexo-pdf" class="headerlink" title="安装 hexo-pdf"></a>安装 hexo-pdf</h2><figure class="highlight text"><table><tr><td class="code"><pre><span class="line">npm install --save hexo-pdf</span><br></pre></td></tr></table></figure>
+
+<h2 id="本地-PDF-引用"><a href="#本地-PDF-引用" class="headerlink" title="本地 PDF 引用"></a>本地 PDF 引用</h2><p>最简单的引用方法：把相应 pdf 文件存到<strong>source 文件夹</strong>下，引用格式为：</p>
+<figure class="highlight text"><table><tr><td class="code"><pre><span class="line">&#123;% pdf /引用文档名字.pdf %&#125;</span><br></pre></td></tr></table></figure>
+
+<p>当然，你也可以新建一个文件夹方便管理 PDF 文档（）在这里我主要参考了<a href="https://link.zhihu.com/?target=https://www.jianshu.com/p/cccc7058a08c">https://www.jianshu.com/p/cccc7058a08c</a>，但是它并没有解决问题 orz 经过苦逼的尝试发现缺少&#x2F;</p>
+<p><strong>也就是说，方法为：</strong></p>
+<p>xxxxxxxxxx .md 文件中的 HTML 代码要用  和  包起来，使其能正确编译里面的代码。markdown</p>
+<figure class="highlight text"><table><tr><td class="code"><pre><span class="line">&#123;% pdf /pdf/xxx.pdf %&#125;</span><br></pre></td></tr></table></figure>
+
+<p>尝试后可以看到，hexo-pdf 对 PDF 文档展示效果非常不错 lol</p>
+]]></content>
+      <categories>
+        <category>博客运维</category>
+      </categories>
+      <tags>
+        <tag>Hexo</tag>
       </tags>
   </entry>
   <entry>
@@ -4011,6 +4011,47 @@
       </categories>
       <tags>
         <tag>Git</tag>
+      </tags>
+  </entry>
+  <entry>
+    <title>GSEE-TECH GSD</title>
+    <url>/posts/3b8d36fd/</url>
+    <content><![CDATA[<h1 id="GSEE-TECH-GX-Series-CONFIGURATION-FILES-PROFIBUS-PROFINET"><a href="#GSEE-TECH-GX-Series-CONFIGURATION-FILES-PROFIBUS-PROFINET" class="headerlink" title="GSEE-TECH GX Series CONFIGURATION FILES PROFIBUS&#x2F;PROFINET"></a>GSEE-TECH GX Series CONFIGURATION FILES PROFIBUS&#x2F;PROFINET</h1><p><img src="https://img.zzzg.top/20250920162840098.jpg"></p>
+<p><a href="https://cloud.189.cn/t/vmmqyeIryUNv">GX-11481422262.zip（访问码：nu1h）</a></p>
+<p><strong>PROFIBUS</strong></p>
+<p>GXDP-DI8DO8.zip - GSEEIO88.GSD</p>
+<p>GXDP-DI16.zip - GSEE16DI.GSD</p>
+<p>GXDP-DIO16.rar - GSEE16DIO.GSD</p>
+<p>GXDP-DO16.zip - GSEE16DO.GSD</p>
+<p><strong>PROFINET</strong></p>
+<p>GXPI-DI8-20160412.zip - GSDML-V2.31-GSEE-GXPI-DI8-20160412.xml</p>
+<p>GXPI-DI8DO8-20160325.zip - GSDML-V2.31-GSEE-GXPI-DI8DO8-20160325.xml</p>
+<p>GXPI-DI16-20160325.zip - GSDML-V2.31-GSEE-GXPI-DI16-20160325.xml</p>
+<p>GXPI-DIO16-20160410.zip - GSDML-V2.32-GSEE-GXPI-DIO16-20160410.xml</p>
+<p>GXPI-DO8-20160324.zip - GSDML-V2.31-GSEE-GXPI-DO8-20160324.xml</p>
+<p>GXPI-DO16-20160324.zip - GSDML-V2.31-GSEE-GXPI-DO16-20160324.xml</p>
+<h1 id="GSEE-TECH-GBS20-series-fieldbus-system-CONFIGURATION-FILES"><a href="#GSEE-TECH-GBS20-series-fieldbus-system-CONFIGURATION-FILES" class="headerlink" title="GSEE-TECH GBS20 series fieldbus system CONFIGURATION FILES"></a>GSEE-TECH GBS20 series fieldbus system CONFIGURATION FILES</h1><p><img src="https://img.zzzg.top/20250920162847032.jpg"></p>
+<p>GBS20 bus coupler for PROFINET, PROFIBUS-DP, CANOpen, Modbus&#x2F;TCP, EtherNet&#x2F;IP and EtherCAT</p>
+<p><a href="https://cloud.189.cn/t/nmU32eMFRbq2">GBS20-11481498801.zip（访问码：3y5f）</a></p>
+<p>GBS20-CO.zip - CanOpen - GBS20_CANopen_V6.eds</p>
+<p>GBS20-DP.zip - PROFIBUS - GBS20D5C.gsd</p>
+<p>GBS20-EI.zip - EtherNet&#x2F;IP - GBS20-EI.eds</p>
+<p>GBS20-PI.zip - PROFINET - GSDML-V2.31-Geneuo-GBS20-PN-20151024.xml</p>
+<h1 id="GSEE-TECH-GX-series-compact-modules-system-Catalogue"><a href="#GSEE-TECH-GX-series-compact-modules-system-Catalogue" class="headerlink" title="GSEE-TECH GX series compact modules system Catalogue"></a>GSEE-TECH GX series compact modules system Catalogue</h1><p><img src="https://img.zzzg.top/20250920162853961.jpg"></p>
+<p><a href="https://cloud.189.cn/t/M3eAvu77Fvma">GX_Series_Fieldbus_module_2016-15201926176.pdf（访问码：9w1l）</a></p>
+<h1 id="GSEE-TECH-Catalogue-Industrial-Communication"><a href="#GSEE-TECH-Catalogue-Industrial-Communication" class="headerlink" title="GSEE-TECH Catalogue Industrial Communication"></a>GSEE-TECH Catalogue Industrial Communication</h1><p><img src="https://img.zzzg.top/20250920162859912.jpg"></p>
+<p><a href="https://cloud.189.cn/t/AnqQ7jUNVjuu">GSEE-TECH-Industrial-Communication.pdf（访问码：hem5）</a></p>
+<h1 id="GSEE-TECH-GXPI-PROFINET-I-O-Module-gsdml-v2-35-gsee-gxpi-di8do8-e-20210928-xml"><a href="#GSEE-TECH-GXPI-PROFINET-I-O-Module-gsdml-v2-35-gsee-gxpi-di8do8-e-20210928-xml" class="headerlink" title="GSEE-TECH GXPI PROFINET I&#x2F;O Module gsdml-v2.35-gsee-gxpi-di8do8-e-20210928.xml"></a>GSEE-TECH GXPI PROFINET I&#x2F;O Module gsdml-v2.35-gsee-gxpi-di8do8-e-20210928.xml</h1><p><img src="https://img.zzzg.top/20250920162904789.jpg"></p>
+<p><a href="https://cloud.189.cn/t/iMv2eiyeQBny">gsdml-v2.35-gsee-gxpi-di8do8-e-20210928.xml（访问码：6xzc）</a></p>
+<h1 id="GSEE-TECH-GXPI-PROFINET-I-O-Module-gsdml-v2-31-gsee-gxpi-di16-20160325-xml"><a href="#GSEE-TECH-GXPI-PROFINET-I-O-Module-gsdml-v2-31-gsee-gxpi-di16-20160325-xml" class="headerlink" title="GSEE-TECH GXPI PROFINET I&#x2F;O Module gsdml-v2.31-gsee-gxpi-di16-20160325.xml"></a>GSEE-TECH GXPI PROFINET I&#x2F;O Module gsdml-v2.31-gsee-gxpi-di16-20160325.xml</h1><p><img src="https://img.zzzg.top/20250920162904789.jpg"></p>
+<p><a href="https://cloud.189.cn/t/rU7VRzFvMjmq">gsdml-v2.31-gsee-gxpi-di16-20160325.xml（访问码：uw6e）</a></p>
+<h1 id="资料来源"><a href="#资料来源" class="headerlink" title="资料来源"></a>资料来源</h1><p><a href="https://asutp.org/">https://asutp.org/</a></p>
+]]></content>
+      <categories>
+        <category>工业自动化</category>
+      </categories>
+      <tags>
+        <tag>GSEE-TECH</tag>
       </tags>
   </entry>
   <entry>
