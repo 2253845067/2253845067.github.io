@@ -1,24 +1,6 @@
 <?xml version="1.0" encoding="utf-8"?>
 <search>
   <entry>
-    <title>5G21第二批刷机以及不同作者间的固件切换</title>
-    <url>/posts/7ae0e921/</url>
-    <content><![CDATA[<p>lean 的 q-wrt 可以进行 webui 直接更新 进入 webui 后依次点击系统-服务&#x2F;备份-刷写新的固件上传固件后升级。切记不要勾选保留配置。<br>切换到志平或狂风固件请使用 winscp 等工具上传到 tmp 目录后，ssh 输入以下的命令，记得先 cd 到 tmp 目录。</p>
-<figure class="highlight plaintext"><table><tr><td class="code"><pre><span class="line">sysupgrade -F -n xxx.bin</span><br></pre></td></tr></table></figure>
-
-<p>或者使用以下命令强刷</p>
-<figure class="highlight plaintext"><table><tr><td class="code"><pre><span class="line">sysupgrade -F -n -v xxx.bin</span><br></pre></td></tr></table></figure>
-
-<p><strong>xxx 为固件名字</strong></p>
-]]></content>
-      <categories>
-        <category>网络设备</category>
-      </categories>
-      <tags>
-        <tag>OpenWrt</tag>
-      </tags>
-  </entry>
-  <entry>
     <title>1panel面板部署哪吒监控v1</title>
     <url>/posts/aad1ff9e/</url>
     <content><![CDATA[<h1 id="域名解析"><a href="#域名解析" class="headerlink" title="域名解析"></a>域名解析</h1><p>面板域名以<code>nezha.a.com</code>为例</p>
@@ -76,58 +58,21 @@
       </tags>
   </entry>
   <entry>
-    <title>AI绘画-webui使用教程</title>
-    <url>/posts/ef6f9b71/</url>
-    <content><![CDATA[<h1 id="准备环境"><a href="#准备环境" class="headerlink" title="准备环境"></a>准备环境</h1><h2 id="pychon-的下载及安装"><a href="#pychon-的下载及安装" class="headerlink" title="pychon 的下载及安装"></a>pychon 的下载及安装</h2><p>直接点击下方按钮下载安装</p>
-<a class="btn-beautify green larger" href="https://www.python.org/ftp/python/3.11.2/python-3.11.2-amd64.exe" title="点击下载"><i class="far fa-hand-point-right"></i><span>点击下载</span></a>
+    <title>5G21第二批刷机以及不同作者间的固件切换</title>
+    <url>/posts/7ae0e921/</url>
+    <content><![CDATA[<p>lean 的 q-wrt 可以进行 webui 直接更新 进入 webui 后依次点击系统-服务&#x2F;备份-刷写新的固件上传固件后升级。切记不要勾选保留配置。<br>切换到志平或狂风固件请使用 winscp 等工具上传到 tmp 目录后，ssh 输入以下的命令，记得先 cd 到 tmp 目录。</p>
+<figure class="highlight plaintext"><table><tr><td class="code"><pre><span class="line">sysupgrade -F -n xxx.bin</span><br></pre></td></tr></table></figure>
 
-<p>打开安装即可，注意勾选上安装页面的的选项</p>
-<p><img src="https://img.zzzg.top/202302281848503.png"></p>
-<p>然后点击下面的选项，就安装完成了。</p>
-<p><img src="https://img.zzzg.top/202302281850492.png"></p>
-<h2 id="cuda-的下载及安装"><a href="#cuda-的下载及安装" class="headerlink" title="cuda 的下载及安装"></a>cuda 的下载及安装</h2><h3 id="查看适合的-cuda-版本"><a href="#查看适合的-cuda-版本" class="headerlink" title="查看适合的 cuda 版本"></a>查看适合的 cuda 版本</h3><p><img src="https://img.zzzg.top/202303030811620.png"></p>
-<p><img src="https://img.zzzg.top/202303030811238.png"></p>
-<p><img src="https://img.zzzg.top/202303030812926.png"></p>
-<p>这里看到我电脑上支持的 cuda 是 11.7 的</p>
-<h3 id="cuda-toolkit-下载"><a href="#cuda-toolkit-下载" class="headerlink" title="cuda toolkit 下载"></a>cuda toolkit 下载</h3><p>进入下面网页，找到适合的 cuda</p>
-<a class="btn-beautify green larger" href="https://developer.nvidia.com/cuda-toolkit-archive" title="点击进入"><i class="far fa-hand-point-right"></i><span>点击进入</span></a>
+<p>或者使用以下命令强刷</p>
+<figure class="highlight plaintext"><table><tr><td class="code"><pre><span class="line">sysupgrade -F -n -v xxx.bin</span><br></pre></td></tr></table></figure>
 
-<p><img src="https://img.zzzg.top/202303030815008.png"></p>
-<p><img src="https://img.zzzg.top/202303030816433.png"></p>
-<p>Version 是选系统的，win10 就选 10，win11 就选 11，选好后点击下载</p>
-<h3 id="cuda-toolkit-安装"><a href="#cuda-toolkit-安装" class="headerlink" title="cuda toolkit 安装"></a>cuda toolkit 安装</h3><p>双击 exe 文件进行安装即可</p>
-<p>一直下一步，直到安装完成。</p>
-<h2 id="Git-的下载及安装"><a href="#Git-的下载及安装" class="headerlink" title="Git 的下载及安装"></a>Git 的下载及安装</h2><p>进入下面网页</p>
-<a class="btn-beautify green larger" href="https://git-scm.com/download/win" title="点击进入"><i class="far fa-hand-point-right"></i><span>点击进入</span></a>
-
-<p><img src="https://img.zzzg.top/202303030830575.png"></p>
-<p>点击下载</p>
-<p>下载完成后，双击 exe 文件进行安装即可</p>
-<p>一直下一步，直到安装完成。</p>
-<h1 id="webui-的下载及启动"><a href="#webui-的下载及启动" class="headerlink" title="webui 的下载及启动"></a>webui 的下载及启动</h1><a class="btn-beautify green larger" href="https://pan.baidu.com/s/1dj9Dglfh7th9jE-ZDvuMIA?pwd=yuqi" title="点击下载"><i class="far fa-hand-point-right"></i><span>点击下载</span></a>
-
-<p>下载完成后，将 novelai-webui-aki-v3 解压出来</p>
-<p>然后将 sd-webui 启动器文件夹里面的启动器运行依赖安装一下</p>
-<p><img src="https://img.zzzg.top/202303030835622.png"></p>
-<p>如果提示这个，则不用再安装</p>
-<p>最后将 sd-webui 启动器压缩包里面的文件全部放进解压好的 novelai-webui-aki-v3 文件夹里面</p>
-<p><img src="https://img.zzzg.top/202303030837999.png"></p>
-<p>双击启动即可，第一次打开会自动下载依赖。</p>
-<p><img src="https://img.zzzg.top/202303030840462.png"></p>
-<p>启动器会自动生成启动参数，直接一键启动</p>
-<p>然后按照提示阅读并同意用户协议，再次点击一键启动</p>
-<p><img src="https://img.zzzg.top/202303030843786.png"></p>
-<p>最后进入到这个自动打开的网页就大功告成了</p>
-<h1 id="webui-的其他操作"><a href="#webui-的其他操作" class="headerlink" title="webui 的其他操作"></a>webui 的其他操作</h1><h2 id="添加模型"><a href="#添加模型" class="headerlink" title="添加模型"></a>添加模型</h2><p>一开始我们下载的文件里面就自带了一个模型，可以把它拖放到如图的文件夹里面，如果你还有其他的模型也可以放在这个文件夹里面进行使用</p>
-<p><img src="https://img.zzzg.top/202303030839190.png"></p>
-<p><a href="https://civitai.com/">https://civitai.com/</a></p>
-<p>上面的网站就有很多模型，可以根据自己喜好进行下载添加</p>
+<p><strong>xxx 为固件名字</strong></p>
 ]]></content>
       <categories>
-        <category>人工智能</category>
+        <category>网络设备</category>
       </categories>
       <tags>
-        <tag>AI绘画</tag>
+        <tag>OpenWrt</tag>
       </tags>
   </entry>
   <entry>
@@ -302,6 +247,61 @@
       </categories>
       <tags>
         <tag>工业通信</tag>
+      </tags>
+  </entry>
+  <entry>
+    <title>AI绘画-webui使用教程</title>
+    <url>/posts/ef6f9b71/</url>
+    <content><![CDATA[<h1 id="准备环境"><a href="#准备环境" class="headerlink" title="准备环境"></a>准备环境</h1><h2 id="pychon-的下载及安装"><a href="#pychon-的下载及安装" class="headerlink" title="pychon 的下载及安装"></a>pychon 的下载及安装</h2><p>直接点击下方按钮下载安装</p>
+<a class="btn-beautify green larger" href="https://www.python.org/ftp/python/3.11.2/python-3.11.2-amd64.exe" title="点击下载"><i class="far fa-hand-point-right"></i><span>点击下载</span></a>
+
+<p>打开安装即可，注意勾选上安装页面的的选项</p>
+<p><img src="https://img.zzzg.top/202302281848503.png"></p>
+<p>然后点击下面的选项，就安装完成了。</p>
+<p><img src="https://img.zzzg.top/202302281850492.png"></p>
+<h2 id="cuda-的下载及安装"><a href="#cuda-的下载及安装" class="headerlink" title="cuda 的下载及安装"></a>cuda 的下载及安装</h2><h3 id="查看适合的-cuda-版本"><a href="#查看适合的-cuda-版本" class="headerlink" title="查看适合的 cuda 版本"></a>查看适合的 cuda 版本</h3><p><img src="https://img.zzzg.top/202303030811620.png"></p>
+<p><img src="https://img.zzzg.top/202303030811238.png"></p>
+<p><img src="https://img.zzzg.top/202303030812926.png"></p>
+<p>这里看到我电脑上支持的 cuda 是 11.7 的</p>
+<h3 id="cuda-toolkit-下载"><a href="#cuda-toolkit-下载" class="headerlink" title="cuda toolkit 下载"></a>cuda toolkit 下载</h3><p>进入下面网页，找到适合的 cuda</p>
+<a class="btn-beautify green larger" href="https://developer.nvidia.com/cuda-toolkit-archive" title="点击进入"><i class="far fa-hand-point-right"></i><span>点击进入</span></a>
+
+<p><img src="https://img.zzzg.top/202303030815008.png"></p>
+<p><img src="https://img.zzzg.top/202303030816433.png"></p>
+<p>Version 是选系统的，win10 就选 10，win11 就选 11，选好后点击下载</p>
+<h3 id="cuda-toolkit-安装"><a href="#cuda-toolkit-安装" class="headerlink" title="cuda toolkit 安装"></a>cuda toolkit 安装</h3><p>双击 exe 文件进行安装即可</p>
+<p>一直下一步，直到安装完成。</p>
+<h2 id="Git-的下载及安装"><a href="#Git-的下载及安装" class="headerlink" title="Git 的下载及安装"></a>Git 的下载及安装</h2><p>进入下面网页</p>
+<a class="btn-beautify green larger" href="https://git-scm.com/download/win" title="点击进入"><i class="far fa-hand-point-right"></i><span>点击进入</span></a>
+
+<p><img src="https://img.zzzg.top/202303030830575.png"></p>
+<p>点击下载</p>
+<p>下载完成后，双击 exe 文件进行安装即可</p>
+<p>一直下一步，直到安装完成。</p>
+<h1 id="webui-的下载及启动"><a href="#webui-的下载及启动" class="headerlink" title="webui 的下载及启动"></a>webui 的下载及启动</h1><a class="btn-beautify green larger" href="https://pan.baidu.com/s/1dj9Dglfh7th9jE-ZDvuMIA?pwd=yuqi" title="点击下载"><i class="far fa-hand-point-right"></i><span>点击下载</span></a>
+
+<p>下载完成后，将 novelai-webui-aki-v3 解压出来</p>
+<p>然后将 sd-webui 启动器文件夹里面的启动器运行依赖安装一下</p>
+<p><img src="https://img.zzzg.top/202303030835622.png"></p>
+<p>如果提示这个，则不用再安装</p>
+<p>最后将 sd-webui 启动器压缩包里面的文件全部放进解压好的 novelai-webui-aki-v3 文件夹里面</p>
+<p><img src="https://img.zzzg.top/202303030837999.png"></p>
+<p>双击启动即可，第一次打开会自动下载依赖。</p>
+<p><img src="https://img.zzzg.top/202303030840462.png"></p>
+<p>启动器会自动生成启动参数，直接一键启动</p>
+<p>然后按照提示阅读并同意用户协议，再次点击一键启动</p>
+<p><img src="https://img.zzzg.top/202303030843786.png"></p>
+<p>最后进入到这个自动打开的网页就大功告成了</p>
+<h1 id="webui-的其他操作"><a href="#webui-的其他操作" class="headerlink" title="webui 的其他操作"></a>webui 的其他操作</h1><h2 id="添加模型"><a href="#添加模型" class="headerlink" title="添加模型"></a>添加模型</h2><p>一开始我们下载的文件里面就自带了一个模型，可以把它拖放到如图的文件夹里面，如果你还有其他的模型也可以放在这个文件夹里面进行使用</p>
+<p><img src="https://img.zzzg.top/202303030839190.png"></p>
+<p><a href="https://civitai.com/">https://civitai.com/</a></p>
+<p>上面的网站就有很多模型，可以根据自己喜好进行下载添加</p>
+]]></content>
+      <categories>
+        <category>人工智能</category>
+      </categories>
+      <tags>
+        <tag>AI绘画</tag>
       </tags>
   </entry>
   <entry>
@@ -817,28 +817,6 @@
       </tags>
   </entry>
   <entry>
-    <title>hexo中插入PDF</title>
-    <url>/posts/4cd4322f/</url>
-    <content><![CDATA[<h2 id="安装-hexo-pdf"><a href="#安装-hexo-pdf" class="headerlink" title="安装 hexo-pdf"></a>安装 hexo-pdf</h2><figure class="highlight text"><table><tr><td class="code"><pre><span class="line">npm install --save hexo-pdf</span><br></pre></td></tr></table></figure>
-
-<h2 id="本地-PDF-引用"><a href="#本地-PDF-引用" class="headerlink" title="本地 PDF 引用"></a>本地 PDF 引用</h2><p>最简单的引用方法：把相应 pdf 文件存到<strong>source 文件夹</strong>下，引用格式为：</p>
-<figure class="highlight text"><table><tr><td class="code"><pre><span class="line">&#123;% pdf /引用文档名字.pdf %&#125;</span><br></pre></td></tr></table></figure>
-
-<p>当然，你也可以新建一个文件夹方便管理 PDF 文档（）在这里我主要参考了<a href="https://link.zhihu.com/?target=https://www.jianshu.com/p/cccc7058a08c">https://www.jianshu.com/p/cccc7058a08c</a>，但是它并没有解决问题 orz 经过苦逼的尝试发现缺少&#x2F;</p>
-<p><strong>也就是说，方法为：</strong></p>
-<p>xxxxxxxxxx .md 文件中的 HTML 代码要用  和  包起来，使其能正确编译里面的代码。markdown</p>
-<figure class="highlight text"><table><tr><td class="code"><pre><span class="line">&#123;% pdf /pdf/xxx.pdf %&#125;</span><br></pre></td></tr></table></figure>
-
-<p>尝试后可以看到，hexo-pdf 对 PDF 文档展示效果非常不错 lol</p>
-]]></content>
-      <categories>
-        <category>博客运维</category>
-      </categories>
-      <tags>
-        <tag>Hexo</tag>
-      </tags>
-  </entry>
-  <entry>
     <title>HTML总复习</title>
     <url>/posts/e79fa3f4/</url>
     <content><![CDATA[<h1 id="导读"><a href="#导读" class="headerlink" title="导读"></a>导读</h1><h2 id="网页"><a href="#网页" class="headerlink" title="网页"></a>网页</h2><p>网站是指在因特网中根据一定的规则，使用<strong>HTML</strong>等制作的用于展示特定内容相关的网页集合</p>
@@ -1231,6 +1209,28 @@
       </tags>
   </entry>
   <entry>
+    <title>hexo中插入PDF</title>
+    <url>/posts/4cd4322f/</url>
+    <content><![CDATA[<h2 id="安装-hexo-pdf"><a href="#安装-hexo-pdf" class="headerlink" title="安装 hexo-pdf"></a>安装 hexo-pdf</h2><figure class="highlight text"><table><tr><td class="code"><pre><span class="line">npm install --save hexo-pdf</span><br></pre></td></tr></table></figure>
+
+<h2 id="本地-PDF-引用"><a href="#本地-PDF-引用" class="headerlink" title="本地 PDF 引用"></a>本地 PDF 引用</h2><p>最简单的引用方法：把相应 pdf 文件存到<strong>source 文件夹</strong>下，引用格式为：</p>
+<figure class="highlight text"><table><tr><td class="code"><pre><span class="line">&#123;% pdf /引用文档名字.pdf %&#125;</span><br></pre></td></tr></table></figure>
+
+<p>当然，你也可以新建一个文件夹方便管理 PDF 文档（）在这里我主要参考了<a href="https://link.zhihu.com/?target=https://www.jianshu.com/p/cccc7058a08c">https://www.jianshu.com/p/cccc7058a08c</a>，但是它并没有解决问题 orz 经过苦逼的尝试发现缺少&#x2F;</p>
+<p><strong>也就是说，方法为：</strong></p>
+<p>xxxxxxxxxx .md 文件中的 HTML 代码要用  和  包起来，使其能正确编译里面的代码。markdown</p>
+<figure class="highlight text"><table><tr><td class="code"><pre><span class="line">&#123;% pdf /pdf/xxx.pdf %&#125;</span><br></pre></td></tr></table></figure>
+
+<p>尝试后可以看到，hexo-pdf 对 PDF 文档展示效果非常不错 lol</p>
+]]></content>
+      <categories>
+        <category>博客运维</category>
+      </categories>
+      <tags>
+        <tag>Hexo</tag>
+      </tags>
+  </entry>
+  <entry>
     <title>Hexo博客自动更新到1panel</title>
     <url>/posts/21fa371d/</url>
     <content><![CDATA[<h2 id="SSH执行拉取"><a href="#SSH执行拉取" class="headerlink" title="SSH执行拉取"></a>SSH执行拉取</h2><p>下面实现通过Github action，链接服务器SSH，并在服务器中执行拉取的命令。</p>
@@ -1449,33 +1449,6 @@
       </categories>
       <tags>
         <tag>Hexo</tag>
-      </tags>
-  </entry>
-  <entry>
-    <title>MOVIFIT参数配置</title>
-    <url>/posts/7f12cab4/</url>
-    <content><![CDATA[<p>1、 链接变频器，待变频器配置扫描到motion studio。如下图：<br><img src="https://img.zzzg.top/20250522194120280.jpg" alt="img"></p>
-<p>2、右键点击： 变频器IP+Default 在弹出对话框中选择 Parameter Tree弹出上图对话框。</p>
-<p>3、在参数树种点击Parameter AND functions 。选择FieldBus 中 Other Parameter。<br><img src="https://img.zzzg.top/20250522194126670.jpg" alt="img"><br>在F-target Address 中设置变频器安全参数（由PLC硬件组态中设置决定)</p>
-<p>4、注意：只有变频器安全使能上电后我们才能扫描到变频器的功率单元。</p>
-<p>5、右键点击DefaultLT 弹出如下画面：开始START UP<br><img src="https://img.zzzg.top/20250522194132967.jpg" alt="img"></p>
-<p>6、点击右下角NEXT开始设置参数：下图为变频默认设置参数，直接点击NEXT<br><img src="https://img.zzzg.top/20250522194140114.jpg" alt="img"></p>
-<p>7、选择变频器负载拖动型式。<br>FIXED 固定一台变频器<br>Switch able为可切换的电机<br>然后点击NEXT<br><img src="https://img.zzzg.top/20250522194148634.jpg" alt="img"></p>
-<p>8.选择电机拖动负载数量 。选择ONE Motor 然后电机NEXT<br><img src="https://img.zzzg.top/20250522194154252.jpg" alt="img"></p>
-<p>9、选择电机控制方式 标准V&#x2F;F控制 然后电机NEXT<br><img src="https://img.zzzg.top/clip_image014.jpg" alt="img"></p>
-<p>10、选择运用模式：选择速度模式 然后选择NEXT<br><img src="https://img.zzzg.top/20250522194209980.jpg" alt="img"></p>
-<p>11、选择电机型号。水平滚床电机为DRE100L4 然后电机NEXT<br><img src="https://img.zzzg.top/20250522194215214.jpg" alt="img"></p>
-<p>12、选择电机信号，接线方式、温度保护、强冷风扇（一般没有）。点击NEXT<br><img src="https://img.zzzg.top/20250522194223443.jpg" alt="img"></p>
-<p>13、选择抱闸类型 BE5A 400V 然后电机NEXT<br><img src="https://img.zzzg.top/20250522194228521.jpg" alt="img"></p>
-<p>14、设置变频器电流、速度限制值。选择 accect SEW suggestion SEW建议值（<strong>不推荐使用建议值</strong>）。然后电机NEXT<br><img src="https://img.zzzg.top/20250522194245643.jpg" alt="img"></p>
-<p>下一页需要设置转速为铭牌额定转速，最小转速60改为0，其他的不动</p>
-<p>15、以上参数设置完成后电机FINISH将参数下载到变频器中。变频器参数设置完成<br><img src="https://img.zzzg.top/20250522194233764.jpg" alt="img"></p>
-]]></content>
-      <categories>
-        <category>工业自动化</category>
-      </categories>
-      <tags>
-        <tag>MOVIDRIVE</tag>
       </tags>
   </entry>
   <entry>
@@ -1888,6 +1861,33 @@
       </tags>
   </entry>
   <entry>
+    <title>MOVIFIT参数配置</title>
+    <url>/posts/7f12cab4/</url>
+    <content><![CDATA[<p>1、 链接变频器，待变频器配置扫描到motion studio。如下图：<br><img src="https://img.zzzg.top/20250522194120280.jpg" alt="img"></p>
+<p>2、右键点击： 变频器IP+Default 在弹出对话框中选择 Parameter Tree弹出上图对话框。</p>
+<p>3、在参数树种点击Parameter AND functions 。选择FieldBus 中 Other Parameter。<br><img src="https://img.zzzg.top/20250522194126670.jpg" alt="img"><br>在F-target Address 中设置变频器安全参数（由PLC硬件组态中设置决定)</p>
+<p>4、注意：只有变频器安全使能上电后我们才能扫描到变频器的功率单元。</p>
+<p>5、右键点击DefaultLT 弹出如下画面：开始START UP<br><img src="https://img.zzzg.top/20250522194132967.jpg" alt="img"></p>
+<p>6、点击右下角NEXT开始设置参数：下图为变频默认设置参数，直接点击NEXT<br><img src="https://img.zzzg.top/20250522194140114.jpg" alt="img"></p>
+<p>7、选择变频器负载拖动型式。<br>FIXED 固定一台变频器<br>Switch able为可切换的电机<br>然后点击NEXT<br><img src="https://img.zzzg.top/20250522194148634.jpg" alt="img"></p>
+<p>8.选择电机拖动负载数量 。选择ONE Motor 然后电机NEXT<br><img src="https://img.zzzg.top/20250522194154252.jpg" alt="img"></p>
+<p>9、选择电机控制方式 标准V&#x2F;F控制 然后电机NEXT<br><img src="https://img.zzzg.top/clip_image014.jpg" alt="img"></p>
+<p>10、选择运用模式：选择速度模式 然后选择NEXT<br><img src="https://img.zzzg.top/20250522194209980.jpg" alt="img"></p>
+<p>11、选择电机型号。水平滚床电机为DRE100L4 然后电机NEXT<br><img src="https://img.zzzg.top/20250522194215214.jpg" alt="img"></p>
+<p>12、选择电机信号，接线方式、温度保护、强冷风扇（一般没有）。点击NEXT<br><img src="https://img.zzzg.top/20250522194223443.jpg" alt="img"></p>
+<p>13、选择抱闸类型 BE5A 400V 然后电机NEXT<br><img src="https://img.zzzg.top/20250522194228521.jpg" alt="img"></p>
+<p>14、设置变频器电流、速度限制值。选择 accect SEW suggestion SEW建议值（<strong>不推荐使用建议值</strong>）。然后电机NEXT<br><img src="https://img.zzzg.top/20250522194245643.jpg" alt="img"></p>
+<p>下一页需要设置转速为铭牌额定转速，最小转速60改为0，其他的不动</p>
+<p>15、以上参数设置完成后电机FINISH将参数下载到变频器中。变频器参数设置完成<br><img src="https://img.zzzg.top/20250522194233764.jpg" alt="img"></p>
+]]></content>
+      <categories>
+        <category>工业自动化</category>
+      </categories>
+      <tags>
+        <tag>MOVIDRIVE</tag>
+      </tags>
+  </entry>
+  <entry>
     <title>MT7981B安博通ABT_ASR3000刷机指南</title>
     <url>/posts/2c4b11e5/</url>
     <content><![CDATA[<h1 id="刷机方法"><a href="#刷机方法" class="headerlink" title="刷机方法"></a>刷机方法</h1><h2 id="一："><a href="#一：" class="headerlink" title="一："></a>一：</h2><p>下载附件e-202306161250-cfg.tar.gz，原厂系统：系统工具&#x3D;&gt;配置管理&#x3D;&gt;导入配置，重启；</p>
@@ -2143,79 +2143,6 @@
       </tags>
   </entry>
   <entry>
-    <title>R探长 甲骨文云开机脚本</title>
-    <url>/posts/d604b8c7/</url>
-    <content><![CDATA[<h1 id="原作者地址"><a href="#原作者地址" class="headerlink" title="原作者地址"></a>原作者地址</h1><p><a href="https://github.com/semicons/java_oci_manage/blob/main/md/install.md">https://github.com/semicons/java_oci_manage/blob/main/md/install.md</a></p>
-<h1 id="debian12先要装依赖"><a href="#debian12先要装依赖" class="headerlink" title="debian12先要装依赖"></a>debian12先要装依赖</h1><figure class="highlight shell"><table><tr><td class="code"><pre><span class="line">sudo nano /etc/apt/sources.list</span><br></pre></td></tr></table></figure>
-
-<figure class="highlight shell"><table><tr><td class="code"><pre><span class="line">deb http://deb.debian.org/debian bullseye main</span><br><span class="line"></span><br><span class="line">deb-src http://deb.debian.org/debian bullseye main</span><br></pre></td></tr></table></figure>
-
-
-
-<figure class="highlight shell"><table><tr><td class="code"><pre><span class="line">apt update</span><br><span class="line"></span><br><span class="line">apt install openjdk-17-jdk</span><br></pre></td></tr></table></figure>
-
-
-
-
-
-<h1 id="更新环境"><a href="#更新环境" class="headerlink" title="更新环境"></a>更新环境</h1><figure class="highlight shell"><table><tr><td class="code"><pre><span class="line">apt update -y &amp;&amp; apt install -y curl wget sudo</span><br></pre></td></tr></table></figure>
-
-
-
-
-
-<h1 id="安装R探长"><a href="#安装R探长" class="headerlink" title="安装R探长"></a>安装R探长</h1><figure class="highlight shell"><table><tr><td class="code"><pre><span class="line">cd /home &amp;&amp; mkdir rbot &amp;&amp; cd rbot</span><br><span class="line"></span><br><span class="line">wget -O gz_client_bot.tar.gz https://github.com/semicons/java_oci_manage/releases/latest/download/gz_client_bot.tar.gz &amp;&amp; tar -zxvf gz_client_bot.tar.gz --exclude=client_config &amp;&amp; tar -zxvf gz_client_bot.tar.gz --skip-old-files client_config &amp;&amp; chmod +x sh_client_bot.sh</span><br></pre></td></tr></table></figure>
-
-
-
-
-
-
-
-<h1 id="下载配置client-config模板"><a href="#下载配置client-config模板" class="headerlink" title="下载配置client_config模板"></a>下载配置client_config模板</h1><p><a href="https://github.com/kejilion/sh/blob/main/client_config">https://github.com/kejilion/sh/blob/main/client_config</a></p>
-<h1 id="到甲骨文云下载API证书并获取API信息"><a href="#到甲骨文云下载API证书并获取API信息" class="headerlink" title="到甲骨文云下载API证书并获取API信息"></a>到甲骨文云下载API证书并获取API信息</h1><p><a href="https://cloud.oracle.com/">https://cloud.oracle.com/</a></p>
-<p><img src="https://img.zzzg.top/202312080925335.png"></p>
-<p><img src="https://img.zzzg.top/202312080925572.png"></p>
-<p><img src="https://img.zzzg.top/202312080925945.png"></p>
-<p><img src="https://img.zzzg.top/202312080925124.png"></p>
-<p><img src="https://img.zzzg.top/202312080925243.png"></p>
-<p><img src="https://img.zzzg.top/202312080925743.png"></p>
-<p><img src="https://img.zzzg.top/202312080926332.png"></p>
-<h1 id="key存放路径"><a href="#key存放路径" class="headerlink" title="key存放路径"></a>key存放路径</h1><p>key_file&#x3D;&#x2F;home&#x2F;rbot&#x2F;key.pem</p>
-<h1 id="关注R探长频道和机器人"><a href="#关注R探长频道和机器人" class="headerlink" title="关注R探长频道和机器人"></a>关注R探长频道和机器人</h1><p>R探长频道：<a href="https://t.me/agentONE_R">https://t.me/agentONE_R</a></p>
-<p>R探长机器人：<a href="https://t.me/radiance_helper_bot">https://t.me/radiance_helper_bot</a></p>
-<h1 id="和机器人对话获取随机用户名和密码"><a href="#和机器人对话获取随机用户名和密码" class="headerlink" title="和机器人对话获取随机用户名和密码"></a>和机器人对话获取随机用户名和密码</h1><p>&#x2F;raninfo</p>
-<h1 id="填写示例"><a href="#填写示例" class="headerlink" title="填写示例"></a>填写示例</h1><p><img src="https://img.zzzg.top/202312080926509.png"></p>
-<p>填写完成后</p>
-<p>把<strong>client_config.txtclient_config.txt</strong>改为<strong>client_config</strong></p>
-<p>把下载的pem文件改为<strong>key.pem</strong></p>
-<p>然后上传到**&#x2F;home&#x2F;rbot&#x2F;**目录</p>
-<h1 id="启动或重启"><a href="#启动或重启" class="headerlink" title="启动或重启"></a>启动或重启</h1><figure class="highlight shell"><table><tr><td class="code"><pre><span class="line">bash sh_client_bot.sh </span><br></pre></td></tr></table></figure>
-
-
-
-<h1 id="查看日志-ctrl-c退出日志"><a href="#查看日志-ctrl-c退出日志" class="headerlink" title="查看日志(ctrl + c退出日志)"></a>查看日志(ctrl + c退出日志)</h1><figure class="highlight shell"><table><tr><td class="code"><pre><span class="line">tail -f log_r_client.log </span><br></pre></td></tr></table></figure>
-
-
-
-<h1 id="终止程序"><a href="#终止程序" class="headerlink" title="终止程序"></a>终止程序</h1><figure class="highlight shell"><table><tr><td class="code"><pre><span class="line">ps -ef | grep r_client.jar | grep -v grep | awk &#x27;&#123;print $2&#125;&#x27; | xargs kill -9 </span><br></pre></td></tr></table></figure>
-
-
-
-<h1 id="卸载程序"><a href="#卸载程序" class="headerlink" title="卸载程序"></a>卸载程序</h1><figure class="highlight shell"><table><tr><td class="code"><pre><span class="line">rm -rf gz_client_bot.tar.gz client_config r_client.jar sh_client_bot.sh log_r_client.log debug-.log </span><br></pre></td></tr></table></figure>
-
-<p>如也不需要JDK也可卸载：</p>
-<figure class="highlight shell"><table><tr><td class="code"><pre><span class="line">apt-get remove openjdk*</span><br></pre></td></tr></table></figure>
-
-]]></content>
-      <categories>
-        <category>运维技术</category>
-      </categories>
-      <tags>
-        <tag>运维工具</tag>
-      </tags>
-  </entry>
-  <entry>
     <title>Qexo 一个美观、强大的在线 静态博客 管理器</title>
     <url>/posts/8277e0e6/</url>
     <content><![CDATA[<h1 id="前言"><a href="#前言" class="headerlink" title="前言"></a>前言</h1><p><strong>Hexo</strong> 是一款快速、高效的静态博客框架。通过 <a href="http://daringfireball.net/projects/markdown/">Markdown</a> 语法，只需几秒便可生成高质量的静态网页。</p>
@@ -2300,6 +2227,79 @@
       </categories>
       <tags>
         <tag>Hexo</tag>
+      </tags>
+  </entry>
+  <entry>
+    <title>R探长 甲骨文云开机脚本</title>
+    <url>/posts/d604b8c7/</url>
+    <content><![CDATA[<h1 id="原作者地址"><a href="#原作者地址" class="headerlink" title="原作者地址"></a>原作者地址</h1><p><a href="https://github.com/semicons/java_oci_manage/blob/main/md/install.md">https://github.com/semicons/java_oci_manage/blob/main/md/install.md</a></p>
+<h1 id="debian12先要装依赖"><a href="#debian12先要装依赖" class="headerlink" title="debian12先要装依赖"></a>debian12先要装依赖</h1><figure class="highlight shell"><table><tr><td class="code"><pre><span class="line">sudo nano /etc/apt/sources.list</span><br></pre></td></tr></table></figure>
+
+<figure class="highlight shell"><table><tr><td class="code"><pre><span class="line">deb http://deb.debian.org/debian bullseye main</span><br><span class="line"></span><br><span class="line">deb-src http://deb.debian.org/debian bullseye main</span><br></pre></td></tr></table></figure>
+
+
+
+<figure class="highlight shell"><table><tr><td class="code"><pre><span class="line">apt update</span><br><span class="line"></span><br><span class="line">apt install openjdk-17-jdk</span><br></pre></td></tr></table></figure>
+
+
+
+
+
+<h1 id="更新环境"><a href="#更新环境" class="headerlink" title="更新环境"></a>更新环境</h1><figure class="highlight shell"><table><tr><td class="code"><pre><span class="line">apt update -y &amp;&amp; apt install -y curl wget sudo</span><br></pre></td></tr></table></figure>
+
+
+
+
+
+<h1 id="安装R探长"><a href="#安装R探长" class="headerlink" title="安装R探长"></a>安装R探长</h1><figure class="highlight shell"><table><tr><td class="code"><pre><span class="line">cd /home &amp;&amp; mkdir rbot &amp;&amp; cd rbot</span><br><span class="line"></span><br><span class="line">wget -O gz_client_bot.tar.gz https://github.com/semicons/java_oci_manage/releases/latest/download/gz_client_bot.tar.gz &amp;&amp; tar -zxvf gz_client_bot.tar.gz --exclude=client_config &amp;&amp; tar -zxvf gz_client_bot.tar.gz --skip-old-files client_config &amp;&amp; chmod +x sh_client_bot.sh</span><br></pre></td></tr></table></figure>
+
+
+
+
+
+
+
+<h1 id="下载配置client-config模板"><a href="#下载配置client-config模板" class="headerlink" title="下载配置client_config模板"></a>下载配置client_config模板</h1><p><a href="https://github.com/kejilion/sh/blob/main/client_config">https://github.com/kejilion/sh/blob/main/client_config</a></p>
+<h1 id="到甲骨文云下载API证书并获取API信息"><a href="#到甲骨文云下载API证书并获取API信息" class="headerlink" title="到甲骨文云下载API证书并获取API信息"></a>到甲骨文云下载API证书并获取API信息</h1><p><a href="https://cloud.oracle.com/">https://cloud.oracle.com/</a></p>
+<p><img src="https://img.zzzg.top/202312080925335.png"></p>
+<p><img src="https://img.zzzg.top/202312080925572.png"></p>
+<p><img src="https://img.zzzg.top/202312080925945.png"></p>
+<p><img src="https://img.zzzg.top/202312080925124.png"></p>
+<p><img src="https://img.zzzg.top/202312080925243.png"></p>
+<p><img src="https://img.zzzg.top/202312080925743.png"></p>
+<p><img src="https://img.zzzg.top/202312080926332.png"></p>
+<h1 id="key存放路径"><a href="#key存放路径" class="headerlink" title="key存放路径"></a>key存放路径</h1><p>key_file&#x3D;&#x2F;home&#x2F;rbot&#x2F;key.pem</p>
+<h1 id="关注R探长频道和机器人"><a href="#关注R探长频道和机器人" class="headerlink" title="关注R探长频道和机器人"></a>关注R探长频道和机器人</h1><p>R探长频道：<a href="https://t.me/agentONE_R">https://t.me/agentONE_R</a></p>
+<p>R探长机器人：<a href="https://t.me/radiance_helper_bot">https://t.me/radiance_helper_bot</a></p>
+<h1 id="和机器人对话获取随机用户名和密码"><a href="#和机器人对话获取随机用户名和密码" class="headerlink" title="和机器人对话获取随机用户名和密码"></a>和机器人对话获取随机用户名和密码</h1><p>&#x2F;raninfo</p>
+<h1 id="填写示例"><a href="#填写示例" class="headerlink" title="填写示例"></a>填写示例</h1><p><img src="https://img.zzzg.top/202312080926509.png"></p>
+<p>填写完成后</p>
+<p>把<strong>client_config.txtclient_config.txt</strong>改为<strong>client_config</strong></p>
+<p>把下载的pem文件改为<strong>key.pem</strong></p>
+<p>然后上传到**&#x2F;home&#x2F;rbot&#x2F;**目录</p>
+<h1 id="启动或重启"><a href="#启动或重启" class="headerlink" title="启动或重启"></a>启动或重启</h1><figure class="highlight shell"><table><tr><td class="code"><pre><span class="line">bash sh_client_bot.sh </span><br></pre></td></tr></table></figure>
+
+
+
+<h1 id="查看日志-ctrl-c退出日志"><a href="#查看日志-ctrl-c退出日志" class="headerlink" title="查看日志(ctrl + c退出日志)"></a>查看日志(ctrl + c退出日志)</h1><figure class="highlight shell"><table><tr><td class="code"><pre><span class="line">tail -f log_r_client.log </span><br></pre></td></tr></table></figure>
+
+
+
+<h1 id="终止程序"><a href="#终止程序" class="headerlink" title="终止程序"></a>终止程序</h1><figure class="highlight shell"><table><tr><td class="code"><pre><span class="line">ps -ef | grep r_client.jar | grep -v grep | awk &#x27;&#123;print $2&#125;&#x27; | xargs kill -9 </span><br></pre></td></tr></table></figure>
+
+
+
+<h1 id="卸载程序"><a href="#卸载程序" class="headerlink" title="卸载程序"></a>卸载程序</h1><figure class="highlight shell"><table><tr><td class="code"><pre><span class="line">rm -rf gz_client_bot.tar.gz client_config r_client.jar sh_client_bot.sh log_r_client.log debug-.log </span><br></pre></td></tr></table></figure>
+
+<p>如也不需要JDK也可卸载：</p>
+<figure class="highlight shell"><table><tr><td class="code"><pre><span class="line">apt-get remove openjdk*</span><br></pre></td></tr></table></figure>
+
+]]></content>
+      <categories>
+        <category>运维技术</category>
+      </categories>
+      <tags>
+        <tag>运维工具</tag>
       </tags>
   </entry>
   <entry>
@@ -2713,158 +2713,6 @@
 <p><img src="https://img.zzzg.top/20250524210627091.PNG" alt="50"></p>
 <p><img src="https://img.zzzg.top/20250524210637201.PNG" alt="51"></p>
 <p><img src="https://img.zzzg.top/20250524210647926.PNG" alt="52"></p>
-]]></content>
-      <categories>
-        <category>工业自动化</category>
-      </categories>
-      <tags>
-        <tag>MOVIDRIVE</tag>
-      </tags>
-  </entry>
-  <entry>
-    <title>SEW-MDX61B变频器定位控制调试流程</title>
-    <url>/posts/e4c152dc/</url>
-    <content><![CDATA[<h1 id="一、-调试准备"><a href="#一、-调试准备" class="headerlink" title="一、 调试准备"></a>一、 调试准备</h1><h2 id="操作系统及调试软件"><a href="#操作系统及调试软件" class="headerlink" title="操作系统及调试软件"></a>操作系统及调试软件</h2><p>操作系统：Windows 7 64 位操作系统</p>
-<p>调试软件：MotionStudio 6.10 SP1(6.1.0.1)</p>
-<p><img src="https://img.zzzg.top/202303040926661.png" alt="image-20230304092617110"></p>
-<h2 id="硬件系统"><a href="#硬件系统" class="headerlink" title="硬件系统"></a>硬件系统</h2><p>变频器:MDX61B0015-5A3</p>
-<p>SEW 电机:DRL80S4BE2HR&#x2F;FG&#x2F;TF&#x2F;AS7W</p>
-<p><img src="https://img.zzzg.top/202303040926342.png" alt="image-20230304092645922"></p>
-<p>变频器接线图</p>
-<p><img src="https://img.zzzg.top/202303040927995.png" alt="image-20230304092703871"></p>
-<p>电机接线图</p>
-<h1 id="二、-变频器调试"><a href="#二、-变频器调试" class="headerlink" title="二、 变频器调试"></a>二、 变频器调试</h1><h2 id="连接变频器"><a href="#连接变频器" class="headerlink" title="连接变频器"></a>连接变频器</h2><p>双击桌面图标</p>
-<p><img src="https://img.zzzg.top/202303040952856.png" alt="image-20230304095222325"></p>
-<p>弹出如下对话框：</p>
-<p><img src="https://img.zzzg.top/202303040953210.png" alt="image-20230304095259154"></p>
-<p>选择通讯方式</p>
-<p><img src="https://img.zzzg.top/202303040953625.png" alt="image-20230304095323312"></p>
-<p>SEW 软件提供如下几种方式与变频器进行连接（如图所示），常用的有如下几种方式：</p>
-<p>1、 Serial：SEW 专用的编程电缆，可对变频器进行所有操作，电缆长度有限，有距离限制；</p>
-<p>2、 Ethernet：普通网线即可连接调试，可使用无线路由器进行连接调试，现场使用方便，但部分操作无法通过网线实现；</p>
-<p><img src="https://img.zzzg.top/202303040953996.png" alt="image-20230304095350111"></p>
-<p>本例中使用 Ethernet 方式进行调试，还需进行如下设置；点击“Edit”按钮，出现如下画面：</p>
-<p><img src="https://img.zzzg.top/202303040954982.png" alt="image-20230304095406063"></p>
-<p>点击“Network adapter”按钮，选择当前与变频器连接的网卡；</p>
-<p><img src="https://img.zzzg.top/202303040954180.png" alt="image-20230304095421274"></p>
-<p>通讯设置完成后，扫描网络，连接 SEW 变频器；</p>
-<p><img src="https://img.zzzg.top/202303040954245.png" alt="image-20230304095434251"></p>
-<p>扫描出的设备如下图所示；</p>
-<p><img src="https://img.zzzg.top/202303040955356.png" alt="image-20230304095521462"></p>
-<p>到这里 MotionStudio 软件已经和 SEW 变频器之间建立了连接；</p>
-<h2 id="电机初始化设置"><a href="#电机初始化设置" class="headerlink" title="电机初始化设置"></a>电机初始化设置</h2><p>在“Working with the unit”选项卡中选择“Startup”按钮；</p>
-<p><img src="https://img.zzzg.top/202303040955983.png" alt="image-20230304095559180"></p>
-<p>弹出参数初始化界面，点击“Perform startup”按钮进行参数初始化操作；</p>
-<p><img src="https://img.zzzg.top/202303040956383.png" alt="image-20230304095613347"></p>
-<p>点击“Start-up Set”按钮；</p>
-<p><img src="https://img.zzzg.top/202303040956901.png" alt="image-20230304095626113"></p>
-<p>选择“Execute complete start-up”选项，点击“下一步”；</p>
-<p><img src="https://img.zzzg.top/202303040956529.png" alt="image-20230304095637652"></p>
-<p>选择变频器与电机之间的控制方式：</p>
-<p>1、Stand-alone motor：独立电机控制（常用控制方式）</p>
-<p>1.1、Standard（V&#x2F;F）：VF 曲线控制（简单的速度控制选用）</p>
-<p>1.2、Vector-controlled&#x2F;Servo：矢量控制&#x2F;伺服（带有编码器的选用）</p>
-<p>2、Several identical motors：多个相同电机控制</p>
-<p>3、Several different motors：多个不同电机控制</p>
-<p><img src="https://img.zzzg.top/202303040956041.png" alt="image-20230304095652122"></p>
-<p>电机铭牌参数</p>
-<p><img src="https://img.zzzg.top/202303040957275.png" alt="image-20230304095730201"></p>
-<p>选择电机类型；</p>
-<p><img src="https://img.zzzg.top/202303040957021.png" alt="image-20230304095745060"></p>
-<p>按照电机铭牌参数填写下列参数；</p>
-<p><img src="https://img.zzzg.top/202303040958901.png" alt="image-20230304095817473"></p>
-<p><img src="https://img.zzzg.top/20230519103325.jpg"></p>
-<p>选择是否使用编码器；</p>
-<p><img src="https://img.zzzg.top/202303040958326.png" alt="image-20230304095829175"></p>
-<p>选择应用模式</p>
-<p>1、 Speed control: 速度控制</p>
-<p>2、 Use hoist:举升控制（如升降机、吊具等选择此项）</p>
-<p>3、 Positioniong with IPOS: IPOS-位置控制（精定位控制设备）</p>
-<p>4、 Use torque control: 转矩控制（电机恒转矩输出应用）</p>
-<p><img src="https://img.zzzg.top/202303040958826.png" alt="image-20230304095851579"></p>
-<p>选择 CFC&#x2F;VFC 控制方式</p>
-<p><img src="https://img.zzzg.top/202303040959914.png" alt="image-20230304095903084"></p>
-<p>CFC 与 VFC 控制方式的区别（<strong>建议一般应用时选择 CFC，滚床、升降机、吊具等举升设备应用时选择 VFC</strong>）</p>
-<p><img src="https://img.zzzg.top/202303040959527.png" alt="image-20230304095927588"></p>
-<p>选择 CFC 控制模式后，出现如下界面；</p>
-<p><img src="https://img.zzzg.top/202303040959383.png" alt="image-20230304095941380"></p>
-<p>参数说明:</p>
-<p>1、 Load inertia:负载惯量，该参数一般由电机厂家提供，如未提供该参数，可由以下方法计算：</p>
-<p>a、 Jx&#x3D;m*r2，m&#x3D;质量，r&#x3D;半径；</p>
-<p>b、 单击“Testing”，让设备在实际工作状态运动几次，这时变频器会自动上传测得的数据；</p>
-<p>c、 经验值，水平运动设备的负载惯量为 J0 motor 的 8-15 倍，举升运动设备的负载惯量为 J0 motor 的 3-5 倍；</p>
-<p>2、 Drive:输入电动机是否有减速机；</p>
-<p>3、 Brake:输入电动机是否有制动；</p>
-<p>4、 Z fan:输入电动机是否有高惯量风扇；</p>
-<p>设置电机参数</p>
-<p><img src="https://img.zzzg.top/202312111103582.png" alt="image-20230304100030601"></p>
-<p>速度控制参数，建议使用系统推荐参数</p>
-<p><img src="https://img.zzzg.top/202303041000456.png" alt="image-20230304100044388"></p>
-<p>设置变频器参数</p>
-<p><img src="https://img.zzzg.top/202303041001369.png" alt="image-20230304100103567"></p>
-<p>设置完成，下载参数至变频器;（注:需在强电断开时才能下载）</p>
-<p><img src="https://img.zzzg.top/202303041001845.png" alt="image-20230304100113996"></p>
-<h2 id="MotionStudio-驱动电机"><a href="#MotionStudio-驱动电机" class="headerlink" title="MotionStudio 驱动电机"></a>MotionStudio 驱动电机</h2><p>设置完成变频器参数后，使用 MotionStudio 软件手动来驱动电动机，用来验证电机接线、抱闸接线、编码器接线的正确性及机械可动性；</p>
-<p>在“Working with the unit”选项卡中选择“Manual mode”按钮；</p>
-<p><img src="https://img.zzzg.top/202303041001886.png" alt="image-20230304100152963"></p>
-<p>弹出如下画面</p>
-<p><img src="https://img.zzzg.top/202303041002321.png" alt="image-20230304100211350"></p>
-<h2 id="扩展总线定位模式"><a href="#扩展总线定位模式" class="headerlink" title="扩展总线定位模式"></a>扩展总线定位模式</h2><p>在“Working with the unit”选项卡中选择“Extended positioning via bus”按钮；</p>
-<p><img src="https://img.zzzg.top/202303041002042.png" alt="image-20230304100235226"></p>
-<p>设置通讯方式及通讯超时响应</p>
-<p><img src="https://img.zzzg.top/202303041002291.png" alt="image-20230304100250403"></p>
-<p>外部机械参数设定，该参数应由机械设计人员提供，参数设置只影响编码器在 PLC 中的反馈值；</p>
-<p><img src="https://img.zzzg.top/202303041003278.png" alt="image-20230304100307195"></p>
-<p>设置软限位，速度，寻零方式等</p>
-<p><img src="https://img.zzzg.top/202303041003888.png" alt="image-20230304100322091"></p>
-<p>设置完成，下载至 SEW 变频器；下载完成后需修改外部 IO 端子定义；</p>
-<p><img src="https://img.zzzg.top/202303041003578.png" alt="image-20230304100333912"></p>
-<p>外部 IO 端子设置如下图所示，DI00 系统默认为外部使能，无法修改，在使用外部总线通讯控制时，DI00 端子需置“1”；</p>
-<p><img src="https://img.zzzg.top/202303041003141.png" alt="image-20230304100346059"></p>
-<p>上图外部端子定义如下：</p>
-<p>DI01：正转限位(常闭信号，高电平有效)</p>
-<p>DI02：反转限位(常闭信号，高电平有效)</p>
-<p>DI03：参考零点</p>
-<p>实际应用过程中需根据外部硬件接线来定义外部 IO 端子功能；</p>
-<p>下载完成后，进入如下界面；</p>
-<p><img src="https://img.zzzg.top/202303041004444.png" alt="image-20230304100417286"></p>
-<p>控制字&amp;状态字说明</p>
-<p><img src="https://img.zzzg.top/202303041050162.png" alt="image-20230304105042971"></p>
-<p><img src="https://img.zzzg.top/202303041051938.png" alt="image-20230304105059924"></p>
-<p>控制字说明</p>
-<p><img src="https://img.zzzg.top/202303041051439.png" alt="image-20230304105111411"></p>
-<p>Mode high 与 Mode low 两位组合使用，表示三种控制模式：</p>
-<p>10：寻零模式；01：JOG 模式；11：定位模式；</p>
-<p>状态字说明</p>
-<p><img src="https://img.zzzg.top/202303041051178.png" alt="image-20230304105123436"></p>
-<h2 id="寻零模式说明"><a href="#寻零模式说明" class="headerlink" title="寻零模式说明"></a>寻零模式说明</h2><p>扩展总线定位模式设定完成后，变频器可在定位模式下运转，但还需要根据现场实际情况设定零点，确定寻零方式；SEW 变频器中提供了 9 种寻零的方式，需在 903 参数中设定；</p>
-<p><img src="https://img.zzzg.top/202303041051271.png" alt="image-20230304105152349"></p>
-<p>具体寻零型式如下列所述：</p>
-<p><img src="https://img.zzzg.top/202303041052868.png" alt="image-20230304105213054"></p>
-<p>除了型式 8，参考运行必须在变频器“Ready”和“Enable”状态才可进行；</p>
-<p><img src="https://img.zzzg.top/202303041052111.png" alt="image-20230304105231116"></p>
-<h1 id="AMA0801配置"><a href="#AMA0801配置" class="headerlink" title="AMA0801配置"></a>AMA0801配置</h1><h2 id="一字库位"><a href="#一字库位" class="headerlink" title="一字库位"></a>一字库位</h2><p><img src="https://img.zzzg.top/202305191047.png" alt="202305191047"></p>
-<p><img src="https://img.zzzg.top/202305191048.png" alt="202305191048"></p>
-<p><img src="https://img.zzzg.top/202305191049.png" alt="202305191049"></p>
-<p><img src="https://img.zzzg.top/202305191050.png" alt="202305191050"></p>
-<h2 id="校零"><a href="#校零" class="headerlink" title="校零"></a>校零</h2><p><img src="https://img.zzzg.top/20230519105000.jpg" alt="20230519105000"></p>
-<h1 id="附录-1：转台提速使用参数"><a href="#附录-1：转台提速使用参数" class="headerlink" title="附录 1：转台提速使用参数"></a>附录 1：转台提速使用参数</h1><p><img src="https://img.zzzg.top/202303041055137.png" alt="image-20230304105509097"></p>
-<p><img src="https://img.zzzg.top/202303041055825.png" alt="image-20230304105516864"></p>
-<p>扩展总线定位模式中的设置：</p>
-<p><img src="https://img.zzzg.top/202303041055879.png" alt="image-20230304105536031"></p>
-<h1 id="附录-2：举升设备相关参数"><a href="#附录-2：举升设备相关参数" class="headerlink" title="附录 2：举升设备相关参数"></a>附录 2：举升设备相关参数</h1><p>升降设备需设置抱闸相关参数</p>
-<p><img src="https://img.zzzg.top/202303041055375.png" alt="image-20230304105555636"></p>
-<p>731：电机启动抱闸打开参数，变频器启动 0.15 秒输出正常扭矩，此时变频器认为抱闸已经打开，参数默认值 0.1，在升降设备中，若启动时设备有向下掉的动作，<strong>此参数可适当减小</strong>;</p>
-<p>732：电机停止抱闸失电参数，在抱闸断电 0.35 秒后，变频器才停止工作，参数默认值 0.2，若升降设备停止时设备有向下掉的动作，<strong>此参数可适当增大</strong>;</p>
-<h1 id="附录-3：常见故障解决方案"><a href="#附录-3：常见故障解决方案" class="headerlink" title="附录 3：常见故障解决方案"></a>附录 3：常见故障解决方案</h1><h2 id="1、-变频器-F08-故障，转速监视；"><a href="#1、-变频器-F08-故障，转速监视；" class="headerlink" title="1、 变频器 F08 故障，转速监视；"></a>1、 变频器 F08 故障，转速监视；</h2><p>故障现象：电机运行一段时间（时间很短，&lt;1s）,变频器即报 F08 故障；</p>
-<p>故障原因：编码器连接或电机旋转方向不正确；</p>
-<p>临时措施：修改 P500 或 P502 参数（关闭转速监控）；</p>
-<p>后期解决：检查电机相位；检查编码器连接，成对调换 A&#x2F;A-和 B&#x2F;B-;</p>
-<h2 id="2、变频器-F14-故障，编码器；"><a href="#2、变频器-F14-故障，编码器；" class="headerlink" title="2、变频器 F14 故障，编码器；"></a>2、变频器 F14 故障，编码器；</h2><p>故障现象：变频器启动运行即报 F14 故障；</p>
-<p>故障原因：编码器电缆屏蔽未正确连接；</p>
-<p>临时措施：断开变频器供电电源，等待一段时间再上电（如无效则需立即检查编码屏蔽）；</p>
-<p>后期解决：检查编码器屏蔽层连接；编码器电缆是否存在强电干扰；</p>
-<h1 id="附录4：相关文档"><a href="#附录4：相关文档" class="headerlink" title="附录4：相关文档"></a>附录4：相关文档</h1><p>MDX61B应用手册：<a href="https://www.sew-eurodrive.cn/os/dud/?tab=documents&country=CN&language=zh_cn&doc_lang=zh-CN,en-US&doc_type=G,D,F,CD,DD&search=FA362820">https://www.sew-eurodrive.cn/os/dud/?tab=documents&amp;country=CN&amp;language=zh_cn&amp;doc_lang=zh-CN,en-US&amp;doc_type=G,D,F,CD,DD&amp;search=FA362820</a></p>
 ]]></content>
       <categories>
         <category>工业自动化</category>
@@ -3752,6 +3600,158 @@
       </tags>
   </entry>
   <entry>
+    <title>SEW-MDX61B变频器定位控制调试流程</title>
+    <url>/posts/e4c152dc/</url>
+    <content><![CDATA[<h1 id="一、-调试准备"><a href="#一、-调试准备" class="headerlink" title="一、 调试准备"></a>一、 调试准备</h1><h2 id="操作系统及调试软件"><a href="#操作系统及调试软件" class="headerlink" title="操作系统及调试软件"></a>操作系统及调试软件</h2><p>操作系统：Windows 7 64 位操作系统</p>
+<p>调试软件：MotionStudio 6.10 SP1(6.1.0.1)</p>
+<p><img src="https://img.zzzg.top/202303040926661.png" alt="image-20230304092617110"></p>
+<h2 id="硬件系统"><a href="#硬件系统" class="headerlink" title="硬件系统"></a>硬件系统</h2><p>变频器:MDX61B0015-5A3</p>
+<p>SEW 电机:DRL80S4BE2HR&#x2F;FG&#x2F;TF&#x2F;AS7W</p>
+<p><img src="https://img.zzzg.top/202303040926342.png" alt="image-20230304092645922"></p>
+<p>变频器接线图</p>
+<p><img src="https://img.zzzg.top/202303040927995.png" alt="image-20230304092703871"></p>
+<p>电机接线图</p>
+<h1 id="二、-变频器调试"><a href="#二、-变频器调试" class="headerlink" title="二、 变频器调试"></a>二、 变频器调试</h1><h2 id="连接变频器"><a href="#连接变频器" class="headerlink" title="连接变频器"></a>连接变频器</h2><p>双击桌面图标</p>
+<p><img src="https://img.zzzg.top/202303040952856.png" alt="image-20230304095222325"></p>
+<p>弹出如下对话框：</p>
+<p><img src="https://img.zzzg.top/202303040953210.png" alt="image-20230304095259154"></p>
+<p>选择通讯方式</p>
+<p><img src="https://img.zzzg.top/202303040953625.png" alt="image-20230304095323312"></p>
+<p>SEW 软件提供如下几种方式与变频器进行连接（如图所示），常用的有如下几种方式：</p>
+<p>1、 Serial：SEW 专用的编程电缆，可对变频器进行所有操作，电缆长度有限，有距离限制；</p>
+<p>2、 Ethernet：普通网线即可连接调试，可使用无线路由器进行连接调试，现场使用方便，但部分操作无法通过网线实现；</p>
+<p><img src="https://img.zzzg.top/202303040953996.png" alt="image-20230304095350111"></p>
+<p>本例中使用 Ethernet 方式进行调试，还需进行如下设置；点击“Edit”按钮，出现如下画面：</p>
+<p><img src="https://img.zzzg.top/202303040954982.png" alt="image-20230304095406063"></p>
+<p>点击“Network adapter”按钮，选择当前与变频器连接的网卡；</p>
+<p><img src="https://img.zzzg.top/202303040954180.png" alt="image-20230304095421274"></p>
+<p>通讯设置完成后，扫描网络，连接 SEW 变频器；</p>
+<p><img src="https://img.zzzg.top/202303040954245.png" alt="image-20230304095434251"></p>
+<p>扫描出的设备如下图所示；</p>
+<p><img src="https://img.zzzg.top/202303040955356.png" alt="image-20230304095521462"></p>
+<p>到这里 MotionStudio 软件已经和 SEW 变频器之间建立了连接；</p>
+<h2 id="电机初始化设置"><a href="#电机初始化设置" class="headerlink" title="电机初始化设置"></a>电机初始化设置</h2><p>在“Working with the unit”选项卡中选择“Startup”按钮；</p>
+<p><img src="https://img.zzzg.top/202303040955983.png" alt="image-20230304095559180"></p>
+<p>弹出参数初始化界面，点击“Perform startup”按钮进行参数初始化操作；</p>
+<p><img src="https://img.zzzg.top/202303040956383.png" alt="image-20230304095613347"></p>
+<p>点击“Start-up Set”按钮；</p>
+<p><img src="https://img.zzzg.top/202303040956901.png" alt="image-20230304095626113"></p>
+<p>选择“Execute complete start-up”选项，点击“下一步”；</p>
+<p><img src="https://img.zzzg.top/202303040956529.png" alt="image-20230304095637652"></p>
+<p>选择变频器与电机之间的控制方式：</p>
+<p>1、Stand-alone motor：独立电机控制（常用控制方式）</p>
+<p>1.1、Standard（V&#x2F;F）：VF 曲线控制（简单的速度控制选用）</p>
+<p>1.2、Vector-controlled&#x2F;Servo：矢量控制&#x2F;伺服（带有编码器的选用）</p>
+<p>2、Several identical motors：多个相同电机控制</p>
+<p>3、Several different motors：多个不同电机控制</p>
+<p><img src="https://img.zzzg.top/202303040956041.png" alt="image-20230304095652122"></p>
+<p>电机铭牌参数</p>
+<p><img src="https://img.zzzg.top/202303040957275.png" alt="image-20230304095730201"></p>
+<p>选择电机类型；</p>
+<p><img src="https://img.zzzg.top/202303040957021.png" alt="image-20230304095745060"></p>
+<p>按照电机铭牌参数填写下列参数；</p>
+<p><img src="https://img.zzzg.top/202303040958901.png" alt="image-20230304095817473"></p>
+<p><img src="https://img.zzzg.top/20230519103325.jpg"></p>
+<p>选择是否使用编码器；</p>
+<p><img src="https://img.zzzg.top/202303040958326.png" alt="image-20230304095829175"></p>
+<p>选择应用模式</p>
+<p>1、 Speed control: 速度控制</p>
+<p>2、 Use hoist:举升控制（如升降机、吊具等选择此项）</p>
+<p>3、 Positioniong with IPOS: IPOS-位置控制（精定位控制设备）</p>
+<p>4、 Use torque control: 转矩控制（电机恒转矩输出应用）</p>
+<p><img src="https://img.zzzg.top/202303040958826.png" alt="image-20230304095851579"></p>
+<p>选择 CFC&#x2F;VFC 控制方式</p>
+<p><img src="https://img.zzzg.top/202303040959914.png" alt="image-20230304095903084"></p>
+<p>CFC 与 VFC 控制方式的区别（<strong>建议一般应用时选择 CFC，滚床、升降机、吊具等举升设备应用时选择 VFC</strong>）</p>
+<p><img src="https://img.zzzg.top/202303040959527.png" alt="image-20230304095927588"></p>
+<p>选择 CFC 控制模式后，出现如下界面；</p>
+<p><img src="https://img.zzzg.top/202303040959383.png" alt="image-20230304095941380"></p>
+<p>参数说明:</p>
+<p>1、 Load inertia:负载惯量，该参数一般由电机厂家提供，如未提供该参数，可由以下方法计算：</p>
+<p>a、 Jx&#x3D;m*r2，m&#x3D;质量，r&#x3D;半径；</p>
+<p>b、 单击“Testing”，让设备在实际工作状态运动几次，这时变频器会自动上传测得的数据；</p>
+<p>c、 经验值，水平运动设备的负载惯量为 J0 motor 的 8-15 倍，举升运动设备的负载惯量为 J0 motor 的 3-5 倍；</p>
+<p>2、 Drive:输入电动机是否有减速机；</p>
+<p>3、 Brake:输入电动机是否有制动；</p>
+<p>4、 Z fan:输入电动机是否有高惯量风扇；</p>
+<p>设置电机参数</p>
+<p><img src="https://img.zzzg.top/202312111103582.png" alt="image-20230304100030601"></p>
+<p>速度控制参数，建议使用系统推荐参数</p>
+<p><img src="https://img.zzzg.top/202303041000456.png" alt="image-20230304100044388"></p>
+<p>设置变频器参数</p>
+<p><img src="https://img.zzzg.top/202303041001369.png" alt="image-20230304100103567"></p>
+<p>设置完成，下载参数至变频器;（注:需在强电断开时才能下载）</p>
+<p><img src="https://img.zzzg.top/202303041001845.png" alt="image-20230304100113996"></p>
+<h2 id="MotionStudio-驱动电机"><a href="#MotionStudio-驱动电机" class="headerlink" title="MotionStudio 驱动电机"></a>MotionStudio 驱动电机</h2><p>设置完成变频器参数后，使用 MotionStudio 软件手动来驱动电动机，用来验证电机接线、抱闸接线、编码器接线的正确性及机械可动性；</p>
+<p>在“Working with the unit”选项卡中选择“Manual mode”按钮；</p>
+<p><img src="https://img.zzzg.top/202303041001886.png" alt="image-20230304100152963"></p>
+<p>弹出如下画面</p>
+<p><img src="https://img.zzzg.top/202303041002321.png" alt="image-20230304100211350"></p>
+<h2 id="扩展总线定位模式"><a href="#扩展总线定位模式" class="headerlink" title="扩展总线定位模式"></a>扩展总线定位模式</h2><p>在“Working with the unit”选项卡中选择“Extended positioning via bus”按钮；</p>
+<p><img src="https://img.zzzg.top/202303041002042.png" alt="image-20230304100235226"></p>
+<p>设置通讯方式及通讯超时响应</p>
+<p><img src="https://img.zzzg.top/202303041002291.png" alt="image-20230304100250403"></p>
+<p>外部机械参数设定，该参数应由机械设计人员提供，参数设置只影响编码器在 PLC 中的反馈值；</p>
+<p><img src="https://img.zzzg.top/202303041003278.png" alt="image-20230304100307195"></p>
+<p>设置软限位，速度，寻零方式等</p>
+<p><img src="https://img.zzzg.top/202303041003888.png" alt="image-20230304100322091"></p>
+<p>设置完成，下载至 SEW 变频器；下载完成后需修改外部 IO 端子定义；</p>
+<p><img src="https://img.zzzg.top/202303041003578.png" alt="image-20230304100333912"></p>
+<p>外部 IO 端子设置如下图所示，DI00 系统默认为外部使能，无法修改，在使用外部总线通讯控制时，DI00 端子需置“1”；</p>
+<p><img src="https://img.zzzg.top/202303041003141.png" alt="image-20230304100346059"></p>
+<p>上图外部端子定义如下：</p>
+<p>DI01：正转限位(常闭信号，高电平有效)</p>
+<p>DI02：反转限位(常闭信号，高电平有效)</p>
+<p>DI03：参考零点</p>
+<p>实际应用过程中需根据外部硬件接线来定义外部 IO 端子功能；</p>
+<p>下载完成后，进入如下界面；</p>
+<p><img src="https://img.zzzg.top/202303041004444.png" alt="image-20230304100417286"></p>
+<p>控制字&amp;状态字说明</p>
+<p><img src="https://img.zzzg.top/202303041050162.png" alt="image-20230304105042971"></p>
+<p><img src="https://img.zzzg.top/202303041051938.png" alt="image-20230304105059924"></p>
+<p>控制字说明</p>
+<p><img src="https://img.zzzg.top/202303041051439.png" alt="image-20230304105111411"></p>
+<p>Mode high 与 Mode low 两位组合使用，表示三种控制模式：</p>
+<p>10：寻零模式；01：JOG 模式；11：定位模式；</p>
+<p>状态字说明</p>
+<p><img src="https://img.zzzg.top/202303041051178.png" alt="image-20230304105123436"></p>
+<h2 id="寻零模式说明"><a href="#寻零模式说明" class="headerlink" title="寻零模式说明"></a>寻零模式说明</h2><p>扩展总线定位模式设定完成后，变频器可在定位模式下运转，但还需要根据现场实际情况设定零点，确定寻零方式；SEW 变频器中提供了 9 种寻零的方式，需在 903 参数中设定；</p>
+<p><img src="https://img.zzzg.top/202303041051271.png" alt="image-20230304105152349"></p>
+<p>具体寻零型式如下列所述：</p>
+<p><img src="https://img.zzzg.top/202303041052868.png" alt="image-20230304105213054"></p>
+<p>除了型式 8，参考运行必须在变频器“Ready”和“Enable”状态才可进行；</p>
+<p><img src="https://img.zzzg.top/202303041052111.png" alt="image-20230304105231116"></p>
+<h1 id="AMA0801配置"><a href="#AMA0801配置" class="headerlink" title="AMA0801配置"></a>AMA0801配置</h1><h2 id="一字库位"><a href="#一字库位" class="headerlink" title="一字库位"></a>一字库位</h2><p><img src="https://img.zzzg.top/202305191047.png" alt="202305191047"></p>
+<p><img src="https://img.zzzg.top/202305191048.png" alt="202305191048"></p>
+<p><img src="https://img.zzzg.top/202305191049.png" alt="202305191049"></p>
+<p><img src="https://img.zzzg.top/202305191050.png" alt="202305191050"></p>
+<h2 id="校零"><a href="#校零" class="headerlink" title="校零"></a>校零</h2><p><img src="https://img.zzzg.top/20230519105000.jpg" alt="20230519105000"></p>
+<h1 id="附录-1：转台提速使用参数"><a href="#附录-1：转台提速使用参数" class="headerlink" title="附录 1：转台提速使用参数"></a>附录 1：转台提速使用参数</h1><p><img src="https://img.zzzg.top/202303041055137.png" alt="image-20230304105509097"></p>
+<p><img src="https://img.zzzg.top/202303041055825.png" alt="image-20230304105516864"></p>
+<p>扩展总线定位模式中的设置：</p>
+<p><img src="https://img.zzzg.top/202303041055879.png" alt="image-20230304105536031"></p>
+<h1 id="附录-2：举升设备相关参数"><a href="#附录-2：举升设备相关参数" class="headerlink" title="附录 2：举升设备相关参数"></a>附录 2：举升设备相关参数</h1><p>升降设备需设置抱闸相关参数</p>
+<p><img src="https://img.zzzg.top/202303041055375.png" alt="image-20230304105555636"></p>
+<p>731：电机启动抱闸打开参数，变频器启动 0.15 秒输出正常扭矩，此时变频器认为抱闸已经打开，参数默认值 0.1，在升降设备中，若启动时设备有向下掉的动作，<strong>此参数可适当减小</strong>;</p>
+<p>732：电机停止抱闸失电参数，在抱闸断电 0.35 秒后，变频器才停止工作，参数默认值 0.2，若升降设备停止时设备有向下掉的动作，<strong>此参数可适当增大</strong>;</p>
+<h1 id="附录-3：常见故障解决方案"><a href="#附录-3：常见故障解决方案" class="headerlink" title="附录 3：常见故障解决方案"></a>附录 3：常见故障解决方案</h1><h2 id="1、-变频器-F08-故障，转速监视；"><a href="#1、-变频器-F08-故障，转速监视；" class="headerlink" title="1、 变频器 F08 故障，转速监视；"></a>1、 变频器 F08 故障，转速监视；</h2><p>故障现象：电机运行一段时间（时间很短，&lt;1s）,变频器即报 F08 故障；</p>
+<p>故障原因：编码器连接或电机旋转方向不正确；</p>
+<p>临时措施：修改 P500 或 P502 参数（关闭转速监控）；</p>
+<p>后期解决：检查电机相位；检查编码器连接，成对调换 A&#x2F;A-和 B&#x2F;B-;</p>
+<h2 id="2、变频器-F14-故障，编码器；"><a href="#2、变频器-F14-故障，编码器；" class="headerlink" title="2、变频器 F14 故障，编码器；"></a>2、变频器 F14 故障，编码器；</h2><p>故障现象：变频器启动运行即报 F14 故障；</p>
+<p>故障原因：编码器电缆屏蔽未正确连接；</p>
+<p>临时措施：断开变频器供电电源，等待一段时间再上电（如无效则需立即检查编码屏蔽）；</p>
+<p>后期解决：检查编码器屏蔽层连接；编码器电缆是否存在强电干扰；</p>
+<h1 id="附录4：相关文档"><a href="#附录4：相关文档" class="headerlink" title="附录4：相关文档"></a>附录4：相关文档</h1><p>MDX61B应用手册：<a href="https://www.sew-eurodrive.cn/os/dud/?tab=documents&country=CN&language=zh_cn&doc_lang=zh-CN,en-US&doc_type=G,D,F,CD,DD&search=FA362820">https://www.sew-eurodrive.cn/os/dud/?tab=documents&amp;country=CN&amp;language=zh_cn&amp;doc_lang=zh-CN,en-US&amp;doc_type=G,D,F,CD,DD&amp;search=FA362820</a></p>
+]]></content>
+      <categories>
+        <category>工业自动化</category>
+      </categories>
+      <tags>
+        <tag>MOVIDRIVE</tag>
+      </tags>
+  </entry>
+  <entry>
     <title>SICK区扫调试步骤</title>
     <url>/posts/af80d2f7/</url>
     <content><![CDATA[<p><img src="https://img.zzzg.top/202303041357323.JPG" alt="幻灯片1"><br><img src="https://img.zzzg.top/202303041357782.JPG" alt="幻灯片2"></p>
@@ -4055,6 +4055,58 @@
       </tags>
   </entry>
   <entry>
+    <title>hysteria2与reality共存安装</title>
+    <url>/posts/756577dc/</url>
+    <content><![CDATA[<h1 id="前言"><a href="#前言" class="headerlink" title="前言"></a>前言</h1><p>1.目前伪装最好的两种协议，一个代表tcp协议（reality）的目前巅峰，一个新型UDP协议（hysteria2）的宠儿。<br>2.这次用的sing-box搭建 <a href="https://sing-box.sagernet.org/zh">https://sing-box.sagernet.org/zh</a> 因为简单。之前一直用八合一，最大的问题就是各种伪装后，机器就只能拿来科学上网了，因为安装Nginx，搭建个网页啥的都很麻烦。<br>3.教程亮点，无需自备域名。<br>3.passwall发现没有类似的设置教程，所以出一个。</p>
+<h1 id="安装sing-box"><a href="#安装sing-box" class="headerlink" title="安装sing-box"></a>安装sing-box</h1><p>直接安装预发布版（支持hysteria2）</p>
+<figure class="highlight plaintext"><table><tr><td class="code"><pre><span class="line">bash -c &quot;$(curl -L https://sing-box.vercel.app)&quot; @ install --beta</span><br></pre></td></tr></table></figure>
+
+<p>如何需要卸载</p>
+<figure class="highlight plaintext"><table><tr><td class="code"><pre><span class="line">bash -c &quot;$(curl -L https://sing-box.vercel.app)&quot; @ remove</span><br></pre></td></tr></table></figure>
+
+<p>等会用得到的指令<br>重启</p>
+<figure class="highlight plaintext"><table><tr><td class="code"><pre><span class="line">systemctl restart sing-box</span><br></pre></td></tr></table></figure>
+
+<p>状态</p>
+<figure class="highlight plaintext"><table><tr><td class="code"><pre><span class="line">systemctl status sing-box</span><br></pre></td></tr></table></figure>
+
+<p>实时日志</p>
+<figure class="highlight plaintext"><table><tr><td class="code"><pre><span class="line">journalctl -u sing-box -o cat -f</span><br></pre></td></tr></table></figure>
+
+<h1 id="服务端vps搭建"><a href="#服务端vps搭建" class="headerlink" title="服务端vps搭建"></a>服务端vps搭建</h1><p><strong>自签证书申请，这里申请的是bing.com，申请了10年，可以用到你vps商家跑路了</strong></p>
+<figure class="highlight plaintext"><table><tr><td class="code"><pre><span class="line">mkdir -p /etc/hysteria &amp;&amp; openssl ecparam -genkey -name prime256v1 -out /etc/hysteria/private.key &amp;&amp; openssl req -new -x509 -days 3650 -key /etc/hysteria/private.key -out /etc/hysteria/cert.pem -subj &quot;/CN=bing.com&quot;</span><br></pre></td></tr></table></figure>
+
+<p><strong>搭建组合选择</strong><br>参考网站 <a href="https://github.com/chika0801/sing-box-examples">https://github.com/chika0801/sing-box-examples</a> 后期可以根据需求自由组合<br>为什么选择reality和hysteria2<br>1.reality目前是TCP协议里面号称最安全的<br>2.hysteria2作者是最用心的，教程写得很清楚 <a href="https://v2.hysteria.network/zh/">https://v2.hysteria.network/zh/</a><br>开始<br>编辑confing文件</p>
+<figure class="highlight plaintext"><table><tr><td class="code"><pre><span class="line">nano /usr/local/etc/sing-box/config.json</span><br></pre></td></tr></table></figure>
+
+<p>按照以下修改</p>
+<figure class="highlight plaintext"><table><tr><td class="code"><pre><span class="line">&#123;</span><br><span class="line">    &quot;inbounds&quot;: [</span><br><span class="line">        &#123;</span><br><span class="line">            &quot;type&quot;: &quot;hysteria2&quot;,</span><br><span class="line">            &quot;listen&quot;: &quot;::&quot;,</span><br><span class="line">            &quot;listen_port&quot;: 8443,</span><br><span class="line">            &quot;users&quot;: [</span><br><span class="line">                &#123;</span><br><span class="line">                    &quot;password&quot;: &quot;&quot; //你的密码</span><br><span class="line">                &#125;</span><br><span class="line">            ],</span><br><span class="line">            &quot;masquerade&quot;: &quot;https://bing.com&quot;,</span><br><span class="line">            &quot;tls&quot;: &#123;</span><br><span class="line">                &quot;enabled&quot;: true,</span><br><span class="line">                &quot;alpn&quot;: [</span><br><span class="line">                    &quot;h3&quot;</span><br><span class="line">                ],</span><br><span class="line">                &quot;certificate_path&quot;: &quot;/etc/hysteria/cert.pem&quot;,</span><br><span class="line">                &quot;key_path&quot;: &quot;/etc/hysteria/private.key&quot;</span><br><span class="line">            &#125;</span><br><span class="line">        &#125;,</span><br><span class="line">        &#123;</span><br><span class="line">            &quot;type&quot;: &quot;vless&quot;,</span><br><span class="line">            &quot;listen&quot;: &quot;::&quot;,</span><br><span class="line">            &quot;listen_port&quot;: 443,</span><br><span class="line">            &quot;users&quot;: [</span><br><span class="line">                &#123;</span><br><span class="line">                    &quot;uuid&quot;: &quot;&quot;, //vps上执行sing-box generate uuid</span><br><span class="line">                    &quot;flow&quot;: &quot;xtls-rprx-vision&quot;</span><br><span class="line">                &#125;</span><br><span class="line">            ],</span><br><span class="line">            &quot;tls&quot;: &#123;</span><br><span class="line">                &quot;enabled&quot;: true,</span><br><span class="line">                &quot;server_name&quot;: &quot;www.tesla.com&quot;,</span><br><span class="line">                &quot;reality&quot;: &#123;</span><br><span class="line">                    &quot;enabled&quot;: true,</span><br><span class="line">                    &quot;handshake&quot;: &#123;</span><br><span class="line">                        &quot;server&quot;: &quot;www.tesla.com&quot;,</span><br><span class="line">                        &quot;server_port&quot;: 443</span><br><span class="line">                    &#125;,</span><br><span class="line">                    &quot;private_key&quot;: &quot;&quot;, //vps上执行sing-box generate reality-keypair</span><br><span class="line">                    &quot;short_id&quot;: [</span><br><span class="line">                        &quot;0123456789abcdef&quot;// 0到f，长度为2的倍数，长度上限为16，默认这个也可以</span><br><span class="line">                    ]</span><br><span class="line">                &#125;</span><br><span class="line">            &#125;</span><br><span class="line">        &#125;</span><br><span class="line">    ],</span><br><span class="line">    &quot;outbounds&quot;: [</span><br><span class="line">        &#123;</span><br><span class="line">            &quot;type&quot;: &quot;direct&quot;</span><br><span class="line">        &#125;</span><br><span class="line">    ]</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+
+<p>然后重启</p>
+<figure class="highlight plaintext"><table><tr><td class="code"><pre><span class="line">systemctl restart sing-box</span><br></pre></td></tr></table></figure>
+
+<p>再查看日志</p>
+<figure class="highlight plaintext"><table><tr><td class="code"><pre><span class="line">journalctl -u sing-box -o cat -f</span><br></pre></td></tr></table></figure>
+
+<p>没问题就OK拉，开始导入passwall了因为申请的是自签证书，所有设置，都是<strong>开启允许不安全连接</strong></p>
+<h1 id="hysteria2客户端配置文件"><a href="#hysteria2客户端配置文件" class="headerlink" title="hysteria2客户端配置文件"></a>hysteria2客户端配置文件</h1><h2 id="客户端配置文件"><a href="#客户端配置文件" class="headerlink" title="客户端配置文件"></a>客户端配置文件</h2><figure class="highlight yaml"><table><tr><td class="code"><pre><span class="line"><span class="attr">server:</span> <span class="string">ip:443</span></span><br><span class="line"><span class="attr">auth:</span> <span class="number">123456</span></span><br><span class="line"></span><br><span class="line"><span class="attr">bandwidth:</span></span><br><span class="line">  <span class="attr">up:</span> <span class="number">20</span> <span class="string">mbps</span></span><br><span class="line">  <span class="attr">down:</span> <span class="number">100</span> <span class="string">mbps</span></span><br><span class="line">  </span><br><span class="line"><span class="attr">tls:</span></span><br><span class="line">  <span class="attr">sni:</span> <span class="string">a.com</span></span><br><span class="line">  <span class="attr">insecure:</span> <span class="literal">false</span> <span class="comment">#使用自签域名时需要改成true</span></span><br><span class="line"></span><br><span class="line"><span class="attr">socks5:</span></span><br><span class="line">  <span class="attr">listen:</span> <span class="number">127.0</span><span class="number">.0</span><span class="number">.1</span><span class="string">:1080</span></span><br><span class="line"><span class="attr">http:</span></span><br><span class="line">  <span class="attr">listen:</span> <span class="number">127.0</span><span class="number">.0</span><span class="number">.1</span><span class="string">:8080</span></span><br></pre></td></tr></table></figure>
+
+<h2 id="sing-box配置文件-Android-IOS"><a href="#sing-box配置文件-Android-IOS" class="headerlink" title="sing-box配置文件(Android&#x2F;IOS)"></a>sing-box配置文件(Android&#x2F;IOS)</h2><figure class="highlight json"><table><tr><td class="code"><pre><span class="line"><span class="punctuation">&#123;</span></span><br><span class="line">  <span class="attr">&quot;dns&quot;</span><span class="punctuation">:</span> <span class="punctuation">&#123;</span></span><br><span class="line">    <span class="attr">&quot;servers&quot;</span><span class="punctuation">:</span> <span class="punctuation">[</span></span><br><span class="line">      <span class="punctuation">&#123;</span></span><br><span class="line">        <span class="attr">&quot;tag&quot;</span><span class="punctuation">:</span> <span class="string">&quot;cf&quot;</span><span class="punctuation">,</span></span><br><span class="line">        <span class="attr">&quot;address&quot;</span><span class="punctuation">:</span> <span class="string">&quot;https://1.1.1.1/dns-query&quot;</span></span><br><span class="line">      <span class="punctuation">&#125;</span><span class="punctuation">,</span></span><br><span class="line">      <span class="punctuation">&#123;</span></span><br><span class="line">        <span class="attr">&quot;tag&quot;</span><span class="punctuation">:</span> <span class="string">&quot;local&quot;</span><span class="punctuation">,</span></span><br><span class="line">        <span class="attr">&quot;address&quot;</span><span class="punctuation">:</span> <span class="string">&quot;223.5.5.5&quot;</span><span class="punctuation">,</span></span><br><span class="line">        <span class="attr">&quot;detour&quot;</span><span class="punctuation">:</span> <span class="string">&quot;direct&quot;</span></span><br><span class="line">      <span class="punctuation">&#125;</span><span class="punctuation">,</span></span><br><span class="line">      <span class="punctuation">&#123;</span></span><br><span class="line">        <span class="attr">&quot;tag&quot;</span><span class="punctuation">:</span> <span class="string">&quot;block&quot;</span><span class="punctuation">,</span></span><br><span class="line">        <span class="attr">&quot;address&quot;</span><span class="punctuation">:</span> <span class="string">&quot;rcode://success&quot;</span></span><br><span class="line">      <span class="punctuation">&#125;</span></span><br><span class="line">    <span class="punctuation">]</span><span class="punctuation">,</span></span><br><span class="line">    <span class="attr">&quot;rules&quot;</span><span class="punctuation">:</span> <span class="punctuation">[</span></span><br><span class="line">      <span class="punctuation">&#123;</span></span><br><span class="line">        <span class="attr">&quot;geosite&quot;</span><span class="punctuation">:</span> <span class="string">&quot;category-ads-all&quot;</span><span class="punctuation">,</span></span><br><span class="line">        <span class="attr">&quot;server&quot;</span><span class="punctuation">:</span> <span class="string">&quot;block&quot;</span><span class="punctuation">,</span></span><br><span class="line">        <span class="attr">&quot;disable_cache&quot;</span><span class="punctuation">:</span> <span class="literal"><span class="keyword">true</span></span></span><br><span class="line">      <span class="punctuation">&#125;</span><span class="punctuation">,</span></span><br><span class="line">      <span class="punctuation">&#123;</span></span><br><span class="line">        <span class="attr">&quot;outbound&quot;</span><span class="punctuation">:</span> <span class="string">&quot;any&quot;</span><span class="punctuation">,</span></span><br><span class="line">        <span class="attr">&quot;server&quot;</span><span class="punctuation">:</span> <span class="string">&quot;local&quot;</span></span><br><span class="line">      <span class="punctuation">&#125;</span><span class="punctuation">,</span></span><br><span class="line">      <span class="punctuation">&#123;</span></span><br><span class="line">        <span class="attr">&quot;geosite&quot;</span><span class="punctuation">:</span> <span class="string">&quot;cn&quot;</span><span class="punctuation">,</span></span><br><span class="line">        <span class="attr">&quot;server&quot;</span><span class="punctuation">:</span> <span class="string">&quot;local&quot;</span></span><br><span class="line">      <span class="punctuation">&#125;</span></span><br><span class="line">    <span class="punctuation">]</span><span class="punctuation">,</span></span><br><span class="line">    <span class="attr">&quot;strategy&quot;</span><span class="punctuation">:</span> <span class="string">&quot;ipv4_only&quot;</span></span><br><span class="line">  <span class="punctuation">&#125;</span><span class="punctuation">,</span></span><br><span class="line">  <span class="attr">&quot;inbounds&quot;</span><span class="punctuation">:</span> <span class="punctuation">[</span></span><br><span class="line">    <span class="punctuation">&#123;</span></span><br><span class="line">      <span class="attr">&quot;type&quot;</span><span class="punctuation">:</span> <span class="string">&quot;tun&quot;</span><span class="punctuation">,</span></span><br><span class="line">      <span class="attr">&quot;inet4_address&quot;</span><span class="punctuation">:</span> <span class="string">&quot;172.19.0.1/30&quot;</span><span class="punctuation">,</span></span><br><span class="line">      <span class="attr">&quot;auto_route&quot;</span><span class="punctuation">:</span> <span class="literal"><span class="keyword">true</span></span><span class="punctuation">,</span></span><br><span class="line">      <span class="attr">&quot;strict_route&quot;</span><span class="punctuation">:</span> <span class="literal"><span class="keyword">false</span></span><span class="punctuation">,</span></span><br><span class="line">      <span class="attr">&quot;sniff&quot;</span><span class="punctuation">:</span> <span class="literal"><span class="keyword">true</span></span></span><br><span class="line">    <span class="punctuation">&#125;</span></span><br><span class="line">  <span class="punctuation">]</span><span class="punctuation">,</span></span><br><span class="line">  <span class="attr">&quot;outbounds&quot;</span><span class="punctuation">:</span> <span class="punctuation">[</span></span><br><span class="line">    <span class="punctuation">&#123;</span></span><br><span class="line">      <span class="attr">&quot;type&quot;</span><span class="punctuation">:</span> <span class="string">&quot;hysteria2&quot;</span><span class="punctuation">,</span></span><br><span class="line">      <span class="attr">&quot;tag&quot;</span><span class="punctuation">:</span> <span class="string">&quot;proxy&quot;</span><span class="punctuation">,</span></span><br><span class="line">      <span class="attr">&quot;server&quot;</span><span class="punctuation">:</span> <span class="string">&quot;这里填ip&quot;</span><span class="punctuation">,</span></span><br><span class="line">      <span class="attr">&quot;server_port&quot;</span><span class="punctuation">:</span> <span class="number">443</span><span class="punctuation">,</span></span><br><span class="line">      <span class="attr">&quot;up_mbps&quot;</span><span class="punctuation">:</span> <span class="number">20</span><span class="punctuation">,</span></span><br><span class="line">      <span class="attr">&quot;down_mbps&quot;</span><span class="punctuation">:</span> <span class="number">100</span><span class="punctuation">,</span></span><br><span class="line">      <span class="attr">&quot;password&quot;</span><span class="punctuation">:</span> <span class="string">&quot;这里填密码&quot;</span><span class="punctuation">,</span></span><br><span class="line">      <span class="attr">&quot;tls&quot;</span><span class="punctuation">:</span> <span class="punctuation">&#123;</span></span><br><span class="line">        <span class="attr">&quot;enabled&quot;</span><span class="punctuation">:</span> <span class="literal"><span class="keyword">true</span></span><span class="punctuation">,</span></span><br><span class="line">        <span class="attr">&quot;server_name&quot;</span><span class="punctuation">:</span> <span class="string">&quot;a.com&quot;</span><span class="punctuation">,</span></span><br><span class="line">        <span class="attr">&quot;insecure&quot;</span><span class="punctuation">:</span> <span class="literal"><span class="keyword">false</span></span></span><br><span class="line">      <span class="punctuation">&#125;</span></span><br><span class="line">    <span class="punctuation">&#125;</span><span class="punctuation">,</span></span><br><span class="line">    <span class="punctuation">&#123;</span></span><br><span class="line">      <span class="attr">&quot;type&quot;</span><span class="punctuation">:</span> <span class="string">&quot;direct&quot;</span><span class="punctuation">,</span></span><br><span class="line">      <span class="attr">&quot;tag&quot;</span><span class="punctuation">:</span> <span class="string">&quot;direct&quot;</span></span><br><span class="line">    <span class="punctuation">&#125;</span><span class="punctuation">,</span></span><br><span class="line">    <span class="punctuation">&#123;</span></span><br><span class="line">      <span class="attr">&quot;type&quot;</span><span class="punctuation">:</span> <span class="string">&quot;block&quot;</span><span class="punctuation">,</span></span><br><span class="line">      <span class="attr">&quot;tag&quot;</span><span class="punctuation">:</span> <span class="string">&quot;block&quot;</span></span><br><span class="line">    <span class="punctuation">&#125;</span><span class="punctuation">,</span></span><br><span class="line">    <span class="punctuation">&#123;</span></span><br><span class="line">      <span class="attr">&quot;type&quot;</span><span class="punctuation">:</span> <span class="string">&quot;dns&quot;</span><span class="punctuation">,</span></span><br><span class="line">      <span class="attr">&quot;tag&quot;</span><span class="punctuation">:</span> <span class="string">&quot;dns-out&quot;</span></span><br><span class="line">    <span class="punctuation">&#125;</span></span><br><span class="line">  <span class="punctuation">]</span><span class="punctuation">,</span></span><br><span class="line">  <span class="attr">&quot;route&quot;</span><span class="punctuation">:</span> <span class="punctuation">&#123;</span></span><br><span class="line">    <span class="attr">&quot;rules&quot;</span><span class="punctuation">:</span> <span class="punctuation">[</span></span><br><span class="line">      <span class="punctuation">&#123;</span></span><br><span class="line">        <span class="attr">&quot;protocol&quot;</span><span class="punctuation">:</span> <span class="string">&quot;dns&quot;</span><span class="punctuation">,</span></span><br><span class="line">        <span class="attr">&quot;outbound&quot;</span><span class="punctuation">:</span> <span class="string">&quot;dns-out&quot;</span></span><br><span class="line">      <span class="punctuation">&#125;</span><span class="punctuation">,</span></span><br><span class="line">      <span class="punctuation">&#123;</span></span><br><span class="line">        <span class="attr">&quot;geosite&quot;</span><span class="punctuation">:</span> <span class="string">&quot;cn&quot;</span><span class="punctuation">,</span></span><br><span class="line">        <span class="attr">&quot;geoip&quot;</span><span class="punctuation">:</span> <span class="punctuation">[</span></span><br><span class="line">          <span class="string">&quot;private&quot;</span><span class="punctuation">,</span></span><br><span class="line">          <span class="string">&quot;cn&quot;</span></span><br><span class="line">        <span class="punctuation">]</span><span class="punctuation">,</span></span><br><span class="line">        <span class="attr">&quot;outbound&quot;</span><span class="punctuation">:</span> <span class="string">&quot;direct&quot;</span></span><br><span class="line">      <span class="punctuation">&#125;</span><span class="punctuation">,</span></span><br><span class="line">      <span class="punctuation">&#123;</span></span><br><span class="line">        <span class="attr">&quot;geosite&quot;</span><span class="punctuation">:</span> <span class="string">&quot;category-ads-all&quot;</span><span class="punctuation">,</span></span><br><span class="line">        <span class="attr">&quot;outbound&quot;</span><span class="punctuation">:</span> <span class="string">&quot;block&quot;</span></span><br><span class="line">      <span class="punctuation">&#125;</span></span><br><span class="line">    <span class="punctuation">]</span><span class="punctuation">,</span></span><br><span class="line">    <span class="attr">&quot;auto_detect_interface&quot;</span><span class="punctuation">:</span> <span class="literal"><span class="keyword">true</span></span></span><br><span class="line">  <span class="punctuation">&#125;</span></span><br><span class="line"><span class="punctuation">&#125;</span></span><br></pre></td></tr></table></figure>
+
+<h1 id="相关链接"><a href="#相关链接" class="headerlink" title="相关链接"></a>相关链接</h1><h2 id="客户端下载"><a href="#客户端下载" class="headerlink" title="客户端下载"></a>客户端下载</h2><p>v2rayN 下载：<a href="https://bulianglin.com/g/aHR0cHM6Ly9naXRodWIuY29tLzJkdXN0L3YycmF5Ti9yZWxlYXNlcy9sYXRlc3Q">https://github.com/2dust/v2rayN/releases/latest</a><br>Hysteria 2下载：<a href="https://bulianglin.com/g/aHR0cHM6Ly9naXRodWIuY29tL2FwZXJuZXQvaHlzdGVyaWEvcmVsZWFzZXM">https://github.com/apernet/hysteria/releases</a><br>Hysteria 2文档：<a href="https://bulianglin.com/g/aHR0cHM6Ly92Mi5oeXN0ZXJpYS5uZXR3b3JrL3poLw">https://v2.hysteria.network/zh/</a><br>sing-box文档：<a href="https://bulianglin.com/g/aHR0cHM6Ly9zaW5nLWJveC5zYWdlcm5ldC5vcmcvemgv">https://sing-box.sagernet.org/zh/</a><br>Android客户端（SFA）：<a href="https://bulianglin.com/g/aHR0cHM6Ly9pbnN0YWxsLmFwcGNlbnRlci5tcy91c2Vycy9uZWtvaGFzZWthaS9hcHBzL3NmYS9kaXN0cmlidXRpb25fZ3JvdXBzL3B1YmxpY3Rlc3Q">https://install.appcenter.ms/users/nekohasekai/apps/sfa/distribution_groups&#x2F;publictest</a><br>IOS客户端（TestFlight）：<a href="https://bulianglin.com/g/aHR0cHM6Ly90ZXN0ZmxpZ2h0LmFwcGxlLmNvbS9qb2luL0FjcU80NEZI">https://testflight.apple.com/join/AcqO44FH</a> （1.5.0 beta版支持Hysteria 2）<br>IOS客户端（AppStore）：<a href="https://bulianglin.com/g/aHR0cHM6Ly9hcHBzLmFwcGxlLmNvbS91cy9hcHAvc2luZy1ib3gvaWQ2NDUxMjcyNjcz">https://apps.apple.com/us/app/sing-box/id6451272673</a> （暂不支持Hysteria 2）</p>
+<h2 id="视频教程参考"><a href="#视频教程参考" class="headerlink" title="视频教程参考"></a>视频教程参考</h2><p>2023年最安全协议hysteria2和reality同时搭建 | 无需自备域名 | passwall设置hysteria2方法：<a href="https://youtu.be/S0jSGOdeTs4?si=w4vYPa44zIoQ4zHv">https://youtu.be/S0jSGOdeTs4?si=w4vYPa44zIoQ4zHv</a></p>
+<p>【遥遥领先】黑科技！垃圾VPS线路网速大幅提升！第二代hysteria节点搭建教程，歇斯底里为什么可以提升网速？windows&#x2F;ios&#x2F;android手机移动端使用方式，sing-box配置hy2方式：<a href="https://youtu.be/CXj-ID33MhU?si=bgcrlIpW5BwOc9uL">https://youtu.be/CXj-ID33MhU?si=bgcrlIpW5BwOc9uL</a></p>
+<h2 id="文档参考"><a href="#文档参考" class="headerlink" title="文档参考"></a>文档参考</h2><p>视频1：<a href="https://ybfl.xyz/sites/283.html">https://ybfl.xyz/sites/283.html</a></p>
+<p>视频2：<a href="https://bulianglin.com/archives/hysteria2.html">https://bulianglin.com/archives/hysteria2.html</a></p>
+]]></content>
+      <categories>
+        <category>网络技术</category>
+      </categories>
+      <tags>
+        <tag>网络代理</tag>
+      </tags>
+  </entry>
+  <entry>
     <title>imazingapp文件使用方法</title>
     <url>/posts/7db93401/</url>
     <content><![CDATA[<ol>
@@ -4188,58 +4240,6 @@
       </categories>
       <tags>
         <tag>sopFestoCMMT</tag>
-      </tags>
-  </entry>
-  <entry>
-    <title>hysteria2与reality共存安装</title>
-    <url>/posts/756577dc/</url>
-    <content><![CDATA[<h1 id="前言"><a href="#前言" class="headerlink" title="前言"></a>前言</h1><p>1.目前伪装最好的两种协议，一个代表tcp协议（reality）的目前巅峰，一个新型UDP协议（hysteria2）的宠儿。<br>2.这次用的sing-box搭建 <a href="https://sing-box.sagernet.org/zh">https://sing-box.sagernet.org/zh</a> 因为简单。之前一直用八合一，最大的问题就是各种伪装后，机器就只能拿来科学上网了，因为安装Nginx，搭建个网页啥的都很麻烦。<br>3.教程亮点，无需自备域名。<br>3.passwall发现没有类似的设置教程，所以出一个。</p>
-<h1 id="安装sing-box"><a href="#安装sing-box" class="headerlink" title="安装sing-box"></a>安装sing-box</h1><p>直接安装预发布版（支持hysteria2）</p>
-<figure class="highlight plaintext"><table><tr><td class="code"><pre><span class="line">bash -c &quot;$(curl -L https://sing-box.vercel.app)&quot; @ install --beta</span><br></pre></td></tr></table></figure>
-
-<p>如何需要卸载</p>
-<figure class="highlight plaintext"><table><tr><td class="code"><pre><span class="line">bash -c &quot;$(curl -L https://sing-box.vercel.app)&quot; @ remove</span><br></pre></td></tr></table></figure>
-
-<p>等会用得到的指令<br>重启</p>
-<figure class="highlight plaintext"><table><tr><td class="code"><pre><span class="line">systemctl restart sing-box</span><br></pre></td></tr></table></figure>
-
-<p>状态</p>
-<figure class="highlight plaintext"><table><tr><td class="code"><pre><span class="line">systemctl status sing-box</span><br></pre></td></tr></table></figure>
-
-<p>实时日志</p>
-<figure class="highlight plaintext"><table><tr><td class="code"><pre><span class="line">journalctl -u sing-box -o cat -f</span><br></pre></td></tr></table></figure>
-
-<h1 id="服务端vps搭建"><a href="#服务端vps搭建" class="headerlink" title="服务端vps搭建"></a>服务端vps搭建</h1><p><strong>自签证书申请，这里申请的是bing.com，申请了10年，可以用到你vps商家跑路了</strong></p>
-<figure class="highlight plaintext"><table><tr><td class="code"><pre><span class="line">mkdir -p /etc/hysteria &amp;&amp; openssl ecparam -genkey -name prime256v1 -out /etc/hysteria/private.key &amp;&amp; openssl req -new -x509 -days 3650 -key /etc/hysteria/private.key -out /etc/hysteria/cert.pem -subj &quot;/CN=bing.com&quot;</span><br></pre></td></tr></table></figure>
-
-<p><strong>搭建组合选择</strong><br>参考网站 <a href="https://github.com/chika0801/sing-box-examples">https://github.com/chika0801/sing-box-examples</a> 后期可以根据需求自由组合<br>为什么选择reality和hysteria2<br>1.reality目前是TCP协议里面号称最安全的<br>2.hysteria2作者是最用心的，教程写得很清楚 <a href="https://v2.hysteria.network/zh/">https://v2.hysteria.network/zh/</a><br>开始<br>编辑confing文件</p>
-<figure class="highlight plaintext"><table><tr><td class="code"><pre><span class="line">nano /usr/local/etc/sing-box/config.json</span><br></pre></td></tr></table></figure>
-
-<p>按照以下修改</p>
-<figure class="highlight plaintext"><table><tr><td class="code"><pre><span class="line">&#123;</span><br><span class="line">    &quot;inbounds&quot;: [</span><br><span class="line">        &#123;</span><br><span class="line">            &quot;type&quot;: &quot;hysteria2&quot;,</span><br><span class="line">            &quot;listen&quot;: &quot;::&quot;,</span><br><span class="line">            &quot;listen_port&quot;: 8443,</span><br><span class="line">            &quot;users&quot;: [</span><br><span class="line">                &#123;</span><br><span class="line">                    &quot;password&quot;: &quot;&quot; //你的密码</span><br><span class="line">                &#125;</span><br><span class="line">            ],</span><br><span class="line">            &quot;masquerade&quot;: &quot;https://bing.com&quot;,</span><br><span class="line">            &quot;tls&quot;: &#123;</span><br><span class="line">                &quot;enabled&quot;: true,</span><br><span class="line">                &quot;alpn&quot;: [</span><br><span class="line">                    &quot;h3&quot;</span><br><span class="line">                ],</span><br><span class="line">                &quot;certificate_path&quot;: &quot;/etc/hysteria/cert.pem&quot;,</span><br><span class="line">                &quot;key_path&quot;: &quot;/etc/hysteria/private.key&quot;</span><br><span class="line">            &#125;</span><br><span class="line">        &#125;,</span><br><span class="line">        &#123;</span><br><span class="line">            &quot;type&quot;: &quot;vless&quot;,</span><br><span class="line">            &quot;listen&quot;: &quot;::&quot;,</span><br><span class="line">            &quot;listen_port&quot;: 443,</span><br><span class="line">            &quot;users&quot;: [</span><br><span class="line">                &#123;</span><br><span class="line">                    &quot;uuid&quot;: &quot;&quot;, //vps上执行sing-box generate uuid</span><br><span class="line">                    &quot;flow&quot;: &quot;xtls-rprx-vision&quot;</span><br><span class="line">                &#125;</span><br><span class="line">            ],</span><br><span class="line">            &quot;tls&quot;: &#123;</span><br><span class="line">                &quot;enabled&quot;: true,</span><br><span class="line">                &quot;server_name&quot;: &quot;www.tesla.com&quot;,</span><br><span class="line">                &quot;reality&quot;: &#123;</span><br><span class="line">                    &quot;enabled&quot;: true,</span><br><span class="line">                    &quot;handshake&quot;: &#123;</span><br><span class="line">                        &quot;server&quot;: &quot;www.tesla.com&quot;,</span><br><span class="line">                        &quot;server_port&quot;: 443</span><br><span class="line">                    &#125;,</span><br><span class="line">                    &quot;private_key&quot;: &quot;&quot;, //vps上执行sing-box generate reality-keypair</span><br><span class="line">                    &quot;short_id&quot;: [</span><br><span class="line">                        &quot;0123456789abcdef&quot;// 0到f，长度为2的倍数，长度上限为16，默认这个也可以</span><br><span class="line">                    ]</span><br><span class="line">                &#125;</span><br><span class="line">            &#125;</span><br><span class="line">        &#125;</span><br><span class="line">    ],</span><br><span class="line">    &quot;outbounds&quot;: [</span><br><span class="line">        &#123;</span><br><span class="line">            &quot;type&quot;: &quot;direct&quot;</span><br><span class="line">        &#125;</span><br><span class="line">    ]</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
-
-<p>然后重启</p>
-<figure class="highlight plaintext"><table><tr><td class="code"><pre><span class="line">systemctl restart sing-box</span><br></pre></td></tr></table></figure>
-
-<p>再查看日志</p>
-<figure class="highlight plaintext"><table><tr><td class="code"><pre><span class="line">journalctl -u sing-box -o cat -f</span><br></pre></td></tr></table></figure>
-
-<p>没问题就OK拉，开始导入passwall了因为申请的是自签证书，所有设置，都是<strong>开启允许不安全连接</strong></p>
-<h1 id="hysteria2客户端配置文件"><a href="#hysteria2客户端配置文件" class="headerlink" title="hysteria2客户端配置文件"></a>hysteria2客户端配置文件</h1><h2 id="客户端配置文件"><a href="#客户端配置文件" class="headerlink" title="客户端配置文件"></a>客户端配置文件</h2><figure class="highlight yaml"><table><tr><td class="code"><pre><span class="line"><span class="attr">server:</span> <span class="string">ip:443</span></span><br><span class="line"><span class="attr">auth:</span> <span class="number">123456</span></span><br><span class="line"></span><br><span class="line"><span class="attr">bandwidth:</span></span><br><span class="line">  <span class="attr">up:</span> <span class="number">20</span> <span class="string">mbps</span></span><br><span class="line">  <span class="attr">down:</span> <span class="number">100</span> <span class="string">mbps</span></span><br><span class="line">  </span><br><span class="line"><span class="attr">tls:</span></span><br><span class="line">  <span class="attr">sni:</span> <span class="string">a.com</span></span><br><span class="line">  <span class="attr">insecure:</span> <span class="literal">false</span> <span class="comment">#使用自签域名时需要改成true</span></span><br><span class="line"></span><br><span class="line"><span class="attr">socks5:</span></span><br><span class="line">  <span class="attr">listen:</span> <span class="number">127.0</span><span class="number">.0</span><span class="number">.1</span><span class="string">:1080</span></span><br><span class="line"><span class="attr">http:</span></span><br><span class="line">  <span class="attr">listen:</span> <span class="number">127.0</span><span class="number">.0</span><span class="number">.1</span><span class="string">:8080</span></span><br></pre></td></tr></table></figure>
-
-<h2 id="sing-box配置文件-Android-IOS"><a href="#sing-box配置文件-Android-IOS" class="headerlink" title="sing-box配置文件(Android&#x2F;IOS)"></a>sing-box配置文件(Android&#x2F;IOS)</h2><figure class="highlight json"><table><tr><td class="code"><pre><span class="line"><span class="punctuation">&#123;</span></span><br><span class="line">  <span class="attr">&quot;dns&quot;</span><span class="punctuation">:</span> <span class="punctuation">&#123;</span></span><br><span class="line">    <span class="attr">&quot;servers&quot;</span><span class="punctuation">:</span> <span class="punctuation">[</span></span><br><span class="line">      <span class="punctuation">&#123;</span></span><br><span class="line">        <span class="attr">&quot;tag&quot;</span><span class="punctuation">:</span> <span class="string">&quot;cf&quot;</span><span class="punctuation">,</span></span><br><span class="line">        <span class="attr">&quot;address&quot;</span><span class="punctuation">:</span> <span class="string">&quot;https://1.1.1.1/dns-query&quot;</span></span><br><span class="line">      <span class="punctuation">&#125;</span><span class="punctuation">,</span></span><br><span class="line">      <span class="punctuation">&#123;</span></span><br><span class="line">        <span class="attr">&quot;tag&quot;</span><span class="punctuation">:</span> <span class="string">&quot;local&quot;</span><span class="punctuation">,</span></span><br><span class="line">        <span class="attr">&quot;address&quot;</span><span class="punctuation">:</span> <span class="string">&quot;223.5.5.5&quot;</span><span class="punctuation">,</span></span><br><span class="line">        <span class="attr">&quot;detour&quot;</span><span class="punctuation">:</span> <span class="string">&quot;direct&quot;</span></span><br><span class="line">      <span class="punctuation">&#125;</span><span class="punctuation">,</span></span><br><span class="line">      <span class="punctuation">&#123;</span></span><br><span class="line">        <span class="attr">&quot;tag&quot;</span><span class="punctuation">:</span> <span class="string">&quot;block&quot;</span><span class="punctuation">,</span></span><br><span class="line">        <span class="attr">&quot;address&quot;</span><span class="punctuation">:</span> <span class="string">&quot;rcode://success&quot;</span></span><br><span class="line">      <span class="punctuation">&#125;</span></span><br><span class="line">    <span class="punctuation">]</span><span class="punctuation">,</span></span><br><span class="line">    <span class="attr">&quot;rules&quot;</span><span class="punctuation">:</span> <span class="punctuation">[</span></span><br><span class="line">      <span class="punctuation">&#123;</span></span><br><span class="line">        <span class="attr">&quot;geosite&quot;</span><span class="punctuation">:</span> <span class="string">&quot;category-ads-all&quot;</span><span class="punctuation">,</span></span><br><span class="line">        <span class="attr">&quot;server&quot;</span><span class="punctuation">:</span> <span class="string">&quot;block&quot;</span><span class="punctuation">,</span></span><br><span class="line">        <span class="attr">&quot;disable_cache&quot;</span><span class="punctuation">:</span> <span class="literal"><span class="keyword">true</span></span></span><br><span class="line">      <span class="punctuation">&#125;</span><span class="punctuation">,</span></span><br><span class="line">      <span class="punctuation">&#123;</span></span><br><span class="line">        <span class="attr">&quot;outbound&quot;</span><span class="punctuation">:</span> <span class="string">&quot;any&quot;</span><span class="punctuation">,</span></span><br><span class="line">        <span class="attr">&quot;server&quot;</span><span class="punctuation">:</span> <span class="string">&quot;local&quot;</span></span><br><span class="line">      <span class="punctuation">&#125;</span><span class="punctuation">,</span></span><br><span class="line">      <span class="punctuation">&#123;</span></span><br><span class="line">        <span class="attr">&quot;geosite&quot;</span><span class="punctuation">:</span> <span class="string">&quot;cn&quot;</span><span class="punctuation">,</span></span><br><span class="line">        <span class="attr">&quot;server&quot;</span><span class="punctuation">:</span> <span class="string">&quot;local&quot;</span></span><br><span class="line">      <span class="punctuation">&#125;</span></span><br><span class="line">    <span class="punctuation">]</span><span class="punctuation">,</span></span><br><span class="line">    <span class="attr">&quot;strategy&quot;</span><span class="punctuation">:</span> <span class="string">&quot;ipv4_only&quot;</span></span><br><span class="line">  <span class="punctuation">&#125;</span><span class="punctuation">,</span></span><br><span class="line">  <span class="attr">&quot;inbounds&quot;</span><span class="punctuation">:</span> <span class="punctuation">[</span></span><br><span class="line">    <span class="punctuation">&#123;</span></span><br><span class="line">      <span class="attr">&quot;type&quot;</span><span class="punctuation">:</span> <span class="string">&quot;tun&quot;</span><span class="punctuation">,</span></span><br><span class="line">      <span class="attr">&quot;inet4_address&quot;</span><span class="punctuation">:</span> <span class="string">&quot;172.19.0.1/30&quot;</span><span class="punctuation">,</span></span><br><span class="line">      <span class="attr">&quot;auto_route&quot;</span><span class="punctuation">:</span> <span class="literal"><span class="keyword">true</span></span><span class="punctuation">,</span></span><br><span class="line">      <span class="attr">&quot;strict_route&quot;</span><span class="punctuation">:</span> <span class="literal"><span class="keyword">false</span></span><span class="punctuation">,</span></span><br><span class="line">      <span class="attr">&quot;sniff&quot;</span><span class="punctuation">:</span> <span class="literal"><span class="keyword">true</span></span></span><br><span class="line">    <span class="punctuation">&#125;</span></span><br><span class="line">  <span class="punctuation">]</span><span class="punctuation">,</span></span><br><span class="line">  <span class="attr">&quot;outbounds&quot;</span><span class="punctuation">:</span> <span class="punctuation">[</span></span><br><span class="line">    <span class="punctuation">&#123;</span></span><br><span class="line">      <span class="attr">&quot;type&quot;</span><span class="punctuation">:</span> <span class="string">&quot;hysteria2&quot;</span><span class="punctuation">,</span></span><br><span class="line">      <span class="attr">&quot;tag&quot;</span><span class="punctuation">:</span> <span class="string">&quot;proxy&quot;</span><span class="punctuation">,</span></span><br><span class="line">      <span class="attr">&quot;server&quot;</span><span class="punctuation">:</span> <span class="string">&quot;这里填ip&quot;</span><span class="punctuation">,</span></span><br><span class="line">      <span class="attr">&quot;server_port&quot;</span><span class="punctuation">:</span> <span class="number">443</span><span class="punctuation">,</span></span><br><span class="line">      <span class="attr">&quot;up_mbps&quot;</span><span class="punctuation">:</span> <span class="number">20</span><span class="punctuation">,</span></span><br><span class="line">      <span class="attr">&quot;down_mbps&quot;</span><span class="punctuation">:</span> <span class="number">100</span><span class="punctuation">,</span></span><br><span class="line">      <span class="attr">&quot;password&quot;</span><span class="punctuation">:</span> <span class="string">&quot;这里填密码&quot;</span><span class="punctuation">,</span></span><br><span class="line">      <span class="attr">&quot;tls&quot;</span><span class="punctuation">:</span> <span class="punctuation">&#123;</span></span><br><span class="line">        <span class="attr">&quot;enabled&quot;</span><span class="punctuation">:</span> <span class="literal"><span class="keyword">true</span></span><span class="punctuation">,</span></span><br><span class="line">        <span class="attr">&quot;server_name&quot;</span><span class="punctuation">:</span> <span class="string">&quot;a.com&quot;</span><span class="punctuation">,</span></span><br><span class="line">        <span class="attr">&quot;insecure&quot;</span><span class="punctuation">:</span> <span class="literal"><span class="keyword">false</span></span></span><br><span class="line">      <span class="punctuation">&#125;</span></span><br><span class="line">    <span class="punctuation">&#125;</span><span class="punctuation">,</span></span><br><span class="line">    <span class="punctuation">&#123;</span></span><br><span class="line">      <span class="attr">&quot;type&quot;</span><span class="punctuation">:</span> <span class="string">&quot;direct&quot;</span><span class="punctuation">,</span></span><br><span class="line">      <span class="attr">&quot;tag&quot;</span><span class="punctuation">:</span> <span class="string">&quot;direct&quot;</span></span><br><span class="line">    <span class="punctuation">&#125;</span><span class="punctuation">,</span></span><br><span class="line">    <span class="punctuation">&#123;</span></span><br><span class="line">      <span class="attr">&quot;type&quot;</span><span class="punctuation">:</span> <span class="string">&quot;block&quot;</span><span class="punctuation">,</span></span><br><span class="line">      <span class="attr">&quot;tag&quot;</span><span class="punctuation">:</span> <span class="string">&quot;block&quot;</span></span><br><span class="line">    <span class="punctuation">&#125;</span><span class="punctuation">,</span></span><br><span class="line">    <span class="punctuation">&#123;</span></span><br><span class="line">      <span class="attr">&quot;type&quot;</span><span class="punctuation">:</span> <span class="string">&quot;dns&quot;</span><span class="punctuation">,</span></span><br><span class="line">      <span class="attr">&quot;tag&quot;</span><span class="punctuation">:</span> <span class="string">&quot;dns-out&quot;</span></span><br><span class="line">    <span class="punctuation">&#125;</span></span><br><span class="line">  <span class="punctuation">]</span><span class="punctuation">,</span></span><br><span class="line">  <span class="attr">&quot;route&quot;</span><span class="punctuation">:</span> <span class="punctuation">&#123;</span></span><br><span class="line">    <span class="attr">&quot;rules&quot;</span><span class="punctuation">:</span> <span class="punctuation">[</span></span><br><span class="line">      <span class="punctuation">&#123;</span></span><br><span class="line">        <span class="attr">&quot;protocol&quot;</span><span class="punctuation">:</span> <span class="string">&quot;dns&quot;</span><span class="punctuation">,</span></span><br><span class="line">        <span class="attr">&quot;outbound&quot;</span><span class="punctuation">:</span> <span class="string">&quot;dns-out&quot;</span></span><br><span class="line">      <span class="punctuation">&#125;</span><span class="punctuation">,</span></span><br><span class="line">      <span class="punctuation">&#123;</span></span><br><span class="line">        <span class="attr">&quot;geosite&quot;</span><span class="punctuation">:</span> <span class="string">&quot;cn&quot;</span><span class="punctuation">,</span></span><br><span class="line">        <span class="attr">&quot;geoip&quot;</span><span class="punctuation">:</span> <span class="punctuation">[</span></span><br><span class="line">          <span class="string">&quot;private&quot;</span><span class="punctuation">,</span></span><br><span class="line">          <span class="string">&quot;cn&quot;</span></span><br><span class="line">        <span class="punctuation">]</span><span class="punctuation">,</span></span><br><span class="line">        <span class="attr">&quot;outbound&quot;</span><span class="punctuation">:</span> <span class="string">&quot;direct&quot;</span></span><br><span class="line">      <span class="punctuation">&#125;</span><span class="punctuation">,</span></span><br><span class="line">      <span class="punctuation">&#123;</span></span><br><span class="line">        <span class="attr">&quot;geosite&quot;</span><span class="punctuation">:</span> <span class="string">&quot;category-ads-all&quot;</span><span class="punctuation">,</span></span><br><span class="line">        <span class="attr">&quot;outbound&quot;</span><span class="punctuation">:</span> <span class="string">&quot;block&quot;</span></span><br><span class="line">      <span class="punctuation">&#125;</span></span><br><span class="line">    <span class="punctuation">]</span><span class="punctuation">,</span></span><br><span class="line">    <span class="attr">&quot;auto_detect_interface&quot;</span><span class="punctuation">:</span> <span class="literal"><span class="keyword">true</span></span></span><br><span class="line">  <span class="punctuation">&#125;</span></span><br><span class="line"><span class="punctuation">&#125;</span></span><br></pre></td></tr></table></figure>
-
-<h1 id="相关链接"><a href="#相关链接" class="headerlink" title="相关链接"></a>相关链接</h1><h2 id="客户端下载"><a href="#客户端下载" class="headerlink" title="客户端下载"></a>客户端下载</h2><p>v2rayN 下载：<a href="https://bulianglin.com/g/aHR0cHM6Ly9naXRodWIuY29tLzJkdXN0L3YycmF5Ti9yZWxlYXNlcy9sYXRlc3Q">https://github.com/2dust/v2rayN/releases/latest</a><br>Hysteria 2下载：<a href="https://bulianglin.com/g/aHR0cHM6Ly9naXRodWIuY29tL2FwZXJuZXQvaHlzdGVyaWEvcmVsZWFzZXM">https://github.com/apernet/hysteria/releases</a><br>Hysteria 2文档：<a href="https://bulianglin.com/g/aHR0cHM6Ly92Mi5oeXN0ZXJpYS5uZXR3b3JrL3poLw">https://v2.hysteria.network/zh/</a><br>sing-box文档：<a href="https://bulianglin.com/g/aHR0cHM6Ly9zaW5nLWJveC5zYWdlcm5ldC5vcmcvemgv">https://sing-box.sagernet.org/zh/</a><br>Android客户端（SFA）：<a href="https://bulianglin.com/g/aHR0cHM6Ly9pbnN0YWxsLmFwcGNlbnRlci5tcy91c2Vycy9uZWtvaGFzZWthaS9hcHBzL3NmYS9kaXN0cmlidXRpb25fZ3JvdXBzL3B1YmxpY3Rlc3Q">https://install.appcenter.ms/users/nekohasekai/apps/sfa/distribution_groups&#x2F;publictest</a><br>IOS客户端（TestFlight）：<a href="https://bulianglin.com/g/aHR0cHM6Ly90ZXN0ZmxpZ2h0LmFwcGxlLmNvbS9qb2luL0FjcU80NEZI">https://testflight.apple.com/join/AcqO44FH</a> （1.5.0 beta版支持Hysteria 2）<br>IOS客户端（AppStore）：<a href="https://bulianglin.com/g/aHR0cHM6Ly9hcHBzLmFwcGxlLmNvbS91cy9hcHAvc2luZy1ib3gvaWQ2NDUxMjcyNjcz">https://apps.apple.com/us/app/sing-box/id6451272673</a> （暂不支持Hysteria 2）</p>
-<h2 id="视频教程参考"><a href="#视频教程参考" class="headerlink" title="视频教程参考"></a>视频教程参考</h2><p>2023年最安全协议hysteria2和reality同时搭建 | 无需自备域名 | passwall设置hysteria2方法：<a href="https://youtu.be/S0jSGOdeTs4?si=w4vYPa44zIoQ4zHv">https://youtu.be/S0jSGOdeTs4?si=w4vYPa44zIoQ4zHv</a></p>
-<p>【遥遥领先】黑科技！垃圾VPS线路网速大幅提升！第二代hysteria节点搭建教程，歇斯底里为什么可以提升网速？windows&#x2F;ios&#x2F;android手机移动端使用方式，sing-box配置hy2方式：<a href="https://youtu.be/CXj-ID33MhU?si=bgcrlIpW5BwOc9uL">https://youtu.be/CXj-ID33MhU?si=bgcrlIpW5BwOc9uL</a></p>
-<h2 id="文档参考"><a href="#文档参考" class="headerlink" title="文档参考"></a>文档参考</h2><p>视频1：<a href="https://ybfl.xyz/sites/283.html">https://ybfl.xyz/sites/283.html</a></p>
-<p>视频2：<a href="https://bulianglin.com/archives/hysteria2.html">https://bulianglin.com/archives/hysteria2.html</a></p>
-]]></content>
-      <categories>
-        <category>网络技术</category>
-      </categories>
-      <tags>
-        <tag>网络代理</tag>
       </tags>
   </entry>
   <entry>
@@ -4473,6 +4473,138 @@
       </categories>
       <tags>
         <tag>前端部署</tag>
+      </tags>
+  </entry>
+  <entry>
+    <title>台达ASDA-B3A-P系列伺服与西门子PLC通讯调试流程</title>
+    <url>/posts/a3c8d2a2/</url>
+    <content><![CDATA[<h2 id="调试软件及PLC控制系统"><a href="#调试软件及PLC控制系统" class="headerlink" title="调试软件及PLC控制系统"></a><strong>调试软件及PLC控制系统</strong></h2><p>PLC：西门子1214C</p>
+<p>伺服驱动器：台达ASDA-B3A-P</p>
+<p>调试软件：ASDA_SOFT_V7.0.2.0</p>
+<h2 id="硬件连接"><a href="#硬件连接" class="headerlink" title="硬件连接"></a><strong>硬件连接</strong></h2><p>使用调试线缆连接伺服驱动器，并在调试软件中新增设备。</p>
+<p><img src="https://img.zzzg.top/20251004165707821.png" alt="image-20250827091314154"></p>
+<p>装置选择：<strong>B3</strong>，点击<strong>搜寻</strong>按钮，刷新设备；通讯设备选择如图显示，点击<strong>新增</strong>按钮，添加设备。</p>
+<p><img src="https://img.zzzg.top/20251004165713534.png" alt="image-20250827091127366"></p>
+<p>点击确认，载入伺服参数。</p>
+<p><img src="https://img.zzzg.top/20251004165718445.png" alt="image-20250827091544329"></p>
+<h2 id="重置伺服参数"><a href="#重置伺服参数" class="headerlink" title="重置伺服参数"></a><strong>重置伺服参数</strong></h2><p>新增伺服驱动器推荐重置参数后，再开始设置参数，避免出现参数异常。</p>
+<p>选择参数编辑器，并修改<strong>P2.008</strong>参数为<strong>10</strong>，即可重置伺服参数。</p>
+<p>参数功能：</p>
+<table>
+<thead>
+<tr>
+<th><strong>参数码</strong></th>
+<th><strong>功能</strong></th>
+</tr>
+</thead>
+<tbody><tr>
+<td>10</td>
+<td>P0 ~ P7 群参数重置(重置后请重新上电)</td>
+</tr>
+<tr>
+<td>20</td>
+<td>P4.010 可写入</td>
+</tr>
+<tr>
+<td>22</td>
+<td>P4.011 ~ P4.021 可写入</td>
+</tr>
+<tr>
+<td>30、35</td>
+<td>储存 Capture 的数据</td>
+</tr>
+<tr>
+<td>271</td>
+<td>先将 P2.069.X 设为 1 后并将伺服重上电以开启绝对型功能。 接着将 P2.008 设为 271，再将 P2.071 设为 0x0001，以建立絶对型原点坐标。</td>
+</tr>
+<tr>
+<td>406</td>
+<td>开启强制 DO 模式</td>
+</tr>
+<tr>
+<td>400</td>
+<td>在开启强制 DO 模式下，可立即切换回正常 DO 模式</td>
+</tr>
+</tbody></table>
+<p><img src="https://img.zzzg.top/20251004165722947.png" alt="image-20250827091830252"></p>
+<p>修改参数后，点击写入参数，并重启伺服驱动器。</p>
+<p><img src="https://img.zzzg.top/20251004165727220.png" alt="image-20250827092714578"></p>
+<h2 id="伺服参数配置"><a href="#伺服参数配置" class="headerlink" title="伺服参数配置"></a><strong>伺服参数配置</strong></h2><p>重启伺服驱动器，并重新连接驱动器，然后打开参数编辑器。</p>
+<h3 id="1、设置断电保持功能"><a href="#1、设置断电保持功能" class="headerlink" title="1、设置断电保持功能"></a><strong>1、设置断电保持功能</strong></h3><p>修改参数<strong>P3.012</strong>为<strong>0x0100</strong>，使得相关参数可以在驱动器重新上下电或是进行通讯重置后，维持原本的设定值。</p>
+<p><img src="https://img.zzzg.top/20251004165733423.png" alt="image-20250827092854518"></p>
+<p>相关参数 - PROFINET：</p>
+<p><img src="https://img.zzzg.top/20251004165739903.png" alt="image-20250827093405877"></p>
+<h3 id="2、设置IO信号"><a href="#2、设置IO信号" class="headerlink" title="2、设置IO信号"></a><strong>2、设置IO信号</strong></h3><p>点击<strong>数位IO&#x2F;寸动控制</strong>，再点击<strong>编辑DI&#x2F;O功能项目</strong>，设置驱动器IO信号。</p>
+<p><img src="https://img.zzzg.top/20251004165744883.png" alt="image-20250827093805363"></p>
+<p>选择驱动器IO功能，以及常开常闭功能切换。</p>
+<p><img src="https://img.zzzg.top/20251004165750726.png" alt="image-20250827094213544"></p>
+<h2 id="设置电子齿轮比"><a href="#设置电子齿轮比" class="headerlink" title="设置电子齿轮比"></a><strong>设置电子齿轮比</strong></h2><p>点击设置<strong>电子齿轮比</strong>，设置电子齿轮比分子分母，并写入参数。</p>
+<p><img src="https://img.zzzg.top/20251004165757791.png" alt="image-20250827094427665"></p>
+<h2 id="修改电机方向"><a href="#修改电机方向" class="headerlink" title="修改电机方向"></a><strong>修改电机方向</strong></h2><p>在一般设定页面，可修改电机旋转方向。</p>
+<p><img src="https://img.zzzg.top/20251004165801856.png" alt="image-20250827094639583"></p>
+<h2 id="西门子组态编程"><a href="#西门子组态编程" class="headerlink" title="西门子组态编程"></a><strong>西门子组态编程</strong></h2><h3 id="1、硬件组态"><a href="#1、硬件组态" class="headerlink" title="1、硬件组态"></a><strong>1、硬件组态</strong></h3><p>在博图中组态驱动器并分配IP。</p>
+<p><img src="https://img.zzzg.top/20251004165806204.png" alt="image-20250827094944515"></p>
+<p>该示例组态111报文进行位置控制，并组态了750报文进行扭矩控制。</p>
+<blockquote>
+<p>扭矩控制可根据实际需求删除。</p>
+</blockquote>
+<p><img src="https://img.zzzg.top/20251004165812028.png" alt="image-20250827095019990"></p>
+<h3 id="2、编程控制"><a href="#2、编程控制" class="headerlink" title="2、编程控制"></a><strong>2、编程控制</strong></h3><p>位置控制使用FB284功能块。</p>
+<p><img src="https://img.zzzg.top/20251004165816474.png" alt="image-20250827095337764"></p>
+<p><strong>注意：该驱动器部分参数无法通过FB284写入，需通过SinaparaS功能块写入PNU参数</strong></p>
+<p>推荐PNU写入参数：</p>
+<table>
+<thead>
+<tr>
+<th><strong>名称</strong></th>
+<th><strong>功能</strong></th>
+</tr>
+</thead>
+<tbody><tr>
+<td>PNU10</td>
+<td>原点复归模式</td>
+</tr>
+<tr>
+<td>PNU11</td>
+<td>原点偏移值</td>
+</tr>
+<tr>
+<td>PNU12</td>
+<td>原点复归第一段速度</td>
+</tr>
+<tr>
+<td>PNU13</td>
+<td>原点复归第二段速度</td>
+</tr>
+<tr>
+<td>PNU14</td>
+<td>原点复归加&#x2F;减速时间</td>
+</tr>
+<tr>
+<td>PNU23</td>
+<td>EPOS Jog 1 寸动速度</td>
+</tr>
+<tr>
+<td>PNU24</td>
+<td>EPOS Jog 2 寸动速度</td>
+</tr>
+<tr>
+<td>PNU43</td>
+<td>最高加速度</td>
+</tr>
+<tr>
+<td>PNU44</td>
+<td>最高减速度</td>
+</tr>
+</tbody></table>
+<p>PNU参数一览：</p>
+<p><img src="https://img.zzzg.top/20251004165824949.png" alt="image-20250827095708123"></p>
+]]></content>
+      <categories>
+        <category>工业自动化</category>
+      </categories>
+      <tags>
+        <tag>台达</tag>
       </tags>
   </entry>
   <entry>
