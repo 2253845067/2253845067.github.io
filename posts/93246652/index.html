@@ -1,0 +1,394 @@
+<!DOCTYPE html><html lang="zh-CN" data-theme="light"><head><meta charset="UTF-8"><meta http-equiv="X-UA-Compatible" content="IE=edge"><meta name="viewport" content="width=device-width, initial-scale=1.0,viewport-fit=cover"><title>Oracle数据库和PDPS安装及配置 | 与亓のBlog</title><meta name="author" content="与亓"><meta name="copyright" content="与亓"><meta name="format-detection" content="telephone=no"><meta name="theme-color" content="#ffffff"><meta name="description" content="Oracle数据库和PDPS安装及配置。">
+<meta property="og:type" content="article">
+<meta property="og:title" content="Oracle数据库和PDPS安装及配置">
+<meta property="og:url" content="https://yuqi.im/posts/93246652/index.html">
+<meta property="og:site_name" content="与亓のBlog">
+<meta property="og:description" content="Oracle数据库和PDPS安装及配置。">
+<meta property="og:locale" content="zh_CN">
+<meta property="og:image" content="https://img.zzzg.top/20260411110607417.jpg">
+<meta property="article:published_time" content="2026-04-10T16:00:00.000Z">
+<meta property="article:modified_time" content="2026-04-10T16:00:00.000Z">
+<meta property="article:author" content="与亓">
+<meta property="article:tag" content="PDPS">
+<meta name="twitter:card" content="summary">
+<meta name="twitter:image" content="https://img.zzzg.top/20260411110607417.jpg"><script type="application/ld+json">{
+  "@context": "https://schema.org",
+  "@type": "BlogPosting",
+  "headline": "Oracle数据库和PDPS安装及配置",
+  "url": "https://yuqi.im/posts/93246652/",
+  "image": "https://img.zzzg.top/20260411110607417.jpg",
+  "datePublished": "2026-04-10T16:00:00.000Z",
+  "dateModified": "2026-04-10T16:00:00.000Z",
+  "author": [
+    {
+      "@type": "Person",
+      "name": "与亓",
+      "url": "https://yuqi.im"
+    }
+  ]
+}</script><link rel="shortcut icon" href="https://img.zzzg.top/202302272018985.jpg"><link rel="canonical" href="https://yuqi.im/posts/93246652/index.html"><link rel="preconnect" href="//cdn.jsdelivr.net"/><link rel="stylesheet" href="/css/index.css"><link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/@fortawesome/fontawesome-free/css/all.min.css"><script>
+    (() => {
+      
+    const saveToLocal = {
+      set: (key, value, ttl) => {
+        if (!ttl) return
+        const expiry = Date.now() + ttl * 86400000
+        localStorage.setItem(key, JSON.stringify({ value, expiry }))
+      },
+      get: key => {
+        const itemStr = localStorage.getItem(key)
+        if (!itemStr) return undefined
+        const { value, expiry } = JSON.parse(itemStr)
+        if (Date.now() > expiry) {
+          localStorage.removeItem(key)
+          return undefined
+        }
+        return value
+      }
+    }
+
+    window.btf = {
+      saveToLocal,
+      getScript: (url, attr = {}) => new Promise((resolve, reject) => {
+        const script = document.createElement('script')
+        script.src = url
+        script.async = true
+        Object.entries(attr).forEach(([key, val]) => script.setAttribute(key, val))
+        script.onload = script.onreadystatechange = () => {
+          if (!script.readyState || /loaded|complete/.test(script.readyState)) resolve()
+        }
+        script.onerror = reject
+        document.head.appendChild(script)
+      }),
+      getCSS: (url, id) => new Promise((resolve, reject) => {
+        const link = document.createElement('link')
+        link.rel = 'stylesheet'
+        link.href = url
+        if (id) link.id = id
+        link.onload = link.onreadystatechange = () => {
+          if (!link.readyState || /loaded|complete/.test(link.readyState)) resolve()
+        }
+        link.onerror = reject
+        document.head.appendChild(link)
+      }),
+      addGlobalFn: (key, fn, name = false, parent = window) => {
+        if (!false && key.startsWith('pjax')) return
+        const globalFn = parent.globalFn || {}
+        globalFn[key] = globalFn[key] || {}
+        globalFn[key][name || Object.keys(globalFn[key]).length] = fn
+        parent.globalFn = globalFn
+      }
+    }
+  
+      
+      const activateDarkMode = () => {
+        document.documentElement.setAttribute('data-theme', 'dark')
+        if (document.querySelector('meta[name="theme-color"]') !== null) {
+          document.querySelector('meta[name="theme-color"]').setAttribute('content', '#0d0d0d')
+        }
+      }
+      const activateLightMode = () => {
+        document.documentElement.setAttribute('data-theme', 'light')
+        if (document.querySelector('meta[name="theme-color"]') !== null) {
+          document.querySelector('meta[name="theme-color"]').setAttribute('content', '#ffffff')
+        }
+      }
+
+      btf.activateDarkMode = activateDarkMode
+      btf.activateLightMode = activateLightMode
+
+      const theme = saveToLocal.get('theme')
+    
+          theme === 'dark' ? activateDarkMode() : theme === 'light' ? activateLightMode() : null
+        
+      
+      const asideStatus = saveToLocal.get('aside-status')
+      if (asideStatus !== undefined) {
+        document.documentElement.classList.toggle('hide-aside', asideStatus === 'hide')
+      }
+    
+      
+    const detectApple = () => {
+      if (/iPad|iPhone|iPod|Macintosh/.test(navigator.userAgent)) {
+        document.documentElement.classList.add('apple')
+      }
+    }
+    detectApple()
+  
+    })()
+  </script><script>const GLOBAL_CONFIG = {
+  root: '/',
+  algolia: undefined,
+  localSearch: {"path":"/search.xml","preload":false,"top_n_per_article":1,"unescape":false,"languages":{"hits_empty":"未找到符合您查询的内容：${query}","hits_stats":"共找到 ${hits} 篇文章"}},
+  translate: undefined,
+  highlight: {"plugin":"highlight.js","highlightCopy":true,"highlightLang":true,"highlightHeightLimit":false,"highlightFullpage":false,"highlightMacStyle":false},
+  copy: {
+    success: '复制成功',
+    error: '复制失败',
+    noSupport: '浏览器不支持'
+  },
+  relativeDate: {
+    homepage: false,
+    post: false
+  },
+  runtime: '',
+  dateSuffix: {
+    just: '刚刚',
+    min: '分钟前',
+    hour: '小时前',
+    day: '天前',
+    month: '个月前'
+  },
+  copyright: undefined,
+  lightbox: 'null',
+  Snackbar: undefined,
+  infinitegrid: {
+    js: 'https://cdn.jsdelivr.net/npm/@egjs/infinitegrid/dist/infinitegrid.min.js',
+    buttonText: '加载更多'
+  },
+  isPhotoFigcaption: false,
+  islazyloadPlugin: false,
+  isAnchor: false,
+  percent: {
+    toc: true,
+    rightside: false,
+  },
+  autoDarkmode: false
+}</script><script id="config-diff">var GLOBAL_CONFIG_SITE = {
+  title: 'Oracle数据库和PDPS安装及配置',
+  isHighlightShrink: false,
+  isToc: true,
+  pageType: 'post'
+}</script><script defer src="https://cloud.umami.is/script.js" data-website-id="7c06aeea-722b-4ad7-9255-4cc2b50044be"></script><meta name="generator" content="Hexo 7.3.0"><link rel="alternate" href="/atom.xml" title="与亓のBlog" type="application/atom+xml">
+</head><body><div id="sidebar"><div id="menu-mask"></div><div id="sidebar-menus"><div class="avatar-img text-center"><img src="https://img.zzzg.top/202302272017976.jpg" onerror="this.onerror=null;this.src='/img/friend_404.gif'" alt="avatar"/></div><div class="site-data text-center"><a href="/archives/"><div class="headline">文章</div><div class="length-num">66</div></a><a href="/tags/"><div class="headline">标签</div><div class="length-num">31</div></a><a href="/categories/"><div class="headline">分类</div><div class="length-num">19</div></a></div><div class="menus_items"><div class="menus_item"><a class="site-page" href="/"><i class="fa-fw fa fa-home"></i><span> 主页</span></a></div><div class="menus_item"><span class="site-page group"><i class="fa-fw fa fa-graduation-cap"></i><span> 博文</span><i class="fas fa-chevron-down"></i></span><ul class="menus_item_child"><li><a class="site-page child" href="/archives/"><i class="fa-fw fa fa-folder-open"></i><span> 归档</span></a></li><li><a class="site-page child" href="/categories/"><i class="fa-fw fa fa-archive"></i><span> 分类</span></a></li><li><a class="site-page child" href="/tags/"><i class="fa-fw fa fa-tags"></i><span> 标签</span></a></li></ul></div><div class="menus_item"><span class="site-page group"><i class="fa-fw fa fa-external-link"></i><span> 外链</span><i class="fas fa-chevron-down"></i></span><ul class="menus_item_child"><li><a class="site-page child" target="_blank" rel="noopener" href="https://zzzg.top"><i class="fa-fw fa fa-compass"></i><span> 与亓导航</span></a></li><li><a class="site-page child" target="_blank" rel="noopener" href="https://cloud.umami.is/share/2ewyVCnIAXHh4rRQ/yuqi.im"><i class="fa-fw fa fa-bar-chart"></i><span> 访问量统计</span></a></li></ul></div><div class="menus_item"><a class="site-page" href="/link/"><i class="fa-fw fa fa-link"></i><span> 友链</span></a></div><div class="menus_item"><a class="site-page" href="/comment/"><i class="fa-fw fa fa-paper-plane"></i><span> 留言板</span></a></div><div class="menus_item"><a class="site-page" href="/about/"><i class="fa-fw fa fa-heart"></i><span> 关于</span></a></div></div></div></div><div class="post" id="body-wrap"><header class="post-bg" id="page-header" style="background-image: url(https://img.zzzg.top/20260411110607417.jpg);"><nav id="nav"><span id="blog-info"><a class="nav-site-title" href="/"><span class="site-name">与亓のBlog</span></a><a class="nav-page-title" href="/"><span class="site-name">Oracle数据库和PDPS安装及配置</span><span class="site-name"><i class="fa-solid fa-circle-arrow-left"></i><span>  返回首页</span></span></a></span><div id="menus"><div id="search-button"><span class="site-page social-icon search"><i class="fas fa-search fa-fw"></i><span> 搜索</span></span></div><div class="menus_items"><div class="menus_item"><a class="site-page" href="/"><i class="fa-fw fa fa-home"></i><span> 主页</span></a></div><div class="menus_item"><span class="site-page group"><i class="fa-fw fa fa-graduation-cap"></i><span> 博文</span><i class="fas fa-chevron-down"></i></span><ul class="menus_item_child"><li><a class="site-page child" href="/archives/"><i class="fa-fw fa fa-folder-open"></i><span> 归档</span></a></li><li><a class="site-page child" href="/categories/"><i class="fa-fw fa fa-archive"></i><span> 分类</span></a></li><li><a class="site-page child" href="/tags/"><i class="fa-fw fa fa-tags"></i><span> 标签</span></a></li></ul></div><div class="menus_item"><span class="site-page group"><i class="fa-fw fa fa-external-link"></i><span> 外链</span><i class="fas fa-chevron-down"></i></span><ul class="menus_item_child"><li><a class="site-page child" target="_blank" rel="noopener" href="https://zzzg.top"><i class="fa-fw fa fa-compass"></i><span> 与亓导航</span></a></li><li><a class="site-page child" target="_blank" rel="noopener" href="https://cloud.umami.is/share/2ewyVCnIAXHh4rRQ/yuqi.im"><i class="fa-fw fa fa-bar-chart"></i><span> 访问量统计</span></a></li></ul></div><div class="menus_item"><a class="site-page" href="/link/"><i class="fa-fw fa fa-link"></i><span> 友链</span></a></div><div class="menus_item"><a class="site-page" href="/comment/"><i class="fa-fw fa fa-paper-plane"></i><span> 留言板</span></a></div><div class="menus_item"><a class="site-page" href="/about/"><i class="fa-fw fa fa-heart"></i><span> 关于</span></a></div></div><div id="toggle-menu"><span class="site-page"><i class="fas fa-bars fa-fw"></i></span></div></div></nav><div id="post-info"><h1 class="post-title">Oracle数据库和PDPS安装及配置</h1><div id="post-meta"><div class="meta-firstline"><span class="post-meta-date"><i class="far fa-calendar-alt fa-fw post-meta-icon"></i><span class="post-meta-label">发表于</span><time class="post-meta-date-created" datetime="2026-04-10T16:00:00.000Z" title="发表于 2026-04-11 00:00:00">2026-04-11</time><span class="post-meta-separator">|</span><i class="fas fa-history fa-fw post-meta-icon"></i><span class="post-meta-label">更新于</span><time class="post-meta-date-updated" datetime="2026-04-10T16:00:00.000Z" title="更新于 2026-04-11 00:00:00">2026-04-11</time></span><span class="post-meta-categories"><span class="post-meta-separator">|</span><i class="fas fa-inbox fa-fw post-meta-icon"></i><a class="post-meta-categories" href="/categories/%E5%B7%A5%E4%B8%9A%E8%87%AA%E5%8A%A8%E5%8C%96/">工业自动化</a></span></div><div class="meta-secondline"></div></div></div></header><main class="layout" id="content-inner"><div id="post"><article class="container post-content" id="article-container"><div id="post-outdate-notice" data="{&quot;limitDay&quot;:180,&quot;messagePrev&quot;:&quot;It has been&quot;,&quot;messageNext&quot;:&quot;days since the last update, the content of the article may be outdated.&quot;,&quot;postUpdate&quot;:&quot;2026-04-11 00:00:00&quot;}" hidden></div><h1 id="安装及配置Oracle"><a href="#安装及配置Oracle" class="headerlink" title="安装及配置Oracle"></a>安装及配置Oracle</h1><h2 id="一、安装java-perl"><a href="#一、安装java-perl" class="headerlink" title="一、安装java perl"></a>一、安装java perl</h2><p><img src="https://img.zzzg.top/20260411105832774.png" alt="image-20260410122404020"></p>
+<p><img src="https://img.zzzg.top/20260411105848314.png" alt="image-20260410122423263"></p>
+<p><img src="https://img.zzzg.top/20260411105857513.png" alt="image-20260410122443435"></p>
+<p><img src="https://img.zzzg.top/20260411105910807.png" alt="image-20260410122516248"></p>
+<p><img src="https://img.zzzg.top/20260411105923011.png" alt="image-20260410122738952"></p>
+<p><img src="https://img.zzzg.top/20260411105933274.png" alt="image-20260410123010829"></p>
+<h2 id="二、安装Oracle"><a href="#二、安装Oracle" class="headerlink" title="二、安装Oracle"></a>二、安装Oracle</h2><p>新建文件夹：<strong>ORACLE_BASE</strong></p>
+<p><img src="https://img.zzzg.top/20260411105943177.png" alt="image-20260410123145474"></p>
+<p>将安装包解压到和<strong>ORACLE_BASE</strong>同一目录下，运行安装程序</p>
+<p><img src="https://img.zzzg.top/20260411105949362.png" alt="image-20260410123452811"></p>
+<p><img src="https://img.zzzg.top/20260411105957599.png" alt="image-20260410123611133"></p>
+<p><img src="https://img.zzzg.top/20260411110007928.png" alt="image-20260410123651445"></p>
+<p><img src="https://img.zzzg.top/20260411110047039.png" alt="image-20260410123728813"></p>
+<p>设置目录和密码，我这里设置的密码是：</p>
+<figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">Abc123456</span><br></pre></td></tr></table></figure>
+
+<p><img src="https://img.zzzg.top/20260411110047040.png" alt="image-20260410124205807"></p>
+<p><img src="https://img.zzzg.top/20260411110047041.png" alt="image-20260410132526265"></p>
+<p><img src="https://img.zzzg.top/20260411110047042.png" alt="image-20260410134839062"></p>
+<h2 id="三、修改ORACLE编码"><a href="#三、修改ORACLE编码" class="headerlink" title="三、修改ORACLE编码"></a>三、修改ORACLE编码</h2><p>win+r打开注册表</p>
+<p><img src="https://img.zzzg.top/20260411110047043.png" alt="image-20260410135353678"></p>
+<p>路径如下：</p>
+<figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">\HKEY_LOCAL_MACHINE\SOFTWARE\ORACLE\KEY_OraDB19Home1</span><br></pre></td></tr></table></figure>
+
+<p><img src="https://img.zzzg.top/20260411110047044.png" alt="image-20260410135534632"></p>
+<p>双击修改为</p>
+<figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">AMERICAN_AMERICA.AL32UTF8</span><br></pre></td></tr></table></figure>
+
+<p><img src="https://img.zzzg.top/20260411110047045.png" alt="image-20260410135756036"></p>
+<h2 id="四、关闭监听程序"><a href="#四、关闭监听程序" class="headerlink" title="四、关闭监听程序"></a>四、关闭监听程序</h2><p>关闭Listener  lsnrctl stop</p>
+<p>用管理员权限打开CMD，后续的CMD窗口均需要管理员权限</p>
+<p>输入<strong>LSNRCTL STOP</strong> 后回车执行</p>
+<p><img src="https://img.zzzg.top/20260411110047046.png" alt="image-20260410140136296"></p>
+<h2 id="五、修改listener文件"><a href="#五、修改listener文件" class="headerlink" title="五、修改listener文件"></a>五、修改listener文件</h2><p>打开c盘里面的安装目录</p>
+<figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">C:\Oracle_WINDOWS.X64_193000_db_home\network\admin\listener.ora</span><br></pre></td></tr></table></figure>
+
+<p>用记事本打开</p>
+<p><img src="https://img.zzzg.top/20260411110047047.png" alt="image-20260410140544777"></p>
+<p>在此电脑-&gt;属性里面查看设备名称，复制替换掉<strong>localhost</strong>，然后保存</p>
+<p><img src="https://img.zzzg.top/20260411110047048.png" alt="image-20260410140748951"></p>
+<h2 id="六、添加环境变量"><a href="#六、添加环境变量" class="headerlink" title="六、添加环境变量"></a>六、添加环境变量</h2><p>此电脑-&gt;属性-&gt;高级系统设置</p>
+<p><img src="https://img.zzzg.top/20260411110047049.png" alt="image-20260410141053786"></p>
+<p><img src="https://img.zzzg.top/20260411110047050.png" alt="image-20260410141159123"></p>
+<p>新建</p>
+<p><img src="https://img.zzzg.top/20260411110047051.png" alt="image-20260410141309971"></p>
+<p><strong>ORACLE_HOME</strong> 对应软件安装目录</p>
+<p><img src="https://img.zzzg.top/20260411110047052.png" alt="image-20260410141421656"></p>
+<p>再新建</p>
+<p><strong>ORACLE_BASE</strong>对应在C盘创建的ORACLE_BASE文件夹</p>
+<p><img src="https://img.zzzg.top/20260411110047053.png" alt="image-20260410141528488"></p>
+<h2 id="七、注册ODP-NET"><a href="#七、注册ODP-NET" class="headerlink" title="七、注册ODP.NET"></a>七、注册ODP.NET</h2><p>右键以管理员运行即可</p>
+<p><img src="https://img.zzzg.top/20260411110047054.png" alt="image-20260410141847860"></p>
+<h2 id="八、创建DB"><a href="#八、创建DB" class="headerlink" title="八、创建DB"></a>八、创建DB</h2><p>新建DB文件夹</p>
+<p><img src="https://img.zzzg.top/20260411110047055.png" alt="image-20260410142037138"></p>
+<p>修改建立DB的脚本并运行</p>
+<p>使用这个脚本所在的路径替换掉<strong>FULL_PATH_TO</strong></p>
+<p><img src="https://img.zzzg.top/20260411110047056.png" alt="image-20260410142449887"></p>
+<p>使用电脑设备名称替换掉**%WINDOWS_SERVER_NAME%**</p>
+<p><img src="https://img.zzzg.top/20260411110047057.png" alt="image-20260410161523248"></p>
+<p>将需要建立的Database的名字替换掉**%DB_NAME%**</p>
+<p><img src="https://img.zzzg.top/20260411110047058.png" alt="image-20260410161715428"></p>
+<p>使用存放Database的文件夹路径替换掉**%DATA_FILES_LOCATION%**</p>
+<p><img src="https://img.zzzg.top/20260411110047059.png" alt="image-20260410161853628"></p>
+<p>将以下中文替换为对应的即可</p>
+<figure class="highlight bat"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line">perl -l 脚本所在文件夹路径\build_files.pl <span class="variable">%ORACLE_BASE%</span> <span class="variable">%ORACLE_HOME%</span> 需要建立的Database的名字 电脑设备名称 <span class="number">1521</span> 存放Database的文件夹路径</span><br><span class="line">perl -l 脚本所在文件夹路径\build_db.pl <span class="variable">%ORACLE_BASE%</span> <span class="variable">%ORACLE_HOME%</span> 需要建立的Database的名字</span><br></pre></td></tr></table></figure>
+
+<p>替换好的样子：</p>
+<figure class="highlight bat"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line">perl -l C:\Users\Administrator\Desktop\PDPS_V24\Oracle\DatabaseInstallationScripts\build_files.pl <span class="variable">%ORACLE_BASE%</span> <span class="variable">%ORACLE_HOME%</span> MYEMS WIN-H0260UMGT2O <span class="number">1521</span> C:\MYEMSDB</span><br><span class="line">perl -l C:\Users\Administrator\Desktop\PDPS_V24\Oracle\DatabaseInstallationScripts\build_db.pl <span class="variable">%ORACLE_BASE%</span> <span class="variable">%ORACLE_HOME%</span> MYEMS</span><br></pre></td></tr></table></figure>
+
+<p>然后将这两条修改好的命令复制到CMD里面执行，注意路径里面不能有中文和空格，否则会报错</p>
+<p>第一条运行成功</p>
+<p><img src="https://img.zzzg.top/20260411110047060.png" alt="image-20260410162546575"></p>
+<p>输入第二条指令执行，出现<strong>Instance created</strong>提示后，再按一次回车</p>
+<p>第二条运行成功</p>
+<p><img src="https://img.zzzg.top/20260411110047061.png" alt="image-20260410180901265"></p>
+<h2 id="九、修改服务为自启动"><a href="#九、修改服务为自启动" class="headerlink" title="九、修改服务为自启动"></a>九、修改服务为自启动</h2><p>按win+r打开运行窗口，输入<strong>services.msc</strong>进入服务</p>
+<p>双击<strong>OracleServiceMYEMS</strong>这个服务，然后将启动类型改为自动</p>
+<p><img src="https://img.zzzg.top/20260411110047062.png" alt="image-20260410181249379"></p>
+<h1 id="安装及配置PDPS"><a href="#安装及配置PDPS" class="headerlink" title="安装及配置PDPS"></a>安装及配置PDPS</h1><h2 id="一、安装PDPS"><a href="#一、安装PDPS" class="headerlink" title="一、安装PDPS"></a>一、安装PDPS</h2><h3 id="1、进入软件安装包目录"><a href="#1、进入软件安装包目录" class="headerlink" title="1、进入软件安装包目录"></a>1、进入软件安装包目录</h3><p><img src="https://img.zzzg.top/20260411110047063.png" alt="image-20260410183423634"></p>
+<h3 id="2、安装运行库"><a href="#2、安装运行库" class="headerlink" title="2、安装运行库"></a>2、安装运行库</h3><p><img src="https://img.zzzg.top/20260411110047064.png" alt="image-20260410181751050"></p>
+<p><img src="https://img.zzzg.top/20260411110047065.png" alt="image-20260410181941471"></p>
+<h3 id="3、选择安装PDPS"><a href="#3、选择安装PDPS" class="headerlink" title="3、选择安装PDPS"></a>3、选择安装PDPS</h3><p><img src="https://img.zzzg.top/20260411110047066.png" alt="image-20260410193014409"></p>
+<h3 id="4、选择需要安装的软件组件"><a href="#4、选择需要安装的软件组件" class="headerlink" title="4、选择需要安装的软件组件"></a>4、选择需要安装的软件组件</h3><ul>
+<li>在组件列表中，勾选 <strong>“Process Simulate Standalone”</strong> ，点选向下的小箭头进行选择。建议使用默认安装路径<code>(C:\Program Files)</code>，或选择空间充足的自定义路径。重要！ 安装路径不能包含中文或特殊字符（空格也尽量避免），使用纯英文路径！</li>
+</ul>
+<p><img src="https://img.zzzg.top/20260411110047067.png" alt="image-20260410193126098"></p>
+<h3 id="5、选择需要安装的机器人控制器组件"><a href="#5、选择需要安装的机器人控制器组件" class="headerlink" title="5、选择需要安装的机器人控制器组件"></a>5、选择需要安装的机器人控制器组件</h3><ul>
+<li>在机器人控制器组件列表中，勾选需要的机器人，也可后续添加。</li>
+</ul>
+<p><img src="https://img.zzzg.top/20260411110047068.png" alt="image-20260410182331252"></p>
+<h3 id="6、数据收集许可"><a href="#6、数据收集许可" class="headerlink" title="6、数据收集许可"></a>6、数据收集许可</h3><ul>
+<li>数据收集许可：选择DECLINE“”。</li>
+</ul>
+<p><img src="https://img.zzzg.top/20260411110047069.png" alt="image-20260410182354087"></p>
+<ul>
+<li>以下采用默认配置进行安装。</li>
+</ul>
+<p><img src="https://img.zzzg.top/20260411110047070.png" alt="image-20260410182437152"></p>
+<p><img src="https://img.zzzg.top/20260411110047071.png" alt="image-20260410182502622"></p>
+<p><img src="https://img.zzzg.top/20260411110047072.png" alt="image-20260410182524677"></p>
+<p><img src="https://img.zzzg.top/20260411110047073.png" alt="image-20260410182649298"></p>
+<h3 id="7、开始安装"><a href="#7、开始安装" class="headerlink" title="7、开始安装"></a>7、开始安装</h3><ul>
+<li>确认配置无误后，点击 <strong>“Install”</strong> 开始安装。此过程耗时较长（30分钟至数小时），请耐心等待，<strong>不要中断</strong>。</li>
+</ul>
+<p><img src="https://img.zzzg.top/20260411110047074.png" alt="image-20260410182710234"></p>
+<h3 id="8、安装完成"><a href="#8、安装完成" class="headerlink" title="8、安装完成"></a>8、安装完成</h3><ul>
+<li>提示安装成功后，点击 <strong>“Finish”</strong> 退出向导。<strong>暂时不要运行软件！</strong></li>
+</ul>
+<p><img src="https://img.zzzg.top/20260411110047075.png" alt="image-20260410184143344"></p>
+<h3 id="9、安装语言包"><a href="#9、安装语言包" class="headerlink" title="9、安装语言包"></a>9、安装语言包</h3><p>进入如下目录安装中文语言包，一直下一步即可</p>
+<p><img src="https://img.zzzg.top/20260411110047076.png" alt="image-20260410184814369"></p>
+<h2 id="二、配置PDPS"><a href="#二、配置PDPS" class="headerlink" title="二、配置PDPS"></a>二、配置PDPS</h2><h3 id="1、配置许可证"><a href="#1、配置许可证" class="headerlink" title="1、配置许可证"></a>1、配置许可证</h3><p>将获得的许可证文件 <code>(siemens_SSQ.dat)</code><strong>复制</strong>到西门子许可目录下：<br><code>C:\ProgramData\Siemens\siemens_SSQ.dat</code>没有就创建一个文件夹</p>
+<p><img src="https://img.zzzg.top/20260411110047078.png" alt="image-20260410190043934"></p>
+<p>将Crack文件夹中的文件覆盖到对应的安装目录下，双击进行注册</p>
+<p><img src="https://img.zzzg.top/20260411110047079.png" alt="image-20260410185908909"></p>
+<p><img src="https://img.zzzg.top/20260411110047080.png" alt="image-20260410185405643"></p>
+<p><img src="https://img.zzzg.top/20260411110047081.png" alt="image-20260410185538959"></p>
+<p>打开LicensingTool，选择Environment Settings（环境设置），点Edit（编辑）</p>
+<p><img src="https://img.zzzg.top/20260411110047082.png" alt="image-20260410185228383"></p>
+<p><img src="https://img.zzzg.top/20260411110047083.png" alt="image-20260410190423403"></p>
+<p><img src="https://img.zzzg.top/20260411110047084.png" alt="image-20260410185621847"></p>
+<p>填入<code>C:\ProgramData\Siemens\siemens_SSQ.dat</code></p>
+<p><img src="https://img.zzzg.top/20260411110047085.png" alt="image-20260410190300839"></p>
+<p>完成</p>
+<p><img src="https://img.zzzg.top/20260411110047086.png" alt="image-20260410190339561"></p>
+<h3 id="2、配置EMS"><a href="#2、配置EMS" class="headerlink" title="2、配置EMS"></a>2、配置EMS</h3><p>进入PS安装目录</p>
+<p><img src="https://img.zzzg.top/20260411110047087.png" alt="image-20260410194958695"></p>
+<p>复制目录路径，win+r打开cmd</p>
+<p>输入</p>
+<figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">cd 目录路径</span><br></pre></td></tr></table></figure>
+
+<p>例如</p>
+<figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">cd C:\Program Files\Tecnomatix_2402\eMPower\DBScripts</span><br></pre></td></tr></table></figure>
+
+<p><img src="https://img.zzzg.top/20260411110047088.png" alt="image-20260410195137195"></p>
+<p>然后输入</p>
+<figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">initDB.bat 先前建立的Database的名字</span><br></pre></td></tr></table></figure>
+
+<p>例如</p>
+<figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">initDB.bat MYEMS</span><br></pre></td></tr></table></figure>
+
+<p>成功</p>
+<p><img src="https://img.zzzg.top/20260411110047089.png" alt="image-20260410195423480"></p>
+<p>打开EMServer管理软件</p>
+<p><img src="https://img.zzzg.top/20260411110047090.png" alt="image-20260410195843374"></p>
+<p>创建Oracle账号</p>
+<p><img src="https://img.zzzg.top/20260411110047091.png" alt="image-20260410195940451"></p>
+<p>用户名和密码在我们执行initDB的时候会默认创建一个，脚本还是在PS安装目录下，将默认的用户名和密码填上，选择我们之前创建的MYEMS</p>
+<p><img src="https://img.zzzg.top/20260411110047092.png" alt="image-20260411100040380"></p>
+<p><img src="https://img.zzzg.top/20260411110047093.png" alt="image-20260411100152539"></p>
+<p>点击创建新账号</p>
+<p><img src="https://img.zzzg.top/20260411110047094.png" alt="image-20260411100246821"></p>
+<p>输入需要设置的账号密码</p>
+<p>我这里设置的</p>
+<figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line">Schema name：admin</span><br><span class="line">Password：password</span><br></pre></td></tr></table></figure>
+
+
+
+<p><img src="https://img.zzzg.top/20260411110047095.png" alt="image-20260411100459121"></p>
+<p><img src="https://img.zzzg.top/20260411110047096.png" alt="image-20260411100703210"></p>
+<p>这里问是否需要兼容UTF8，如果不是特别老的数据就不需要的，看情况</p>
+<p><img src="https://img.zzzg.top/20260411110047097.png" alt="image-20260411100725330"></p>
+<p><img src="https://img.zzzg.top/20260411110047098.png" alt="image-20260411100853999"></p>
+<p>创建组织</p>
+<p>选择创建好的DB和用户名，输入创建好的密码，点击应用</p>
+<p><img src="https://img.zzzg.top/20260411110047099.png" alt="image-20260411101100094"></p>
+<p><img src="https://img.zzzg.top/20260411110047100.png" alt="image-20260411101220608"></p>
+<p><img src="https://img.zzzg.top/20260411110047101.png" alt="image-20260411101254387"></p>
+<p><img src="https://img.zzzg.top/20260411110047102.png" alt="image-20260411101454408"></p>
+<p>这里如果显示无法打开文件，就找到对应的文件，给这个文件user用户全部权限即可</p>
+<h2 id="三、安装完成"><a href="#三、安装完成" class="headerlink" title="三、安装完成"></a>三、安装完成</h2><p>打开PD，使用默认用户登录<strong>administrator</strong>，就可以正常使用了</p>
+<p><img src="https://img.zzzg.top/20260411110047103.png" alt="image-20260411101805317"></p>
+</article><div class="post-copyright"><div class="post-copyright__author"><span class="post-copyright-meta"><i class="fas fa-circle-user fa-fw"></i>文章作者: </span><span class="post-copyright-info"><a href="https://yuqi.im">与亓</a></span></div><div class="post-copyright__type"><span class="post-copyright-meta"><i class="fas fa-square-arrow-up-right fa-fw"></i>文章链接: </span><span class="post-copyright-info"><a href="https://yuqi.im/posts/93246652/">https://yuqi.im/posts/93246652/</a></span></div><div class="post-copyright__notice"><span class="post-copyright-meta"><i class="fas fa-circle-exclamation fa-fw"></i>版权声明: </span><span class="post-copyright-info">本博客所有文章除特别声明外，均采用 <a href="https://creativecommons.org/licenses/by-nc-sa/4.0/" target="_blank">CC BY-NC-SA 4.0</a> 许可协议。转载请注明来源 <a href="https://yuqi.im" target="_blank">与亓のBlog</a>！</span></div></div><div class="tag_share"><div class="post-meta__tag-list"><a class="post-meta__tags" href="/tags/PDPS/">PDPS</a></div><div class="post-share"><div class="social-share" data-image="https://img.zzzg.top/20260411110607417.jpg" data-sites="facebook,twitter,wechat,weibo,qq"></div><link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/butterfly-extsrc/sharejs/dist/css/share.min.css" media="print" onload="this.media='all'"><script src="https://cdn.jsdelivr.net/npm/butterfly-extsrc/sharejs/dist/js/social-share.min.js" defer></script></div></div><nav class="pagination-post" id="pagination"><a class="pagination-related" href="/posts/e82186c7/" title="使用 Duplicati 定时备份服务器资料"><img class="cover" src="https://img.zzzg.top/20260411110714511.jpg" onerror="onerror=null;src='/img/404.jpg'" alt="cover of previous post"><div class="info"><div class="info-1"><div class="info-item-1">上一篇</div><div class="info-item-2">使用 Duplicati 定时备份服务器资料</div></div><div class="info-2"><div class="info-item-1">使用 Duplicati 定时备份服务器资料。</div></div></div></a><a class="pagination-related" href="/posts/a3c8d2a2/" title="台达ASDA-B3A-P系列伺服与西门子PLC通讯调试流程"><img class="cover" src="https://img.zzzg.top/20251004170210550.jpg" onerror="onerror=null;src='/img/404.jpg'" alt="cover of next post"><div class="info text-right"><div class="info-1"><div class="info-item-1">下一篇</div><div class="info-item-2">台达ASDA-B3A-P系列伺服与西门子PLC通讯调试流程</div></div><div class="info-2"><div class="info-item-1">台达ASDA-B3A-P系列伺服驱动器与西门子PLC通讯配置完整指南，包含PROFINET协议设置、参数配置及运动控制调试流程。</div></div></div></a></nav><hr class="custom-hr"/><div id="post-comment"><div class="comment-head"><div class="comment-headline"><i class="fas fa-comments fa-fw"></i><span> 评论</span></div></div><div class="comment-wrap"><div><div id="twikoo-wrap"></div></div></div></div></div><div class="aside-content" id="aside-content"><div class="card-widget card-info text-center"><div class="avatar-img"><img src="https://img.zzzg.top/202302272017976.jpg" onerror="this.onerror=null;this.src='/img/friend_404.gif'" alt="avatar"/></div><div class="author-info-name">与亓</div><div class="author-info-description">与亓的个人技术博客，分享编程开发、系统架构与生活思考</div><div class="site-data"><a href="/archives/"><div class="headline">文章</div><div class="length-num">66</div></a><a href="/tags/"><div class="headline">标签</div><div class="length-num">31</div></a><a href="/categories/"><div class="headline">分类</div><div class="length-num">19</div></a></div><a id="card-info-btn" target="_blank" rel="noopener" href="https://github.com/2253845067"><i class="fab fa-github"></i><span>Follow Me</span></a><div class="card-info-social-icons"><a class="social-icon" href="https://github.com/2253845067" target="_blank" title="Github"><i class="fab fa-github"></i></a><a class="social-icon" href="mailto:2253845067@qq.com" target="_blank" title="Email"><i class="fas fa-envelope"></i></a></div></div><div class="card-widget card-announcement"><div class="item-headline"><i class="fas fa-bullhorn fa-shake"></i><span>公告</span></div><div class="announcement_content">This is my Blog</div></div><div class="sticky_layout"><div class="card-widget" id="card-toc"><div class="item-headline"><i class="fas fa-stream"></i><span>目录</span><span class="toc-percentage"></span></div><div class="toc-content"><ol class="toc"><li class="toc-item toc-level-1"><a class="toc-link" href="#%E5%AE%89%E8%A3%85%E5%8F%8A%E9%85%8D%E7%BD%AEOracle"><span class="toc-number">1.</span> <span class="toc-text">安装及配置Oracle</span></a><ol class="toc-child"><li class="toc-item toc-level-2"><a class="toc-link" href="#%E4%B8%80%E3%80%81%E5%AE%89%E8%A3%85java-perl"><span class="toc-number">1.1.</span> <span class="toc-text">一、安装java perl</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#%E4%BA%8C%E3%80%81%E5%AE%89%E8%A3%85Oracle"><span class="toc-number">1.2.</span> <span class="toc-text">二、安装Oracle</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#%E4%B8%89%E3%80%81%E4%BF%AE%E6%94%B9ORACLE%E7%BC%96%E7%A0%81"><span class="toc-number">1.3.</span> <span class="toc-text">三、修改ORACLE编码</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#%E5%9B%9B%E3%80%81%E5%85%B3%E9%97%AD%E7%9B%91%E5%90%AC%E7%A8%8B%E5%BA%8F"><span class="toc-number">1.4.</span> <span class="toc-text">四、关闭监听程序</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#%E4%BA%94%E3%80%81%E4%BF%AE%E6%94%B9listener%E6%96%87%E4%BB%B6"><span class="toc-number">1.5.</span> <span class="toc-text">五、修改listener文件</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#%E5%85%AD%E3%80%81%E6%B7%BB%E5%8A%A0%E7%8E%AF%E5%A2%83%E5%8F%98%E9%87%8F"><span class="toc-number">1.6.</span> <span class="toc-text">六、添加环境变量</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#%E4%B8%83%E3%80%81%E6%B3%A8%E5%86%8CODP-NET"><span class="toc-number">1.7.</span> <span class="toc-text">七、注册ODP.NET</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#%E5%85%AB%E3%80%81%E5%88%9B%E5%BB%BADB"><span class="toc-number">1.8.</span> <span class="toc-text">八、创建DB</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#%E4%B9%9D%E3%80%81%E4%BF%AE%E6%94%B9%E6%9C%8D%E5%8A%A1%E4%B8%BA%E8%87%AA%E5%90%AF%E5%8A%A8"><span class="toc-number">1.9.</span> <span class="toc-text">九、修改服务为自启动</span></a></li></ol></li><li class="toc-item toc-level-1"><a class="toc-link" href="#%E5%AE%89%E8%A3%85%E5%8F%8A%E9%85%8D%E7%BD%AEPDPS"><span class="toc-number">2.</span> <span class="toc-text">安装及配置PDPS</span></a><ol class="toc-child"><li class="toc-item toc-level-2"><a class="toc-link" href="#%E4%B8%80%E3%80%81%E5%AE%89%E8%A3%85PDPS"><span class="toc-number">2.1.</span> <span class="toc-text">一、安装PDPS</span></a><ol class="toc-child"><li class="toc-item toc-level-3"><a class="toc-link" href="#1%E3%80%81%E8%BF%9B%E5%85%A5%E8%BD%AF%E4%BB%B6%E5%AE%89%E8%A3%85%E5%8C%85%E7%9B%AE%E5%BD%95"><span class="toc-number">2.1.1.</span> <span class="toc-text">1、进入软件安装包目录</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#2%E3%80%81%E5%AE%89%E8%A3%85%E8%BF%90%E8%A1%8C%E5%BA%93"><span class="toc-number">2.1.2.</span> <span class="toc-text">2、安装运行库</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#3%E3%80%81%E9%80%89%E6%8B%A9%E5%AE%89%E8%A3%85PDPS"><span class="toc-number">2.1.3.</span> <span class="toc-text">3、选择安装PDPS</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#4%E3%80%81%E9%80%89%E6%8B%A9%E9%9C%80%E8%A6%81%E5%AE%89%E8%A3%85%E7%9A%84%E8%BD%AF%E4%BB%B6%E7%BB%84%E4%BB%B6"><span class="toc-number">2.1.4.</span> <span class="toc-text">4、选择需要安装的软件组件</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#5%E3%80%81%E9%80%89%E6%8B%A9%E9%9C%80%E8%A6%81%E5%AE%89%E8%A3%85%E7%9A%84%E6%9C%BA%E5%99%A8%E4%BA%BA%E6%8E%A7%E5%88%B6%E5%99%A8%E7%BB%84%E4%BB%B6"><span class="toc-number">2.1.5.</span> <span class="toc-text">5、选择需要安装的机器人控制器组件</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#6%E3%80%81%E6%95%B0%E6%8D%AE%E6%94%B6%E9%9B%86%E8%AE%B8%E5%8F%AF"><span class="toc-number">2.1.6.</span> <span class="toc-text">6、数据收集许可</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#7%E3%80%81%E5%BC%80%E5%A7%8B%E5%AE%89%E8%A3%85"><span class="toc-number">2.1.7.</span> <span class="toc-text">7、开始安装</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#8%E3%80%81%E5%AE%89%E8%A3%85%E5%AE%8C%E6%88%90"><span class="toc-number">2.1.8.</span> <span class="toc-text">8、安装完成</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#9%E3%80%81%E5%AE%89%E8%A3%85%E8%AF%AD%E8%A8%80%E5%8C%85"><span class="toc-number">2.1.9.</span> <span class="toc-text">9、安装语言包</span></a></li></ol></li><li class="toc-item toc-level-2"><a class="toc-link" href="#%E4%BA%8C%E3%80%81%E9%85%8D%E7%BD%AEPDPS"><span class="toc-number">2.2.</span> <span class="toc-text">二、配置PDPS</span></a><ol class="toc-child"><li class="toc-item toc-level-3"><a class="toc-link" href="#1%E3%80%81%E9%85%8D%E7%BD%AE%E8%AE%B8%E5%8F%AF%E8%AF%81"><span class="toc-number">2.2.1.</span> <span class="toc-text">1、配置许可证</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#2%E3%80%81%E9%85%8D%E7%BD%AEEMS"><span class="toc-number">2.2.2.</span> <span class="toc-text">2、配置EMS</span></a></li></ol></li><li class="toc-item toc-level-2"><a class="toc-link" href="#%E4%B8%89%E3%80%81%E5%AE%89%E8%A3%85%E5%AE%8C%E6%88%90"><span class="toc-number">2.3.</span> <span class="toc-text">三、安装完成</span></a></li></ol></li></ol></div></div><div class="card-widget card-recent-post"><div class="item-headline"><i class="fas fa-history"></i><span>最新文章</span></div><div class="aside-list"><div class="aside-list-item"><a class="thumbnail" href="/posts/93246652/" title="Oracle数据库和PDPS安装及配置"><img src="https://img.zzzg.top/20260411110607417.jpg" onerror="this.onerror=null;this.src='/img/404.jpg'" alt="Oracle数据库和PDPS安装及配置"/></a><div class="content"><a class="title" href="/posts/93246652/" title="Oracle数据库和PDPS安装及配置">Oracle数据库和PDPS安装及配置</a><time datetime="2026-04-10T16:00:00.000Z" title="发表于 2026-04-11 00:00:00">2026-04-11</time></div></div><div class="aside-list-item"><a class="thumbnail" href="/posts/e82186c7/" title="使用 Duplicati 定时备份服务器资料"><img src="https://img.zzzg.top/20260411110714511.jpg" onerror="this.onerror=null;this.src='/img/404.jpg'" alt="使用 Duplicati 定时备份服务器资料"/></a><div class="content"><a class="title" href="/posts/e82186c7/" title="使用 Duplicati 定时备份服务器资料">使用 Duplicati 定时备份服务器资料</a><time datetime="2026-04-10T16:00:00.000Z" title="发表于 2026-04-11 00:00:00">2026-04-11</time></div></div><div class="aside-list-item"><a class="thumbnail" href="/posts/8951164b/" title="sopFestoCMMT配置"><img src="https://img.zzzg.top/20251004163906599.jpg" onerror="this.onerror=null;this.src='/img/404.jpg'" alt="sopFestoCMMT配置"/></a><div class="content"><a class="title" href="/posts/8951164b/" title="sopFestoCMMT配置">sopFestoCMMT配置</a><time datetime="2025-10-03T16:00:00.000Z" title="发表于 2025-10-04 00:00:00">2025-10-04</time></div></div><div class="aside-list-item"><a class="thumbnail" href="/posts/a3c8d2a2/" title="台达ASDA-B3A-P系列伺服与西门子PLC通讯调试流程"><img src="https://img.zzzg.top/20251004170210550.jpg" onerror="this.onerror=null;this.src='/img/404.jpg'" alt="台达ASDA-B3A-P系列伺服与西门子PLC通讯调试流程"/></a><div class="content"><a class="title" href="/posts/a3c8d2a2/" title="台达ASDA-B3A-P系列伺服与西门子PLC通讯调试流程">台达ASDA-B3A-P系列伺服与西门子PLC通讯调试流程</a><time datetime="2025-10-03T16:00:00.000Z" title="发表于 2025-10-04 00:00:00">2025-10-04</time></div></div><div class="aside-list-item"><a class="thumbnail" href="/posts/3b8d36fd/" title="GSEE-TECH GSD"><img src="https://img.zzzg.top/20250920163554413.jpg" onerror="this.onerror=null;this.src='/img/404.jpg'" alt="GSEE-TECH GSD"/></a><div class="content"><a class="title" href="/posts/3b8d36fd/" title="GSEE-TECH GSD">GSEE-TECH GSD</a><time datetime="2025-09-19T16:00:00.000Z" title="发表于 2025-09-20 00:00:00">2025-09-20</time></div></div></div></div></div></div></main><footer id="footer"><div class="footer-other"><div class="footer-copyright"><span class="copyright">&copy;2025 - 2026 By 与亓</span><span class="framework-info"><span>框架 </span><a target="_blank" rel="noopener" href="https://hexo.io">Hexo 7.3.0</a><span class="footer-separator">|</span><span>主题 </span><a target="_blank" rel="noopener" href="https://github.com/jerryc127/hexo-theme-butterfly">Butterfly 5.4.2</a></span></div></div></footer></div><div id="rightside"><div id="rightside-config-hide"><button id="readmode" type="button" title="阅读模式"><i class="fas fa-book-open"></i></button><button id="darkmode" type="button" title="日间和夜间模式切换"><i class="fas fa-adjust"></i></button><button id="hide-aside-btn" type="button" title="单栏和双栏切换"><i class="fas fa-arrows-alt-h"></i></button></div><div id="rightside-config-show"><button id="rightside-config" type="button" title="设置"><i class="fas fa-cog fa-spin"></i></button><button class="close" id="mobile-toc-button" type="button" title="目录"><i class="fas fa-list-ul"></i></button><a id="to_comment" href="#post-comment" title="前往评论"><i class="fas fa-comments"></i></a><button id="go-up" type="button" title="回到顶部"><span class="scroll-percent"></span><i class="fas fa-arrow-up"></i></button></div></div><div><script src="/js/utils.js"></script><script src="/js/main.js"></script><div class="js-pjax"><script>(() => {
+  const isShuoshuo = GLOBAL_CONFIG_SITE.pageType === 'shuoshuo'
+  const option = null
+
+  const getCount = () => {
+    const countELement = document.getElementById('twikoo-count')
+    if(!countELement) return
+    twikoo.getCommentsCount({
+      envId: 'https://tw.yuqi.im/.netlify/functions/twikoo',
+      region: '',
+      urls: [window.location.pathname],
+      includeReply: false
+    }).then(res => {
+      countELement.textContent = res[0].count
+    }).catch(err => {
+      console.error(err)
+    })
+  }
+
+  const init = (el = document, path = location.pathname) => {
+    twikoo.init({
+      el: el.querySelector('#twikoo-wrap'),
+      envId: 'https://tw.yuqi.im/.netlify/functions/twikoo',
+      region: '',
+      onCommentLoaded: () => {
+        btf.loadLightbox(document.querySelectorAll('#twikoo .tk-content img:not(.tk-owo-emotion)'))
+      },
+      ...option,
+      path: isShuoshuo ? path : (option && option.path) || path
+    })
+
+    GLOBAL_CONFIG_SITE.pageType === 'post' && getCount()
+
+    isShuoshuo && (window.shuoshuoComment.destroyTwikoo = () => {
+      if (el.children.length) {
+        el.innerHTML = ''
+        el.classList.add('no-comment')
+      }
+    })
+  }
+
+  const loadTwikoo = (el, path) => {
+    if (typeof twikoo === 'object') setTimeout(() => init(el, path), 0)
+    else btf.getScript('https://cdn.jsdelivr.net/npm/twikoo/dist/twikoo.all.min.js').then(() => init(el, path))
+  }
+
+  if (isShuoshuo) {
+    'Twikoo' === 'Twikoo'
+      ? window.shuoshuoComment = { loadComment: loadTwikoo }
+      : window.loadOtherComment = loadTwikoo
+    return
+  }
+
+  if ('Twikoo' === 'Twikoo' || !true) {
+    if (true) btf.loadComment(document.getElementById('twikoo-wrap'), loadTwikoo)
+    else loadTwikoo()
+  } else {
+    window.loadOtherComment = loadTwikoo
+  }
+})()</script></div><div id="local-search"><div class="search-dialog"><nav class="search-nav"><span class="search-dialog-title">搜索</span><span id="loading-status"></span><button class="search-close-button"><i class="fas fa-times"></i></button></nav><div class="text-center" id="loading-database"><i class="fas fa-spinner fa-pulse"></i><span>  数据加载中</span></div><div class="search-wrap"><div id="local-search-input"><div class="local-search-box"><input class="local-search-box--input" placeholder="搜索文章" type="text"/></div></div><hr/><div id="local-search-results"></div><div id="local-search-stats-wrap"></div></div></div><div id="search-mask"></div><script src="/js/search/local-search.js"></script></div></div></body></html>

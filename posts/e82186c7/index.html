@@ -1,0 +1,327 @@
+<!DOCTYPE html><html lang="zh-CN" data-theme="light"><head><meta charset="UTF-8"><meta http-equiv="X-UA-Compatible" content="IE=edge"><meta name="viewport" content="width=device-width, initial-scale=1.0,viewport-fit=cover"><title>使用 Duplicati 定时备份服务器资料 | 与亓のBlog</title><meta name="author" content="与亓"><meta name="copyright" content="与亓"><meta name="format-detection" content="telephone=no"><meta name="theme-color" content="#ffffff"><meta name="description" content="使用 Duplicati 定时备份服务器资料。">
+<meta property="og:type" content="article">
+<meta property="og:title" content="使用 Duplicati 定时备份服务器资料">
+<meta property="og:url" content="https://yuqi.im/posts/e82186c7/index.html">
+<meta property="og:site_name" content="与亓のBlog">
+<meta property="og:description" content="使用 Duplicati 定时备份服务器资料。">
+<meta property="og:locale" content="zh_CN">
+<meta property="og:image" content="https://img.zzzg.top/20260411110714511.jpg">
+<meta property="article:published_time" content="2026-04-10T16:00:00.000Z">
+<meta property="article:modified_time" content="2026-04-10T16:00:00.000Z">
+<meta property="article:author" content="与亓">
+<meta property="article:tag" content="运维工具">
+<meta name="twitter:card" content="summary">
+<meta name="twitter:image" content="https://img.zzzg.top/20260411110714511.jpg"><script type="application/ld+json">{
+  "@context": "https://schema.org",
+  "@type": "BlogPosting",
+  "headline": "使用 Duplicati 定时备份服务器资料",
+  "url": "https://yuqi.im/posts/e82186c7/",
+  "image": "https://img.zzzg.top/20260411110714511.jpg",
+  "datePublished": "2026-04-10T16:00:00.000Z",
+  "dateModified": "2026-04-10T16:00:00.000Z",
+  "author": [
+    {
+      "@type": "Person",
+      "name": "与亓",
+      "url": "https://yuqi.im"
+    }
+  ]
+}</script><link rel="shortcut icon" href="https://img.zzzg.top/202302272018985.jpg"><link rel="canonical" href="https://yuqi.im/posts/e82186c7/index.html"><link rel="preconnect" href="//cdn.jsdelivr.net"/><link rel="stylesheet" href="/css/index.css"><link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/@fortawesome/fontawesome-free/css/all.min.css"><script>
+    (() => {
+      
+    const saveToLocal = {
+      set: (key, value, ttl) => {
+        if (!ttl) return
+        const expiry = Date.now() + ttl * 86400000
+        localStorage.setItem(key, JSON.stringify({ value, expiry }))
+      },
+      get: key => {
+        const itemStr = localStorage.getItem(key)
+        if (!itemStr) return undefined
+        const { value, expiry } = JSON.parse(itemStr)
+        if (Date.now() > expiry) {
+          localStorage.removeItem(key)
+          return undefined
+        }
+        return value
+      }
+    }
+
+    window.btf = {
+      saveToLocal,
+      getScript: (url, attr = {}) => new Promise((resolve, reject) => {
+        const script = document.createElement('script')
+        script.src = url
+        script.async = true
+        Object.entries(attr).forEach(([key, val]) => script.setAttribute(key, val))
+        script.onload = script.onreadystatechange = () => {
+          if (!script.readyState || /loaded|complete/.test(script.readyState)) resolve()
+        }
+        script.onerror = reject
+        document.head.appendChild(script)
+      }),
+      getCSS: (url, id) => new Promise((resolve, reject) => {
+        const link = document.createElement('link')
+        link.rel = 'stylesheet'
+        link.href = url
+        if (id) link.id = id
+        link.onload = link.onreadystatechange = () => {
+          if (!link.readyState || /loaded|complete/.test(link.readyState)) resolve()
+        }
+        link.onerror = reject
+        document.head.appendChild(link)
+      }),
+      addGlobalFn: (key, fn, name = false, parent = window) => {
+        if (!false && key.startsWith('pjax')) return
+        const globalFn = parent.globalFn || {}
+        globalFn[key] = globalFn[key] || {}
+        globalFn[key][name || Object.keys(globalFn[key]).length] = fn
+        parent.globalFn = globalFn
+      }
+    }
+  
+      
+      const activateDarkMode = () => {
+        document.documentElement.setAttribute('data-theme', 'dark')
+        if (document.querySelector('meta[name="theme-color"]') !== null) {
+          document.querySelector('meta[name="theme-color"]').setAttribute('content', '#0d0d0d')
+        }
+      }
+      const activateLightMode = () => {
+        document.documentElement.setAttribute('data-theme', 'light')
+        if (document.querySelector('meta[name="theme-color"]') !== null) {
+          document.querySelector('meta[name="theme-color"]').setAttribute('content', '#ffffff')
+        }
+      }
+
+      btf.activateDarkMode = activateDarkMode
+      btf.activateLightMode = activateLightMode
+
+      const theme = saveToLocal.get('theme')
+    
+          theme === 'dark' ? activateDarkMode() : theme === 'light' ? activateLightMode() : null
+        
+      
+      const asideStatus = saveToLocal.get('aside-status')
+      if (asideStatus !== undefined) {
+        document.documentElement.classList.toggle('hide-aside', asideStatus === 'hide')
+      }
+    
+      
+    const detectApple = () => {
+      if (/iPad|iPhone|iPod|Macintosh/.test(navigator.userAgent)) {
+        document.documentElement.classList.add('apple')
+      }
+    }
+    detectApple()
+  
+    })()
+  </script><script>const GLOBAL_CONFIG = {
+  root: '/',
+  algolia: undefined,
+  localSearch: {"path":"/search.xml","preload":false,"top_n_per_article":1,"unescape":false,"languages":{"hits_empty":"未找到符合您查询的内容：${query}","hits_stats":"共找到 ${hits} 篇文章"}},
+  translate: undefined,
+  highlight: {"plugin":"highlight.js","highlightCopy":true,"highlightLang":true,"highlightHeightLimit":false,"highlightFullpage":false,"highlightMacStyle":false},
+  copy: {
+    success: '复制成功',
+    error: '复制失败',
+    noSupport: '浏览器不支持'
+  },
+  relativeDate: {
+    homepage: false,
+    post: false
+  },
+  runtime: '',
+  dateSuffix: {
+    just: '刚刚',
+    min: '分钟前',
+    hour: '小时前',
+    day: '天前',
+    month: '个月前'
+  },
+  copyright: undefined,
+  lightbox: 'null',
+  Snackbar: undefined,
+  infinitegrid: {
+    js: 'https://cdn.jsdelivr.net/npm/@egjs/infinitegrid/dist/infinitegrid.min.js',
+    buttonText: '加载更多'
+  },
+  isPhotoFigcaption: false,
+  islazyloadPlugin: false,
+  isAnchor: false,
+  percent: {
+    toc: true,
+    rightside: false,
+  },
+  autoDarkmode: false
+}</script><script id="config-diff">var GLOBAL_CONFIG_SITE = {
+  title: '使用 Duplicati 定时备份服务器资料',
+  isHighlightShrink: false,
+  isToc: true,
+  pageType: 'post'
+}</script><script defer src="https://cloud.umami.is/script.js" data-website-id="7c06aeea-722b-4ad7-9255-4cc2b50044be"></script><meta name="generator" content="Hexo 7.3.0"><link rel="alternate" href="/atom.xml" title="与亓のBlog" type="application/atom+xml">
+</head><body><div id="sidebar"><div id="menu-mask"></div><div id="sidebar-menus"><div class="avatar-img text-center"><img src="https://img.zzzg.top/202302272017976.jpg" onerror="this.onerror=null;this.src='/img/friend_404.gif'" alt="avatar"/></div><div class="site-data text-center"><a href="/archives/"><div class="headline">文章</div><div class="length-num">66</div></a><a href="/tags/"><div class="headline">标签</div><div class="length-num">31</div></a><a href="/categories/"><div class="headline">分类</div><div class="length-num">19</div></a></div><div class="menus_items"><div class="menus_item"><a class="site-page" href="/"><i class="fa-fw fa fa-home"></i><span> 主页</span></a></div><div class="menus_item"><span class="site-page group"><i class="fa-fw fa fa-graduation-cap"></i><span> 博文</span><i class="fas fa-chevron-down"></i></span><ul class="menus_item_child"><li><a class="site-page child" href="/archives/"><i class="fa-fw fa fa-folder-open"></i><span> 归档</span></a></li><li><a class="site-page child" href="/categories/"><i class="fa-fw fa fa-archive"></i><span> 分类</span></a></li><li><a class="site-page child" href="/tags/"><i class="fa-fw fa fa-tags"></i><span> 标签</span></a></li></ul></div><div class="menus_item"><span class="site-page group"><i class="fa-fw fa fa-external-link"></i><span> 外链</span><i class="fas fa-chevron-down"></i></span><ul class="menus_item_child"><li><a class="site-page child" target="_blank" rel="noopener" href="https://zzzg.top"><i class="fa-fw fa fa-compass"></i><span> 与亓导航</span></a></li><li><a class="site-page child" target="_blank" rel="noopener" href="https://cloud.umami.is/share/2ewyVCnIAXHh4rRQ/yuqi.im"><i class="fa-fw fa fa-bar-chart"></i><span> 访问量统计</span></a></li></ul></div><div class="menus_item"><a class="site-page" href="/link/"><i class="fa-fw fa fa-link"></i><span> 友链</span></a></div><div class="menus_item"><a class="site-page" href="/comment/"><i class="fa-fw fa fa-paper-plane"></i><span> 留言板</span></a></div><div class="menus_item"><a class="site-page" href="/about/"><i class="fa-fw fa fa-heart"></i><span> 关于</span></a></div></div></div></div><div class="post" id="body-wrap"><header class="post-bg" id="page-header" style="background-image: url(https://img.zzzg.top/20260411110714511.jpg);"><nav id="nav"><span id="blog-info"><a class="nav-site-title" href="/"><span class="site-name">与亓のBlog</span></a><a class="nav-page-title" href="/"><span class="site-name">使用 Duplicati 定时备份服务器资料</span><span class="site-name"><i class="fa-solid fa-circle-arrow-left"></i><span>  返回首页</span></span></a></span><div id="menus"><div id="search-button"><span class="site-page social-icon search"><i class="fas fa-search fa-fw"></i><span> 搜索</span></span></div><div class="menus_items"><div class="menus_item"><a class="site-page" href="/"><i class="fa-fw fa fa-home"></i><span> 主页</span></a></div><div class="menus_item"><span class="site-page group"><i class="fa-fw fa fa-graduation-cap"></i><span> 博文</span><i class="fas fa-chevron-down"></i></span><ul class="menus_item_child"><li><a class="site-page child" href="/archives/"><i class="fa-fw fa fa-folder-open"></i><span> 归档</span></a></li><li><a class="site-page child" href="/categories/"><i class="fa-fw fa fa-archive"></i><span> 分类</span></a></li><li><a class="site-page child" href="/tags/"><i class="fa-fw fa fa-tags"></i><span> 标签</span></a></li></ul></div><div class="menus_item"><span class="site-page group"><i class="fa-fw fa fa-external-link"></i><span> 外链</span><i class="fas fa-chevron-down"></i></span><ul class="menus_item_child"><li><a class="site-page child" target="_blank" rel="noopener" href="https://zzzg.top"><i class="fa-fw fa fa-compass"></i><span> 与亓导航</span></a></li><li><a class="site-page child" target="_blank" rel="noopener" href="https://cloud.umami.is/share/2ewyVCnIAXHh4rRQ/yuqi.im"><i class="fa-fw fa fa-bar-chart"></i><span> 访问量统计</span></a></li></ul></div><div class="menus_item"><a class="site-page" href="/link/"><i class="fa-fw fa fa-link"></i><span> 友链</span></a></div><div class="menus_item"><a class="site-page" href="/comment/"><i class="fa-fw fa fa-paper-plane"></i><span> 留言板</span></a></div><div class="menus_item"><a class="site-page" href="/about/"><i class="fa-fw fa fa-heart"></i><span> 关于</span></a></div></div><div id="toggle-menu"><span class="site-page"><i class="fas fa-bars fa-fw"></i></span></div></div></nav><div id="post-info"><h1 class="post-title">使用 Duplicati 定时备份服务器资料</h1><div id="post-meta"><div class="meta-firstline"><span class="post-meta-date"><i class="far fa-calendar-alt fa-fw post-meta-icon"></i><span class="post-meta-label">发表于</span><time class="post-meta-date-created" datetime="2026-04-10T16:00:00.000Z" title="发表于 2026-04-11 00:00:00">2026-04-11</time><span class="post-meta-separator">|</span><i class="fas fa-history fa-fw post-meta-icon"></i><span class="post-meta-label">更新于</span><time class="post-meta-date-updated" datetime="2026-04-10T16:00:00.000Z" title="更新于 2026-04-11 00:00:00">2026-04-11</time></span><span class="post-meta-categories"><span class="post-meta-separator">|</span><i class="fas fa-inbox fa-fw post-meta-icon"></i><a class="post-meta-categories" href="/categories/%E8%BF%90%E7%BB%B4%E6%8A%80%E6%9C%AF/">运维技术</a></span></div><div class="meta-secondline"></div></div></div></header><main class="layout" id="content-inner"><div id="post"><article class="container post-content" id="article-container"><div id="post-outdate-notice" data="{&quot;limitDay&quot;:180,&quot;messagePrev&quot;:&quot;It has been&quot;,&quot;messageNext&quot;:&quot;days since the last update, the content of the article may be outdated.&quot;,&quot;postUpdate&quot;:&quot;2026-04-11 00:00:00&quot;}" hidden></div><h2 id="一、目录规划"><a href="#一、目录规划" class="headerlink" title="一、目录规划"></a>一、目录规划</h2><p>本文使用以下目录：</p>
+<figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line">/opt/duplicati                         # Duplicati 自身配置以及 compose 文件</span><br><span class="line">/opt/duplicati/backup-staging          # 备份暂存目录</span><br></pre></td></tr></table></figure>
+
+<p>先创建目录：</p>
+<figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line">mkdir -p /opt/duplicati</span><br><span class="line">mkdir -p /opt/duplicati/backup-staging</span><br></pre></td></tr></table></figure>
+
+<p>如果服务器中有数据库服务，可以额外约定一个子目录用于保存数据库导出文件，例如：</p>
+<figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">/opt/duplicati/backup-staging/database</span><br></pre></td></tr></table></figure>
+
+<hr>
+<h2 id="二、生成-Duplicati-密钥"><a href="#二、生成-Duplicati-密钥" class="headerlink" title="二、生成 Duplicati 密钥"></a>二、生成 Duplicati 密钥</h2><p>Duplicati 支持通过环境变量提供 <code>SETTINGS_ENCRYPTION_KEY</code> 和管理端密码。<code>SETTINGS_ENCRYPTION_KEY</code> 用于保护服务器数据库中的敏感设置；如果后续配置中已经存在被加密字段，启动时缺少这个 key，Duplicati 会拒绝启动。(<a target="_blank" rel="noopener" href="https://docs.duplicati.com/platform-specific-guides/using-duplicati-from-docker?utm_source=chatgpt.com">docs.duplicati.com</a>)</p>
+<p>生成随机字符串：</p>
+<figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">openssl rand -<span class="built_in">base64</span> 48 | <span class="built_in">tr</span> -d <span class="string">&#x27;\n&#x27;</span>; <span class="built_in">echo</span></span><br></pre></td></tr></table></figure>
+
+<p>创建环境变量文件：</p>
+<figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br></pre></td><td class="code"><pre><span class="line"><span class="built_in">cat</span> &gt; /opt/docker/duplicati/.env &lt;&lt;<span class="string">&#x27;EOF&#x27;</span></span><br><span class="line">SETTINGS_ENCRYPTION_KEY=替换成随机生成的长字符串</span><br><span class="line">DUPLICATI__WEBSERVICE_PASSWORD=替换成管理后台密码</span><br><span class="line">EOF</span><br><span class="line"></span><br><span class="line"><span class="built_in">chmod</span> 600 /opt/docker/duplicati/.env</span><br></pre></td></tr></table></figure>
+
+<p>已配置的密钥</p>
+<figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">X9ArFnYDQiPFRhOwjonxzd2wKv2wBG+8ZcyYgxZM0nHorkvw/g2gyh9rQH5MsEDs</span><br></pre></td></tr></table></figure>
+
+<p>已配置的密码</p>
+<figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">Zg123456</span><br></pre></td></tr></table></figure>
+
+<hr>
+<h2 id="三、部署-Duplicati"><a href="#三、部署-Duplicati" class="headerlink" title="三、部署 Duplicati"></a>三、部署 Duplicati</h2><p>LinuxServer 的 Duplicati 镜像常用挂载位如下：</p>
+<ul>
+<li><code>/config</code>：配置和状态数据</li>
+<li><code>/backups</code>：本地备份目录</li>
+<li><code>/source</code>：待备份源目录</li>
+</ul>
+<p>创建 <code>/opt/duplicati/docker-compose.yml</code>：</p>
+<figure class="highlight yaml"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br></pre></td><td class="code"><pre><span class="line"><span class="attr">name:</span> <span class="string">duplicati</span></span><br><span class="line"></span><br><span class="line"><span class="attr">services:</span></span><br><span class="line">  <span class="attr">duplicati:</span></span><br><span class="line">    <span class="attr">image:</span> <span class="string">lscr.io/linuxserver/duplicati:latest</span></span><br><span class="line">    <span class="attr">container_name:</span> <span class="string">duplicati</span></span><br><span class="line">    <span class="attr">restart:</span> <span class="string">unless-stopped</span></span><br><span class="line">    <span class="attr">env_file:</span></span><br><span class="line">      <span class="bullet">-</span> <span class="string">./.env</span></span><br><span class="line">    <span class="attr">environment:</span></span><br><span class="line">      <span class="bullet">-</span> <span class="string">PUID=0</span></span><br><span class="line">      <span class="bullet">-</span> <span class="string">PGID=0</span></span><br><span class="line">      <span class="bullet">-</span> <span class="string">TZ=Asia/Shanghai</span></span><br><span class="line">    <span class="attr">ports:</span></span><br><span class="line">      <span class="bullet">-</span> <span class="string">&quot;8200:8200&quot;</span></span><br><span class="line">    <span class="attr">volumes:</span></span><br><span class="line">      <span class="bullet">-</span> <span class="string">/opt/duplicati:/config</span></span><br><span class="line">      <span class="bullet">-</span> <span class="string">/opt/duplicati/backup-staging:/backups</span></span><br><span class="line">      <span class="bullet">-</span> <span class="string">/opt:/source/opt:ro</span></span><br><span class="line">      <span class="bullet">-</span> <span class="string">/opt/duplicati/backup-staging:/source/backup-staging:ro</span></span><br></pre></td></tr></table></figure>
+
+<p>启动：</p>
+<figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><span class="line"><span class="built_in">cd</span> /opt/duplicati</span><br><span class="line">docker compose up -d</span><br><span class="line">docker logs --<span class="built_in">tail</span>=100 duplicati</span><br></pre></td></tr></table></figure>
+
+<p>如果日志里看到类似 <code>Server has started and is listening on *, port 8200</code>，说明服务已正常启动。</p>
+<hr>
+<h2 id="四、打开-Duplicati-管理界面"><a href="#四、打开-Duplicati-管理界面" class="headerlink" title="四、打开 Duplicati 管理界面"></a>四、打开 Duplicati 管理界面</h2><p>如果本机可直接访问服务器：</p>
+<figure class="highlight text"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">http://服务器IP:8200</span><br></pre></td></tr></table></figure>
+
+<p>如果端口只绑定到 <code>127.0.0.1</code>，可以通过 SSH 转发访问：</p>
+<figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">ssh -L 8200:127.0.0.1:8200 root@服务器IP</span><br></pre></td></tr></table></figure>
+
+<p>浏览器打开：</p>
+<figure class="highlight text"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">http://127.0.0.1:8200</span><br></pre></td></tr></table></figure>
+
+<hr>
+<h2 id="五、创建备份任务"><a href="#五、创建备份任务" class="headerlink" title="五、创建备份任务"></a>五、创建备份任务</h2><h3 id="1-基本信息"><a href="#1-基本信息" class="headerlink" title="1. 基本信息"></a>1. 基本信息</h3><p>新建一个备份任务，设置：</p>
+<ul>
+<li>名称：例如 <code>server-backup</code></li>
+<li>加密：开启</li>
+<li>备份口令：单独设置一条强密码，如选择加密，密码一定记好，忘记则无法恢复数据。</li>
+</ul>
+<hr>
+<h3 id="2-目标端选择-WebDAV"><a href="#2-目标端选择-WebDAV" class="headerlink" title="2. 目标端选择 WebDAV"></a>2. 目标端选择 WebDAV</h3><p>目标类型选择 <strong>WebDAV</strong>。</p>
+<p>示例：</p>
+<ul>
+<li>Server：<code>https://nas.example.com:5006</code></li>
+<li>Path on server：<code>/duplicati/server-backup</code></li>
+<li>Username：你的 WebDAV 用户名</li>
+<li>Password：你的 WebDAV 密码</li>
+</ul>
+<p>如果 NAS 使用 Digest 认证，可在高级选项中添加：</p>
+<figure class="highlight text"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">--force-digest-authentication=true</span><br></pre></td></tr></table></figure>
+
+<p>同时也支持绝大多数的网盘等渠道备份。  </p>
+<hr>
+<h3 id="3-选择源目录"><a href="#3-选择源目录" class="headerlink" title="3. 选择源目录"></a>3. 选择源目录</h3><p>在 Docker 部署下，Duplicati 只能看到<strong>容器内路径</strong>，不能直接使用宿主机路径。</p>
+<p>如果 compose 中挂载了：</p>
+<figure class="highlight yaml"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line"><span class="bullet">-</span> <span class="string">/opt:/source/opt:ro</span></span><br><span class="line"><span class="bullet">-</span> <span class="string">/opt/duplicati/backup-staging:/source/backup-staging:ro</span></span><br></pre></td></tr></table></figure>
+
+<p>那么在 Duplicati 里应选择：</p>
+<figure class="highlight text"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line">/source/opt</span><br><span class="line">/source/backup-staging</span><br></pre></td></tr></table></figure>
+
+<p>不要填写 <code>/opt</code> 这类宿主机路径。</p>
+<hr>
+<h3 id="4-排除规则"><a href="#4-排除规则" class="headerlink" title="4. 排除规则"></a>4. 排除规则</h3><p>建议至少排除以下路径：</p>
+<figure class="highlight text"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line">/source/opt/duplicati/**</span><br><span class="line">/source/opt/bark-server/data/**</span><br></pre></td></tr></table></figure>
+
+<p>说明：</p>
+<ul>
+<li><code>duplicati</code>：避免把 Duplicati 自己的运行状态再次打包进主备份</li>
+<li>数据库相关目录：不直接纳入 Duplicati 主任务</li>
+</ul>
+<p>如果数据库需要备份，建议提前用脚本导出到 <code>/opt/backup-staging/database</code> 之类的目录，再让 Duplicati 备份导出的结果文件。</p>
+<hr>
+<h3 id="5-定时计划"><a href="#5-定时计划" class="headerlink" title="5. 定时计划"></a>5. 定时计划</h3><p>按自己的需求设置执行时间即可。<br> 如果服务器里有数据库，通常可以让数据库导出脚本先运行，再由 Duplicati 执行正式备份任务。</p>
+<hr>
+<h3 id="6-保留策略"><a href="#6-保留策略" class="headerlink" title="6. 保留策略"></a>6. 保留策略</h3><p>常见做法：</p>
+<ul>
+<li>最近 7 天保留每天一份</li>
+<li>最近 4 周保留每周一份</li>
+<li>最近 12 个月保留每月一份</li>
+</ul>
+<p>如果直接使用界面里的 Smart retention，这类规则可以在 UI 中完成。(<a target="_blank" rel="noopener" href="https://docs.duplicati.com/configuration-and-management/retention-settings?utm_source=chatgpt.com">docs.duplicati.com</a>)</p>
+<hr>
+<h2 id="六、首次备份后的检查项"><a href="#六、首次备份后的检查项" class="headerlink" title="六、首次备份后的检查项"></a>六、首次备份后的检查项</h2><p>首次任务执行完成后，至少检查以下几项。</p>
+<h3 id="1-Duplicati-容器是否正常"><a href="#1-Duplicati-容器是否正常" class="headerlink" title="1. Duplicati 容器是否正常"></a>1. Duplicati 容器是否正常</h3><figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line">docker ps | grep duplicati</span><br><span class="line">docker logs --<span class="built_in">tail</span>=200 duplicati</span><br></pre></td></tr></table></figure>
+
+<h3 id="2-NAS-上是否出现备份数据"><a href="#2-NAS-上是否出现备份数据" class="headerlink" title="2. NAS 上是否出现备份数据"></a>2. NAS 上是否出现备份数据</h3><p>到 NAS 的 WebDAV 目录中检查是否已生成 Duplicati 的备份集文件。</p>
+<h3 id="3-Duplicati-界面里是否能看到备份版本"><a href="#3-Duplicati-界面里是否能看到备份版本" class="headerlink" title="3. Duplicati 界面里是否能看到备份版本"></a>3. Duplicati 界面里是否能看到备份版本</h3><p>进入任务详情页，确认已有可恢复的备份版本。</p>
+<hr>
+<h2 id="七、恢复方法"><a href="#七、恢复方法" class="headerlink" title="七、恢复方法"></a>七、恢复方法</h2><h3 id="1-恢复普通文件"><a href="#1-恢复普通文件" class="headerlink" title="1. 恢复普通文件"></a>1. 恢复普通文件</h3><p>在 Duplicati 中进入对应任务，点击 <strong>Restore</strong>，按时间点选择文件恢复到原位置或临时目录。</p>
+<h3 id="2-恢复数据库"><a href="#2-恢复数据库" class="headerlink" title="2. 恢复数据库"></a>2. 恢复数据库</h3><p>数据库不建议直接从在线数据目录恢复。更稳妥的方式是提前保存数据库导出文件，恢复时再按对应数据库的导入方式恢复。</p>
+</article><div class="post-copyright"><div class="post-copyright__author"><span class="post-copyright-meta"><i class="fas fa-circle-user fa-fw"></i>文章作者: </span><span class="post-copyright-info"><a href="https://yuqi.im">与亓</a></span></div><div class="post-copyright__type"><span class="post-copyright-meta"><i class="fas fa-square-arrow-up-right fa-fw"></i>文章链接: </span><span class="post-copyright-info"><a href="https://yuqi.im/posts/e82186c7/">https://yuqi.im/posts/e82186c7/</a></span></div><div class="post-copyright__notice"><span class="post-copyright-meta"><i class="fas fa-circle-exclamation fa-fw"></i>版权声明: </span><span class="post-copyright-info">本博客所有文章除特别声明外，均采用 <a href="https://creativecommons.org/licenses/by-nc-sa/4.0/" target="_blank">CC BY-NC-SA 4.0</a> 许可协议。转载请注明来源 <a href="https://yuqi.im" target="_blank">与亓のBlog</a>！</span></div></div><div class="tag_share"><div class="post-meta__tag-list"><a class="post-meta__tags" href="/tags/%E8%BF%90%E7%BB%B4%E5%B7%A5%E5%85%B7/">运维工具</a></div><div class="post-share"><div class="social-share" data-image="https://img.zzzg.top/20260411110714511.jpg" data-sites="facebook,twitter,wechat,weibo,qq"></div><link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/butterfly-extsrc/sharejs/dist/css/share.min.css" media="print" onload="this.media='all'"><script src="https://cdn.jsdelivr.net/npm/butterfly-extsrc/sharejs/dist/js/social-share.min.js" defer></script></div></div><nav class="pagination-post" id="pagination"><a class="pagination-related full-width" href="/posts/93246652/" title="Oracle数据库和PDPS安装及配置"><img class="cover" src="https://img.zzzg.top/20260411110607417.jpg" onerror="onerror=null;src='/img/404.jpg'" alt="cover of next post"><div class="info text-right"><div class="info-1"><div class="info-item-1">下一篇</div><div class="info-item-2">Oracle数据库和PDPS安装及配置</div></div><div class="info-2"><div class="info-item-1">Oracle数据库和PDPS安装及配置。</div></div></div></a></nav><div class="relatedPosts"><div class="headline"><i class="fas fa-thumbs-up fa-fw"></i><span>相关推荐</span></div><div class="relatedPosts-list"><a class="pagination-related" href="/posts/aad1ff9e/" title="1panel面板部署哪吒监控v1"><img class="cover" src="https://img.zzzg.top/202501031701296.jpg" alt="cover"><div class="info text-center"><div class="info-1"><div class="info-item-1"><i class="far fa-calendar-alt fa-fw"></i> 2025-01-03</div><div class="info-item-2">1panel面板部署哪吒监控v1</div></div><div class="info-2"><div class="info-item-1">通过1panel面板快速部署哪吒监控（nezha），实现轻量级服务器性能监控与告警管理。教程涵盖Docker安装、配置优化及仪表板集成，适合运维和开发者提升服务器运维效率。</div></div></div></a><a class="pagination-related" href="/posts/d604b8c7/" title="R探长 甲骨文云开机脚本"><img class="cover" src="https://img.zzzg.top/202312080927811.jpg" alt="cover"><div class="info text-center"><div class="info-1"><div class="info-item-1"><i class="far fa-calendar-alt fa-fw"></i> 2023-12-08</div><div class="info-item-2">R探长 甲骨文云开机脚本</div></div><div class="info-2"><div class="info-item-1">R探长整理的甲骨文云服务器自动开机脚本，解决ARM实例随机封禁问题，包含保活策略和资源监控功能。支持多区域部署和自动邮件告警。</div></div></div></a><a class="pagination-related" href="/posts/2419758f/" title="VPS一键脚本分享"><img class="cover" src="https://img.zzzg.top/202305051612260.jpg" alt="cover"><div class="info text-center"><div class="info-1"><div class="info-item-1"><i class="far fa-calendar-alt fa-fw"></i> 2023-05-05</div><div class="info-item-2">VPS一键脚本分享</div></div><div class="info-2"><div class="info-item-1">精选实用的VPS管理一键脚本集合，包含服务器测试、网络优化、安全加固及常用服务部署脚本，附详细使用说明和注意事项。</div></div></div></a><a class="pagination-related" href="/posts/3117353a/" title="tmux后台工具使用方法"><img class="cover" src="https://img.zzzg.top/202305051617248.jpg" alt="cover"><div class="info text-center"><div class="info-1"><div class="info-item-1"><i class="far fa-calendar-alt fa-fw"></i> 2023-05-05</div><div class="info-item-2">tmux后台工具使用方法</div></div><div class="info-2"><div class="info-item-1">tmux 终端复用工具从入门到精通的完整教程，包含会话管理、窗口操作、窗格分割、快捷键配置及后台任务保持等实用技巧。</div></div></div></a><a class="pagination-related" href="/posts/7db8067/" title="一键DD纯净系统脚本 CentOS&#x2F;Debian&#x2F;Ubuntu"><img class="cover" src="https://img.zzzg.top/202311061442393.jpg" alt="cover"><div class="info text-center"><div class="info-1"><div class="info-item-1"><i class="far fa-calendar-alt fa-fw"></i> 2023-11-06</div><div class="info-item-2">一键DD纯净系统脚本 CentOS&#x2F;Debian&#x2F;Ubuntu</div></div><div class="info-2"><div class="info-item-1">安全高效的一键DD脚本，支持CentOS/Debian/Ubuntu等主流Linux系统的网络重装，提供纯净的官方镜像安装方案。</div></div></div></a><a class="pagination-related" href="/posts/6469b43f/" title="常用VPS脚本"><img class="cover" src="https://img.zzzg.top/202412310920713.jpg" alt="cover"><div class="info text-center"><div class="info-1"><div class="info-item-1"><i class="far fa-calendar-alt fa-fw"></i> 2024-12-31</div><div class="info-item-2">常用VPS脚本</div></div><div class="info-2"><div class="info-item-1">收集整理最实用的VPS管理脚本，包括系统优化、性能测试、安全加固和常用服务一键安装，提升服务器管理效率。</div></div></div></a></div></div><hr class="custom-hr"/><div id="post-comment"><div class="comment-head"><div class="comment-headline"><i class="fas fa-comments fa-fw"></i><span> 评论</span></div></div><div class="comment-wrap"><div><div id="twikoo-wrap"></div></div></div></div></div><div class="aside-content" id="aside-content"><div class="card-widget card-info text-center"><div class="avatar-img"><img src="https://img.zzzg.top/202302272017976.jpg" onerror="this.onerror=null;this.src='/img/friend_404.gif'" alt="avatar"/></div><div class="author-info-name">与亓</div><div class="author-info-description">与亓的个人技术博客，分享编程开发、系统架构与生活思考</div><div class="site-data"><a href="/archives/"><div class="headline">文章</div><div class="length-num">66</div></a><a href="/tags/"><div class="headline">标签</div><div class="length-num">31</div></a><a href="/categories/"><div class="headline">分类</div><div class="length-num">19</div></a></div><a id="card-info-btn" target="_blank" rel="noopener" href="https://github.com/2253845067"><i class="fab fa-github"></i><span>Follow Me</span></a><div class="card-info-social-icons"><a class="social-icon" href="https://github.com/2253845067" target="_blank" title="Github"><i class="fab fa-github"></i></a><a class="social-icon" href="mailto:2253845067@qq.com" target="_blank" title="Email"><i class="fas fa-envelope"></i></a></div></div><div class="card-widget card-announcement"><div class="item-headline"><i class="fas fa-bullhorn fa-shake"></i><span>公告</span></div><div class="announcement_content">This is my Blog</div></div><div class="sticky_layout"><div class="card-widget" id="card-toc"><div class="item-headline"><i class="fas fa-stream"></i><span>目录</span><span class="toc-percentage"></span></div><div class="toc-content"><ol class="toc"><li class="toc-item toc-level-2"><a class="toc-link" href="#%E4%B8%80%E3%80%81%E7%9B%AE%E5%BD%95%E8%A7%84%E5%88%92"><span class="toc-number">1.</span> <span class="toc-text">一、目录规划</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#%E4%BA%8C%E3%80%81%E7%94%9F%E6%88%90-Duplicati-%E5%AF%86%E9%92%A5"><span class="toc-number">2.</span> <span class="toc-text">二、生成 Duplicati 密钥</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#%E4%B8%89%E3%80%81%E9%83%A8%E7%BD%B2-Duplicati"><span class="toc-number">3.</span> <span class="toc-text">三、部署 Duplicati</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#%E5%9B%9B%E3%80%81%E6%89%93%E5%BC%80-Duplicati-%E7%AE%A1%E7%90%86%E7%95%8C%E9%9D%A2"><span class="toc-number">4.</span> <span class="toc-text">四、打开 Duplicati 管理界面</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#%E4%BA%94%E3%80%81%E5%88%9B%E5%BB%BA%E5%A4%87%E4%BB%BD%E4%BB%BB%E5%8A%A1"><span class="toc-number">5.</span> <span class="toc-text">五、创建备份任务</span></a><ol class="toc-child"><li class="toc-item toc-level-3"><a class="toc-link" href="#1-%E5%9F%BA%E6%9C%AC%E4%BF%A1%E6%81%AF"><span class="toc-number">5.1.</span> <span class="toc-text">1. 基本信息</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#2-%E7%9B%AE%E6%A0%87%E7%AB%AF%E9%80%89%E6%8B%A9-WebDAV"><span class="toc-number">5.2.</span> <span class="toc-text">2. 目标端选择 WebDAV</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#3-%E9%80%89%E6%8B%A9%E6%BA%90%E7%9B%AE%E5%BD%95"><span class="toc-number">5.3.</span> <span class="toc-text">3. 选择源目录</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#4-%E6%8E%92%E9%99%A4%E8%A7%84%E5%88%99"><span class="toc-number">5.4.</span> <span class="toc-text">4. 排除规则</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#5-%E5%AE%9A%E6%97%B6%E8%AE%A1%E5%88%92"><span class="toc-number">5.5.</span> <span class="toc-text">5. 定时计划</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#6-%E4%BF%9D%E7%95%99%E7%AD%96%E7%95%A5"><span class="toc-number">5.6.</span> <span class="toc-text">6. 保留策略</span></a></li></ol></li><li class="toc-item toc-level-2"><a class="toc-link" href="#%E5%85%AD%E3%80%81%E9%A6%96%E6%AC%A1%E5%A4%87%E4%BB%BD%E5%90%8E%E7%9A%84%E6%A3%80%E6%9F%A5%E9%A1%B9"><span class="toc-number">6.</span> <span class="toc-text">六、首次备份后的检查项</span></a><ol class="toc-child"><li class="toc-item toc-level-3"><a class="toc-link" href="#1-Duplicati-%E5%AE%B9%E5%99%A8%E6%98%AF%E5%90%A6%E6%AD%A3%E5%B8%B8"><span class="toc-number">6.1.</span> <span class="toc-text">1. Duplicati 容器是否正常</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#2-NAS-%E4%B8%8A%E6%98%AF%E5%90%A6%E5%87%BA%E7%8E%B0%E5%A4%87%E4%BB%BD%E6%95%B0%E6%8D%AE"><span class="toc-number">6.2.</span> <span class="toc-text">2. NAS 上是否出现备份数据</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#3-Duplicati-%E7%95%8C%E9%9D%A2%E9%87%8C%E6%98%AF%E5%90%A6%E8%83%BD%E7%9C%8B%E5%88%B0%E5%A4%87%E4%BB%BD%E7%89%88%E6%9C%AC"><span class="toc-number">6.3.</span> <span class="toc-text">3. Duplicati 界面里是否能看到备份版本</span></a></li></ol></li><li class="toc-item toc-level-2"><a class="toc-link" href="#%E4%B8%83%E3%80%81%E6%81%A2%E5%A4%8D%E6%96%B9%E6%B3%95"><span class="toc-number">7.</span> <span class="toc-text">七、恢复方法</span></a><ol class="toc-child"><li class="toc-item toc-level-3"><a class="toc-link" href="#1-%E6%81%A2%E5%A4%8D%E6%99%AE%E9%80%9A%E6%96%87%E4%BB%B6"><span class="toc-number">7.1.</span> <span class="toc-text">1. 恢复普通文件</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#2-%E6%81%A2%E5%A4%8D%E6%95%B0%E6%8D%AE%E5%BA%93"><span class="toc-number">7.2.</span> <span class="toc-text">2. 恢复数据库</span></a></li></ol></li></ol></div></div><div class="card-widget card-recent-post"><div class="item-headline"><i class="fas fa-history"></i><span>最新文章</span></div><div class="aside-list"><div class="aside-list-item"><a class="thumbnail" href="/posts/93246652/" title="Oracle数据库和PDPS安装及配置"><img src="https://img.zzzg.top/20260411110607417.jpg" onerror="this.onerror=null;this.src='/img/404.jpg'" alt="Oracle数据库和PDPS安装及配置"/></a><div class="content"><a class="title" href="/posts/93246652/" title="Oracle数据库和PDPS安装及配置">Oracle数据库和PDPS安装及配置</a><time datetime="2026-04-10T16:00:00.000Z" title="发表于 2026-04-11 00:00:00">2026-04-11</time></div></div><div class="aside-list-item"><a class="thumbnail" href="/posts/e82186c7/" title="使用 Duplicati 定时备份服务器资料"><img src="https://img.zzzg.top/20260411110714511.jpg" onerror="this.onerror=null;this.src='/img/404.jpg'" alt="使用 Duplicati 定时备份服务器资料"/></a><div class="content"><a class="title" href="/posts/e82186c7/" title="使用 Duplicati 定时备份服务器资料">使用 Duplicati 定时备份服务器资料</a><time datetime="2026-04-10T16:00:00.000Z" title="发表于 2026-04-11 00:00:00">2026-04-11</time></div></div><div class="aside-list-item"><a class="thumbnail" href="/posts/8951164b/" title="sopFestoCMMT配置"><img src="https://img.zzzg.top/20251004163906599.jpg" onerror="this.onerror=null;this.src='/img/404.jpg'" alt="sopFestoCMMT配置"/></a><div class="content"><a class="title" href="/posts/8951164b/" title="sopFestoCMMT配置">sopFestoCMMT配置</a><time datetime="2025-10-03T16:00:00.000Z" title="发表于 2025-10-04 00:00:00">2025-10-04</time></div></div><div class="aside-list-item"><a class="thumbnail" href="/posts/a3c8d2a2/" title="台达ASDA-B3A-P系列伺服与西门子PLC通讯调试流程"><img src="https://img.zzzg.top/20251004170210550.jpg" onerror="this.onerror=null;this.src='/img/404.jpg'" alt="台达ASDA-B3A-P系列伺服与西门子PLC通讯调试流程"/></a><div class="content"><a class="title" href="/posts/a3c8d2a2/" title="台达ASDA-B3A-P系列伺服与西门子PLC通讯调试流程">台达ASDA-B3A-P系列伺服与西门子PLC通讯调试流程</a><time datetime="2025-10-03T16:00:00.000Z" title="发表于 2025-10-04 00:00:00">2025-10-04</time></div></div><div class="aside-list-item"><a class="thumbnail" href="/posts/3b8d36fd/" title="GSEE-TECH GSD"><img src="https://img.zzzg.top/20250920163554413.jpg" onerror="this.onerror=null;this.src='/img/404.jpg'" alt="GSEE-TECH GSD"/></a><div class="content"><a class="title" href="/posts/3b8d36fd/" title="GSEE-TECH GSD">GSEE-TECH GSD</a><time datetime="2025-09-19T16:00:00.000Z" title="发表于 2025-09-20 00:00:00">2025-09-20</time></div></div></div></div></div></div></main><footer id="footer"><div class="footer-other"><div class="footer-copyright"><span class="copyright">&copy;2025 - 2026 By 与亓</span><span class="framework-info"><span>框架 </span><a target="_blank" rel="noopener" href="https://hexo.io">Hexo 7.3.0</a><span class="footer-separator">|</span><span>主题 </span><a target="_blank" rel="noopener" href="https://github.com/jerryc127/hexo-theme-butterfly">Butterfly 5.4.2</a></span></div></div></footer></div><div id="rightside"><div id="rightside-config-hide"><button id="readmode" type="button" title="阅读模式"><i class="fas fa-book-open"></i></button><button id="darkmode" type="button" title="日间和夜间模式切换"><i class="fas fa-adjust"></i></button><button id="hide-aside-btn" type="button" title="单栏和双栏切换"><i class="fas fa-arrows-alt-h"></i></button></div><div id="rightside-config-show"><button id="rightside-config" type="button" title="设置"><i class="fas fa-cog fa-spin"></i></button><button class="close" id="mobile-toc-button" type="button" title="目录"><i class="fas fa-list-ul"></i></button><a id="to_comment" href="#post-comment" title="前往评论"><i class="fas fa-comments"></i></a><button id="go-up" type="button" title="回到顶部"><span class="scroll-percent"></span><i class="fas fa-arrow-up"></i></button></div></div><div><script src="/js/utils.js"></script><script src="/js/main.js"></script><div class="js-pjax"><script>(() => {
+  const isShuoshuo = GLOBAL_CONFIG_SITE.pageType === 'shuoshuo'
+  const option = null
+
+  const getCount = () => {
+    const countELement = document.getElementById('twikoo-count')
+    if(!countELement) return
+    twikoo.getCommentsCount({
+      envId: 'https://tw.yuqi.im/.netlify/functions/twikoo',
+      region: '',
+      urls: [window.location.pathname],
+      includeReply: false
+    }).then(res => {
+      countELement.textContent = res[0].count
+    }).catch(err => {
+      console.error(err)
+    })
+  }
+
+  const init = (el = document, path = location.pathname) => {
+    twikoo.init({
+      el: el.querySelector('#twikoo-wrap'),
+      envId: 'https://tw.yuqi.im/.netlify/functions/twikoo',
+      region: '',
+      onCommentLoaded: () => {
+        btf.loadLightbox(document.querySelectorAll('#twikoo .tk-content img:not(.tk-owo-emotion)'))
+      },
+      ...option,
+      path: isShuoshuo ? path : (option && option.path) || path
+    })
+
+    GLOBAL_CONFIG_SITE.pageType === 'post' && getCount()
+
+    isShuoshuo && (window.shuoshuoComment.destroyTwikoo = () => {
+      if (el.children.length) {
+        el.innerHTML = ''
+        el.classList.add('no-comment')
+      }
+    })
+  }
+
+  const loadTwikoo = (el, path) => {
+    if (typeof twikoo === 'object') setTimeout(() => init(el, path), 0)
+    else btf.getScript('https://cdn.jsdelivr.net/npm/twikoo/dist/twikoo.all.min.js').then(() => init(el, path))
+  }
+
+  if (isShuoshuo) {
+    'Twikoo' === 'Twikoo'
+      ? window.shuoshuoComment = { loadComment: loadTwikoo }
+      : window.loadOtherComment = loadTwikoo
+    return
+  }
+
+  if ('Twikoo' === 'Twikoo' || !true) {
+    if (true) btf.loadComment(document.getElementById('twikoo-wrap'), loadTwikoo)
+    else loadTwikoo()
+  } else {
+    window.loadOtherComment = loadTwikoo
+  }
+})()</script></div><div id="local-search"><div class="search-dialog"><nav class="search-nav"><span class="search-dialog-title">搜索</span><span id="loading-status"></span><button class="search-close-button"><i class="fas fa-times"></i></button></nav><div class="text-center" id="loading-database"><i class="fas fa-spinner fa-pulse"></i><span>  数据加载中</span></div><div class="search-wrap"><div id="local-search-input"><div class="local-search-box"><input class="local-search-box--input" placeholder="搜索文章" type="text"/></div></div><hr/><div id="local-search-results"></div><div id="local-search-stats-wrap"></div></div></div><div id="search-mask"></div><script src="/js/search/local-search.js"></script></div></div></body></html>
