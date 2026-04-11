@@ -637,26 +637,6 @@
       </tags>
   </entry>
   <entry>
-    <title>Butterfly主题添加本地搜索功能</title>
-    <url>/posts/f2a576c2/</url>
-    <content><![CDATA[<p>安装插件：</p>
-<figure class="highlight bash"><table><tr><td class="code"><pre><span class="line">npm install hexo-generator-search --save</span><br></pre></td></tr></table></figure>
-
-<p>修改_config.yml文件，添加以下内容</p>
-<figure class="highlight yml"><table><tr><td class="code"><pre><span class="line"><span class="comment"># 添加本地搜索</span></span><br><span class="line"><span class="attr">search:</span></span><br><span class="line">  <span class="attr">path:</span> <span class="string">search.xml</span></span><br><span class="line">  <span class="attr">field:</span> <span class="string">post</span></span><br><span class="line">  <span class="attr">content:</span> <span class="literal">true</span></span><br><span class="line">  <span class="attr">format:</span> <span class="string">html</span></span><br></pre></td></tr></table></figure>
-
-<p>修改_config.butterfly.yml文件，添加以下内容</p>
-<figure class="highlight yml"><table><tr><td class="code"><pre><span class="line"><span class="comment"># Local search</span></span><br><span class="line"><span class="attr">local_search:</span></span><br><span class="line">  <span class="attr">enable:</span> <span class="literal">true</span></span><br><span class="line">  <span class="comment"># Preload the search data when the page loads.</span></span><br><span class="line">  <span class="attr">preload:</span> <span class="literal">false</span></span><br><span class="line">  <span class="comment"># Show top n results per article, show all results by setting to -1</span></span><br><span class="line">  <span class="attr">top_n_per_article:</span> <span class="number">1</span></span><br><span class="line">  <span class="comment"># Unescape html strings to the readable one.</span></span><br><span class="line">  <span class="attr">unescape:</span> <span class="literal">false</span></span><br><span class="line">  <span class="attr">CDN:</span></span><br></pre></td></tr></table></figure>
-
-]]></content>
-      <categories>
-        <category>博客运维</category>
-      </categories>
-      <tags>
-        <tag>Hexo</tag>
-      </tags>
-  </entry>
-  <entry>
     <title>Clash Verge规则配置</title>
     <url>/posts/97aa67fb/</url>
     <content><![CDATA[<h1 id="下载Clash-Meta内核客户端"><a href="#下载Clash-Meta内核客户端" class="headerlink" title="下载Clash.Meta内核客户端"></a>下载Clash.Meta内核客户端</h1><ul>
@@ -726,6 +706,26 @@
       </categories>
       <tags>
         <tag>网络代理</tag>
+      </tags>
+  </entry>
+  <entry>
+    <title>Butterfly主题添加本地搜索功能</title>
+    <url>/posts/f2a576c2/</url>
+    <content><![CDATA[<p>安装插件：</p>
+<figure class="highlight bash"><table><tr><td class="code"><pre><span class="line">npm install hexo-generator-search --save</span><br></pre></td></tr></table></figure>
+
+<p>修改_config.yml文件，添加以下内容</p>
+<figure class="highlight yml"><table><tr><td class="code"><pre><span class="line"><span class="comment"># 添加本地搜索</span></span><br><span class="line"><span class="attr">search:</span></span><br><span class="line">  <span class="attr">path:</span> <span class="string">search.xml</span></span><br><span class="line">  <span class="attr">field:</span> <span class="string">post</span></span><br><span class="line">  <span class="attr">content:</span> <span class="literal">true</span></span><br><span class="line">  <span class="attr">format:</span> <span class="string">html</span></span><br></pre></td></tr></table></figure>
+
+<p>修改_config.butterfly.yml文件，添加以下内容</p>
+<figure class="highlight yml"><table><tr><td class="code"><pre><span class="line"><span class="comment"># Local search</span></span><br><span class="line"><span class="attr">local_search:</span></span><br><span class="line">  <span class="attr">enable:</span> <span class="literal">true</span></span><br><span class="line">  <span class="comment"># Preload the search data when the page loads.</span></span><br><span class="line">  <span class="attr">preload:</span> <span class="literal">false</span></span><br><span class="line">  <span class="comment"># Show top n results per article, show all results by setting to -1</span></span><br><span class="line">  <span class="attr">top_n_per_article:</span> <span class="number">1</span></span><br><span class="line">  <span class="comment"># Unescape html strings to the readable one.</span></span><br><span class="line">  <span class="attr">unescape:</span> <span class="literal">false</span></span><br><span class="line">  <span class="attr">CDN:</span></span><br></pre></td></tr></table></figure>
+
+]]></content>
+      <categories>
+        <category>博客运维</category>
+      </categories>
+      <tags>
+        <tag>Hexo</tag>
       </tags>
   </entry>
   <entry>
@@ -1209,28 +1209,6 @@
       </tags>
   </entry>
   <entry>
-    <title>hexo中插入PDF</title>
-    <url>/posts/4cd4322f/</url>
-    <content><![CDATA[<h2 id="安装-hexo-pdf"><a href="#安装-hexo-pdf" class="headerlink" title="安装 hexo-pdf"></a>安装 hexo-pdf</h2><figure class="highlight text"><table><tr><td class="code"><pre><span class="line">npm install --save hexo-pdf</span><br></pre></td></tr></table></figure>
-
-<h2 id="本地-PDF-引用"><a href="#本地-PDF-引用" class="headerlink" title="本地 PDF 引用"></a>本地 PDF 引用</h2><p>最简单的引用方法：把相应 pdf 文件存到<strong>source 文件夹</strong>下，引用格式为：</p>
-<figure class="highlight text"><table><tr><td class="code"><pre><span class="line">&#123;% pdf /引用文档名字.pdf %&#125;</span><br></pre></td></tr></table></figure>
-
-<p>当然，你也可以新建一个文件夹方便管理 PDF 文档（）在这里我主要参考了<a href="https://link.zhihu.com/?target=https://www.jianshu.com/p/cccc7058a08c">https://www.jianshu.com/p/cccc7058a08c</a>，但是它并没有解决问题 orz 经过苦逼的尝试发现缺少&#x2F;</p>
-<p><strong>也就是说，方法为：</strong></p>
-<p>xxxxxxxxxx .md 文件中的 HTML 代码要用  和  包起来，使其能正确编译里面的代码。markdown</p>
-<figure class="highlight text"><table><tr><td class="code"><pre><span class="line">&#123;% pdf /pdf/xxx.pdf %&#125;</span><br></pre></td></tr></table></figure>
-
-<p>尝试后可以看到，hexo-pdf 对 PDF 文档展示效果非常不错 lol</p>
-]]></content>
-      <categories>
-        <category>博客运维</category>
-      </categories>
-      <tags>
-        <tag>Hexo</tag>
-      </tags>
-  </entry>
-  <entry>
     <title>Hexo博客自动更新到1panel</title>
     <url>/posts/21fa371d/</url>
     <content><![CDATA[<h2 id="SSH执行拉取"><a href="#SSH执行拉取" class="headerlink" title="SSH执行拉取"></a>SSH执行拉取</h2><p>下面实现通过Github action，链接服务器SSH，并在服务器中执行拉取的命令。</p>
@@ -1255,6 +1233,28 @@
 <p>再次尝试修改并触发，如果一切正常，仓库文件自动触发推送到服务器应该就实现了！</p>
 <p>在最下面，这里采用了强制拉取，并且只保留了深度为一的拉取记录，这样可以防止由于文件冲突导致可能拉取不下来的问题，并且控制了拉去的日志文件大小。</p>
 <h2 id="参考出处"><a href="#参考出处" class="headerlink" title="参考出处"></a>参考出处</h2><p><a href="https://blog.liushen.fun/posts/327826ac">https://blog.liushen.fun/posts/327826ac</a></p>
+]]></content>
+      <categories>
+        <category>博客运维</category>
+      </categories>
+      <tags>
+        <tag>Hexo</tag>
+      </tags>
+  </entry>
+  <entry>
+    <title>hexo中插入PDF</title>
+    <url>/posts/4cd4322f/</url>
+    <content><![CDATA[<h2 id="安装-hexo-pdf"><a href="#安装-hexo-pdf" class="headerlink" title="安装 hexo-pdf"></a>安装 hexo-pdf</h2><figure class="highlight text"><table><tr><td class="code"><pre><span class="line">npm install --save hexo-pdf</span><br></pre></td></tr></table></figure>
+
+<h2 id="本地-PDF-引用"><a href="#本地-PDF-引用" class="headerlink" title="本地 PDF 引用"></a>本地 PDF 引用</h2><p>最简单的引用方法：把相应 pdf 文件存到<strong>source 文件夹</strong>下，引用格式为：</p>
+<figure class="highlight text"><table><tr><td class="code"><pre><span class="line">&#123;% pdf /引用文档名字.pdf %&#125;</span><br></pre></td></tr></table></figure>
+
+<p>当然，你也可以新建一个文件夹方便管理 PDF 文档（）在这里我主要参考了<a href="https://link.zhihu.com/?target=https://www.jianshu.com/p/cccc7058a08c">https://www.jianshu.com/p/cccc7058a08c</a>，但是它并没有解决问题 orz 经过苦逼的尝试发现缺少&#x2F;</p>
+<p><strong>也就是说，方法为：</strong></p>
+<p>xxxxxxxxxx .md 文件中的 HTML 代码要用  和  包起来，使其能正确编译里面的代码。markdown</p>
+<figure class="highlight text"><table><tr><td class="code"><pre><span class="line">&#123;% pdf /pdf/xxx.pdf %&#125;</span><br></pre></td></tr></table></figure>
+
+<p>尝试后可以看到，hexo-pdf 对 PDF 文档展示效果非常不错 lol</p>
 ]]></content>
       <categories>
         <category>博客运维</category>
@@ -5007,37 +5007,6 @@
       </tags>
   </entry>
   <entry>
-    <title>安装了VMware Tools，但无法实现文件的拖拽和复制粘贴---解决方案</title>
-    <url>/posts/a580ef34/</url>
-    <content><![CDATA[<p>环境：Windows11，VMware17Pro，ubuntu-23.10.1</p>
-<p>我给虚拟机装好Ubuntu系统后，它默认是安装好vmtools的</p>
-<p>而且这些选项默认是勾选的，但是我无法实现宿主机和虚拟机之间文件的拖拽和复制粘贴</p>
-<p>如果你遇到了和我一样的问题，且网上很多博文提供的解决方案都无法解决你的问题，那么请往下看</p>
-<p>我试了各路大神的解决方案，基本都行不通</p>
-<p>只有一篇标题和这个问题相关度不高的文章，提到了一种重装VMware tools的方法，我试了一下终于解决了问题</p>
-<p> 这里要说一下，网上的很多文章用cd里带的VMware tools压缩包来重新安装（还要手动输yes的那个方法），我试了，根本没有用</p>
-<p>毕竟初始安装的就是那个版本，再重新安装一下并没有意义</p>
-<p>真正的解决方案其实很方便：</p>
-<p>打开终端</p>
-<p>1.卸载VMware Tools</p>
-<figure class="highlight plaintext"><table><tr><td class="code"><pre><span class="line">sudo apt-get autoremove open-vm-tools</span><br></pre></td></tr></table></figure>
-
-<p>2.联网安装VMware tools</p>
-<figure class="highlight plaintext"><table><tr><td class="code"><pre><span class="line">sudo apt-get install open-vm-tools-desktop</span><br></pre></td></tr></table></figure>
-
-<p>如果出错了，就执行下面两行命令</p>
-<figure class="highlight plaintext"><table><tr><td class="code"><pre><span class="line">sudo apt-get update</span><br><span class="line">sudo apt-get install open-vm-tools-desktop fuse</span><br></pre></td></tr></table></figure>
-
-<p>3.重启虚拟机即可</p>
-]]></content>
-      <categories>
-        <category>故障排除</category>
-      </categories>
-      <tags>
-        <tag>虚拟机</tag>
-      </tags>
-  </entry>
-  <entry>
     <title>常用VPS脚本</title>
     <url>/posts/6469b43f/</url>
     <content><![CDATA[<h2 id="1、DD重装脚本"><a href="#1、DD重装脚本" class="headerlink" title="1、DD重装脚本"></a>1、DD重装脚本</h2><p>史上最强脚本</p>
@@ -5178,6 +5147,37 @@
       </categories>
       <tags>
         <tag>运维工具</tag>
+      </tags>
+  </entry>
+  <entry>
+    <title>安装了VMware Tools，但无法实现文件的拖拽和复制粘贴---解决方案</title>
+    <url>/posts/a580ef34/</url>
+    <content><![CDATA[<p>环境：Windows11，VMware17Pro，ubuntu-23.10.1</p>
+<p>我给虚拟机装好Ubuntu系统后，它默认是安装好vmtools的</p>
+<p>而且这些选项默认是勾选的，但是我无法实现宿主机和虚拟机之间文件的拖拽和复制粘贴</p>
+<p>如果你遇到了和我一样的问题，且网上很多博文提供的解决方案都无法解决你的问题，那么请往下看</p>
+<p>我试了各路大神的解决方案，基本都行不通</p>
+<p>只有一篇标题和这个问题相关度不高的文章，提到了一种重装VMware tools的方法，我试了一下终于解决了问题</p>
+<p> 这里要说一下，网上的很多文章用cd里带的VMware tools压缩包来重新安装（还要手动输yes的那个方法），我试了，根本没有用</p>
+<p>毕竟初始安装的就是那个版本，再重新安装一下并没有意义</p>
+<p>真正的解决方案其实很方便：</p>
+<p>打开终端</p>
+<p>1.卸载VMware Tools</p>
+<figure class="highlight plaintext"><table><tr><td class="code"><pre><span class="line">sudo apt-get autoremove open-vm-tools</span><br></pre></td></tr></table></figure>
+
+<p>2.联网安装VMware tools</p>
+<figure class="highlight plaintext"><table><tr><td class="code"><pre><span class="line">sudo apt-get install open-vm-tools-desktop</span><br></pre></td></tr></table></figure>
+
+<p>如果出错了，就执行下面两行命令</p>
+<figure class="highlight plaintext"><table><tr><td class="code"><pre><span class="line">sudo apt-get update</span><br><span class="line">sudo apt-get install open-vm-tools-desktop fuse</span><br></pre></td></tr></table></figure>
+
+<p>3.重启虚拟机即可</p>
+]]></content>
+      <categories>
+        <category>故障排除</category>
+      </categories>
+      <tags>
+        <tag>虚拟机</tag>
       </tags>
   </entry>
   <entry>
