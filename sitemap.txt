@@ -1,9 +1,9 @@
-https://yuqi.im/about/index.html
-https://yuqi.im/archives/index.html
 https://yuqi.im/categories/index.html
 https://yuqi.im/comment/index.html
-https://yuqi.im/tags/index.html
 https://yuqi.im/link/index.html
+https://yuqi.im/tags/index.html
+https://yuqi.im/about/index.html
+https://yuqi.im/archives/index.html
 https://yuqi.im/posts/93246652/
 https://yuqi.im/posts/e82186c7/
 https://yuqi.im/posts/8951164b/
@@ -83,9 +83,9 @@ https://yuqi.im/tags/Fuwari/
 https://yuqi.im/tags/HTML/
 https://yuqi.im/tags/MOVIDRIVE/
 https://yuqi.im/tags/18/
-https://yuqi.im/tags/Openwrt/
 https://yuqi.im/tags/PDPS/
 https://yuqi.im/tags/iStoreOS/
+https://yuqi.im/tags/Openwrt/
 https://yuqi.im/tags/SINAMICS/
 https://yuqi.im/tags/SICK/
 https://yuqi.im/tags/Git/

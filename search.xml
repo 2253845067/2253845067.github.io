@@ -1209,6 +1209,28 @@
       </tags>
   </entry>
   <entry>
+    <title>hexo中插入PDF</title>
+    <url>/posts/4cd4322f/</url>
+    <content><![CDATA[<h2 id="安装-hexo-pdf"><a href="#安装-hexo-pdf" class="headerlink" title="安装 hexo-pdf"></a>安装 hexo-pdf</h2><figure class="highlight text"><table><tr><td class="code"><pre><span class="line">npm install --save hexo-pdf</span><br></pre></td></tr></table></figure>
+
+<h2 id="本地-PDF-引用"><a href="#本地-PDF-引用" class="headerlink" title="本地 PDF 引用"></a>本地 PDF 引用</h2><p>最简单的引用方法：把相应 pdf 文件存到<strong>source 文件夹</strong>下，引用格式为：</p>
+<figure class="highlight text"><table><tr><td class="code"><pre><span class="line">&#123;% pdf /引用文档名字.pdf %&#125;</span><br></pre></td></tr></table></figure>
+
+<p>当然，你也可以新建一个文件夹方便管理 PDF 文档（）在这里我主要参考了<a href="https://link.zhihu.com/?target=https://www.jianshu.com/p/cccc7058a08c">https://www.jianshu.com/p/cccc7058a08c</a>，但是它并没有解决问题 orz 经过苦逼的尝试发现缺少&#x2F;</p>
+<p><strong>也就是说，方法为：</strong></p>
+<p>xxxxxxxxxx .md 文件中的 HTML 代码要用  和  包起来，使其能正确编译里面的代码。markdown</p>
+<figure class="highlight text"><table><tr><td class="code"><pre><span class="line">&#123;% pdf /pdf/xxx.pdf %&#125;</span><br></pre></td></tr></table></figure>
+
+<p>尝试后可以看到，hexo-pdf 对 PDF 文档展示效果非常不错 lol</p>
+]]></content>
+      <categories>
+        <category>博客运维</category>
+      </categories>
+      <tags>
+        <tag>Hexo</tag>
+      </tags>
+  </entry>
+  <entry>
     <title>Hexo博客自动更新到1panel</title>
     <url>/posts/21fa371d/</url>
     <content><![CDATA[<h2 id="SSH执行拉取"><a href="#SSH执行拉取" class="headerlink" title="SSH执行拉取"></a>SSH执行拉取</h2><p>下面实现通过Github action，链接服务器SSH，并在服务器中执行拉取的命令。</p>
@@ -1233,28 +1255,6 @@
 <p>再次尝试修改并触发，如果一切正常，仓库文件自动触发推送到服务器应该就实现了！</p>
 <p>在最下面，这里采用了强制拉取，并且只保留了深度为一的拉取记录，这样可以防止由于文件冲突导致可能拉取不下来的问题，并且控制了拉去的日志文件大小。</p>
 <h2 id="参考出处"><a href="#参考出处" class="headerlink" title="参考出处"></a>参考出处</h2><p><a href="https://blog.liushen.fun/posts/327826ac">https://blog.liushen.fun/posts/327826ac</a></p>
-]]></content>
-      <categories>
-        <category>博客运维</category>
-      </categories>
-      <tags>
-        <tag>Hexo</tag>
-      </tags>
-  </entry>
-  <entry>
-    <title>hexo中插入PDF</title>
-    <url>/posts/4cd4322f/</url>
-    <content><![CDATA[<h2 id="安装-hexo-pdf"><a href="#安装-hexo-pdf" class="headerlink" title="安装 hexo-pdf"></a>安装 hexo-pdf</h2><figure class="highlight text"><table><tr><td class="code"><pre><span class="line">npm install --save hexo-pdf</span><br></pre></td></tr></table></figure>
-
-<h2 id="本地-PDF-引用"><a href="#本地-PDF-引用" class="headerlink" title="本地 PDF 引用"></a>本地 PDF 引用</h2><p>最简单的引用方法：把相应 pdf 文件存到<strong>source 文件夹</strong>下，引用格式为：</p>
-<figure class="highlight text"><table><tr><td class="code"><pre><span class="line">&#123;% pdf /引用文档名字.pdf %&#125;</span><br></pre></td></tr></table></figure>
-
-<p>当然，你也可以新建一个文件夹方便管理 PDF 文档（）在这里我主要参考了<a href="https://link.zhihu.com/?target=https://www.jianshu.com/p/cccc7058a08c">https://www.jianshu.com/p/cccc7058a08c</a>，但是它并没有解决问题 orz 经过苦逼的尝试发现缺少&#x2F;</p>
-<p><strong>也就是说，方法为：</strong></p>
-<p>xxxxxxxxxx .md 文件中的 HTML 代码要用  和  包起来，使其能正确编译里面的代码。markdown</p>
-<figure class="highlight text"><table><tr><td class="code"><pre><span class="line">&#123;% pdf /pdf/xxx.pdf %&#125;</span><br></pre></td></tr></table></figure>
-
-<p>尝试后可以看到，hexo-pdf 对 PDF 文档展示效果非常不错 lol</p>
 ]]></content>
       <categories>
         <category>博客运维</category>
@@ -1888,6 +1888,21 @@
       </tags>
   </entry>
   <entry>
+    <title>OnlyFans 公共存档器 免费查看OnlyFans付费内容-Coomer</title>
+    <url>/posts/1082bb6d/</url>
+    <content><![CDATA[<p>Coomer，一个 OnlyFans 公共存档器，可以免费查看 OnlyFans 付费内容，上面所以内容都由网友搬运、贡献的 OnlyFans 付费内容，想要查看哪位艺术家、作者的付费内容，直接搜索名字即可免费查看 OnlyFans 上的付费内容，当然你也可以共享你的。</p>
+<p>地址：<a href="https://coomer.party/">https://coomer.party/</a></p>
+<p>可以尝试点击&gt;creators&gt;然后搜索 ‘hongkongdoll’ ，‘juneliu’；</p>
+<p>更多的关键词待你挖掘</p>
+]]></content>
+      <categories>
+        <category>公共存档器</category>
+      </categories>
+      <tags>
+        <tag>18+</tag>
+      </tags>
+  </entry>
+  <entry>
     <title>MT7981B安博通ABT_ASR3000刷机指南</title>
     <url>/posts/2c4b11e5/</url>
     <content><![CDATA[<h1 id="刷机方法"><a href="#刷机方法" class="headerlink" title="刷机方法"></a>刷机方法</h1><h2 id="一："><a href="#一：" class="headerlink" title="一："></a>一：</h2><p>下载附件e-202306161250-cfg.tar.gz，原厂系统：系统工具&#x3D;&gt;配置管理&#x3D;&gt;导入配置，重启；</p>
@@ -1915,88 +1930,6 @@
       </categories>
       <tags>
         <tag>OpenWrt</tag>
-      </tags>
-  </entry>
-  <entry>
-    <title>OnlyFans 公共存档器 免费查看OnlyFans付费内容-Coomer</title>
-    <url>/posts/1082bb6d/</url>
-    <content><![CDATA[<p>Coomer，一个 OnlyFans 公共存档器，可以免费查看 OnlyFans 付费内容，上面所以内容都由网友搬运、贡献的 OnlyFans 付费内容，想要查看哪位艺术家、作者的付费内容，直接搜索名字即可免费查看 OnlyFans 上的付费内容，当然你也可以共享你的。</p>
-<p>地址：<a href="https://coomer.party/">https://coomer.party/</a></p>
-<p>可以尝试点击&gt;creators&gt;然后搜索 ‘hongkongdoll’ ，‘juneliu’；</p>
-<p>更多的关键词待你挖掘</p>
-]]></content>
-      <categories>
-        <category>公共存档器</category>
-      </categories>
-      <tags>
-        <tag>18+</tag>
-      </tags>
-  </entry>
-  <entry>
-    <title>Openwrt编译</title>
-    <url>/posts/72c5b323/</url>
-    <content><![CDATA[<h1 id="注意"><a href="#注意" class="headerlink" title="注意"></a>注意</h1><ol>
-<li><strong>不要用 root 用户进行编译</strong></li>
-<li>国内用户编译前最好准备好梯子</li>
-<li>默认登陆 IP 192.168.1.1 密码 password</li>
-</ol>
-<h1 id="编译命令"><a href="#编译命令" class="headerlink" title="编译命令"></a>编译命令</h1><ol>
-<li><p>首先装好 Linux 系统，推荐 Debian 11 或 Ubuntu LTS</p>
-</li>
-<li><p>安装编译依赖</p>
-</li>
-</ol>
-<figure class="highlight bash"><table><tr><td class="code"><pre><span class="line"><span class="built_in">sudo</span> apt update -y</span><br><span class="line"><span class="built_in">sudo</span> apt full-upgrade -y</span><br><span class="line"><span class="built_in">sudo</span> apt install -y ack antlr3 asciidoc autoconf automake autopoint binutils bison build-essential \</span><br><span class="line">bzip2 ccache cmake cpio curl device-tree-compiler fastjar flex gawk gettext gcc-multilib g++-multilib \</span><br><span class="line">git gperf haveged help2man intltool libc6-dev-i386 libelf-dev libglib2.0-dev libgmp3-dev libltdl-dev \</span><br><span class="line">libmpc-dev libmpfr-dev libncurses5-dev libncursesw5-dev libreadline-dev libssl-dev libtool lrzsz \</span><br><span class="line">mkisofs msmtp nano ninja-build p7zip p7zip-full patch pkgconf python2.7 python3 python3-pyelftools \</span><br><span class="line">libpython3-dev qemu-utils rsync scons squashfs-tools subversion swig texinfo uglifyjs upx-ucl unzip \</span><br><span class="line">vim wget xmlto xxd zlib1g-dev</span><br></pre></td></tr></table></figure>
-
-<ol start="3">
-<li>下载源代码，更新 feeds 并选择配置<br>lede源：<a href="https://github.com/coolsnowwolf/lede">https://github.com/coolsnowwolf/lede</a><br>插件库：<a href="https://github.com/kenzok8/small-package">https://github.com/kenzok8/small-package</a><br>西瓜皮：<a href="https://github.com/6ang996/lede/tree/rk356x-xgp_support">https://github.com/6ang996/lede/tree/rk356x-xgp_support</a><br>克隆指定分支：git clone -b 分支 源</li>
-</ol>
-<figure class="highlight bash"><table><tr><td class="code"><pre><span class="line">git <span class="built_in">clone</span> https://github.com/coolsnowwolf/lede</span><br><span class="line"><span class="built_in">cd</span> lede</span><br><span class="line"><span class="built_in">echo</span> <span class="string">&#x27;src-git small8 https://github.com/kenzok8/small-package&#x27;</span> &gt;&gt;feeds.conf.default</span><br><span class="line">./scripts/feeds update -a</span><br><span class="line">./scripts/feeds install -a</span><br><span class="line">make menuconfig</span><br></pre></td></tr></table></figure>
-
-<ol start="4">
-<li>下载 dl 库，编译固件<br>（-j 后面是线程数，第一次编译推荐用单线程）</li>
-</ol>
- <figure class="highlight bash"><table><tr><td class="code"><pre><span class="line">make download -j8</span><br><span class="line">make V=s -j1</span><br><span class="line"><span class="keyword">time</span> make V=s -j$(<span class="built_in">nproc</span>)可以看到编译用时</span><br></pre></td></tr></table></figure>
-
-<p>本套代码保证肯定可以编译成功。里面包括了 R23 所有源代码，包括 IPK 的。</p>
-<p>你可以自由使用，但源码编译二次发布请注明我的 GitHub 仓库链接。谢谢合作！</p>
-<p>二次编译：</p>
-<figure class="highlight bash"><table><tr><td class="code"><pre><span class="line"><span class="built_in">cd</span> lede</span><br><span class="line">git pull</span><br><span class="line">./scripts/feeds update -a</span><br><span class="line">./scripts/feeds install -a</span><br><span class="line">make defconfig</span><br><span class="line">make download -j8</span><br><span class="line">make V=s -j$(<span class="built_in">nproc</span>)</span><br></pre></td></tr></table></figure>
-
-<p>如果需要重新配置：</p>
-<figure class="highlight bash"><table><tr><td class="code"><pre><span class="line"><span class="built_in">rm</span> -rf ./tmp &amp;&amp; <span class="built_in">rm</span> -rf .config</span><br><span class="line">make menuconfig</span><br><span class="line">make V=s -j$(<span class="built_in">nproc</span>)</span><br></pre></td></tr></table></figure>
-
-<p>编译完成后输出路径：bin&#x2F;targets</p>
-<h2 id="如果你使用-WSL-WSL2-进行编译"><a href="#如果你使用-WSL-WSL2-进行编译" class="headerlink" title="如果你使用 WSL&#x2F;WSL2 进行编译"></a>如果你使用 WSL&#x2F;WSL2 进行编译</h2><p>由于 WSL 的 PATH 中包含带有空格的 Windows 路径，有可能会导致编译失败，请在 <code>make</code> 前面加上：</p>
-<figure class="highlight bash"><table><tr><td class="code"><pre><span class="line">PATH=/usr/local/sbin:/usr/local/bin:/usr/sbin:/usr/bin:/sbin:/bin</span><br></pre></td></tr></table></figure>
-
-<h2 id="macOS-原生系统进行编译"><a href="#macOS-原生系统进行编译" class="headerlink" title="macOS 原生系统进行编译"></a>macOS 原生系统进行编译</h2><ol>
-<li><p>在 AppStore 中安装 Xcode</p>
-</li>
-<li><p>安装 Homebrew：</p>
-</li>
-</ol>
-<figure class="highlight bash"><table><tr><td class="code"><pre><span class="line">/usr/bin/ruby -e <span class="string">&quot;<span class="subst">$(curl -fsSL https://raw.githubusercontent.com/Homebrew/install/master/install)</span>&quot;</span></span><br></pre></td></tr></table></figure>
-
-<ol start="3">
-<li>使用 Homebrew 安装工具链、依赖与基础软件包:</li>
-</ol>
-<figure class="highlight bash"><table><tr><td class="code"><pre><span class="line">brew <span class="built_in">unlink</span> awk</span><br><span class="line">brew install coreutils diffutils findutils gawk gnu-getopt gnu-tar grep make ncurses pkg-config wget quilt xz</span><br><span class="line">brew install gcc@11</span><br></pre></td></tr></table></figure>
-
-<ol start="4">
-<li>然后输入以下命令，添加到系统环境变量中：</li>
-</ol>
-<figure class="highlight bash"><table><tr><td class="code"><pre><span class="line"><span class="built_in">echo</span> <span class="string">&#x27;export PATH=&quot;/usr/local/opt/coreutils/libexec/gnubin:$PATH&quot;&#x27;</span> &gt;&gt; ~/.bashrc</span><br><span class="line"><span class="built_in">echo</span> <span class="string">&#x27;export PATH=&quot;/usr/local/opt/findutils/libexec/gnubin:$PATH&quot;&#x27;</span> &gt;&gt; ~/.bashrc</span><br><span class="line"><span class="built_in">echo</span> <span class="string">&#x27;export PATH=&quot;/usr/local/opt/gnu-getopt/bin:$PATH&quot;&#x27;</span> &gt;&gt; ~/.bashrc</span><br><span class="line"><span class="built_in">echo</span> <span class="string">&#x27;export PATH=&quot;/usr/local/opt/gnu-tar/libexec/gnubin:$PATH&quot;&#x27;</span> &gt;&gt; ~/.bashrc</span><br><span class="line"><span class="built_in">echo</span> <span class="string">&#x27;export PATH=&quot;/usr/local/opt/grep/libexec/gnubin:$PATH&quot;&#x27;</span> &gt;&gt; ~/.bashrc</span><br><span class="line"><span class="built_in">echo</span> <span class="string">&#x27;export PATH=&quot;/usr/local/opt/gnu-sed/libexec/gnubin:$PATH&quot;&#x27;</span> &gt;&gt; ~/.bashrc</span><br><span class="line"><span class="built_in">echo</span> <span class="string">&#x27;export PATH=&quot;/usr/local/opt/make/libexec/gnubin:$PATH&quot;&#x27;</span> &gt;&gt; ~/.bashrc</span><br></pre></td></tr></table></figure>
-
-<ol start="5">
-<li>重新加载一下 shell 启动文件 <code>source ~/.bashrc</code>，然后输入 <code>bash</code> 进入 bash shell，就可以和 Linux 一样正常编译了</li>
-</ol>
-]]></content>
-      <categories>
-        <category>网络设备</category>
-      </categories>
-      <tags>
-        <tag>Openwrt</tag>
       </tags>
   </entry>
   <entry>
@@ -2410,6 +2343,73 @@
       </categories>
       <tags>
         <tag>Hexo</tag>
+      </tags>
+  </entry>
+  <entry>
+    <title>Openwrt编译</title>
+    <url>/posts/72c5b323/</url>
+    <content><![CDATA[<h1 id="注意"><a href="#注意" class="headerlink" title="注意"></a>注意</h1><ol>
+<li><strong>不要用 root 用户进行编译</strong></li>
+<li>国内用户编译前最好准备好梯子</li>
+<li>默认登陆 IP 192.168.1.1 密码 password</li>
+</ol>
+<h1 id="编译命令"><a href="#编译命令" class="headerlink" title="编译命令"></a>编译命令</h1><ol>
+<li><p>首先装好 Linux 系统，推荐 Debian 11 或 Ubuntu LTS</p>
+</li>
+<li><p>安装编译依赖</p>
+</li>
+</ol>
+<figure class="highlight bash"><table><tr><td class="code"><pre><span class="line"><span class="built_in">sudo</span> apt update -y</span><br><span class="line"><span class="built_in">sudo</span> apt full-upgrade -y</span><br><span class="line"><span class="built_in">sudo</span> apt install -y ack antlr3 asciidoc autoconf automake autopoint binutils bison build-essential \</span><br><span class="line">bzip2 ccache cmake cpio curl device-tree-compiler fastjar flex gawk gettext gcc-multilib g++-multilib \</span><br><span class="line">git gperf haveged help2man intltool libc6-dev-i386 libelf-dev libglib2.0-dev libgmp3-dev libltdl-dev \</span><br><span class="line">libmpc-dev libmpfr-dev libncurses5-dev libncursesw5-dev libreadline-dev libssl-dev libtool lrzsz \</span><br><span class="line">mkisofs msmtp nano ninja-build p7zip p7zip-full patch pkgconf python2.7 python3 python3-pyelftools \</span><br><span class="line">libpython3-dev qemu-utils rsync scons squashfs-tools subversion swig texinfo uglifyjs upx-ucl unzip \</span><br><span class="line">vim wget xmlto xxd zlib1g-dev</span><br></pre></td></tr></table></figure>
+
+<ol start="3">
+<li>下载源代码，更新 feeds 并选择配置<br>lede源：<a href="https://github.com/coolsnowwolf/lede">https://github.com/coolsnowwolf/lede</a><br>插件库：<a href="https://github.com/kenzok8/small-package">https://github.com/kenzok8/small-package</a><br>西瓜皮：<a href="https://github.com/6ang996/lede/tree/rk356x-xgp_support">https://github.com/6ang996/lede/tree/rk356x-xgp_support</a><br>克隆指定分支：git clone -b 分支 源</li>
+</ol>
+<figure class="highlight bash"><table><tr><td class="code"><pre><span class="line">git <span class="built_in">clone</span> https://github.com/coolsnowwolf/lede</span><br><span class="line"><span class="built_in">cd</span> lede</span><br><span class="line"><span class="built_in">echo</span> <span class="string">&#x27;src-git small8 https://github.com/kenzok8/small-package&#x27;</span> &gt;&gt;feeds.conf.default</span><br><span class="line">./scripts/feeds update -a</span><br><span class="line">./scripts/feeds install -a</span><br><span class="line">make menuconfig</span><br></pre></td></tr></table></figure>
+
+<ol start="4">
+<li>下载 dl 库，编译固件<br>（-j 后面是线程数，第一次编译推荐用单线程）</li>
+</ol>
+ <figure class="highlight bash"><table><tr><td class="code"><pre><span class="line">make download -j8</span><br><span class="line">make V=s -j1</span><br><span class="line"><span class="keyword">time</span> make V=s -j$(<span class="built_in">nproc</span>)可以看到编译用时</span><br></pre></td></tr></table></figure>
+
+<p>本套代码保证肯定可以编译成功。里面包括了 R23 所有源代码，包括 IPK 的。</p>
+<p>你可以自由使用，但源码编译二次发布请注明我的 GitHub 仓库链接。谢谢合作！</p>
+<p>二次编译：</p>
+<figure class="highlight bash"><table><tr><td class="code"><pre><span class="line"><span class="built_in">cd</span> lede</span><br><span class="line">git pull</span><br><span class="line">./scripts/feeds update -a</span><br><span class="line">./scripts/feeds install -a</span><br><span class="line">make defconfig</span><br><span class="line">make download -j8</span><br><span class="line">make V=s -j$(<span class="built_in">nproc</span>)</span><br></pre></td></tr></table></figure>
+
+<p>如果需要重新配置：</p>
+<figure class="highlight bash"><table><tr><td class="code"><pre><span class="line"><span class="built_in">rm</span> -rf ./tmp &amp;&amp; <span class="built_in">rm</span> -rf .config</span><br><span class="line">make menuconfig</span><br><span class="line">make V=s -j$(<span class="built_in">nproc</span>)</span><br></pre></td></tr></table></figure>
+
+<p>编译完成后输出路径：bin&#x2F;targets</p>
+<h2 id="如果你使用-WSL-WSL2-进行编译"><a href="#如果你使用-WSL-WSL2-进行编译" class="headerlink" title="如果你使用 WSL&#x2F;WSL2 进行编译"></a>如果你使用 WSL&#x2F;WSL2 进行编译</h2><p>由于 WSL 的 PATH 中包含带有空格的 Windows 路径，有可能会导致编译失败，请在 <code>make</code> 前面加上：</p>
+<figure class="highlight bash"><table><tr><td class="code"><pre><span class="line">PATH=/usr/local/sbin:/usr/local/bin:/usr/sbin:/usr/bin:/sbin:/bin</span><br></pre></td></tr></table></figure>
+
+<h2 id="macOS-原生系统进行编译"><a href="#macOS-原生系统进行编译" class="headerlink" title="macOS 原生系统进行编译"></a>macOS 原生系统进行编译</h2><ol>
+<li><p>在 AppStore 中安装 Xcode</p>
+</li>
+<li><p>安装 Homebrew：</p>
+</li>
+</ol>
+<figure class="highlight bash"><table><tr><td class="code"><pre><span class="line">/usr/bin/ruby -e <span class="string">&quot;<span class="subst">$(curl -fsSL https://raw.githubusercontent.com/Homebrew/install/master/install)</span>&quot;</span></span><br></pre></td></tr></table></figure>
+
+<ol start="3">
+<li>使用 Homebrew 安装工具链、依赖与基础软件包:</li>
+</ol>
+<figure class="highlight bash"><table><tr><td class="code"><pre><span class="line">brew <span class="built_in">unlink</span> awk</span><br><span class="line">brew install coreutils diffutils findutils gawk gnu-getopt gnu-tar grep make ncurses pkg-config wget quilt xz</span><br><span class="line">brew install gcc@11</span><br></pre></td></tr></table></figure>
+
+<ol start="4">
+<li>然后输入以下命令，添加到系统环境变量中：</li>
+</ol>
+<figure class="highlight bash"><table><tr><td class="code"><pre><span class="line"><span class="built_in">echo</span> <span class="string">&#x27;export PATH=&quot;/usr/local/opt/coreutils/libexec/gnubin:$PATH&quot;&#x27;</span> &gt;&gt; ~/.bashrc</span><br><span class="line"><span class="built_in">echo</span> <span class="string">&#x27;export PATH=&quot;/usr/local/opt/findutils/libexec/gnubin:$PATH&quot;&#x27;</span> &gt;&gt; ~/.bashrc</span><br><span class="line"><span class="built_in">echo</span> <span class="string">&#x27;export PATH=&quot;/usr/local/opt/gnu-getopt/bin:$PATH&quot;&#x27;</span> &gt;&gt; ~/.bashrc</span><br><span class="line"><span class="built_in">echo</span> <span class="string">&#x27;export PATH=&quot;/usr/local/opt/gnu-tar/libexec/gnubin:$PATH&quot;&#x27;</span> &gt;&gt; ~/.bashrc</span><br><span class="line"><span class="built_in">echo</span> <span class="string">&#x27;export PATH=&quot;/usr/local/opt/grep/libexec/gnubin:$PATH&quot;&#x27;</span> &gt;&gt; ~/.bashrc</span><br><span class="line"><span class="built_in">echo</span> <span class="string">&#x27;export PATH=&quot;/usr/local/opt/gnu-sed/libexec/gnubin:$PATH&quot;&#x27;</span> &gt;&gt; ~/.bashrc</span><br><span class="line"><span class="built_in">echo</span> <span class="string">&#x27;export PATH=&quot;/usr/local/opt/make/libexec/gnubin:$PATH&quot;&#x27;</span> &gt;&gt; ~/.bashrc</span><br></pre></td></tr></table></figure>
+
+<ol start="5">
+<li>重新加载一下 shell 启动文件 <code>source ~/.bashrc</code>，然后输入 <code>bash</code> 进入 bash shell，就可以和 Linux 一样正常编译了</li>
+</ol>
+]]></content>
+      <categories>
+        <category>网络设备</category>
+      </categories>
+      <tags>
+        <tag>Openwrt</tag>
       </tags>
   </entry>
   <entry>
@@ -5007,6 +5007,37 @@
       </tags>
   </entry>
   <entry>
+    <title>安装了VMware Tools，但无法实现文件的拖拽和复制粘贴---解决方案</title>
+    <url>/posts/a580ef34/</url>
+    <content><![CDATA[<p>环境：Windows11，VMware17Pro，ubuntu-23.10.1</p>
+<p>我给虚拟机装好Ubuntu系统后，它默认是安装好vmtools的</p>
+<p>而且这些选项默认是勾选的，但是我无法实现宿主机和虚拟机之间文件的拖拽和复制粘贴</p>
+<p>如果你遇到了和我一样的问题，且网上很多博文提供的解决方案都无法解决你的问题，那么请往下看</p>
+<p>我试了各路大神的解决方案，基本都行不通</p>
+<p>只有一篇标题和这个问题相关度不高的文章，提到了一种重装VMware tools的方法，我试了一下终于解决了问题</p>
+<p> 这里要说一下，网上的很多文章用cd里带的VMware tools压缩包来重新安装（还要手动输yes的那个方法），我试了，根本没有用</p>
+<p>毕竟初始安装的就是那个版本，再重新安装一下并没有意义</p>
+<p>真正的解决方案其实很方便：</p>
+<p>打开终端</p>
+<p>1.卸载VMware Tools</p>
+<figure class="highlight plaintext"><table><tr><td class="code"><pre><span class="line">sudo apt-get autoremove open-vm-tools</span><br></pre></td></tr></table></figure>
+
+<p>2.联网安装VMware tools</p>
+<figure class="highlight plaintext"><table><tr><td class="code"><pre><span class="line">sudo apt-get install open-vm-tools-desktop</span><br></pre></td></tr></table></figure>
+
+<p>如果出错了，就执行下面两行命令</p>
+<figure class="highlight plaintext"><table><tr><td class="code"><pre><span class="line">sudo apt-get update</span><br><span class="line">sudo apt-get install open-vm-tools-desktop fuse</span><br></pre></td></tr></table></figure>
+
+<p>3.重启虚拟机即可</p>
+]]></content>
+      <categories>
+        <category>故障排除</category>
+      </categories>
+      <tags>
+        <tag>虚拟机</tag>
+      </tags>
+  </entry>
+  <entry>
     <title>常用VPS脚本</title>
     <url>/posts/6469b43f/</url>
     <content><![CDATA[<h2 id="1、DD重装脚本"><a href="#1、DD重装脚本" class="headerlink" title="1、DD重装脚本"></a>1、DD重装脚本</h2><p>史上最强脚本</p>
@@ -5150,37 +5181,6 @@
       </tags>
   </entry>
   <entry>
-    <title>安装了VMware Tools，但无法实现文件的拖拽和复制粘贴---解决方案</title>
-    <url>/posts/a580ef34/</url>
-    <content><![CDATA[<p>环境：Windows11，VMware17Pro，ubuntu-23.10.1</p>
-<p>我给虚拟机装好Ubuntu系统后，它默认是安装好vmtools的</p>
-<p>而且这些选项默认是勾选的，但是我无法实现宿主机和虚拟机之间文件的拖拽和复制粘贴</p>
-<p>如果你遇到了和我一样的问题，且网上很多博文提供的解决方案都无法解决你的问题，那么请往下看</p>
-<p>我试了各路大神的解决方案，基本都行不通</p>
-<p>只有一篇标题和这个问题相关度不高的文章，提到了一种重装VMware tools的方法，我试了一下终于解决了问题</p>
-<p> 这里要说一下，网上的很多文章用cd里带的VMware tools压缩包来重新安装（还要手动输yes的那个方法），我试了，根本没有用</p>
-<p>毕竟初始安装的就是那个版本，再重新安装一下并没有意义</p>
-<p>真正的解决方案其实很方便：</p>
-<p>打开终端</p>
-<p>1.卸载VMware Tools</p>
-<figure class="highlight plaintext"><table><tr><td class="code"><pre><span class="line">sudo apt-get autoremove open-vm-tools</span><br></pre></td></tr></table></figure>
-
-<p>2.联网安装VMware tools</p>
-<figure class="highlight plaintext"><table><tr><td class="code"><pre><span class="line">sudo apt-get install open-vm-tools-desktop</span><br></pre></td></tr></table></figure>
-
-<p>如果出错了，就执行下面两行命令</p>
-<figure class="highlight plaintext"><table><tr><td class="code"><pre><span class="line">sudo apt-get update</span><br><span class="line">sudo apt-get install open-vm-tools-desktop fuse</span><br></pre></td></tr></table></figure>
-
-<p>3.重启虚拟机即可</p>
-]]></content>
-      <categories>
-        <category>故障排除</category>
-      </categories>
-      <tags>
-        <tag>虚拟机</tag>
-      </tags>
-  </entry>
-  <entry>
     <title>手搓xray配置文件</title>
     <url>/posts/9b626a72/</url>
     <content><![CDATA[<p>手搓xray很简单</p>
@@ -5215,76 +5215,6 @@
       </categories>
       <tags>
         <tag>网络代理</tag>
-      </tags>
-  </entry>
-  <entry>
-    <title>使用itzg/docker-minecraft-server快速搭建Minecraft服务器指南</title>
-    <url>/posts/d28cec10/</url>
-    <content><![CDATA[<h1 id="项目概述"><a href="#项目概述" class="headerlink" title="项目概述"></a>项目概述</h1><p><strong>itzg&#x2F;docker-minecraft-server</strong> 是一个基于Docker的Minecraft服务器镜像项目，它简化了Minecraft服务器的部署和管理流程。通过这个项目，用户可以轻松地在各种环境中运行Minecraft服务器，无需手动下载和配置服务器文件。</p>
-<h1 id="核心特点"><a href="#核心特点" class="headerlink" title="核心特点"></a>核心特点</h1><ol>
-<li><strong>自动下载最新版本</strong>：容器启动时会自动下载最新的稳定版Minecraft服务器</li>
-<li><strong>多版本支持</strong>：支持运行特定版本或最新的快照版</li>
-<li><strong>简化部署</strong>：通过简单的Docker命令即可启动服务器</li>
-<li><strong>持久化存储</strong>：支持将服务器数据挂载到宿主机</li>
-<li><strong>配置灵活</strong>：通过环境变量可自定义服务器参数</li>
-</ol>
-<h1 id="快速开始"><a href="#快速开始" class="headerlink" title="快速开始"></a>快速开始</h1><h2 id="基础部署方式"><a href="#基础部署方式" class="headerlink" title="基础部署方式"></a>基础部署方式</h2><p>要使用最新稳定版启动Minecraft服务器，只需运行以下Docker命令：</p>
-<figure class="highlight bash"><table><tr><td class="code"><pre><span class="line">docker run -d -it -p 25565:25565 -e EULA=TRUE itzg/minecraft-server</span><br></pre></td></tr></table></figure>
-
-<p>这个命令会：</p>
-<ul>
-<li>在后台运行容器(-d)</li>
-<li>分配一个伪终端(-it)</li>
-<li>将容器内的25565端口映射到宿主机的25565端口(-p 25565:25565)</li>
-<li>自动接受Mojang的EULA协议(-e EULA&#x3D;TRUE)</li>
-</ul>
-<h3 id="重要注意事项"><a href="#重要注意事项" class="headerlink" title="重要注意事项"></a>重要注意事项</h3><ol>
-<li><strong>EULA协议</strong>：必须设置<code>EULA=TRUE</code>环境变量，表示接受Mojang&#x2F;Microsoft的用户许可协议</li>
-<li><strong>安全警告</strong>：在没有设置<code>RCON_PASSWORD</code>的情况下，不要将RCON端口(25575)暴露到公网</li>
-<li><strong>持久化建议</strong>：长期运行的服务器建议使用数据卷或绑定挂载来保存数据</li>
-</ol>
-<h2 id="使用Docker-Compose部署"><a href="#使用Docker-Compose部署" class="headerlink" title="使用Docker Compose部署"></a>使用Docker Compose部署</h2><p>对于生产环境，推荐使用Docker Compose来管理服务器，这样可以更方便地进行配置和升级。</p>
-<h3 id="部署步骤"><a href="#部署步骤" class="headerlink" title="部署步骤"></a>部署步骤</h3><ol>
-<li>创建新目录并进入</li>
-<li>创建<code>docker-compose.yml</code>文件，内容如下：</li>
-</ol>
-<figure class="highlight yaml"><table><tr><td class="code"><pre><span class="line"><span class="attr">services:</span></span><br><span class="line">  <span class="attr">mc:</span></span><br><span class="line">    <span class="attr">image:</span> <span class="string">itzg/minecraft-server</span></span><br><span class="line">    <span class="attr">tty:</span> <span class="literal">true</span></span><br><span class="line">    <span class="attr">stdin_open:</span> <span class="literal">true</span></span><br><span class="line">    <span class="attr">ports:</span></span><br><span class="line">      <span class="bullet">-</span> <span class="string">&quot;25565:25565&quot;</span></span><br><span class="line">    <span class="attr">environment:</span></span><br><span class="line">      <span class="attr">EULA:</span> <span class="string">&quot;TRUE&quot;</span></span><br><span class="line">      <span class="attr">ONLINE_MODE:</span> <span class="string">&quot;FALSE&quot;</span></span><br><span class="line">    <span class="attr">volumes:</span></span><br><span class="line">      <span class="bullet">-</span> <span class="string">./data:/data</span></span><br><span class="line"></span><br></pre></td></tr></table></figure>
-
-<ol start="3">
-<li>运行<code>docker compose up -d</code>启动服务</li>
-<li>使用客户端连接服务器的IP和25565端口</li>
-</ol>
-<h3 id="管理命令"><a href="#管理命令" class="headerlink" title="管理命令"></a>管理命令</h3><ul>
-<li>查看日志：<code>docker compose logs -f</code></li>
-<li>检查状态：<code>docker compose ps</code></li>
-<li>停止服务：<code>docker compose stop</code></li>
-<li>更新配置：修改后再次运行<code>docker compose up -d</code></li>
-</ul>
-<h3 id="进阶配置"><a href="#进阶配置" class="headerlink" title="进阶配置"></a>进阶配置</h3><h4 id="版本控制"><a href="#版本控制" class="headerlink" title="版本控制"></a>版本控制</h4><p>默认情况下，容器会下载最新的”原版”Minecraft: Java Edition服务器。可以通过以下环境变量进行定制：</p>
-<p>VERSION：指定服务器版本<br>TYPE：指定服务器类型(如原版、Forge、Paper等)<br>MEMORY：限制容器内存（防卡顿）<br>ONLINE_MODE：关闭正版验证（离线模式）</p>
-<p>例如：</p>
-<figure class="highlight yaml"><table><tr><td class="code"><pre><span class="line"><span class="attr">environment:</span></span><br><span class="line">  <span class="attr">EULA:</span> <span class="string">&quot;TRUE&quot;</span></span><br><span class="line">  <span class="attr">VERSION:</span> <span class="string">&quot;1.20.1&quot;</span></span><br><span class="line">  <span class="attr">TYPE:</span> <span class="string">&quot;PAPER&quot;</span></span><br><span class="line">  <span class="attr">MEMORY:</span> <span class="string">&quot;2G&quot;</span></span><br><span class="line">  <span class="attr">ONLINE_MODE:</span> <span class="string">&quot;FALSE&quot;</span></span><br></pre></td></tr></table></figure>
-
-<h4 id="数据持久化"><a href="#数据持久化" class="headerlink" title="数据持久化"></a>数据持久化</h4><p>示例中的.&#x2F;data:&#x2F;data挂载将服务器数据保存在宿主机的data目录中，确保服务器重启后数据不会丢失。</p>
-<h1 id="最佳实践建议"><a href="#最佳实践建议" class="headerlink" title="最佳实践建议"></a>最佳实践建议</h1><ol>
-<li>资源限制：为容器设置适当的内存限制，避免影响宿主机性能</li>
-<li>定期备份：即使使用了数据卷，也应定期备份重要数据</li>
-<li>安全配置：设置强密码，限制RCON访问</li>
-<li>监控日志：定期检查服务器日志，及时发现并解决问题</li>
-</ol>
-<h1 id="适用场景"><a href="#适用场景" class="headerlink" title="适用场景"></a>适用场景</h1><p>这个Docker镜像非常适合以下场景：</p>
-<ul>
-<li>快速搭建测试服务器</li>
-<li>个人或小团体游戏</li>
-<li>需要频繁切换服务器版本的情况</li>
-<li>自动化部署和CI&#x2F;CD环境<br>通过使用itzg&#x2F;docker-minecraft-server项目，即使是Docker新手也能快速搭建和管理Minecraft服务器，大大降低了技术门槛。</li>
-</ul>
-]]></content>
-      <categories>
-        <category>服务器运维</category>
-      </categories>
-      <tags>
-        <tag>Minecraft</tag>
       </tags>
   </entry>
   <entry>
@@ -5383,6 +5313,76 @@
       </categories>
       <tags>
         <tag>网络代理</tag>
+      </tags>
+  </entry>
+  <entry>
+    <title>使用itzg/docker-minecraft-server快速搭建Minecraft服务器指南</title>
+    <url>/posts/d28cec10/</url>
+    <content><![CDATA[<h1 id="项目概述"><a href="#项目概述" class="headerlink" title="项目概述"></a>项目概述</h1><p><strong>itzg&#x2F;docker-minecraft-server</strong> 是一个基于Docker的Minecraft服务器镜像项目，它简化了Minecraft服务器的部署和管理流程。通过这个项目，用户可以轻松地在各种环境中运行Minecraft服务器，无需手动下载和配置服务器文件。</p>
+<h1 id="核心特点"><a href="#核心特点" class="headerlink" title="核心特点"></a>核心特点</h1><ol>
+<li><strong>自动下载最新版本</strong>：容器启动时会自动下载最新的稳定版Minecraft服务器</li>
+<li><strong>多版本支持</strong>：支持运行特定版本或最新的快照版</li>
+<li><strong>简化部署</strong>：通过简单的Docker命令即可启动服务器</li>
+<li><strong>持久化存储</strong>：支持将服务器数据挂载到宿主机</li>
+<li><strong>配置灵活</strong>：通过环境变量可自定义服务器参数</li>
+</ol>
+<h1 id="快速开始"><a href="#快速开始" class="headerlink" title="快速开始"></a>快速开始</h1><h2 id="基础部署方式"><a href="#基础部署方式" class="headerlink" title="基础部署方式"></a>基础部署方式</h2><p>要使用最新稳定版启动Minecraft服务器，只需运行以下Docker命令：</p>
+<figure class="highlight bash"><table><tr><td class="code"><pre><span class="line">docker run -d -it -p 25565:25565 -e EULA=TRUE itzg/minecraft-server</span><br></pre></td></tr></table></figure>
+
+<p>这个命令会：</p>
+<ul>
+<li>在后台运行容器(-d)</li>
+<li>分配一个伪终端(-it)</li>
+<li>将容器内的25565端口映射到宿主机的25565端口(-p 25565:25565)</li>
+<li>自动接受Mojang的EULA协议(-e EULA&#x3D;TRUE)</li>
+</ul>
+<h3 id="重要注意事项"><a href="#重要注意事项" class="headerlink" title="重要注意事项"></a>重要注意事项</h3><ol>
+<li><strong>EULA协议</strong>：必须设置<code>EULA=TRUE</code>环境变量，表示接受Mojang&#x2F;Microsoft的用户许可协议</li>
+<li><strong>安全警告</strong>：在没有设置<code>RCON_PASSWORD</code>的情况下，不要将RCON端口(25575)暴露到公网</li>
+<li><strong>持久化建议</strong>：长期运行的服务器建议使用数据卷或绑定挂载来保存数据</li>
+</ol>
+<h2 id="使用Docker-Compose部署"><a href="#使用Docker-Compose部署" class="headerlink" title="使用Docker Compose部署"></a>使用Docker Compose部署</h2><p>对于生产环境，推荐使用Docker Compose来管理服务器，这样可以更方便地进行配置和升级。</p>
+<h3 id="部署步骤"><a href="#部署步骤" class="headerlink" title="部署步骤"></a>部署步骤</h3><ol>
+<li>创建新目录并进入</li>
+<li>创建<code>docker-compose.yml</code>文件，内容如下：</li>
+</ol>
+<figure class="highlight yaml"><table><tr><td class="code"><pre><span class="line"><span class="attr">services:</span></span><br><span class="line">  <span class="attr">mc:</span></span><br><span class="line">    <span class="attr">image:</span> <span class="string">itzg/minecraft-server</span></span><br><span class="line">    <span class="attr">tty:</span> <span class="literal">true</span></span><br><span class="line">    <span class="attr">stdin_open:</span> <span class="literal">true</span></span><br><span class="line">    <span class="attr">ports:</span></span><br><span class="line">      <span class="bullet">-</span> <span class="string">&quot;25565:25565&quot;</span></span><br><span class="line">    <span class="attr">environment:</span></span><br><span class="line">      <span class="attr">EULA:</span> <span class="string">&quot;TRUE&quot;</span></span><br><span class="line">      <span class="attr">ONLINE_MODE:</span> <span class="string">&quot;FALSE&quot;</span></span><br><span class="line">    <span class="attr">volumes:</span></span><br><span class="line">      <span class="bullet">-</span> <span class="string">./data:/data</span></span><br><span class="line"></span><br></pre></td></tr></table></figure>
+
+<ol start="3">
+<li>运行<code>docker compose up -d</code>启动服务</li>
+<li>使用客户端连接服务器的IP和25565端口</li>
+</ol>
+<h3 id="管理命令"><a href="#管理命令" class="headerlink" title="管理命令"></a>管理命令</h3><ul>
+<li>查看日志：<code>docker compose logs -f</code></li>
+<li>检查状态：<code>docker compose ps</code></li>
+<li>停止服务：<code>docker compose stop</code></li>
+<li>更新配置：修改后再次运行<code>docker compose up -d</code></li>
+</ul>
+<h3 id="进阶配置"><a href="#进阶配置" class="headerlink" title="进阶配置"></a>进阶配置</h3><h4 id="版本控制"><a href="#版本控制" class="headerlink" title="版本控制"></a>版本控制</h4><p>默认情况下，容器会下载最新的”原版”Minecraft: Java Edition服务器。可以通过以下环境变量进行定制：</p>
+<p>VERSION：指定服务器版本<br>TYPE：指定服务器类型(如原版、Forge、Paper等)<br>MEMORY：限制容器内存（防卡顿）<br>ONLINE_MODE：关闭正版验证（离线模式）</p>
+<p>例如：</p>
+<figure class="highlight yaml"><table><tr><td class="code"><pre><span class="line"><span class="attr">environment:</span></span><br><span class="line">  <span class="attr">EULA:</span> <span class="string">&quot;TRUE&quot;</span></span><br><span class="line">  <span class="attr">VERSION:</span> <span class="string">&quot;1.20.1&quot;</span></span><br><span class="line">  <span class="attr">TYPE:</span> <span class="string">&quot;PAPER&quot;</span></span><br><span class="line">  <span class="attr">MEMORY:</span> <span class="string">&quot;2G&quot;</span></span><br><span class="line">  <span class="attr">ONLINE_MODE:</span> <span class="string">&quot;FALSE&quot;</span></span><br></pre></td></tr></table></figure>
+
+<h4 id="数据持久化"><a href="#数据持久化" class="headerlink" title="数据持久化"></a>数据持久化</h4><p>示例中的.&#x2F;data:&#x2F;data挂载将服务器数据保存在宿主机的data目录中，确保服务器重启后数据不会丢失。</p>
+<h1 id="最佳实践建议"><a href="#最佳实践建议" class="headerlink" title="最佳实践建议"></a>最佳实践建议</h1><ol>
+<li>资源限制：为容器设置适当的内存限制，避免影响宿主机性能</li>
+<li>定期备份：即使使用了数据卷，也应定期备份重要数据</li>
+<li>安全配置：设置强密码，限制RCON访问</li>
+<li>监控日志：定期检查服务器日志，及时发现并解决问题</li>
+</ol>
+<h1 id="适用场景"><a href="#适用场景" class="headerlink" title="适用场景"></a>适用场景</h1><p>这个Docker镜像非常适合以下场景：</p>
+<ul>
+<li>快速搭建测试服务器</li>
+<li>个人或小团体游戏</li>
+<li>需要频繁切换服务器版本的情况</li>
+<li>自动化部署和CI&#x2F;CD环境<br>通过使用itzg&#x2F;docker-minecraft-server项目，即使是Docker新手也能快速搭建和管理Minecraft服务器，大大降低了技术门槛。</li>
+</ul>
+]]></content>
+      <categories>
+        <category>服务器运维</category>
+      </categories>
+      <tags>
+        <tag>Minecraft</tag>
       </tags>
   </entry>
   <entry>
