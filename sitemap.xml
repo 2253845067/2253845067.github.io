@@ -11,15 +11,6 @@
   </url>
   
   <url>
-    <loc>https://yuqi.im/archives/index.html</loc>
-    
-    <lastmod>2026-04-12</lastmod>
-    
-    <changefreq>monthly</changefreq>
-    <priority>0.6</priority>
-  </url>
-  
-  <url>
     <loc>https://yuqi.im/categories/index.html</loc>
     
     <lastmod>2026-04-12</lastmod>
@@ -29,7 +20,7 @@
   </url>
   
   <url>
-    <loc>https://yuqi.im/link/index.html</loc>
+    <loc>https://yuqi.im/archives/index.html</loc>
     
     <lastmod>2026-04-12</lastmod>
     
@@ -39,6 +30,15 @@
   
   <url>
     <loc>https://yuqi.im/comment/index.html</loc>
+    
+    <lastmod>2026-04-12</lastmod>
+    
+    <changefreq>monthly</changefreq>
+    <priority>0.6</priority>
+  </url>
+  
+  <url>
+    <loc>https://yuqi.im/link/index.html</loc>
     
     <lastmod>2026-04-12</lastmod>
     
@@ -389,7 +389,7 @@
   </url>
   
   <url>
-    <loc>https://yuqi.im/posts/af28068c/</loc>
+    <loc>https://yuqi.im/posts/7db8067/</loc>
     
     <lastmod>2023-11-05</lastmod>
     
@@ -398,7 +398,7 @@
   </url>
   
   <url>
-    <loc>https://yuqi.im/posts/7db8067/</loc>
+    <loc>https://yuqi.im/posts/af28068c/</loc>
     
     <lastmod>2023-11-05</lastmod>
     
@@ -705,14 +705,14 @@
   </url>
   
   <url>
-    <loc>https://yuqi.im/tags/%E7%BD%91%E7%9B%98%E8%81%9A%E5%90%88/</loc>
+    <loc>https://yuqi.im/tags/Balluff/</loc>
     <lastmod>2026-04-12</lastmod>
     <changefreq>weekly</changefreq>
     <priority>0.2</priority>
   </url>
   
   <url>
-    <loc>https://yuqi.im/tags/Balluff/</loc>
+    <loc>https://yuqi.im/tags/%E7%BD%91%E7%9B%98%E8%81%9A%E5%90%88/</loc>
     <lastmod>2026-04-12</lastmod>
     <changefreq>weekly</changefreq>
     <priority>0.2</priority>
@@ -838,14 +838,14 @@
   </url>
   
   <url>
-    <loc>https://yuqi.im/tags/%E5%89%8D%E7%AB%AF%E9%83%A8%E7%BD%B2/</loc>
+    <loc>https://yuqi.im/tags/%E5%8F%B0%E8%BE%BE/</loc>
     <lastmod>2026-04-12</lastmod>
     <changefreq>weekly</changefreq>
     <priority>0.2</priority>
   </url>
   
   <url>
-    <loc>https://yuqi.im/tags/%E5%8F%B0%E8%BE%BE/</loc>
+    <loc>https://yuqi.im/tags/%E5%89%8D%E7%AB%AF%E9%83%A8%E7%BD%B2/</loc>
     <lastmod>2026-04-12</lastmod>
     <changefreq>weekly</changefreq>
     <priority>0.2</priority>
