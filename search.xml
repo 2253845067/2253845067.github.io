@@ -2710,115 +2710,6 @@
       </tags>
   </entry>
   <entry>
-    <title>SEW MOVIPRO调试步骤</title>
-    <url>/posts/f5fecf87/</url>
-    <content><![CDATA[<h1 id="创建项目-添加设备并配置"><a href="#创建项目-添加设备并配置" class="headerlink" title="创建项目-添加设备并配置"></a>创建项目-添加设备并配置</h1><p>1、打开MOVITOOLS MotionStudio软件，创建项目；<br><img src="https://img.zzzg.top/20250520230954862.png" alt="image-20250520230940811"></p>
-<p>2、用Ethernet线缆连接电脑和MoviPro控制器的service unit。点击“communication”，创建通讯方式；<br><img src="https://img.zzzg.top/20250520231006027.png" alt="image-20250520230948605"></p>
-<p>3、设备初始IP地址为192.168.10.4，将电脑IP地址与其设在同一网段下，点击“OK”即可建立Ethernet连接；如果设备IP地址已被更改，点击“edit”；<br><img src="https://img.zzzg.top/20250520231113431.png" alt="image-20250520224324421"></p>
-<p>4、添加新的IP地址；<br><img src="https://img.zzzg.top/20250520231011496.png" alt="image-20250520224341744"></p>
-<p>5、网络连接建立完成；<br><img src="https://img.zzzg.top/20250520231122633.png" alt="image-20250520224354597"></p>
-<p>6、扫描网络中的设备；<br><img src="https://img.zzzg.top/20250520231131139.png" alt="image-20250520224412310"></p>
-<p>7、设备扫描完成；<br><img src="https://img.zzzg.top/20250520231137902.png" alt="image-20250520224428869"></p>
-<p>8、点击设备属性；<br><img src="https://img.zzzg.top/20250520231146176.png" alt="image-20250520224518855"></p>
-<p>9、设置设备名称；<br><img src="https://img.zzzg.top/20250520231200252.png" alt="image-20250520224532942"></p>
-<p>8、进行设备硬件配置；<br><img src="https://img.zzzg.top/20250520231153579.png" alt="image-20250520224548176"></p>
-<p>11、选择需要配置的设备；<br><img src="https://img.zzzg.top/20250520231210043.png" alt="image-20250520224559520"></p>
-<p>12、点击“确定”；<br><img src="https://img.zzzg.top/20250520231221238.png" alt="image-20250520224613368"></p>
-<p>13、硬件配置完成；<br><img src="https://img.zzzg.top/20250520231228687.png" alt="image-20250520224629428"></p>
-<h1 id="配置电机参数"><a href="#配置电机参数" class="headerlink" title="配置电机参数"></a>配置电机参数</h1><p>14、进行power section初始化；<br><img src="https://img.zzzg.top/20250520231239923.png" alt="image-20250520224645469"></p>
-<p>15、点击“perform startup”，开始初始化；<br><img src="https://img.zzzg.top/20250520231248547.png" alt="image-20250520224657723"></p>
-<p>16、如果编码器中有电机的电子铭牌。选择接受编码器铭牌信息，点击“next”;<br><img src="https://img.zzzg.top/20250520231257891.png" alt="image-20250520224711463"></p>
-<p>17、如果编码器中没有电机的电子铭牌。需要对照电机铭牌，将编码器的电子铭牌手动输入 ；<br><img src="https://img.zzzg.top/20250520231305618.png" alt="image-20250520224722270"></p>
-<p>18、对照电机铭牌，确认编码器型号，之后点击“next”；<br><img src="https://img.zzzg.top/20250520231315922.png" alt="image-20250520224736776"></p>
-<p>19、编码器配置完成，点击“next”，开始电机初始化；<br><img src="https://img.zzzg.top/20250520231327038.png" alt="image-20250520224747069"></p>
-<p>20、点击“startup set-1”,进行parameter set-1设置；<br><img src="https://img.zzzg.top/20250520231334194.png" alt="image-20250520224801440"></p>
-<p>21、选择“Execute complete start-up（执行完整的初始化）”；<br><img src="https://img.zzzg.top/20250520231349687.png" alt="image-20250520224813064"></p>
-<p>22、选择“Stand-alone motor &gt; Vector-controlled&#x2F;Servo（独立电机 &gt; 矢量控制&#x2F;伺服电机）”；<br><img src="https://img.zzzg.top/20250520231358793.png" alt="image-20250520224822876"></p>
-<p>23、参照电机铭牌，检查电机及编码器信息是否准确；<br><img src="https://img.zzzg.top/20250520231410958.png" alt="image-20250520224837420"></p>
-<p>24、检查电机类型信息；<br><img src="https://img.zzzg.top/20250520231419435.png" alt="image-20250520224848845"></p>
-<p>25、输入电源电压，定义参数P835“电机温度传感器的响应”，定义参数P530“电机温度传感器类型”（例如TF&#x2F;TH）；<br><img src="https://img.zzzg.top/20250520231428193.png" alt="image-20250520224926604"></p>
-<p>26、选择“Yes, I use the encoder.（使用编码器）”；<br><img src="https://img.zzzg.top/20250520231436016.png" alt="image-20250520224938904"></p>
-<p>27、操作模式选择“Positioning with IPOS（IPOS程序定位模式）”；<br><img src="https://img.zzzg.top/20250520231442842.png" alt="image-20250520225002622"></p>
-<p>28、选择“CFC（电流矢量控制）模式”；<br><img src="https://img.zzzg.top/20250520231449119.png" alt="image-20250520225015957"></p>
-<p>29、准确填写WEISS计算的load inertia（负载转动惯量），drive选择“With Backlash”；<br><img src="https://img.zzzg.top/20250520231503423.png" alt="image-20250520225026004"></p>
-<p>30、相关参数使用WEISS所提供参数表中的建议参数，其它参数选择“Apply Proposal（使用推荐值）”；<br><img src="https://img.zzzg.top/20250520231511679.png" alt="image-20250520225036799"></p>
-<p>31、转速控制器参数选择“Apply Proposal（使用推荐值）”；<br><img src="https://img.zzzg.top/20250520231536940.png" alt="image-20250520225058582"></p>
-<p>32、 相关参数使用WEISS所提供参数表中的建议参数，剩余参数选择“Apply Proposal（使用推荐值）”；<br><img src="https://img.zzzg.top/20250520231544207.png" alt="image-20250520225108975"></p>
-<p>33、点击“完成”，将初始化信息下载至控制器。如需配置parameter set-2，点击“download”，再进行参数包2的配置；<br><img src="https://img.zzzg.top/20250520231552525.png" alt="image-20250520225121142"></p>
-<p>34、初始化完全完成后，会跳出提示框，点击“确定”；<br><img src="https://img.zzzg.top/20250520231600145.png" alt="image-20250520225138383"></p>
-<h1 id="设置其他参数"><a href="#设置其他参数" class="headerlink" title="设置其他参数"></a>设置其他参数</h1><p>35、点击“parameter tree”，进行WEISS所提供参数表中其它相关参数的设置；<br><img src="https://img.zzzg.top/20250520231606894.png" alt="image-20250520225149596"></p>
-<p>36、例如，P911定位斜坡1，P913&#x2F;P914运转转速CW&#x2F;CCW，P916斜坡形式需设为“Jerk-Limited”；<br><img src="https://img.zzzg.top/20250520231616480.png" alt="image-20250520225202404"></p>
-<p>37、例如，P933突变时间；<br><img src="https://img.zzzg.top/20250520231626629.png" alt="image-20250520225213331"></p>
-<h1 id="手动控制"><a href="#手动控制" class="headerlink" title="手动控制"></a>手动控制</h1><p>38、参数配置为在线实时进行，完成后，点击“manual mode”手动模式；<br><img src="https://img.zzzg.top/20250520231642297.png" alt="image-20250520225223204"></p>
-<p>39、点击“Activate manual mode”，激活手动模式。此时插上jumper plug，设置速度，方向，即可进行转台正反停控制；<br><img src="https://img.zzzg.top/20250520231656405.png" alt="image-20250520225234230"></p>
-<p>40、手动模式下，转台运行正常后，将转台旋转至机械零点位置，点击“Deactivate manual mode”，退出手动模式，拔下jumper plug;	<br><img src="https://img.zzzg.top/20250520231705779.png" alt="image-20250520225246305"></p>
-<h1 id="模块应用配置"><a href="#模块应用配置" class="headerlink" title="模块应用配置"></a>模块应用配置</h1><p>41、点击“Application Configurator”，进行模块应用配置；<br><img src="https://img.zzzg.top/20250520231712618.png" alt="image-20250520225301025"></p>
-<p>42、点击“Create new configuration”,创建新的模块应用配置；<br><img src="https://img.zzzg.top/20250520231719182.png" alt="image-20250520225312698"></p>
-<p>43、Application module 选择“transparent 6PD”;<br><img src="https://img.zzzg.top/20250520231726816.png" alt="image-20250520225325321"></p>
-<p>44、点击“configuration”，完成后标志变绿色，点击“next”；<br><img src="https://img.zzzg.top/20250520231734076.png" alt="image-20250520225340848"></p>
-<p>45、点击“Save complete configuration”，可保存应用配置文件；<br><img src="https://img.zzzg.top/20250520231740533.png" alt="image-20250520225402973"></p>
-<p>46、点击“Document configuration”,可将应用配置保存为.pdf文件；<br><img src="https://img.zzzg.top/20250520231747555.png" alt="image-20250520225422513"></p>
-<p>47、若应用配置软件版本不同，选择“with controller software”，将软件和应用配置下载至设备。过程持续可能20分钟，注意电脑和设备此时不能断电；<br><img src="https://img.zzzg.top/20250520231757343.png" alt="image-20250520225434600"></p>
-<p>48、点击“确定”，重启设备;<br><img src="https://img.zzzg.top/20250520231804084.png" alt="image-20250520225445136"></p>
-<p>49、应用配置完成；<br><img src="https://img.zzzg.top/20250520231811471.png" alt="image-20250520225459428"></p>
-<h1 id="配置AMA0801"><a href="#配置AMA0801" class="headerlink" title="配置AMA0801"></a>配置AMA0801</h1><p>50、创建AMA0801模块；<br><img src="https://img.zzzg.top/20250520231822010.png" alt="image-20250520225524162"></p>
-<p>51、点击“Load a configuration”，下载已保存的应用模块，或者点击“next”，开始初始化AMA0801模块；<br><img src="https://img.zzzg.top/20250520231828978.png" alt="image-20250520225540943"></p>
-<p>52、总线参数和控制器配置页面，“Application mode”选择“Binary setpoint”;<br><img src="https://img.zzzg.top/20250520231837827.png" alt="image-20250520225551310"></p>
-<p>53、刻度计算页面，“Diameter&#x2F;spindle pitch”的单位选择“inc”;<br><img src="https://img.zzzg.top/20250520231844945.png" alt="image-20250520225604832"></p>
-<p>54、参数和极限页面，若使用硬件限位开关，需将CW和CCW限位开关接到设备X5102_2，同时在软件上选择“YES”，“parameter tree”中将P603和P604端子功能设置为相应的限位功能。如果没有原点传感器，寻找参考点模式选择5，即将当前点作为原点。同时可根据WEISS参数表设置各种模式下极限速度；<br><img src="https://img.zzzg.top/20250520231851607.png" alt="image-20250520225621665"></p>
-<p>55、设置定位和点动模式高低速、加减速时间，以及 至设置设备行走各个位置的速度及加减速时间；<br><img src="https://img.zzzg.top/20250520231859909.png" alt="image-20250520225632316"></p>
-<p>56、设置定位窗口和设备行走的位置；<br><img src="https://img.zzzg.top/20250520231908210.png" alt="image-20250520225645477"></p>
-<p>57、设置cam switch；<br><img src="https://img.zzzg.top/20250520231915883.png" alt="image-20250520225706528"></p>
-<p>58、监控设置页面，建议使用其默认参数；<br><img src="https://img.zzzg.top/20250520231922866.png" alt="image-20250520225717710"></p>
-<p>59、点击“save configutation”，可保存AMA配置文件；<br><img src="https://img.zzzg.top/20250520231930036.png" alt="image-20250520225728063"></p>
-<p>60、点击“create documentation”，可将AMA配置保存为.pdf文件；<br><img src="https://img.zzzg.top/20250520231936652.png" alt="image-20250520225738609"></p>
-<p>61、点击“download”，将AMA应用模块配置下载至设备；<br><img src="https://img.zzzg.top/20250520231948547.png" alt="image-20250520225759312"></p>
-<h1 id="总线控制"><a href="#总线控制" class="headerlink" title="总线控制"></a>总线控制</h1><p>62、下载完成后，软件自动跳至总线控制监视器；<br><img src="https://img.zzzg.top/20250520232005174.png" alt="image-20250520225808792"></p>
-<p>63、点击“control”，确定弹出对话框；<br><img src="https://img.zzzg.top/20250520232013724.png" alt="image-20250520225818826"></p>
-<p>64、插上jumper plug，控制模式选为“reference mode（寻参模式）”，点击“start”，即可将当前机械零点设为电气零点；<br><img src="https://img.zzzg.top/20250520232021615.png" alt="image-20250520225830987"></p>
-<p>65、寻参结束后，PO2状态字中当前位置会变为0 inc;<br><img src="https://img.zzzg.top/20250520232029384.png" alt="image-20250520225841553"></p>
-<p>66、选择“jog mode（点动模式）”，即可模拟总线进行点动控制；<br><img src="https://img.zzzg.top/20250520232037665.png" alt="image-20250520225851198"></p>
-<p>67、选择“positioning mode（定位模式）”，选择位置，即可模拟总线进行定位控制；<br><img src="https://img.zzzg.top/20250520232045036.png" alt="image-20250520225859987"></p>
-<p>68、模拟总线控制转台运转正常之后，取消控制字，拔下jumper plug，点击“monitor”，退出控制模式；<br><img src="https://img.zzzg.top/20250520232051720.png" alt="image-20250520225909761"></p>
-<h1 id="数据管理"><a href="#数据管理" class="headerlink" title="数据管理"></a>数据管理</h1><p>69、点击“Datamanagement”；<br><img src="https://img.zzzg.top/20250520232100983.png" alt="image-20250520225920732"></p>
-<p>70、点击“upload”，将设备中数据备份到SD卡；<br><img src="https://img.zzzg.top/20250520232108798.png" alt="image-20250520225930647"></p>
-<p>71、点击“start upload”，开始备份数据；<br><img src="https://img.zzzg.top/20250520232116388.png" alt="image-20250520225958505"></p>
-<p>72、备份完成；<br><img src="https://img.zzzg.top/20250520232124675.png" alt="image-20250520225942038"></p>
-<p>73、点击“export”，将power section参数导出；<br><img src="https://img.zzzg.top/20250520232133052.png" alt="image-20250520230018000"></p>
-<p>74、点击“export”，将control and communication unit参数导出；<br><img src="https://img.zzzg.top/20250520232141408.png" alt="image-20250520230027041"></p>
-<p>75、点击“save”，保存项目；<br><img src="https://img.zzzg.top/20250520232149043.png" alt="image-20250520230037252"></p>
-<p>76、点击“export”，可将此项目导出为.exe文件；<br><img src="https://img.zzzg.top/20250520232157540.png" alt="image-20250520230047342"></p>
-<h1 id="初始化"><a href="#初始化" class="headerlink" title="初始化"></a>初始化</h1><p>77、若需初始化控制器，可在“parameter tree”P802中选择“delivery state”，将控制器还原为出厂状态。<br><img src="https://img.zzzg.top/20250520232205573.png" alt="image-20250520230056017"></p>
-<h1 id="补充"><a href="#补充" class="headerlink" title="补充"></a>补充</h1><p>1、变频器安全参照MOVIFIT设置右键点击20 Default<br><img src="https://img.zzzg.top/20250522195109917.jpg" alt="img"></p>
-<p>2、变频器硬件组态输入输出数据为 8 WORD.<br><img src="https://img.zzzg.top/20250522195116416.jpg" alt="img"></p>
-<p>3、选择<br><img src="https://img.zzzg.top/20250522195121633.jpg" alt="img"><br>读取编码器中电机参数 ，电机NEXT<br><img src="https://img.zzzg.top/20250522195127315.jpg" alt="img"></p>
-<p>4、开始设置变频器参数 电机START-UP SET1<br><img src="https://img.zzzg.top/20250522195131943.jpg" alt="img"></p>
-<p>5、选择完成执行参数初始化<br><img src="https://img.zzzg.top/20250522195136752.jpg" alt="img"></p>
-<p>6、选择私服控制<br><img src="https://img.zzzg.top/20250522195141348.jpg" alt="img"></p>
-<p>7、选择电机型号。本项目中是读取编码器中电机数据故无需设置<br><img src="https://img.zzzg.top/20250522195149268.jpg" alt="img"></p>
-<p>8、选择PositionWith IPOS<br><img src="https://img.zzzg.top/20250522195155150.jpg" alt="img"> </p>
-<p>9、选择矢量控制<br><img src="https://img.zzzg.top/20250522195201283.jpg" alt="img"></p>
-<p>10、设置电机转动惯量和抱闸应用<br><img src="https://img.zzzg.top/20250522195208507.jpg" alt="img"></p>
-<p>11、电机参数选择SEW建议值， APPLY PROPOSAL电机NEXT<br><img src="https://img.zzzg.top/20250522195215400.jpg" alt="img"></p>
-<p>12、参数设置完成，电机完成将参数下载到变频器、<br><img src="https://img.zzzg.top/20250522195221191.jpg" alt="img"></p>
-<p>13、设置变频器IPOS应用、选择Extened Positioning Via Bus<br><img src="https://img.zzzg.top/20250522195226479.jpg" alt="img"></p>
-<p>14、电机NEXT<br><img src="https://img.zzzg.top/20250522195231631.jpg" alt="img"></p>
-<p>15、设置滚床机械参数。由于采用脉冲定位方式故直接电机NEXT<br><img src="https://img.zzzg.top/20250522195237098.jpg" alt="img"></p>
-<p>16、设置变频器软限位和校零方式<br><img src="https://img.zzzg.top/20250522195242608.jpg" alt="img"></p>
-<p>17、参数设置完成电机DOWN load下载参数<br><img src="https://img.zzzg.top/20250522195249177.jpg" alt="img"></p>
-<p>18、选择YES可以查看变频器控制字和状态字<br><img src="https://img.zzzg.top/20250522195255788.jpg" alt="img"></p>
-<p>19、MONITOR MODE和 CONTROL模式可以监控变频器状态或者控制变频器定位（由PC控制）<br><img src="https://img.zzzg.top/20250522195303798.jpg" alt="img"></p>
-<p>20、巡参模式控制字<br><img src="https://img.zzzg.top/20250522195310346.jpg" alt="img"></p>
-<p>21、定位模式状态字。定位的前提是变频器必须巡参，需要设置目的值、速度、加减速度<br><img src="https://img.zzzg.top/20250522195316220.jpg" alt="img"></p>
-]]></content>
-      <categories>
-        <category>工业自动化</category>
-      </categories>
-      <tags>
-        <tag>MOVIDRIVE</tag>
-      </tags>
-  </entry>
-  <entry>
     <title>SEW MOVIDRIVE MDX61B调试步骤</title>
     <url>/posts/175f8f8b/</url>
     <content><![CDATA[<h1 id="通用配置"><a href="#通用配置" class="headerlink" title="通用配置"></a>通用配置</h1><p>1、打开MOVITOOLS MotionStudio软件，创建项目；</p>
@@ -2983,6 +2874,115 @@
 <p><img src="https://img.zzzg.top/20250524223312296.png" alt="image-20250524213941933"></p>
 <p>48、若后期设备应用有更改，需初始化控制器，可在“parameter tree”P802中选择“delivery state”，将控制器还原为出厂状态。</p>
 <p><img src="https://img.zzzg.top/20250524223317731.png" alt="image-20250524213949868"></p>
+]]></content>
+      <categories>
+        <category>工业自动化</category>
+      </categories>
+      <tags>
+        <tag>MOVIDRIVE</tag>
+      </tags>
+  </entry>
+  <entry>
+    <title>SEW MOVIPRO调试步骤</title>
+    <url>/posts/f5fecf87/</url>
+    <content><![CDATA[<h1 id="创建项目-添加设备并配置"><a href="#创建项目-添加设备并配置" class="headerlink" title="创建项目-添加设备并配置"></a>创建项目-添加设备并配置</h1><p>1、打开MOVITOOLS MotionStudio软件，创建项目；<br><img src="https://img.zzzg.top/20250520230954862.png" alt="image-20250520230940811"></p>
+<p>2、用Ethernet线缆连接电脑和MoviPro控制器的service unit。点击“communication”，创建通讯方式；<br><img src="https://img.zzzg.top/20250520231006027.png" alt="image-20250520230948605"></p>
+<p>3、设备初始IP地址为192.168.10.4，将电脑IP地址与其设在同一网段下，点击“OK”即可建立Ethernet连接；如果设备IP地址已被更改，点击“edit”；<br><img src="https://img.zzzg.top/20250520231113431.png" alt="image-20250520224324421"></p>
+<p>4、添加新的IP地址；<br><img src="https://img.zzzg.top/20250520231011496.png" alt="image-20250520224341744"></p>
+<p>5、网络连接建立完成；<br><img src="https://img.zzzg.top/20250520231122633.png" alt="image-20250520224354597"></p>
+<p>6、扫描网络中的设备；<br><img src="https://img.zzzg.top/20250520231131139.png" alt="image-20250520224412310"></p>
+<p>7、设备扫描完成；<br><img src="https://img.zzzg.top/20250520231137902.png" alt="image-20250520224428869"></p>
+<p>8、点击设备属性；<br><img src="https://img.zzzg.top/20250520231146176.png" alt="image-20250520224518855"></p>
+<p>9、设置设备名称；<br><img src="https://img.zzzg.top/20250520231200252.png" alt="image-20250520224532942"></p>
+<p>8、进行设备硬件配置；<br><img src="https://img.zzzg.top/20250520231153579.png" alt="image-20250520224548176"></p>
+<p>11、选择需要配置的设备；<br><img src="https://img.zzzg.top/20250520231210043.png" alt="image-20250520224559520"></p>
+<p>12、点击“确定”；<br><img src="https://img.zzzg.top/20250520231221238.png" alt="image-20250520224613368"></p>
+<p>13、硬件配置完成；<br><img src="https://img.zzzg.top/20250520231228687.png" alt="image-20250520224629428"></p>
+<h1 id="配置电机参数"><a href="#配置电机参数" class="headerlink" title="配置电机参数"></a>配置电机参数</h1><p>14、进行power section初始化；<br><img src="https://img.zzzg.top/20250520231239923.png" alt="image-20250520224645469"></p>
+<p>15、点击“perform startup”，开始初始化；<br><img src="https://img.zzzg.top/20250520231248547.png" alt="image-20250520224657723"></p>
+<p>16、如果编码器中有电机的电子铭牌。选择接受编码器铭牌信息，点击“next”;<br><img src="https://img.zzzg.top/20250520231257891.png" alt="image-20250520224711463"></p>
+<p>17、如果编码器中没有电机的电子铭牌。需要对照电机铭牌，将编码器的电子铭牌手动输入 ；<br><img src="https://img.zzzg.top/20250520231305618.png" alt="image-20250520224722270"></p>
+<p>18、对照电机铭牌，确认编码器型号，之后点击“next”；<br><img src="https://img.zzzg.top/20250520231315922.png" alt="image-20250520224736776"></p>
+<p>19、编码器配置完成，点击“next”，开始电机初始化；<br><img src="https://img.zzzg.top/20250520231327038.png" alt="image-20250520224747069"></p>
+<p>20、点击“startup set-1”,进行parameter set-1设置；<br><img src="https://img.zzzg.top/20250520231334194.png" alt="image-20250520224801440"></p>
+<p>21、选择“Execute complete start-up（执行完整的初始化）”；<br><img src="https://img.zzzg.top/20250520231349687.png" alt="image-20250520224813064"></p>
+<p>22、选择“Stand-alone motor &gt; Vector-controlled&#x2F;Servo（独立电机 &gt; 矢量控制&#x2F;伺服电机）”；<br><img src="https://img.zzzg.top/20250520231358793.png" alt="image-20250520224822876"></p>
+<p>23、参照电机铭牌，检查电机及编码器信息是否准确；<br><img src="https://img.zzzg.top/20250520231410958.png" alt="image-20250520224837420"></p>
+<p>24、检查电机类型信息；<br><img src="https://img.zzzg.top/20250520231419435.png" alt="image-20250520224848845"></p>
+<p>25、输入电源电压，定义参数P835“电机温度传感器的响应”，定义参数P530“电机温度传感器类型”（例如TF&#x2F;TH）；<br><img src="https://img.zzzg.top/20250520231428193.png" alt="image-20250520224926604"></p>
+<p>26、选择“Yes, I use the encoder.（使用编码器）”；<br><img src="https://img.zzzg.top/20250520231436016.png" alt="image-20250520224938904"></p>
+<p>27、操作模式选择“Positioning with IPOS（IPOS程序定位模式）”；<br><img src="https://img.zzzg.top/20250520231442842.png" alt="image-20250520225002622"></p>
+<p>28、选择“CFC（电流矢量控制）模式”；<br><img src="https://img.zzzg.top/20250520231449119.png" alt="image-20250520225015957"></p>
+<p>29、准确填写WEISS计算的load inertia（负载转动惯量），drive选择“With Backlash”；<br><img src="https://img.zzzg.top/20250520231503423.png" alt="image-20250520225026004"></p>
+<p>30、相关参数使用WEISS所提供参数表中的建议参数，其它参数选择“Apply Proposal（使用推荐值）”；<br><img src="https://img.zzzg.top/20250520231511679.png" alt="image-20250520225036799"></p>
+<p>31、转速控制器参数选择“Apply Proposal（使用推荐值）”；<br><img src="https://img.zzzg.top/20250520231536940.png" alt="image-20250520225058582"></p>
+<p>32、 相关参数使用WEISS所提供参数表中的建议参数，剩余参数选择“Apply Proposal（使用推荐值）”；<br><img src="https://img.zzzg.top/20250520231544207.png" alt="image-20250520225108975"></p>
+<p>33、点击“完成”，将初始化信息下载至控制器。如需配置parameter set-2，点击“download”，再进行参数包2的配置；<br><img src="https://img.zzzg.top/20250520231552525.png" alt="image-20250520225121142"></p>
+<p>34、初始化完全完成后，会跳出提示框，点击“确定”；<br><img src="https://img.zzzg.top/20250520231600145.png" alt="image-20250520225138383"></p>
+<h1 id="设置其他参数"><a href="#设置其他参数" class="headerlink" title="设置其他参数"></a>设置其他参数</h1><p>35、点击“parameter tree”，进行WEISS所提供参数表中其它相关参数的设置；<br><img src="https://img.zzzg.top/20250520231606894.png" alt="image-20250520225149596"></p>
+<p>36、例如，P911定位斜坡1，P913&#x2F;P914运转转速CW&#x2F;CCW，P916斜坡形式需设为“Jerk-Limited”；<br><img src="https://img.zzzg.top/20250520231616480.png" alt="image-20250520225202404"></p>
+<p>37、例如，P933突变时间；<br><img src="https://img.zzzg.top/20250520231626629.png" alt="image-20250520225213331"></p>
+<h1 id="手动控制"><a href="#手动控制" class="headerlink" title="手动控制"></a>手动控制</h1><p>38、参数配置为在线实时进行，完成后，点击“manual mode”手动模式；<br><img src="https://img.zzzg.top/20250520231642297.png" alt="image-20250520225223204"></p>
+<p>39、点击“Activate manual mode”，激活手动模式。此时插上jumper plug，设置速度，方向，即可进行转台正反停控制；<br><img src="https://img.zzzg.top/20250520231656405.png" alt="image-20250520225234230"></p>
+<p>40、手动模式下，转台运行正常后，将转台旋转至机械零点位置，点击“Deactivate manual mode”，退出手动模式，拔下jumper plug;	<br><img src="https://img.zzzg.top/20250520231705779.png" alt="image-20250520225246305"></p>
+<h1 id="模块应用配置"><a href="#模块应用配置" class="headerlink" title="模块应用配置"></a>模块应用配置</h1><p>41、点击“Application Configurator”，进行模块应用配置；<br><img src="https://img.zzzg.top/20250520231712618.png" alt="image-20250520225301025"></p>
+<p>42、点击“Create new configuration”,创建新的模块应用配置；<br><img src="https://img.zzzg.top/20250520231719182.png" alt="image-20250520225312698"></p>
+<p>43、Application module 选择“transparent 6PD”;<br><img src="https://img.zzzg.top/20250520231726816.png" alt="image-20250520225325321"></p>
+<p>44、点击“configuration”，完成后标志变绿色，点击“next”；<br><img src="https://img.zzzg.top/20250520231734076.png" alt="image-20250520225340848"></p>
+<p>45、点击“Save complete configuration”，可保存应用配置文件；<br><img src="https://img.zzzg.top/20250520231740533.png" alt="image-20250520225402973"></p>
+<p>46、点击“Document configuration”,可将应用配置保存为.pdf文件；<br><img src="https://img.zzzg.top/20250520231747555.png" alt="image-20250520225422513"></p>
+<p>47、若应用配置软件版本不同，选择“with controller software”，将软件和应用配置下载至设备。过程持续可能20分钟，注意电脑和设备此时不能断电；<br><img src="https://img.zzzg.top/20250520231757343.png" alt="image-20250520225434600"></p>
+<p>48、点击“确定”，重启设备;<br><img src="https://img.zzzg.top/20250520231804084.png" alt="image-20250520225445136"></p>
+<p>49、应用配置完成；<br><img src="https://img.zzzg.top/20250520231811471.png" alt="image-20250520225459428"></p>
+<h1 id="配置AMA0801"><a href="#配置AMA0801" class="headerlink" title="配置AMA0801"></a>配置AMA0801</h1><p>50、创建AMA0801模块；<br><img src="https://img.zzzg.top/20250520231822010.png" alt="image-20250520225524162"></p>
+<p>51、点击“Load a configuration”，下载已保存的应用模块，或者点击“next”，开始初始化AMA0801模块；<br><img src="https://img.zzzg.top/20250520231828978.png" alt="image-20250520225540943"></p>
+<p>52、总线参数和控制器配置页面，“Application mode”选择“Binary setpoint”;<br><img src="https://img.zzzg.top/20250520231837827.png" alt="image-20250520225551310"></p>
+<p>53、刻度计算页面，“Diameter&#x2F;spindle pitch”的单位选择“inc”;<br><img src="https://img.zzzg.top/20250520231844945.png" alt="image-20250520225604832"></p>
+<p>54、参数和极限页面，若使用硬件限位开关，需将CW和CCW限位开关接到设备X5102_2，同时在软件上选择“YES”，“parameter tree”中将P603和P604端子功能设置为相应的限位功能。如果没有原点传感器，寻找参考点模式选择5，即将当前点作为原点。同时可根据WEISS参数表设置各种模式下极限速度；<br><img src="https://img.zzzg.top/20250520231851607.png" alt="image-20250520225621665"></p>
+<p>55、设置定位和点动模式高低速、加减速时间，以及 至设置设备行走各个位置的速度及加减速时间；<br><img src="https://img.zzzg.top/20250520231859909.png" alt="image-20250520225632316"></p>
+<p>56、设置定位窗口和设备行走的位置；<br><img src="https://img.zzzg.top/20250520231908210.png" alt="image-20250520225645477"></p>
+<p>57、设置cam switch；<br><img src="https://img.zzzg.top/20250520231915883.png" alt="image-20250520225706528"></p>
+<p>58、监控设置页面，建议使用其默认参数；<br><img src="https://img.zzzg.top/20250520231922866.png" alt="image-20250520225717710"></p>
+<p>59、点击“save configutation”，可保存AMA配置文件；<br><img src="https://img.zzzg.top/20250520231930036.png" alt="image-20250520225728063"></p>
+<p>60、点击“create documentation”，可将AMA配置保存为.pdf文件；<br><img src="https://img.zzzg.top/20250520231936652.png" alt="image-20250520225738609"></p>
+<p>61、点击“download”，将AMA应用模块配置下载至设备；<br><img src="https://img.zzzg.top/20250520231948547.png" alt="image-20250520225759312"></p>
+<h1 id="总线控制"><a href="#总线控制" class="headerlink" title="总线控制"></a>总线控制</h1><p>62、下载完成后，软件自动跳至总线控制监视器；<br><img src="https://img.zzzg.top/20250520232005174.png" alt="image-20250520225808792"></p>
+<p>63、点击“control”，确定弹出对话框；<br><img src="https://img.zzzg.top/20250520232013724.png" alt="image-20250520225818826"></p>
+<p>64、插上jumper plug，控制模式选为“reference mode（寻参模式）”，点击“start”，即可将当前机械零点设为电气零点；<br><img src="https://img.zzzg.top/20250520232021615.png" alt="image-20250520225830987"></p>
+<p>65、寻参结束后，PO2状态字中当前位置会变为0 inc;<br><img src="https://img.zzzg.top/20250520232029384.png" alt="image-20250520225841553"></p>
+<p>66、选择“jog mode（点动模式）”，即可模拟总线进行点动控制；<br><img src="https://img.zzzg.top/20250520232037665.png" alt="image-20250520225851198"></p>
+<p>67、选择“positioning mode（定位模式）”，选择位置，即可模拟总线进行定位控制；<br><img src="https://img.zzzg.top/20250520232045036.png" alt="image-20250520225859987"></p>
+<p>68、模拟总线控制转台运转正常之后，取消控制字，拔下jumper plug，点击“monitor”，退出控制模式；<br><img src="https://img.zzzg.top/20250520232051720.png" alt="image-20250520225909761"></p>
+<h1 id="数据管理"><a href="#数据管理" class="headerlink" title="数据管理"></a>数据管理</h1><p>69、点击“Datamanagement”；<br><img src="https://img.zzzg.top/20250520232100983.png" alt="image-20250520225920732"></p>
+<p>70、点击“upload”，将设备中数据备份到SD卡；<br><img src="https://img.zzzg.top/20250520232108798.png" alt="image-20250520225930647"></p>
+<p>71、点击“start upload”，开始备份数据；<br><img src="https://img.zzzg.top/20250520232116388.png" alt="image-20250520225958505"></p>
+<p>72、备份完成；<br><img src="https://img.zzzg.top/20250520232124675.png" alt="image-20250520225942038"></p>
+<p>73、点击“export”，将power section参数导出；<br><img src="https://img.zzzg.top/20250520232133052.png" alt="image-20250520230018000"></p>
+<p>74、点击“export”，将control and communication unit参数导出；<br><img src="https://img.zzzg.top/20250520232141408.png" alt="image-20250520230027041"></p>
+<p>75、点击“save”，保存项目；<br><img src="https://img.zzzg.top/20250520232149043.png" alt="image-20250520230037252"></p>
+<p>76、点击“export”，可将此项目导出为.exe文件；<br><img src="https://img.zzzg.top/20250520232157540.png" alt="image-20250520230047342"></p>
+<h1 id="初始化"><a href="#初始化" class="headerlink" title="初始化"></a>初始化</h1><p>77、若需初始化控制器，可在“parameter tree”P802中选择“delivery state”，将控制器还原为出厂状态。<br><img src="https://img.zzzg.top/20250520232205573.png" alt="image-20250520230056017"></p>
+<h1 id="补充"><a href="#补充" class="headerlink" title="补充"></a>补充</h1><p>1、变频器安全参照MOVIFIT设置右键点击20 Default<br><img src="https://img.zzzg.top/20250522195109917.jpg" alt="img"></p>
+<p>2、变频器硬件组态输入输出数据为 8 WORD.<br><img src="https://img.zzzg.top/20250522195116416.jpg" alt="img"></p>
+<p>3、选择<br><img src="https://img.zzzg.top/20250522195121633.jpg" alt="img"><br>读取编码器中电机参数 ，电机NEXT<br><img src="https://img.zzzg.top/20250522195127315.jpg" alt="img"></p>
+<p>4、开始设置变频器参数 电机START-UP SET1<br><img src="https://img.zzzg.top/20250522195131943.jpg" alt="img"></p>
+<p>5、选择完成执行参数初始化<br><img src="https://img.zzzg.top/20250522195136752.jpg" alt="img"></p>
+<p>6、选择私服控制<br><img src="https://img.zzzg.top/20250522195141348.jpg" alt="img"></p>
+<p>7、选择电机型号。本项目中是读取编码器中电机数据故无需设置<br><img src="https://img.zzzg.top/20250522195149268.jpg" alt="img"></p>
+<p>8、选择PositionWith IPOS<br><img src="https://img.zzzg.top/20250522195155150.jpg" alt="img"> </p>
+<p>9、选择矢量控制<br><img src="https://img.zzzg.top/20250522195201283.jpg" alt="img"></p>
+<p>10、设置电机转动惯量和抱闸应用<br><img src="https://img.zzzg.top/20250522195208507.jpg" alt="img"></p>
+<p>11、电机参数选择SEW建议值， APPLY PROPOSAL电机NEXT<br><img src="https://img.zzzg.top/20250522195215400.jpg" alt="img"></p>
+<p>12、参数设置完成，电机完成将参数下载到变频器、<br><img src="https://img.zzzg.top/20250522195221191.jpg" alt="img"></p>
+<p>13、设置变频器IPOS应用、选择Extened Positioning Via Bus<br><img src="https://img.zzzg.top/20250522195226479.jpg" alt="img"></p>
+<p>14、电机NEXT<br><img src="https://img.zzzg.top/20250522195231631.jpg" alt="img"></p>
+<p>15、设置滚床机械参数。由于采用脉冲定位方式故直接电机NEXT<br><img src="https://img.zzzg.top/20250522195237098.jpg" alt="img"></p>
+<p>16、设置变频器软限位和校零方式<br><img src="https://img.zzzg.top/20250522195242608.jpg" alt="img"></p>
+<p>17、参数设置完成电机DOWN load下载参数<br><img src="https://img.zzzg.top/20250522195249177.jpg" alt="img"></p>
+<p>18、选择YES可以查看变频器控制字和状态字<br><img src="https://img.zzzg.top/20250522195255788.jpg" alt="img"></p>
+<p>19、MONITOR MODE和 CONTROL模式可以监控变频器状态或者控制变频器定位（由PC控制）<br><img src="https://img.zzzg.top/20250522195303798.jpg" alt="img"></p>
+<p>20、巡参模式控制字<br><img src="https://img.zzzg.top/20250522195310346.jpg" alt="img"></p>
+<p>21、定位模式状态字。定位的前提是变频器必须巡参，需要设置目的值、速度、加减速度<br><img src="https://img.zzzg.top/20250522195316220.jpg" alt="img"></p>
 ]]></content>
       <categories>
         <category>工业自动化</category>
@@ -4196,6 +4196,59 @@
       </tags>
   </entry>
   <entry>
+    <title>V2RayA——新一代Linux客户端安装配置教程</title>
+    <url>/posts/a53fea94/</url>
+    <content><![CDATA[<h1 id="前言"><a href="#前言" class="headerlink" title="前言"></a>前言</h1><p>上一次我们介绍的Qv2ray还是有一些同学不会安装，而且Qv2ray也不再更新了，所以我就另外去找了，刚好找到一个安装配置都非常简单的软件，也就是本章的主角——v2rayA</p>
+<h1 id="特性"><a href="#特性" class="headerlink" title="特性"></a>特性</h1><p><img src="https://img.zzzg.top/202304100749200.png" alt="img"></p>
+<p>在官网的介绍中我们可以发现，v2rayA是一款非常强大的软件，它甚至能提供透明代理（几乎完全全局代理，目标服务器检测不到代理服务器）。好我就精简一下官方的教程教给大家怎么去安装配置Qv2ray，官网我会放到文章末尾。</p>
+<h1 id="安装"><a href="#安装" class="headerlink" title="安装"></a>安装</h1><p>首页：<a href="https://v2raya.org/">https://v2raya.org/</a></p>
+<h2 id="安装v2rayA"><a href="#安装v2rayA" class="headerlink" title="安装v2rayA"></a>安装v2rayA</h2><p>方法一：通过软件源安装<br>添加公钥</p>
+<figure class="highlight plaintext"><table><tr><td class="code"><pre><span class="line">wget -qO - https://apt.v2raya.org/key/public-key.asc | sudo tee /etc/apt/keyrings/v2raya.asc</span><br></pre></td></tr></table></figure>
+
+<p>添加 V2RayA 软件源</p>
+<figure class="highlight plaintext"><table><tr><td class="code"><pre><span class="line">echo &quot;deb [signed-by=/etc/apt/keyrings/v2raya.asc] https://apt.v2raya.org/ v2raya main&quot; | sudo tee /etc/apt/sources.list.d/v2raya.list</span><br><span class="line">sudo apt update</span><br></pre></td></tr></table></figure>
+
+<p>安装 V2RayA</p>
+<figure class="highlight plaintext"><table><tr><td class="code"><pre><span class="line">sudo apt install v2raya v2ray ## 也可以使用 xray 包</span><br></pre></td></tr></table></figure>
+
+<p>方法二：手动安装 deb 包</p>
+<p>下载 deb 包</p>
+<p><a href="https://github.com/v2rayA/v2rayA/releases">点我下载</a></p>
+<p>然后可以使用 Gdebi、QApt 等图形化工具来安装，也可以使用命令行：</p>
+<figure class="highlight plaintext"><table><tr><td class="code"><pre><span class="line">sudo apt install /path/download/installer_debian_xxx_vxxx.deb ### 自行替换 deb 包所在的实际路径</span><br></pre></td></tr></table></figure>
+
+<h1 id="启动-配置"><a href="#启动-配置" class="headerlink" title="启动&amp;配置"></a>启动&amp;配置</h1><h2 id="开机自启"><a href="#开机自启" class="headerlink" title="开机自启"></a>开机自启</h2><p>启动 v2rayA</p>
+<figure class="highlight plaintext"><table><tr><td class="code"><pre><span class="line">sudo systemctl start v2raya.service</span><br></pre></td></tr></table></figure>
+
+<p>设置开机自动启动</p>
+<figure class="highlight plaintext"><table><tr><td class="code"><pre><span class="line">sudo systemctl enable v2raya.service</span><br></pre></td></tr></table></figure>
+
+<h2 id="软件配置"><a href="#软件配置" class="headerlink" title="软件配置"></a>软件配置</h2><p>v2rayA的UI是以网页的形式呈现的，所以我们打开浏览器，访问v2rayA的地址<a href="http://localhost:2017/">http://localhost:2017/</a></p>
+<p><img src="https://img.zzzg.top/202304100749118.png" alt="img"></p>
+<p>首次打开需要创建一个管理员账号，如果遗忘，使用下面的命令重置。</p>
+<figure class="highlight plaintext"><table><tr><td class="code"><pre><span class="line">sudo v2raya --reset-password</span><br></pre></td></tr></table></figure>
+
+<p>以创建或导入的方式导入节点，导入支持节点链接、订阅链接、扫描二维码和批量导入等方式。</p>
+<p><img src="https://img.zzzg.top/202304100749250.png" alt="img"></p>
+<p>导入成功后，节点将显示在 SERVER 中，先选择要连接的节点，再点击左上角的就绪按钮就能开启代理了。</p>
+<p><img src="https://img.zzzg.top/202304100749288.png" alt="img"></p>
+<p>点击右边的设置，推荐像我一样设置，也是官方推荐的设置</p>
+<p><img src="https://img.zzzg.top/202304100749956.png" alt="img"></p>
+<p>但是还没有结束，在某些不能自动配置代理的系统中，还需要手动进行代理，以Ubuntu为例（Ubuntu无需手动设置代理，仅为了演示），进入设置–&gt;网络–&gt;网络代理–&gt;手动代理，默认端口没有改动的话按照我的填写</p>
+<p><img src="https://img.zzzg.top/202304100749118.png" alt="img"></p>
+<p>v2rayA的默认代理端口是</p>
+<p><img src="https://img.zzzg.top/202304100755201.png" alt="img"></p>
+<p>到此就完成了整个安装与配置，本篇v2rayA安装配置在别的Linux中仍然适用，如果遇到什么问题推荐看一下官网的文档。</p>
+<p>官网：<a href="https://v2raya.org/">点我直达</a></p>
+]]></content>
+      <categories>
+        <category>网络技术</category>
+      </categories>
+      <tags>
+        <tag>网络代理</tag>
+      </tags>
+  </entry>
+  <entry>
     <title>VPS一键脚本分享</title>
     <url>/posts/2419758f/</url>
     <content><![CDATA[<p><img src="https://img.zzzg.top/202305051611537.png"></p>
@@ -4218,43 +4271,6 @@
       </categories>
       <tags>
         <tag>运维工具</tag>
-      </tags>
-  </entry>
-  <entry>
-    <title>git每次操作提示输入密码问题解决</title>
-    <url>/posts/21c693ea/</url>
-    <content><![CDATA[<p><strong>提示：git每次pull提示需要密码</strong></p>
-<hr>
-<h1 id="错误提示"><a href="#错误提示" class="headerlink" title="错误提示"></a>错误提示</h1><figure class="highlight plaintext"><table><tr><td class="code"><pre><span class="line">Administrator@DEEP MINGW64 /f/code/xxx-service (master)</span><br><span class="line">$ git pull</span><br><span class="line">git@gitlab.xxx.com&#x27;s password:</span><br></pre></td></tr></table></figure>
-
-<h1 id="原因"><a href="#原因" class="headerlink" title="原因"></a>原因</h1><p>只提示输入密码的情况，一般是秘钥验证失败。二种情况</p>
-<hr>
-<h1 id="1、公钥验证错误"><a href="#1、公钥验证错误" class="headerlink" title="1、公钥验证错误"></a>1、公钥验证错误</h1><p>  解决方法如下，以github为例</p>
-<p>  在<a href="https://github.com/settings/keys">https://github.com/settings/keys</a> 界面，将生成的<a href="https://so.csdn.net/so/search?q=%E5%85%AC%E9%92%A5&spm=1001.2101.3001.7020">公钥</a>添加到SSH keys项中</p>
-<p>  如没有则使用<a href="https://so.csdn.net/so/search?q=ssh-keygen&spm=1001.2101.3001.7020">ssh-keygen</a>命令生成</p>
-<figure class="highlight plaintext"><table><tr><td class="code"><pre><span class="line">ssh-keygen -t rsa -C &quot;Your Email Address&quot; -f &quot;~/.ssh/gitlab_id_rsa&quot;</span><br></pre></td></tr></table></figure>
-
-<h1 id="2、私钥验证错误"><a href="#2、私钥验证错误" class="headerlink" title="2、私钥验证错误"></a>2、私钥验证错误</h1><p>git拉取代码时没有配置私钥认证</p>
-<p>使用以下命令添加认证到ssh</p>
-<figure class="highlight plaintext"><table><tr><td class="code"><pre><span class="line">ssh-add ~/.ssh/gitlab_id_rsa</span><br></pre></td></tr></table></figure>
-
-<p>使用以上命令，只能对当前环境生效，重启或新开终端会继续提示输入密码</p>
-<p>永久解决：在<code>~/.ssh/config</code>文件中（没有则新建），指定对应git服务使用的认证秘钥文件即可</p>
-<figure class="highlight plaintext"><table><tr><td class="code"><pre><span class="line"># GitLab.com 密钥</span><br><span class="line">Host github.com</span><br><span class="line">  Preferredauthentications publickey</span><br><span class="line">  IdentityFile ~/.ssh/github_id_rsa</span><br><span class="line"># GitLab.com 密钥</span><br><span class="line">Host gitlab.xxx.com</span><br><span class="line">  Preferredauthentications publickey</span><br><span class="line">  IdentityFile ~/.ssh/gitlab_id_rsa</span><br></pre></td></tr></table></figure>
-
-
-
-<hr>
-<h1 id="总结"><a href="#总结" class="headerlink" title="总结"></a>总结</h1><ol>
-<li>直接提示输入密码的，为秘钥认证失败，使用以上方法即可解决</li>
-<li>提示输入账号和密码的，为账号认证失败，使用<code>git config --global credential.helper store</code>命令，可输入一次密码后永久存储</li>
-</ol>
-]]></content>
-      <categories>
-        <category>开发工具</category>
-      </categories>
-      <tags>
-        <tag>Git</tag>
       </tags>
   </entry>
   <entry>
@@ -4316,6 +4332,43 @@
       </categories>
       <tags>
         <tag>网络代理</tag>
+      </tags>
+  </entry>
+  <entry>
+    <title>git每次操作提示输入密码问题解决</title>
+    <url>/posts/21c693ea/</url>
+    <content><![CDATA[<p><strong>提示：git每次pull提示需要密码</strong></p>
+<hr>
+<h1 id="错误提示"><a href="#错误提示" class="headerlink" title="错误提示"></a>错误提示</h1><figure class="highlight plaintext"><table><tr><td class="code"><pre><span class="line">Administrator@DEEP MINGW64 /f/code/xxx-service (master)</span><br><span class="line">$ git pull</span><br><span class="line">git@gitlab.xxx.com&#x27;s password:</span><br></pre></td></tr></table></figure>
+
+<h1 id="原因"><a href="#原因" class="headerlink" title="原因"></a>原因</h1><p>只提示输入密码的情况，一般是秘钥验证失败。二种情况</p>
+<hr>
+<h1 id="1、公钥验证错误"><a href="#1、公钥验证错误" class="headerlink" title="1、公钥验证错误"></a>1、公钥验证错误</h1><p>  解决方法如下，以github为例</p>
+<p>  在<a href="https://github.com/settings/keys">https://github.com/settings/keys</a> 界面，将生成的<a href="https://so.csdn.net/so/search?q=%E5%85%AC%E9%92%A5&spm=1001.2101.3001.7020">公钥</a>添加到SSH keys项中</p>
+<p>  如没有则使用<a href="https://so.csdn.net/so/search?q=ssh-keygen&spm=1001.2101.3001.7020">ssh-keygen</a>命令生成</p>
+<figure class="highlight plaintext"><table><tr><td class="code"><pre><span class="line">ssh-keygen -t rsa -C &quot;Your Email Address&quot; -f &quot;~/.ssh/gitlab_id_rsa&quot;</span><br></pre></td></tr></table></figure>
+
+<h1 id="2、私钥验证错误"><a href="#2、私钥验证错误" class="headerlink" title="2、私钥验证错误"></a>2、私钥验证错误</h1><p>git拉取代码时没有配置私钥认证</p>
+<p>使用以下命令添加认证到ssh</p>
+<figure class="highlight plaintext"><table><tr><td class="code"><pre><span class="line">ssh-add ~/.ssh/gitlab_id_rsa</span><br></pre></td></tr></table></figure>
+
+<p>使用以上命令，只能对当前环境生效，重启或新开终端会继续提示输入密码</p>
+<p>永久解决：在<code>~/.ssh/config</code>文件中（没有则新建），指定对应git服务使用的认证秘钥文件即可</p>
+<figure class="highlight plaintext"><table><tr><td class="code"><pre><span class="line"># GitLab.com 密钥</span><br><span class="line">Host github.com</span><br><span class="line">  Preferredauthentications publickey</span><br><span class="line">  IdentityFile ~/.ssh/github_id_rsa</span><br><span class="line"># GitLab.com 密钥</span><br><span class="line">Host gitlab.xxx.com</span><br><span class="line">  Preferredauthentications publickey</span><br><span class="line">  IdentityFile ~/.ssh/gitlab_id_rsa</span><br></pre></td></tr></table></figure>
+
+
+
+<hr>
+<h1 id="总结"><a href="#总结" class="headerlink" title="总结"></a>总结</h1><ol>
+<li>直接提示输入密码的，为秘钥认证失败，使用以上方法即可解决</li>
+<li>提示输入账号和密码的，为账号认证失败，使用<code>git config --global credential.helper store</code>命令，可输入一次密码后永久存储</li>
+</ol>
+]]></content>
+      <categories>
+        <category>开发工具</category>
+      </categories>
+      <tags>
+        <tag>Git</tag>
       </tags>
   </entry>
   <entry>
@@ -5623,126 +5676,6 @@
       </tags>
   </entry>
   <entry>
-    <title>移载机SEW MOVIDRIVE 变频器配置手册（双编码器）</title>
-    <url>/posts/4f7419e2/</url>
-    <content><![CDATA[<h1 id="一、SEW变频器Startup"><a href="#一、SEW变频器Startup" class="headerlink" title="一、SEW变频器Startup"></a>一、SEW变频器Startup</h1><p>安装好MOVITOOL软件</p>
-<p><img src="https://img.zzzg.top/20250522211420768.png" alt="image-20250522204456926"></p>
-<p>打开创建好的项目开始配置通信连接</p>
-<p><img src="https://img.zzzg.top/20250522211428346.png" alt="image-20250522204525245"></p>
-<p>下面以以太网连接为例</p>
-<p><img src="https://img.zzzg.top/20250522211435174.png" alt="image-20250522204553577"></p>
-<p><img src="https://img.zzzg.top/20250522211440753.png" alt="image-20250522204622864"></p>
-<p>当设置完成后，请一路OK回到软件管理画面</p>
-<p><img src="https://img.zzzg.top/20250522211452463.png" alt="image-20250522204646120"></p>
-<p>通信配置正确的软件界面状态</p>
-<p><img src="https://img.zzzg.top/20250522211500726.png" alt="image-20250522204707808"></p>
-<p>单击红色刷新图标</p>
-<p><img src="https://img.zzzg.top/20250522211506743.png" alt="image-20250522204732227"></p>
-<p>一切准备就绪后，单击已连接的变频器。会在软件管理中罗列出当前各项功能菜单。</p>
-<p><img src="https://img.zzzg.top/20250522211526791.png" alt="image-20250522204750498"></p>
-<p>下面我们开始参数配置：</p>
-<p>参数设置一</p>
-<p>单击参数列表</p>
-<p><img src="https://img.zzzg.top/20250522211536263.png" alt="image-20250522204832268"></p>
-<p><img src="https://img.zzzg.top/20250522211545286.png" alt="image-20250522204848233"></p>
-<p>变频器参数重置完成后，回到SEW管理器画面选择</p>
-<p><img src="https://img.zzzg.top/20250522211551830.png" alt="image-20250522204903815"></p>
-<p>开始电机参数配置。</p>
-<p>第一步配置电机基本参数参数</p>
-<p>第二步配置变频器参数</p>
-<p>第三步配置IPOS参数</p>
-<p>出现下图配置画面：</p>
-<p><img src="https://img.zzzg.top/20250522211556970.png" alt="image-20250522204922056"></p>
-<p><img src="https://img.zzzg.top/20250522211605460.png" alt="image-20250522204935064"></p>
-<p><img src="https://img.zzzg.top/20250522211612151.png" alt="image-20250522204948929"></p>
-<p>选择矢量\伺服控制</p>
-<p><img src="https://img.zzzg.top/20250522211636487.png" alt="image-20250522205011792"></p>
-<p>选择下一步。</p>
-<p><img src="https://img.zzzg.top/20250522211621582.png" alt="image-20250522205025251"></p>
-<p>选择电机类型。</p>
-<p><img src="https://img.zzzg.top/20250522211648706.png" alt="image-20250522205042278"></p>
-<p>选择电机对应的型号和输入电源的额定电压和频率值</p>
-<p><img src="https://img.zzzg.top/20250522211659160.png" alt="image-20250522205058945"></p>
-<p>选择使用的编码器</p>
-<p><img src="https://img.zzzg.top/20250522211705047.png" alt="image-20250522205115647"></p>
-<p>选择变频器IPOS工作模式。</p>
-<p><img src="https://img.zzzg.top/20250522211711639.png" alt="image-20250522205143590"></p>
-<p>选择压频控制（VFC）模式</p>
-<p><img src="https://img.zzzg.top/20250522211718088.png" alt="image-20250522205154059"></p>
-<p>惯性选择</p>
-<p>弹出下图</p>
-<p><img src="https://img.zzzg.top/20250522211739760.png" alt="image-20250522205329862"></p>
-<p>选择是否启用电机抱闸。</p>
-<p><img src="https://img.zzzg.top/20250522211747415.png" alt="image-20250522205348345"></p>
-<p>参数设置part1</p>
-<p><img src="https://img.zzzg.top/20250522211819997.png" alt="image-20250522205423812"></p>
-<p>参数设置part2</p>
-<p><img src="https://img.zzzg.top/20250522211831478.png" alt="image-20250522205442378"></p>
-<p>参数设置part3</p>
-<p><img src="https://img.zzzg.top/20250522211836809.png" alt="image-20250522205459889"></p>
-<p>点击“下载”，然后单击“设置变频器，“完成”</p>
-<p><img src="https://img.zzzg.top/20250522211843403.png" alt="image-20250522205518921"></p>
-<h1 id="二、SEW变频器总线扩展定位设置"><a href="#二、SEW变频器总线扩展定位设置" class="headerlink" title="二、SEW变频器总线扩展定位设置"></a>二、SEW变频器总线扩展定位设置</h1><p>点击2.SEW总线扩展定位，定位块设置。</p>
-<p><img src="https://img.zzzg.top/20250522211849177.png" alt="image-20250522205619412"></p>
-<p><img src="https://img.zzzg.top/20250522205630853.png" alt="image-20250522205630853"></p>
-<p><img src="https://img.zzzg.top/20250522211912978.png" alt="image-20250522205642616"></p>
-<p>选择位移编码器类型</p>
-<p><img src="https://img.zzzg.top/20250522211919035.png" alt="image-20250522205658095"></p>
-<p><img src="https://img.zzzg.top/20250522211934232.png" alt="image-20250522205706074"></p>
-<p><img src="https://img.zzzg.top/20250522211923657.png" alt="image-20250522205711381"></p>
-<p><img src="https://img.zzzg.top/20250522211941581.png" alt="image-20250522205717432"></p>
-<p>移载机内置编码器和外置编码器匹配。</p>
-<p><img src="https://img.zzzg.top/20250522211948129.png" alt="image-20250522205733747"></p>
-<p>提示：做这一步时，如果出现电机不能转动，或产生报警不能通过编码器匹配。需要检查以下内容：</p>
-<p>1电机不能转动：</p>
-<p>a可能是由于变频器的安全24V未给</p>
-<p>b电机抱闸未打开</p>
-<p>c机械设备运动到极限位置或被锁定</p>
-<p>2变频器报警：a速度故障编码器线缆有接触不良或错误如同下图</p>
-<p><img src="https://img.zzzg.top/20250522211957143.png" alt="image-20250522205831537"></p>
-<p>单击下一步</p>
-<p><img src="https://img.zzzg.top/20250522212003541.png" alt="image-20250522205846506"></p>
-<p>单击下一步</p>
-<p><img src="https://img.zzzg.top/20250522212010638.png" alt="image-20250522205903857"></p>
-<p>单击下一步</p>
-<p><img src="https://img.zzzg.top/20250522212020133.png" alt="image-20250522205929872"></p>
-<p>编码器匹配通过后点击下一步，进入下图画面传送参考位置。</p>
-<p>提示：传送参考位置前请断开变频器安全24V电源，否则会弹出禁止修改提示框；修改成功后也会弹出提示框，根据提示继续配置。</p>
-<p><img src="https://img.zzzg.top/20250522212026198.png" alt="image-20250522205951899"></p>
-<p>单击“完成”。</p>
-<p><img src="https://img.zzzg.top/20250522212032184.png" alt="image-20250522210003836"></p>
-<h1 id="三、-IPOS配置"><a href="#三、-IPOS配置" class="headerlink" title="三、 IPOS配置"></a>三、 IPOS配置</h1><p><img src="https://img.zzzg.top/20250522212039234.png" alt="image-20250522210033621"></p>
-<p>设置通信总线类型为Profinet，单击下一步</p>
-<p><img src="https://img.zzzg.top/20250522212044956.png" alt="image-20250522210130165"></p>
-<p>参数设置单击下一步</p>
-<p><img src="https://img.zzzg.top/20250522212052156.png" alt="image-20250522210205472"></p>
-<p>变频器软限位，及参考类型设置单击下一步</p>
-<p><img src="https://img.zzzg.top/20250522212058553.png" alt="image-20250522210229213"></p>
-<p><img src="https://img.zzzg.top/20250522212105838.png" alt="image-20250522210236898"></p>
-<p>选择“否“不保存</p>
-<p>下载配置的参数，提示：下载参数需要断开变频器的安全24V电源</p>
-<p><img src="https://img.zzzg.top/20250522212111341.png" alt="image-20250522210301645"></p>
-<p>点“yes”监控状态</p>
-<p><img src="https://img.zzzg.top/20250522212118310.png" alt="image-20250522210316464"></p>
-<p><img src="https://img.zzzg.top/20250522212125742.png" alt="image-20250522210352603"></p>
-<p>参考设置No.1</p>
-<p><img src="https://img.zzzg.top/20250522212132048.png" alt="image-20250522210417474"></p>
-<p>参考设置No.2</p>
-<p><img src="https://img.zzzg.top/20250522212143689.png" alt="image-20250522210438966"></p>
-<p>参考设置No.3</p>
-<p>选择PO1 第2,3,9,13 位，点击“SendPA”Start reference，编码器反馈值为0（PI2&#x2F;3 Actual position&#x3D;0）</p>
-<p><img src="https://img.zzzg.top/20250522212151212.png" alt="image-20250522210537816"></p>
-<p>设置完成这些参数，可以测试运行电机。</p>
-<p><img src="https://img.zzzg.top/20250522212158850.png" alt="image-20250522210558705"></p>
-]]></content>
-      <categories>
-        <category>工业自动化</category>
-      </categories>
-      <tags>
-        <tag>MOVIDRIVE</tag>
-      </tags>
-  </entry>
-  <entry>
     <title>神秘模块入门教程（Android端）</title>
     <url>/posts/d7b14abe/</url>
     <content><![CDATA[<p><strong>使用前提</strong><br>1.已经安装Magisk或KernelSU的安卓设备</p>
@@ -5880,68 +5813,123 @@
       </tags>
   </entry>
   <entry>
-    <title>记中兴MF932改串</title>
-    <url>/posts/27cbce44/</url>
-    <content><![CDATA[<h1 id="注意！"><a href="#注意！" class="headerlink" title="注意！"></a>注意！</h1><p><strong>改串需要自己将串号写入NV文件中，我也不知道怎么写入，本教程只做参考，不会生成改串的NV文件就不用再往下看了。</strong>**</p>
-<h1 id="下载资料包"><a href="#下载资料包" class="headerlink" title="下载资料包"></a>下载资料包</h1><a class="btn-beautify green larger" href="https://www.123pan.com/s/bAORVv-LSEl.html" title="点击下载"><i class="far fa-hand-point-right"></i><span>点击下载</span></a>
-
-<h1 id="安装驱动以及AT工具"><a href="#安装驱动以及AT工具" class="headerlink" title="安装驱动以及AT工具"></a>安装驱动以及AT工具</h1><p><img src="https://img.zzzg.top/202303232019930.png"></p>
-<p>安装驱动和AT工具都是一直默认下一步，驱动的话安装完成会有弹窗，再次点击Update Driver就行，安装完成关闭即可。</p>
-<p><img src="https://img.zzzg.top/202303232027379.png" alt="image-20230323202701458"></p>
-<h1 id="改串步骤"><a href="#改串步骤" class="headerlink" title="改串步骤"></a>改串步骤</h1><p>随身WiFi开机连接电脑，双击开端口.exe</p>
-<p><img src="https://img.zzzg.top/202303232025428.png"></p>
-<p>然后打开AT工具</p>
-<p><img src="https://img.zzzg.top/202303232028866.png" alt="image-20230323202802094"></p>
-<p>选择带AT的端口，波特率115200</p>
-<p><img src="https://img.zzzg.top/202303232030393.png" alt="image-20230323203011060"></p>
-<p>输入AT，点击发送，返回OK则连接成功</p>
-<p><img src="https://img.zzzg.top/202303232031438.png" alt="image-20230323203136174"></p>
-<p>输入</p>
-<figure class="highlight plaintext"><table><tr><td class="code"><pre><span class="line">AT+zmode=1</span><br></pre></td></tr></table></figure>
-
-<p>拔掉随身WiFi然后重连</p>
-<p>在资料包文件夹打开命令提示符（CMD）,地址栏输入并回车</p>
-<p><img src="https://img.zzzg.top/202303232039978.png" alt="image-20230323203952252"></p>
-<p>按照下面的命令进行操作</p>
-<p>备份原来NV</p>
-<figure class="highlight plaintext"><table><tr><td class="code"><pre><span class="line">adb pull /mnt/nvrofs/nvroall.bin C:\Users\YUQI\Desktop\（C:\Users\YUQI\Desktop\ 是保存的文件存放路径）</span><br></pre></td></tr></table></figure>
-
-<p>清除设备NV</p>
-<figure class="highlight plaintext"><table><tr><td class="code"><pre><span class="line">adb shell mount -o remount,rw /mnt nvrofs</span><br><span class="line">adb shell rm -rf /mnt/nvrofs/nvroall.bin</span><br></pre></td></tr></table></figure>
-
-<p>推送修改新imei的NV</p>
-<figure class="highlight plaintext"><table><tr><td class="code"><pre><span class="line">adb push C:\Users\YUQI\Desktop\nvroall.bin /mnt/nvrofs/ （C:\Users\YUQI\Desktop\nvroall.bin是新NV的路径）</span><br></pre></td></tr></table></figure>
-
-<p>重启设备</p>
-<figure class="highlight plaintext"><table><tr><td class="code"><pre><span class="line">adb shell reboot</span><br></pre></td></tr></table></figure>
-
-<p>拔掉随身WiFi再次连接</p>
-<p>重复以上步骤，清除设备NV，推送修改新imei的NV，重启设备</p>
-<p>完成</p>
+    <title>移载机SEW MOVIDRIVE 变频器配置手册（双编码器）</title>
+    <url>/posts/4f7419e2/</url>
+    <content><![CDATA[<h1 id="一、SEW变频器Startup"><a href="#一、SEW变频器Startup" class="headerlink" title="一、SEW变频器Startup"></a>一、SEW变频器Startup</h1><p>安装好MOVITOOL软件</p>
+<p><img src="https://img.zzzg.top/20250522211420768.png" alt="image-20250522204456926"></p>
+<p>打开创建好的项目开始配置通信连接</p>
+<p><img src="https://img.zzzg.top/20250522211428346.png" alt="image-20250522204525245"></p>
+<p>下面以以太网连接为例</p>
+<p><img src="https://img.zzzg.top/20250522211435174.png" alt="image-20250522204553577"></p>
+<p><img src="https://img.zzzg.top/20250522211440753.png" alt="image-20250522204622864"></p>
+<p>当设置完成后，请一路OK回到软件管理画面</p>
+<p><img src="https://img.zzzg.top/20250522211452463.png" alt="image-20250522204646120"></p>
+<p>通信配置正确的软件界面状态</p>
+<p><img src="https://img.zzzg.top/20250522211500726.png" alt="image-20250522204707808"></p>
+<p>单击红色刷新图标</p>
+<p><img src="https://img.zzzg.top/20250522211506743.png" alt="image-20250522204732227"></p>
+<p>一切准备就绪后，单击已连接的变频器。会在软件管理中罗列出当前各项功能菜单。</p>
+<p><img src="https://img.zzzg.top/20250522211526791.png" alt="image-20250522204750498"></p>
+<p>下面我们开始参数配置：</p>
+<p>参数设置一</p>
+<p>单击参数列表</p>
+<p><img src="https://img.zzzg.top/20250522211536263.png" alt="image-20250522204832268"></p>
+<p><img src="https://img.zzzg.top/20250522211545286.png" alt="image-20250522204848233"></p>
+<p>变频器参数重置完成后，回到SEW管理器画面选择</p>
+<p><img src="https://img.zzzg.top/20250522211551830.png" alt="image-20250522204903815"></p>
+<p>开始电机参数配置。</p>
+<p>第一步配置电机基本参数参数</p>
+<p>第二步配置变频器参数</p>
+<p>第三步配置IPOS参数</p>
+<p>出现下图配置画面：</p>
+<p><img src="https://img.zzzg.top/20250522211556970.png" alt="image-20250522204922056"></p>
+<p><img src="https://img.zzzg.top/20250522211605460.png" alt="image-20250522204935064"></p>
+<p><img src="https://img.zzzg.top/20250522211612151.png" alt="image-20250522204948929"></p>
+<p>选择矢量\伺服控制</p>
+<p><img src="https://img.zzzg.top/20250522211636487.png" alt="image-20250522205011792"></p>
+<p>选择下一步。</p>
+<p><img src="https://img.zzzg.top/20250522211621582.png" alt="image-20250522205025251"></p>
+<p>选择电机类型。</p>
+<p><img src="https://img.zzzg.top/20250522211648706.png" alt="image-20250522205042278"></p>
+<p>选择电机对应的型号和输入电源的额定电压和频率值</p>
+<p><img src="https://img.zzzg.top/20250522211659160.png" alt="image-20250522205058945"></p>
+<p>选择使用的编码器</p>
+<p><img src="https://img.zzzg.top/20250522211705047.png" alt="image-20250522205115647"></p>
+<p>选择变频器IPOS工作模式。</p>
+<p><img src="https://img.zzzg.top/20250522211711639.png" alt="image-20250522205143590"></p>
+<p>选择压频控制（VFC）模式</p>
+<p><img src="https://img.zzzg.top/20250522211718088.png" alt="image-20250522205154059"></p>
+<p>惯性选择</p>
+<p>弹出下图</p>
+<p><img src="https://img.zzzg.top/20250522211739760.png" alt="image-20250522205329862"></p>
+<p>选择是否启用电机抱闸。</p>
+<p><img src="https://img.zzzg.top/20250522211747415.png" alt="image-20250522205348345"></p>
+<p>参数设置part1</p>
+<p><img src="https://img.zzzg.top/20250522211819997.png" alt="image-20250522205423812"></p>
+<p>参数设置part2</p>
+<p><img src="https://img.zzzg.top/20250522211831478.png" alt="image-20250522205442378"></p>
+<p>参数设置part3</p>
+<p><img src="https://img.zzzg.top/20250522211836809.png" alt="image-20250522205459889"></p>
+<p>点击“下载”，然后单击“设置变频器，“完成”</p>
+<p><img src="https://img.zzzg.top/20250522211843403.png" alt="image-20250522205518921"></p>
+<h1 id="二、SEW变频器总线扩展定位设置"><a href="#二、SEW变频器总线扩展定位设置" class="headerlink" title="二、SEW变频器总线扩展定位设置"></a>二、SEW变频器总线扩展定位设置</h1><p>点击2.SEW总线扩展定位，定位块设置。</p>
+<p><img src="https://img.zzzg.top/20250522211849177.png" alt="image-20250522205619412"></p>
+<p><img src="https://img.zzzg.top/20250522205630853.png" alt="image-20250522205630853"></p>
+<p><img src="https://img.zzzg.top/20250522211912978.png" alt="image-20250522205642616"></p>
+<p>选择位移编码器类型</p>
+<p><img src="https://img.zzzg.top/20250522211919035.png" alt="image-20250522205658095"></p>
+<p><img src="https://img.zzzg.top/20250522211934232.png" alt="image-20250522205706074"></p>
+<p><img src="https://img.zzzg.top/20250522211923657.png" alt="image-20250522205711381"></p>
+<p><img src="https://img.zzzg.top/20250522211941581.png" alt="image-20250522205717432"></p>
+<p>移载机内置编码器和外置编码器匹配。</p>
+<p><img src="https://img.zzzg.top/20250522211948129.png" alt="image-20250522205733747"></p>
+<p>提示：做这一步时，如果出现电机不能转动，或产生报警不能通过编码器匹配。需要检查以下内容：</p>
+<p>1电机不能转动：</p>
+<p>a可能是由于变频器的安全24V未给</p>
+<p>b电机抱闸未打开</p>
+<p>c机械设备运动到极限位置或被锁定</p>
+<p>2变频器报警：a速度故障编码器线缆有接触不良或错误如同下图</p>
+<p><img src="https://img.zzzg.top/20250522211957143.png" alt="image-20250522205831537"></p>
+<p>单击下一步</p>
+<p><img src="https://img.zzzg.top/20250522212003541.png" alt="image-20250522205846506"></p>
+<p>单击下一步</p>
+<p><img src="https://img.zzzg.top/20250522212010638.png" alt="image-20250522205903857"></p>
+<p>单击下一步</p>
+<p><img src="https://img.zzzg.top/20250522212020133.png" alt="image-20250522205929872"></p>
+<p>编码器匹配通过后点击下一步，进入下图画面传送参考位置。</p>
+<p>提示：传送参考位置前请断开变频器安全24V电源，否则会弹出禁止修改提示框；修改成功后也会弹出提示框，根据提示继续配置。</p>
+<p><img src="https://img.zzzg.top/20250522212026198.png" alt="image-20250522205951899"></p>
+<p>单击“完成”。</p>
+<p><img src="https://img.zzzg.top/20250522212032184.png" alt="image-20250522210003836"></p>
+<h1 id="三、-IPOS配置"><a href="#三、-IPOS配置" class="headerlink" title="三、 IPOS配置"></a>三、 IPOS配置</h1><p><img src="https://img.zzzg.top/20250522212039234.png" alt="image-20250522210033621"></p>
+<p>设置通信总线类型为Profinet，单击下一步</p>
+<p><img src="https://img.zzzg.top/20250522212044956.png" alt="image-20250522210130165"></p>
+<p>参数设置单击下一步</p>
+<p><img src="https://img.zzzg.top/20250522212052156.png" alt="image-20250522210205472"></p>
+<p>变频器软限位，及参考类型设置单击下一步</p>
+<p><img src="https://img.zzzg.top/20250522212058553.png" alt="image-20250522210229213"></p>
+<p><img src="https://img.zzzg.top/20250522212105838.png" alt="image-20250522210236898"></p>
+<p>选择“否“不保存</p>
+<p>下载配置的参数，提示：下载参数需要断开变频器的安全24V电源</p>
+<p><img src="https://img.zzzg.top/20250522212111341.png" alt="image-20250522210301645"></p>
+<p>点“yes”监控状态</p>
+<p><img src="https://img.zzzg.top/20250522212118310.png" alt="image-20250522210316464"></p>
+<p><img src="https://img.zzzg.top/20250522212125742.png" alt="image-20250522210352603"></p>
+<p>参考设置No.1</p>
+<p><img src="https://img.zzzg.top/20250522212132048.png" alt="image-20250522210417474"></p>
+<p>参考设置No.2</p>
+<p><img src="https://img.zzzg.top/20250522212143689.png" alt="image-20250522210438966"></p>
+<p>参考设置No.3</p>
+<p>选择PO1 第2,3,9,13 位，点击“SendPA”Start reference，编码器反馈值为0（PI2&#x2F;3 Actual position&#x3D;0）</p>
+<p><img src="https://img.zzzg.top/20250522212151212.png" alt="image-20250522210537816"></p>
+<p>设置完成这些参数，可以测试运行电机。</p>
+<p><img src="https://img.zzzg.top/20250522212158850.png" alt="image-20250522210558705"></p>
 ]]></content>
       <categories>
-        <category>移动通信</category>
+        <category>工业自动化</category>
       </categories>
       <tags>
-        <tag>随身WiFi</tag>
-      </tags>
-  </entry>
-  <entry>
-    <title>谷歌浏览器设置关闭搜索记录</title>
-    <url>/posts/42e51b95/</url>
-    <content><![CDATA[<p><strong>将 Chrome 的 History 文件设置为可读即可。</strong><br>操作方法：<br>1 、在 Chrome 浏览器地址栏中输入</p>
-<figure class="highlight html"><table><tr><td class="code"><pre><span class="line">chrome://version/</span><br></pre></td></tr></table></figure>
-
-<p>2 、复制<strong>个人资料路径</strong>，关闭 Chrome 浏览器并到资源管理器中打开刚才复制的“个人资料路径”</p>
-<p><img src="https://img.zzzg.top/202303062045271.png" alt="image-20230306204551884"></p>
-<p>3 、找到History文件并删除，然后新建一个History文件，对History文件，右键—属性，勾选只读。</p>
-<p><img src="https://img.zzzg.top/202303062048179.png" alt="image-20230306204804357"></p>
-]]></content>
-      <categories>
-        <category>隐私安全</category>
-      </categories>
-      <tags>
-        <tag>Google浏览器</tag>
+        <tag>MOVIDRIVE</tag>
       </tags>
   </entry>
   <entry>
@@ -6025,6 +6013,71 @@
       </categories>
       <tags>
         <tag>无线模块</tag>
+      </tags>
+  </entry>
+  <entry>
+    <title>记中兴MF932改串</title>
+    <url>/posts/27cbce44/</url>
+    <content><![CDATA[<h1 id="注意！"><a href="#注意！" class="headerlink" title="注意！"></a>注意！</h1><p><strong>改串需要自己将串号写入NV文件中，我也不知道怎么写入，本教程只做参考，不会生成改串的NV文件就不用再往下看了。</strong>**</p>
+<h1 id="下载资料包"><a href="#下载资料包" class="headerlink" title="下载资料包"></a>下载资料包</h1><a class="btn-beautify green larger" href="https://www.123pan.com/s/bAORVv-LSEl.html" title="点击下载"><i class="far fa-hand-point-right"></i><span>点击下载</span></a>
+
+<h1 id="安装驱动以及AT工具"><a href="#安装驱动以及AT工具" class="headerlink" title="安装驱动以及AT工具"></a>安装驱动以及AT工具</h1><p><img src="https://img.zzzg.top/202303232019930.png"></p>
+<p>安装驱动和AT工具都是一直默认下一步，驱动的话安装完成会有弹窗，再次点击Update Driver就行，安装完成关闭即可。</p>
+<p><img src="https://img.zzzg.top/202303232027379.png" alt="image-20230323202701458"></p>
+<h1 id="改串步骤"><a href="#改串步骤" class="headerlink" title="改串步骤"></a>改串步骤</h1><p>随身WiFi开机连接电脑，双击开端口.exe</p>
+<p><img src="https://img.zzzg.top/202303232025428.png"></p>
+<p>然后打开AT工具</p>
+<p><img src="https://img.zzzg.top/202303232028866.png" alt="image-20230323202802094"></p>
+<p>选择带AT的端口，波特率115200</p>
+<p><img src="https://img.zzzg.top/202303232030393.png" alt="image-20230323203011060"></p>
+<p>输入AT，点击发送，返回OK则连接成功</p>
+<p><img src="https://img.zzzg.top/202303232031438.png" alt="image-20230323203136174"></p>
+<p>输入</p>
+<figure class="highlight plaintext"><table><tr><td class="code"><pre><span class="line">AT+zmode=1</span><br></pre></td></tr></table></figure>
+
+<p>拔掉随身WiFi然后重连</p>
+<p>在资料包文件夹打开命令提示符（CMD）,地址栏输入并回车</p>
+<p><img src="https://img.zzzg.top/202303232039978.png" alt="image-20230323203952252"></p>
+<p>按照下面的命令进行操作</p>
+<p>备份原来NV</p>
+<figure class="highlight plaintext"><table><tr><td class="code"><pre><span class="line">adb pull /mnt/nvrofs/nvroall.bin C:\Users\YUQI\Desktop\（C:\Users\YUQI\Desktop\ 是保存的文件存放路径）</span><br></pre></td></tr></table></figure>
+
+<p>清除设备NV</p>
+<figure class="highlight plaintext"><table><tr><td class="code"><pre><span class="line">adb shell mount -o remount,rw /mnt nvrofs</span><br><span class="line">adb shell rm -rf /mnt/nvrofs/nvroall.bin</span><br></pre></td></tr></table></figure>
+
+<p>推送修改新imei的NV</p>
+<figure class="highlight plaintext"><table><tr><td class="code"><pre><span class="line">adb push C:\Users\YUQI\Desktop\nvroall.bin /mnt/nvrofs/ （C:\Users\YUQI\Desktop\nvroall.bin是新NV的路径）</span><br></pre></td></tr></table></figure>
+
+<p>重启设备</p>
+<figure class="highlight plaintext"><table><tr><td class="code"><pre><span class="line">adb shell reboot</span><br></pre></td></tr></table></figure>
+
+<p>拔掉随身WiFi再次连接</p>
+<p>重复以上步骤，清除设备NV，推送修改新imei的NV，重启设备</p>
+<p>完成</p>
+]]></content>
+      <categories>
+        <category>移动通信</category>
+      </categories>
+      <tags>
+        <tag>随身WiFi</tag>
+      </tags>
+  </entry>
+  <entry>
+    <title>谷歌浏览器设置关闭搜索记录</title>
+    <url>/posts/42e51b95/</url>
+    <content><![CDATA[<p><strong>将 Chrome 的 History 文件设置为可读即可。</strong><br>操作方法：<br>1 、在 Chrome 浏览器地址栏中输入</p>
+<figure class="highlight html"><table><tr><td class="code"><pre><span class="line">chrome://version/</span><br></pre></td></tr></table></figure>
+
+<p>2 、复制<strong>个人资料路径</strong>，关闭 Chrome 浏览器并到资源管理器中打开刚才复制的“个人资料路径”</p>
+<p><img src="https://img.zzzg.top/202303062045271.png" alt="image-20230306204551884"></p>
+<p>3 、找到History文件并删除，然后新建一个History文件，对History文件，右键—属性，勾选只读。</p>
+<p><img src="https://img.zzzg.top/202303062048179.png" alt="image-20230306204804357"></p>
+]]></content>
+      <categories>
+        <category>隐私安全</category>
+      </categories>
+      <tags>
+        <tag>Google浏览器</tag>
       </tags>
   </entry>
   <entry>
@@ -6119,59 +6172,6 @@
       </categories>
       <tags>
         <tag>工业软件</tag>
-      </tags>
-  </entry>
-  <entry>
-    <title>V2RayA——新一代Linux客户端安装配置教程</title>
-    <url>/posts/a53fea94/</url>
-    <content><![CDATA[<h1 id="前言"><a href="#前言" class="headerlink" title="前言"></a>前言</h1><p>上一次我们介绍的Qv2ray还是有一些同学不会安装，而且Qv2ray也不再更新了，所以我就另外去找了，刚好找到一个安装配置都非常简单的软件，也就是本章的主角——v2rayA</p>
-<h1 id="特性"><a href="#特性" class="headerlink" title="特性"></a>特性</h1><p><img src="https://img.zzzg.top/202304100749200.png" alt="img"></p>
-<p>在官网的介绍中我们可以发现，v2rayA是一款非常强大的软件，它甚至能提供透明代理（几乎完全全局代理，目标服务器检测不到代理服务器）。好我就精简一下官方的教程教给大家怎么去安装配置Qv2ray，官网我会放到文章末尾。</p>
-<h1 id="安装"><a href="#安装" class="headerlink" title="安装"></a>安装</h1><p>首页：<a href="https://v2raya.org/">https://v2raya.org/</a></p>
-<h2 id="安装v2rayA"><a href="#安装v2rayA" class="headerlink" title="安装v2rayA"></a>安装v2rayA</h2><p>方法一：通过软件源安装<br>添加公钥</p>
-<figure class="highlight plaintext"><table><tr><td class="code"><pre><span class="line">wget -qO - https://apt.v2raya.org/key/public-key.asc | sudo tee /etc/apt/keyrings/v2raya.asc</span><br></pre></td></tr></table></figure>
-
-<p>添加 V2RayA 软件源</p>
-<figure class="highlight plaintext"><table><tr><td class="code"><pre><span class="line">echo &quot;deb [signed-by=/etc/apt/keyrings/v2raya.asc] https://apt.v2raya.org/ v2raya main&quot; | sudo tee /etc/apt/sources.list.d/v2raya.list</span><br><span class="line">sudo apt update</span><br></pre></td></tr></table></figure>
-
-<p>安装 V2RayA</p>
-<figure class="highlight plaintext"><table><tr><td class="code"><pre><span class="line">sudo apt install v2raya v2ray ## 也可以使用 xray 包</span><br></pre></td></tr></table></figure>
-
-<p>方法二：手动安装 deb 包</p>
-<p>下载 deb 包</p>
-<p><a href="https://github.com/v2rayA/v2rayA/releases">点我下载</a></p>
-<p>然后可以使用 Gdebi、QApt 等图形化工具来安装，也可以使用命令行：</p>
-<figure class="highlight plaintext"><table><tr><td class="code"><pre><span class="line">sudo apt install /path/download/installer_debian_xxx_vxxx.deb ### 自行替换 deb 包所在的实际路径</span><br></pre></td></tr></table></figure>
-
-<h1 id="启动-配置"><a href="#启动-配置" class="headerlink" title="启动&amp;配置"></a>启动&amp;配置</h1><h2 id="开机自启"><a href="#开机自启" class="headerlink" title="开机自启"></a>开机自启</h2><p>启动 v2rayA</p>
-<figure class="highlight plaintext"><table><tr><td class="code"><pre><span class="line">sudo systemctl start v2raya.service</span><br></pre></td></tr></table></figure>
-
-<p>设置开机自动启动</p>
-<figure class="highlight plaintext"><table><tr><td class="code"><pre><span class="line">sudo systemctl enable v2raya.service</span><br></pre></td></tr></table></figure>
-
-<h2 id="软件配置"><a href="#软件配置" class="headerlink" title="软件配置"></a>软件配置</h2><p>v2rayA的UI是以网页的形式呈现的，所以我们打开浏览器，访问v2rayA的地址<a href="http://localhost:2017/">http://localhost:2017/</a></p>
-<p><img src="https://img.zzzg.top/202304100749118.png" alt="img"></p>
-<p>首次打开需要创建一个管理员账号，如果遗忘，使用下面的命令重置。</p>
-<figure class="highlight plaintext"><table><tr><td class="code"><pre><span class="line">sudo v2raya --reset-password</span><br></pre></td></tr></table></figure>
-
-<p>以创建或导入的方式导入节点，导入支持节点链接、订阅链接、扫描二维码和批量导入等方式。</p>
-<p><img src="https://img.zzzg.top/202304100749250.png" alt="img"></p>
-<p>导入成功后，节点将显示在 SERVER 中，先选择要连接的节点，再点击左上角的就绪按钮就能开启代理了。</p>
-<p><img src="https://img.zzzg.top/202304100749288.png" alt="img"></p>
-<p>点击右边的设置，推荐像我一样设置，也是官方推荐的设置</p>
-<p><img src="https://img.zzzg.top/202304100749956.png" alt="img"></p>
-<p>但是还没有结束，在某些不能自动配置代理的系统中，还需要手动进行代理，以Ubuntu为例（Ubuntu无需手动设置代理，仅为了演示），进入设置–&gt;网络–&gt;网络代理–&gt;手动代理，默认端口没有改动的话按照我的填写</p>
-<p><img src="https://img.zzzg.top/202304100749118.png" alt="img"></p>
-<p>v2rayA的默认代理端口是</p>
-<p><img src="https://img.zzzg.top/202304100755201.png" alt="img"></p>
-<p>到此就完成了整个安装与配置，本篇v2rayA安装配置在别的Linux中仍然适用，如果遇到什么问题推荐看一下官网的文档。</p>
-<p>官网：<a href="https://v2raya.org/">点我直达</a></p>
-]]></content>
-      <categories>
-        <category>网络技术</category>
-      </categories>
-      <tags>
-        <tag>网络代理</tag>
       </tags>
   </entry>
   <entry>
