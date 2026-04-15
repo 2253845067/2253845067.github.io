@@ -305,303 +305,6 @@
       </tags>
   </entry>
   <entry>
-    <title>AList搭建</title>
-    <url>/posts/1f49e4a4/</url>
-    <content><![CDATA[<h1 id="一、项目展示"><a href="#一、项目展示" class="headerlink" title="一、项目展示"></a>一、项目展示</h1><p>GitHub 项目地址：<a href="https://github.com/Xhofe/alist">https://github.com/Xhofe/alist</a></p>
-<p>Demo：<a href="https://alist.nn.ci/">https://alist.nn.ci</a></p>
-<p>Alist 文档地址：<a href="https://alist-doc.nn.ci/en/">https://alist-doc.nn.ci/en/</a></p>
-<p><img src="https://img.zzzg.top/202303040811308.png" alt="成品预览"></p>
-<h1 id="二、搭建环境"><a href="#二、搭建环境" class="headerlink" title="二、搭建环境"></a>二、搭建环境</h1><p>服务器：阿里云香港轻量应用服务器 24 元&#x2F;月 VPS 一台（最好是选非大陆的服务器，无需备案）</p>
-<p>系统：Centos7</p>
-<p>域名一枚，并做好解析到服务器上</p>
-<h1 id="三、搭建方式"><a href="#三、搭建方式" class="headerlink" title="三、搭建方式"></a>三、搭建方式</h1><h2 id="1、一键脚本安装（本次使用）"><a href="#1、一键脚本安装（本次使用）" class="headerlink" title="1、一键脚本安装（本次使用）"></a>1、一键脚本安装（本次使用）</h2><p>仅支持 Linux-x86_64&#x2F;aarch64 平台。</p>
-<p>》》<strong>安装</strong></p>
-<figure class="highlight bash"><table><tr><td class="code"><pre><span class="line">curl -fsSL <span class="string">&quot;https://nn.ci/alist.sh&quot;</span> | bash -s install</span><br></pre></td></tr></table></figure>
-
-<p>注意：</p>
-<p>已经安装过再次执行安装会删除之前的数据，更新请使用更新命令。</p>
-<p>》》<strong>更新</strong></p>
-<figure class="highlight bash"><table><tr><td class="code"><pre><span class="line">curl -fsSL <span class="string">&quot;https://nn.ci/alist.sh&quot;</span> | bash -s update</span><br></pre></td></tr></table></figure>
-
-<p>》》<strong>卸载</strong></p>
-<figure class="highlight bash"><table><tr><td class="code"><pre><span class="line">curl -fsSL <span class="string">&quot;https://nn.ci/alist.sh&quot;</span> | bash -s uninstall</span><br></pre></td></tr></table></figure>
-
-<p>》》<strong>自定义路径</strong></p>
-<figure class="highlight bash"><table><tr><td class="code"><pre><span class="line">curl -fsSL <span class="string">&quot;https://nn.ci/alist.sh&quot;</span> | bash -s install</span><br></pre></td></tr></table></figure>
-
-<p>默认安装在&#x2F;opt&#x2F;alist，要自定义安装路径，添加安装路径为第二个参数，必须是绝对路径（路径以 alist 结尾时直接安装到给定路径，否则会安装在给定路径 alist 目录下），如安装到&#x2F;root：</p>
-<figure class="highlight bash"><table><tr><td class="code"><pre><span class="line"><span class="comment"># 安装</span></span><br><span class="line"></span><br><span class="line">curl -fsSL <span class="string">&quot;https://nn.ci/alist.sh&quot;</span> | bash -s install /root</span><br><span class="line"></span><br><span class="line"><span class="comment"># 更新</span></span><br><span class="line"></span><br><span class="line">curl -fsSL <span class="string">&quot;https://nn.ci/alist.sh&quot;</span> | bash -s update /root</span><br><span class="line"></span><br><span class="line"><span class="comment"># 卸载</span></span><br><span class="line"></span><br><span class="line">curl -fsSL <span class="string">&quot;https://nn.ci/alist.sh&quot;</span> | bash -s uninstall /root</span><br></pre></td></tr></table></figure>
-
-<h2 id="2、手动搭建"><a href="#2、手动搭建" class="headerlink" title="2、手动搭建"></a>2、手动搭建</h2><p>参考文档：<a href="https://alist-doc.nn.ci/docs/install/manual">https://alist-doc.nn.ci/docs/install/manual</a></p>
-<h2 id="3、Docker"><a href="#3、Docker" class="headerlink" title="3、Docker"></a>3、Docker</h2><p>参考文档：<a href="https://alist-doc.nn.ci/docs/install/docker">https://alist-doc.nn.ci/docs/install/docker</a></p>
-<h1 id="四、开始搭建（以一键脚本安装为例子）"><a href="#四、开始搭建（以一键脚本安装为例子）" class="headerlink" title="四、开始搭建（以一键脚本安装为例子）"></a>四、开始搭建（以一键脚本安装为例子）</h1><h2 id="1、运行安装代码"><a href="#1、运行安装代码" class="headerlink" title="1、运行安装代码"></a>1、运行安装代码</h2><p>》》<strong>输入以下命令等待自动安装</strong></p>
-<figure class="highlight bash"><table><tr><td class="code"><pre><span class="line">curl -fsSL <span class="string">&quot;https://nn.ci/alist.sh&quot;</span> | bash -s install</span><br></pre></td></tr></table></figure>
-
-<p>注意：安装完成会输出默认后台密码。</p>
-<h2 id="2、放行相关端口"><a href="#2、放行相关端口" class="headerlink" title="2、放行相关端口"></a>2、放行相关端口</h2><p>遇到访问不了，请在宝塔面板的防火墙和服务商的后台防火墙里打开对应端口。</p>
-<h2 id="3、配置反向代理"><a href="#3、配置反向代理" class="headerlink" title="3、配置反向代理"></a>3、配置反向代理</h2><p>以宝塔为例，新建一个网站，域名使用你自己的域名，在配置文件里面注释掉 Nginx 配置文件中的这部分内容：</p>
-<figure class="highlight c#"><table><tr><td class="code"><pre><span class="line">location ~ .*\.(gif|jpg|jpeg|png|bmp|swf)$</span><br><span class="line">&#123;</span><br><span class="line">    expires      <span class="number">30</span>d;</span><br><span class="line">    error_log /dev/<span class="literal">null</span>;</span><br><span class="line">    access_log off;</span><br><span class="line">&#125;</span><br><span class="line"></span><br><span class="line">location ~ .*\.(js|css)?$</span><br><span class="line">&#123;</span><br><span class="line">    expires      <span class="number">12</span>h;</span><br><span class="line">    error_log /dev/<span class="literal">null</span>;</span><br><span class="line">    access_log off;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
-
-<p>然后再下面粘贴这段代码：</p>
-<figure class="highlight c#"><table><tr><td class="code"><pre><span class="line">location / &#123;</span><br><span class="line">    proxy_pass http:<span class="comment">//127.0.0.1:5244/;</span></span><br><span class="line">    rewrite ^/(.*)$ /$<span class="number">1</span> <span class="keyword">break</span>;</span><br><span class="line">    proxy_redirect off;</span><br><span class="line">    proxy_set_header Host $host;</span><br><span class="line">    proxy_set_header X-Forwarded-Proto $scheme;</span><br><span class="line">    proxy_set_header X-Real-IP $remote_addr;</span><br><span class="line">    proxy_set_header X-Forwarded-For $proxy_add_x_forwarded_for;</span><br><span class="line">    proxy_set_header Upgrade-Insecure-Requests <span class="number">1</span>;</span><br><span class="line">    proxy_set_header X-Forwarded-Proto https;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
-
-<h2 id="4、访问域名配置账号"><a href="#4、访问域名配置账号" class="headerlink" title="4、访问域名配置账号"></a>4、访问域名配置账号</h2><p>此时，输入反向代理的域名就能正常访问网站了，输入刚刚安装完成之后终端输出的密码就能正常登陆后台了。为了方便起见，建议更改一个自己能记住的密码。</p>
-<h1 id="五、结束"><a href="#五、结束" class="headerlink" title="五、结束"></a>五、结束</h1><p>祝大家用得开心，有问题可以去 GitHub 提 <a href="https://github.com/Xhofe/alist/issues">Issues</a>，也可以在评论区互相交流探讨。</p>
-]]></content>
-      <categories>
-        <category>文件管理</category>
-      </categories>
-      <tags>
-        <tag>网盘聚合</tag>
-      </tags>
-  </entry>
-  <entry>
-    <title>Balluff-IOLINK模块在TIA软件上调试</title>
-    <url>/posts/ff857dd0/</url>
-    <content><![CDATA[<h2 id="样例连接"><a href="#样例连接" class="headerlink" title="样例连接"></a><strong>样例连接</strong></h2><p><img src="https://img.zzzg.top/20250718122225962.png" alt="image-20241226101741875"></p>
-<h2 id="产品清单"><a href="#产品清单" class="headerlink" title="产品清单"></a><strong>产品清单</strong></h2><table>
-<thead>
-<tr>
-<th><strong>产品名称</strong></th>
-<th><strong>名称及订货号</strong></th>
-<th><strong>描述</strong></th>
-<th><strong>产品图片</strong></th>
-</tr>
-</thead>
-<tbody><tr>
-<td>主站模块</td>
-<td>BNI PNT-508-105-Z015（BNI005H）</td>
-<td>Profinet通讯，16<em>PNP DI&#x2F;DO， 8</em>IO-Link, I&#x2F;O端口：M12, IO-Link端口:M12,最大负载电流9A。</td>
-<td><img src="https://img.zzzg.top/20250718122242282.png" alt="image-20241226102504353"></td>
-</tr>
-<tr>
-<td>IO-Link子模块</td>
-<td>BNI IOL-302-000-Z012（BNI003U）</td>
-<td>IO-Link通讯，16*PNP DI&#x2F;DO, I&#x2F;O端口:M12,IO-Link端口：M12, 最大负载电流1.4A。</td>
-<td><img src="https://img.zzzg.top/20250718122250402.png" alt="image-20241226102517607"></td>
-</tr>
-<tr>
-<td>IO-Link子模块</td>
-<td>BNI IOL-302-002-K006 （BNI007Z）</td>
-<td>IO-Link通讯，16*PNP DI&#x2F;DO, I&#x2F;O端口：M12,IO-Link端口：M12, 最大负载电流1.6A。</td>
-<td><img src="https://img.zzzg.top/20250718122257285.png" alt="image-20241226102536990"></td>
-</tr>
-<tr>
-<td>IO-Link阀岛适配器</td>
-<td>BNI IOL-750-V02-K007 (BNI001E)</td>
-<td>IO-Link通讯，电缆长度 0.6米， 适配器端口：25-pole, female , IO-Link端口：M12。</td>
-<td><img src="https://img.zzzg.top/20250718122304284.png" alt="image-20241226102559155"></td>
-</tr>
-<tr>
-<td>IO-Link HUB</td>
-<td>BNI IOL-310-000-K025 (BNI004L)</td>
-<td>IO-Link通讯，16*PNP DI&#x2F;DO, I&#x2F;O端口：端子式,IO-Link端口： 端子式, 最大负载电流1.4A。</td>
-<td><img src="https://img.zzzg.top/20250718122311160.png" alt="image-20241226102622683"></td>
-</tr>
-<tr>
-<td>IO-Link 紧凑型RFID</td>
-<td>BIS M-451-045-001-07-S4 (BIS00LM)</td>
-<td>IO-Link通讯，IO-Link端口：M12,读写数据长度10byte。</td>
-<td><img src="https://img.zzzg.top/20250718122317331.png" alt="image-20241226102639188"></td>
-</tr>
-<tr>
-<td>IO-Link 微脉冲位移 传感器</td>
-<td>BTL6-U110-M0300-PF-S4 （BTL1HWR）</td>
-<td>IO-Link通讯，IO-Link端口：M12, 测量范围：300mm,最小精度：1vm，最大传感器数量：1。</td>
-<td><img src="https://img.zzzg.top/20250718122324726.png" alt="image-20241226102652405"></td>
-</tr>
-<tr>
-<td>IO-link Smart Light</td>
-<td>BNI IOL-802-102-Z037 (BNI0085)</td>
-<td>IO-link通讯，IO-Link端口：M12， 颜色数量:7，分段数量：5段， 显示模式：3种。</td>
-<td><img src="https://img.zzzg.top/20250718122331419.png" alt="image-20241226102706935"></td>
-</tr>
-<tr>
-<td>M12直型公头&#x2F;RJ45直型公头 总线电缆</td>
-<td>BCC04K7</td>
-<td>4针电缆，M12-RJ45，长度2米。</td>
-<td><img src="https://img.zzzg.top/20250718122338347.png" alt="image-20241226102718276"></td>
-</tr>
-<tr>
-<td>7&#x2F;8英寸 单头母头 电源线</td>
-<td>BCC06HE</td>
-<td>7&#x2F;8英寸单头母头电缆，5针，长度5米。</td>
-<td><img src="https://img.zzzg.top/20250718122343590.png" alt="image-20241226102738790"></td>
-</tr>
-<tr>
-<td>M12直型母头—M12直型公头</td>
-<td>BCC03FT</td>
-<td>M12双头电缆，5针，长度3米。</td>
-<td><img src="https://img.zzzg.top/20250718122348789.png" alt="image-20241226102748588"></td>
-</tr>
-<tr>
-<td>直流电源</td>
-<td>BAE0006</td>
-<td>额定电流5A，额定电压24V，最大功率120W。</td>
-<td><img src="https://img.zzzg.top/20250718122353333.png" alt="image-20241226102757885"></td>
-</tr>
-</tbody></table>
-<blockquote>
-<p>注意：508主站模块端口和IO-Link设备连接，不要使用带LED灯的电缆，否则整个508主站的IO-Link通讯会受到影响。</p>
-</blockquote>
-<h2 id="样例连接-1"><a href="#样例连接-1" class="headerlink" title="样例连接"></a><strong>样例连接</strong></h2><p>BNI PNT 508模块&gt;&gt;接口针脚定义。</p>
-<p><img src="https://img.zzzg.top/20250718122402727.png" alt="image-20241226103025507"></p>
-<h2 id="BNI-PNT-508-105-Z015-样例组态调试"><a href="#BNI-PNT-508-105-Z015-样例组态调试" class="headerlink" title="BNI PNT-508-105-Z015 样例组态调试"></a><strong>BNI PNT-508-105-Z015 样例组态调试</strong></h2><h4 id="建立新项目-版本：TIA-V14"><a href="#建立新项目-版本：TIA-V14" class="headerlink" title="建立新项目(版本：TIA V14)"></a><strong>建立新项目(版本：TIA V14)</strong></h4><p><img src="https://img.zzzg.top/20250718122408519.png" alt="image-20241226103218739"></p>
-<h4 id="添加PLC"><a href="#添加PLC" class="headerlink" title="添加PLC"></a><strong>添加PLC</strong></h4><p>根据实物选择对应的PLC型号进行添加。</p>
-<p><img src="https://img.zzzg.top/20250718122416222.png" alt="image-20241226103513850"></p>
-<p><img src="https://img.zzzg.top/20250718122427122.png" alt="image-20241226103237452"></p>
-<h4 id="添加PROFINET子网"><a href="#添加PROFINET子网" class="headerlink" title="添加PROFINET子网"></a><strong>添加PROFINET子网</strong></h4><ol>
-<li>右键单击PLC上 RJ45绿色图标。</li>
-<li>点击添加子网。</li>
-<li>配置PLC IP地址。</li>
-</ol>
-<p><img src="https://img.zzzg.top/20250718122434644.png" alt="image-20241226103700820"></p>
-<h4 id="添加GSD文件"><a href="#添加GSD文件" class="headerlink" title="添加GSD文件"></a><strong>添加GSD文件</strong></h4><p>模块GSD文件登陆<a href="http://www.balluff.com.cn/">www.Balluff.com.cn</a>下载。</p>
-<p><img src="https://img.zzzg.top/20250718122443443.png" alt="image-20241226104135539"></p>
-<p><img src="https://img.zzzg.top/20250718122451480.png" alt="image-20241226103825062"></p>
-<h4 id="GSD-安装完成"><a href="#GSD-安装完成" class="headerlink" title="GSD 安装完成"></a><strong>GSD 安装完成</strong></h4><p><img src="https://img.zzzg.top/20250718122458328.png" alt="image-20241226104300153"></p>
-<h4 id="连接PLC网络"><a href="#连接PLC网络" class="headerlink" title="连接PLC网络"></a><strong>连接PLC网络</strong></h4><p><img src="https://img.zzzg.top/20250718122503344.png" alt="image-20241226104355718"></p>
-<p><img src="https://img.zzzg.top/20250718122509833.png" alt="image-20241226104424323"></p>
-<h4 id="配置IO-Link模块地址"><a href="#配置IO-Link模块地址" class="headerlink" title="配置IO-Link模块地址"></a><strong>配置IO-Link模块地址</strong></h4><p>BALLUFF产品的相关样册登录<a href="http://www.balluff.com.cn/">www.Balluff.com.cn</a>官网进行查找。</p>
-<blockquote>
-<p>以302模块为例。</p>
-</blockquote>
-<p><img src="https://img.zzzg.top/20250718122517376.png" alt="image-20241226105039817"></p>
-<p><img src="https://img.zzzg.top/20250718122524123.png" alt="image-20241226105247766"></p>
-<h4 id="设置IO-Link地址长度"><a href="#设置IO-Link地址长度" class="headerlink" title="设置IO-Link地址长度"></a><strong>设置IO-Link地址长度</strong></h4><p>查找该手册关于过程数据的描述，地址长度为2 Bytes 输入，2 Bytes 输出。</p>
-<p><img src="https://img.zzzg.top/20250718122531122.png" alt="image-20241226105330415"></p>
-<h4 id="组态配置说明"><a href="#组态配置说明" class="headerlink" title="组态配置说明"></a><strong>组态配置说明</strong></h4><p>BALLUFF IO-Link 新产品的模块在硬件目录的“Device Module”中可以找到。旧产品先在手册中找到过程数据长度，然后在“Basic modules”中配置。</p>
-<p>**注意：**在“Basic Module”中配置的硬件，地址长度必须长于IO-Link设备本身的长度，例如，IO-Link设备地址长度为1 Byte 输入，3 Bytes 输出，那么在“Basic Module”中配置的模块地址长度为2 Bytes 输入，4 Bytes 输出，由此类推。</p>
-<p><img src="https://img.zzzg.top/20250718122536755.png" alt="image-20241226105448647"></p>
-<h4 id="添加过程数据"><a href="#添加过程数据" class="headerlink" title="添加过程数据"></a><strong>添加过程数据</strong></h4><h5 id="添加BNI-IOL-302-000-Z012过程数据"><a href="#添加BNI-IOL-302-000-Z012过程数据" class="headerlink" title="添加BNI IOL-302-000-Z012过程数据"></a><strong>添加BNI IOL-302-000-Z012过程数据</strong></h5><table>
-<thead>
-<tr>
-<th><strong><img src="https://img.zzzg.top/20250718122554609.png" alt="image-20241226105701582"></strong></th>
-<th><strong><img src="https://img.zzzg.top/20250718122542608.png" alt="image-20241226105728884"></strong></th>
-</tr>
-</thead>
-<tbody><tr>
-<td></td>
-<td></td>
-</tr>
-</tbody></table>
-<h5 id="添加BNI-IOL-750-V02-K007过程数据"><a href="#添加BNI-IOL-750-V02-K007过程数据" class="headerlink" title="添加BNI IOL-750-V02-K007过程数据"></a><strong>添加BNI IOL-750-V02-K007过程数据</strong></h5><table>
-<thead>
-<tr>
-<th><strong><img src="https://img.zzzg.top/20250718122602160.png" alt="image-20241226102559155"></strong></th>
-<th><strong><img src="https://img.zzzg.top/20250718122606600.png" alt="image-20241226110423771"></strong></th>
-</tr>
-</thead>
-<tbody><tr>
-<td></td>
-<td></td>
-</tr>
-</tbody></table>
-<h5 id="添加BNI-IOL-310-000-K025过程数据"><a href="#添加BNI-IOL-310-000-K025过程数据" class="headerlink" title="添加BNI IOL-310-000-K025过程数据"></a><strong>添加BNI IOL-310-000-K025过程数据</strong></h5><table>
-<thead>
-<tr>
-<th><strong><img src="https://img.zzzg.top/20250718122612355.png" alt="image-20241226102622683"></strong></th>
-<th><strong><img src="https://img.zzzg.top/20250718122617597.png" alt="image-20241226110607437"></strong></th>
-</tr>
-</thead>
-<tbody><tr>
-<td></td>
-<td></td>
-</tr>
-</tbody></table>
-<h5 id="添加BIS-M-451-045-001-07-S4过程数据"><a href="#添加BIS-M-451-045-001-07-S4过程数据" class="headerlink" title="添加BIS M-451-045-001-07-S4过程数据"></a><strong>添加BIS M-451-045-001-07-S4过程数据</strong></h5><table>
-<thead>
-<tr>
-<th><strong><img src="https://img.zzzg.top/20250718122624046.png" alt="image-20241226102639188"></strong></th>
-<th><strong><img src="https://img.zzzg.top/20250718122631359.png" alt="image-20241226110741462"></strong></th>
-</tr>
-</thead>
-<tbody><tr>
-<td></td>
-<td></td>
-</tr>
-</tbody></table>
-<h5 id="添加BNI-IOL-802-102-Z037过程数据"><a href="#添加BNI-IOL-802-102-Z037过程数据" class="headerlink" title="添加BNI IOL-802-102-Z037过程数据"></a><strong>添加BNI IOL-802-102-Z037过程数据</strong></h5><table>
-<thead>
-<tr>
-<th><strong><img src="https://img.zzzg.top/20250718122639910.png" alt="image-20241226102706935"></strong></th>
-<th><strong><img src="https://img.zzzg.top/20250718122645955.png" alt="image-20241226125557005"></strong></th>
-</tr>
-</thead>
-<tbody><tr>
-<td></td>
-<td></td>
-</tr>
-</tbody></table>
-<h5 id="添加508模块I-O"><a href="#添加508模块I-O" class="headerlink" title="添加508模块I&#x2F;O"></a><strong>添加508模块I&#x2F;O</strong></h5><table>
-<thead>
-<tr>
-<th><strong><img src="https://img.zzzg.top/20250718122653501.png" alt="image-20241226102504353"></strong></th>
-<th><strong><img src="https://img.zzzg.top/20250718122658585.png" alt="image-20241226125813271"></strong></th>
-</tr>
-</thead>
-<tbody><tr>
-<td></td>
-<td></td>
-</tr>
-</tbody></table>
-<h4 id="BNI-PNT-508项目保存下载"><a href="#BNI-PNT-508项目保存下载" class="headerlink" title="BNI PNT-508项目保存下载"></a><strong>BNI PNT-508项目保存下载</strong></h4><p>搜索PLC，并点击下载。</p>
-<p><img src="https://img.zzzg.top/20250718122705642.png" alt="image-20241226125903645"></p>
-<p><img src="https://img.zzzg.top/20250718122712863.png" alt="image-20241226130004397"></p>
-<h4 id="分配设备名称及IP"><a href="#分配设备名称及IP" class="headerlink" title="分配设备名称及IP"></a><strong>分配设备名称及IP</strong></h4><p>如果PLC下载完成，模块网络通讯仍然存在故障，可以先排查502模块“分配设备名称”状态是否已OK。</p>
-<p><img src="https://img.zzzg.top/20250718122719006.png" alt="image-20241226130245401"></p>
-<p><img src="https://img.zzzg.top/20250718122724200.png" alt="image-20241226130316836"></p>
-<h4 id="在508模块上设置IO-Link连接"><a href="#在508模块上设置IO-Link连接" class="headerlink" title="在508模块上设置IO-Link连接"></a><strong>在508模块上设置IO-Link连接</strong></h4><p>如图所示，可以配置508模块针脚的功能。若I&#x2F;O-Link 端口连接I&#x2F;O-Link设备 使用，PIN4默认为NO input即可。</p>
-<p><img src="https://img.zzzg.top/20250718122729357.png" alt="image-20241226130559648"></p>
-<h4 id="在508模块上设置IO-Link-子模块UA"><a href="#在508模块上设置IO-Link-子模块UA" class="headerlink" title="在508模块上设置IO-Link 子模块UA"></a><strong>在508模块上设置IO-Link 子模块UA</strong></h4><p><strong>BNI IOL-302-000-Z012</strong>，<strong>BNI IOL-302-002-K006</strong>， <strong>BNI IOL-310-000-K025</strong>是16I&#x2F;O可配置子模块，因此该子模块在使用时除了需要控制电压US外，还需要工作电压UA，而该电压可以由主站模块PIN2提供。如图中，配置主站模块Port0，Port2，Port4的PIN2为输出，为子模块提供UA供电接口，设置完成后下载。</p>
-<p><img src="https://img.zzzg.top/20250718122735642.png" alt="image-20241226130900931"></p>
-<h4 id="点亮模块“UA”绿色指示灯"><a href="#点亮模块“UA”绿色指示灯" class="headerlink" title="点亮模块“UA”绿色指示灯"></a><strong>点亮模块“UA”绿色指示灯</strong></h4><p>下图输出地址为508主站模块PIN2的组态地址。</p>
-<p><img src="https://img.zzzg.top/20250718122745270.png" alt="image-20241226131256000"></p>
-<h4 id="模块配置为16DO"><a href="#模块配置为16DO" class="headerlink" title="模块配置为16DO"></a><strong>模块配置为16DO</strong></h4><p>如图所示，将302模块所有端口的PIN配置为”Ausgang”，设置完成后下载组态。</p>
-<p><img src="https://img.zzzg.top/20250718122754620.png" alt="image-20241226131612669"></p>
-<p>测试模块输出</p>
-<p><img src="https://img.zzzg.top/20250718122801680.png" alt="image-20241226131711420"></p>
-<h4 id="两个BNI-IOL-302-002-K006模块扩展调试"><a href="#两个BNI-IOL-302-002-K006模块扩展调试" class="headerlink" title="两个BNI IOL-302-002-K006模块扩展调试"></a><strong>两个BNI IOL-302-002-K006模块扩展调试</strong></h4><p>此处测试的是BNI IOL-302-002-K006的另外一种常用情形，在508主站模块Port2端口所连的1个BNI IOL-302-002-K006 模块基础上，扩展连接一个BNI IOL-302-002-K006 模块，连接方法如图所示。如果该情况您不会用到，请直接略过以下内容。</p>
-<p>下面将进行两个BNI IOL-302-002-K006扩展使用的调试。</p>
-<p><img src="https://img.zzzg.top/20250718122807044.png" alt="image-20241226132028687"></p>
-<h5 id="模块扩展连接硬件组态"><a href="#模块扩展连接硬件组态" class="headerlink" title="模块扩展连接硬件组态"></a><strong>模块扩展连接硬件组态</strong></h5><p>重新配置组态地址长度，用主站模块同时连接两个BNI IOL-302-002-K006的模块，此处硬件组态地址长度用4 Bytes输入，4 Bytes 输出替换之前的2 Bytes输入，2 Bytes 输出（如图所示），配置完成后下载。</p>
-<p><img src="https://img.zzzg.top/20250718122813336.png" alt="image-20241226132156596"></p>
-<h5 id="配置302模块Port7扩展类型"><a href="#配置302模块Port7扩展类型" class="headerlink" title="配置302模块Port7扩展类型"></a><strong>配置302模块Port7扩展类型</strong></h5><p>在浏览器中输入主站模块IP地址，登录密码:<strong>BNIPNT</strong>，登录Webserver服务器，在图所示的Parameter Data中填入Index为”0x55”, Subindex为 ” 0” ，可以在“Data”中配置上一级302模块Port7的扩展接口类型，写入“0”为不扩展，写入“1”为扩展下一级302模块，如果写入“1”成功，上一级302模块Port7针脚暂时不能再作为I&#x2F;O使用，扩展参考下图。</p>
-<p><img src="https://img.zzzg.top/20250718122821574.png" alt="image-20241226132654719"></p>
-<p><img src="https://img.zzzg.top/20250718122828565.png" alt="image-20241226132725536"></p>
-<p>设置成功后，上一级302模块Port7的扩展接口会显示绿灯常亮。</p>
-<blockquote>
-<p>注意：如果上一级302模块的Index“0x55”被设置为“1”，下级302模块的Index“0x55” 必须为“0”，否则上一级302模块Port7端口会出现故障报警。</p>
-</blockquote>
-<h5 id="激活供电UA"><a href="#激活供电UA" class="headerlink" title="激活供电UA"></a><strong>激活供电UA</strong></h5><p>为模块提供UA供电。</p>
-<p>下图的组态地址为508主站模块PIN2的地址。</p>
-<p><img src="https://img.zzzg.top/20250718122835828.png" alt="image-20241226133148154"></p>
-<h5 id="模块扩展连接"><a href="#模块扩展连接" class="headerlink" title="模块扩展连接"></a><strong>模块扩展连接</strong></h5><p>在下图所示的Parameter Data中填入Index为”0x41”, Subindex为 ” 0” ，在“Data”中对两个302模块进行I&#x2F;O配置，可以根据需要定义合适的I&#x2F;O点数。</p>
-<p>例如：配置两块8DI&#x2F;8DO的模块，将“FF 00 FF 00” 填入“Data” ，选择”Write”，点击“Apply” 。</p>
-<p>下面举例说明，将“FF FF FF FF” 写入“Data”成功后配置为两块输出模块(上一级302模块Port7因为定义为扩展端口，该端口不能再进行I&#x2F;O信号定义)。</p>
-<p><img src="https://img.zzzg.top/20250718122843020.png" alt="image-20241226133449484"></p>
-<h5 id="模块输出DO"><a href="#模块输出DO" class="headerlink" title="模块输出DO"></a><strong>模块输出DO</strong></h5><p><img src="https://img.zzzg.top/20250718122848683.png" alt="image-20241226133539536"></p>
-<h4 id="WebServer服务器"><a href="#WebServer服务器" class="headerlink" title="WebServer服务器"></a><strong>WebServer服务器</strong></h4><p>如图所示，在浏览器网址栏中输入508模块的IP地址（在模块显示屏上可以看到）,例如：192.168.0.2,登录右图所示界面。</p>
-<p>Web Server有以下功能：</p>
-<ol>
-<li>显示主站模块和端口状态信息。</li>
-<li>IO-Link设备的配置。</li>
-<li>IODD设备的配置。</li>
-<li>配置现场总线网关。</li>
-<li>报警日志和诊断信息。</li>
-<li>帮助信息。</li>
-</ol>
-<p>附件关于Webserver的使用有详细的介绍。</p>
-<p>产品手册链接： <a href="https://assets.balluff.com.cn/WebBinary1/DRW_881678_00_000.pdf">https://assets.balluff.com.cn/WebBinary1/DRW_881678_00_000.pdf</a></p>
-]]></content>
-      <categories>
-        <category>工业自动化</category>
-      </categories>
-      <tags>
-        <tag>Balluff</tag>
-      </tags>
-  </entry>
-  <entry>
     <title>Butterfly主题添加一图流背景与顶部图修改</title>
     <url>/posts/f7d3fad8/</url>
     <content><![CDATA[<h2 id="介绍"><a href="#介绍" class="headerlink" title="介绍"></a>介绍</h2><p>本文将会详细介绍一图流背景与顶部图的修改过程。</p>
@@ -654,78 +357,6 @@
       </categories>
       <tags>
         <tag>Hexo</tag>
-      </tags>
-  </entry>
-  <entry>
-    <title>Clash Verge规则配置</title>
-    <url>/posts/97aa67fb/</url>
-    <content><![CDATA[<h1 id="下载Clash-Meta内核客户端"><a href="#下载Clash-Meta内核客户端" class="headerlink" title="下载Clash.Meta内核客户端"></a>下载Clash.Meta内核客户端</h1><ul>
-<li><a href="https://github.com/zzzgydi/clash-verge">Clash Verge 下载地址</a></li>
-</ul>
-<h1 id="本地配置（推荐）"><a href="#本地配置（推荐）" class="headerlink" title="本地配置（推荐）"></a>本地配置（推荐）</h1><blockquote>
-<p>以处<code>Clash Verge</code>为例</p>
-</blockquote>
-<h4 id="0-设置内核为-Clash-Meta"><a href="#0-设置内核为-Clash-Meta" class="headerlink" title="0.设置内核为 Clash.Meta"></a>0.设置内核为 <code>Clash.Meta</code></h4><p><img src="https://img.zzzg.top/202312120915849.png" alt="0"></p>
-<h2 id="下载配置文件ClashVerge-yaml文件到本地"><a href="#下载配置文件ClashVerge-yaml文件到本地" class="headerlink" title="下载配置文件ClashVerge.yaml文件到本地"></a>下载配置文件<code>ClashVerge.yaml</code>文件到本地</h2><ul>
-<li>ClashVerge.yaml</li>
-</ul>
-<ul>
-<li><input checked="" disabled="" type="checkbox"> 地区分流（香港、美国、日本、台湾、新加坡）</li>
-<li><input checked="" disabled="" type="checkbox"> 苹果、谷歌、微软、电报、推特分流</li>
-<li><input checked="" disabled="" type="checkbox"> 流媒体（不支持单独分流）</li>
-<li><input checked="" disabled="" type="checkbox"> 自动选择最低延迟</li>
-<li><input disabled="" type="checkbox"> 负载均衡</li>
-<li><input checked="" disabled="" type="checkbox"> 故障转移</li>
-<li><input checked="" disabled="" type="checkbox"> 广告屏蔽</li>
-</ul>
-<figure class="highlight plaintext"><table><tr><td class="code"><pre><span class="line">https://raw.githubusercontent.com/Repcz/Tool/X/Clash/Meta/ClashVerge.yaml</span><br></pre></td></tr></table></figure>
-
-<h2 id="修改配置-proxy-providers-中的机场订阅地址"><a href="#修改配置-proxy-providers-中的机场订阅地址" class="headerlink" title="修改配置 proxy-providers 中的机场订阅地址"></a>修改配置 <code>proxy-providers</code> 中的机场订阅地址</h2><ul>
-<li>请自行将 <code>proxy-providers</code> 中的 <code>机场订阅</code> 替换为机场订阅地址</li>
-</ul>
-<p><img src="https://img.zzzg.top/202312120915850.png" alt="1"></p>
-<figure class="highlight yaml"><table><tr><td class="code"><pre><span class="line"><span class="attr">proxy-providers:</span></span><br><span class="line">  <span class="attr">Subscribe:</span> &#123;<span class="string">&lt;&lt;:</span> <span class="string">*p</span>, <span class="attr">path:</span> <span class="string">./all.yaml</span>, <span class="attr">url:</span> <span class="string">机场订阅</span>&#125;</span><br><span class="line">    <span class="comment"># Meta支持机场通用订阅</span></span><br></pre></td></tr></table></figure>
-
-
-<h2 id="Clash-Verge-中导入-配置"><a href="#Clash-Verge-中导入-配置" class="headerlink" title="Clash Verge 中导入 配置"></a>Clash Verge 中导入 <strong>配置</strong></h2><ul>
-<li>打开Clash Verge，点击 <strong>配置</strong>，点击右上角<strong>新建</strong></li>
-<li>类型选择<strong>Local</strong>，点击下方 <strong>选择文件</strong>，选择修改好的文件</li>
-<li>选择导入的配置，右键-启用</li>
-<li>点击 <strong>代理</strong> ，设置分流</li>
-</ul>
-<p><img src="https://img.zzzg.top/202312120915851.png" alt="5"></p>
-<h2 id="策略组修改为手动选择节点"><a href="#策略组修改为手动选择节点" class="headerlink" title="策略组修改为手动选择节点"></a>策略组修改为手动选择节点</h2><blockquote>
-<p>默认为自动选择延迟最低节点，<strong>按需</strong> 修改为手动选择</p>
-</blockquote>
-<ul>
-<li>在自定义策略下的分流策略组中选择需要的地区节点，此处以 <strong>国外网站</strong> 举例，选择 <strong>香港节点</strong></li>
-<li>下拉到下方的 <strong>香港节点</strong> 策略组，此时该策略组以 <code>url-test</code> 运行，即按最低延迟选择节点</li>
-<li>如果要修改为手动选择节点，则需要编辑配置文件，在 <strong>配置</strong> ，右键需要修改的配置文件，点击 <strong>编辑</strong></li>
-<li>找到<code> - {name: 🇭🇰 香港节点, &lt;&lt;: *auto, filter: ....&quot;}</code>，将 <code>*auto</code> 修改为 <code>*select</code></li>
-<li>在 <strong>香港节点</strong> 策略组中选择需要的节点，则 <strong>国外网站</strong> 策略组走 <strong>香港节点</strong> 中选择的节点</li>
-</ul>
-<p>eg:</p>
-<figure class="highlight yaml"><table><tr><td class="code"><pre><span class="line"><span class="string">...</span></span><br><span class="line"></span><br><span class="line">  <span class="bullet">-</span> &#123;<span class="attr">name:</span> <span class="string">🇭🇰</span> <span class="string">香港节点</span>, <span class="string">&lt;&lt;:</span> <span class="string">*auto</span>, <span class="attr">filter:</span> <span class="string">&quot;^(?=.*((?i)🇭🇰|香港|(\b(HK|Hong)\b)))(?!.*((?i)回国|校园|游戏|(\b(GAME)\b))).*$&quot;</span>&#125;</span><br><span class="line"></span><br><span class="line"><span class="string">👇</span></span><br><span class="line"></span><br><span class="line">  <span class="bullet">-</span> &#123;<span class="attr">name:</span> <span class="string">🇭🇰</span> <span class="string">香港节点</span>, <span class="string">&lt;&lt;:</span> <span class="string">*select</span>, <span class="attr">filter:</span> <span class="string">&quot;^(?=.*((?i)🇭🇰|香港|(\b(HK|Hong)\b)))(?!.*((?i)回国|校园|游戏|(\b(GAME)\b))).*$&quot;</span>&#125;</span><br><span class="line"></span><br><span class="line"><span class="string">...</span></span><br><span class="line"></span><br></pre></td></tr></table></figure>
-
-<h1 id="订阅转换（懒人方法）"><a href="#订阅转换（懒人方法）" class="headerlink" title="订阅转换（懒人方法）"></a>订阅转换（懒人方法）</h1><h2 id="在线订阅转换"><a href="#在线订阅转换" class="headerlink" title="在线订阅转换"></a>在线订阅转换</h2><p>在线订阅转换可能出现订阅泄露</p>
-<h2 id="打开ACL4SSR"><a href="#打开ACL4SSR" class="headerlink" title="打开ACL4SSR"></a>打开<a href="https://acl4ssr-sub.github.io/">ACL4SSR</a></h2><h2 id="填入-机场订阅-和-远程配置"><a href="#填入-机场订阅-和-远程配置" class="headerlink" title="填入 机场订阅 和 远程配置"></a>填入 <strong>机场订阅</strong> 和 <strong>远程配置</strong></h2><p><strong><em>自用 多流媒体分组 自动测速 配置</em></strong></p>
-<figure class="highlight plaintext"><table><tr><td class="code"><pre><span class="line">https://raw.githubusercontent.com/Repcz/Tool/X/Clash/Meta/Online_Full_Auto.ini</span><br></pre></td></tr></table></figure>
-<h2 id="选择后端地址并生成订阅"><a href="#选择后端地址并生成订阅" class="headerlink" title="选择后端地址并生成订阅"></a>选择后端地址并生成订阅</h2><ul>
-<li>强烈建议使用自建后端，自建后端订阅转换可以有效防止订阅泄露以及规则下载不全等问题，具体方法见<a href="https://github.com/Repcz/Tool/tree/X/subconverter">自建subconverter订阅转换</a></li>
-</ul>
-<p><img src="https://img.zzzg.top/202312120915852.png" alt="4"></p>
-<h2 id="本地后端订阅转换（推荐）"><a href="#本地后端订阅转换（推荐）" class="headerlink" title="本地后端订阅转换（推荐）"></a>本地后端订阅转换（推荐）</h2><p>详细使用方法见<a href="https://github.com/Repcz/Tool/tree/X/subconverter">自建subconverter订阅转换</a></p>
-<h2 id="导入Clash-Verge"><a href="#导入Clash-Verge" class="headerlink" title="导入Clash Verge"></a>导入Clash Verge</h2><ul>
-<li>打开Clash Verge，点击 <strong>配置</strong>，导入<strong>订阅转换</strong>后的链接</li>
-<li>点击 <strong>代理</strong> ，设置分流</li>
-</ul>
-<h1 id="项目地址"><a href="#项目地址" class="headerlink" title="项目地址"></a>项目地址</h1><p><a href="https://github.com/Repcz/Tool">https://github.com/Repcz/Tool</a></p>
-]]></content>
-      <categories>
-        <category>网络技术</category>
-      </categories>
-      <tags>
-        <tag>网络代理</tag>
       </tags>
   </entry>
   <entry>
@@ -814,6 +445,78 @@
       </categories>
       <tags>
         <tag>Fuwari</tag>
+      </tags>
+  </entry>
+  <entry>
+    <title>Clash Verge规则配置</title>
+    <url>/posts/97aa67fb/</url>
+    <content><![CDATA[<h1 id="下载Clash-Meta内核客户端"><a href="#下载Clash-Meta内核客户端" class="headerlink" title="下载Clash.Meta内核客户端"></a>下载Clash.Meta内核客户端</h1><ul>
+<li><a href="https://github.com/zzzgydi/clash-verge">Clash Verge 下载地址</a></li>
+</ul>
+<h1 id="本地配置（推荐）"><a href="#本地配置（推荐）" class="headerlink" title="本地配置（推荐）"></a>本地配置（推荐）</h1><blockquote>
+<p>以处<code>Clash Verge</code>为例</p>
+</blockquote>
+<h4 id="0-设置内核为-Clash-Meta"><a href="#0-设置内核为-Clash-Meta" class="headerlink" title="0.设置内核为 Clash.Meta"></a>0.设置内核为 <code>Clash.Meta</code></h4><p><img src="https://img.zzzg.top/202312120915849.png" alt="0"></p>
+<h2 id="下载配置文件ClashVerge-yaml文件到本地"><a href="#下载配置文件ClashVerge-yaml文件到本地" class="headerlink" title="下载配置文件ClashVerge.yaml文件到本地"></a>下载配置文件<code>ClashVerge.yaml</code>文件到本地</h2><ul>
+<li>ClashVerge.yaml</li>
+</ul>
+<ul>
+<li><input checked="" disabled="" type="checkbox"> 地区分流（香港、美国、日本、台湾、新加坡）</li>
+<li><input checked="" disabled="" type="checkbox"> 苹果、谷歌、微软、电报、推特分流</li>
+<li><input checked="" disabled="" type="checkbox"> 流媒体（不支持单独分流）</li>
+<li><input checked="" disabled="" type="checkbox"> 自动选择最低延迟</li>
+<li><input disabled="" type="checkbox"> 负载均衡</li>
+<li><input checked="" disabled="" type="checkbox"> 故障转移</li>
+<li><input checked="" disabled="" type="checkbox"> 广告屏蔽</li>
+</ul>
+<figure class="highlight plaintext"><table><tr><td class="code"><pre><span class="line">https://raw.githubusercontent.com/Repcz/Tool/X/Clash/Meta/ClashVerge.yaml</span><br></pre></td></tr></table></figure>
+
+<h2 id="修改配置-proxy-providers-中的机场订阅地址"><a href="#修改配置-proxy-providers-中的机场订阅地址" class="headerlink" title="修改配置 proxy-providers 中的机场订阅地址"></a>修改配置 <code>proxy-providers</code> 中的机场订阅地址</h2><ul>
+<li>请自行将 <code>proxy-providers</code> 中的 <code>机场订阅</code> 替换为机场订阅地址</li>
+</ul>
+<p><img src="https://img.zzzg.top/202312120915850.png" alt="1"></p>
+<figure class="highlight yaml"><table><tr><td class="code"><pre><span class="line"><span class="attr">proxy-providers:</span></span><br><span class="line">  <span class="attr">Subscribe:</span> &#123;<span class="string">&lt;&lt;:</span> <span class="string">*p</span>, <span class="attr">path:</span> <span class="string">./all.yaml</span>, <span class="attr">url:</span> <span class="string">机场订阅</span>&#125;</span><br><span class="line">    <span class="comment"># Meta支持机场通用订阅</span></span><br></pre></td></tr></table></figure>
+
+
+<h2 id="Clash-Verge-中导入-配置"><a href="#Clash-Verge-中导入-配置" class="headerlink" title="Clash Verge 中导入 配置"></a>Clash Verge 中导入 <strong>配置</strong></h2><ul>
+<li>打开Clash Verge，点击 <strong>配置</strong>，点击右上角<strong>新建</strong></li>
+<li>类型选择<strong>Local</strong>，点击下方 <strong>选择文件</strong>，选择修改好的文件</li>
+<li>选择导入的配置，右键-启用</li>
+<li>点击 <strong>代理</strong> ，设置分流</li>
+</ul>
+<p><img src="https://img.zzzg.top/202312120915851.png" alt="5"></p>
+<h2 id="策略组修改为手动选择节点"><a href="#策略组修改为手动选择节点" class="headerlink" title="策略组修改为手动选择节点"></a>策略组修改为手动选择节点</h2><blockquote>
+<p>默认为自动选择延迟最低节点，<strong>按需</strong> 修改为手动选择</p>
+</blockquote>
+<ul>
+<li>在自定义策略下的分流策略组中选择需要的地区节点，此处以 <strong>国外网站</strong> 举例，选择 <strong>香港节点</strong></li>
+<li>下拉到下方的 <strong>香港节点</strong> 策略组，此时该策略组以 <code>url-test</code> 运行，即按最低延迟选择节点</li>
+<li>如果要修改为手动选择节点，则需要编辑配置文件，在 <strong>配置</strong> ，右键需要修改的配置文件，点击 <strong>编辑</strong></li>
+<li>找到<code> - {name: 🇭🇰 香港节点, &lt;&lt;: *auto, filter: ....&quot;}</code>，将 <code>*auto</code> 修改为 <code>*select</code></li>
+<li>在 <strong>香港节点</strong> 策略组中选择需要的节点，则 <strong>国外网站</strong> 策略组走 <strong>香港节点</strong> 中选择的节点</li>
+</ul>
+<p>eg:</p>
+<figure class="highlight yaml"><table><tr><td class="code"><pre><span class="line"><span class="string">...</span></span><br><span class="line"></span><br><span class="line">  <span class="bullet">-</span> &#123;<span class="attr">name:</span> <span class="string">🇭🇰</span> <span class="string">香港节点</span>, <span class="string">&lt;&lt;:</span> <span class="string">*auto</span>, <span class="attr">filter:</span> <span class="string">&quot;^(?=.*((?i)🇭🇰|香港|(\b(HK|Hong)\b)))(?!.*((?i)回国|校园|游戏|(\b(GAME)\b))).*$&quot;</span>&#125;</span><br><span class="line"></span><br><span class="line"><span class="string">👇</span></span><br><span class="line"></span><br><span class="line">  <span class="bullet">-</span> &#123;<span class="attr">name:</span> <span class="string">🇭🇰</span> <span class="string">香港节点</span>, <span class="string">&lt;&lt;:</span> <span class="string">*select</span>, <span class="attr">filter:</span> <span class="string">&quot;^(?=.*((?i)🇭🇰|香港|(\b(HK|Hong)\b)))(?!.*((?i)回国|校园|游戏|(\b(GAME)\b))).*$&quot;</span>&#125;</span><br><span class="line"></span><br><span class="line"><span class="string">...</span></span><br><span class="line"></span><br></pre></td></tr></table></figure>
+
+<h1 id="订阅转换（懒人方法）"><a href="#订阅转换（懒人方法）" class="headerlink" title="订阅转换（懒人方法）"></a>订阅转换（懒人方法）</h1><h2 id="在线订阅转换"><a href="#在线订阅转换" class="headerlink" title="在线订阅转换"></a>在线订阅转换</h2><p>在线订阅转换可能出现订阅泄露</p>
+<h2 id="打开ACL4SSR"><a href="#打开ACL4SSR" class="headerlink" title="打开ACL4SSR"></a>打开<a href="https://acl4ssr-sub.github.io/">ACL4SSR</a></h2><h2 id="填入-机场订阅-和-远程配置"><a href="#填入-机场订阅-和-远程配置" class="headerlink" title="填入 机场订阅 和 远程配置"></a>填入 <strong>机场订阅</strong> 和 <strong>远程配置</strong></h2><p><strong><em>自用 多流媒体分组 自动测速 配置</em></strong></p>
+<figure class="highlight plaintext"><table><tr><td class="code"><pre><span class="line">https://raw.githubusercontent.com/Repcz/Tool/X/Clash/Meta/Online_Full_Auto.ini</span><br></pre></td></tr></table></figure>
+<h2 id="选择后端地址并生成订阅"><a href="#选择后端地址并生成订阅" class="headerlink" title="选择后端地址并生成订阅"></a>选择后端地址并生成订阅</h2><ul>
+<li>强烈建议使用自建后端，自建后端订阅转换可以有效防止订阅泄露以及规则下载不全等问题，具体方法见<a href="https://github.com/Repcz/Tool/tree/X/subconverter">自建subconverter订阅转换</a></li>
+</ul>
+<p><img src="https://img.zzzg.top/202312120915852.png" alt="4"></p>
+<h2 id="本地后端订阅转换（推荐）"><a href="#本地后端订阅转换（推荐）" class="headerlink" title="本地后端订阅转换（推荐）"></a>本地后端订阅转换（推荐）</h2><p>详细使用方法见<a href="https://github.com/Repcz/Tool/tree/X/subconverter">自建subconverter订阅转换</a></p>
+<h2 id="导入Clash-Verge"><a href="#导入Clash-Verge" class="headerlink" title="导入Clash Verge"></a>导入Clash Verge</h2><ul>
+<li>打开Clash Verge，点击 <strong>配置</strong>，导入<strong>订阅转换</strong>后的链接</li>
+<li>点击 <strong>代理</strong> ，设置分流</li>
+</ul>
+<h1 id="项目地址"><a href="#项目地址" class="headerlink" title="项目地址"></a>项目地址</h1><p><a href="https://github.com/Repcz/Tool">https://github.com/Repcz/Tool</a></p>
+]]></content>
+      <categories>
+        <category>网络技术</category>
+      </categories>
+      <tags>
+        <tag>网络代理</tag>
       </tags>
   </entry>
   <entry>
@@ -1517,24 +1220,6 @@
       </tags>
   </entry>
   <entry>
-    <title>Hexo建立一个独立的HTML页面</title>
-    <url>/posts/12482e7/</url>
-    <content><![CDATA[<p>Hexo 是一个轻量、快速，简单和强大的博客框架，当我们需要发布博文的时候，只需要将写好的文章（MarkDown 文件）放入本地的 <code>\source\_posts</code> 文件夹，然后再推送上去就行了，原理就是当我们在执行 <code>hexo g</code> 命令时，<code>.md</code> 文件就会被转化成 HTML 文件，但是有时候我们需要新建一个独立的页面，这个页面不使用主题的渲染，具有自己独立的样式，可以放一些自己的作品，相册什么的，以下就介绍这种独立页面的实现方法。</p>
-<h1 id="方法一："><a href="#方法一：" class="headerlink" title="方法一："></a>方法一：</h1><p>使用 Hexo 提供的跳过渲染配置，在博客根目录的配置文件 <code>_config.yml</code> 里找到 <code>skip_render</code> 关键字，在后面添加想要跳过渲染的页面，比如我们创建 <code>\source\about\index.html</code>， 配置文件填写：<code>skip_render: about\**</code>，那么就表示 <code>\source\about</code> 里所有的文件将跳过渲染，里面的文件将会被直接复制到 public 文件夹，此时就会得到一个独立的 about 页面；官方文档：<a href="https://hexo.io/docs/configuration">https://hexo.io/docs/configuration</a></p>
-<h1 id="方法-2"><a href="#方法-2" class="headerlink" title="方法 2"></a>方法 2</h1><p>在文章头部的 Front-matter 里添加配置 <code>layout: false</code> 来跳过渲染配置，比如我们要使 about 页面跳过渲染，创建 <code>\source\about\index.md</code>，将这个页面的相关 HTML 代码写进<code>.md</code>文件并保存，然后在 <code>index.md</code> 的头部写入：</p>
-<figure class="highlight markdown"><table><tr><td class="code"><pre><span class="line">---</span><br><span class="line"><span class="section">layout: false</span></span><br><span class="line"><span class="section">---</span></span><br><span class="line"></span><br><span class="line">&#123;% raw %&#125;</span><br><span class="line">xxxxxxxxxxxxx</span><br><span class="line">xx HTML 代码 xx</span><br><span class="line">xxxxxxxxxxxxx</span><br><span class="line">&#123;% endraw %&#125;</span><br></pre></td></tr></table></figure>
-
-<p>PS：Front-matter 是 <code>.md</code> 文件最上方以 — 分隔的区域，用于指定个别文件的变量，官方文档：<a href="https://hexo.io/docs/front-matter">https://hexo.io/docs/front-matter</a></p>
-<figure class="highlight markdown"><table><tr><td class="code"><pre><span class="line">.md 文件中的 HTML 代码要用 &#123;% raw %&#125; 和 &#123;% endraw %&#125; 包起来，使其能正确编译里面的代码。</span><br></pre></td></tr></table></figure>
-]]></content>
-      <categories>
-        <category>博客运维</category>
-      </categories>
-      <tags>
-        <tag>Hexo</tag>
-      </tags>
-  </entry>
-  <entry>
     <title>Hexo搭建</title>
     <url>/posts/57ee7c1d/</url>
     <content><![CDATA[<h1 id="一、前言"><a href="#一、前言" class="headerlink" title="一、前言"></a>一、前言</h1><p>作为基础教程，本文以本地搭建 Hexo 环境生成静态文件推送到 GitHub 仓库并使用 GitHub Pages 托管为例，了解了基本流程后，后续您可以更换自己喜欢的主题、使用其他平台托管网站等等</p>
@@ -1618,6 +1303,24 @@
 <figure class="highlight bash"><table><tr><td class="code"><pre><span class="line">hexo clean <span class="comment"># 清除缓存</span></span><br><span class="line">hexo g <span class="comment"># 生成网页</span></span><br></pre></td></tr></table></figure>
 
 <p>生成好后会自动同步到服务器本地，然后访问你的域名就可以看见服务器端部署的博客了。</p>
+]]></content>
+      <categories>
+        <category>博客运维</category>
+      </categories>
+      <tags>
+        <tag>Hexo</tag>
+      </tags>
+  </entry>
+  <entry>
+    <title>Hexo建立一个独立的HTML页面</title>
+    <url>/posts/12482e7/</url>
+    <content><![CDATA[<p>Hexo 是一个轻量、快速，简单和强大的博客框架，当我们需要发布博文的时候，只需要将写好的文章（MarkDown 文件）放入本地的 <code>\source\_posts</code> 文件夹，然后再推送上去就行了，原理就是当我们在执行 <code>hexo g</code> 命令时，<code>.md</code> 文件就会被转化成 HTML 文件，但是有时候我们需要新建一个独立的页面，这个页面不使用主题的渲染，具有自己独立的样式，可以放一些自己的作品，相册什么的，以下就介绍这种独立页面的实现方法。</p>
+<h1 id="方法一："><a href="#方法一：" class="headerlink" title="方法一："></a>方法一：</h1><p>使用 Hexo 提供的跳过渲染配置，在博客根目录的配置文件 <code>_config.yml</code> 里找到 <code>skip_render</code> 关键字，在后面添加想要跳过渲染的页面，比如我们创建 <code>\source\about\index.html</code>， 配置文件填写：<code>skip_render: about\**</code>，那么就表示 <code>\source\about</code> 里所有的文件将跳过渲染，里面的文件将会被直接复制到 public 文件夹，此时就会得到一个独立的 about 页面；官方文档：<a href="https://hexo.io/docs/configuration">https://hexo.io/docs/configuration</a></p>
+<h1 id="方法-2"><a href="#方法-2" class="headerlink" title="方法 2"></a>方法 2</h1><p>在文章头部的 Front-matter 里添加配置 <code>layout: false</code> 来跳过渲染配置，比如我们要使 about 页面跳过渲染，创建 <code>\source\about\index.md</code>，将这个页面的相关 HTML 代码写进<code>.md</code>文件并保存，然后在 <code>index.md</code> 的头部写入：</p>
+<figure class="highlight markdown"><table><tr><td class="code"><pre><span class="line">---</span><br><span class="line"><span class="section">layout: false</span></span><br><span class="line"><span class="section">---</span></span><br><span class="line"></span><br><span class="line">&#123;% raw %&#125;</span><br><span class="line">xxxxxxxxxxxxx</span><br><span class="line">xx HTML 代码 xx</span><br><span class="line">xxxxxxxxxxxxx</span><br><span class="line">&#123;% endraw %&#125;</span><br></pre></td></tr></table></figure>
+
+<p>PS：Front-matter 是 <code>.md</code> 文件最上方以 — 分隔的区域，用于指定个别文件的变量，官方文档：<a href="https://hexo.io/docs/front-matter">https://hexo.io/docs/front-matter</a></p>
+<figure class="highlight markdown"><table><tr><td class="code"><pre><span class="line">.md 文件中的 HTML 代码要用 &#123;% raw %&#125; 和 &#123;% endraw %&#125; 包起来，使其能正确编译里面的代码。</span><br></pre></td></tr></table></figure>
 ]]></content>
       <categories>
         <category>博客运维</category>
@@ -2175,189 +1878,6 @@
       </tags>
   </entry>
   <entry>
-    <title>Oracle数据库和PDPS安装及配置</title>
-    <url>/posts/93246652/</url>
-    <content><![CDATA[<h1 id="安装及配置Oracle"><a href="#安装及配置Oracle" class="headerlink" title="安装及配置Oracle"></a>安装及配置Oracle</h1><h2 id="一、安装java-perl"><a href="#一、安装java-perl" class="headerlink" title="一、安装java perl"></a>一、安装java perl</h2><p><img src="https://img.zzzg.top/20260411105832774.png" alt="image-20260410122404020"></p>
-<p><img src="https://img.zzzg.top/20260411105848314.png" alt="image-20260410122423263"></p>
-<p><img src="https://img.zzzg.top/20260411105857513.png" alt="image-20260410122443435"></p>
-<p><img src="https://img.zzzg.top/20260411105910807.png" alt="image-20260410122516248"></p>
-<p><img src="https://img.zzzg.top/20260411105923011.png" alt="image-20260410122738952"></p>
-<p><img src="https://img.zzzg.top/20260411105933274.png" alt="image-20260410123010829"></p>
-<h2 id="二、安装Oracle"><a href="#二、安装Oracle" class="headerlink" title="二、安装Oracle"></a>二、安装Oracle</h2><p>新建文件夹：<strong>ORACLE_BASE</strong></p>
-<p><img src="https://img.zzzg.top/20260411105943177.png" alt="image-20260410123145474"></p>
-<p>将安装包解压到和<strong>ORACLE_BASE</strong>同一目录下，运行安装程序</p>
-<p><img src="https://img.zzzg.top/20260411105949362.png" alt="image-20260410123452811"></p>
-<p><img src="https://img.zzzg.top/20260411105957599.png" alt="image-20260410123611133"></p>
-<p><img src="https://img.zzzg.top/20260411110007928.png" alt="image-20260410123651445"></p>
-<p><img src="https://img.zzzg.top/20260411110047039.png" alt="image-20260410123728813"></p>
-<p>设置目录和密码，我这里设置的密码是：</p>
-<figure class="highlight plaintext"><table><tr><td class="code"><pre><span class="line">Abc123456</span><br></pre></td></tr></table></figure>
-
-<p><img src="https://img.zzzg.top/20260411110047040.png" alt="image-20260410124205807"></p>
-<p><img src="https://img.zzzg.top/20260411110047041.png" alt="image-20260410132526265"></p>
-<p><img src="https://img.zzzg.top/20260411110047042.png" alt="image-20260410134839062"></p>
-<h2 id="三、修改ORACLE编码"><a href="#三、修改ORACLE编码" class="headerlink" title="三、修改ORACLE编码"></a>三、修改ORACLE编码</h2><p>win+r打开注册表</p>
-<p><img src="https://img.zzzg.top/20260411110047043.png" alt="image-20260410135353678"></p>
-<p>路径如下：</p>
-<figure class="highlight plaintext"><table><tr><td class="code"><pre><span class="line">\HKEY_LOCAL_MACHINE\SOFTWARE\ORACLE\KEY_OraDB19Home1</span><br></pre></td></tr></table></figure>
-
-<p><img src="https://img.zzzg.top/20260411110047044.png" alt="image-20260410135534632"></p>
-<p>双击修改为</p>
-<figure class="highlight plaintext"><table><tr><td class="code"><pre><span class="line">AMERICAN_AMERICA.AL32UTF8</span><br></pre></td></tr></table></figure>
-
-<p><img src="https://img.zzzg.top/20260411110047045.png" alt="image-20260410135756036"></p>
-<h2 id="四、关闭监听程序"><a href="#四、关闭监听程序" class="headerlink" title="四、关闭监听程序"></a>四、关闭监听程序</h2><p>关闭Listener  lsnrctl stop</p>
-<p>用管理员权限打开CMD，后续的CMD窗口均需要管理员权限</p>
-<p>输入<strong>LSNRCTL STOP</strong> 后回车执行</p>
-<p><img src="https://img.zzzg.top/20260411110047046.png" alt="image-20260410140136296"></p>
-<h2 id="五、修改listener文件"><a href="#五、修改listener文件" class="headerlink" title="五、修改listener文件"></a>五、修改listener文件</h2><p>打开c盘里面的安装目录</p>
-<figure class="highlight plaintext"><table><tr><td class="code"><pre><span class="line">C:\Oracle_WINDOWS.X64_193000_db_home\network\admin\listener.ora</span><br></pre></td></tr></table></figure>
-
-<p>用记事本打开</p>
-<p><img src="https://img.zzzg.top/20260411110047047.png" alt="image-20260410140544777"></p>
-<p>在此电脑-&gt;属性里面查看设备名称，复制替换掉<strong>localhost</strong>，然后保存</p>
-<p><img src="https://img.zzzg.top/20260411110047048.png" alt="image-20260410140748951"></p>
-<h2 id="六、添加环境变量"><a href="#六、添加环境变量" class="headerlink" title="六、添加环境变量"></a>六、添加环境变量</h2><p>此电脑-&gt;属性-&gt;高级系统设置</p>
-<p><img src="https://img.zzzg.top/20260411110047049.png" alt="image-20260410141053786"></p>
-<p><img src="https://img.zzzg.top/20260411110047050.png" alt="image-20260410141159123"></p>
-<p>新建</p>
-<p><img src="https://img.zzzg.top/20260411110047051.png" alt="image-20260410141309971"></p>
-<p><strong>ORACLE_HOME</strong> 对应软件安装目录</p>
-<p><img src="https://img.zzzg.top/20260411110047052.png" alt="image-20260410141421656"></p>
-<p>再新建</p>
-<p><strong>ORACLE_BASE</strong>对应在C盘创建的ORACLE_BASE文件夹</p>
-<p><img src="https://img.zzzg.top/20260411110047053.png" alt="image-20260410141528488"></p>
-<h2 id="七、注册ODP-NET"><a href="#七、注册ODP-NET" class="headerlink" title="七、注册ODP.NET"></a>七、注册ODP.NET</h2><p>右键以管理员运行即可</p>
-<p><img src="https://img.zzzg.top/20260411110047054.png" alt="image-20260410141847860"></p>
-<h2 id="八、创建DB"><a href="#八、创建DB" class="headerlink" title="八、创建DB"></a>八、创建DB</h2><p>新建DB文件夹</p>
-<p><img src="https://img.zzzg.top/20260411110047055.png" alt="image-20260410142037138"></p>
-<p>修改建立DB的脚本并运行</p>
-<p>使用这个脚本所在的路径替换掉<strong>FULL_PATH_TO</strong></p>
-<p><img src="https://img.zzzg.top/20260411110047056.png" alt="image-20260410142449887"></p>
-<p>使用电脑设备名称替换掉**%WINDOWS_SERVER_NAME%**</p>
-<p><img src="https://img.zzzg.top/20260411110047057.png" alt="image-20260410161523248"></p>
-<p>将需要建立的Database的名字替换掉**%DB_NAME%**</p>
-<p><img src="https://img.zzzg.top/20260411110047058.png" alt="image-20260410161715428"></p>
-<p>使用存放Database的文件夹路径替换掉**%DATA_FILES_LOCATION%**</p>
-<p><img src="https://img.zzzg.top/20260411110047059.png" alt="image-20260410161853628"></p>
-<p>将以下中文替换为对应的即可</p>
-<figure class="highlight bat"><table><tr><td class="code"><pre><span class="line">perl -l 脚本所在文件夹路径\build_files.pl <span class="variable">%ORACLE_BASE%</span> <span class="variable">%ORACLE_HOME%</span> 需要建立的Database的名字 电脑设备名称 <span class="number">1521</span> 存放Database的文件夹路径</span><br><span class="line">perl -l 脚本所在文件夹路径\build_db.pl <span class="variable">%ORACLE_BASE%</span> <span class="variable">%ORACLE_HOME%</span> 需要建立的Database的名字</span><br></pre></td></tr></table></figure>
-
-<p>替换好的样子：</p>
-<figure class="highlight bat"><table><tr><td class="code"><pre><span class="line">perl -l C:\Users\Administrator\Desktop\PDPS_V24\Oracle\DatabaseInstallationScripts\build_files.pl <span class="variable">%ORACLE_BASE%</span> <span class="variable">%ORACLE_HOME%</span> MYEMS WIN-H0260UMGT2O <span class="number">1521</span> C:\MYEMSDB</span><br><span class="line">perl -l C:\Users\Administrator\Desktop\PDPS_V24\Oracle\DatabaseInstallationScripts\build_db.pl <span class="variable">%ORACLE_BASE%</span> <span class="variable">%ORACLE_HOME%</span> MYEMS</span><br></pre></td></tr></table></figure>
-
-<p>然后将这两条修改好的命令复制到CMD里面执行，注意路径里面不能有中文和空格，否则会报错</p>
-<p>第一条运行成功</p>
-<p><img src="https://img.zzzg.top/20260411110047060.png" alt="image-20260410162546575"></p>
-<p>输入第二条指令执行，出现<strong>Instance created</strong>提示后，再按一次回车</p>
-<p>第二条运行成功</p>
-<p><img src="https://img.zzzg.top/20260411110047061.png" alt="image-20260410180901265"></p>
-<h2 id="九、修改服务为自启动"><a href="#九、修改服务为自启动" class="headerlink" title="九、修改服务为自启动"></a>九、修改服务为自启动</h2><p>按win+r打开运行窗口，输入<strong>services.msc</strong>进入服务</p>
-<p>双击<strong>OracleServiceMYEMS</strong>这个服务，然后将启动类型改为自动</p>
-<p><img src="https://img.zzzg.top/20260411110047062.png" alt="image-20260410181249379"></p>
-<h1 id="安装及配置PDPS"><a href="#安装及配置PDPS" class="headerlink" title="安装及配置PDPS"></a>安装及配置PDPS</h1><h2 id="一、安装PDPS"><a href="#一、安装PDPS" class="headerlink" title="一、安装PDPS"></a>一、安装PDPS</h2><h3 id="1、进入软件安装包目录"><a href="#1、进入软件安装包目录" class="headerlink" title="1、进入软件安装包目录"></a>1、进入软件安装包目录</h3><p><img src="https://img.zzzg.top/20260411110047063.png" alt="image-20260410183423634"></p>
-<h3 id="2、安装运行库"><a href="#2、安装运行库" class="headerlink" title="2、安装运行库"></a>2、安装运行库</h3><p><img src="https://img.zzzg.top/20260411110047064.png" alt="image-20260410181751050"></p>
-<p><img src="https://img.zzzg.top/20260411110047065.png" alt="image-20260410181941471"></p>
-<h3 id="3、选择安装PDPS"><a href="#3、选择安装PDPS" class="headerlink" title="3、选择安装PDPS"></a>3、选择安装PDPS</h3><p><img src="https://img.zzzg.top/20260411110047066.png" alt="image-20260410193014409"></p>
-<h3 id="4、选择需要安装的软件组件"><a href="#4、选择需要安装的软件组件" class="headerlink" title="4、选择需要安装的软件组件"></a>4、选择需要安装的软件组件</h3><ul>
-<li>在组件列表中，勾选 <strong>“Process Simulate Standalone”</strong> ，点选向下的小箭头进行选择。建议使用默认安装路径<code>(C:\Program Files)</code>，或选择空间充足的自定义路径。重要！ 安装路径不能包含中文或特殊字符（空格也尽量避免），使用纯英文路径！</li>
-</ul>
-<p><img src="https://img.zzzg.top/20260411110047067.png" alt="image-20260410193126098"></p>
-<h3 id="5、选择需要安装的机器人控制器组件"><a href="#5、选择需要安装的机器人控制器组件" class="headerlink" title="5、选择需要安装的机器人控制器组件"></a>5、选择需要安装的机器人控制器组件</h3><ul>
-<li>在机器人控制器组件列表中，勾选需要的机器人，也可后续添加。</li>
-</ul>
-<p><img src="https://img.zzzg.top/20260411110047068.png" alt="image-20260410182331252"></p>
-<h3 id="6、数据收集许可"><a href="#6、数据收集许可" class="headerlink" title="6、数据收集许可"></a>6、数据收集许可</h3><ul>
-<li>数据收集许可：选择DECLINE“”。</li>
-</ul>
-<p><img src="https://img.zzzg.top/20260411110047069.png" alt="image-20260410182354087"></p>
-<ul>
-<li>以下采用默认配置进行安装。</li>
-</ul>
-<p><img src="https://img.zzzg.top/20260411110047070.png" alt="image-20260410182437152"></p>
-<p><img src="https://img.zzzg.top/20260411110047071.png" alt="image-20260410182502622"></p>
-<p><img src="https://img.zzzg.top/20260411110047072.png" alt="image-20260410182524677"></p>
-<p><img src="https://img.zzzg.top/20260411110047073.png" alt="image-20260410182649298"></p>
-<h3 id="7、开始安装"><a href="#7、开始安装" class="headerlink" title="7、开始安装"></a>7、开始安装</h3><ul>
-<li>确认配置无误后，点击 <strong>“Install”</strong> 开始安装。此过程耗时较长（30分钟至数小时），请耐心等待，<strong>不要中断</strong>。</li>
-</ul>
-<p><img src="https://img.zzzg.top/20260411110047074.png" alt="image-20260410182710234"></p>
-<h3 id="8、安装完成"><a href="#8、安装完成" class="headerlink" title="8、安装完成"></a>8、安装完成</h3><ul>
-<li>提示安装成功后，点击 <strong>“Finish”</strong> 退出向导。<strong>暂时不要运行软件！</strong></li>
-</ul>
-<p><img src="https://img.zzzg.top/20260411110047075.png" alt="image-20260410184143344"></p>
-<h3 id="9、安装语言包"><a href="#9、安装语言包" class="headerlink" title="9、安装语言包"></a>9、安装语言包</h3><p>进入如下目录安装中文语言包，一直下一步即可</p>
-<p><img src="https://img.zzzg.top/20260411110047076.png" alt="image-20260410184814369"></p>
-<h2 id="二、配置PDPS"><a href="#二、配置PDPS" class="headerlink" title="二、配置PDPS"></a>二、配置PDPS</h2><h3 id="1、配置许可证"><a href="#1、配置许可证" class="headerlink" title="1、配置许可证"></a>1、配置许可证</h3><p>将获得的许可证文件 <code>(siemens_SSQ.dat)</code><strong>复制</strong>到西门子许可目录下：<br><code>C:\ProgramData\Siemens\siemens_SSQ.dat</code>没有就创建一个文件夹</p>
-<p><img src="https://img.zzzg.top/20260411110047078.png" alt="image-20260410190043934"></p>
-<p>将Crack文件夹中的文件覆盖到对应的安装目录下，双击进行注册</p>
-<p><img src="https://img.zzzg.top/20260411110047079.png" alt="image-20260410185908909"></p>
-<p><img src="https://img.zzzg.top/20260411110047080.png" alt="image-20260410185405643"></p>
-<p><img src="https://img.zzzg.top/20260411110047081.png" alt="image-20260410185538959"></p>
-<p>打开LicensingTool，选择Environment Settings（环境设置），点Edit（编辑）</p>
-<p><img src="https://img.zzzg.top/20260411110047082.png" alt="image-20260410185228383"></p>
-<p><img src="https://img.zzzg.top/20260411110047083.png" alt="image-20260410190423403"></p>
-<p><img src="https://img.zzzg.top/20260411110047084.png" alt="image-20260410185621847"></p>
-<p>填入<code>C:\ProgramData\Siemens\siemens_SSQ.dat</code></p>
-<p><img src="https://img.zzzg.top/20260411110047085.png" alt="image-20260410190300839"></p>
-<p>完成</p>
-<p><img src="https://img.zzzg.top/20260411110047086.png" alt="image-20260410190339561"></p>
-<h3 id="2、配置EMS"><a href="#2、配置EMS" class="headerlink" title="2、配置EMS"></a>2、配置EMS</h3><p>进入PS安装目录</p>
-<p><img src="https://img.zzzg.top/20260411110047087.png" alt="image-20260410194958695"></p>
-<p>复制目录路径，win+r打开cmd</p>
-<p>输入</p>
-<figure class="highlight plaintext"><table><tr><td class="code"><pre><span class="line">cd 目录路径</span><br></pre></td></tr></table></figure>
-
-<p>例如</p>
-<figure class="highlight plaintext"><table><tr><td class="code"><pre><span class="line">cd C:\Program Files\Tecnomatix_2402\eMPower\DBScripts</span><br></pre></td></tr></table></figure>
-
-<p><img src="https://img.zzzg.top/20260411110047088.png" alt="image-20260410195137195"></p>
-<p>然后输入</p>
-<figure class="highlight plaintext"><table><tr><td class="code"><pre><span class="line">initDB.bat 先前建立的Database的名字</span><br></pre></td></tr></table></figure>
-
-<p>例如</p>
-<figure class="highlight plaintext"><table><tr><td class="code"><pre><span class="line">initDB.bat MYEMS</span><br></pre></td></tr></table></figure>
-
-<p>成功</p>
-<p><img src="https://img.zzzg.top/20260411110047089.png" alt="image-20260410195423480"></p>
-<p>打开EMServer管理软件</p>
-<p><img src="https://img.zzzg.top/20260411110047090.png" alt="image-20260410195843374"></p>
-<p>创建Oracle账号</p>
-<p><img src="https://img.zzzg.top/20260411110047091.png" alt="image-20260410195940451"></p>
-<p>用户名和密码在我们执行initDB的时候会默认创建一个，脚本还是在PS安装目录下，将默认的用户名和密码填上，选择我们之前创建的MYEMS</p>
-<p><img src="https://img.zzzg.top/20260411110047092.png" alt="image-20260411100040380"></p>
-<p><img src="https://img.zzzg.top/20260411110047093.png" alt="image-20260411100152539"></p>
-<p>点击创建新账号</p>
-<p><img src="https://img.zzzg.top/20260411110047094.png" alt="image-20260411100246821"></p>
-<p>输入需要设置的账号密码</p>
-<p>我这里设置的</p>
-<figure class="highlight plaintext"><table><tr><td class="code"><pre><span class="line">Schema name：admin</span><br><span class="line">Password：password</span><br></pre></td></tr></table></figure>
-
-
-
-<p><img src="https://img.zzzg.top/20260411110047095.png" alt="image-20260411100459121"></p>
-<p><img src="https://img.zzzg.top/20260411110047096.png" alt="image-20260411100703210"></p>
-<p>这里问是否需要兼容UTF8，如果不是特别老的数据就不需要的，看情况</p>
-<p><img src="https://img.zzzg.top/20260411110047097.png" alt="image-20260411100725330"></p>
-<p><img src="https://img.zzzg.top/20260411110047098.png" alt="image-20260411100853999"></p>
-<p>创建组织</p>
-<p>选择创建好的DB和用户名，输入创建好的密码，点击应用</p>
-<p><img src="https://img.zzzg.top/20260411110047099.png" alt="image-20260411101100094"></p>
-<p><img src="https://img.zzzg.top/20260411110047100.png" alt="image-20260411101220608"></p>
-<p><img src="https://img.zzzg.top/20260411110047101.png" alt="image-20260411101254387"></p>
-<p><img src="https://img.zzzg.top/20260411110047102.png" alt="image-20260411101454408"></p>
-<p>这里如果显示无法打开文件，就找到对应的文件，给这个文件user用户全部权限即可</p>
-<h2 id="三、安装完成"><a href="#三、安装完成" class="headerlink" title="三、安装完成"></a>三、安装完成</h2><p>打开PD，使用默认用户登录<strong>administrator</strong>，就可以正常使用了</p>
-<p><img src="https://img.zzzg.top/20260411110047103.png" alt="image-20260411101805317"></p>
-]]></content>
-      <categories>
-        <category>工业自动化</category>
-      </categories>
-      <tags>
-        <tag>PDPS</tag>
-      </tags>
-  </entry>
-  <entry>
     <title>PVE安装iStoreOS</title>
     <url>/posts/d167335e/</url>
     <content><![CDATA[<h1 id="首先X86机器已经安装好PVE机器，且能正常联网；"><a href="#首先X86机器已经安装好PVE机器，且能正常联网；" class="headerlink" title="首先X86机器已经安装好PVE机器，且能正常联网；"></a>首先X86机器已经安装好PVE机器，且能正常联网；</h1><ul>
@@ -2501,6 +2021,303 @@
       </tags>
   </entry>
   <entry>
+    <title>Balluff-IOLINK模块在TIA软件上调试</title>
+    <url>/posts/ff857dd0/</url>
+    <content><![CDATA[<h2 id="样例连接"><a href="#样例连接" class="headerlink" title="样例连接"></a><strong>样例连接</strong></h2><p><img src="https://img.zzzg.top/20250718122225962.png" alt="image-20241226101741875"></p>
+<h2 id="产品清单"><a href="#产品清单" class="headerlink" title="产品清单"></a><strong>产品清单</strong></h2><table>
+<thead>
+<tr>
+<th><strong>产品名称</strong></th>
+<th><strong>名称及订货号</strong></th>
+<th><strong>描述</strong></th>
+<th><strong>产品图片</strong></th>
+</tr>
+</thead>
+<tbody><tr>
+<td>主站模块</td>
+<td>BNI PNT-508-105-Z015（BNI005H）</td>
+<td>Profinet通讯，16<em>PNP DI&#x2F;DO， 8</em>IO-Link, I&#x2F;O端口：M12, IO-Link端口:M12,最大负载电流9A。</td>
+<td><img src="https://img.zzzg.top/20250718122242282.png" alt="image-20241226102504353"></td>
+</tr>
+<tr>
+<td>IO-Link子模块</td>
+<td>BNI IOL-302-000-Z012（BNI003U）</td>
+<td>IO-Link通讯，16*PNP DI&#x2F;DO, I&#x2F;O端口:M12,IO-Link端口：M12, 最大负载电流1.4A。</td>
+<td><img src="https://img.zzzg.top/20250718122250402.png" alt="image-20241226102517607"></td>
+</tr>
+<tr>
+<td>IO-Link子模块</td>
+<td>BNI IOL-302-002-K006 （BNI007Z）</td>
+<td>IO-Link通讯，16*PNP DI&#x2F;DO, I&#x2F;O端口：M12,IO-Link端口：M12, 最大负载电流1.6A。</td>
+<td><img src="https://img.zzzg.top/20250718122257285.png" alt="image-20241226102536990"></td>
+</tr>
+<tr>
+<td>IO-Link阀岛适配器</td>
+<td>BNI IOL-750-V02-K007 (BNI001E)</td>
+<td>IO-Link通讯，电缆长度 0.6米， 适配器端口：25-pole, female , IO-Link端口：M12。</td>
+<td><img src="https://img.zzzg.top/20250718122304284.png" alt="image-20241226102559155"></td>
+</tr>
+<tr>
+<td>IO-Link HUB</td>
+<td>BNI IOL-310-000-K025 (BNI004L)</td>
+<td>IO-Link通讯，16*PNP DI&#x2F;DO, I&#x2F;O端口：端子式,IO-Link端口： 端子式, 最大负载电流1.4A。</td>
+<td><img src="https://img.zzzg.top/20250718122311160.png" alt="image-20241226102622683"></td>
+</tr>
+<tr>
+<td>IO-Link 紧凑型RFID</td>
+<td>BIS M-451-045-001-07-S4 (BIS00LM)</td>
+<td>IO-Link通讯，IO-Link端口：M12,读写数据长度10byte。</td>
+<td><img src="https://img.zzzg.top/20250718122317331.png" alt="image-20241226102639188"></td>
+</tr>
+<tr>
+<td>IO-Link 微脉冲位移 传感器</td>
+<td>BTL6-U110-M0300-PF-S4 （BTL1HWR）</td>
+<td>IO-Link通讯，IO-Link端口：M12, 测量范围：300mm,最小精度：1vm，最大传感器数量：1。</td>
+<td><img src="https://img.zzzg.top/20250718122324726.png" alt="image-20241226102652405"></td>
+</tr>
+<tr>
+<td>IO-link Smart Light</td>
+<td>BNI IOL-802-102-Z037 (BNI0085)</td>
+<td>IO-link通讯，IO-Link端口：M12， 颜色数量:7，分段数量：5段， 显示模式：3种。</td>
+<td><img src="https://img.zzzg.top/20250718122331419.png" alt="image-20241226102706935"></td>
+</tr>
+<tr>
+<td>M12直型公头&#x2F;RJ45直型公头 总线电缆</td>
+<td>BCC04K7</td>
+<td>4针电缆，M12-RJ45，长度2米。</td>
+<td><img src="https://img.zzzg.top/20250718122338347.png" alt="image-20241226102718276"></td>
+</tr>
+<tr>
+<td>7&#x2F;8英寸 单头母头 电源线</td>
+<td>BCC06HE</td>
+<td>7&#x2F;8英寸单头母头电缆，5针，长度5米。</td>
+<td><img src="https://img.zzzg.top/20250718122343590.png" alt="image-20241226102738790"></td>
+</tr>
+<tr>
+<td>M12直型母头—M12直型公头</td>
+<td>BCC03FT</td>
+<td>M12双头电缆，5针，长度3米。</td>
+<td><img src="https://img.zzzg.top/20250718122348789.png" alt="image-20241226102748588"></td>
+</tr>
+<tr>
+<td>直流电源</td>
+<td>BAE0006</td>
+<td>额定电流5A，额定电压24V，最大功率120W。</td>
+<td><img src="https://img.zzzg.top/20250718122353333.png" alt="image-20241226102757885"></td>
+</tr>
+</tbody></table>
+<blockquote>
+<p>注意：508主站模块端口和IO-Link设备连接，不要使用带LED灯的电缆，否则整个508主站的IO-Link通讯会受到影响。</p>
+</blockquote>
+<h2 id="样例连接-1"><a href="#样例连接-1" class="headerlink" title="样例连接"></a><strong>样例连接</strong></h2><p>BNI PNT 508模块&gt;&gt;接口针脚定义。</p>
+<p><img src="https://img.zzzg.top/20250718122402727.png" alt="image-20241226103025507"></p>
+<h2 id="BNI-PNT-508-105-Z015-样例组态调试"><a href="#BNI-PNT-508-105-Z015-样例组态调试" class="headerlink" title="BNI PNT-508-105-Z015 样例组态调试"></a><strong>BNI PNT-508-105-Z015 样例组态调试</strong></h2><h4 id="建立新项目-版本：TIA-V14"><a href="#建立新项目-版本：TIA-V14" class="headerlink" title="建立新项目(版本：TIA V14)"></a><strong>建立新项目(版本：TIA V14)</strong></h4><p><img src="https://img.zzzg.top/20250718122408519.png" alt="image-20241226103218739"></p>
+<h4 id="添加PLC"><a href="#添加PLC" class="headerlink" title="添加PLC"></a><strong>添加PLC</strong></h4><p>根据实物选择对应的PLC型号进行添加。</p>
+<p><img src="https://img.zzzg.top/20250718122416222.png" alt="image-20241226103513850"></p>
+<p><img src="https://img.zzzg.top/20250718122427122.png" alt="image-20241226103237452"></p>
+<h4 id="添加PROFINET子网"><a href="#添加PROFINET子网" class="headerlink" title="添加PROFINET子网"></a><strong>添加PROFINET子网</strong></h4><ol>
+<li>右键单击PLC上 RJ45绿色图标。</li>
+<li>点击添加子网。</li>
+<li>配置PLC IP地址。</li>
+</ol>
+<p><img src="https://img.zzzg.top/20250718122434644.png" alt="image-20241226103700820"></p>
+<h4 id="添加GSD文件"><a href="#添加GSD文件" class="headerlink" title="添加GSD文件"></a><strong>添加GSD文件</strong></h4><p>模块GSD文件登陆<a href="http://www.balluff.com.cn/">www.Balluff.com.cn</a>下载。</p>
+<p><img src="https://img.zzzg.top/20250718122443443.png" alt="image-20241226104135539"></p>
+<p><img src="https://img.zzzg.top/20250718122451480.png" alt="image-20241226103825062"></p>
+<h4 id="GSD-安装完成"><a href="#GSD-安装完成" class="headerlink" title="GSD 安装完成"></a><strong>GSD 安装完成</strong></h4><p><img src="https://img.zzzg.top/20250718122458328.png" alt="image-20241226104300153"></p>
+<h4 id="连接PLC网络"><a href="#连接PLC网络" class="headerlink" title="连接PLC网络"></a><strong>连接PLC网络</strong></h4><p><img src="https://img.zzzg.top/20250718122503344.png" alt="image-20241226104355718"></p>
+<p><img src="https://img.zzzg.top/20250718122509833.png" alt="image-20241226104424323"></p>
+<h4 id="配置IO-Link模块地址"><a href="#配置IO-Link模块地址" class="headerlink" title="配置IO-Link模块地址"></a><strong>配置IO-Link模块地址</strong></h4><p>BALLUFF产品的相关样册登录<a href="http://www.balluff.com.cn/">www.Balluff.com.cn</a>官网进行查找。</p>
+<blockquote>
+<p>以302模块为例。</p>
+</blockquote>
+<p><img src="https://img.zzzg.top/20250718122517376.png" alt="image-20241226105039817"></p>
+<p><img src="https://img.zzzg.top/20250718122524123.png" alt="image-20241226105247766"></p>
+<h4 id="设置IO-Link地址长度"><a href="#设置IO-Link地址长度" class="headerlink" title="设置IO-Link地址长度"></a><strong>设置IO-Link地址长度</strong></h4><p>查找该手册关于过程数据的描述，地址长度为2 Bytes 输入，2 Bytes 输出。</p>
+<p><img src="https://img.zzzg.top/20250718122531122.png" alt="image-20241226105330415"></p>
+<h4 id="组态配置说明"><a href="#组态配置说明" class="headerlink" title="组态配置说明"></a><strong>组态配置说明</strong></h4><p>BALLUFF IO-Link 新产品的模块在硬件目录的“Device Module”中可以找到。旧产品先在手册中找到过程数据长度，然后在“Basic modules”中配置。</p>
+<p>**注意：**在“Basic Module”中配置的硬件，地址长度必须长于IO-Link设备本身的长度，例如，IO-Link设备地址长度为1 Byte 输入，3 Bytes 输出，那么在“Basic Module”中配置的模块地址长度为2 Bytes 输入，4 Bytes 输出，由此类推。</p>
+<p><img src="https://img.zzzg.top/20250718122536755.png" alt="image-20241226105448647"></p>
+<h4 id="添加过程数据"><a href="#添加过程数据" class="headerlink" title="添加过程数据"></a><strong>添加过程数据</strong></h4><h5 id="添加BNI-IOL-302-000-Z012过程数据"><a href="#添加BNI-IOL-302-000-Z012过程数据" class="headerlink" title="添加BNI IOL-302-000-Z012过程数据"></a><strong>添加BNI IOL-302-000-Z012过程数据</strong></h5><table>
+<thead>
+<tr>
+<th><strong><img src="https://img.zzzg.top/20250718122554609.png" alt="image-20241226105701582"></strong></th>
+<th><strong><img src="https://img.zzzg.top/20250718122542608.png" alt="image-20241226105728884"></strong></th>
+</tr>
+</thead>
+<tbody><tr>
+<td></td>
+<td></td>
+</tr>
+</tbody></table>
+<h5 id="添加BNI-IOL-750-V02-K007过程数据"><a href="#添加BNI-IOL-750-V02-K007过程数据" class="headerlink" title="添加BNI IOL-750-V02-K007过程数据"></a><strong>添加BNI IOL-750-V02-K007过程数据</strong></h5><table>
+<thead>
+<tr>
+<th><strong><img src="https://img.zzzg.top/20250718122602160.png" alt="image-20241226102559155"></strong></th>
+<th><strong><img src="https://img.zzzg.top/20250718122606600.png" alt="image-20241226110423771"></strong></th>
+</tr>
+</thead>
+<tbody><tr>
+<td></td>
+<td></td>
+</tr>
+</tbody></table>
+<h5 id="添加BNI-IOL-310-000-K025过程数据"><a href="#添加BNI-IOL-310-000-K025过程数据" class="headerlink" title="添加BNI IOL-310-000-K025过程数据"></a><strong>添加BNI IOL-310-000-K025过程数据</strong></h5><table>
+<thead>
+<tr>
+<th><strong><img src="https://img.zzzg.top/20250718122612355.png" alt="image-20241226102622683"></strong></th>
+<th><strong><img src="https://img.zzzg.top/20250718122617597.png" alt="image-20241226110607437"></strong></th>
+</tr>
+</thead>
+<tbody><tr>
+<td></td>
+<td></td>
+</tr>
+</tbody></table>
+<h5 id="添加BIS-M-451-045-001-07-S4过程数据"><a href="#添加BIS-M-451-045-001-07-S4过程数据" class="headerlink" title="添加BIS M-451-045-001-07-S4过程数据"></a><strong>添加BIS M-451-045-001-07-S4过程数据</strong></h5><table>
+<thead>
+<tr>
+<th><strong><img src="https://img.zzzg.top/20250718122624046.png" alt="image-20241226102639188"></strong></th>
+<th><strong><img src="https://img.zzzg.top/20250718122631359.png" alt="image-20241226110741462"></strong></th>
+</tr>
+</thead>
+<tbody><tr>
+<td></td>
+<td></td>
+</tr>
+</tbody></table>
+<h5 id="添加BNI-IOL-802-102-Z037过程数据"><a href="#添加BNI-IOL-802-102-Z037过程数据" class="headerlink" title="添加BNI IOL-802-102-Z037过程数据"></a><strong>添加BNI IOL-802-102-Z037过程数据</strong></h5><table>
+<thead>
+<tr>
+<th><strong><img src="https://img.zzzg.top/20250718122639910.png" alt="image-20241226102706935"></strong></th>
+<th><strong><img src="https://img.zzzg.top/20250718122645955.png" alt="image-20241226125557005"></strong></th>
+</tr>
+</thead>
+<tbody><tr>
+<td></td>
+<td></td>
+</tr>
+</tbody></table>
+<h5 id="添加508模块I-O"><a href="#添加508模块I-O" class="headerlink" title="添加508模块I&#x2F;O"></a><strong>添加508模块I&#x2F;O</strong></h5><table>
+<thead>
+<tr>
+<th><strong><img src="https://img.zzzg.top/20250718122653501.png" alt="image-20241226102504353"></strong></th>
+<th><strong><img src="https://img.zzzg.top/20250718122658585.png" alt="image-20241226125813271"></strong></th>
+</tr>
+</thead>
+<tbody><tr>
+<td></td>
+<td></td>
+</tr>
+</tbody></table>
+<h4 id="BNI-PNT-508项目保存下载"><a href="#BNI-PNT-508项目保存下载" class="headerlink" title="BNI PNT-508项目保存下载"></a><strong>BNI PNT-508项目保存下载</strong></h4><p>搜索PLC，并点击下载。</p>
+<p><img src="https://img.zzzg.top/20250718122705642.png" alt="image-20241226125903645"></p>
+<p><img src="https://img.zzzg.top/20250718122712863.png" alt="image-20241226130004397"></p>
+<h4 id="分配设备名称及IP"><a href="#分配设备名称及IP" class="headerlink" title="分配设备名称及IP"></a><strong>分配设备名称及IP</strong></h4><p>如果PLC下载完成，模块网络通讯仍然存在故障，可以先排查502模块“分配设备名称”状态是否已OK。</p>
+<p><img src="https://img.zzzg.top/20250718122719006.png" alt="image-20241226130245401"></p>
+<p><img src="https://img.zzzg.top/20250718122724200.png" alt="image-20241226130316836"></p>
+<h4 id="在508模块上设置IO-Link连接"><a href="#在508模块上设置IO-Link连接" class="headerlink" title="在508模块上设置IO-Link连接"></a><strong>在508模块上设置IO-Link连接</strong></h4><p>如图所示，可以配置508模块针脚的功能。若I&#x2F;O-Link 端口连接I&#x2F;O-Link设备 使用，PIN4默认为NO input即可。</p>
+<p><img src="https://img.zzzg.top/20250718122729357.png" alt="image-20241226130559648"></p>
+<h4 id="在508模块上设置IO-Link-子模块UA"><a href="#在508模块上设置IO-Link-子模块UA" class="headerlink" title="在508模块上设置IO-Link 子模块UA"></a><strong>在508模块上设置IO-Link 子模块UA</strong></h4><p><strong>BNI IOL-302-000-Z012</strong>，<strong>BNI IOL-302-002-K006</strong>， <strong>BNI IOL-310-000-K025</strong>是16I&#x2F;O可配置子模块，因此该子模块在使用时除了需要控制电压US外，还需要工作电压UA，而该电压可以由主站模块PIN2提供。如图中，配置主站模块Port0，Port2，Port4的PIN2为输出，为子模块提供UA供电接口，设置完成后下载。</p>
+<p><img src="https://img.zzzg.top/20250718122735642.png" alt="image-20241226130900931"></p>
+<h4 id="点亮模块“UA”绿色指示灯"><a href="#点亮模块“UA”绿色指示灯" class="headerlink" title="点亮模块“UA”绿色指示灯"></a><strong>点亮模块“UA”绿色指示灯</strong></h4><p>下图输出地址为508主站模块PIN2的组态地址。</p>
+<p><img src="https://img.zzzg.top/20250718122745270.png" alt="image-20241226131256000"></p>
+<h4 id="模块配置为16DO"><a href="#模块配置为16DO" class="headerlink" title="模块配置为16DO"></a><strong>模块配置为16DO</strong></h4><p>如图所示，将302模块所有端口的PIN配置为”Ausgang”，设置完成后下载组态。</p>
+<p><img src="https://img.zzzg.top/20250718122754620.png" alt="image-20241226131612669"></p>
+<p>测试模块输出</p>
+<p><img src="https://img.zzzg.top/20250718122801680.png" alt="image-20241226131711420"></p>
+<h4 id="两个BNI-IOL-302-002-K006模块扩展调试"><a href="#两个BNI-IOL-302-002-K006模块扩展调试" class="headerlink" title="两个BNI IOL-302-002-K006模块扩展调试"></a><strong>两个BNI IOL-302-002-K006模块扩展调试</strong></h4><p>此处测试的是BNI IOL-302-002-K006的另外一种常用情形，在508主站模块Port2端口所连的1个BNI IOL-302-002-K006 模块基础上，扩展连接一个BNI IOL-302-002-K006 模块，连接方法如图所示。如果该情况您不会用到，请直接略过以下内容。</p>
+<p>下面将进行两个BNI IOL-302-002-K006扩展使用的调试。</p>
+<p><img src="https://img.zzzg.top/20250718122807044.png" alt="image-20241226132028687"></p>
+<h5 id="模块扩展连接硬件组态"><a href="#模块扩展连接硬件组态" class="headerlink" title="模块扩展连接硬件组态"></a><strong>模块扩展连接硬件组态</strong></h5><p>重新配置组态地址长度，用主站模块同时连接两个BNI IOL-302-002-K006的模块，此处硬件组态地址长度用4 Bytes输入，4 Bytes 输出替换之前的2 Bytes输入，2 Bytes 输出（如图所示），配置完成后下载。</p>
+<p><img src="https://img.zzzg.top/20250718122813336.png" alt="image-20241226132156596"></p>
+<h5 id="配置302模块Port7扩展类型"><a href="#配置302模块Port7扩展类型" class="headerlink" title="配置302模块Port7扩展类型"></a><strong>配置302模块Port7扩展类型</strong></h5><p>在浏览器中输入主站模块IP地址，登录密码:<strong>BNIPNT</strong>，登录Webserver服务器，在图所示的Parameter Data中填入Index为”0x55”, Subindex为 ” 0” ，可以在“Data”中配置上一级302模块Port7的扩展接口类型，写入“0”为不扩展，写入“1”为扩展下一级302模块，如果写入“1”成功，上一级302模块Port7针脚暂时不能再作为I&#x2F;O使用，扩展参考下图。</p>
+<p><img src="https://img.zzzg.top/20250718122821574.png" alt="image-20241226132654719"></p>
+<p><img src="https://img.zzzg.top/20250718122828565.png" alt="image-20241226132725536"></p>
+<p>设置成功后，上一级302模块Port7的扩展接口会显示绿灯常亮。</p>
+<blockquote>
+<p>注意：如果上一级302模块的Index“0x55”被设置为“1”，下级302模块的Index“0x55” 必须为“0”，否则上一级302模块Port7端口会出现故障报警。</p>
+</blockquote>
+<h5 id="激活供电UA"><a href="#激活供电UA" class="headerlink" title="激活供电UA"></a><strong>激活供电UA</strong></h5><p>为模块提供UA供电。</p>
+<p>下图的组态地址为508主站模块PIN2的地址。</p>
+<p><img src="https://img.zzzg.top/20250718122835828.png" alt="image-20241226133148154"></p>
+<h5 id="模块扩展连接"><a href="#模块扩展连接" class="headerlink" title="模块扩展连接"></a><strong>模块扩展连接</strong></h5><p>在下图所示的Parameter Data中填入Index为”0x41”, Subindex为 ” 0” ，在“Data”中对两个302模块进行I&#x2F;O配置，可以根据需要定义合适的I&#x2F;O点数。</p>
+<p>例如：配置两块8DI&#x2F;8DO的模块，将“FF 00 FF 00” 填入“Data” ，选择”Write”，点击“Apply” 。</p>
+<p>下面举例说明，将“FF FF FF FF” 写入“Data”成功后配置为两块输出模块(上一级302模块Port7因为定义为扩展端口，该端口不能再进行I&#x2F;O信号定义)。</p>
+<p><img src="https://img.zzzg.top/20250718122843020.png" alt="image-20241226133449484"></p>
+<h5 id="模块输出DO"><a href="#模块输出DO" class="headerlink" title="模块输出DO"></a><strong>模块输出DO</strong></h5><p><img src="https://img.zzzg.top/20250718122848683.png" alt="image-20241226133539536"></p>
+<h4 id="WebServer服务器"><a href="#WebServer服务器" class="headerlink" title="WebServer服务器"></a><strong>WebServer服务器</strong></h4><p>如图所示，在浏览器网址栏中输入508模块的IP地址（在模块显示屏上可以看到）,例如：192.168.0.2,登录右图所示界面。</p>
+<p>Web Server有以下功能：</p>
+<ol>
+<li>显示主站模块和端口状态信息。</li>
+<li>IO-Link设备的配置。</li>
+<li>IODD设备的配置。</li>
+<li>配置现场总线网关。</li>
+<li>报警日志和诊断信息。</li>
+<li>帮助信息。</li>
+</ol>
+<p>附件关于Webserver的使用有详细的介绍。</p>
+<p>产品手册链接： <a href="https://assets.balluff.com.cn/WebBinary1/DRW_881678_00_000.pdf">https://assets.balluff.com.cn/WebBinary1/DRW_881678_00_000.pdf</a></p>
+]]></content>
+      <categories>
+        <category>工业自动化</category>
+      </categories>
+      <tags>
+        <tag>Balluff</tag>
+      </tags>
+  </entry>
+  <entry>
+    <title>AList搭建</title>
+    <url>/posts/1f49e4a4/</url>
+    <content><![CDATA[<h1 id="一、项目展示"><a href="#一、项目展示" class="headerlink" title="一、项目展示"></a>一、项目展示</h1><p>GitHub 项目地址：<a href="https://github.com/Xhofe/alist">https://github.com/Xhofe/alist</a></p>
+<p>Demo：<a href="https://alist.nn.ci/">https://alist.nn.ci</a></p>
+<p>Alist 文档地址：<a href="https://alist-doc.nn.ci/en/">https://alist-doc.nn.ci/en/</a></p>
+<p><img src="https://img.zzzg.top/202303040811308.png" alt="成品预览"></p>
+<h1 id="二、搭建环境"><a href="#二、搭建环境" class="headerlink" title="二、搭建环境"></a>二、搭建环境</h1><p>服务器：阿里云香港轻量应用服务器 24 元&#x2F;月 VPS 一台（最好是选非大陆的服务器，无需备案）</p>
+<p>系统：Centos7</p>
+<p>域名一枚，并做好解析到服务器上</p>
+<h1 id="三、搭建方式"><a href="#三、搭建方式" class="headerlink" title="三、搭建方式"></a>三、搭建方式</h1><h2 id="1、一键脚本安装（本次使用）"><a href="#1、一键脚本安装（本次使用）" class="headerlink" title="1、一键脚本安装（本次使用）"></a>1、一键脚本安装（本次使用）</h2><p>仅支持 Linux-x86_64&#x2F;aarch64 平台。</p>
+<p>》》<strong>安装</strong></p>
+<figure class="highlight bash"><table><tr><td class="code"><pre><span class="line">curl -fsSL <span class="string">&quot;https://nn.ci/alist.sh&quot;</span> | bash -s install</span><br></pre></td></tr></table></figure>
+
+<p>注意：</p>
+<p>已经安装过再次执行安装会删除之前的数据，更新请使用更新命令。</p>
+<p>》》<strong>更新</strong></p>
+<figure class="highlight bash"><table><tr><td class="code"><pre><span class="line">curl -fsSL <span class="string">&quot;https://nn.ci/alist.sh&quot;</span> | bash -s update</span><br></pre></td></tr></table></figure>
+
+<p>》》<strong>卸载</strong></p>
+<figure class="highlight bash"><table><tr><td class="code"><pre><span class="line">curl -fsSL <span class="string">&quot;https://nn.ci/alist.sh&quot;</span> | bash -s uninstall</span><br></pre></td></tr></table></figure>
+
+<p>》》<strong>自定义路径</strong></p>
+<figure class="highlight bash"><table><tr><td class="code"><pre><span class="line">curl -fsSL <span class="string">&quot;https://nn.ci/alist.sh&quot;</span> | bash -s install</span><br></pre></td></tr></table></figure>
+
+<p>默认安装在&#x2F;opt&#x2F;alist，要自定义安装路径，添加安装路径为第二个参数，必须是绝对路径（路径以 alist 结尾时直接安装到给定路径，否则会安装在给定路径 alist 目录下），如安装到&#x2F;root：</p>
+<figure class="highlight bash"><table><tr><td class="code"><pre><span class="line"><span class="comment"># 安装</span></span><br><span class="line"></span><br><span class="line">curl -fsSL <span class="string">&quot;https://nn.ci/alist.sh&quot;</span> | bash -s install /root</span><br><span class="line"></span><br><span class="line"><span class="comment"># 更新</span></span><br><span class="line"></span><br><span class="line">curl -fsSL <span class="string">&quot;https://nn.ci/alist.sh&quot;</span> | bash -s update /root</span><br><span class="line"></span><br><span class="line"><span class="comment"># 卸载</span></span><br><span class="line"></span><br><span class="line">curl -fsSL <span class="string">&quot;https://nn.ci/alist.sh&quot;</span> | bash -s uninstall /root</span><br></pre></td></tr></table></figure>
+
+<h2 id="2、手动搭建"><a href="#2、手动搭建" class="headerlink" title="2、手动搭建"></a>2、手动搭建</h2><p>参考文档：<a href="https://alist-doc.nn.ci/docs/install/manual">https://alist-doc.nn.ci/docs/install/manual</a></p>
+<h2 id="3、Docker"><a href="#3、Docker" class="headerlink" title="3、Docker"></a>3、Docker</h2><p>参考文档：<a href="https://alist-doc.nn.ci/docs/install/docker">https://alist-doc.nn.ci/docs/install/docker</a></p>
+<h1 id="四、开始搭建（以一键脚本安装为例子）"><a href="#四、开始搭建（以一键脚本安装为例子）" class="headerlink" title="四、开始搭建（以一键脚本安装为例子）"></a>四、开始搭建（以一键脚本安装为例子）</h1><h2 id="1、运行安装代码"><a href="#1、运行安装代码" class="headerlink" title="1、运行安装代码"></a>1、运行安装代码</h2><p>》》<strong>输入以下命令等待自动安装</strong></p>
+<figure class="highlight bash"><table><tr><td class="code"><pre><span class="line">curl -fsSL <span class="string">&quot;https://nn.ci/alist.sh&quot;</span> | bash -s install</span><br></pre></td></tr></table></figure>
+
+<p>注意：安装完成会输出默认后台密码。</p>
+<h2 id="2、放行相关端口"><a href="#2、放行相关端口" class="headerlink" title="2、放行相关端口"></a>2、放行相关端口</h2><p>遇到访问不了，请在宝塔面板的防火墙和服务商的后台防火墙里打开对应端口。</p>
+<h2 id="3、配置反向代理"><a href="#3、配置反向代理" class="headerlink" title="3、配置反向代理"></a>3、配置反向代理</h2><p>以宝塔为例，新建一个网站，域名使用你自己的域名，在配置文件里面注释掉 Nginx 配置文件中的这部分内容：</p>
+<figure class="highlight c#"><table><tr><td class="code"><pre><span class="line">location ~ .*\.(gif|jpg|jpeg|png|bmp|swf)$</span><br><span class="line">&#123;</span><br><span class="line">    expires      <span class="number">30</span>d;</span><br><span class="line">    error_log /dev/<span class="literal">null</span>;</span><br><span class="line">    access_log off;</span><br><span class="line">&#125;</span><br><span class="line"></span><br><span class="line">location ~ .*\.(js|css)?$</span><br><span class="line">&#123;</span><br><span class="line">    expires      <span class="number">12</span>h;</span><br><span class="line">    error_log /dev/<span class="literal">null</span>;</span><br><span class="line">    access_log off;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+
+<p>然后再下面粘贴这段代码：</p>
+<figure class="highlight c#"><table><tr><td class="code"><pre><span class="line">location / &#123;</span><br><span class="line">    proxy_pass http:<span class="comment">//127.0.0.1:5244/;</span></span><br><span class="line">    rewrite ^/(.*)$ /$<span class="number">1</span> <span class="keyword">break</span>;</span><br><span class="line">    proxy_redirect off;</span><br><span class="line">    proxy_set_header Host $host;</span><br><span class="line">    proxy_set_header X-Forwarded-Proto $scheme;</span><br><span class="line">    proxy_set_header X-Real-IP $remote_addr;</span><br><span class="line">    proxy_set_header X-Forwarded-For $proxy_add_x_forwarded_for;</span><br><span class="line">    proxy_set_header Upgrade-Insecure-Requests <span class="number">1</span>;</span><br><span class="line">    proxy_set_header X-Forwarded-Proto https;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+
+<h2 id="4、访问域名配置账号"><a href="#4、访问域名配置账号" class="headerlink" title="4、访问域名配置账号"></a>4、访问域名配置账号</h2><p>此时，输入反向代理的域名就能正常访问网站了，输入刚刚安装完成之后终端输出的密码就能正常登陆后台了。为了方便起见，建议更改一个自己能记住的密码。</p>
+<h1 id="五、结束"><a href="#五、结束" class="headerlink" title="五、结束"></a>五、结束</h1><p>祝大家用得开心，有问题可以去 GitHub 提 <a href="https://github.com/Xhofe/alist/issues">Issues</a>，也可以在评论区互相交流探讨。</p>
+]]></content>
+      <categories>
+        <category>文件管理</category>
+      </categories>
+      <tags>
+        <tag>网盘聚合</tag>
+      </tags>
+  </entry>
+  <entry>
     <title>Qexo 一个美观、强大的在线 静态博客 管理器</title>
     <url>/posts/8277e0e6/</url>
     <content><![CDATA[<h1 id="前言"><a href="#前言" class="headerlink" title="前言"></a>前言</h1><p><strong>Hexo</strong> 是一款快速、高效的静态博客框架。通过 <a href="http://daringfireball.net/projects/markdown/">Markdown</a> 语法，只需几秒便可生成高质量的静态网页。</p>
@@ -2585,79 +2402,6 @@
       </categories>
       <tags>
         <tag>Hexo</tag>
-      </tags>
-  </entry>
-  <entry>
-    <title>R探长 甲骨文云开机脚本</title>
-    <url>/posts/d604b8c7/</url>
-    <content><![CDATA[<h1 id="原作者地址"><a href="#原作者地址" class="headerlink" title="原作者地址"></a>原作者地址</h1><p><a href="https://github.com/semicons/java_oci_manage/blob/main/md/install.md">https://github.com/semicons/java_oci_manage/blob/main/md/install.md</a></p>
-<h1 id="debian12先要装依赖"><a href="#debian12先要装依赖" class="headerlink" title="debian12先要装依赖"></a>debian12先要装依赖</h1><figure class="highlight shell"><table><tr><td class="code"><pre><span class="line">sudo nano /etc/apt/sources.list</span><br></pre></td></tr></table></figure>
-
-<figure class="highlight shell"><table><tr><td class="code"><pre><span class="line">deb http://deb.debian.org/debian bullseye main</span><br><span class="line"></span><br><span class="line">deb-src http://deb.debian.org/debian bullseye main</span><br></pre></td></tr></table></figure>
-
-
-
-<figure class="highlight shell"><table><tr><td class="code"><pre><span class="line">apt update</span><br><span class="line"></span><br><span class="line">apt install openjdk-17-jdk</span><br></pre></td></tr></table></figure>
-
-
-
-
-
-<h1 id="更新环境"><a href="#更新环境" class="headerlink" title="更新环境"></a>更新环境</h1><figure class="highlight shell"><table><tr><td class="code"><pre><span class="line">apt update -y &amp;&amp; apt install -y curl wget sudo</span><br></pre></td></tr></table></figure>
-
-
-
-
-
-<h1 id="安装R探长"><a href="#安装R探长" class="headerlink" title="安装R探长"></a>安装R探长</h1><figure class="highlight shell"><table><tr><td class="code"><pre><span class="line">cd /home &amp;&amp; mkdir rbot &amp;&amp; cd rbot</span><br><span class="line"></span><br><span class="line">wget -O gz_client_bot.tar.gz https://github.com/semicons/java_oci_manage/releases/latest/download/gz_client_bot.tar.gz &amp;&amp; tar -zxvf gz_client_bot.tar.gz --exclude=client_config &amp;&amp; tar -zxvf gz_client_bot.tar.gz --skip-old-files client_config &amp;&amp; chmod +x sh_client_bot.sh</span><br></pre></td></tr></table></figure>
-
-
-
-
-
-
-
-<h1 id="下载配置client-config模板"><a href="#下载配置client-config模板" class="headerlink" title="下载配置client_config模板"></a>下载配置client_config模板</h1><p><a href="https://github.com/kejilion/sh/blob/main/client_config">https://github.com/kejilion/sh/blob/main/client_config</a></p>
-<h1 id="到甲骨文云下载API证书并获取API信息"><a href="#到甲骨文云下载API证书并获取API信息" class="headerlink" title="到甲骨文云下载API证书并获取API信息"></a>到甲骨文云下载API证书并获取API信息</h1><p><a href="https://cloud.oracle.com/">https://cloud.oracle.com/</a></p>
-<p><img src="https://img.zzzg.top/202312080925335.png"></p>
-<p><img src="https://img.zzzg.top/202312080925572.png"></p>
-<p><img src="https://img.zzzg.top/202312080925945.png"></p>
-<p><img src="https://img.zzzg.top/202312080925124.png"></p>
-<p><img src="https://img.zzzg.top/202312080925243.png"></p>
-<p><img src="https://img.zzzg.top/202312080925743.png"></p>
-<p><img src="https://img.zzzg.top/202312080926332.png"></p>
-<h1 id="key存放路径"><a href="#key存放路径" class="headerlink" title="key存放路径"></a>key存放路径</h1><p>key_file&#x3D;&#x2F;home&#x2F;rbot&#x2F;key.pem</p>
-<h1 id="关注R探长频道和机器人"><a href="#关注R探长频道和机器人" class="headerlink" title="关注R探长频道和机器人"></a>关注R探长频道和机器人</h1><p>R探长频道：<a href="https://t.me/agentONE_R">https://t.me/agentONE_R</a></p>
-<p>R探长机器人：<a href="https://t.me/radiance_helper_bot">https://t.me/radiance_helper_bot</a></p>
-<h1 id="和机器人对话获取随机用户名和密码"><a href="#和机器人对话获取随机用户名和密码" class="headerlink" title="和机器人对话获取随机用户名和密码"></a>和机器人对话获取随机用户名和密码</h1><p>&#x2F;raninfo</p>
-<h1 id="填写示例"><a href="#填写示例" class="headerlink" title="填写示例"></a>填写示例</h1><p><img src="https://img.zzzg.top/202312080926509.png"></p>
-<p>填写完成后</p>
-<p>把<strong>client_config.txtclient_config.txt</strong>改为<strong>client_config</strong></p>
-<p>把下载的pem文件改为<strong>key.pem</strong></p>
-<p>然后上传到**&#x2F;home&#x2F;rbot&#x2F;**目录</p>
-<h1 id="启动或重启"><a href="#启动或重启" class="headerlink" title="启动或重启"></a>启动或重启</h1><figure class="highlight shell"><table><tr><td class="code"><pre><span class="line">bash sh_client_bot.sh </span><br></pre></td></tr></table></figure>
-
-
-
-<h1 id="查看日志-ctrl-c退出日志"><a href="#查看日志-ctrl-c退出日志" class="headerlink" title="查看日志(ctrl + c退出日志)"></a>查看日志(ctrl + c退出日志)</h1><figure class="highlight shell"><table><tr><td class="code"><pre><span class="line">tail -f log_r_client.log </span><br></pre></td></tr></table></figure>
-
-
-
-<h1 id="终止程序"><a href="#终止程序" class="headerlink" title="终止程序"></a>终止程序</h1><figure class="highlight shell"><table><tr><td class="code"><pre><span class="line">ps -ef | grep r_client.jar | grep -v grep | awk &#x27;&#123;print $2&#125;&#x27; | xargs kill -9 </span><br></pre></td></tr></table></figure>
-
-
-
-<h1 id="卸载程序"><a href="#卸载程序" class="headerlink" title="卸载程序"></a>卸载程序</h1><figure class="highlight shell"><table><tr><td class="code"><pre><span class="line">rm -rf gz_client_bot.tar.gz client_config r_client.jar sh_client_bot.sh log_r_client.log debug-.log </span><br></pre></td></tr></table></figure>
-
-<p>如也不需要JDK也可卸载：</p>
-<figure class="highlight shell"><table><tr><td class="code"><pre><span class="line">apt-get remove openjdk*</span><br></pre></td></tr></table></figure>
-
-]]></content>
-      <categories>
-        <category>运维技术</category>
-      </categories>
-      <tags>
-        <tag>运维工具</tag>
       </tags>
   </entry>
   <entry>
@@ -2992,6 +2736,79 @@
       </tags>
   </entry>
   <entry>
+    <title>R探长 甲骨文云开机脚本</title>
+    <url>/posts/d604b8c7/</url>
+    <content><![CDATA[<h1 id="原作者地址"><a href="#原作者地址" class="headerlink" title="原作者地址"></a>原作者地址</h1><p><a href="https://github.com/semicons/java_oci_manage/blob/main/md/install.md">https://github.com/semicons/java_oci_manage/blob/main/md/install.md</a></p>
+<h1 id="debian12先要装依赖"><a href="#debian12先要装依赖" class="headerlink" title="debian12先要装依赖"></a>debian12先要装依赖</h1><figure class="highlight shell"><table><tr><td class="code"><pre><span class="line">sudo nano /etc/apt/sources.list</span><br></pre></td></tr></table></figure>
+
+<figure class="highlight shell"><table><tr><td class="code"><pre><span class="line">deb http://deb.debian.org/debian bullseye main</span><br><span class="line"></span><br><span class="line">deb-src http://deb.debian.org/debian bullseye main</span><br></pre></td></tr></table></figure>
+
+
+
+<figure class="highlight shell"><table><tr><td class="code"><pre><span class="line">apt update</span><br><span class="line"></span><br><span class="line">apt install openjdk-17-jdk</span><br></pre></td></tr></table></figure>
+
+
+
+
+
+<h1 id="更新环境"><a href="#更新环境" class="headerlink" title="更新环境"></a>更新环境</h1><figure class="highlight shell"><table><tr><td class="code"><pre><span class="line">apt update -y &amp;&amp; apt install -y curl wget sudo</span><br></pre></td></tr></table></figure>
+
+
+
+
+
+<h1 id="安装R探长"><a href="#安装R探长" class="headerlink" title="安装R探长"></a>安装R探长</h1><figure class="highlight shell"><table><tr><td class="code"><pre><span class="line">cd /home &amp;&amp; mkdir rbot &amp;&amp; cd rbot</span><br><span class="line"></span><br><span class="line">wget -O gz_client_bot.tar.gz https://github.com/semicons/java_oci_manage/releases/latest/download/gz_client_bot.tar.gz &amp;&amp; tar -zxvf gz_client_bot.tar.gz --exclude=client_config &amp;&amp; tar -zxvf gz_client_bot.tar.gz --skip-old-files client_config &amp;&amp; chmod +x sh_client_bot.sh</span><br></pre></td></tr></table></figure>
+
+
+
+
+
+
+
+<h1 id="下载配置client-config模板"><a href="#下载配置client-config模板" class="headerlink" title="下载配置client_config模板"></a>下载配置client_config模板</h1><p><a href="https://github.com/kejilion/sh/blob/main/client_config">https://github.com/kejilion/sh/blob/main/client_config</a></p>
+<h1 id="到甲骨文云下载API证书并获取API信息"><a href="#到甲骨文云下载API证书并获取API信息" class="headerlink" title="到甲骨文云下载API证书并获取API信息"></a>到甲骨文云下载API证书并获取API信息</h1><p><a href="https://cloud.oracle.com/">https://cloud.oracle.com/</a></p>
+<p><img src="https://img.zzzg.top/202312080925335.png"></p>
+<p><img src="https://img.zzzg.top/202312080925572.png"></p>
+<p><img src="https://img.zzzg.top/202312080925945.png"></p>
+<p><img src="https://img.zzzg.top/202312080925124.png"></p>
+<p><img src="https://img.zzzg.top/202312080925243.png"></p>
+<p><img src="https://img.zzzg.top/202312080925743.png"></p>
+<p><img src="https://img.zzzg.top/202312080926332.png"></p>
+<h1 id="key存放路径"><a href="#key存放路径" class="headerlink" title="key存放路径"></a>key存放路径</h1><p>key_file&#x3D;&#x2F;home&#x2F;rbot&#x2F;key.pem</p>
+<h1 id="关注R探长频道和机器人"><a href="#关注R探长频道和机器人" class="headerlink" title="关注R探长频道和机器人"></a>关注R探长频道和机器人</h1><p>R探长频道：<a href="https://t.me/agentONE_R">https://t.me/agentONE_R</a></p>
+<p>R探长机器人：<a href="https://t.me/radiance_helper_bot">https://t.me/radiance_helper_bot</a></p>
+<h1 id="和机器人对话获取随机用户名和密码"><a href="#和机器人对话获取随机用户名和密码" class="headerlink" title="和机器人对话获取随机用户名和密码"></a>和机器人对话获取随机用户名和密码</h1><p>&#x2F;raninfo</p>
+<h1 id="填写示例"><a href="#填写示例" class="headerlink" title="填写示例"></a>填写示例</h1><p><img src="https://img.zzzg.top/202312080926509.png"></p>
+<p>填写完成后</p>
+<p>把<strong>client_config.txtclient_config.txt</strong>改为<strong>client_config</strong></p>
+<p>把下载的pem文件改为<strong>key.pem</strong></p>
+<p>然后上传到**&#x2F;home&#x2F;rbot&#x2F;**目录</p>
+<h1 id="启动或重启"><a href="#启动或重启" class="headerlink" title="启动或重启"></a>启动或重启</h1><figure class="highlight shell"><table><tr><td class="code"><pre><span class="line">bash sh_client_bot.sh </span><br></pre></td></tr></table></figure>
+
+
+
+<h1 id="查看日志-ctrl-c退出日志"><a href="#查看日志-ctrl-c退出日志" class="headerlink" title="查看日志(ctrl + c退出日志)"></a>查看日志(ctrl + c退出日志)</h1><figure class="highlight shell"><table><tr><td class="code"><pre><span class="line">tail -f log_r_client.log </span><br></pre></td></tr></table></figure>
+
+
+
+<h1 id="终止程序"><a href="#终止程序" class="headerlink" title="终止程序"></a>终止程序</h1><figure class="highlight shell"><table><tr><td class="code"><pre><span class="line">ps -ef | grep r_client.jar | grep -v grep | awk &#x27;&#123;print $2&#125;&#x27; | xargs kill -9 </span><br></pre></td></tr></table></figure>
+
+
+
+<h1 id="卸载程序"><a href="#卸载程序" class="headerlink" title="卸载程序"></a>卸载程序</h1><figure class="highlight shell"><table><tr><td class="code"><pre><span class="line">rm -rf gz_client_bot.tar.gz client_config r_client.jar sh_client_bot.sh log_r_client.log debug-.log </span><br></pre></td></tr></table></figure>
+
+<p>如也不需要JDK也可卸载：</p>
+<figure class="highlight shell"><table><tr><td class="code"><pre><span class="line">apt-get remove openjdk*</span><br></pre></td></tr></table></figure>
+
+]]></content>
+      <categories>
+        <category>运维技术</category>
+      </categories>
+      <tags>
+        <tag>运维工具</tag>
+      </tags>
+  </entry>
+  <entry>
     <title>SEW Scope曲线监控</title>
     <url>/posts/c4294855/</url>
     <content><![CDATA[<h3 id="打开备份的SEW文件，点击Scope"><a href="#打开备份的SEW文件，点击Scope" class="headerlink" title="打开备份的SEW文件，点击Scope"></a>打开备份的SEW文件，点击Scope</h3><p><img src="https://img.zzzg.top/202501051439031.png" alt="image-20250105143536600"></p>
@@ -3011,66 +2828,6 @@
 <p>上载后会按颜色显示所抓的曲线，可以将光标在曲线上拖动，即可查看对应那一时间纵向每个曲线对应的数据</p>
 <p><img src="https://img.zzzg.top/20250722124743640.png" alt="image-20250722124742576"></p>
 <p>蓝色实际速度与绿色设定速度之间差距越小，速度环参数设定越合理。如出现波动需要重新设置转动惯量。</p>
-]]></content>
-      <categories>
-        <category>工业自动化</category>
-      </categories>
-      <tags>
-        <tag>MOVIDRIVE</tag>
-      </tags>
-  </entry>
-  <entry>
-    <title>SEW-MC07B变频器-MOTION--STUDIO软件调试步骤、方法和技巧</title>
-    <url>/posts/421934fd/</url>
-    <content><![CDATA[<p><img src="https://img.zzzg.top/20250524205528464.PNG" alt="4"></p>
-<p><img src="https://img.zzzg.top/20250524205547050.PNG" alt="5"></p>
-<p><img src="https://img.zzzg.top/20250524205627985.PNG" alt="6"></p>
-<p><img src="https://img.zzzg.top/20250524205645010.PNG" alt="7"></p>
-<p><img src="https://img.zzzg.top/20250524205656950.PNG" alt="8"></p>
-<p><img src="https://img.zzzg.top/20250524205709394.PNG" alt="9"></p>
-<p><img src="https://img.zzzg.top/20250524205720726.PNG" alt="10"></p>
-<p><img src="https://img.zzzg.top/20250524205733378.PNG" alt="11"></p>
-<p><img src="https://img.zzzg.top/20250524205754775.PNG" alt="12"></p>
-<p><img src="https://img.zzzg.top/20250524205811663.PNG" alt="13"></p>
-<p><img src="https://img.zzzg.top/20250524205821221.PNG" alt="14"></p>
-<p><img src="https://img.zzzg.top/20250524205834316.PNG" alt="15"></p>
-<p><img src="https://img.zzzg.top/20250524205843533.PNG" alt="16"></p>
-<p><img src="https://img.zzzg.top/20250524205901797.PNG" alt="17"></p>
-<p><img src="https://img.zzzg.top/20250524205914973.PNG" alt="18"></p>
-<p><img src="https://img.zzzg.top/20250524205928160.PNG" alt="19"></p>
-<p><img src="https://img.zzzg.top/20250524205940302.PNG" alt="20"></p>
-<p><img src="https://img.zzzg.top/20250524205950644.PNG" alt="21"></p>
-<p><img src="https://img.zzzg.top/20250524210006913.PNG" alt="22"></p>
-<p><img src="https://img.zzzg.top/20250524210029075.PNG" alt="23"></p>
-<p><img src="https://img.zzzg.top/20250524210042996.PNG" alt="24"></p>
-<p><img src="https://img.zzzg.top/20250524210105981.PNG" alt="25"></p>
-<p><img src="https://img.zzzg.top/20250524210122505.PNG" alt="26"></p>
-<p><img src="https://img.zzzg.top/20250524210136340.PNG" alt="27"></p>
-<p><img src="https://img.zzzg.top/20250524210145600.PNG" alt="28"></p>
-<p><img src="https://img.zzzg.top/20250524210156379.PNG" alt="29"></p>
-<p><img src="https://img.zzzg.top/20250524210210502.PNG" alt="30"></p>
-<p><img src="https://img.zzzg.top/20250524210234883.PNG" alt="31"></p>
-<p><img src="https://img.zzzg.top/20250524210248367.PNG" alt="32"></p>
-<p><img src="https://img.zzzg.top/20250524210258079.PNG" alt="33"></p>
-<p><img src="https://img.zzzg.top/20250524210309675.PNG" alt="34"></p>
-<p><img src="https://img.zzzg.top/20250524210319649.PNG" alt="35"></p>
-<p><img src="https://img.zzzg.top/20250524210333008.PNG" alt="36"></p>
-<p><img src="https://img.zzzg.top/20250524210342988.PNG" alt="37"></p>
-<p><img src="https://img.zzzg.top/20250524210354944.PNG" alt="38"></p>
-<p><img src="https://img.zzzg.top/20250524210407861.PNG" alt="39"></p>
-<p><img src="https://img.zzzg.top/20250524210423100.PNG" alt="40"></p>
-<p><img src="https://img.zzzg.top/20250524210434359.PNG" alt="41"></p>
-<p><img src="https://img.zzzg.top/20250524210450567.PNG" alt="42"></p>
-<p><img src="https://img.zzzg.top/20250524210503106.PNG" alt="43"></p>
-<p><img src="https://img.zzzg.top/20250524210515428.PNG" alt="44"></p>
-<p><img src="https://img.zzzg.top/20250524210527098.PNG" alt="45"></p>
-<p><img src="https://img.zzzg.top/20250524210537936.PNG" alt="46"></p>
-<p><img src="https://img.zzzg.top/20250524210549531.PNG" alt="47"></p>
-<p><img src="https://img.zzzg.top/20250524210601981.PNG" alt="48"></p>
-<p><img src="https://img.zzzg.top/20250524210614094.PNG" alt="49"></p>
-<p><img src="https://img.zzzg.top/20250524210627091.PNG" alt="50"></p>
-<p><img src="https://img.zzzg.top/20250524210637201.PNG" alt="51"></p>
-<p><img src="https://img.zzzg.top/20250524210647926.PNG" alt="52"></p>
 ]]></content>
       <categories>
         <category>工业自动化</category>
@@ -3958,6 +3715,66 @@
       </tags>
   </entry>
   <entry>
+    <title>SEW-MC07B变频器-MOTION--STUDIO软件调试步骤、方法和技巧</title>
+    <url>/posts/421934fd/</url>
+    <content><![CDATA[<p><img src="https://img.zzzg.top/20250524205528464.PNG" alt="4"></p>
+<p><img src="https://img.zzzg.top/20250524205547050.PNG" alt="5"></p>
+<p><img src="https://img.zzzg.top/20250524205627985.PNG" alt="6"></p>
+<p><img src="https://img.zzzg.top/20250524205645010.PNG" alt="7"></p>
+<p><img src="https://img.zzzg.top/20250524205656950.PNG" alt="8"></p>
+<p><img src="https://img.zzzg.top/20250524205709394.PNG" alt="9"></p>
+<p><img src="https://img.zzzg.top/20250524205720726.PNG" alt="10"></p>
+<p><img src="https://img.zzzg.top/20250524205733378.PNG" alt="11"></p>
+<p><img src="https://img.zzzg.top/20250524205754775.PNG" alt="12"></p>
+<p><img src="https://img.zzzg.top/20250524205811663.PNG" alt="13"></p>
+<p><img src="https://img.zzzg.top/20250524205821221.PNG" alt="14"></p>
+<p><img src="https://img.zzzg.top/20250524205834316.PNG" alt="15"></p>
+<p><img src="https://img.zzzg.top/20250524205843533.PNG" alt="16"></p>
+<p><img src="https://img.zzzg.top/20250524205901797.PNG" alt="17"></p>
+<p><img src="https://img.zzzg.top/20250524205914973.PNG" alt="18"></p>
+<p><img src="https://img.zzzg.top/20250524205928160.PNG" alt="19"></p>
+<p><img src="https://img.zzzg.top/20250524205940302.PNG" alt="20"></p>
+<p><img src="https://img.zzzg.top/20250524205950644.PNG" alt="21"></p>
+<p><img src="https://img.zzzg.top/20250524210006913.PNG" alt="22"></p>
+<p><img src="https://img.zzzg.top/20250524210029075.PNG" alt="23"></p>
+<p><img src="https://img.zzzg.top/20250524210042996.PNG" alt="24"></p>
+<p><img src="https://img.zzzg.top/20250524210105981.PNG" alt="25"></p>
+<p><img src="https://img.zzzg.top/20250524210122505.PNG" alt="26"></p>
+<p><img src="https://img.zzzg.top/20250524210136340.PNG" alt="27"></p>
+<p><img src="https://img.zzzg.top/20250524210145600.PNG" alt="28"></p>
+<p><img src="https://img.zzzg.top/20250524210156379.PNG" alt="29"></p>
+<p><img src="https://img.zzzg.top/20250524210210502.PNG" alt="30"></p>
+<p><img src="https://img.zzzg.top/20250524210234883.PNG" alt="31"></p>
+<p><img src="https://img.zzzg.top/20250524210248367.PNG" alt="32"></p>
+<p><img src="https://img.zzzg.top/20250524210258079.PNG" alt="33"></p>
+<p><img src="https://img.zzzg.top/20250524210309675.PNG" alt="34"></p>
+<p><img src="https://img.zzzg.top/20250524210319649.PNG" alt="35"></p>
+<p><img src="https://img.zzzg.top/20250524210333008.PNG" alt="36"></p>
+<p><img src="https://img.zzzg.top/20250524210342988.PNG" alt="37"></p>
+<p><img src="https://img.zzzg.top/20250524210354944.PNG" alt="38"></p>
+<p><img src="https://img.zzzg.top/20250524210407861.PNG" alt="39"></p>
+<p><img src="https://img.zzzg.top/20250524210423100.PNG" alt="40"></p>
+<p><img src="https://img.zzzg.top/20250524210434359.PNG" alt="41"></p>
+<p><img src="https://img.zzzg.top/20250524210450567.PNG" alt="42"></p>
+<p><img src="https://img.zzzg.top/20250524210503106.PNG" alt="43"></p>
+<p><img src="https://img.zzzg.top/20250524210515428.PNG" alt="44"></p>
+<p><img src="https://img.zzzg.top/20250524210527098.PNG" alt="45"></p>
+<p><img src="https://img.zzzg.top/20250524210537936.PNG" alt="46"></p>
+<p><img src="https://img.zzzg.top/20250524210549531.PNG" alt="47"></p>
+<p><img src="https://img.zzzg.top/20250524210601981.PNG" alt="48"></p>
+<p><img src="https://img.zzzg.top/20250524210614094.PNG" alt="49"></p>
+<p><img src="https://img.zzzg.top/20250524210627091.PNG" alt="50"></p>
+<p><img src="https://img.zzzg.top/20250524210637201.PNG" alt="51"></p>
+<p><img src="https://img.zzzg.top/20250524210647926.PNG" alt="52"></p>
+]]></content>
+      <categories>
+        <category>工业自动化</category>
+      </categories>
+      <tags>
+        <tag>MOVIDRIVE</tag>
+      </tags>
+  </entry>
+  <entry>
     <title>SEW-MDX61B变频器定位控制调试流程</title>
     <url>/posts/e4c152dc/</url>
     <content><![CDATA[<h1 id="一、-调试准备"><a href="#一、-调试准备" class="headerlink" title="一、 调试准备"></a>一、 调试准备</h1><h2 id="操作系统及调试软件"><a href="#操作系统及调试软件" class="headerlink" title="操作系统及调试软件"></a>操作系统及调试软件</h2><p>操作系统：Windows 7 64 位操作系统</p>
@@ -4128,124 +3945,186 @@
       </tags>
   </entry>
   <entry>
-    <title>SINAMICS G120D CU250-2PN速度控制调试步骤</title>
-    <url>/posts/908d3d13/</url>
-    <content><![CDATA[<p>1、打开SINAMICS STARTER软件，创建项目；<br>选择菜单Project -&gt; New…<br>或使用快捷按钮创建新项目。<br><img src="https://img.zzzg.top/20250523225816269.png" alt="image-20250523222741743"><br><img src="https://img.zzzg.top/20250523225840938.png" alt="image-20250523222747691"></p>
-<p>2、用USB电缆连接电脑和CU240D控制器，设置<strong>PG&#x2F;PC</strong>接口。<br><img src="https://img.zzzg.top/20250523225903522.png" alt="image-20250523222804999"></p>
-<p>3、使用网线连接PLC，通过PROFINET总线方式连接CU240D控制器，设置<strong>PG&#x2F;PC</strong>接口方式同USB连接。<br><img src="https://img.zzzg.top/20250523225926726.png" alt="image-20250523222819925"></p>
-<p>4、使用如下方式搜索并连接变频器控制器。<br>(1).选择菜单”Project -&gt; Accessible node”  或使用快捷按钮    搜索变频器，如果没有搜索到变频器会显示“No further active partner can be found”(没有找到节点)请执行第(2)步，如果搜 索到变频器跳到第(6)步。<br><img src="https://img.zzzg.top/20250523225955108.png" alt="image-20250523222859036"></p>
-<p>(2).点击”Access Point”按钮。<br><img src="https://img.zzzg.top/20250523230015877.png" alt="image-20250523222908513"></p>
-<p>(3). 在Set Access Point for Accessible nodes页面选择正确的连接方式。<br><img src="https://img.zzzg.top/20250523230027484.png" alt="image-20250523222917891"><br><img src="https://img.zzzg.top/20250523230034591.png" alt="image-20250523222921962"></p>
-<p>(4).点击”Update”按钮，开始搜索变频器。<br>(5).搜索到变频器在右侧Accessible nodes区域显示如下信息C显示内容与控制 单元型号有关)。 如果没有搜索到变频器请根据提示查找具体原因，或查看帮助文件。<br><img src="https://img.zzzg.top/20250523230042623.png" alt="image-20250523223006082"></p>
-<p>(6).勾选搜索到的控制单元。<br>(7).点击“Accept”按钮。<br>(8).STARTER会自动把该变频器插入到项目中。<br>(9).点击按钮，进入 STARTER 在线模式。<br><img src="https://img.zzzg.top/20250523230127394.png"><br><img src="https://img.zzzg.top/20250523230049689.png" alt="image-20250523223107422"></p>
-<p>(10). 点击”Connect to assigned devices”按钮，连接到驱动器。<br><img src="https://img.zzzg.top/20250523230101397.png" alt="image-20250523223117348"></p>
-<p>(11). STARTER进入在线模式，右下角状态栏指示黄色”Online mode”状态。<br>(12).点击控制单元树形菜单下”Expert list”功能，右侧窗口打开专家列表，熟悉 SINAMICS G120D参数的人员，可以直接使用专家列表查看并修改变频器参数。<br><img src="https://img.zzzg.top/20250523230108744.png" alt="image-20250523223131065"></p>
-<p>5、其他基本操作。<br><img src="https://img.zzzg.top/20250523230117107.png" alt="image-20250523223200504"></p>
-<p>5.1、恢复工厂设置。<br>(1).点击     按钮，进入 STARTER 在线模式。<br><img src="https://img.zzzg.top/20250523230127394.png"></p>
-<p>(2).点击”Restore factory settings”    按钮，变频器参数恢复出厂设置。<br><img src="https://img.zzzg.top/20250523230202306.png" alt="image-20250523223233618"></p>
-<p>5.2、上传参数:变频器 -&gt; PG&#x2F;PC。<br>(1).点击     按钮，进入 STARTER 在线模式。<br><img src="https://img.zzzg.top/20250523230127394.png"></p>
-<p>(2).点击“Load project to PG”     按钮。<br><img src="https://img.zzzg.top/20250523230207642.png" alt="image-20250523223343414"></p>
-<p>(3).点击     按钮，将数据保存在 PG&#x2F;PC 中。<br><img src="https://img.zzzg.top/20250523230214796.png" alt="image-20250523223349703"></p>
-<p>5.3、下载参数: PG&#x2F;PC -&gt; 变频器。<br>(1).点击     按钮，进入 STARTER 在线模式。<br><img src="https://img.zzzg.top/20250523230127394.png"></p>
-<p>(2).点击“Download project to target system”     按钮，将项目下载到变频中。<br><img src="https://img.zzzg.top/20250523230220440.png" alt="image-20250523223407782"></p>
-<p>(3).点击“Copy RAM to ROM”     按钮，将数据保存到变频器中。<br><img src="https://img.zzzg.top/20250523230228156.png" alt="image-20250523223416658"></p>
-<p> <strong>注意：许多参数是可以在线修改的，在线修改完参数后需要重新上载到离线参数中，否则点击下载的话会将离线参数下载到变频器中。</strong></p>
-<p>6、参数设置。<br>6.1、使用配置向导配置变频器系统基本参数。<br>(1).点击“Configuration” 。<br>(2).点击工作区内的“Wizard …”，弹出向导对话框，点击“Next”逐步进行配置。<br><img src="https://img.zzzg.top/20250523230237648.png" alt="image-20250523223430045"></p>
-<p>(3).设置控制结构。<br><img src="https://img.zzzg.top/20250523230248176.png" alt="image-20250523223440470"></p>
-<p>(4).定义命令源和设定值来源。	<br><img src="https://img.zzzg.top/20250523230256863.png" alt="image-20250523223450414"></p>
-<p>(5).驱动器设置。<br><img src="https://img.zzzg.top/20250523230303276.png" alt="image-20250523223458640"></p>
-<p>(6).选择电机类型。<br><img src="https://img.zzzg.top/20250523230309577.png" alt="image-20250523223506895"></p>
-<p>(7).输入与铭牌对应的电机数据。<br><img src="https://img.zzzg.top/20250523230315284.png" alt="image-20250523223516044"></p>
-<p>(8).为电机数据识别选择“Identify motor data at standstill” 。<br><img src="https://img.zzzg.top/20250523230321833.png" alt="image-20250523223525334"></p>
-<p>(9).输入最大电流，最小和最大转速，加、减速时间和 OFF3 紧急关闭减速时间。<br><img src="https://img.zzzg.top/20250523230331437.png" alt="image-20250523223534198"></p>
-<p>(10).点击“Next”，将开始计算电机数据。这样便通过配置向导完成了参数设置。您现在将收到一份有关输入的所有参数值汇总。按“Copy text to clipboard”按键即可将汇总添加到文本文件。最后选择“Copy RAM to ROM”，将参数设置保存到变频器 ROM 存储器内，然后点击“Finish”关闭窗口。<br><img src="https://img.zzzg.top/20250523230338683.png" alt="image-20250523223542937"></p>
-<p>6.2、若使用总线接口，应将默认外部I&#x2F;O配置清除（X07\X08\X09）。<br>(1).点击“Inputs&#x2F;Outputs”。<br>(2).点击工作区内X07\X08\X09对应引脚参数的按钮，弹出向导I&#x2F;O分配对话框。<br>(3).将该引脚对应参数前面的勾选去掉，并点击“OK”按钮，该引脚分配显示“—”。<br><img src="https://img.zzzg.top/20250523230345952.png" alt="image-20250523223552253"></p>
-<p>6.3、其它基本参数设置。<br>(1).设置“Ramp-function generator”。<br><img src="https://img.zzzg.top/20250523230353888.png" alt="image-20250523223604732"></p>
-<p>(2).设置“Motor potentiometer”。<br><img src="https://img.zzzg.top/20250523230400015.png" alt="image-20250523223613817"></p>
-<p>(3).设置“P gain factor”和“Integration time”。<br><img src="https://img.zzzg.top/20250523230406143.png" alt="image-20250523223624398"></p>
-<p>(4).设置“Upper torque limit”。<br><img src="https://img.zzzg.top/20250523230413146.png" alt="image-20250523223632096"></p>
-<p>(5).设置“Current limitation ”。<br><img src="https://img.zzzg.top/20250523230419657.png" alt="image-20250523223641924"></p>
-<p>(6).设置“Power limit ”。<br><img src="https://img.zzzg.top/20250523230425656.png" alt="image-20250523223649828"> </p>
-<p>(7).设置“Low torque limit”。<br><img src="https://img.zzzg.top/20250523230431431.png" alt="image-20250523223702783"></p>
-<p>6.4、电机抱闸设置。在步骤2处设置电机抱闸方式，调试时可通过步骤3-5来强制打开关闭抱闸功能。<br><img src="https://img.zzzg.top/20250523230438399.png" alt="image-20250523223710923"></p>
-<p>设置G120D变频器的安全响应时间。P9659设置成最大值9000<br><img src="https://img.zzzg.top/20250523230445945.png" alt="image-20250523223720556"></p>
-<p>6.5、配置安全功能。配置完成后将配置下载到变频器中即可，安全功能需断电重启。<br><img src="https://img.zzzg.top/20250523230452866.png" alt="image-20250523223729738"></p>
-<p>PLC硬件组态中G120D变频器的安全地址值。<br><img src="https://img.zzzg.top/20250523230501004.png" alt="image-20250523223738733"></p>
-<p>6.6、配置报文，即分配G120D变频器与PLC在PROFINET总线通信下的接口信号(包括PROFIsafe安全功能）。<br>(1).点击“Communication -&gt; Field bus”。<br>(2).配置报文类型。G120D变频器的报文有多种类型，对应着不同的接口信息，根据需要通过下拉菜单可选择不同种类的报文。除999自由报文外，其他种类报文为默认报文，其对应的接口信息无法修改，自由报文可以任意定义接口信息。沃尔沃项目采用的是999自由报文以及30 PROFIsafe标准安全报文。配置G120D变频器报文时，应保持与PLC硬件组态中配置报文类型一致。<br><img src="https://img.zzzg.top/20250523230508841.png" alt="image-20250523223747844"><br><img src="https://img.zzzg.top/20250523230515043.png" alt="image-20250523223752899"></p>
-<p>(3).配置变频器安全报文控制字。<br><img src="https://img.zzzg.top/20250523230521428.png" alt="image-20250523223801670"></p>
-<p>(4).配置变频器自由报文控制字。<br><img src="https://img.zzzg.top/20250523230528073.png" alt="image-20250523223811435"></p>
-<p>(5).配置变频器安全报文状态字。<br><img src="https://img.zzzg.top/20250523230534628.png" alt="image-20250523223819506"></p>
-<p>(6).配置变频器自由报文状态字。<br><img src="https://img.zzzg.top/20250523230543575.png" alt="image-20250523223827945"></p>
-<p>(7).配置变频器自由报文控制字&#x2F;状态字监控。<br><img src="https://img.zzzg.top/20250523230550183.png" alt="image-20250523223837007"></p>
-<p>7、电机试运行。<br>(1).在线模式下点击“Commissioning -&gt; Control panel”。<br>(2).点击工作台区域的“Assume control priority”。<br>(3).输入设置值，并点击“Accept”按钮。<br><img src="https://img.zzzg.top/20250523230559371.png" alt="image-20250523223845302"></p>
-<p>(4).选中工作台区域中“Enables”旁的复选框。<br>(5).设置试运行速度。<br>(6).通过绿色&#x2F;红色按钮来启停电机，或使用JOG点动控制电机运行。<br><img src="https://img.zzzg.top/20250523230606413.png" alt="image-20250523223855097"></p>
-<p>8、状态 LED 一览。<br>控制单元上有一排双色 LED 来指明变频器的运行状态。 具体而言，这些状态有：<br>● 一般故障状态<br>● 通讯状态<br>● 输入和输出的状态<br>● Safety Integrated 安全功能的状态<br>下图展示了各个 LED 在控制单元上的位置。<br><img src="https://img.zzzg.top/20250523230617834.png" alt="image-20250523223904225"></p>
-<p>(1).一般状态 LED 的说明。<br><img src="https://img.zzzg.top/20250523230636359.png" alt="image-20250523223915427"></p>
-<p>(2). PROFIBUS 通讯 LED 的说明。<br><img src="https://img.zzzg.top/20250523230641679.png" alt="image-20250523223923215"></p>
-<p>(3). SAFE LED 的说明。<br><img src="https://img.zzzg.top/20250523230649731.png" alt="image-20250523223934820"></p>
-<p>(4). PROFINET 通讯 LED 的说明。<br><img src="https://img.zzzg.top/20250523230655139.png" alt="image-20250523223943566"></p>
-<p>(5).数字量输入输出状态 LED 的说明。<br><img src="https://img.zzzg.top/20250523230700922.png" alt="image-20250523223951803"></p>
-<p>9、故障和警告列表。<br>详见附件列表。</p>
-<p><strong>G120D Fault and Warning List.pdf</strong>：<a class="btn-beautify pink larger" href="https://pan.yuqi.fun/d/%E5%A4%A9%E7%BF%BC%E4%BA%91%E7%9B%98/%E8%B5%84%E6%96%99/%E6%96%87%E6%A1%A3/G120D%20Fault%20and%20Warning%20List.pdf" title="点击下载"><i class="far fa-hand-point-right"></i><span>点击下载</span></a></p>
+    <title>Oracle数据库和PDPS安装及配置</title>
+    <url>/posts/93246652/</url>
+    <content><![CDATA[<h1 id="安装及配置Oracle"><a href="#安装及配置Oracle" class="headerlink" title="安装及配置Oracle"></a>安装及配置Oracle</h1><h2 id="一、安装java-perl"><a href="#一、安装java-perl" class="headerlink" title="一、安装java perl"></a>一、安装java perl</h2><p><img src="https://img.zzzg.top/20260411105832774.png" alt="image-20260410122404020"></p>
+<p><img src="https://img.zzzg.top/20260411105848314.png" alt="image-20260410122423263"></p>
+<p><img src="https://img.zzzg.top/20260411105857513.png" alt="image-20260410122443435"></p>
+<p><img src="https://img.zzzg.top/20260411105910807.png" alt="image-20260410122516248"></p>
+<p><img src="https://img.zzzg.top/20260411105923011.png" alt="image-20260410122738952"></p>
+<p><img src="https://img.zzzg.top/20260411105933274.png" alt="image-20260410123010829"></p>
+<h2 id="二、安装Oracle"><a href="#二、安装Oracle" class="headerlink" title="二、安装Oracle"></a>二、安装Oracle</h2><p>新建文件夹：<strong>ORACLE_BASE</strong></p>
+<p><img src="https://img.zzzg.top/20260411105943177.png" alt="image-20260410123145474"></p>
+<p>将安装包解压到和<strong>ORACLE_BASE</strong>同一目录下，运行安装程序</p>
+<p><img src="https://img.zzzg.top/20260411105949362.png" alt="image-20260410123452811"></p>
+<p><img src="https://img.zzzg.top/20260411105957599.png" alt="image-20260410123611133"></p>
+<p><img src="https://img.zzzg.top/20260411110007928.png" alt="image-20260410123651445"></p>
+<p><img src="https://img.zzzg.top/20260411110047039.png" alt="image-20260410123728813"></p>
+<p>设置目录和密码，我这里设置的密码是：</p>
+<figure class="highlight plaintext"><table><tr><td class="code"><pre><span class="line">Abc123456</span><br></pre></td></tr></table></figure>
+
+<p><img src="https://img.zzzg.top/20260411110047040.png" alt="image-20260410124205807"></p>
+<p><img src="https://img.zzzg.top/20260411110047041.png" alt="image-20260410132526265"></p>
+<p><img src="https://img.zzzg.top/20260411110047042.png" alt="image-20260410134839062"></p>
+<h2 id="三、修改ORACLE编码"><a href="#三、修改ORACLE编码" class="headerlink" title="三、修改ORACLE编码"></a>三、修改ORACLE编码</h2><p>win+r打开注册表</p>
+<p><img src="https://img.zzzg.top/20260411110047043.png" alt="image-20260410135353678"></p>
+<p>路径如下：</p>
+<figure class="highlight plaintext"><table><tr><td class="code"><pre><span class="line">\HKEY_LOCAL_MACHINE\SOFTWARE\ORACLE\KEY_OraDB19Home1</span><br></pre></td></tr></table></figure>
+
+<p><img src="https://img.zzzg.top/20260411110047044.png" alt="image-20260410135534632"></p>
+<p>双击修改为</p>
+<figure class="highlight plaintext"><table><tr><td class="code"><pre><span class="line">AMERICAN_AMERICA.AL32UTF8</span><br></pre></td></tr></table></figure>
+
+<p><img src="https://img.zzzg.top/20260411110047045.png" alt="image-20260410135756036"></p>
+<h2 id="四、关闭监听程序"><a href="#四、关闭监听程序" class="headerlink" title="四、关闭监听程序"></a>四、关闭监听程序</h2><p>关闭Listener  lsnrctl stop</p>
+<p>用管理员权限打开CMD，后续的CMD窗口均需要管理员权限</p>
+<p>输入<strong>LSNRCTL STOP</strong> 后回车执行</p>
+<p><img src="https://img.zzzg.top/20260411110047046.png" alt="image-20260410140136296"></p>
+<h2 id="五、修改listener文件"><a href="#五、修改listener文件" class="headerlink" title="五、修改listener文件"></a>五、修改listener文件</h2><p>打开c盘里面的安装目录</p>
+<figure class="highlight plaintext"><table><tr><td class="code"><pre><span class="line">C:\Oracle_WINDOWS.X64_193000_db_home\network\admin\listener.ora</span><br></pre></td></tr></table></figure>
+
+<p>用记事本打开</p>
+<p><img src="https://img.zzzg.top/20260411110047047.png" alt="image-20260410140544777"></p>
+<p>在此电脑-&gt;属性里面查看设备名称，复制替换掉<strong>localhost</strong>，然后保存</p>
+<p><img src="https://img.zzzg.top/20260411110047048.png" alt="image-20260410140748951"></p>
+<h2 id="六、添加环境变量"><a href="#六、添加环境变量" class="headerlink" title="六、添加环境变量"></a>六、添加环境变量</h2><p>此电脑-&gt;属性-&gt;高级系统设置</p>
+<p><img src="https://img.zzzg.top/20260411110047049.png" alt="image-20260410141053786"></p>
+<p><img src="https://img.zzzg.top/20260411110047050.png" alt="image-20260410141159123"></p>
+<p>新建</p>
+<p><img src="https://img.zzzg.top/20260411110047051.png" alt="image-20260410141309971"></p>
+<p><strong>ORACLE_HOME</strong> 对应软件安装目录</p>
+<p><img src="https://img.zzzg.top/20260411110047052.png" alt="image-20260410141421656"></p>
+<p>再新建</p>
+<p><strong>ORACLE_BASE</strong>对应在C盘创建的ORACLE_BASE文件夹</p>
+<p><img src="https://img.zzzg.top/20260411110047053.png" alt="image-20260410141528488"></p>
+<h2 id="七、注册ODP-NET"><a href="#七、注册ODP-NET" class="headerlink" title="七、注册ODP.NET"></a>七、注册ODP.NET</h2><p>右键以管理员运行即可</p>
+<p><img src="https://img.zzzg.top/20260411110047054.png" alt="image-20260410141847860"></p>
+<h2 id="八、创建DB"><a href="#八、创建DB" class="headerlink" title="八、创建DB"></a>八、创建DB</h2><p>新建DB文件夹</p>
+<p><img src="https://img.zzzg.top/20260411110047055.png" alt="image-20260410142037138"></p>
+<p>修改建立DB的脚本并运行</p>
+<p>使用这个脚本所在的路径替换掉<strong>FULL_PATH_TO</strong></p>
+<p><img src="https://img.zzzg.top/20260411110047056.png" alt="image-20260410142449887"></p>
+<p>使用电脑设备名称替换掉**%WINDOWS_SERVER_NAME%**</p>
+<p><img src="https://img.zzzg.top/20260411110047057.png" alt="image-20260410161523248"></p>
+<p>将需要建立的Database的名字替换掉**%DB_NAME%**</p>
+<p><img src="https://img.zzzg.top/20260411110047058.png" alt="image-20260410161715428"></p>
+<p>使用存放Database的文件夹路径替换掉**%DATA_FILES_LOCATION%**</p>
+<p><img src="https://img.zzzg.top/20260411110047059.png" alt="image-20260410161853628"></p>
+<p>将以下中文替换为对应的即可</p>
+<figure class="highlight bat"><table><tr><td class="code"><pre><span class="line">perl -l 脚本所在文件夹路径\build_files.pl <span class="variable">%ORACLE_BASE%</span> <span class="variable">%ORACLE_HOME%</span> 需要建立的Database的名字 电脑设备名称 <span class="number">1521</span> 存放Database的文件夹路径</span><br><span class="line">perl -l 脚本所在文件夹路径\build_db.pl <span class="variable">%ORACLE_BASE%</span> <span class="variable">%ORACLE_HOME%</span> 需要建立的Database的名字</span><br></pre></td></tr></table></figure>
+
+<p>替换好的样子：</p>
+<figure class="highlight bat"><table><tr><td class="code"><pre><span class="line">perl -l C:\Users\Administrator\Desktop\PDPS_V24\Oracle\DatabaseInstallationScripts\build_files.pl <span class="variable">%ORACLE_BASE%</span> <span class="variable">%ORACLE_HOME%</span> MYEMS WIN-H0260UMGT2O <span class="number">1521</span> C:\MYEMSDB</span><br><span class="line">perl -l C:\Users\Administrator\Desktop\PDPS_V24\Oracle\DatabaseInstallationScripts\build_db.pl <span class="variable">%ORACLE_BASE%</span> <span class="variable">%ORACLE_HOME%</span> MYEMS</span><br></pre></td></tr></table></figure>
+
+<p>然后将这两条修改好的命令复制到CMD里面执行，注意路径里面不能有中文和空格，否则会报错</p>
+<p>第一条运行成功</p>
+<p><img src="https://img.zzzg.top/20260411110047060.png" alt="image-20260410162546575"></p>
+<p>输入第二条指令执行，出现<strong>Instance created</strong>提示后，再按一次回车</p>
+<p>第二条运行成功</p>
+<p><img src="https://img.zzzg.top/20260411110047061.png" alt="image-20260410180901265"></p>
+<h2 id="九、修改服务为自启动"><a href="#九、修改服务为自启动" class="headerlink" title="九、修改服务为自启动"></a>九、修改服务为自启动</h2><p>按win+r打开运行窗口，输入<strong>services.msc</strong>进入服务</p>
+<p>双击<strong>OracleServiceMYEMS</strong>这个服务，然后将启动类型改为自动</p>
+<p><img src="https://img.zzzg.top/20260411110047062.png" alt="image-20260410181249379"></p>
+<h1 id="安装及配置PDPS"><a href="#安装及配置PDPS" class="headerlink" title="安装及配置PDPS"></a>安装及配置PDPS</h1><h2 id="一、安装PDPS"><a href="#一、安装PDPS" class="headerlink" title="一、安装PDPS"></a>一、安装PDPS</h2><h3 id="1、进入软件安装包目录"><a href="#1、进入软件安装包目录" class="headerlink" title="1、进入软件安装包目录"></a>1、进入软件安装包目录</h3><p><img src="https://img.zzzg.top/20260411110047063.png" alt="image-20260410183423634"></p>
+<h3 id="2、安装运行库"><a href="#2、安装运行库" class="headerlink" title="2、安装运行库"></a>2、安装运行库</h3><p><img src="https://img.zzzg.top/20260411110047064.png" alt="image-20260410181751050"></p>
+<p><img src="https://img.zzzg.top/20260411110047065.png" alt="image-20260410181941471"></p>
+<h3 id="3、选择安装PDPS"><a href="#3、选择安装PDPS" class="headerlink" title="3、选择安装PDPS"></a>3、选择安装PDPS</h3><p><img src="https://img.zzzg.top/20260411110047066.png" alt="image-20260410193014409"></p>
+<h3 id="4、选择需要安装的软件组件"><a href="#4、选择需要安装的软件组件" class="headerlink" title="4、选择需要安装的软件组件"></a>4、选择需要安装的软件组件</h3><ul>
+<li>在组件列表中，勾选 <strong>“Process Simulate Standalone”</strong> ，点选向下的小箭头进行选择。建议使用默认安装路径<code>(C:\Program Files)</code>，或选择空间充足的自定义路径。重要！ 安装路径不能包含中文或特殊字符（空格也尽量避免），使用纯英文路径！</li>
+</ul>
+<p><img src="https://img.zzzg.top/20260411110047067.png" alt="image-20260410193126098"></p>
+<h3 id="5、选择需要安装的机器人控制器组件"><a href="#5、选择需要安装的机器人控制器组件" class="headerlink" title="5、选择需要安装的机器人控制器组件"></a>5、选择需要安装的机器人控制器组件</h3><ul>
+<li>在机器人控制器组件列表中，勾选需要的机器人，也可后续添加。</li>
+</ul>
+<p><img src="https://img.zzzg.top/20260411110047068.png" alt="image-20260410182331252"></p>
+<h3 id="6、数据收集许可"><a href="#6、数据收集许可" class="headerlink" title="6、数据收集许可"></a>6、数据收集许可</h3><ul>
+<li>数据收集许可：选择DECLINE“”。</li>
+</ul>
+<p><img src="https://img.zzzg.top/20260411110047069.png" alt="image-20260410182354087"></p>
+<ul>
+<li>以下采用默认配置进行安装。</li>
+</ul>
+<p><img src="https://img.zzzg.top/20260411110047070.png" alt="image-20260410182437152"></p>
+<p><img src="https://img.zzzg.top/20260411110047071.png" alt="image-20260410182502622"></p>
+<p><img src="https://img.zzzg.top/20260411110047072.png" alt="image-20260410182524677"></p>
+<p><img src="https://img.zzzg.top/20260411110047073.png" alt="image-20260410182649298"></p>
+<h3 id="7、开始安装"><a href="#7、开始安装" class="headerlink" title="7、开始安装"></a>7、开始安装</h3><ul>
+<li>确认配置无误后，点击 <strong>“Install”</strong> 开始安装。此过程耗时较长（30分钟至数小时），请耐心等待，<strong>不要中断</strong>。</li>
+</ul>
+<p><img src="https://img.zzzg.top/20260411110047074.png" alt="image-20260410182710234"></p>
+<h3 id="8、安装完成"><a href="#8、安装完成" class="headerlink" title="8、安装完成"></a>8、安装完成</h3><ul>
+<li>提示安装成功后，点击 <strong>“Finish”</strong> 退出向导。<strong>暂时不要运行软件！</strong></li>
+</ul>
+<p><img src="https://img.zzzg.top/20260411110047075.png" alt="image-20260410184143344"></p>
+<h3 id="9、安装语言包"><a href="#9、安装语言包" class="headerlink" title="9、安装语言包"></a>9、安装语言包</h3><p>进入如下目录安装中文语言包，一直下一步即可</p>
+<p><img src="https://img.zzzg.top/20260411110047076.png" alt="image-20260410184814369"></p>
+<h2 id="二、配置PDPS"><a href="#二、配置PDPS" class="headerlink" title="二、配置PDPS"></a>二、配置PDPS</h2><h3 id="1、配置许可证"><a href="#1、配置许可证" class="headerlink" title="1、配置许可证"></a>1、配置许可证</h3><p>将获得的许可证文件 <code>(siemens_SSQ.dat)</code><strong>复制</strong>到西门子许可目录下：<br><code>C:\ProgramData\Siemens\siemens_SSQ.dat</code>没有就创建一个文件夹</p>
+<p><img src="https://img.zzzg.top/20260411110047078.png" alt="image-20260410190043934"></p>
+<p>将Crack文件夹中的文件覆盖到对应的安装目录下，双击进行注册</p>
+<p><img src="https://img.zzzg.top/20260411110047079.png" alt="image-20260410185908909"></p>
+<p><img src="https://img.zzzg.top/20260411110047080.png" alt="image-20260410185405643"></p>
+<p><img src="https://img.zzzg.top/20260411110047081.png" alt="image-20260410185538959"></p>
+<p>打开LicensingTool，选择Environment Settings（环境设置），点Edit（编辑）</p>
+<p><img src="https://img.zzzg.top/20260411110047082.png" alt="image-20260410185228383"></p>
+<p><img src="https://img.zzzg.top/20260411110047083.png" alt="image-20260410190423403"></p>
+<p><img src="https://img.zzzg.top/20260411110047084.png" alt="image-20260410185621847"></p>
+<p>填入<code>C:\ProgramData\Siemens\siemens_SSQ.dat</code></p>
+<p><img src="https://img.zzzg.top/20260411110047085.png" alt="image-20260410190300839"></p>
+<p>完成</p>
+<p><img src="https://img.zzzg.top/20260411110047086.png" alt="image-20260410190339561"></p>
+<h3 id="2、配置EMS"><a href="#2、配置EMS" class="headerlink" title="2、配置EMS"></a>2、配置EMS</h3><p>进入PS安装目录</p>
+<p><img src="https://img.zzzg.top/20260411110047087.png" alt="image-20260410194958695"></p>
+<p>复制目录路径，win+r打开cmd</p>
+<p>输入</p>
+<figure class="highlight plaintext"><table><tr><td class="code"><pre><span class="line">cd 目录路径</span><br></pre></td></tr></table></figure>
+
+<p>例如</p>
+<figure class="highlight plaintext"><table><tr><td class="code"><pre><span class="line">cd C:\Program Files\Tecnomatix_2402\eMPower\DBScripts</span><br></pre></td></tr></table></figure>
+
+<p><img src="https://img.zzzg.top/20260411110047088.png" alt="image-20260410195137195"></p>
+<p>然后输入</p>
+<figure class="highlight plaintext"><table><tr><td class="code"><pre><span class="line">initDB.bat 先前建立的Database的名字</span><br></pre></td></tr></table></figure>
+
+<p>例如</p>
+<figure class="highlight plaintext"><table><tr><td class="code"><pre><span class="line">initDB.bat MYEMS</span><br></pre></td></tr></table></figure>
+
+<p>成功</p>
+<p><img src="https://img.zzzg.top/20260411110047089.png" alt="image-20260410195423480"></p>
+<p>打开EMServer管理软件</p>
+<p><img src="https://img.zzzg.top/20260411110047090.png" alt="image-20260410195843374"></p>
+<p>创建Oracle账号</p>
+<p><img src="https://img.zzzg.top/20260411110047091.png" alt="image-20260410195940451"></p>
+<p>用户名和密码在我们执行initDB的时候会默认创建一个，脚本还是在PS安装目录下，将默认的用户名和密码填上，选择我们之前创建的MYEMS</p>
+<p><img src="https://img.zzzg.top/20260411110047092.png" alt="image-20260411100040380"></p>
+<p><img src="https://img.zzzg.top/20260411110047093.png" alt="image-20260411100152539"></p>
+<p>点击创建新账号</p>
+<p><img src="https://img.zzzg.top/20260411110047094.png" alt="image-20260411100246821"></p>
+<p>输入需要设置的账号密码</p>
+<p>我这里设置的</p>
+<figure class="highlight plaintext"><table><tr><td class="code"><pre><span class="line">Schema name：admin</span><br><span class="line">Password：password</span><br></pre></td></tr></table></figure>
+
+
+
+<p><img src="https://img.zzzg.top/20260411110047095.png" alt="image-20260411100459121"></p>
+<p><img src="https://img.zzzg.top/20260411110047096.png" alt="image-20260411100703210"></p>
+<p>这里问是否需要兼容UTF8，如果不是特别老的数据就不需要的，看情况</p>
+<p><img src="https://img.zzzg.top/20260411110047097.png" alt="image-20260411100725330"></p>
+<p><img src="https://img.zzzg.top/20260411110047098.png" alt="image-20260411100853999"></p>
+<p>创建组织</p>
+<p>选择创建好的DB和用户名，输入创建好的密码，点击应用</p>
+<p><img src="https://img.zzzg.top/20260411110047099.png" alt="image-20260411101100094"></p>
+<p><img src="https://img.zzzg.top/20260411110047100.png" alt="image-20260411101220608"></p>
+<p><img src="https://img.zzzg.top/20260411110047101.png" alt="image-20260411101254387"></p>
+<p><img src="https://img.zzzg.top/20260411110047102.png" alt="image-20260411101454408"></p>
+<p>这里如果显示无法打开文件，就找到对应的文件，给这个文件user用户全部权限即可</p>
+<h2 id="三、安装完成"><a href="#三、安装完成" class="headerlink" title="三、安装完成"></a>三、安装完成</h2><p>打开PD，使用默认用户登录<strong>administrator</strong>，就可以正常使用了</p>
+<p><img src="https://img.zzzg.top/20260411110047103.png" alt="image-20260411101805317"></p>
 ]]></content>
       <categories>
         <category>工业自动化</category>
       </categories>
       <tags>
-        <tag>SINAMICS</tag>
-      </tags>
-  </entry>
-  <entry>
-    <title>V2RayA——新一代Linux客户端安装配置教程</title>
-    <url>/posts/a53fea94/</url>
-    <content><![CDATA[<h1 id="前言"><a href="#前言" class="headerlink" title="前言"></a>前言</h1><p>上一次我们介绍的Qv2ray还是有一些同学不会安装，而且Qv2ray也不再更新了，所以我就另外去找了，刚好找到一个安装配置都非常简单的软件，也就是本章的主角——v2rayA</p>
-<h1 id="特性"><a href="#特性" class="headerlink" title="特性"></a>特性</h1><p><img src="https://img.zzzg.top/202304100749200.png" alt="img"></p>
-<p>在官网的介绍中我们可以发现，v2rayA是一款非常强大的软件，它甚至能提供透明代理（几乎完全全局代理，目标服务器检测不到代理服务器）。好我就精简一下官方的教程教给大家怎么去安装配置Qv2ray，官网我会放到文章末尾。</p>
-<h1 id="安装"><a href="#安装" class="headerlink" title="安装"></a>安装</h1><p>首页：<a href="https://v2raya.org/">https://v2raya.org/</a></p>
-<h2 id="安装v2rayA"><a href="#安装v2rayA" class="headerlink" title="安装v2rayA"></a>安装v2rayA</h2><p>方法一：通过软件源安装<br>添加公钥</p>
-<figure class="highlight plaintext"><table><tr><td class="code"><pre><span class="line">wget -qO - https://apt.v2raya.org/key/public-key.asc | sudo tee /etc/apt/keyrings/v2raya.asc</span><br></pre></td></tr></table></figure>
-
-<p>添加 V2RayA 软件源</p>
-<figure class="highlight plaintext"><table><tr><td class="code"><pre><span class="line">echo &quot;deb [signed-by=/etc/apt/keyrings/v2raya.asc] https://apt.v2raya.org/ v2raya main&quot; | sudo tee /etc/apt/sources.list.d/v2raya.list</span><br><span class="line">sudo apt update</span><br></pre></td></tr></table></figure>
-
-<p>安装 V2RayA</p>
-<figure class="highlight plaintext"><table><tr><td class="code"><pre><span class="line">sudo apt install v2raya v2ray ## 也可以使用 xray 包</span><br></pre></td></tr></table></figure>
-
-<p>方法二：手动安装 deb 包</p>
-<p>下载 deb 包</p>
-<p><a href="https://github.com/v2rayA/v2rayA/releases">点我下载</a></p>
-<p>然后可以使用 Gdebi、QApt 等图形化工具来安装，也可以使用命令行：</p>
-<figure class="highlight plaintext"><table><tr><td class="code"><pre><span class="line">sudo apt install /path/download/installer_debian_xxx_vxxx.deb ### 自行替换 deb 包所在的实际路径</span><br></pre></td></tr></table></figure>
-
-<h1 id="启动-配置"><a href="#启动-配置" class="headerlink" title="启动&amp;配置"></a>启动&amp;配置</h1><h2 id="开机自启"><a href="#开机自启" class="headerlink" title="开机自启"></a>开机自启</h2><p>启动 v2rayA</p>
-<figure class="highlight plaintext"><table><tr><td class="code"><pre><span class="line">sudo systemctl start v2raya.service</span><br></pre></td></tr></table></figure>
-
-<p>设置开机自动启动</p>
-<figure class="highlight plaintext"><table><tr><td class="code"><pre><span class="line">sudo systemctl enable v2raya.service</span><br></pre></td></tr></table></figure>
-
-<h2 id="软件配置"><a href="#软件配置" class="headerlink" title="软件配置"></a>软件配置</h2><p>v2rayA的UI是以网页的形式呈现的，所以我们打开浏览器，访问v2rayA的地址<a href="http://localhost:2017/">http://localhost:2017/</a></p>
-<p><img src="https://img.zzzg.top/202304100749118.png" alt="img"></p>
-<p>首次打开需要创建一个管理员账号，如果遗忘，使用下面的命令重置。</p>
-<figure class="highlight plaintext"><table><tr><td class="code"><pre><span class="line">sudo v2raya --reset-password</span><br></pre></td></tr></table></figure>
-
-<p>以创建或导入的方式导入节点，导入支持节点链接、订阅链接、扫描二维码和批量导入等方式。</p>
-<p><img src="https://img.zzzg.top/202304100749250.png" alt="img"></p>
-<p>导入成功后，节点将显示在 SERVER 中，先选择要连接的节点，再点击左上角的就绪按钮就能开启代理了。</p>
-<p><img src="https://img.zzzg.top/202304100749288.png" alt="img"></p>
-<p>点击右边的设置，推荐像我一样设置，也是官方推荐的设置</p>
-<p><img src="https://img.zzzg.top/202304100749956.png" alt="img"></p>
-<p>但是还没有结束，在某些不能自动配置代理的系统中，还需要手动进行代理，以Ubuntu为例（Ubuntu无需手动设置代理，仅为了演示），进入设置–&gt;网络–&gt;网络代理–&gt;手动代理，默认端口没有改动的话按照我的填写</p>
-<p><img src="https://img.zzzg.top/202304100749118.png" alt="img"></p>
-<p>v2rayA的默认代理端口是</p>
-<p><img src="https://img.zzzg.top/202304100755201.png" alt="img"></p>
-<p>到此就完成了整个安装与配置，本篇v2rayA安装配置在别的Linux中仍然适用，如果遇到什么问题推荐看一下官网的文档。</p>
-<p>官网：<a href="https://v2raya.org/">点我直达</a></p>
-]]></content>
-      <categories>
-        <category>网络技术</category>
-      </categories>
-      <tags>
-        <tag>网络代理</tag>
+        <tag>PDPS</tag>
       </tags>
   </entry>
   <entry>
@@ -4271,67 +4150,6 @@
       </categories>
       <tags>
         <tag>运维工具</tag>
-      </tags>
-  </entry>
-  <entry>
-    <title>Xray最新协议Reality搭建</title>
-    <url>/posts/428849a6/</url>
-    <content><![CDATA[<h1 id="简介"><a href="#简介" class="headerlink" title="简介"></a>简介</h1><p>为了应对 TLS in TLS 和指纹识别等阻断或封禁的风险，Xray-core 团队推出了 Vision 和 Reality 两种新颖的技术方案。它们能够有效地隐藏和保护流量的特征，提高安全性和稳定性。</p>
-<p><a href="https://github.com/XTLS/Xray-core/discussions/1295#discussion-4523044">Vision原理</a></p>
-<p><a href="https://www.v2ray-agent.com/archives/1679292836379">Reality原理</a></p>
-<p>如果你和我一样小白，那我用我的理解方式给大家解释一下，不一定准确，但方便理解。</p>
-<p>1.之前TLS或者XTLS已经被墙识别，所以有了阻断或者封你443端口的情况，也就是所谓的TLS in TLS阻断</p>
-<p>2、后面Vision 的协议，能解决TLS in TLS阻断，但还不够完美。</p>
-<p>3、Xray1.80版本推出了最新的Reality协议，再配合之前的Vision协议，组合成了目前最牛的协议“<strong>VLESS-Vision-uTLS-REALITY”</strong></p>
-<p><strong>VLESS-Vision-uTLS-REALITY优势</strong></p>
-<p>1、新协议不容易被阻断或封锁</p>
-<p>2、可以省去一个域名，也不用配置ssl证书</p>
-<p><strong>VLESS-Vision-uTLS-REALITY劣势</strong></p>
-<p>1、软件端也必须升级到xray1.80版本，VPS也要是xray1.80版本，否则不能正常使用。</p>
-<p>2、部分软件目前（截至2023年4月7日）还不支持此种协议，例如Shadowrocket，passwall等插件，如果没更新，在一键导入的时候也会BUG。</p>
-<p>3、理论上完美，但还未经历过实战，例如开XX大会。</p>
-<p>4、Reality不支持CDN</p>
-<h1 id="搭建开始"><a href="#搭建开始" class="headerlink" title="搭建开始"></a>搭建开始</h1><h2 id="方法一：常规搭建"><a href="#方法一：常规搭建" class="headerlink" title="方法一：常规搭建"></a>方法一：常规搭建</h2><p>老规矩，用<a href="https://www.v2ray-agent.com/">mack-a</a>大佬的八合一的一键脚本，这里只演示无域名的安装方式，因为这个也是<strong>VLESS-Vision-uTLS-REALITY</strong>的核心亮点</p>
-<p>PS:如果你之前用过mack-a大佬八合一脚本，在执行下面这个命令后，<strong>先选择删除脚本，再重新安装</strong></p>
-<figure class="highlight plaintext"><table><tr><td class="code"><pre><span class="line">wget -P /root -N --no-check-certificate &quot;https://raw.githubusercontent.com/mack-a/v2ray-agent/master/install.sh&quot; &amp;&amp; chmod 700 /root/install.sh &amp;&amp; /root/install.sh</span><br></pre></td></tr></table></figure>
-
-<p>开始安装</p>
-<p>vasma-&gt;执行脚本后-&gt;直接选择**[5.REALITY管理]**</p>
-<p>1、端口直接输入<strong>443</strong></p>
-<p>2、生成配置回落的域名，参考以下域名，结尾必须加 :443</p>
-<blockquote>
-<p># 域名推荐<br>gateway.icloud.com<br>itunes.apple.com<br>download-installer.cdn.mozilla.net<br>airbnb【这个不同的区有不同的域名建议自己搜索】<br>addons.mozilla.org<br><a href="http://www.microsoft.com/">www.microsoft.com</a><br><a href="http://www.lovelive-anime.jp/">www.lovelive-anime.jp</a></p>
-<p># CDN<br>Apple:<br>swdist.apple.com<br>swcdn.apple.com<br>updates.cdn-apple.com<br>mensura.cdn-apple.com<br>osxapps.itunes.apple.com<br>aod.itunes.apple.com</p>
-<p>Microsoft:<br>cdn-dynmedia-1.microsoft.com<br>update.microsoft<br>software.download.prss.microsoft.com</p>
-<p>Amazon:<br>s0.awsstatic.com<br>d1.awsstatic.com<br>images-na.ssl-images-amazon.com<br>m.media-amazon.com<br>player.live-video.net</p>
-<p>Google:<br>dl.google.com</p>
-</blockquote>
-<p>3、然后重复一次你刚才输入的那个域名，然后一路回车即可。</p>
-<p>**PS：**本教程来源为<a href="https://www.v2ray-agent.com/">mack-a</a> 的教程，<a href="https://www.v2ray-agent.com/archives/1680104902581">原文链接</a></p>
-<h2 id="方法二：X-UI面板搭建"><a href="#方法二：X-UI面板搭建" class="headerlink" title="方法二：X-UI面板搭建"></a>方法二：X-UI面板搭建</h2><p>作者地址 <a href="https://github.com/FranzKafkaYu/x-ui/">https://github.com/FranzKafkaYu/x-ui/</a></p>
-<p>x-ui原理比较简单，有个面板，可以随意折腾各种协议</p>
-<p>1、安装面板</p>
-<figure class="highlight plaintext"><table><tr><td class="code"><pre><span class="line">bash &lt;(curl -Ls https://raw.githubusercontent.com/FranzKafkaYu/x-ui/master/install.sh)</span><br></pre></td></tr></table></figure>
-
-<p>2、添加入站列表</p>
-<p>参考下图</p>
-<p><img src="https://img.zzzg.top/202304100740286.jpeg" alt="img"></p>
-<p>3、复制链接<br><img src="https://img.zzzg.top/202304100740534.jpeg" alt="img"></p>
-<h1 id="客户端配置"><a href="#客户端配置" class="headerlink" title="客户端配置"></a>客户端配置</h1><h2 id="v2rayN"><a href="#v2rayN" class="headerlink" title="v2rayN"></a>v2rayN</h2><ul>
-<li><p><strong>支持windows</strong></p>
-</li>
-<li><p><a href="https://github.com/2dust/v2rayN/releases"><strong>点击下载</strong></a></p>
-</li>
-</ul>
-<p><img src="https://img.zzzg.top/202304090833804.png" alt="img"></p>
-<p>最后最后需要强调的</p>
-<p><strong>不是用了这个协议就一定不会被封，世界上没有100%的事情</strong></p>
-]]></content>
-      <categories>
-        <category>网络技术</category>
-      </categories>
-      <tags>
-        <tag>网络代理</tag>
       </tags>
   </entry>
   <entry>
@@ -4410,6 +4228,67 @@
       </categories>
       <tags>
         <tag>GSEE-TECH</tag>
+      </tags>
+  </entry>
+  <entry>
+    <title>Xray最新协议Reality搭建</title>
+    <url>/posts/428849a6/</url>
+    <content><![CDATA[<h1 id="简介"><a href="#简介" class="headerlink" title="简介"></a>简介</h1><p>为了应对 TLS in TLS 和指纹识别等阻断或封禁的风险，Xray-core 团队推出了 Vision 和 Reality 两种新颖的技术方案。它们能够有效地隐藏和保护流量的特征，提高安全性和稳定性。</p>
+<p><a href="https://github.com/XTLS/Xray-core/discussions/1295#discussion-4523044">Vision原理</a></p>
+<p><a href="https://www.v2ray-agent.com/archives/1679292836379">Reality原理</a></p>
+<p>如果你和我一样小白，那我用我的理解方式给大家解释一下，不一定准确，但方便理解。</p>
+<p>1.之前TLS或者XTLS已经被墙识别，所以有了阻断或者封你443端口的情况，也就是所谓的TLS in TLS阻断</p>
+<p>2、后面Vision 的协议，能解决TLS in TLS阻断，但还不够完美。</p>
+<p>3、Xray1.80版本推出了最新的Reality协议，再配合之前的Vision协议，组合成了目前最牛的协议“<strong>VLESS-Vision-uTLS-REALITY”</strong></p>
+<p><strong>VLESS-Vision-uTLS-REALITY优势</strong></p>
+<p>1、新协议不容易被阻断或封锁</p>
+<p>2、可以省去一个域名，也不用配置ssl证书</p>
+<p><strong>VLESS-Vision-uTLS-REALITY劣势</strong></p>
+<p>1、软件端也必须升级到xray1.80版本，VPS也要是xray1.80版本，否则不能正常使用。</p>
+<p>2、部分软件目前（截至2023年4月7日）还不支持此种协议，例如Shadowrocket，passwall等插件，如果没更新，在一键导入的时候也会BUG。</p>
+<p>3、理论上完美，但还未经历过实战，例如开XX大会。</p>
+<p>4、Reality不支持CDN</p>
+<h1 id="搭建开始"><a href="#搭建开始" class="headerlink" title="搭建开始"></a>搭建开始</h1><h2 id="方法一：常规搭建"><a href="#方法一：常规搭建" class="headerlink" title="方法一：常规搭建"></a>方法一：常规搭建</h2><p>老规矩，用<a href="https://www.v2ray-agent.com/">mack-a</a>大佬的八合一的一键脚本，这里只演示无域名的安装方式，因为这个也是<strong>VLESS-Vision-uTLS-REALITY</strong>的核心亮点</p>
+<p>PS:如果你之前用过mack-a大佬八合一脚本，在执行下面这个命令后，<strong>先选择删除脚本，再重新安装</strong></p>
+<figure class="highlight plaintext"><table><tr><td class="code"><pre><span class="line">wget -P /root -N --no-check-certificate &quot;https://raw.githubusercontent.com/mack-a/v2ray-agent/master/install.sh&quot; &amp;&amp; chmod 700 /root/install.sh &amp;&amp; /root/install.sh</span><br></pre></td></tr></table></figure>
+
+<p>开始安装</p>
+<p>vasma-&gt;执行脚本后-&gt;直接选择**[5.REALITY管理]**</p>
+<p>1、端口直接输入<strong>443</strong></p>
+<p>2、生成配置回落的域名，参考以下域名，结尾必须加 :443</p>
+<blockquote>
+<p># 域名推荐<br>gateway.icloud.com<br>itunes.apple.com<br>download-installer.cdn.mozilla.net<br>airbnb【这个不同的区有不同的域名建议自己搜索】<br>addons.mozilla.org<br><a href="http://www.microsoft.com/">www.microsoft.com</a><br><a href="http://www.lovelive-anime.jp/">www.lovelive-anime.jp</a></p>
+<p># CDN<br>Apple:<br>swdist.apple.com<br>swcdn.apple.com<br>updates.cdn-apple.com<br>mensura.cdn-apple.com<br>osxapps.itunes.apple.com<br>aod.itunes.apple.com</p>
+<p>Microsoft:<br>cdn-dynmedia-1.microsoft.com<br>update.microsoft<br>software.download.prss.microsoft.com</p>
+<p>Amazon:<br>s0.awsstatic.com<br>d1.awsstatic.com<br>images-na.ssl-images-amazon.com<br>m.media-amazon.com<br>player.live-video.net</p>
+<p>Google:<br>dl.google.com</p>
+</blockquote>
+<p>3、然后重复一次你刚才输入的那个域名，然后一路回车即可。</p>
+<p>**PS：**本教程来源为<a href="https://www.v2ray-agent.com/">mack-a</a> 的教程，<a href="https://www.v2ray-agent.com/archives/1680104902581">原文链接</a></p>
+<h2 id="方法二：X-UI面板搭建"><a href="#方法二：X-UI面板搭建" class="headerlink" title="方法二：X-UI面板搭建"></a>方法二：X-UI面板搭建</h2><p>作者地址 <a href="https://github.com/FranzKafkaYu/x-ui/">https://github.com/FranzKafkaYu/x-ui/</a></p>
+<p>x-ui原理比较简单，有个面板，可以随意折腾各种协议</p>
+<p>1、安装面板</p>
+<figure class="highlight plaintext"><table><tr><td class="code"><pre><span class="line">bash &lt;(curl -Ls https://raw.githubusercontent.com/FranzKafkaYu/x-ui/master/install.sh)</span><br></pre></td></tr></table></figure>
+
+<p>2、添加入站列表</p>
+<p>参考下图</p>
+<p><img src="https://img.zzzg.top/202304100740286.jpeg" alt="img"></p>
+<p>3、复制链接<br><img src="https://img.zzzg.top/202304100740534.jpeg" alt="img"></p>
+<h1 id="客户端配置"><a href="#客户端配置" class="headerlink" title="客户端配置"></a>客户端配置</h1><h2 id="v2rayN"><a href="#v2rayN" class="headerlink" title="v2rayN"></a>v2rayN</h2><ul>
+<li><p><strong>支持windows</strong></p>
+</li>
+<li><p><a href="https://github.com/2dust/v2rayN/releases"><strong>点击下载</strong></a></p>
+</li>
+</ul>
+<p><img src="https://img.zzzg.top/202304090833804.png" alt="img"></p>
+<p>最后最后需要强调的</p>
+<p><strong>不是用了这个协议就一定不会被封，世界上没有100%的事情</strong></p>
+]]></content>
+      <categories>
+        <category>网络技术</category>
+      </categories>
+      <tags>
+        <tag>网络代理</tag>
       </tags>
   </entry>
   <entry>
@@ -5082,31 +4961,50 @@
       </tags>
   </entry>
   <entry>
-    <title>在WSL2中使用Clash Verge代理连接</title>
-    <url>/posts/af89448b/</url>
-    <content><![CDATA[<blockquote>
-<p>本文撰写时基于的系统和版本是 Ubuntu 22.04, 如果你使用其他版本或其他发行版，则下文提到的部分步骤与你的实际情况可能有所出入。</p>
-</blockquote>
-<blockquote>
-<p>在 WSL2 中配置环境时，依赖下载经常因为网络问题极其缓慢甚至失败。在整合了各方资料及个人实践后，我总结了在 WSL2 中通过 Clash Verge 设置代理的方法，供大家参考。</p>
-</blockquote>
-<h1 id="在-Clash-客户端内的操作"><a href="#在-Clash-客户端内的操作" class="headerlink" title="在 Clash 客户端内的操作"></a>在 Clash 客户端内的操作</h1><p>打开客户端的局域网连接开关。<br>记录下客户端内的端口，如这里是 <code>7897</code>. 一般默认端口为 <code>7897</code>。</p>
-<p><img src="https://img.zzzg.top/202312131053554.png"></p>
-<h1 id="修改-bashrc"><a href="#修改-bashrc" class="headerlink" title="修改 .bashrc"></a>修改 <code>.bashrc</code></h1><p>使用文本编辑器编辑 <code>.bashrc</code>，在文件末尾根据第 1 步记录的数据，加入三行内容：</p>
-<figure class="highlight shell"><table><tr><td class="code"><pre><span class="line">nano ~/.bashrc</span><br></pre></td></tr></table></figure>
+    <title>V2RayA——新一代Linux客户端安装配置教程</title>
+    <url>/posts/a53fea94/</url>
+    <content><![CDATA[<h1 id="前言"><a href="#前言" class="headerlink" title="前言"></a>前言</h1><p>上一次我们介绍的Qv2ray还是有一些同学不会安装，而且Qv2ray也不再更新了，所以我就另外去找了，刚好找到一个安装配置都非常简单的软件，也就是本章的主角——v2rayA</p>
+<h1 id="特性"><a href="#特性" class="headerlink" title="特性"></a>特性</h1><p><img src="https://img.zzzg.top/202304100749200.png" alt="img"></p>
+<p>在官网的介绍中我们可以发现，v2rayA是一款非常强大的软件，它甚至能提供透明代理（几乎完全全局代理，目标服务器检测不到代理服务器）。好我就精简一下官方的教程教给大家怎么去安装配置Qv2ray，官网我会放到文章末尾。</p>
+<h1 id="安装"><a href="#安装" class="headerlink" title="安装"></a>安装</h1><p>首页：<a href="https://v2raya.org/">https://v2raya.org/</a></p>
+<h2 id="安装v2rayA"><a href="#安装v2rayA" class="headerlink" title="安装v2rayA"></a>安装v2rayA</h2><p>方法一：通过软件源安装<br>添加公钥</p>
+<figure class="highlight plaintext"><table><tr><td class="code"><pre><span class="line">wget -qO - https://apt.v2raya.org/key/public-key.asc | sudo tee /etc/apt/keyrings/v2raya.asc</span><br></pre></td></tr></table></figure>
 
-<figure class="highlight bash"><table><tr><td class="code"><pre><span class="line">host_ip=$(<span class="built_in">cat</span> /etc/resolv.conf |grep <span class="string">&quot;nameserver&quot;</span> |<span class="built_in">cut</span> -f 2 -d <span class="string">&quot; &quot;</span>)</span><br><span class="line"><span class="built_in">export</span> http_proxy=<span class="string">&quot;http://<span class="variable">$host_ip</span>:[端口]&quot;</span></span><br><span class="line"><span class="built_in">export</span> https_proxy=<span class="string">&quot;http://<span class="variable">$host_ip</span>:[端口]&quot;</span></span><br></pre></td></tr></table></figure>
+<p>添加 V2RayA 软件源</p>
+<figure class="highlight plaintext"><table><tr><td class="code"><pre><span class="line">echo &quot;deb [signed-by=/etc/apt/keyrings/v2raya.asc] https://apt.v2raya.org/ v2raya main&quot; | sudo tee /etc/apt/sources.list.d/v2raya.list</span><br><span class="line">sudo apt update</span><br></pre></td></tr></table></figure>
 
-<p>如图所示，修改完后保存即可。<br><img src="https://img.zzzg.top/202312131053167.png"></p>
-<h1 id="使-root-用户保留先前设置的环境变量"><a href="#使-root-用户保留先前设置的环境变量" class="headerlink" title="使 root 用户保留先前设置的环境变量"></a>使 root 用户保留先前设置的环境变量</h1><p>在使用 <code>sudo</code> 执行命令时，之前设置的环境变量并不会生效，需要进一步设置。<br>输入 <code>sudo visudo</code></p>
-<p>取消相应行的注释 (删除行首的 <code>#</code>) 即可.<br><img src="https://img.zzzg.top/202312131053399.png"></p>
-<p>如果你使用 Ubuntu 20.04, 加入以下内容并保存。</p>
-<figure class="highlight bash"><table><tr><td class="code"><pre><span class="line">Defaults env_keep=<span class="string">&quot;http_proxy https_proxy&quot;</span></span><br></pre></td></tr></table></figure>
+<p>安装 V2RayA</p>
+<figure class="highlight plaintext"><table><tr><td class="code"><pre><span class="line">sudo apt install v2raya v2ray ## 也可以使用 xray 包</span><br></pre></td></tr></table></figure>
 
-<p><img src="https://img.zzzg.top/202312131053583.png"></p>
-<h1 id="测试"><a href="#测试" class="headerlink" title="测试"></a>测试</h1><p>输入 <code>source ~/.bashrc</code> 使文件修改生效。</p>
-<p>可以通过输入 <code>echo $http_proxy</code> 验证修改是否成功。<br>输入 <code>wget www.google.com</code>, 可以发现连接成功，至此大功告成，如图所示。<br><img src="https://s2.loli.net/2022/10/05/UIQ8LhuROaXq6S2.png"></p>
-<h1 id="参考资料"><a href="#参考资料" class="headerlink" title="参考资料"></a>参考资料</h1><p><a href="https://zhuanlan.zhihu.com/p/153124468">为 WSL2 一键设置代理 (zhihu.com)</a><br><a href="https://www.chenyudong.com/archives/sudo-keep-env.html">sudo保持前用用户的env环境变量 (chenyudong.com, 已失效)</a></p>
+<p>方法二：手动安装 deb 包</p>
+<p>下载 deb 包</p>
+<p><a href="https://github.com/v2rayA/v2rayA/releases">点我下载</a></p>
+<p>然后可以使用 Gdebi、QApt 等图形化工具来安装，也可以使用命令行：</p>
+<figure class="highlight plaintext"><table><tr><td class="code"><pre><span class="line">sudo apt install /path/download/installer_debian_xxx_vxxx.deb ### 自行替换 deb 包所在的实际路径</span><br></pre></td></tr></table></figure>
+
+<h1 id="启动-配置"><a href="#启动-配置" class="headerlink" title="启动&amp;配置"></a>启动&amp;配置</h1><h2 id="开机自启"><a href="#开机自启" class="headerlink" title="开机自启"></a>开机自启</h2><p>启动 v2rayA</p>
+<figure class="highlight plaintext"><table><tr><td class="code"><pre><span class="line">sudo systemctl start v2raya.service</span><br></pre></td></tr></table></figure>
+
+<p>设置开机自动启动</p>
+<figure class="highlight plaintext"><table><tr><td class="code"><pre><span class="line">sudo systemctl enable v2raya.service</span><br></pre></td></tr></table></figure>
+
+<h2 id="软件配置"><a href="#软件配置" class="headerlink" title="软件配置"></a>软件配置</h2><p>v2rayA的UI是以网页的形式呈现的，所以我们打开浏览器，访问v2rayA的地址<a href="http://localhost:2017/">http://localhost:2017/</a></p>
+<p><img src="https://img.zzzg.top/202304100749118.png" alt="img"></p>
+<p>首次打开需要创建一个管理员账号，如果遗忘，使用下面的命令重置。</p>
+<figure class="highlight plaintext"><table><tr><td class="code"><pre><span class="line">sudo v2raya --reset-password</span><br></pre></td></tr></table></figure>
+
+<p>以创建或导入的方式导入节点，导入支持节点链接、订阅链接、扫描二维码和批量导入等方式。</p>
+<p><img src="https://img.zzzg.top/202304100749250.png" alt="img"></p>
+<p>导入成功后，节点将显示在 SERVER 中，先选择要连接的节点，再点击左上角的就绪按钮就能开启代理了。</p>
+<p><img src="https://img.zzzg.top/202304100749288.png" alt="img"></p>
+<p>点击右边的设置，推荐像我一样设置，也是官方推荐的设置</p>
+<p><img src="https://img.zzzg.top/202304100749956.png" alt="img"></p>
+<p>但是还没有结束，在某些不能自动配置代理的系统中，还需要手动进行代理，以Ubuntu为例（Ubuntu无需手动设置代理，仅为了演示），进入设置–&gt;网络–&gt;网络代理–&gt;手动代理，默认端口没有改动的话按照我的填写</p>
+<p><img src="https://img.zzzg.top/202304100749118.png" alt="img"></p>
+<p>v2rayA的默认代理端口是</p>
+<p><img src="https://img.zzzg.top/202304100755201.png" alt="img"></p>
+<p>到此就完成了整个安装与配置，本篇v2rayA安装配置在别的Linux中仍然适用，如果遇到什么问题推荐看一下官网的文档。</p>
+<p>官网：<a href="https://v2raya.org/">点我直达</a></p>
 ]]></content>
       <categories>
         <category>网络技术</category>
@@ -5116,33 +5014,71 @@
       </tags>
   </entry>
   <entry>
-    <title>备份Hexo博客到开源仓库</title>
-    <url>/posts/5836c89e/</url>
-    <content><![CDATA[<p>本教程以 gitee 举例，GitHub 同理。</p>
-<h1 id="创建-gitee-仓库"><a href="#创建-gitee-仓库" class="headerlink" title="创建 gitee 仓库"></a>创建 gitee 仓库</h1><p>直接 gitee 官网右上角创建仓库即可，名字什么的自定义，最好创建私人仓库。</p>
-<h1 id="初始化本地仓库"><a href="#初始化本地仓库" class="headerlink" title="初始化本地仓库"></a>初始化本地仓库</h1><p>在本地 hexo 目录运行命令行</p>
-<p>输入</p>
-<figure class="highlight cmd"><table><tr><td class="code"><pre><span class="line">git init</span><br></pre></td></tr></table></figure>
-
-<p>然后输入</p>
-<figure class="highlight cmd"><table><tr><td class="code"><pre><span class="line">git remote add origin git@gitee.com:yuqi15/blog-backup.git</span><br></pre></td></tr></table></figure>
-
-<p>注意：这里是使用你自己创建仓库的链接，刚创建好会在页面上提示</p>
-<p><img src="https://img.zzzg.top/202303031601529.png"></p>
-<h1 id="上传到-gitee"><a href="#上传到-gitee" class="headerlink" title="上传到 gitee"></a>上传到 gitee</h1><p>依次在命令行里面运行下面命令</p>
-<figure class="highlight cmd"><table><tr><td class="code"><pre><span class="line">git add .</span><br><span class="line">git commit -m &quot;update&quot;</span><br><span class="line">git push origin master --force</span><br></pre></td></tr></table></figure>
-
-<p>运行成功就上传完成了</p>
-<h1 id="新设备恢复-hexo-博客"><a href="#新设备恢复-hexo-博客" class="headerlink" title="新设备恢复 hexo 博客"></a>新设备恢复 hexo 博客</h1><p>1、安装 node</p>
-<p>2、安装 Git</p>
-<p>3、在你需要恢复博客的文件夹里面使用命令行执行</p>
-<figure class="highlight cmd"><table><tr><td class="code"><pre><span class="line">cnpm install hexo-cli -g</span><br><span class="line">git clone 你备份的仓库地址</span><br><span class="line">cnpm install</span><br></pre></td></tr></table></figure>
+    <title>SINAMICS G120D CU250-2PN速度控制调试步骤</title>
+    <url>/posts/908d3d13/</url>
+    <content><![CDATA[<p>1、打开SINAMICS STARTER软件，创建项目；<br>选择菜单Project -&gt; New…<br>或使用快捷按钮创建新项目。<br><img src="https://img.zzzg.top/20250523225816269.png" alt="image-20250523222741743"><br><img src="https://img.zzzg.top/20250523225840938.png" alt="image-20250523222747691"></p>
+<p>2、用USB电缆连接电脑和CU240D控制器，设置<strong>PG&#x2F;PC</strong>接口。<br><img src="https://img.zzzg.top/20250523225903522.png" alt="image-20250523222804999"></p>
+<p>3、使用网线连接PLC，通过PROFINET总线方式连接CU240D控制器，设置<strong>PG&#x2F;PC</strong>接口方式同USB连接。<br><img src="https://img.zzzg.top/20250523225926726.png" alt="image-20250523222819925"></p>
+<p>4、使用如下方式搜索并连接变频器控制器。<br>(1).选择菜单”Project -&gt; Accessible node”  或使用快捷按钮    搜索变频器，如果没有搜索到变频器会显示“No further active partner can be found”(没有找到节点)请执行第(2)步，如果搜 索到变频器跳到第(6)步。<br><img src="https://img.zzzg.top/20250523225955108.png" alt="image-20250523222859036"></p>
+<p>(2).点击”Access Point”按钮。<br><img src="https://img.zzzg.top/20250523230015877.png" alt="image-20250523222908513"></p>
+<p>(3). 在Set Access Point for Accessible nodes页面选择正确的连接方式。<br><img src="https://img.zzzg.top/20250523230027484.png" alt="image-20250523222917891"><br><img src="https://img.zzzg.top/20250523230034591.png" alt="image-20250523222921962"></p>
+<p>(4).点击”Update”按钮，开始搜索变频器。<br>(5).搜索到变频器在右侧Accessible nodes区域显示如下信息C显示内容与控制 单元型号有关)。 如果没有搜索到变频器请根据提示查找具体原因，或查看帮助文件。<br><img src="https://img.zzzg.top/20250523230042623.png" alt="image-20250523223006082"></p>
+<p>(6).勾选搜索到的控制单元。<br>(7).点击“Accept”按钮。<br>(8).STARTER会自动把该变频器插入到项目中。<br>(9).点击按钮，进入 STARTER 在线模式。<br><img src="https://img.zzzg.top/20250523230127394.png"><br><img src="https://img.zzzg.top/20250523230049689.png" alt="image-20250523223107422"></p>
+<p>(10). 点击”Connect to assigned devices”按钮，连接到驱动器。<br><img src="https://img.zzzg.top/20250523230101397.png" alt="image-20250523223117348"></p>
+<p>(11). STARTER进入在线模式，右下角状态栏指示黄色”Online mode”状态。<br>(12).点击控制单元树形菜单下”Expert list”功能，右侧窗口打开专家列表，熟悉 SINAMICS G120D参数的人员，可以直接使用专家列表查看并修改变频器参数。<br><img src="https://img.zzzg.top/20250523230108744.png" alt="image-20250523223131065"></p>
+<p>5、其他基本操作。<br><img src="https://img.zzzg.top/20250523230117107.png" alt="image-20250523223200504"></p>
+<p>5.1、恢复工厂设置。<br>(1).点击     按钮，进入 STARTER 在线模式。<br><img src="https://img.zzzg.top/20250523230127394.png"></p>
+<p>(2).点击”Restore factory settings”    按钮，变频器参数恢复出厂设置。<br><img src="https://img.zzzg.top/20250523230202306.png" alt="image-20250523223233618"></p>
+<p>5.2、上传参数:变频器 -&gt; PG&#x2F;PC。<br>(1).点击     按钮，进入 STARTER 在线模式。<br><img src="https://img.zzzg.top/20250523230127394.png"></p>
+<p>(2).点击“Load project to PG”     按钮。<br><img src="https://img.zzzg.top/20250523230207642.png" alt="image-20250523223343414"></p>
+<p>(3).点击     按钮，将数据保存在 PG&#x2F;PC 中。<br><img src="https://img.zzzg.top/20250523230214796.png" alt="image-20250523223349703"></p>
+<p>5.3、下载参数: PG&#x2F;PC -&gt; 变频器。<br>(1).点击     按钮，进入 STARTER 在线模式。<br><img src="https://img.zzzg.top/20250523230127394.png"></p>
+<p>(2).点击“Download project to target system”     按钮，将项目下载到变频中。<br><img src="https://img.zzzg.top/20250523230220440.png" alt="image-20250523223407782"></p>
+<p>(3).点击“Copy RAM to ROM”     按钮，将数据保存到变频器中。<br><img src="https://img.zzzg.top/20250523230228156.png" alt="image-20250523223416658"></p>
+<p> <strong>注意：许多参数是可以在线修改的，在线修改完参数后需要重新上载到离线参数中，否则点击下载的话会将离线参数下载到变频器中。</strong></p>
+<p>6、参数设置。<br>6.1、使用配置向导配置变频器系统基本参数。<br>(1).点击“Configuration” 。<br>(2).点击工作区内的“Wizard …”，弹出向导对话框，点击“Next”逐步进行配置。<br><img src="https://img.zzzg.top/20250523230237648.png" alt="image-20250523223430045"></p>
+<p>(3).设置控制结构。<br><img src="https://img.zzzg.top/20250523230248176.png" alt="image-20250523223440470"></p>
+<p>(4).定义命令源和设定值来源。	<br><img src="https://img.zzzg.top/20250523230256863.png" alt="image-20250523223450414"></p>
+<p>(5).驱动器设置。<br><img src="https://img.zzzg.top/20250523230303276.png" alt="image-20250523223458640"></p>
+<p>(6).选择电机类型。<br><img src="https://img.zzzg.top/20250523230309577.png" alt="image-20250523223506895"></p>
+<p>(7).输入与铭牌对应的电机数据。<br><img src="https://img.zzzg.top/20250523230315284.png" alt="image-20250523223516044"></p>
+<p>(8).为电机数据识别选择“Identify motor data at standstill” 。<br><img src="https://img.zzzg.top/20250523230321833.png" alt="image-20250523223525334"></p>
+<p>(9).输入最大电流，最小和最大转速，加、减速时间和 OFF3 紧急关闭减速时间。<br><img src="https://img.zzzg.top/20250523230331437.png" alt="image-20250523223534198"></p>
+<p>(10).点击“Next”，将开始计算电机数据。这样便通过配置向导完成了参数设置。您现在将收到一份有关输入的所有参数值汇总。按“Copy text to clipboard”按键即可将汇总添加到文本文件。最后选择“Copy RAM to ROM”，将参数设置保存到变频器 ROM 存储器内，然后点击“Finish”关闭窗口。<br><img src="https://img.zzzg.top/20250523230338683.png" alt="image-20250523223542937"></p>
+<p>6.2、若使用总线接口，应将默认外部I&#x2F;O配置清除（X07\X08\X09）。<br>(1).点击“Inputs&#x2F;Outputs”。<br>(2).点击工作区内X07\X08\X09对应引脚参数的按钮，弹出向导I&#x2F;O分配对话框。<br>(3).将该引脚对应参数前面的勾选去掉，并点击“OK”按钮，该引脚分配显示“—”。<br><img src="https://img.zzzg.top/20250523230345952.png" alt="image-20250523223552253"></p>
+<p>6.3、其它基本参数设置。<br>(1).设置“Ramp-function generator”。<br><img src="https://img.zzzg.top/20250523230353888.png" alt="image-20250523223604732"></p>
+<p>(2).设置“Motor potentiometer”。<br><img src="https://img.zzzg.top/20250523230400015.png" alt="image-20250523223613817"></p>
+<p>(3).设置“P gain factor”和“Integration time”。<br><img src="https://img.zzzg.top/20250523230406143.png" alt="image-20250523223624398"></p>
+<p>(4).设置“Upper torque limit”。<br><img src="https://img.zzzg.top/20250523230413146.png" alt="image-20250523223632096"></p>
+<p>(5).设置“Current limitation ”。<br><img src="https://img.zzzg.top/20250523230419657.png" alt="image-20250523223641924"></p>
+<p>(6).设置“Power limit ”。<br><img src="https://img.zzzg.top/20250523230425656.png" alt="image-20250523223649828"> </p>
+<p>(7).设置“Low torque limit”。<br><img src="https://img.zzzg.top/20250523230431431.png" alt="image-20250523223702783"></p>
+<p>6.4、电机抱闸设置。在步骤2处设置电机抱闸方式，调试时可通过步骤3-5来强制打开关闭抱闸功能。<br><img src="https://img.zzzg.top/20250523230438399.png" alt="image-20250523223710923"></p>
+<p>设置G120D变频器的安全响应时间。P9659设置成最大值9000<br><img src="https://img.zzzg.top/20250523230445945.png" alt="image-20250523223720556"></p>
+<p>6.5、配置安全功能。配置完成后将配置下载到变频器中即可，安全功能需断电重启。<br><img src="https://img.zzzg.top/20250523230452866.png" alt="image-20250523223729738"></p>
+<p>PLC硬件组态中G120D变频器的安全地址值。<br><img src="https://img.zzzg.top/20250523230501004.png" alt="image-20250523223738733"></p>
+<p>6.6、配置报文，即分配G120D变频器与PLC在PROFINET总线通信下的接口信号(包括PROFIsafe安全功能）。<br>(1).点击“Communication -&gt; Field bus”。<br>(2).配置报文类型。G120D变频器的报文有多种类型，对应着不同的接口信息，根据需要通过下拉菜单可选择不同种类的报文。除999自由报文外，其他种类报文为默认报文，其对应的接口信息无法修改，自由报文可以任意定义接口信息。沃尔沃项目采用的是999自由报文以及30 PROFIsafe标准安全报文。配置G120D变频器报文时，应保持与PLC硬件组态中配置报文类型一致。<br><img src="https://img.zzzg.top/20250523230508841.png" alt="image-20250523223747844"><br><img src="https://img.zzzg.top/20250523230515043.png" alt="image-20250523223752899"></p>
+<p>(3).配置变频器安全报文控制字。<br><img src="https://img.zzzg.top/20250523230521428.png" alt="image-20250523223801670"></p>
+<p>(4).配置变频器自由报文控制字。<br><img src="https://img.zzzg.top/20250523230528073.png" alt="image-20250523223811435"></p>
+<p>(5).配置变频器安全报文状态字。<br><img src="https://img.zzzg.top/20250523230534628.png" alt="image-20250523223819506"></p>
+<p>(6).配置变频器自由报文状态字。<br><img src="https://img.zzzg.top/20250523230543575.png" alt="image-20250523223827945"></p>
+<p>(7).配置变频器自由报文控制字&#x2F;状态字监控。<br><img src="https://img.zzzg.top/20250523230550183.png" alt="image-20250523223837007"></p>
+<p>7、电机试运行。<br>(1).在线模式下点击“Commissioning -&gt; Control panel”。<br>(2).点击工作台区域的“Assume control priority”。<br>(3).输入设置值，并点击“Accept”按钮。<br><img src="https://img.zzzg.top/20250523230559371.png" alt="image-20250523223845302"></p>
+<p>(4).选中工作台区域中“Enables”旁的复选框。<br>(5).设置试运行速度。<br>(6).通过绿色&#x2F;红色按钮来启停电机，或使用JOG点动控制电机运行。<br><img src="https://img.zzzg.top/20250523230606413.png" alt="image-20250523223855097"></p>
+<p>8、状态 LED 一览。<br>控制单元上有一排双色 LED 来指明变频器的运行状态。 具体而言，这些状态有：<br>● 一般故障状态<br>● 通讯状态<br>● 输入和输出的状态<br>● Safety Integrated 安全功能的状态<br>下图展示了各个 LED 在控制单元上的位置。<br><img src="https://img.zzzg.top/20250523230617834.png" alt="image-20250523223904225"></p>
+<p>(1).一般状态 LED 的说明。<br><img src="https://img.zzzg.top/20250523230636359.png" alt="image-20250523223915427"></p>
+<p>(2). PROFIBUS 通讯 LED 的说明。<br><img src="https://img.zzzg.top/20250523230641679.png" alt="image-20250523223923215"></p>
+<p>(3). SAFE LED 的说明。<br><img src="https://img.zzzg.top/20250523230649731.png" alt="image-20250523223934820"></p>
+<p>(4). PROFINET 通讯 LED 的说明。<br><img src="https://img.zzzg.top/20250523230655139.png" alt="image-20250523223943566"></p>
+<p>(5).数字量输入输出状态 LED 的说明。<br><img src="https://img.zzzg.top/20250523230700922.png" alt="image-20250523223951803"></p>
+<p>9、故障和警告列表。<br>详见附件列表。</p>
+<p><strong>G120D Fault and Warning List.pdf</strong>：<a class="btn-beautify pink larger" href="https://pan.yuqi.fun/d/%E5%A4%A9%E7%BF%BC%E4%BA%91%E7%9B%98/%E8%B5%84%E6%96%99/%E6%96%87%E6%A1%A3/G120D%20Fault%20and%20Warning%20List.pdf" title="点击下载"><i class="far fa-hand-point-right"></i><span>点击下载</span></a></p>
 ]]></content>
       <categories>
-        <category>博客运维</category>
+        <category>工业自动化</category>
       </categories>
       <tags>
-        <tag>Hexo</tag>
+        <tag>SINAMICS</tag>
       </tags>
   </entry>
   <entry>
@@ -5933,6 +5869,70 @@
       </tags>
   </entry>
   <entry>
+    <title>在WSL2中使用Clash Verge代理连接</title>
+    <url>/posts/af89448b/</url>
+    <content><![CDATA[<blockquote>
+<p>本文撰写时基于的系统和版本是 Ubuntu 22.04, 如果你使用其他版本或其他发行版，则下文提到的部分步骤与你的实际情况可能有所出入。</p>
+</blockquote>
+<blockquote>
+<p>在 WSL2 中配置环境时，依赖下载经常因为网络问题极其缓慢甚至失败。在整合了各方资料及个人实践后，我总结了在 WSL2 中通过 Clash Verge 设置代理的方法，供大家参考。</p>
+</blockquote>
+<h1 id="在-Clash-客户端内的操作"><a href="#在-Clash-客户端内的操作" class="headerlink" title="在 Clash 客户端内的操作"></a>在 Clash 客户端内的操作</h1><p>打开客户端的局域网连接开关。<br>记录下客户端内的端口，如这里是 <code>7897</code>. 一般默认端口为 <code>7897</code>。</p>
+<p><img src="https://img.zzzg.top/202312131053554.png"></p>
+<h1 id="修改-bashrc"><a href="#修改-bashrc" class="headerlink" title="修改 .bashrc"></a>修改 <code>.bashrc</code></h1><p>使用文本编辑器编辑 <code>.bashrc</code>，在文件末尾根据第 1 步记录的数据，加入三行内容：</p>
+<figure class="highlight shell"><table><tr><td class="code"><pre><span class="line">nano ~/.bashrc</span><br></pre></td></tr></table></figure>
+
+<figure class="highlight bash"><table><tr><td class="code"><pre><span class="line">host_ip=$(<span class="built_in">cat</span> /etc/resolv.conf |grep <span class="string">&quot;nameserver&quot;</span> |<span class="built_in">cut</span> -f 2 -d <span class="string">&quot; &quot;</span>)</span><br><span class="line"><span class="built_in">export</span> http_proxy=<span class="string">&quot;http://<span class="variable">$host_ip</span>:[端口]&quot;</span></span><br><span class="line"><span class="built_in">export</span> https_proxy=<span class="string">&quot;http://<span class="variable">$host_ip</span>:[端口]&quot;</span></span><br></pre></td></tr></table></figure>
+
+<p>如图所示，修改完后保存即可。<br><img src="https://img.zzzg.top/202312131053167.png"></p>
+<h1 id="使-root-用户保留先前设置的环境变量"><a href="#使-root-用户保留先前设置的环境变量" class="headerlink" title="使 root 用户保留先前设置的环境变量"></a>使 root 用户保留先前设置的环境变量</h1><p>在使用 <code>sudo</code> 执行命令时，之前设置的环境变量并不会生效，需要进一步设置。<br>输入 <code>sudo visudo</code></p>
+<p>取消相应行的注释 (删除行首的 <code>#</code>) 即可.<br><img src="https://img.zzzg.top/202312131053399.png"></p>
+<p>如果你使用 Ubuntu 20.04, 加入以下内容并保存。</p>
+<figure class="highlight bash"><table><tr><td class="code"><pre><span class="line">Defaults env_keep=<span class="string">&quot;http_proxy https_proxy&quot;</span></span><br></pre></td></tr></table></figure>
+
+<p><img src="https://img.zzzg.top/202312131053583.png"></p>
+<h1 id="测试"><a href="#测试" class="headerlink" title="测试"></a>测试</h1><p>输入 <code>source ~/.bashrc</code> 使文件修改生效。</p>
+<p>可以通过输入 <code>echo $http_proxy</code> 验证修改是否成功。<br>输入 <code>wget www.google.com</code>, 可以发现连接成功，至此大功告成，如图所示。<br><img src="https://s2.loli.net/2022/10/05/UIQ8LhuROaXq6S2.png"></p>
+<h1 id="参考资料"><a href="#参考资料" class="headerlink" title="参考资料"></a>参考资料</h1><p><a href="https://zhuanlan.zhihu.com/p/153124468">为 WSL2 一键设置代理 (zhihu.com)</a><br><a href="https://www.chenyudong.com/archives/sudo-keep-env.html">sudo保持前用用户的env环境变量 (chenyudong.com, 已失效)</a></p>
+]]></content>
+      <categories>
+        <category>网络技术</category>
+      </categories>
+      <tags>
+        <tag>网络代理</tag>
+      </tags>
+  </entry>
+  <entry>
+    <title>备份Hexo博客到开源仓库</title>
+    <url>/posts/5836c89e/</url>
+    <content><![CDATA[<p>本教程以 gitee 举例，GitHub 同理。</p>
+<h1 id="创建-gitee-仓库"><a href="#创建-gitee-仓库" class="headerlink" title="创建 gitee 仓库"></a>创建 gitee 仓库</h1><p>直接 gitee 官网右上角创建仓库即可，名字什么的自定义，最好创建私人仓库。</p>
+<h1 id="初始化本地仓库"><a href="#初始化本地仓库" class="headerlink" title="初始化本地仓库"></a>初始化本地仓库</h1><p>在本地 hexo 目录运行命令行</p>
+<p>输入</p>
+<figure class="highlight cmd"><table><tr><td class="code"><pre><span class="line">git init</span><br></pre></td></tr></table></figure>
+
+<p>然后输入</p>
+<figure class="highlight cmd"><table><tr><td class="code"><pre><span class="line">git remote add origin git@gitee.com:yuqi15/blog-backup.git</span><br></pre></td></tr></table></figure>
+
+<p>注意：这里是使用你自己创建仓库的链接，刚创建好会在页面上提示</p>
+<p><img src="https://img.zzzg.top/202303031601529.png"></p>
+<h1 id="上传到-gitee"><a href="#上传到-gitee" class="headerlink" title="上传到 gitee"></a>上传到 gitee</h1><p>依次在命令行里面运行下面命令</p>
+<figure class="highlight cmd"><table><tr><td class="code"><pre><span class="line">git add .</span><br><span class="line">git commit -m &quot;update&quot;</span><br><span class="line">git push origin master --force</span><br></pre></td></tr></table></figure>
+
+<p>运行成功就上传完成了</p>
+<h1 id="新设备恢复-hexo-博客"><a href="#新设备恢复-hexo-博客" class="headerlink" title="新设备恢复 hexo 博客"></a>新设备恢复 hexo 博客</h1><p>1、安装 node</p>
+<p>2、安装 Git</p>
+<p>3、在你需要恢复博客的文件夹里面使用命令行执行</p>
+<figure class="highlight cmd"><table><tr><td class="code"><pre><span class="line">cnpm install hexo-cli -g</span><br><span class="line">git clone 你备份的仓库地址</span><br><span class="line">cnpm install</span><br></pre></td></tr></table></figure>
+]]></content>
+      <categories>
+        <category>博客运维</category>
+      </categories>
+      <tags>
+        <tag>Hexo</tag>
+      </tags>
+  </entry>
+  <entry>
     <title>菲尼克斯无线模块配置</title>
     <url>/posts/195e4300/</url>
     <content><![CDATA[<h1 id="发射端及客户端IP设置"><a href="#发射端及客户端IP设置" class="headerlink" title="发射端及客户端IP设置"></a>发射端及客户端IP设置</h1><ul>
@@ -6081,6 +6081,36 @@
       </tags>
   </entry>
   <entry>
+    <title>针对Prodiag现场License弹窗的解决方法</title>
+    <url>/posts/2622eae5/</url>
+    <content><![CDATA[<p>问题：触摸屏报缺少相关的License Key</p>
+<p><img src="https://img.zzzg.top/20250510170721371.png" alt="image-20250510165712437"></p>
+<p>打开2018版EKB秘钥（无法找到秘钥，请更换此2018秘钥）</p>
+<p> <img src="https://img.zzzg.top/20250510170736105.png" alt="image-20250510165723510"></p>
+<p>选择此秘钥，安装长秘钥，</p>
+<p><img src="https://img.zzzg.top/20250510170745318.png" alt="image-20250510165728998"></p>
+<p>方法一：</p>
+<p>打开软件</p>
+<p><img src="https://img.zzzg.top/20250510170755265.png" alt="image-20250510165801227"></p>
+<p>选择下图秘钥—</p>
+<p><img src="https://img.zzzg.top/20250510170801052.png" alt="image-20250510165808104"></p>
+<p>找到下图秘钥–右键点击Transfer</p>
+<p>打开Tansfer 窗口，电脑与HMI屏幕连接后，可以找到需要下载的HMI设备（有具体IP地址），OK确认</p>
+<p><img src="https://img.zzzg.top/20250510170807531.png" alt="image-20250510165818850"></p>
+<p>方法二：也可以右键相关HMI的此属性，打开授权许可</p>
+<p><img src="https://img.zzzg.top/20250510170813884.png" alt="image-20250510165826870"></p>
+<p>找到相关HMI设备。</p>
+<p><img src="https://img.zzzg.top/20250510170821004.png" alt="image-20250510165833281"></p>
+<p>注意：授权传送之后会提示成功，传送成功后授权若消失重新使用EKb安装一遍即可出现。</p>
+]]></content>
+      <categories>
+        <category>工业自动化</category>
+      </categories>
+      <tags>
+        <tag>工业软件</tag>
+      </tags>
+  </entry>
+  <entry>
     <title>贵阳吉利程序解析</title>
     <url>/posts/57946227/</url>
     <content><![CDATA[<h1 id="程序框架"><a href="#程序框架" class="headerlink" title="程序框架"></a>程序框架</h1><p><strong>_00_Organization_Blocks</strong>：系统组织块</p>
@@ -6167,36 +6197,6 @@
 <p><img src="https://img.zzzg.top/202411241536675.png" alt="image-20241124153306459"></p>
 <p><img src="https://img.zzzg.top/202411241536972.png" alt="image-20241124153505708"></p>
 <h1 id="画面"><a href="#画面" class="headerlink" title="画面"></a>画面</h1>]]></content>
-      <categories>
-        <category>工业自动化</category>
-      </categories>
-      <tags>
-        <tag>工业软件</tag>
-      </tags>
-  </entry>
-  <entry>
-    <title>针对Prodiag现场License弹窗的解决方法</title>
-    <url>/posts/2622eae5/</url>
-    <content><![CDATA[<p>问题：触摸屏报缺少相关的License Key</p>
-<p><img src="https://img.zzzg.top/20250510170721371.png" alt="image-20250510165712437"></p>
-<p>打开2018版EKB秘钥（无法找到秘钥，请更换此2018秘钥）</p>
-<p> <img src="https://img.zzzg.top/20250510170736105.png" alt="image-20250510165723510"></p>
-<p>选择此秘钥，安装长秘钥，</p>
-<p><img src="https://img.zzzg.top/20250510170745318.png" alt="image-20250510165728998"></p>
-<p>方法一：</p>
-<p>打开软件</p>
-<p><img src="https://img.zzzg.top/20250510170755265.png" alt="image-20250510165801227"></p>
-<p>选择下图秘钥—</p>
-<p><img src="https://img.zzzg.top/20250510170801052.png" alt="image-20250510165808104"></p>
-<p>找到下图秘钥–右键点击Transfer</p>
-<p>打开Tansfer 窗口，电脑与HMI屏幕连接后，可以找到需要下载的HMI设备（有具体IP地址），OK确认</p>
-<p><img src="https://img.zzzg.top/20250510170807531.png" alt="image-20250510165818850"></p>
-<p>方法二：也可以右键相关HMI的此属性，打开授权许可</p>
-<p><img src="https://img.zzzg.top/20250510170813884.png" alt="image-20250510165826870"></p>
-<p>找到相关HMI设备。</p>
-<p><img src="https://img.zzzg.top/20250510170821004.png" alt="image-20250510165833281"></p>
-<p>注意：授权传送之后会提示成功，传送成功后授权若消失重新使用EKb安装一遍即可出现。</p>
-]]></content>
       <categories>
         <category>工业自动化</category>
       </categories>
