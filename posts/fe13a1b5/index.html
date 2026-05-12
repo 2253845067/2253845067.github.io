@@ -1,0 +1,348 @@
+<!DOCTYPE html><html lang="zh-CN" data-theme="light"><head><meta charset="UTF-8"><meta http-equiv="X-UA-Compatible" content="IE=edge"><meta name="viewport" content="width=device-width, initial-scale=1.0,viewport-fit=cover"><title>给 3x-ui 套上 CF 的方案 让面板不关联到小鸡 IP | 与亓のBlog</title><meta name="author" content="与亓"><meta name="copyright" content="与亓"><meta name="format-detection" content="telephone=no"><meta name="theme-color" content="#ffffff"><meta name="description" content="给 3x-ui 套上 CF 的方案 让面板不关联到小鸡 IP。">
+<meta property="og:type" content="article">
+<meta property="og:title" content="给 3x-ui 套上 CF 的方案 让面板不关联到小鸡 IP">
+<meta property="og:url" content="https://yuqi.im/posts/fe13a1b5/index.html">
+<meta property="og:site_name" content="与亓のBlog">
+<meta property="og:description" content="给 3x-ui 套上 CF 的方案 让面板不关联到小鸡 IP。">
+<meta property="og:locale" content="zh_CN">
+<meta property="og:image" content="https://img.zzzg.top/20260512161109696.jpg">
+<meta property="article:published_time" content="2026-05-11T16:00:00.000Z">
+<meta property="article:modified_time" content="2026-05-11T16:00:00.000Z">
+<meta property="article:author" content="与亓">
+<meta property="article:tag" content="网络代理">
+<meta name="twitter:card" content="summary">
+<meta name="twitter:image" content="https://img.zzzg.top/20260512161109696.jpg"><script type="application/ld+json">{
+  "@context": "https://schema.org",
+  "@type": "BlogPosting",
+  "headline": "给 3x-ui 套上 CF 的方案 让面板不关联到小鸡 IP",
+  "url": "https://yuqi.im/posts/fe13a1b5/",
+  "image": "https://img.zzzg.top/20260512161109696.jpg",
+  "datePublished": "2026-05-11T16:00:00.000Z",
+  "dateModified": "2026-05-11T16:00:00.000Z",
+  "author": [
+    {
+      "@type": "Person",
+      "name": "与亓",
+      "url": "https://yuqi.im"
+    }
+  ]
+}</script><link rel="shortcut icon" href="https://img.zzzg.top/202302272018985.jpg"><link rel="canonical" href="https://yuqi.im/posts/fe13a1b5/index.html"><link rel="preconnect" href="//cdn.jsdelivr.net"/><link rel="stylesheet" href="/css/index.css?v=5.5.4"><link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/@fortawesome/fontawesome-free@7.1.0/css/all.min.css"><script>
+    (() => {
+      
+    const saveToLocal = {
+      set: (key, value, ttl) => {
+        if (!ttl) return
+        const expiry = Date.now() + ttl * 86400000
+        localStorage.setItem(key, JSON.stringify({ value, expiry }))
+      },
+      get: key => {
+        const itemStr = localStorage.getItem(key)
+        if (!itemStr) return undefined
+        const { value, expiry } = JSON.parse(itemStr)
+        if (Date.now() > expiry) {
+          localStorage.removeItem(key)
+          return undefined
+        }
+        return value
+      }
+    }
+
+    window.btf = {
+      saveToLocal,
+      getScript: (url, attr = {}) => new Promise((resolve, reject) => {
+        const script = document.createElement('script')
+        script.src = url
+        script.async = true
+        Object.entries(attr).forEach(([key, val]) => script.setAttribute(key, val))
+        script.onload = script.onreadystatechange = () => {
+          if (!script.readyState || /loaded|complete/.test(script.readyState)) resolve()
+        }
+        script.onerror = reject
+        document.head.appendChild(script)
+      }),
+      getCSS: (url, id) => new Promise((resolve, reject) => {
+        const link = document.createElement('link')
+        link.rel = 'stylesheet'
+        link.href = url
+        if (id) link.id = id
+        link.onload = link.onreadystatechange = () => {
+          if (!link.readyState || /loaded|complete/.test(link.readyState)) resolve()
+        }
+        link.onerror = reject
+        document.head.appendChild(link)
+      }),
+      addGlobalFn: (key, fn, name = false, parent = window) => {
+        if (!false && key.startsWith('pjax')) return
+        const globalFn = parent.globalFn || {}
+        globalFn[key] = globalFn[key] || {}
+        globalFn[key][name || Object.keys(globalFn[key]).length] = fn
+        parent.globalFn = globalFn
+      }
+    }
+  
+      
+      const activateDarkMode = () => {
+        document.documentElement.setAttribute('data-theme', 'dark')
+        if (document.querySelector('meta[name="theme-color"]') !== null) {
+          document.querySelector('meta[name="theme-color"]').setAttribute('content', '#0d0d0d')
+        }
+      }
+      const activateLightMode = () => {
+        document.documentElement.setAttribute('data-theme', 'light')
+        if (document.querySelector('meta[name="theme-color"]') !== null) {
+          document.querySelector('meta[name="theme-color"]').setAttribute('content', '#ffffff')
+        }
+      }
+
+      btf.activateDarkMode = activateDarkMode
+      btf.activateLightMode = activateLightMode
+
+      const theme = saveToLocal.get('theme')
+    
+          theme === 'dark' ? activateDarkMode() : theme === 'light' ? activateLightMode() : null
+        
+      
+      const asideStatus = saveToLocal.get('aside-status')
+      if (asideStatus !== undefined) {
+        document.documentElement.classList.toggle('hide-aside', asideStatus === 'hide')
+      }
+    
+      
+    const detectApple = () => {
+      if (/iPad|iPhone|iPod|Macintosh/.test(navigator.userAgent)) {
+        document.documentElement.classList.add('apple')
+      }
+    }
+    detectApple()
+  
+    })()
+  </script><script>const GLOBAL_CONFIG = {
+  root: '/',
+  algolia: undefined,
+  localSearch: {"path":"/search.xml","preload":false,"top_n_per_article":1,"unescape":false,"pagination":{"enable":false,"hitsPerPage":8},"languages":{"hits_empty":"未找到符合您查询的内容：${query}","hits_stats":"共找到 ${hits} 篇文章"}},
+  translate: undefined,
+  highlight: {"plugin":"highlight.js","highlightCopy":true,"highlightLang":true,"highlightHeightLimit":false,"highlightFullpage":false,"highlightMacStyle":false},
+  copy: {
+    success: '复制成功',
+    error: '复制失败',
+    noSupport: '浏览器不支持'
+  },
+  relativeDate: {
+    homepage: false,
+    post: false
+  },
+  runtime: '',
+  dateSuffix: {
+    just: '刚刚',
+    min: '分钟前',
+    hour: '小时前',
+    day: '天前',
+    month: '个月前'
+  },
+  copyright: undefined,
+  lightbox: 'null',
+  Snackbar: undefined,
+  infinitegrid: {
+    js: 'https://cdn.jsdelivr.net/npm/@egjs/infinitegrid@4.13.0/dist/infinitegrid.min.js',
+    buttonText: '加载更多'
+  },
+  isPhotoFigcaption: false,
+  islazyloadPlugin: false,
+  isAnchor: false,
+  percent: {
+    toc: true,
+    rightside: false,
+  },
+  autoDarkmode: false
+}</script><script id="config-diff">var GLOBAL_CONFIG_SITE = {
+  title: '给 3x-ui 套上 CF 的方案 让面板不关联到小鸡 IP',
+  isHighlightShrink: false,
+  isToc: true,
+  pageType: 'post'
+}</script><script defer src="https://cloud.umami.is/script.js" data-website-id="7c06aeea-722b-4ad7-9255-4cc2b50044be"></script><meta name="generator" content="Hexo 8.1.1"><link rel="alternate" href="/atom.xml" title="与亓のBlog" type="application/atom+xml">
+</head><body><div id="sidebar"><div id="menu-mask"></div><div id="sidebar-menus"><div class="avatar-img text-center"><img src="https://img.zzzg.top/202302272017976.jpg" onerror="this.onerror=null;this.src='/img/friend_404.gif'" alt="avatar"/></div><div class="site-data text-center"><a href="/archives/"><div class="headline">文章</div><div class="length-num">69</div></a><a href="/tags/"><div class="headline">标签</div><div class="length-num">33</div></a><a href="/categories/"><div class="headline">分类</div><div class="length-num">19</div></a></div><div class="menus_items"><div class="menus_item"><a class="site-page" href="/"><i class="fa-fw fa fa-home"></i><span> 主页</span></a></div><div class="menus_item"><span class="site-page group"><i class="fa-fw fa fa-graduation-cap"></i><span> 博文</span><i class="fas fa-chevron-down"></i></span><ul class="menus_item_child"><li><a class="site-page child" href="/archives/"><i class="fa-fw fa fa-folder-open"></i><span> 归档</span></a></li><li><a class="site-page child" href="/categories/"><i class="fa-fw fa fa-archive"></i><span> 分类</span></a></li><li><a class="site-page child" href="/tags/"><i class="fa-fw fa fa-tags"></i><span> 标签</span></a></li></ul></div><div class="menus_item"><span class="site-page group"><i class="fa-fw fa fa-external-link"></i><span> 外链</span><i class="fas fa-chevron-down"></i></span><ul class="menus_item_child"><li><a class="site-page child" target="_blank" rel="noopener" href="https://zzzg.top"><i class="fa-fw fa fa-compass"></i><span> 与亓导航</span></a></li><li><a class="site-page child" target="_blank" rel="noopener" href="https://cloud.umami.is/share/2ewyVCnIAXHh4rRQ/yuqi.im"><i class="fa-fw fa fa-bar-chart"></i><span> 访问量统计</span></a></li></ul></div><div class="menus_item"><a class="site-page" href="/link/"><i class="fa-fw fa fa-link"></i><span> 友链</span></a></div><div class="menus_item"><a class="site-page" href="/comment/"><i class="fa-fw fa fa-paper-plane"></i><span> 留言板</span></a></div><div class="menus_item"><a class="site-page" href="/about/"><i class="fa-fw fa fa-heart"></i><span> 关于</span></a></div></div></div></div><div class="post" id="body-wrap"><header class="post-bg" id="page-header" style="background-image: url(https://img.zzzg.top/20260512161109696.jpg);"><nav id="nav"><span id="blog-info"><a class="nav-site-title" href="/"><span class="site-name">与亓のBlog</span></a><a class="nav-page-title" href="/"><span class="site-name">给 3x-ui 套上 CF 的方案 让面板不关联到小鸡 IP</span><span class="site-name"><i class="fa-solid fa-circle-arrow-left"></i><span>  返回首页</span></span></a></span><div id="menus"><div id="search-button"><span class="site-page social-icon search"><i class="fas fa-search fa-fw"></i><span> 搜索</span></span></div><div class="menus_items"><div class="menus_item"><a class="site-page" href="/"><i class="fa-fw fa fa-home"></i><span> 主页</span></a></div><div class="menus_item"><span class="site-page group"><i class="fa-fw fa fa-graduation-cap"></i><span> 博文</span><i class="fas fa-chevron-down"></i></span><ul class="menus_item_child"><li><a class="site-page child" href="/archives/"><i class="fa-fw fa fa-folder-open"></i><span> 归档</span></a></li><li><a class="site-page child" href="/categories/"><i class="fa-fw fa fa-archive"></i><span> 分类</span></a></li><li><a class="site-page child" href="/tags/"><i class="fa-fw fa fa-tags"></i><span> 标签</span></a></li></ul></div><div class="menus_item"><span class="site-page group"><i class="fa-fw fa fa-external-link"></i><span> 外链</span><i class="fas fa-chevron-down"></i></span><ul class="menus_item_child"><li><a class="site-page child" target="_blank" rel="noopener" href="https://zzzg.top"><i class="fa-fw fa fa-compass"></i><span> 与亓导航</span></a></li><li><a class="site-page child" target="_blank" rel="noopener" href="https://cloud.umami.is/share/2ewyVCnIAXHh4rRQ/yuqi.im"><i class="fa-fw fa fa-bar-chart"></i><span> 访问量统计</span></a></li></ul></div><div class="menus_item"><a class="site-page" href="/link/"><i class="fa-fw fa fa-link"></i><span> 友链</span></a></div><div class="menus_item"><a class="site-page" href="/comment/"><i class="fa-fw fa fa-paper-plane"></i><span> 留言板</span></a></div><div class="menus_item"><a class="site-page" href="/about/"><i class="fa-fw fa fa-heart"></i><span> 关于</span></a></div></div><div id="toggle-menu"><span class="site-page"><i class="fas fa-bars fa-fw"></i></span></div></div></nav><div id="post-info"><h1 class="post-title">给 3x-ui 套上 CF 的方案 让面板不关联到小鸡 IP</h1><div id="post-meta"><div class="meta-firstline"><span class="post-meta-date"><i class="far fa-calendar-alt fa-fw post-meta-icon"></i><span class="post-meta-label">发表于</span><time class="post-meta-date-created" datetime="2026-05-11T16:00:00.000Z" title="发表于 2026-05-12 00:00:00">2026-05-12</time><span class="post-meta-separator">|</span><i class="fas fa-history fa-fw post-meta-icon"></i><span class="post-meta-label">更新于</span><time class="post-meta-date-updated" datetime="2026-05-11T16:00:00.000Z" title="更新于 2026-05-12 00:00:00">2026-05-12</time></span><span class="post-meta-categories"><span class="post-meta-separator">|</span><i class="fas fa-inbox fa-fw post-meta-icon"></i><a class="post-meta-categories" href="/categories/%E7%BD%91%E7%BB%9C%E6%8A%80%E6%9C%AF/">网络技术</a></span></div><div class="meta-secondline"></div></div></div></header><main class="layout" id="content-inner"><div id="post"><article class="container post-content" id="article-container"><div id="post-outdate-notice" data="{&quot;limitDay&quot;:180,&quot;messagePrev&quot;:&quot;It has been&quot;,&quot;messageNext&quot;:&quot;days since the last update, the content of the article may be outdated.&quot;,&quot;postUpdate&quot;:&quot;2026-05-12 00:00:00&quot;}" hidden></div><p>3x-ui 的面板因其特征明显，经常会被扫描探测，特别是使用免费证书时，面板域名会直接与 VPS IP 关联，存在较大的暴露风险。本方案利用 CF 小黄云、回源证书、回源规则的特性，让 3x-ui 面板与订阅都套上 CF，从而实现面板与 VPS IP 无关联。</p>
+<h1 id="优势"><a href="#优势" class="headerlink" title="优势"></a>优势</h1><ul>
+<li>回源证书有效期 15 年，无需续签</li>
+<li>隐藏 VPS IP，面板域名不关联 VPS</li>
+<li>通过 CF 强大的回源规则设置，可以实现面板访问、订阅访问</li>
+<li>面板端口任意</li>
+<li>订阅端口任意</li>
+<li>免费 DDoS 防护，CF 自带流量清洗</li>
+</ul>
+<p>配合面板本身的<strong>监听域名</strong>与<strong>路径</strong>功能，形成防护：</p>
+<ol>
+<li><strong>端口层</strong>：面板端口即使被扫描到，因无 CF 回源证书而无法建立 HTTPS，访问失败</li>
+<li><strong>路径层</strong>：即使知道面板域名，没有正确的访问路径，同样无法进入面板</li>
+</ol>
+<h1 id="原理"><a href="#原理" class="headerlink" title="原理"></a>原理</h1><p><strong>回源规则（Origin Rules）</strong>：当访问面板域名时，回源到指定的端口，而不是默认端口。这样对外只需访问标准地址 <code>https://dmit.deepseaside.com/路径</code>，CF 会自动将请求转发到源站实际监听的端口。</p>
+<p><img src="https://img.zzzg.top/20260512161138864.png"></p>
+<hr>
+<h1 id="方案"><a href="#方案" class="headerlink" title="方案"></a>方案</h1><blockquote>
+<p>注：免费版 CF 域名计划，每个域名只支持 10 条回源规则，此方案占用 2 条——订阅一条，面板一条。</p>
+</blockquote>
+<h2 id="前置准备"><a href="#前置准备" class="headerlink" title="前置准备"></a>前置准备</h2><ul>
+<li>域名已托管在 CF</li>
+<li>3x-ui 安装完成（建议安装时选择申请 IP 证书）</li>
+</ul>
+<p>准备以下参数（以下为路径和端口示例，建议端口选高位，路径用密码生成器生成）：</p>
+<table>
+<thead>
+<tr>
+<th>项目</th>
+<th>示例</th>
+</tr>
+</thead>
+<tbody><tr>
+<td>面板端口</td>
+<td><code>33321</code></td>
+</tr>
+<tr>
+<td>订阅端口</td>
+<td><code>33322</code></td>
+</tr>
+<tr>
+<td>面板路径</td>
+<td><code>/uUNE88baZ5jb/</code></td>
+</tr>
+<tr>
+<td>订阅路径</td>
+<td><code>/bNWkcx4kk3ra/</code></td>
+</tr>
+<tr>
+<td>Clash 订阅路径</td>
+<td><code>/SLt38gCV4xtq/</code></td>
+</tr>
+</tbody></table>
+<hr>
+<h2 id="域名及-SSL-设置"><a href="#域名及-SSL-设置" class="headerlink" title="域名及 SSL 设置"></a>域名及 SSL 设置</h2><h3 id="子域名配置"><a href="#子域名配置" class="headerlink" title="子域名配置"></a>子域名配置</h3><p>进入域名页面 → <strong>DNS</strong> → 添加子域名 A 记录，开启小黄云</p>
+<p>示例域名：<code>dmit.deepseaside.com</code></p>
+<p><img src="https://img.zzzg.top/20260512161249960.png"></p>
+<h3 id="SSL-设置"><a href="#SSL-设置" class="headerlink" title="SSL 设置"></a>SSL 设置</h3><p>进入域名页面 → <strong>SSL&#x2F;TLS</strong> → 概述 → SSL&#x2F;TLS 加密（配置）→ 自定义 SSL&#x2F;TLS → <strong>完整（严格）</strong></p>
+<p><img src="https://img.zzzg.top/20260512161311116.png"></p>
+<hr>
+<h2 id="生成回源证书"><a href="#生成回源证书" class="headerlink" title="生成回源证书"></a>生成回源证书</h2><p>进入域名页面 → <strong>SSL&#x2F;TLS</strong> → 源服务器 → Origin 证书 → 创建证书</p>
+<ul>
+<li>复制源证书内容 → 保存为 <code>deepseaside.com.pem</code></li>
+<li>复制私钥内容 → 保存为 <code>deepseaside.com.key</code></li>
+</ul>
+<blockquote>
+<p>⚠️ 私钥只显示一次，关闭弹窗后无法找回，请务必保存。</p>
+</blockquote>
+<p><img src="https://img.zzzg.top/20260512161328706.png"></p>
+<hr>
+<h2 id="将证书上传至-VPS"><a href="#将证书上传至-VPS" class="headerlink" title="将证书上传至 VPS"></a>将证书上传至 VPS</h2><p>文件可上传至 VPS 任意路径，注意文件权限。示例路径：</p>
+<figure class="highlight swift"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line"><span class="regexp">/etc/</span>ssl<span class="regexp">/private/</span>deepseaside.com.pem</span><br><span class="line"><span class="regexp">/etc/</span>ssl<span class="regexp">/private/</span>deepseaside.com.key</span><br></pre></td></tr></table></figure>
+
+<p><img src="https://img.zzzg.top/20260512161351511.png"></p>
+<hr>
+<h2 id="回源规则设置"><a href="#回源规则设置" class="headerlink" title="回源规则设置"></a>回源规则设置</h2><p>进入域名页面 → <strong>规则</strong> → 概述 → 创建回源规则（Origin Rules）</p>
+<p><img src="https://img.zzzg.top/20260512161431772.png"></p>
+<p><strong>面板回源规则</strong></p>
+<figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br></pre></td><td class="code"><pre><span class="line">主机名 等于      dmit.deepseaside.com</span><br><span class="line">and</span><br><span class="line">URI 开头为       /uUNE88baZ5jb/</span><br><span class="line">and</span><br><span class="line">SSL/HTTPS 等于</span><br><span class="line">目标端口重写到   33321</span><br></pre></td></tr></table></figure>
+
+<p><img src="https://img.zzzg.top/20260512161442454.png"></p>
+<p><strong>订阅回源规则</strong></p>
+<figure class="highlight swift"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br></pre></td><td class="code"><pre><span class="line">主机名 等于      dmit.deepseaside.com</span><br><span class="line">and</span><br><span class="line"><span class="type">URI</span> 包含         <span class="regexp">/bNWkcx4kk3ra/</span></span><br><span class="line">and</span><br><span class="line"><span class="type">SSL</span><span class="operator">/</span><span class="type">HTTPS</span> 等于</span><br><span class="line">or</span><br><span class="line">主机名 等于      dmit.deepseaside.com</span><br><span class="line">and</span><br><span class="line"><span class="type">URI</span> 包含         <span class="regexp">/SLt38gCV4xtq/</span></span><br><span class="line">and</span><br><span class="line"><span class="type">SSL</span><span class="operator">/</span><span class="type">HTTPS</span> 等于</span><br><span class="line">目标端口重写到   <span class="number">33322</span></span><br></pre></td></tr></table></figure>
+
+<p><img src="https://img.zzzg.top/20260512174405128.png"></p>
+<hr>
+<h2 id="3x-ui-面板配置"><a href="#3x-ui-面板配置" class="headerlink" title="3x-ui 面板配置"></a>3x-ui 面板配置</h2><blockquote>
+<p>建议填写过程中多次保存，不保存直接切换页面内容会失效。<br>统一填写检查完成后，再重启面板。<br>第一次填写时，监听域名可留空，确认面板和订阅均可正常访问后，再填写监听域名。</p>
+</blockquote>
+<p>面板设置</p>
+<p><img src="https://img.zzzg.top/20260512174417067.png"></p>
+<p>订阅设置</p>
+<p><img src="https://img.zzzg.top/20260512174527506.png"></p>
+<p>Clash 订阅设置</p>
+<p><img src="https://img.zzzg.top/20260512174553824.png"></p>
+<hr>
+<h2 id="最终访问路径如下"><a href="#最终访问路径如下" class="headerlink" title="最终访问路径如下"></a>最终访问路径如下</h2><table>
+<thead>
+<tr>
+<th>项目</th>
+<th>访问地址</th>
+</tr>
+</thead>
+<tbody><tr>
+<td>面板</td>
+<td><code>https://dmit.deepseaside.com/uUNE88baZ5jb/</code></td>
+</tr>
+<tr>
+<td>订阅</td>
+<td><code>https://dmit.deepseaside.com/bNWkcx4kk3ra/客户端订阅路径</code></td>
+</tr>
+<tr>
+<td>Clash 订阅</td>
+<td><code>https://dmit.deepseaside.com/SLt38gCV4xtq/客户端订阅路径</code></td>
+</tr>
+</tbody></table>
+<hr>
+<h2 id="附：节点地址问题"><a href="#附：节点地址问题" class="headerlink" title="附：节点地址问题"></a>附：节点地址问题</h2><p>面板套上 CF 后，3x-ui 订阅里所有节点的地址会变成面板域名。但面板域名套了 CF，节点直连走 CF 不通。</p>
+<p>解决方案：在节点设置里开启 <strong>External Proxy</strong> 选项。</p>
+<blockquote>
+<p><code>External Proxy</code> 只影响该节点订阅里的节点地址。</p>
+</blockquote>
+<p>External Proxy</p>
+<p><img src="https://img.zzzg.top/20260512174607068.png"></p>
+<h1 id="使用fail2ban-manager"><a href="#使用fail2ban-manager" class="headerlink" title="使用fail2ban manager"></a>使用fail2ban manager</h1><p>更简单一点装个fail2ban manager，给面板端口设置白名单，除了你自己白名单ip谁也访问不了</p>
+<p><img src="https://img.zzzg.top/20260512174746934.png"><br><img src="https://img.zzzg.top/20260512174800687.png"></p>
+</article><div class="post-copyright"><div class="post-copyright__author"><span class="post-copyright-meta"><i class="fas fa-circle-user fa-fw"></i>文章作者: </span><span class="post-copyright-info"><a href="https://yuqi.im">与亓</a></span></div><div class="post-copyright__type"><span class="post-copyright-meta"><i class="fas fa-square-arrow-up-right fa-fw"></i>文章链接: </span><span class="post-copyright-info"><a href="https://yuqi.im/posts/fe13a1b5/">https://yuqi.im/posts/fe13a1b5/</a></span></div><div class="post-copyright__notice"><span class="post-copyright-meta"><i class="fas fa-circle-exclamation fa-fw"></i>版权声明: </span><span class="post-copyright-info">本博客所有文章除特别声明外，均采用 <a href="https://creativecommons.org/licenses/by-nc-sa/4.0/" target="_blank">CC BY-NC-SA 4.0</a> 许可协议。转载请注明来源 <a href="https://yuqi.im" target="_blank">与亓のBlog</a>！</span></div></div><div class="tag_share"><div class="post-meta__tag-list"><a class="post-meta__tags" href="/tags/%E7%BD%91%E7%BB%9C%E4%BB%A3%E7%90%86/">网络代理</a></div><div class="post-share"><div class="social-share" data-image="https://img.zzzg.top/20260512161109696.jpg" data-sites="facebook,x,wechat,weibo,qq"></div><link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/butterfly-extsrc@1.1.6/sharejs/dist/css/share.min.css" media="print" onload="this.media='all'"><script src="https://cdn.jsdelivr.net/npm/butterfly-extsrc@1.1.6/sharejs/dist/js/social-share.min.js" defer></script></div></div><nav class="pagination-post" id="pagination"><a class="pagination-related full-width" href="/posts/195e4300/" title="菲尼克斯无线模块配置"><img class="cover" src="https://img.zzzg.top/20260412152013842.jpg" onerror="onerror=null;src='/img/404.jpg'" alt="cover of next post"><div class="info text-right"><div class="info-1"><div class="info-item-1">下一篇</div><div class="info-item-2">菲尼克斯无线模块配置</div></div><div class="info-2"><div class="info-item-1">菲尼克斯无线模块配置。</div></div></div></a></nav><div class="relatedPosts"><div class="headline"><i class="fas fa-thumbs-up fa-fw"></i><span>相关推荐</span></div><div class="relatedPosts-list"><a class="pagination-related" href="/posts/af28068c/" title="x-ui最稳妥的魔术面板"><img class="cover" src="https://img.zzzg.top/202311061447833.jpg" alt="cover"><div class="info text-center"><div class="info-1"><div class="info-item-1"><i class="far fa-calendar-alt fa-fw"></i> 2023-11-06</div><div class="info-item-2">x-ui最稳妥的魔术面板</div></div><div class="info-2"><div class="info-item-1">X-UI 魔术面板的稳妥配置方法，包含安全设置、性能优化及常见问题解决方案，助您搭建稳定高效的代理服务。</div></div></div></a><a class="pagination-related" href="/posts/97aa67fb/" title="Clash Verge规则配置"><img class="cover" src="https://img.zzzg.top/202312120920244.jpg" alt="cover"><div class="info text-center"><div class="info-1"><div class="info-item-1"><i class="far fa-calendar-alt fa-fw"></i> 2023-12-12</div><div class="info-item-2">Clash Verge规则配置</div></div><div class="info-2"><div class="info-item-1">详细介绍 Clash Verge 的规则配置方法，包括代理规则、策略组设置以及常见问题解决方案。</div></div></div></a><a class="pagination-related" href="/posts/af89448b/" title="在WSL2中使用Clash Verge代理连接"><img class="cover" src="https://img.zzzg.top/202312131055743.jpg" alt="cover"><div class="info text-center"><div class="info-1"><div class="info-item-1"><i class="far fa-calendar-alt fa-fw"></i> 2023-12-13</div><div class="info-item-2">在WSL2中使用Clash Verge代理连接</div></div><div class="info-2"><div class="info-item-1">详细指导在WSL2中通过Windows宿主机的Clash Verge实现网络代理，解决开发环境网络访问问题。包含系统代理、环境变量和DNS配置。</div></div></div></a><a class="pagination-related" href="/posts/a53fea94/" title="V2RayA——新一代Linux客户端安装配置教程"><img class="cover" src="https://img.zzzg.top/202304100748922.png" alt="cover"><div class="info text-center"><div class="info-1"><div class="info-item-1"><i class="far fa-calendar-alt fa-fw"></i> 2023-04-10</div><div class="info-item-2">V2RayA——新一代Linux客户端安装配置教程</div></div><div class="info-2"><div class="info-item-1">V2RayA 是一款基于 V2Ray 内核的新一代 Linux 代理客户端，本教程详细讲解其安装、配置及使用技巧，助您轻松搭建代理环境。</div></div></div></a><a class="pagination-related" href="/posts/9b626a72/" title="手搓xray配置文件"><img class="cover" src="https://img.zzzg.top/20250718125343514.jpg" alt="cover"><div class="info text-center"><div class="info-1"><div class="info-item-1"><i class="far fa-calendar-alt fa-fw"></i> 2025-07-18</div><div class="info-item-2">手搓xray配置文件</div></div><div class="info-2"><div class="info-item-1">从零开始手动编写Xray配置文件的完整教程，包含核心参数解析、协议选择、路由规则及性能优化技巧，适合高级用户定制化需求。</div></div></div></a><a class="pagination-related" href="/posts/1b7388f/" title="最佳免费VPN方式-workers搭建vless使用"><img class="cover" src="https://img.zzzg.top/202311061039974.jpg" alt="cover"><div class="info text-center"><div class="info-1"><div class="info-item-1"><i class="far fa-calendar-alt fa-fw"></i> 2023-10-26</div><div class="info-item-2">最佳免费VPN方式-workers搭建vless使用</div></div><div class="info-2"><div class="info-item-1">无需服务器的免费VLESS代理方案，利用Cloudflare Workers边缘计算实现安全网络加速。包含完整部署教程和配置优化建议。</div></div></div></a></div></div><hr class="custom-hr"/><div id="post-comment"><div class="comment-head"><div class="comment-headline"><i class="fas fa-comments fa-fw"></i><span> 评论</span></div></div><div class="comment-wrap"><div><div id="twikoo-wrap"></div></div></div></div></div><div class="aside-content" id="aside-content"><div class="card-widget card-info text-center"><div class="avatar-img"><img src="https://img.zzzg.top/202302272017976.jpg" onerror="this.onerror=null;this.src='/img/friend_404.gif'" alt="avatar"/></div><div class="author-info-name">与亓</div><div class="author-info-description">与亓的个人技术博客，分享编程开发、系统架构与生活思考</div><div class="site-data"><a href="/archives/"><div class="headline">文章</div><div class="length-num">69</div></a><a href="/tags/"><div class="headline">标签</div><div class="length-num">33</div></a><a href="/categories/"><div class="headline">分类</div><div class="length-num">19</div></a></div><a id="card-info-btn" target="_blank" rel="noopener" href="https://github.com/2253845067"><i class="fab fa-github"></i><span>Follow Me</span></a><div class="card-info-social-icons"><a class="social-icon" href="https://github.com/2253845067" target="_blank" title="Github"><i class="fab fa-github"></i></a><a class="social-icon" href="mailto:2253845067@qq.com" target="_blank" title="Email"><i class="fas fa-envelope"></i></a></div></div><div class="card-widget card-announcement"><div class="item-headline"><i class="fas fa-bullhorn fa-shake"></i><span>公告</span></div><div class="announcement_content">This is my Blog</div></div><div class="sticky_layout"><div class="card-widget" id="card-toc"><div class="item-headline"><i class="fas fa-stream"></i><span>目录</span><span class="toc-percentage"></span></div><div class="toc-content"><ol class="toc"><li class="toc-item toc-level-1"><a class="toc-link" href="#%E4%BC%98%E5%8A%BF"><span class="toc-text">优势</span></a></li><li class="toc-item toc-level-1"><a class="toc-link" href="#%E5%8E%9F%E7%90%86"><span class="toc-text">原理</span></a></li><li class="toc-item toc-level-1"><a class="toc-link" href="#%E6%96%B9%E6%A1%88"><span class="toc-text">方案</span></a><ol class="toc-child"><li class="toc-item toc-level-2"><a class="toc-link" href="#%E5%89%8D%E7%BD%AE%E5%87%86%E5%A4%87"><span class="toc-text">前置准备</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#%E5%9F%9F%E5%90%8D%E5%8F%8A-SSL-%E8%AE%BE%E7%BD%AE"><span class="toc-text">域名及 SSL 设置</span></a><ol class="toc-child"><li class="toc-item toc-level-3"><a class="toc-link" href="#%E5%AD%90%E5%9F%9F%E5%90%8D%E9%85%8D%E7%BD%AE"><span class="toc-text">子域名配置</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#SSL-%E8%AE%BE%E7%BD%AE"><span class="toc-text">SSL 设置</span></a></li></ol></li><li class="toc-item toc-level-2"><a class="toc-link" href="#%E7%94%9F%E6%88%90%E5%9B%9E%E6%BA%90%E8%AF%81%E4%B9%A6"><span class="toc-text">生成回源证书</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#%E5%B0%86%E8%AF%81%E4%B9%A6%E4%B8%8A%E4%BC%A0%E8%87%B3-VPS"><span class="toc-text">将证书上传至 VPS</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#%E5%9B%9E%E6%BA%90%E8%A7%84%E5%88%99%E8%AE%BE%E7%BD%AE"><span class="toc-text">回源规则设置</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#3x-ui-%E9%9D%A2%E6%9D%BF%E9%85%8D%E7%BD%AE"><span class="toc-text">3x-ui 面板配置</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#%E6%9C%80%E7%BB%88%E8%AE%BF%E9%97%AE%E8%B7%AF%E5%BE%84%E5%A6%82%E4%B8%8B"><span class="toc-text">最终访问路径如下</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#%E9%99%84%EF%BC%9A%E8%8A%82%E7%82%B9%E5%9C%B0%E5%9D%80%E9%97%AE%E9%A2%98"><span class="toc-text">附：节点地址问题</span></a></li></ol></li><li class="toc-item toc-level-1"><a class="toc-link" href="#%E4%BD%BF%E7%94%A8fail2ban-manager"><span class="toc-text">使用fail2ban manager</span></a></li></ol></div></div><div class="card-widget card-recent-post"><div class="item-headline"><i class="fas fa-history"></i><span>最新文章</span></div><div class="aside-list"><div class="aside-list-item"><a class="thumbnail" href="/posts/fe13a1b5/" title="给 3x-ui 套上 CF 的方案 让面板不关联到小鸡 IP"><img src="https://img.zzzg.top/20260512161109696.jpg" onerror="this.onerror=null;this.src='/img/404.jpg'" alt="给 3x-ui 套上 CF 的方案 让面板不关联到小鸡 IP"/></a><div class="content"><a class="title" href="/posts/fe13a1b5/" title="给 3x-ui 套上 CF 的方案 让面板不关联到小鸡 IP">给 3x-ui 套上 CF 的方案 让面板不关联到小鸡 IP</a><time datetime="2026-05-11T16:00:00.000Z" title="发表于 2026-05-12 00:00:00">2026-05-12</time></div></div><div class="aside-list-item"><a class="thumbnail" href="/posts/d5ce6259/" title="G120D变频器配置"><img src="https://img.zzzg.top/20260412151924231.jpg" onerror="this.onerror=null;this.src='/img/404.jpg'" alt="G120D变频器配置"/></a><div class="content"><a class="title" href="/posts/d5ce6259/" title="G120D变频器配置">G120D变频器配置</a><time datetime="2026-04-11T16:00:00.000Z" title="发表于 2026-04-12 00:00:00">2026-04-12</time></div></div><div class="aside-list-item"><a class="thumbnail" href="/posts/195e4300/" title="菲尼克斯无线模块配置"><img src="https://img.zzzg.top/20260412152013842.jpg" onerror="this.onerror=null;this.src='/img/404.jpg'" alt="菲尼克斯无线模块配置"/></a><div class="content"><a class="title" href="/posts/195e4300/" title="菲尼克斯无线模块配置">菲尼克斯无线模块配置</a><time datetime="2026-04-11T16:00:00.000Z" title="发表于 2026-04-12 00:00:00">2026-04-12</time></div></div><div class="aside-list-item"><a class="thumbnail" href="/posts/93246652/" title="Oracle数据库和PDPS安装及配置"><img src="https://img.zzzg.top/20260411110607417.jpg" onerror="this.onerror=null;this.src='/img/404.jpg'" alt="Oracle数据库和PDPS安装及配置"/></a><div class="content"><a class="title" href="/posts/93246652/" title="Oracle数据库和PDPS安装及配置">Oracle数据库和PDPS安装及配置</a><time datetime="2026-04-10T16:00:00.000Z" title="发表于 2026-04-11 00:00:00">2026-04-11</time></div></div><div class="aside-list-item"><a class="thumbnail" href="/posts/e82186c7/" title="使用 Duplicati 定时备份服务器资料"><img src="https://img.zzzg.top/20260411110714511.jpg" onerror="this.onerror=null;this.src='/img/404.jpg'" alt="使用 Duplicati 定时备份服务器资料"/></a><div class="content"><a class="title" href="/posts/e82186c7/" title="使用 Duplicati 定时备份服务器资料">使用 Duplicati 定时备份服务器资料</a><time datetime="2026-04-10T16:00:00.000Z" title="发表于 2026-04-11 00:00:00">2026-04-11</time></div></div></div></div></div></div></main><footer id="footer"><div class="footer-other"><div class="footer-copyright"><span class="copyright">&copy;&nbsp;2025 - 2026 By 与亓</span><span class="framework-info"><span>框架 </span><a target="_blank" rel="noopener" href="https://hexo.io">Hexo 8.1.1</a><span class="footer-separator">|</span><span>主题 </span><a target="_blank" rel="noopener" href="https://github.com/jerryc127/hexo-theme-butterfly">Butterfly 5.5.4</a></span></div></div></footer></div><div id="rightside"><div id="rightside-config-hide"><button id="readmode" type="button" title="阅读模式"><i class="fas fa-book-open"></i></button><button id="darkmode" type="button" title="日间和夜间模式切换"><i class="fas fa-adjust"></i></button><button id="hide-aside-btn" type="button" title="单栏和双栏切换"><i class="fas fa-arrows-alt-h"></i></button></div><div id="rightside-config-show"><button id="rightside-config" type="button" title="设置"><i class="fas fa-cog fa-spin"></i></button><button class="close" id="mobile-toc-button" type="button" title="目录"><i class="fas fa-list-ul"></i></button><a id="to_comment" href="#post-comment" title="前往评论"><i class="fas fa-comments"></i></a><button id="go-up" type="button" title="回到顶部"><span class="scroll-percent"></span><i class="fas fa-arrow-up"></i></button></div></div><div><script src="/js/utils.js?v=5.5.4"></script><script src="/js/main.js?v=5.5.4"></script><div class="js-pjax"><script>(() => {
+  const isShuoshuo = GLOBAL_CONFIG_SITE.pageType === 'shuoshuo'
+  const option = null
+
+  const getCount = () => {
+    const countELement = document.getElementById('twikoo-count')
+    if(!countELement) return
+    twikoo.getCommentsCount({
+      envId: 'https://tw.yuqi.im/.netlify/functions/twikoo',
+      region: '',
+      urls: [window.location.pathname],
+      includeReply: false
+    }).then(res => {
+      countELement.textContent = res[0].count
+    }).catch(err => {
+      console.error(err)
+    })
+  }
+
+  const init = (el = document, path = location.pathname) => {
+    twikoo.init({
+      el: el.querySelector('#twikoo-wrap'),
+      envId: 'https://tw.yuqi.im/.netlify/functions/twikoo',
+      region: '',
+      onCommentLoaded: () => {
+        btf.loadLightbox(document.querySelectorAll('#twikoo .tk-content img:not(.tk-owo-emotion)'))
+      },
+      ...option,
+      path: isShuoshuo ? path : (option && option.path) || path
+    })
+
+    GLOBAL_CONFIG_SITE.pageType === 'post' && getCount()
+
+    isShuoshuo && (window.shuoshuoComment.destroyTwikoo = () => {
+      if (el.children.length) {
+        el.innerHTML = ''
+        el.classList.add('no-comment')
+      }
+    })
+  }
+
+  const loadTwikoo = (el, path) => {
+    if (typeof twikoo === 'object') setTimeout(() => init(el, path), 0)
+    else btf.getScript('https://cdn.jsdelivr.net/npm/twikoo@1.7.7/dist/twikoo.all.min.js').then(() => init(el, path))
+  }
+
+  if (isShuoshuo) {
+    'Twikoo' === 'Twikoo'
+      ? window.shuoshuoComment = { loadComment: loadTwikoo }
+      : window.loadOtherComment = loadTwikoo
+    return
+  }
+
+  if ('Twikoo' === 'Twikoo' || !true) {
+    if (true) btf.loadComment(document.getElementById('twikoo-wrap'), loadTwikoo)
+    else loadTwikoo()
+  } else {
+    window.loadOtherComment = loadTwikoo
+  }
+})()</script></div><div id="local-search"><div class="search-dialog"><nav class="search-nav"><span class="search-dialog-title">搜索</span><i class="fas fa-spinner fa-pulse" id="loading-status" hidden="hidden"></i><button class="search-close-button"><i class="fas fa-times"></i></button></nav><div class="text-center" id="loading-database"><i class="fas fa-spinner fa-pulse"></i><span>  数据加载中</span></div><div class="local-search-input"><input placeholder="搜索文章" type="text"/></div><hr/><div id="local-search-results"></div><div class="ais-Pagination" id="local-search-pagination" style="display:none;"><ul class="ais-Pagination-list"></ul></div><div id="local-search-stats"></div></div><div id="search-mask"></div><script src="/js/search/local-search.js?v=5.5.4"></script></div></div></body></html>
