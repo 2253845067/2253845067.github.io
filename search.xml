@@ -305,6 +305,57 @@
       </tags>
   </entry>
   <entry>
+    <title>AList搭建</title>
+    <url>/posts/1f49e4a4/</url>
+    <content><![CDATA[<h1 id="一、项目展示"><a href="#一、项目展示" class="headerlink" title="一、项目展示"></a>一、项目展示</h1><p>GitHub 项目地址：<a href="https://github.com/Xhofe/alist">https://github.com/Xhofe/alist</a></p>
+<p>Demo：<a href="https://alist.nn.ci/">https://alist.nn.ci</a></p>
+<p>Alist 文档地址：<a href="https://alist-doc.nn.ci/en/">https://alist-doc.nn.ci/en/</a></p>
+<p><img src="https://img.zzzg.top/202303040811308.png" alt="成品预览"></p>
+<h1 id="二、搭建环境"><a href="#二、搭建环境" class="headerlink" title="二、搭建环境"></a>二、搭建环境</h1><p>服务器：阿里云香港轻量应用服务器 24 元&#x2F;月 VPS 一台（最好是选非大陆的服务器，无需备案）</p>
+<p>系统：Centos7</p>
+<p>域名一枚，并做好解析到服务器上</p>
+<h1 id="三、搭建方式"><a href="#三、搭建方式" class="headerlink" title="三、搭建方式"></a>三、搭建方式</h1><h2 id="1、一键脚本安装（本次使用）"><a href="#1、一键脚本安装（本次使用）" class="headerlink" title="1、一键脚本安装（本次使用）"></a>1、一键脚本安装（本次使用）</h2><p>仅支持 Linux-x86_64&#x2F;aarch64 平台。</p>
+<p>》》<strong>安装</strong></p>
+<figure class="highlight bash"><table><tr><td class="code"><pre><span class="line">curl -fsSL <span class="string">&quot;https://nn.ci/alist.sh&quot;</span> | bash -s install</span><br></pre></td></tr></table></figure>
+
+<p>注意：</p>
+<p>已经安装过再次执行安装会删除之前的数据，更新请使用更新命令。</p>
+<p>》》<strong>更新</strong></p>
+<figure class="highlight bash"><table><tr><td class="code"><pre><span class="line">curl -fsSL <span class="string">&quot;https://nn.ci/alist.sh&quot;</span> | bash -s update</span><br></pre></td></tr></table></figure>
+
+<p>》》<strong>卸载</strong></p>
+<figure class="highlight bash"><table><tr><td class="code"><pre><span class="line">curl -fsSL <span class="string">&quot;https://nn.ci/alist.sh&quot;</span> | bash -s uninstall</span><br></pre></td></tr></table></figure>
+
+<p>》》<strong>自定义路径</strong></p>
+<figure class="highlight bash"><table><tr><td class="code"><pre><span class="line">curl -fsSL <span class="string">&quot;https://nn.ci/alist.sh&quot;</span> | bash -s install</span><br></pre></td></tr></table></figure>
+
+<p>默认安装在&#x2F;opt&#x2F;alist，要自定义安装路径，添加安装路径为第二个参数，必须是绝对路径（路径以 alist 结尾时直接安装到给定路径，否则会安装在给定路径 alist 目录下），如安装到&#x2F;root：</p>
+<figure class="highlight bash"><table><tr><td class="code"><pre><span class="line"><span class="comment"># 安装</span></span><br><span class="line"></span><br><span class="line">curl -fsSL <span class="string">&quot;https://nn.ci/alist.sh&quot;</span> | bash -s install /root</span><br><span class="line"></span><br><span class="line"><span class="comment"># 更新</span></span><br><span class="line"></span><br><span class="line">curl -fsSL <span class="string">&quot;https://nn.ci/alist.sh&quot;</span> | bash -s update /root</span><br><span class="line"></span><br><span class="line"><span class="comment"># 卸载</span></span><br><span class="line"></span><br><span class="line">curl -fsSL <span class="string">&quot;https://nn.ci/alist.sh&quot;</span> | bash -s uninstall /root</span><br></pre></td></tr></table></figure>
+
+<h2 id="2、手动搭建"><a href="#2、手动搭建" class="headerlink" title="2、手动搭建"></a>2、手动搭建</h2><p>参考文档：<a href="https://alist-doc.nn.ci/docs/install/manual">https://alist-doc.nn.ci/docs/install/manual</a></p>
+<h2 id="3、Docker"><a href="#3、Docker" class="headerlink" title="3、Docker"></a>3、Docker</h2><p>参考文档：<a href="https://alist-doc.nn.ci/docs/install/docker">https://alist-doc.nn.ci/docs/install/docker</a></p>
+<h1 id="四、开始搭建（以一键脚本安装为例子）"><a href="#四、开始搭建（以一键脚本安装为例子）" class="headerlink" title="四、开始搭建（以一键脚本安装为例子）"></a>四、开始搭建（以一键脚本安装为例子）</h1><h2 id="1、运行安装代码"><a href="#1、运行安装代码" class="headerlink" title="1、运行安装代码"></a>1、运行安装代码</h2><p>》》<strong>输入以下命令等待自动安装</strong></p>
+<figure class="highlight bash"><table><tr><td class="code"><pre><span class="line">curl -fsSL <span class="string">&quot;https://nn.ci/alist.sh&quot;</span> | bash -s install</span><br></pre></td></tr></table></figure>
+
+<p>注意：安装完成会输出默认后台密码。</p>
+<h2 id="2、放行相关端口"><a href="#2、放行相关端口" class="headerlink" title="2、放行相关端口"></a>2、放行相关端口</h2><p>遇到访问不了，请在宝塔面板的防火墙和服务商的后台防火墙里打开对应端口。</p>
+<h2 id="3、配置反向代理"><a href="#3、配置反向代理" class="headerlink" title="3、配置反向代理"></a>3、配置反向代理</h2><p>以宝塔为例，新建一个网站，域名使用你自己的域名，在配置文件里面注释掉 Nginx 配置文件中的这部分内容：</p>
+<figure class="highlight c#"><table><tr><td class="code"><pre><span class="line">location ~ .*\.(gif|jpg|jpeg|png|bmp|swf)$</span><br><span class="line">&#123;</span><br><span class="line">    expires      <span class="number">30</span>d;</span><br><span class="line">    error_log /dev/<span class="literal">null</span>;</span><br><span class="line">    access_log off;</span><br><span class="line">&#125;</span><br><span class="line"></span><br><span class="line">location ~ .*\.(js|css)?$</span><br><span class="line">&#123;</span><br><span class="line">    expires      <span class="number">12</span>h;</span><br><span class="line">    error_log /dev/<span class="literal">null</span>;</span><br><span class="line">    access_log off;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+
+<p>然后再下面粘贴这段代码：</p>
+<figure class="highlight c#"><table><tr><td class="code"><pre><span class="line">location / &#123;</span><br><span class="line">    proxy_pass http:<span class="comment">//127.0.0.1:5244/;</span></span><br><span class="line">    rewrite ^/(.*)$ /$<span class="number">1</span> <span class="keyword">break</span>;</span><br><span class="line">    proxy_redirect off;</span><br><span class="line">    proxy_set_header Host $host;</span><br><span class="line">    proxy_set_header X-Forwarded-Proto $scheme;</span><br><span class="line">    proxy_set_header X-Real-IP $remote_addr;</span><br><span class="line">    proxy_set_header X-Forwarded-For $proxy_add_x_forwarded_for;</span><br><span class="line">    proxy_set_header Upgrade-Insecure-Requests <span class="number">1</span>;</span><br><span class="line">    proxy_set_header X-Forwarded-Proto https;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+
+<h2 id="4、访问域名配置账号"><a href="#4、访问域名配置账号" class="headerlink" title="4、访问域名配置账号"></a>4、访问域名配置账号</h2><p>此时，输入反向代理的域名就能正常访问网站了，输入刚刚安装完成之后终端输出的密码就能正常登陆后台了。为了方便起见，建议更改一个自己能记住的密码。</p>
+<h1 id="五、结束"><a href="#五、结束" class="headerlink" title="五、结束"></a>五、结束</h1><p>祝大家用得开心，有问题可以去 GitHub 提 <a href="https://github.com/Xhofe/alist/issues">Issues</a>，也可以在评论区互相交流探讨。</p>
+]]></content>
+      <categories>
+        <category>文件管理</category>
+      </categories>
+      <tags>
+        <tag>网盘聚合</tag>
+      </tags>
+  </entry>
+  <entry>
     <title>Balluff-IOLINK模块在TIA软件上调试</title>
     <url>/posts/ff857dd0/</url>
     <content><![CDATA[<h2 id="样例连接"><a href="#样例连接" class="headerlink" title="样例连接"></a><strong>样例连接</strong></h2><p><img src="https://img.zzzg.top/20250718122225962.png" alt="image-20241226101741875"></p>
@@ -548,57 +599,6 @@
       </categories>
       <tags>
         <tag>Balluff</tag>
-      </tags>
-  </entry>
-  <entry>
-    <title>AList搭建</title>
-    <url>/posts/1f49e4a4/</url>
-    <content><![CDATA[<h1 id="一、项目展示"><a href="#一、项目展示" class="headerlink" title="一、项目展示"></a>一、项目展示</h1><p>GitHub 项目地址：<a href="https://github.com/Xhofe/alist">https://github.com/Xhofe/alist</a></p>
-<p>Demo：<a href="https://alist.nn.ci/">https://alist.nn.ci</a></p>
-<p>Alist 文档地址：<a href="https://alist-doc.nn.ci/en/">https://alist-doc.nn.ci/en/</a></p>
-<p><img src="https://img.zzzg.top/202303040811308.png" alt="成品预览"></p>
-<h1 id="二、搭建环境"><a href="#二、搭建环境" class="headerlink" title="二、搭建环境"></a>二、搭建环境</h1><p>服务器：阿里云香港轻量应用服务器 24 元&#x2F;月 VPS 一台（最好是选非大陆的服务器，无需备案）</p>
-<p>系统：Centos7</p>
-<p>域名一枚，并做好解析到服务器上</p>
-<h1 id="三、搭建方式"><a href="#三、搭建方式" class="headerlink" title="三、搭建方式"></a>三、搭建方式</h1><h2 id="1、一键脚本安装（本次使用）"><a href="#1、一键脚本安装（本次使用）" class="headerlink" title="1、一键脚本安装（本次使用）"></a>1、一键脚本安装（本次使用）</h2><p>仅支持 Linux-x86_64&#x2F;aarch64 平台。</p>
-<p>》》<strong>安装</strong></p>
-<figure class="highlight bash"><table><tr><td class="code"><pre><span class="line">curl -fsSL <span class="string">&quot;https://nn.ci/alist.sh&quot;</span> | bash -s install</span><br></pre></td></tr></table></figure>
-
-<p>注意：</p>
-<p>已经安装过再次执行安装会删除之前的数据，更新请使用更新命令。</p>
-<p>》》<strong>更新</strong></p>
-<figure class="highlight bash"><table><tr><td class="code"><pre><span class="line">curl -fsSL <span class="string">&quot;https://nn.ci/alist.sh&quot;</span> | bash -s update</span><br></pre></td></tr></table></figure>
-
-<p>》》<strong>卸载</strong></p>
-<figure class="highlight bash"><table><tr><td class="code"><pre><span class="line">curl -fsSL <span class="string">&quot;https://nn.ci/alist.sh&quot;</span> | bash -s uninstall</span><br></pre></td></tr></table></figure>
-
-<p>》》<strong>自定义路径</strong></p>
-<figure class="highlight bash"><table><tr><td class="code"><pre><span class="line">curl -fsSL <span class="string">&quot;https://nn.ci/alist.sh&quot;</span> | bash -s install</span><br></pre></td></tr></table></figure>
-
-<p>默认安装在&#x2F;opt&#x2F;alist，要自定义安装路径，添加安装路径为第二个参数，必须是绝对路径（路径以 alist 结尾时直接安装到给定路径，否则会安装在给定路径 alist 目录下），如安装到&#x2F;root：</p>
-<figure class="highlight bash"><table><tr><td class="code"><pre><span class="line"><span class="comment"># 安装</span></span><br><span class="line"></span><br><span class="line">curl -fsSL <span class="string">&quot;https://nn.ci/alist.sh&quot;</span> | bash -s install /root</span><br><span class="line"></span><br><span class="line"><span class="comment"># 更新</span></span><br><span class="line"></span><br><span class="line">curl -fsSL <span class="string">&quot;https://nn.ci/alist.sh&quot;</span> | bash -s update /root</span><br><span class="line"></span><br><span class="line"><span class="comment"># 卸载</span></span><br><span class="line"></span><br><span class="line">curl -fsSL <span class="string">&quot;https://nn.ci/alist.sh&quot;</span> | bash -s uninstall /root</span><br></pre></td></tr></table></figure>
-
-<h2 id="2、手动搭建"><a href="#2、手动搭建" class="headerlink" title="2、手动搭建"></a>2、手动搭建</h2><p>参考文档：<a href="https://alist-doc.nn.ci/docs/install/manual">https://alist-doc.nn.ci/docs/install/manual</a></p>
-<h2 id="3、Docker"><a href="#3、Docker" class="headerlink" title="3、Docker"></a>3、Docker</h2><p>参考文档：<a href="https://alist-doc.nn.ci/docs/install/docker">https://alist-doc.nn.ci/docs/install/docker</a></p>
-<h1 id="四、开始搭建（以一键脚本安装为例子）"><a href="#四、开始搭建（以一键脚本安装为例子）" class="headerlink" title="四、开始搭建（以一键脚本安装为例子）"></a>四、开始搭建（以一键脚本安装为例子）</h1><h2 id="1、运行安装代码"><a href="#1、运行安装代码" class="headerlink" title="1、运行安装代码"></a>1、运行安装代码</h2><p>》》<strong>输入以下命令等待自动安装</strong></p>
-<figure class="highlight bash"><table><tr><td class="code"><pre><span class="line">curl -fsSL <span class="string">&quot;https://nn.ci/alist.sh&quot;</span> | bash -s install</span><br></pre></td></tr></table></figure>
-
-<p>注意：安装完成会输出默认后台密码。</p>
-<h2 id="2、放行相关端口"><a href="#2、放行相关端口" class="headerlink" title="2、放行相关端口"></a>2、放行相关端口</h2><p>遇到访问不了，请在宝塔面板的防火墙和服务商的后台防火墙里打开对应端口。</p>
-<h2 id="3、配置反向代理"><a href="#3、配置反向代理" class="headerlink" title="3、配置反向代理"></a>3、配置反向代理</h2><p>以宝塔为例，新建一个网站，域名使用你自己的域名，在配置文件里面注释掉 Nginx 配置文件中的这部分内容：</p>
-<figure class="highlight c#"><table><tr><td class="code"><pre><span class="line">location ~ .*\.(gif|jpg|jpeg|png|bmp|swf)$</span><br><span class="line">&#123;</span><br><span class="line">    expires      <span class="number">30</span>d;</span><br><span class="line">    error_log /dev/<span class="literal">null</span>;</span><br><span class="line">    access_log off;</span><br><span class="line">&#125;</span><br><span class="line"></span><br><span class="line">location ~ .*\.(js|css)?$</span><br><span class="line">&#123;</span><br><span class="line">    expires      <span class="number">12</span>h;</span><br><span class="line">    error_log /dev/<span class="literal">null</span>;</span><br><span class="line">    access_log off;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
-
-<p>然后再下面粘贴这段代码：</p>
-<figure class="highlight c#"><table><tr><td class="code"><pre><span class="line">location / &#123;</span><br><span class="line">    proxy_pass http:<span class="comment">//127.0.0.1:5244/;</span></span><br><span class="line">    rewrite ^/(.*)$ /$<span class="number">1</span> <span class="keyword">break</span>;</span><br><span class="line">    proxy_redirect off;</span><br><span class="line">    proxy_set_header Host $host;</span><br><span class="line">    proxy_set_header X-Forwarded-Proto $scheme;</span><br><span class="line">    proxy_set_header X-Real-IP $remote_addr;</span><br><span class="line">    proxy_set_header X-Forwarded-For $proxy_add_x_forwarded_for;</span><br><span class="line">    proxy_set_header Upgrade-Insecure-Requests <span class="number">1</span>;</span><br><span class="line">    proxy_set_header X-Forwarded-Proto https;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
-
-<h2 id="4、访问域名配置账号"><a href="#4、访问域名配置账号" class="headerlink" title="4、访问域名配置账号"></a>4、访问域名配置账号</h2><p>此时，输入反向代理的域名就能正常访问网站了，输入刚刚安装完成之后终端输出的密码就能正常登陆后台了。为了方便起见，建议更改一个自己能记住的密码。</p>
-<h1 id="五、结束"><a href="#五、结束" class="headerlink" title="五、结束"></a>五、结束</h1><p>祝大家用得开心，有问题可以去 GitHub 提 <a href="https://github.com/Xhofe/alist/issues">Issues</a>，也可以在评论区互相交流探讨。</p>
-]]></content>
-      <categories>
-        <category>文件管理</category>
-      </categories>
-      <tags>
-        <tag>网盘聚合</tag>
       </tags>
   </entry>
   <entry>
@@ -1384,6 +1384,28 @@
       </tags>
   </entry>
   <entry>
+    <title>hexo中插入PDF</title>
+    <url>/posts/4cd4322f/</url>
+    <content><![CDATA[<h2 id="安装-hexo-pdf"><a href="#安装-hexo-pdf" class="headerlink" title="安装 hexo-pdf"></a>安装 hexo-pdf</h2><figure class="highlight text"><table><tr><td class="code"><pre><span class="line">npm install --save hexo-pdf</span><br></pre></td></tr></table></figure>
+
+<h2 id="本地-PDF-引用"><a href="#本地-PDF-引用" class="headerlink" title="本地 PDF 引用"></a>本地 PDF 引用</h2><p>最简单的引用方法：把相应 pdf 文件存到<strong>source 文件夹</strong>下，引用格式为：</p>
+<figure class="highlight text"><table><tr><td class="code"><pre><span class="line">&#123;% pdf /引用文档名字.pdf %&#125;</span><br></pre></td></tr></table></figure>
+
+<p>当然，你也可以新建一个文件夹方便管理 PDF 文档（）在这里我主要参考了<a href="https://link.zhihu.com/?target=https://www.jianshu.com/p/cccc7058a08c">https://www.jianshu.com/p/cccc7058a08c</a>，但是它并没有解决问题 orz 经过苦逼的尝试发现缺少&#x2F;</p>
+<p><strong>也就是说，方法为：</strong></p>
+<p>xxxxxxxxxx .md 文件中的 HTML 代码要用  和  包起来，使其能正确编译里面的代码。markdown</p>
+<figure class="highlight text"><table><tr><td class="code"><pre><span class="line">&#123;% pdf /pdf/xxx.pdf %&#125;</span><br></pre></td></tr></table></figure>
+
+<p>尝试后可以看到，hexo-pdf 对 PDF 文档展示效果非常不错 lol</p>
+]]></content>
+      <categories>
+        <category>博客运维</category>
+      </categories>
+      <tags>
+        <tag>Hexo</tag>
+      </tags>
+  </entry>
+  <entry>
     <title>Hexo博客自动更新到1panel</title>
     <url>/posts/21fa371d/</url>
     <content><![CDATA[<h2 id="SSH执行拉取"><a href="#SSH执行拉取" class="headerlink" title="SSH执行拉取"></a>SSH执行拉取</h2><p>下面实现通过Github action，链接服务器SSH，并在服务器中执行拉取的命令。</p>
@@ -1408,28 +1430,6 @@
 <p>再次尝试修改并触发，如果一切正常，仓库文件自动触发推送到服务器应该就实现了！</p>
 <p>在最下面，这里采用了强制拉取，并且只保留了深度为一的拉取记录，这样可以防止由于文件冲突导致可能拉取不下来的问题，并且控制了拉去的日志文件大小。</p>
 <h2 id="参考出处"><a href="#参考出处" class="headerlink" title="参考出处"></a>参考出处</h2><p><a href="https://blog.liushen.fun/posts/327826ac">https://blog.liushen.fun/posts/327826ac</a></p>
-]]></content>
-      <categories>
-        <category>博客运维</category>
-      </categories>
-      <tags>
-        <tag>Hexo</tag>
-      </tags>
-  </entry>
-  <entry>
-    <title>hexo中插入PDF</title>
-    <url>/posts/4cd4322f/</url>
-    <content><![CDATA[<h2 id="安装-hexo-pdf"><a href="#安装-hexo-pdf" class="headerlink" title="安装 hexo-pdf"></a>安装 hexo-pdf</h2><figure class="highlight text"><table><tr><td class="code"><pre><span class="line">npm install --save hexo-pdf</span><br></pre></td></tr></table></figure>
-
-<h2 id="本地-PDF-引用"><a href="#本地-PDF-引用" class="headerlink" title="本地 PDF 引用"></a>本地 PDF 引用</h2><p>最简单的引用方法：把相应 pdf 文件存到<strong>source 文件夹</strong>下，引用格式为：</p>
-<figure class="highlight text"><table><tr><td class="code"><pre><span class="line">&#123;% pdf /引用文档名字.pdf %&#125;</span><br></pre></td></tr></table></figure>
-
-<p>当然，你也可以新建一个文件夹方便管理 PDF 文档（）在这里我主要参考了<a href="https://link.zhihu.com/?target=https://www.jianshu.com/p/cccc7058a08c">https://www.jianshu.com/p/cccc7058a08c</a>，但是它并没有解决问题 orz 经过苦逼的尝试发现缺少&#x2F;</p>
-<p><strong>也就是说，方法为：</strong></p>
-<p>xxxxxxxxxx .md 文件中的 HTML 代码要用  和  包起来，使其能正确编译里面的代码。markdown</p>
-<figure class="highlight text"><table><tr><td class="code"><pre><span class="line">&#123;% pdf /pdf/xxx.pdf %&#125;</span><br></pre></td></tr></table></figure>
-
-<p>尝试后可以看到，hexo-pdf 对 PDF 文档展示效果非常不错 lol</p>
 ]]></content>
       <categories>
         <category>博客运维</category>
@@ -1508,6 +1508,24 @@
 <figure class="highlight bash"><table><tr><td class="code"><pre><span class="line">hexo clean <span class="comment"># 清除缓存</span></span><br><span class="line">hexo g <span class="comment"># 生成网页</span></span><br><span class="line">hexo d <span class="comment"># 部署</span></span><br></pre></td></tr></table></figure>
 
 <p>现在就可以用 你的域名来访问博客了。</p>
+]]></content>
+      <categories>
+        <category>博客运维</category>
+      </categories>
+      <tags>
+        <tag>Hexo</tag>
+      </tags>
+  </entry>
+  <entry>
+    <title>Hexo建立一个独立的HTML页面</title>
+    <url>/posts/12482e7/</url>
+    <content><![CDATA[<p>Hexo 是一个轻量、快速，简单和强大的博客框架，当我们需要发布博文的时候，只需要将写好的文章（MarkDown 文件）放入本地的 <code>\source\_posts</code> 文件夹，然后再推送上去就行了，原理就是当我们在执行 <code>hexo g</code> 命令时，<code>.md</code> 文件就会被转化成 HTML 文件，但是有时候我们需要新建一个独立的页面，这个页面不使用主题的渲染，具有自己独立的样式，可以放一些自己的作品，相册什么的，以下就介绍这种独立页面的实现方法。</p>
+<h1 id="方法一："><a href="#方法一：" class="headerlink" title="方法一："></a>方法一：</h1><p>使用 Hexo 提供的跳过渲染配置，在博客根目录的配置文件 <code>_config.yml</code> 里找到 <code>skip_render</code> 关键字，在后面添加想要跳过渲染的页面，比如我们创建 <code>\source\about\index.html</code>， 配置文件填写：<code>skip_render: about\**</code>，那么就表示 <code>\source\about</code> 里所有的文件将跳过渲染，里面的文件将会被直接复制到 public 文件夹，此时就会得到一个独立的 about 页面；官方文档：<a href="https://hexo.io/docs/configuration">https://hexo.io/docs/configuration</a></p>
+<h1 id="方法-2"><a href="#方法-2" class="headerlink" title="方法 2"></a>方法 2</h1><p>在文章头部的 Front-matter 里添加配置 <code>layout: false</code> 来跳过渲染配置，比如我们要使 about 页面跳过渲染，创建 <code>\source\about\index.md</code>，将这个页面的相关 HTML 代码写进<code>.md</code>文件并保存，然后在 <code>index.md</code> 的头部写入：</p>
+<figure class="highlight markdown"><table><tr><td class="code"><pre><span class="line">---</span><br><span class="line"><span class="section">layout: false</span></span><br><span class="line"><span class="section">---</span></span><br><span class="line"></span><br><span class="line">&#123;% raw %&#125;</span><br><span class="line">xxxxxxxxxxxxx</span><br><span class="line">xx HTML 代码 xx</span><br><span class="line">xxxxxxxxxxxxx</span><br><span class="line">&#123;% endraw %&#125;</span><br></pre></td></tr></table></figure>
+
+<p>PS：Front-matter 是 <code>.md</code> 文件最上方以 — 分隔的区域，用于指定个别文件的变量，官方文档：<a href="https://hexo.io/docs/front-matter">https://hexo.io/docs/front-matter</a></p>
+<figure class="highlight markdown"><table><tr><td class="code"><pre><span class="line">.md 文件中的 HTML 代码要用 &#123;% raw %&#125; 和 &#123;% endraw %&#125; 包起来，使其能正确编译里面的代码。</span><br></pre></td></tr></table></figure>
 ]]></content>
       <categories>
         <category>博客运维</category>
@@ -2090,6 +2108,73 @@
       </tags>
   </entry>
   <entry>
+    <title>Openwrt编译</title>
+    <url>/posts/72c5b323/</url>
+    <content><![CDATA[<h1 id="注意"><a href="#注意" class="headerlink" title="注意"></a>注意</h1><ol>
+<li><strong>不要用 root 用户进行编译</strong></li>
+<li>国内用户编译前最好准备好梯子</li>
+<li>默认登陆 IP 192.168.1.1 密码 password</li>
+</ol>
+<h1 id="编译命令"><a href="#编译命令" class="headerlink" title="编译命令"></a>编译命令</h1><ol>
+<li><p>首先装好 Linux 系统，推荐 Debian 11 或 Ubuntu LTS</p>
+</li>
+<li><p>安装编译依赖</p>
+</li>
+</ol>
+<figure class="highlight bash"><table><tr><td class="code"><pre><span class="line"><span class="built_in">sudo</span> apt update -y</span><br><span class="line"><span class="built_in">sudo</span> apt full-upgrade -y</span><br><span class="line"><span class="built_in">sudo</span> apt install -y ack antlr3 asciidoc autoconf automake autopoint binutils bison build-essential \</span><br><span class="line">bzip2 ccache cmake cpio curl device-tree-compiler fastjar flex gawk gettext gcc-multilib g++-multilib \</span><br><span class="line">git gperf haveged help2man intltool libc6-dev-i386 libelf-dev libglib2.0-dev libgmp3-dev libltdl-dev \</span><br><span class="line">libmpc-dev libmpfr-dev libncurses5-dev libncursesw5-dev libreadline-dev libssl-dev libtool lrzsz \</span><br><span class="line">mkisofs msmtp nano ninja-build p7zip p7zip-full patch pkgconf python2.7 python3 python3-pyelftools \</span><br><span class="line">libpython3-dev qemu-utils rsync scons squashfs-tools subversion swig texinfo uglifyjs upx-ucl unzip \</span><br><span class="line">vim wget xmlto xxd zlib1g-dev</span><br></pre></td></tr></table></figure>
+
+<ol start="3">
+<li>下载源代码，更新 feeds 并选择配置<br>lede源：<a href="https://github.com/coolsnowwolf/lede">https://github.com/coolsnowwolf/lede</a><br>插件库：<a href="https://github.com/kenzok8/small-package">https://github.com/kenzok8/small-package</a><br>西瓜皮：<a href="https://github.com/6ang996/lede/tree/rk356x-xgp_support">https://github.com/6ang996/lede/tree/rk356x-xgp_support</a><br>克隆指定分支：git clone -b 分支 源</li>
+</ol>
+<figure class="highlight bash"><table><tr><td class="code"><pre><span class="line">git <span class="built_in">clone</span> https://github.com/coolsnowwolf/lede</span><br><span class="line"><span class="built_in">cd</span> lede</span><br><span class="line"><span class="built_in">echo</span> <span class="string">&#x27;src-git small8 https://github.com/kenzok8/small-package&#x27;</span> &gt;&gt;feeds.conf.default</span><br><span class="line">./scripts/feeds update -a</span><br><span class="line">./scripts/feeds install -a</span><br><span class="line">make menuconfig</span><br></pre></td></tr></table></figure>
+
+<ol start="4">
+<li>下载 dl 库，编译固件<br>（-j 后面是线程数，第一次编译推荐用单线程）</li>
+</ol>
+ <figure class="highlight bash"><table><tr><td class="code"><pre><span class="line">make download -j8</span><br><span class="line">make V=s -j1</span><br><span class="line"><span class="keyword">time</span> make V=s -j$(<span class="built_in">nproc</span>)可以看到编译用时</span><br></pre></td></tr></table></figure>
+
+<p>本套代码保证肯定可以编译成功。里面包括了 R23 所有源代码，包括 IPK 的。</p>
+<p>你可以自由使用，但源码编译二次发布请注明我的 GitHub 仓库链接。谢谢合作！</p>
+<p>二次编译：</p>
+<figure class="highlight bash"><table><tr><td class="code"><pre><span class="line"><span class="built_in">cd</span> lede</span><br><span class="line">git pull</span><br><span class="line">./scripts/feeds update -a</span><br><span class="line">./scripts/feeds install -a</span><br><span class="line">make defconfig</span><br><span class="line">make download -j8</span><br><span class="line">make V=s -j$(<span class="built_in">nproc</span>)</span><br></pre></td></tr></table></figure>
+
+<p>如果需要重新配置：</p>
+<figure class="highlight bash"><table><tr><td class="code"><pre><span class="line"><span class="built_in">rm</span> -rf ./tmp &amp;&amp; <span class="built_in">rm</span> -rf .config</span><br><span class="line">make menuconfig</span><br><span class="line">make V=s -j$(<span class="built_in">nproc</span>)</span><br></pre></td></tr></table></figure>
+
+<p>编译完成后输出路径：bin&#x2F;targets</p>
+<h2 id="如果你使用-WSL-WSL2-进行编译"><a href="#如果你使用-WSL-WSL2-进行编译" class="headerlink" title="如果你使用 WSL&#x2F;WSL2 进行编译"></a>如果你使用 WSL&#x2F;WSL2 进行编译</h2><p>由于 WSL 的 PATH 中包含带有空格的 Windows 路径，有可能会导致编译失败，请在 <code>make</code> 前面加上：</p>
+<figure class="highlight bash"><table><tr><td class="code"><pre><span class="line">PATH=/usr/local/sbin:/usr/local/bin:/usr/sbin:/usr/bin:/sbin:/bin</span><br></pre></td></tr></table></figure>
+
+<h2 id="macOS-原生系统进行编译"><a href="#macOS-原生系统进行编译" class="headerlink" title="macOS 原生系统进行编译"></a>macOS 原生系统进行编译</h2><ol>
+<li><p>在 AppStore 中安装 Xcode</p>
+</li>
+<li><p>安装 Homebrew：</p>
+</li>
+</ol>
+<figure class="highlight bash"><table><tr><td class="code"><pre><span class="line">/usr/bin/ruby -e <span class="string">&quot;<span class="subst">$(curl -fsSL https://raw.githubusercontent.com/Homebrew/install/master/install)</span>&quot;</span></span><br></pre></td></tr></table></figure>
+
+<ol start="3">
+<li>使用 Homebrew 安装工具链、依赖与基础软件包:</li>
+</ol>
+<figure class="highlight bash"><table><tr><td class="code"><pre><span class="line">brew <span class="built_in">unlink</span> awk</span><br><span class="line">brew install coreutils diffutils findutils gawk gnu-getopt gnu-tar grep make ncurses pkg-config wget quilt xz</span><br><span class="line">brew install gcc@11</span><br></pre></td></tr></table></figure>
+
+<ol start="4">
+<li>然后输入以下命令，添加到系统环境变量中：</li>
+</ol>
+<figure class="highlight bash"><table><tr><td class="code"><pre><span class="line"><span class="built_in">echo</span> <span class="string">&#x27;export PATH=&quot;/usr/local/opt/coreutils/libexec/gnubin:$PATH&quot;&#x27;</span> &gt;&gt; ~/.bashrc</span><br><span class="line"><span class="built_in">echo</span> <span class="string">&#x27;export PATH=&quot;/usr/local/opt/findutils/libexec/gnubin:$PATH&quot;&#x27;</span> &gt;&gt; ~/.bashrc</span><br><span class="line"><span class="built_in">echo</span> <span class="string">&#x27;export PATH=&quot;/usr/local/opt/gnu-getopt/bin:$PATH&quot;&#x27;</span> &gt;&gt; ~/.bashrc</span><br><span class="line"><span class="built_in">echo</span> <span class="string">&#x27;export PATH=&quot;/usr/local/opt/gnu-tar/libexec/gnubin:$PATH&quot;&#x27;</span> &gt;&gt; ~/.bashrc</span><br><span class="line"><span class="built_in">echo</span> <span class="string">&#x27;export PATH=&quot;/usr/local/opt/grep/libexec/gnubin:$PATH&quot;&#x27;</span> &gt;&gt; ~/.bashrc</span><br><span class="line"><span class="built_in">echo</span> <span class="string">&#x27;export PATH=&quot;/usr/local/opt/gnu-sed/libexec/gnubin:$PATH&quot;&#x27;</span> &gt;&gt; ~/.bashrc</span><br><span class="line"><span class="built_in">echo</span> <span class="string">&#x27;export PATH=&quot;/usr/local/opt/make/libexec/gnubin:$PATH&quot;&#x27;</span> &gt;&gt; ~/.bashrc</span><br></pre></td></tr></table></figure>
+
+<ol start="5">
+<li>重新加载一下 shell 启动文件 <code>source ~/.bashrc</code>，然后输入 <code>bash</code> 进入 bash shell，就可以和 Linux 一样正常编译了</li>
+</ol>
+]]></content>
+      <categories>
+        <category>网络设备</category>
+      </categories>
+      <tags>
+        <tag>Openwrt</tag>
+      </tags>
+  </entry>
+  <entry>
     <title>Oracle数据库和PDPS安装及配置</title>
     <url>/posts/93246652/</url>
     <content><![CDATA[<h1 id="安装及配置Oracle"><a href="#安装及配置Oracle" class="headerlink" title="安装及配置Oracle"></a>安装及配置Oracle</h1><h2 id="一、安装java-perl"><a href="#一、安装java-perl" class="headerlink" title="一、安装java perl"></a>一、安装java perl</h2><p><img src="https://img.zzzg.top/20260411105832774.png" alt="image-20260410122404020"></p>
@@ -2273,70 +2358,146 @@
       </tags>
   </entry>
   <entry>
-    <title>Openwrt编译</title>
-    <url>/posts/72c5b323/</url>
-    <content><![CDATA[<h1 id="注意"><a href="#注意" class="headerlink" title="注意"></a>注意</h1><ol>
-<li><strong>不要用 root 用户进行编译</strong></li>
-<li>国内用户编译前最好准备好梯子</li>
-<li>默认登陆 IP 192.168.1.1 密码 password</li>
-</ol>
-<h1 id="编译命令"><a href="#编译命令" class="headerlink" title="编译命令"></a>编译命令</h1><ol>
-<li><p>首先装好 Linux 系统，推荐 Debian 11 或 Ubuntu LTS</p>
+    <title>PVE安装iStoreOS</title>
+    <url>/posts/d167335e/</url>
+    <content><![CDATA[<h1 id="首先X86机器已经安装好PVE机器，且能正常联网；"><a href="#首先X86机器已经安装好PVE机器，且能正常联网；" class="headerlink" title="首先X86机器已经安装好PVE机器，且能正常联网；"></a>首先X86机器已经安装好PVE机器，且能正常联网；</h1><ul>
+<li>这里不提供X86机器安装pve教程，自行科普。</li>
+</ul>
+<h1 id="下载固件"><a href="#下载固件" class="headerlink" title="下载固件"></a>下载固件</h1><ul>
+<li><a href="https://fw.koolcenter.com/iStoreOS/x86_64/">固件下载(opens new window)</a></li>
+<li><a href="https://fw.koolcenter.com/iStoreOS/x86_64_efi/">固件下载-EFI(opens new window)</a></li>
+</ul>
+<p>越后面的版本越新，下载最新的版本。下载完成之后不需要解压。</p>
+<h1 id="在PVE里新建虚拟机；"><a href="#在PVE里新建虚拟机；" class="headerlink" title="在PVE里新建虚拟机；"></a>在PVE里新建虚拟机；</h1><ul>
+<li>进入PVE系统管理界面，右上角“新建虚拟机”；</li>
+</ul>
+<p><img src="https://img.zzzg.top/202312031646065.jpeg"></p>
+<ul>
+<li>只填写名称，VM ID即为虚拟机ID，自动排序的，也可自定义，其余不管，下一步：</li>
+</ul>
+<p><img src="https://img.zzzg.top/202312031646686.jpeg"></p>
+<ul>
+<li>勾选“不使用任何介质”，其余不管，下一步；</li>
+</ul>
+<p><img src="https://img.zzzg.top/202312031646138.jpeg"></p>
+<ul>
+<li>如果是下载的EFI固件，BIOS选择“OVMF(UEFI)”，EFI存储选择PVE的虚拟盘，其余不管，下一步：</li>
+</ul>
+<p><img src="https://img.zzzg.top/202312031646135.jpeg"></p>
+<p>如果下载的非EFI固件，此页面不用管，直接下一步；</p>
+<p><img src="https://img.zzzg.top/202312031646944.jpeg"></p>
+<ul>
+<li>磁盘，不需要创建，直接删掉，下一步；</li>
+</ul>
+<p><img src="https://img.zzzg.top/202312031646104.jpeg"></p>
+<ul>
+<li>CPU核心，根据你的实机CPU核设置(比如实机是6核12线程，大于等于1且小于等于12都成)，类别建议选host；</li>
+</ul>
+<p><img src="https://img.zzzg.top/202312031646942.jpeg"></p>
+<ul>
+<li>内存根据实际需求设置；</li>
+</ul>
+<p><img src="https://img.zzzg.top/202312031646040.jpg" alt="download"></p>
+<ul>
+<li>网络默认即可，默认已经选了PVE的虚拟LAN；</li>
+</ul>
+<p><img src="https://img.zzzg.top/202312031646342.jpeg"></p>
+<ul>
+<li>完成，等待虚拟机创建好。</li>
+</ul>
+<p><img src="https://img.zzzg.top/202312031647835.jpeg"></p>
+<h1 id="往刚创建的虚拟机里写入固件；"><a href="#往刚创建的虚拟机里写入固件；" class="headerlink" title="往刚创建的虚拟机里写入固件；"></a>往刚创建的虚拟机里写入固件；</h1><ul>
+<li>利用WinSCP等工具，把下载好的固件(教程用的EFI固件)和img2kvm工具放入root目录下；</li>
+<li><a href="https://fw.koolcenter.com/binary/other-tools/">img2kvm工具下载(opens new window)</a></li>
+<li>终端登录PVE系统后台，终端输入命令：<code>chmod 777 ./img2kvm</code></li>
+<li>继续终端输入：<code>./img2kvm 固件完整名 虚拟机ID</code></li>
+</ul>
+<p>比如教程所示的虚拟机ID是104，下载的固件完整名：istoreos-21.02.3-2022092019-x86-64-squashfs-combined-efi.img.gz</p>
+<p>所以输入的命令就是：</p>
+<figure class="highlight plaintext"><table><tr><td class="code"><pre><span class="line">./img2kvm istoreos-21.02.3-2022092019-x86-64-squashfs-combined-efi.img.gz 104</span><br></pre></td></tr></table></figure>
+
+<p><img src="https://img.zzzg.top/202312031647302.jpeg"></p>
+<p>然后看PVE虚拟机104的硬件界面，会出现一个未添加的硬盘，双击添加：</p>
+<p><img src="https://img.zzzg.top/202312031647806.jpeg"></p>
+<p>不用设置直接添加：</p>
+<p><img src="https://img.zzzg.top/202312031647609.jpeg"></p>
+<p>添加完成，会出现一个硬盘：</p>
+<p><img src="https://img.zzzg.top/202312031647016.jpeg"></p>
+<p>选项——引导顺序，双击进入编辑：</p>
+<p><img src="https://img.zzzg.top/202312031647797.jpeg"></p>
+<p>把刚添加的硬盘作为第一启动：</p>
+<p><img src="https://img.zzzg.top/202312031647908.jpeg"></p>
+<p><img src="https://img.zzzg.top/202312031647362.jpeg"></p>
+<ul>
+<li>把EFI磁盘删掉，若BIOS不是UEFI，无此项设置；</li>
+</ul>
+<p><img src="https://img.zzzg.top/202312031647310.jpeg"></p>
+<h1 id="启动iStoreOS："><a href="#启动iStoreOS：" class="headerlink" title="启动iStoreOS："></a>启动iStoreOS：</h1><p><img src="https://img.zzzg.top/202312031648006.jpeg"></p>
+<ul>
+<li>如果前面的步骤没出错，是能正常启动的：</li>
+</ul>
+<p><img src="https://img.zzzg.top/202312031648517.jpeg"></p>
+<ul>
+<li>等系统启动一两分钟，然后点击此虚拟机——控制台(右上角控制台也可)：</li>
+</ul>
+<p><img src="https://img.zzzg.top/202312031648522.jpeg"></p>
+<p>鼠标点在此界面，键盘回车：就会出现终端入口：</p>
+<p><img src="https://img.zzzg.top/202312031648241.jpeg"></p>
+<p><img src="https://img.zzzg.top/202312031648418.jpeg"></p>
+<p>输入：<code>quickstart</code>，利用键盘“上下键”选择2，回车：</p>
+<p>输入要分配给iStoreOS的LAN口的ip(必须是PVE虚拟LAN的IP段，比如PVE的管理IP是192.168.2.88，那么此处的IP就必须是192.168.2.XXX)，回车生效；</p>
+<p><img src="https://img.zzzg.top/202312031648082.jpeg"></p>
+<p>要求输入掩码(mask)，照着填：255.255.255.0，回车生效：</p>
+<p><img src="https://img.zzzg.top/202312031648554.jpeg"></p>
+<p>然后选择QUIT退出此界面：</p>
+<p><img src="https://img.zzzg.top/202312031648466.jpeg"></p>
+<ul>
+<li>输入：<code>reboot</code>重启iStoreOS，这样浏览器输入我们设置的IP，就进入iStoreOS界面了。</li>
+</ul>
+<p><img src="https://img.zzzg.top/202312031648602.jpeg"></p>
+<p>iStoreOS默认登录密码是：password</p>
+<p><img src="https://img.zzzg.top/202312031648519.jpeg"></p>
+<h1 id="配置iStoreOS："><a href="#配置iStoreOS：" class="headerlink" title="配置iStoreOS："></a>配置iStoreOS：</h1><p>此刻我们进入iStoreOS，但是目前iStoreOS是个单臂路由状态，只有一个LAN口。</p>
+<ul>
+<li>如果PVE里已有主路由系统，需要把iStoreOS配置为旁路由，在“网络向导”里配置“旁路由”即可。</li>
+</ul>
+<p><img src="https://img.zzzg.top/202312031649861.jpeg"></p>
+<ul>
+<li>如果需要将iStoreOS作为主路由系统，就需要添加网口：</li>
+</ul>
+<p>首先在PVE里关闭iStoreOS虚拟机，然后硬件——添加一个PVE的网口作为WAN口；</p>
+<p><img src="https://img.zzzg.top/202312031649410.jpeg"></p>
+<ul>
+<li>然后再确认2个IP，首先确认：PVE的虚拟LAN管理IP，比如是192.168.2.88，那么就必须把iStoreOS的IP改成192.168.2.1~192.168.2.77之间，比如把PVE的IP放在iStoreOS主路由LAN口IP之后，不然PVE无法联网。</li>
+<li>然后启动iStoreOS虚拟机，进入iStoreOS后，在“网络向导”里配置联网即可。</li>
+</ul>
+<h1 id="安装离线插件："><a href="#安装离线插件：" class="headerlink" title="安装离线插件："></a>安装离线插件：</h1><p><strong>注意，上述软件包安装，部分依赖依然要通过opkg软件源在线安装。如果安装失败，检查路由器自身的网络情况，特别是旁路由模式下最容易出现网络问题。</strong><br><strong>再三注意需要路由器自身联网正常</strong></p>
+<ul>
+<li><p>下载地址</p>
+<p><a href="https://github.com/bcseputetto/Are-u-ok">https://github.com/bcseputetto/Are-u-ok</a></p>
 </li>
-<li><p>安装编译依赖</p>
+<li><p>如何安装<br>下载后，来到iStore应用商店页面，点击手动安装，点击选择上传或者直接拖放文件<br><img src="https://img.zzzg.top/202312031649689.png"></p>
 </li>
-</ol>
-<figure class="highlight bash"><table><tr><td class="code"><pre><span class="line"><span class="built_in">sudo</span> apt update -y</span><br><span class="line"><span class="built_in">sudo</span> apt full-upgrade -y</span><br><span class="line"><span class="built_in">sudo</span> apt install -y ack antlr3 asciidoc autoconf automake autopoint binutils bison build-essential \</span><br><span class="line">bzip2 ccache cmake cpio curl device-tree-compiler fastjar flex gawk gettext gcc-multilib g++-multilib \</span><br><span class="line">git gperf haveged help2man intltool libc6-dev-i386 libelf-dev libglib2.0-dev libgmp3-dev libltdl-dev \</span><br><span class="line">libmpc-dev libmpfr-dev libncurses5-dev libncursesw5-dev libreadline-dev libssl-dev libtool lrzsz \</span><br><span class="line">mkisofs msmtp nano ninja-build p7zip p7zip-full patch pkgconf python2.7 python3 python3-pyelftools \</span><br><span class="line">libpython3-dev qemu-utils rsync scons squashfs-tools subversion swig texinfo uglifyjs upx-ucl unzip \</span><br><span class="line">vim wget xmlto xxd zlib1g-dev</span><br></pre></td></tr></table></figure>
+</ul>
+<p>对于没有iStore应用商店的OpenWrt也可以使用以下方法。<br>将 .run 文件上传到路由器上，然后在终端环境执行</p>
+<figure class="highlight plaintext"><table><tr><td class="code"><pre><span class="line">sh 包名.run</span><br></pre></td></tr></table></figure>
 
-<ol start="3">
-<li>下载源代码，更新 feeds 并选择配置<br>lede源：<a href="https://github.com/coolsnowwolf/lede">https://github.com/coolsnowwolf/lede</a><br>插件库：<a href="https://github.com/kenzok8/small-package">https://github.com/kenzok8/small-package</a><br>西瓜皮：<a href="https://github.com/6ang996/lede/tree/rk356x-xgp_support">https://github.com/6ang996/lede/tree/rk356x-xgp_support</a><br>克隆指定分支：git clone -b 分支 源</li>
-</ol>
-<figure class="highlight bash"><table><tr><td class="code"><pre><span class="line">git <span class="built_in">clone</span> https://github.com/coolsnowwolf/lede</span><br><span class="line"><span class="built_in">cd</span> lede</span><br><span class="line"><span class="built_in">echo</span> <span class="string">&#x27;src-git small8 https://github.com/kenzok8/small-package&#x27;</span> &gt;&gt;feeds.conf.default</span><br><span class="line">./scripts/feeds update -a</span><br><span class="line">./scripts/feeds install -a</span><br><span class="line">make menuconfig</span><br></pre></td></tr></table></figure>
 
-<ol start="4">
-<li>下载 dl 库，编译固件<br>（-j 后面是线程数，第一次编译推荐用单线程）</li>
-</ol>
- <figure class="highlight bash"><table><tr><td class="code"><pre><span class="line">make download -j8</span><br><span class="line">make V=s -j1</span><br><span class="line"><span class="keyword">time</span> make V=s -j$(<span class="built_in">nproc</span>)可以看到编译用时</span><br></pre></td></tr></table></figure>
 
-<p>本套代码保证肯定可以编译成功。里面包括了 R23 所有源代码，包括 IPK 的。</p>
-<p>你可以自由使用，但源码编译二次发布请注明我的 GitHub 仓库链接。谢谢合作！</p>
-<p>二次编译：</p>
-<figure class="highlight bash"><table><tr><td class="code"><pre><span class="line"><span class="built_in">cd</span> lede</span><br><span class="line">git pull</span><br><span class="line">./scripts/feeds update -a</span><br><span class="line">./scripts/feeds install -a</span><br><span class="line">make defconfig</span><br><span class="line">make download -j8</span><br><span class="line">make V=s -j$(<span class="built_in">nproc</span>)</span><br></pre></td></tr></table></figure>
+<p>例</p>
+<figure class="highlight plaintext"><table><tr><td class="code"><pre><span class="line">sh PassWall4.71-2_x86_all_sdk_22.03.5.run</span><br></pre></td></tr></table></figure>
 
-<p>如果需要重新配置：</p>
-<figure class="highlight bash"><table><tr><td class="code"><pre><span class="line"><span class="built_in">rm</span> -rf ./tmp &amp;&amp; <span class="built_in">rm</span> -rf .config</span><br><span class="line">make menuconfig</span><br><span class="line">make V=s -j$(<span class="built_in">nproc</span>)</span><br></pre></td></tr></table></figure>
 
-<p>编译完成后输出路径：bin&#x2F;targets</p>
-<h2 id="如果你使用-WSL-WSL2-进行编译"><a href="#如果你使用-WSL-WSL2-进行编译" class="headerlink" title="如果你使用 WSL&#x2F;WSL2 进行编译"></a>如果你使用 WSL&#x2F;WSL2 进行编译</h2><p>由于 WSL 的 PATH 中包含带有空格的 Windows 路径，有可能会导致编译失败，请在 <code>make</code> 前面加上：</p>
-<figure class="highlight bash"><table><tr><td class="code"><pre><span class="line">PATH=/usr/local/sbin:/usr/local/bin:/usr/sbin:/usr/bin:/sbin:/bin</span><br></pre></td></tr></table></figure>
 
-<h2 id="macOS-原生系统进行编译"><a href="#macOS-原生系统进行编译" class="headerlink" title="macOS 原生系统进行编译"></a>macOS 原生系统进行编译</h2><ol>
-<li><p>在 AppStore 中安装 Xcode</p>
-</li>
-<li><p>安装 Homebrew：</p>
-</li>
-</ol>
-<figure class="highlight bash"><table><tr><td class="code"><pre><span class="line">/usr/bin/ruby -e <span class="string">&quot;<span class="subst">$(curl -fsSL https://raw.githubusercontent.com/Homebrew/install/master/install)</span>&quot;</span></span><br></pre></td></tr></table></figure>
+<p>如果文件不在当前路径记得填写路径，下例</p>
+<figure class="highlight plaintext"><table><tr><td class="code"><pre><span class="line">sh /tmp/upload/PassWall4.71-2_x86_all_sdk_22.03.5.run</span><br></pre></td></tr></table></figure>
 
-<ol start="3">
-<li>使用 Homebrew 安装工具链、依赖与基础软件包:</li>
-</ol>
-<figure class="highlight bash"><table><tr><td class="code"><pre><span class="line">brew <span class="built_in">unlink</span> awk</span><br><span class="line">brew install coreutils diffutils findutils gawk gnu-getopt gnu-tar grep make ncurses pkg-config wget quilt xz</span><br><span class="line">brew install gcc@11</span><br></pre></td></tr></table></figure>
-
-<ol start="4">
-<li>然后输入以下命令，添加到系统环境变量中：</li>
-</ol>
-<figure class="highlight bash"><table><tr><td class="code"><pre><span class="line"><span class="built_in">echo</span> <span class="string">&#x27;export PATH=&quot;/usr/local/opt/coreutils/libexec/gnubin:$PATH&quot;&#x27;</span> &gt;&gt; ~/.bashrc</span><br><span class="line"><span class="built_in">echo</span> <span class="string">&#x27;export PATH=&quot;/usr/local/opt/findutils/libexec/gnubin:$PATH&quot;&#x27;</span> &gt;&gt; ~/.bashrc</span><br><span class="line"><span class="built_in">echo</span> <span class="string">&#x27;export PATH=&quot;/usr/local/opt/gnu-getopt/bin:$PATH&quot;&#x27;</span> &gt;&gt; ~/.bashrc</span><br><span class="line"><span class="built_in">echo</span> <span class="string">&#x27;export PATH=&quot;/usr/local/opt/gnu-tar/libexec/gnubin:$PATH&quot;&#x27;</span> &gt;&gt; ~/.bashrc</span><br><span class="line"><span class="built_in">echo</span> <span class="string">&#x27;export PATH=&quot;/usr/local/opt/grep/libexec/gnubin:$PATH&quot;&#x27;</span> &gt;&gt; ~/.bashrc</span><br><span class="line"><span class="built_in">echo</span> <span class="string">&#x27;export PATH=&quot;/usr/local/opt/gnu-sed/libexec/gnubin:$PATH&quot;&#x27;</span> &gt;&gt; ~/.bashrc</span><br><span class="line"><span class="built_in">echo</span> <span class="string">&#x27;export PATH=&quot;/usr/local/opt/make/libexec/gnubin:$PATH&quot;&#x27;</span> &gt;&gt; ~/.bashrc</span><br></pre></td></tr></table></figure>
-
-<ol start="5">
-<li>重新加载一下 shell 启动文件 <code>source ~/.bashrc</code>，然后输入 <code>bash</code> 进入 bash shell，就可以和 Linux 一样正常编译了</li>
-</ol>
 ]]></content>
       <categories>
         <category>网络设备</category>
       </categories>
       <tags>
-        <tag>Openwrt</tag>
+        <tag>iStoreOS</tag>
       </tags>
   </entry>
   <entry>
@@ -2427,6 +2588,79 @@
       </tags>
   </entry>
   <entry>
+    <title>R探长 甲骨文云开机脚本</title>
+    <url>/posts/d604b8c7/</url>
+    <content><![CDATA[<h1 id="原作者地址"><a href="#原作者地址" class="headerlink" title="原作者地址"></a>原作者地址</h1><p><a href="https://github.com/semicons/java_oci_manage/blob/main/md/install.md">https://github.com/semicons/java_oci_manage/blob/main/md/install.md</a></p>
+<h1 id="debian12先要装依赖"><a href="#debian12先要装依赖" class="headerlink" title="debian12先要装依赖"></a>debian12先要装依赖</h1><figure class="highlight shell"><table><tr><td class="code"><pre><span class="line">sudo nano /etc/apt/sources.list</span><br></pre></td></tr></table></figure>
+
+<figure class="highlight shell"><table><tr><td class="code"><pre><span class="line">deb http://deb.debian.org/debian bullseye main</span><br><span class="line"></span><br><span class="line">deb-src http://deb.debian.org/debian bullseye main</span><br></pre></td></tr></table></figure>
+
+
+
+<figure class="highlight shell"><table><tr><td class="code"><pre><span class="line">apt update</span><br><span class="line"></span><br><span class="line">apt install openjdk-17-jdk</span><br></pre></td></tr></table></figure>
+
+
+
+
+
+<h1 id="更新环境"><a href="#更新环境" class="headerlink" title="更新环境"></a>更新环境</h1><figure class="highlight shell"><table><tr><td class="code"><pre><span class="line">apt update -y &amp;&amp; apt install -y curl wget sudo</span><br></pre></td></tr></table></figure>
+
+
+
+
+
+<h1 id="安装R探长"><a href="#安装R探长" class="headerlink" title="安装R探长"></a>安装R探长</h1><figure class="highlight shell"><table><tr><td class="code"><pre><span class="line">cd /home &amp;&amp; mkdir rbot &amp;&amp; cd rbot</span><br><span class="line"></span><br><span class="line">wget -O gz_client_bot.tar.gz https://github.com/semicons/java_oci_manage/releases/latest/download/gz_client_bot.tar.gz &amp;&amp; tar -zxvf gz_client_bot.tar.gz --exclude=client_config &amp;&amp; tar -zxvf gz_client_bot.tar.gz --skip-old-files client_config &amp;&amp; chmod +x sh_client_bot.sh</span><br></pre></td></tr></table></figure>
+
+
+
+
+
+
+
+<h1 id="下载配置client-config模板"><a href="#下载配置client-config模板" class="headerlink" title="下载配置client_config模板"></a>下载配置client_config模板</h1><p><a href="https://github.com/kejilion/sh/blob/main/client_config">https://github.com/kejilion/sh/blob/main/client_config</a></p>
+<h1 id="到甲骨文云下载API证书并获取API信息"><a href="#到甲骨文云下载API证书并获取API信息" class="headerlink" title="到甲骨文云下载API证书并获取API信息"></a>到甲骨文云下载API证书并获取API信息</h1><p><a href="https://cloud.oracle.com/">https://cloud.oracle.com/</a></p>
+<p><img src="https://img.zzzg.top/202312080925335.png"></p>
+<p><img src="https://img.zzzg.top/202312080925572.png"></p>
+<p><img src="https://img.zzzg.top/202312080925945.png"></p>
+<p><img src="https://img.zzzg.top/202312080925124.png"></p>
+<p><img src="https://img.zzzg.top/202312080925243.png"></p>
+<p><img src="https://img.zzzg.top/202312080925743.png"></p>
+<p><img src="https://img.zzzg.top/202312080926332.png"></p>
+<h1 id="key存放路径"><a href="#key存放路径" class="headerlink" title="key存放路径"></a>key存放路径</h1><p>key_file&#x3D;&#x2F;home&#x2F;rbot&#x2F;key.pem</p>
+<h1 id="关注R探长频道和机器人"><a href="#关注R探长频道和机器人" class="headerlink" title="关注R探长频道和机器人"></a>关注R探长频道和机器人</h1><p>R探长频道：<a href="https://t.me/agentONE_R">https://t.me/agentONE_R</a></p>
+<p>R探长机器人：<a href="https://t.me/radiance_helper_bot">https://t.me/radiance_helper_bot</a></p>
+<h1 id="和机器人对话获取随机用户名和密码"><a href="#和机器人对话获取随机用户名和密码" class="headerlink" title="和机器人对话获取随机用户名和密码"></a>和机器人对话获取随机用户名和密码</h1><p>&#x2F;raninfo</p>
+<h1 id="填写示例"><a href="#填写示例" class="headerlink" title="填写示例"></a>填写示例</h1><p><img src="https://img.zzzg.top/202312080926509.png"></p>
+<p>填写完成后</p>
+<p>把<strong>client_config.txtclient_config.txt</strong>改为<strong>client_config</strong></p>
+<p>把下载的pem文件改为<strong>key.pem</strong></p>
+<p>然后上传到**&#x2F;home&#x2F;rbot&#x2F;**目录</p>
+<h1 id="启动或重启"><a href="#启动或重启" class="headerlink" title="启动或重启"></a>启动或重启</h1><figure class="highlight shell"><table><tr><td class="code"><pre><span class="line">bash sh_client_bot.sh </span><br></pre></td></tr></table></figure>
+
+
+
+<h1 id="查看日志-ctrl-c退出日志"><a href="#查看日志-ctrl-c退出日志" class="headerlink" title="查看日志(ctrl + c退出日志)"></a>查看日志(ctrl + c退出日志)</h1><figure class="highlight shell"><table><tr><td class="code"><pre><span class="line">tail -f log_r_client.log </span><br></pre></td></tr></table></figure>
+
+
+
+<h1 id="终止程序"><a href="#终止程序" class="headerlink" title="终止程序"></a>终止程序</h1><figure class="highlight shell"><table><tr><td class="code"><pre><span class="line">ps -ef | grep r_client.jar | grep -v grep | awk &#x27;&#123;print $2&#125;&#x27; | xargs kill -9 </span><br></pre></td></tr></table></figure>
+
+
+
+<h1 id="卸载程序"><a href="#卸载程序" class="headerlink" title="卸载程序"></a>卸载程序</h1><figure class="highlight shell"><table><tr><td class="code"><pre><span class="line">rm -rf gz_client_bot.tar.gz client_config r_client.jar sh_client_bot.sh log_r_client.log debug-.log </span><br></pre></td></tr></table></figure>
+
+<p>如也不需要JDK也可卸载：</p>
+<figure class="highlight shell"><table><tr><td class="code"><pre><span class="line">apt-get remove openjdk*</span><br></pre></td></tr></table></figure>
+
+]]></content>
+      <categories>
+        <category>运维技术</category>
+      </categories>
+      <tags>
+        <tag>运维工具</tag>
+      </tags>
+  </entry>
+  <entry>
     <title>S120伺服断开STO会掉位置的解决方法</title>
     <url>/posts/db238e4c/</url>
     <content><![CDATA[<h1 id="原因分析"><a href="#原因分析" class="headerlink" title="原因分析"></a><strong>原因分析</strong></h1><p>西门子S120伺服断开STO在作为上下移动的移动应用时，可能会因为负载较重，当断开STO安全信号，或者断开电源，伺服抱闸启用时仍然会往下掉位置。</p>
@@ -2473,115 +2707,6 @@
       </categories>
       <tags>
         <tag>SINAMICS</tag>
-      </tags>
-  </entry>
-  <entry>
-    <title>SEW MOVIPRO调试步骤</title>
-    <url>/posts/f5fecf87/</url>
-    <content><![CDATA[<h1 id="创建项目-添加设备并配置"><a href="#创建项目-添加设备并配置" class="headerlink" title="创建项目-添加设备并配置"></a>创建项目-添加设备并配置</h1><p>1、打开MOVITOOLS MotionStudio软件，创建项目；<br><img src="https://img.zzzg.top/20250520230954862.png" alt="image-20250520230940811"></p>
-<p>2、用Ethernet线缆连接电脑和MoviPro控制器的service unit。点击“communication”，创建通讯方式；<br><img src="https://img.zzzg.top/20250520231006027.png" alt="image-20250520230948605"></p>
-<p>3、设备初始IP地址为192.168.10.4，将电脑IP地址与其设在同一网段下，点击“OK”即可建立Ethernet连接；如果设备IP地址已被更改，点击“edit”；<br><img src="https://img.zzzg.top/20250520231113431.png" alt="image-20250520224324421"></p>
-<p>4、添加新的IP地址；<br><img src="https://img.zzzg.top/20250520231011496.png" alt="image-20250520224341744"></p>
-<p>5、网络连接建立完成；<br><img src="https://img.zzzg.top/20250520231122633.png" alt="image-20250520224354597"></p>
-<p>6、扫描网络中的设备；<br><img src="https://img.zzzg.top/20250520231131139.png" alt="image-20250520224412310"></p>
-<p>7、设备扫描完成；<br><img src="https://img.zzzg.top/20250520231137902.png" alt="image-20250520224428869"></p>
-<p>8、点击设备属性；<br><img src="https://img.zzzg.top/20250520231146176.png" alt="image-20250520224518855"></p>
-<p>9、设置设备名称；<br><img src="https://img.zzzg.top/20250520231200252.png" alt="image-20250520224532942"></p>
-<p>8、进行设备硬件配置；<br><img src="https://img.zzzg.top/20250520231153579.png" alt="image-20250520224548176"></p>
-<p>11、选择需要配置的设备；<br><img src="https://img.zzzg.top/20250520231210043.png" alt="image-20250520224559520"></p>
-<p>12、点击“确定”；<br><img src="https://img.zzzg.top/20250520231221238.png" alt="image-20250520224613368"></p>
-<p>13、硬件配置完成；<br><img src="https://img.zzzg.top/20250520231228687.png" alt="image-20250520224629428"></p>
-<h1 id="配置电机参数"><a href="#配置电机参数" class="headerlink" title="配置电机参数"></a>配置电机参数</h1><p>14、进行power section初始化；<br><img src="https://img.zzzg.top/20250520231239923.png" alt="image-20250520224645469"></p>
-<p>15、点击“perform startup”，开始初始化；<br><img src="https://img.zzzg.top/20250520231248547.png" alt="image-20250520224657723"></p>
-<p>16、如果编码器中有电机的电子铭牌。选择接受编码器铭牌信息，点击“next”;<br><img src="https://img.zzzg.top/20250520231257891.png" alt="image-20250520224711463"></p>
-<p>17、如果编码器中没有电机的电子铭牌。需要对照电机铭牌，将编码器的电子铭牌手动输入 ；<br><img src="https://img.zzzg.top/20250520231305618.png" alt="image-20250520224722270"></p>
-<p>18、对照电机铭牌，确认编码器型号，之后点击“next”；<br><img src="https://img.zzzg.top/20250520231315922.png" alt="image-20250520224736776"></p>
-<p>19、编码器配置完成，点击“next”，开始电机初始化；<br><img src="https://img.zzzg.top/20250520231327038.png" alt="image-20250520224747069"></p>
-<p>20、点击“startup set-1”,进行parameter set-1设置；<br><img src="https://img.zzzg.top/20250520231334194.png" alt="image-20250520224801440"></p>
-<p>21、选择“Execute complete start-up（执行完整的初始化）”；<br><img src="https://img.zzzg.top/20250520231349687.png" alt="image-20250520224813064"></p>
-<p>22、选择“Stand-alone motor &gt; Vector-controlled&#x2F;Servo（独立电机 &gt; 矢量控制&#x2F;伺服电机）”；<br><img src="https://img.zzzg.top/20250520231358793.png" alt="image-20250520224822876"></p>
-<p>23、参照电机铭牌，检查电机及编码器信息是否准确；<br><img src="https://img.zzzg.top/20250520231410958.png" alt="image-20250520224837420"></p>
-<p>24、检查电机类型信息；<br><img src="https://img.zzzg.top/20250520231419435.png" alt="image-20250520224848845"></p>
-<p>25、输入电源电压，定义参数P835“电机温度传感器的响应”，定义参数P530“电机温度传感器类型”（例如TF&#x2F;TH）；<br><img src="https://img.zzzg.top/20250520231428193.png" alt="image-20250520224926604"></p>
-<p>26、选择“Yes, I use the encoder.（使用编码器）”；<br><img src="https://img.zzzg.top/20250520231436016.png" alt="image-20250520224938904"></p>
-<p>27、操作模式选择“Positioning with IPOS（IPOS程序定位模式）”；<br><img src="https://img.zzzg.top/20250520231442842.png" alt="image-20250520225002622"></p>
-<p>28、选择“CFC（电流矢量控制）模式”；<br><img src="https://img.zzzg.top/20250520231449119.png" alt="image-20250520225015957"></p>
-<p>29、准确填写WEISS计算的load inertia（负载转动惯量），drive选择“With Backlash”；<br><img src="https://img.zzzg.top/20250520231503423.png" alt="image-20250520225026004"></p>
-<p>30、相关参数使用WEISS所提供参数表中的建议参数，其它参数选择“Apply Proposal（使用推荐值）”；<br><img src="https://img.zzzg.top/20250520231511679.png" alt="image-20250520225036799"></p>
-<p>31、转速控制器参数选择“Apply Proposal（使用推荐值）”；<br><img src="https://img.zzzg.top/20250520231536940.png" alt="image-20250520225058582"></p>
-<p>32、 相关参数使用WEISS所提供参数表中的建议参数，剩余参数选择“Apply Proposal（使用推荐值）”；<br><img src="https://img.zzzg.top/20250520231544207.png" alt="image-20250520225108975"></p>
-<p>33、点击“完成”，将初始化信息下载至控制器。如需配置parameter set-2，点击“download”，再进行参数包2的配置；<br><img src="https://img.zzzg.top/20250520231552525.png" alt="image-20250520225121142"></p>
-<p>34、初始化完全完成后，会跳出提示框，点击“确定”；<br><img src="https://img.zzzg.top/20250520231600145.png" alt="image-20250520225138383"></p>
-<h1 id="设置其他参数"><a href="#设置其他参数" class="headerlink" title="设置其他参数"></a>设置其他参数</h1><p>35、点击“parameter tree”，进行WEISS所提供参数表中其它相关参数的设置；<br><img src="https://img.zzzg.top/20250520231606894.png" alt="image-20250520225149596"></p>
-<p>36、例如，P911定位斜坡1，P913&#x2F;P914运转转速CW&#x2F;CCW，P916斜坡形式需设为“Jerk-Limited”；<br><img src="https://img.zzzg.top/20250520231616480.png" alt="image-20250520225202404"></p>
-<p>37、例如，P933突变时间；<br><img src="https://img.zzzg.top/20250520231626629.png" alt="image-20250520225213331"></p>
-<h1 id="手动控制"><a href="#手动控制" class="headerlink" title="手动控制"></a>手动控制</h1><p>38、参数配置为在线实时进行，完成后，点击“manual mode”手动模式；<br><img src="https://img.zzzg.top/20250520231642297.png" alt="image-20250520225223204"></p>
-<p>39、点击“Activate manual mode”，激活手动模式。此时插上jumper plug，设置速度，方向，即可进行转台正反停控制；<br><img src="https://img.zzzg.top/20250520231656405.png" alt="image-20250520225234230"></p>
-<p>40、手动模式下，转台运行正常后，将转台旋转至机械零点位置，点击“Deactivate manual mode”，退出手动模式，拔下jumper plug;	<br><img src="https://img.zzzg.top/20250520231705779.png" alt="image-20250520225246305"></p>
-<h1 id="模块应用配置"><a href="#模块应用配置" class="headerlink" title="模块应用配置"></a>模块应用配置</h1><p>41、点击“Application Configurator”，进行模块应用配置；<br><img src="https://img.zzzg.top/20250520231712618.png" alt="image-20250520225301025"></p>
-<p>42、点击“Create new configuration”,创建新的模块应用配置；<br><img src="https://img.zzzg.top/20250520231719182.png" alt="image-20250520225312698"></p>
-<p>43、Application module 选择“transparent 6PD”;<br><img src="https://img.zzzg.top/20250520231726816.png" alt="image-20250520225325321"></p>
-<p>44、点击“configuration”，完成后标志变绿色，点击“next”；<br><img src="https://img.zzzg.top/20250520231734076.png" alt="image-20250520225340848"></p>
-<p>45、点击“Save complete configuration”，可保存应用配置文件；<br><img src="https://img.zzzg.top/20250520231740533.png" alt="image-20250520225402973"></p>
-<p>46、点击“Document configuration”,可将应用配置保存为.pdf文件；<br><img src="https://img.zzzg.top/20250520231747555.png" alt="image-20250520225422513"></p>
-<p>47、若应用配置软件版本不同，选择“with controller software”，将软件和应用配置下载至设备。过程持续可能20分钟，注意电脑和设备此时不能断电；<br><img src="https://img.zzzg.top/20250520231757343.png" alt="image-20250520225434600"></p>
-<p>48、点击“确定”，重启设备;<br><img src="https://img.zzzg.top/20250520231804084.png" alt="image-20250520225445136"></p>
-<p>49、应用配置完成；<br><img src="https://img.zzzg.top/20250520231811471.png" alt="image-20250520225459428"></p>
-<h1 id="配置AMA0801"><a href="#配置AMA0801" class="headerlink" title="配置AMA0801"></a>配置AMA0801</h1><p>50、创建AMA0801模块；<br><img src="https://img.zzzg.top/20250520231822010.png" alt="image-20250520225524162"></p>
-<p>51、点击“Load a configuration”，下载已保存的应用模块，或者点击“next”，开始初始化AMA0801模块；<br><img src="https://img.zzzg.top/20250520231828978.png" alt="image-20250520225540943"></p>
-<p>52、总线参数和控制器配置页面，“Application mode”选择“Binary setpoint”;<br><img src="https://img.zzzg.top/20250520231837827.png" alt="image-20250520225551310"></p>
-<p>53、刻度计算页面，“Diameter&#x2F;spindle pitch”的单位选择“inc”;<br><img src="https://img.zzzg.top/20250520231844945.png" alt="image-20250520225604832"></p>
-<p>54、参数和极限页面，若使用硬件限位开关，需将CW和CCW限位开关接到设备X5102_2，同时在软件上选择“YES”，“parameter tree”中将P603和P604端子功能设置为相应的限位功能。如果没有原点传感器，寻找参考点模式选择5，即将当前点作为原点。同时可根据WEISS参数表设置各种模式下极限速度；<br><img src="https://img.zzzg.top/20250520231851607.png" alt="image-20250520225621665"></p>
-<p>55、设置定位和点动模式高低速、加减速时间，以及 至设置设备行走各个位置的速度及加减速时间；<br><img src="https://img.zzzg.top/20250520231859909.png" alt="image-20250520225632316"></p>
-<p>56、设置定位窗口和设备行走的位置；<br><img src="https://img.zzzg.top/20250520231908210.png" alt="image-20250520225645477"></p>
-<p>57、设置cam switch；<br><img src="https://img.zzzg.top/20250520231915883.png" alt="image-20250520225706528"></p>
-<p>58、监控设置页面，建议使用其默认参数；<br><img src="https://img.zzzg.top/20250520231922866.png" alt="image-20250520225717710"></p>
-<p>59、点击“save configutation”，可保存AMA配置文件；<br><img src="https://img.zzzg.top/20250520231930036.png" alt="image-20250520225728063"></p>
-<p>60、点击“create documentation”，可将AMA配置保存为.pdf文件；<br><img src="https://img.zzzg.top/20250520231936652.png" alt="image-20250520225738609"></p>
-<p>61、点击“download”，将AMA应用模块配置下载至设备；<br><img src="https://img.zzzg.top/20250520231948547.png" alt="image-20250520225759312"></p>
-<h1 id="总线控制"><a href="#总线控制" class="headerlink" title="总线控制"></a>总线控制</h1><p>62、下载完成后，软件自动跳至总线控制监视器；<br><img src="https://img.zzzg.top/20250520232005174.png" alt="image-20250520225808792"></p>
-<p>63、点击“control”，确定弹出对话框；<br><img src="https://img.zzzg.top/20250520232013724.png" alt="image-20250520225818826"></p>
-<p>64、插上jumper plug，控制模式选为“reference mode（寻参模式）”，点击“start”，即可将当前机械零点设为电气零点；<br><img src="https://img.zzzg.top/20250520232021615.png" alt="image-20250520225830987"></p>
-<p>65、寻参结束后，PO2状态字中当前位置会变为0 inc;<br><img src="https://img.zzzg.top/20250520232029384.png" alt="image-20250520225841553"></p>
-<p>66、选择“jog mode（点动模式）”，即可模拟总线进行点动控制；<br><img src="https://img.zzzg.top/20250520232037665.png" alt="image-20250520225851198"></p>
-<p>67、选择“positioning mode（定位模式）”，选择位置，即可模拟总线进行定位控制；<br><img src="https://img.zzzg.top/20250520232045036.png" alt="image-20250520225859987"></p>
-<p>68、模拟总线控制转台运转正常之后，取消控制字，拔下jumper plug，点击“monitor”，退出控制模式；<br><img src="https://img.zzzg.top/20250520232051720.png" alt="image-20250520225909761"></p>
-<h1 id="数据管理"><a href="#数据管理" class="headerlink" title="数据管理"></a>数据管理</h1><p>69、点击“Datamanagement”；<br><img src="https://img.zzzg.top/20250520232100983.png" alt="image-20250520225920732"></p>
-<p>70、点击“upload”，将设备中数据备份到SD卡；<br><img src="https://img.zzzg.top/20250520232108798.png" alt="image-20250520225930647"></p>
-<p>71、点击“start upload”，开始备份数据；<br><img src="https://img.zzzg.top/20250520232116388.png" alt="image-20250520225958505"></p>
-<p>72、备份完成；<br><img src="https://img.zzzg.top/20250520232124675.png" alt="image-20250520225942038"></p>
-<p>73、点击“export”，将power section参数导出；<br><img src="https://img.zzzg.top/20250520232133052.png" alt="image-20250520230018000"></p>
-<p>74、点击“export”，将control and communication unit参数导出；<br><img src="https://img.zzzg.top/20250520232141408.png" alt="image-20250520230027041"></p>
-<p>75、点击“save”，保存项目；<br><img src="https://img.zzzg.top/20250520232149043.png" alt="image-20250520230037252"></p>
-<p>76、点击“export”，可将此项目导出为.exe文件；<br><img src="https://img.zzzg.top/20250520232157540.png" alt="image-20250520230047342"></p>
-<h1 id="初始化"><a href="#初始化" class="headerlink" title="初始化"></a>初始化</h1><p>77、若需初始化控制器，可在“parameter tree”P802中选择“delivery state”，将控制器还原为出厂状态。<br><img src="https://img.zzzg.top/20250520232205573.png" alt="image-20250520230056017"></p>
-<h1 id="补充"><a href="#补充" class="headerlink" title="补充"></a>补充</h1><p>1、变频器安全参照MOVIFIT设置右键点击20 Default<br><img src="https://img.zzzg.top/20250522195109917.jpg" alt="img"></p>
-<p>2、变频器硬件组态输入输出数据为 8 WORD.<br><img src="https://img.zzzg.top/20250522195116416.jpg" alt="img"></p>
-<p>3、选择<br><img src="https://img.zzzg.top/20250522195121633.jpg" alt="img"><br>读取编码器中电机参数 ，电机NEXT<br><img src="https://img.zzzg.top/20250522195127315.jpg" alt="img"></p>
-<p>4、开始设置变频器参数 电机START-UP SET1<br><img src="https://img.zzzg.top/20250522195131943.jpg" alt="img"></p>
-<p>5、选择完成执行参数初始化<br><img src="https://img.zzzg.top/20250522195136752.jpg" alt="img"></p>
-<p>6、选择私服控制<br><img src="https://img.zzzg.top/20250522195141348.jpg" alt="img"></p>
-<p>7、选择电机型号。本项目中是读取编码器中电机数据故无需设置<br><img src="https://img.zzzg.top/20250522195149268.jpg" alt="img"></p>
-<p>8、选择PositionWith IPOS<br><img src="https://img.zzzg.top/20250522195155150.jpg" alt="img"> </p>
-<p>9、选择矢量控制<br><img src="https://img.zzzg.top/20250522195201283.jpg" alt="img"></p>
-<p>10、设置电机转动惯量和抱闸应用<br><img src="https://img.zzzg.top/20250522195208507.jpg" alt="img"></p>
-<p>11、电机参数选择SEW建议值， APPLY PROPOSAL电机NEXT<br><img src="https://img.zzzg.top/20250522195215400.jpg" alt="img"></p>
-<p>12、参数设置完成，电机完成将参数下载到变频器、<br><img src="https://img.zzzg.top/20250522195221191.jpg" alt="img"></p>
-<p>13、设置变频器IPOS应用、选择Extened Positioning Via Bus<br><img src="https://img.zzzg.top/20250522195226479.jpg" alt="img"></p>
-<p>14、电机NEXT<br><img src="https://img.zzzg.top/20250522195231631.jpg" alt="img"></p>
-<p>15、设置滚床机械参数。由于采用脉冲定位方式故直接电机NEXT<br><img src="https://img.zzzg.top/20250522195237098.jpg" alt="img"></p>
-<p>16、设置变频器软限位和校零方式<br><img src="https://img.zzzg.top/20250522195242608.jpg" alt="img"></p>
-<p>17、参数设置完成电机DOWN load下载参数<br><img src="https://img.zzzg.top/20250522195249177.jpg" alt="img"></p>
-<p>18、选择YES可以查看变频器控制字和状态字<br><img src="https://img.zzzg.top/20250522195255788.jpg" alt="img"></p>
-<p>19、MONITOR MODE和 CONTROL模式可以监控变频器状态或者控制变频器定位（由PC控制）<br><img src="https://img.zzzg.top/20250522195303798.jpg" alt="img"></p>
-<p>20、巡参模式控制字<br><img src="https://img.zzzg.top/20250522195310346.jpg" alt="img"></p>
-<p>21、定位模式状态字。定位的前提是变频器必须巡参，需要设置目的值、速度、加减速度<br><img src="https://img.zzzg.top/20250522195316220.jpg" alt="img"></p>
-]]></content>
-      <categories>
-        <category>工业自动化</category>
-      </categories>
-      <tags>
-        <tag>MOVIDRIVE</tag>
       </tags>
   </entry>
   <entry>
@@ -2749,6 +2874,115 @@
 <p><img src="https://img.zzzg.top/20250524223312296.png" alt="image-20250524213941933"></p>
 <p>48、若后期设备应用有更改，需初始化控制器，可在“parameter tree”P802中选择“delivery state”，将控制器还原为出厂状态。</p>
 <p><img src="https://img.zzzg.top/20250524223317731.png" alt="image-20250524213949868"></p>
+]]></content>
+      <categories>
+        <category>工业自动化</category>
+      </categories>
+      <tags>
+        <tag>MOVIDRIVE</tag>
+      </tags>
+  </entry>
+  <entry>
+    <title>SEW MOVIPRO调试步骤</title>
+    <url>/posts/f5fecf87/</url>
+    <content><![CDATA[<h1 id="创建项目-添加设备并配置"><a href="#创建项目-添加设备并配置" class="headerlink" title="创建项目-添加设备并配置"></a>创建项目-添加设备并配置</h1><p>1、打开MOVITOOLS MotionStudio软件，创建项目；<br><img src="https://img.zzzg.top/20250520230954862.png" alt="image-20250520230940811"></p>
+<p>2、用Ethernet线缆连接电脑和MoviPro控制器的service unit。点击“communication”，创建通讯方式；<br><img src="https://img.zzzg.top/20250520231006027.png" alt="image-20250520230948605"></p>
+<p>3、设备初始IP地址为192.168.10.4，将电脑IP地址与其设在同一网段下，点击“OK”即可建立Ethernet连接；如果设备IP地址已被更改，点击“edit”；<br><img src="https://img.zzzg.top/20250520231113431.png" alt="image-20250520224324421"></p>
+<p>4、添加新的IP地址；<br><img src="https://img.zzzg.top/20250520231011496.png" alt="image-20250520224341744"></p>
+<p>5、网络连接建立完成；<br><img src="https://img.zzzg.top/20250520231122633.png" alt="image-20250520224354597"></p>
+<p>6、扫描网络中的设备；<br><img src="https://img.zzzg.top/20250520231131139.png" alt="image-20250520224412310"></p>
+<p>7、设备扫描完成；<br><img src="https://img.zzzg.top/20250520231137902.png" alt="image-20250520224428869"></p>
+<p>8、点击设备属性；<br><img src="https://img.zzzg.top/20250520231146176.png" alt="image-20250520224518855"></p>
+<p>9、设置设备名称；<br><img src="https://img.zzzg.top/20250520231200252.png" alt="image-20250520224532942"></p>
+<p>8、进行设备硬件配置；<br><img src="https://img.zzzg.top/20250520231153579.png" alt="image-20250520224548176"></p>
+<p>11、选择需要配置的设备；<br><img src="https://img.zzzg.top/20250520231210043.png" alt="image-20250520224559520"></p>
+<p>12、点击“确定”；<br><img src="https://img.zzzg.top/20250520231221238.png" alt="image-20250520224613368"></p>
+<p>13、硬件配置完成；<br><img src="https://img.zzzg.top/20250520231228687.png" alt="image-20250520224629428"></p>
+<h1 id="配置电机参数"><a href="#配置电机参数" class="headerlink" title="配置电机参数"></a>配置电机参数</h1><p>14、进行power section初始化；<br><img src="https://img.zzzg.top/20250520231239923.png" alt="image-20250520224645469"></p>
+<p>15、点击“perform startup”，开始初始化；<br><img src="https://img.zzzg.top/20250520231248547.png" alt="image-20250520224657723"></p>
+<p>16、如果编码器中有电机的电子铭牌。选择接受编码器铭牌信息，点击“next”;<br><img src="https://img.zzzg.top/20250520231257891.png" alt="image-20250520224711463"></p>
+<p>17、如果编码器中没有电机的电子铭牌。需要对照电机铭牌，将编码器的电子铭牌手动输入 ；<br><img src="https://img.zzzg.top/20250520231305618.png" alt="image-20250520224722270"></p>
+<p>18、对照电机铭牌，确认编码器型号，之后点击“next”；<br><img src="https://img.zzzg.top/20250520231315922.png" alt="image-20250520224736776"></p>
+<p>19、编码器配置完成，点击“next”，开始电机初始化；<br><img src="https://img.zzzg.top/20250520231327038.png" alt="image-20250520224747069"></p>
+<p>20、点击“startup set-1”,进行parameter set-1设置；<br><img src="https://img.zzzg.top/20250520231334194.png" alt="image-20250520224801440"></p>
+<p>21、选择“Execute complete start-up（执行完整的初始化）”；<br><img src="https://img.zzzg.top/20250520231349687.png" alt="image-20250520224813064"></p>
+<p>22、选择“Stand-alone motor &gt; Vector-controlled&#x2F;Servo（独立电机 &gt; 矢量控制&#x2F;伺服电机）”；<br><img src="https://img.zzzg.top/20250520231358793.png" alt="image-20250520224822876"></p>
+<p>23、参照电机铭牌，检查电机及编码器信息是否准确；<br><img src="https://img.zzzg.top/20250520231410958.png" alt="image-20250520224837420"></p>
+<p>24、检查电机类型信息；<br><img src="https://img.zzzg.top/20250520231419435.png" alt="image-20250520224848845"></p>
+<p>25、输入电源电压，定义参数P835“电机温度传感器的响应”，定义参数P530“电机温度传感器类型”（例如TF&#x2F;TH）；<br><img src="https://img.zzzg.top/20250520231428193.png" alt="image-20250520224926604"></p>
+<p>26、选择“Yes, I use the encoder.（使用编码器）”；<br><img src="https://img.zzzg.top/20250520231436016.png" alt="image-20250520224938904"></p>
+<p>27、操作模式选择“Positioning with IPOS（IPOS程序定位模式）”；<br><img src="https://img.zzzg.top/20250520231442842.png" alt="image-20250520225002622"></p>
+<p>28、选择“CFC（电流矢量控制）模式”；<br><img src="https://img.zzzg.top/20250520231449119.png" alt="image-20250520225015957"></p>
+<p>29、准确填写WEISS计算的load inertia（负载转动惯量），drive选择“With Backlash”；<br><img src="https://img.zzzg.top/20250520231503423.png" alt="image-20250520225026004"></p>
+<p>30、相关参数使用WEISS所提供参数表中的建议参数，其它参数选择“Apply Proposal（使用推荐值）”；<br><img src="https://img.zzzg.top/20250520231511679.png" alt="image-20250520225036799"></p>
+<p>31、转速控制器参数选择“Apply Proposal（使用推荐值）”；<br><img src="https://img.zzzg.top/20250520231536940.png" alt="image-20250520225058582"></p>
+<p>32、 相关参数使用WEISS所提供参数表中的建议参数，剩余参数选择“Apply Proposal（使用推荐值）”；<br><img src="https://img.zzzg.top/20250520231544207.png" alt="image-20250520225108975"></p>
+<p>33、点击“完成”，将初始化信息下载至控制器。如需配置parameter set-2，点击“download”，再进行参数包2的配置；<br><img src="https://img.zzzg.top/20250520231552525.png" alt="image-20250520225121142"></p>
+<p>34、初始化完全完成后，会跳出提示框，点击“确定”；<br><img src="https://img.zzzg.top/20250520231600145.png" alt="image-20250520225138383"></p>
+<h1 id="设置其他参数"><a href="#设置其他参数" class="headerlink" title="设置其他参数"></a>设置其他参数</h1><p>35、点击“parameter tree”，进行WEISS所提供参数表中其它相关参数的设置；<br><img src="https://img.zzzg.top/20250520231606894.png" alt="image-20250520225149596"></p>
+<p>36、例如，P911定位斜坡1，P913&#x2F;P914运转转速CW&#x2F;CCW，P916斜坡形式需设为“Jerk-Limited”；<br><img src="https://img.zzzg.top/20250520231616480.png" alt="image-20250520225202404"></p>
+<p>37、例如，P933突变时间；<br><img src="https://img.zzzg.top/20250520231626629.png" alt="image-20250520225213331"></p>
+<h1 id="手动控制"><a href="#手动控制" class="headerlink" title="手动控制"></a>手动控制</h1><p>38、参数配置为在线实时进行，完成后，点击“manual mode”手动模式；<br><img src="https://img.zzzg.top/20250520231642297.png" alt="image-20250520225223204"></p>
+<p>39、点击“Activate manual mode”，激活手动模式。此时插上jumper plug，设置速度，方向，即可进行转台正反停控制；<br><img src="https://img.zzzg.top/20250520231656405.png" alt="image-20250520225234230"></p>
+<p>40、手动模式下，转台运行正常后，将转台旋转至机械零点位置，点击“Deactivate manual mode”，退出手动模式，拔下jumper plug;	<br><img src="https://img.zzzg.top/20250520231705779.png" alt="image-20250520225246305"></p>
+<h1 id="模块应用配置"><a href="#模块应用配置" class="headerlink" title="模块应用配置"></a>模块应用配置</h1><p>41、点击“Application Configurator”，进行模块应用配置；<br><img src="https://img.zzzg.top/20250520231712618.png" alt="image-20250520225301025"></p>
+<p>42、点击“Create new configuration”,创建新的模块应用配置；<br><img src="https://img.zzzg.top/20250520231719182.png" alt="image-20250520225312698"></p>
+<p>43、Application module 选择“transparent 6PD”;<br><img src="https://img.zzzg.top/20250520231726816.png" alt="image-20250520225325321"></p>
+<p>44、点击“configuration”，完成后标志变绿色，点击“next”；<br><img src="https://img.zzzg.top/20250520231734076.png" alt="image-20250520225340848"></p>
+<p>45、点击“Save complete configuration”，可保存应用配置文件；<br><img src="https://img.zzzg.top/20250520231740533.png" alt="image-20250520225402973"></p>
+<p>46、点击“Document configuration”,可将应用配置保存为.pdf文件；<br><img src="https://img.zzzg.top/20250520231747555.png" alt="image-20250520225422513"></p>
+<p>47、若应用配置软件版本不同，选择“with controller software”，将软件和应用配置下载至设备。过程持续可能20分钟，注意电脑和设备此时不能断电；<br><img src="https://img.zzzg.top/20250520231757343.png" alt="image-20250520225434600"></p>
+<p>48、点击“确定”，重启设备;<br><img src="https://img.zzzg.top/20250520231804084.png" alt="image-20250520225445136"></p>
+<p>49、应用配置完成；<br><img src="https://img.zzzg.top/20250520231811471.png" alt="image-20250520225459428"></p>
+<h1 id="配置AMA0801"><a href="#配置AMA0801" class="headerlink" title="配置AMA0801"></a>配置AMA0801</h1><p>50、创建AMA0801模块；<br><img src="https://img.zzzg.top/20250520231822010.png" alt="image-20250520225524162"></p>
+<p>51、点击“Load a configuration”，下载已保存的应用模块，或者点击“next”，开始初始化AMA0801模块；<br><img src="https://img.zzzg.top/20250520231828978.png" alt="image-20250520225540943"></p>
+<p>52、总线参数和控制器配置页面，“Application mode”选择“Binary setpoint”;<br><img src="https://img.zzzg.top/20250520231837827.png" alt="image-20250520225551310"></p>
+<p>53、刻度计算页面，“Diameter&#x2F;spindle pitch”的单位选择“inc”;<br><img src="https://img.zzzg.top/20250520231844945.png" alt="image-20250520225604832"></p>
+<p>54、参数和极限页面，若使用硬件限位开关，需将CW和CCW限位开关接到设备X5102_2，同时在软件上选择“YES”，“parameter tree”中将P603和P604端子功能设置为相应的限位功能。如果没有原点传感器，寻找参考点模式选择5，即将当前点作为原点。同时可根据WEISS参数表设置各种模式下极限速度；<br><img src="https://img.zzzg.top/20250520231851607.png" alt="image-20250520225621665"></p>
+<p>55、设置定位和点动模式高低速、加减速时间，以及 至设置设备行走各个位置的速度及加减速时间；<br><img src="https://img.zzzg.top/20250520231859909.png" alt="image-20250520225632316"></p>
+<p>56、设置定位窗口和设备行走的位置；<br><img src="https://img.zzzg.top/20250520231908210.png" alt="image-20250520225645477"></p>
+<p>57、设置cam switch；<br><img src="https://img.zzzg.top/20250520231915883.png" alt="image-20250520225706528"></p>
+<p>58、监控设置页面，建议使用其默认参数；<br><img src="https://img.zzzg.top/20250520231922866.png" alt="image-20250520225717710"></p>
+<p>59、点击“save configutation”，可保存AMA配置文件；<br><img src="https://img.zzzg.top/20250520231930036.png" alt="image-20250520225728063"></p>
+<p>60、点击“create documentation”，可将AMA配置保存为.pdf文件；<br><img src="https://img.zzzg.top/20250520231936652.png" alt="image-20250520225738609"></p>
+<p>61、点击“download”，将AMA应用模块配置下载至设备；<br><img src="https://img.zzzg.top/20250520231948547.png" alt="image-20250520225759312"></p>
+<h1 id="总线控制"><a href="#总线控制" class="headerlink" title="总线控制"></a>总线控制</h1><p>62、下载完成后，软件自动跳至总线控制监视器；<br><img src="https://img.zzzg.top/20250520232005174.png" alt="image-20250520225808792"></p>
+<p>63、点击“control”，确定弹出对话框；<br><img src="https://img.zzzg.top/20250520232013724.png" alt="image-20250520225818826"></p>
+<p>64、插上jumper plug，控制模式选为“reference mode（寻参模式）”，点击“start”，即可将当前机械零点设为电气零点；<br><img src="https://img.zzzg.top/20250520232021615.png" alt="image-20250520225830987"></p>
+<p>65、寻参结束后，PO2状态字中当前位置会变为0 inc;<br><img src="https://img.zzzg.top/20250520232029384.png" alt="image-20250520225841553"></p>
+<p>66、选择“jog mode（点动模式）”，即可模拟总线进行点动控制；<br><img src="https://img.zzzg.top/20250520232037665.png" alt="image-20250520225851198"></p>
+<p>67、选择“positioning mode（定位模式）”，选择位置，即可模拟总线进行定位控制；<br><img src="https://img.zzzg.top/20250520232045036.png" alt="image-20250520225859987"></p>
+<p>68、模拟总线控制转台运转正常之后，取消控制字，拔下jumper plug，点击“monitor”，退出控制模式；<br><img src="https://img.zzzg.top/20250520232051720.png" alt="image-20250520225909761"></p>
+<h1 id="数据管理"><a href="#数据管理" class="headerlink" title="数据管理"></a>数据管理</h1><p>69、点击“Datamanagement”；<br><img src="https://img.zzzg.top/20250520232100983.png" alt="image-20250520225920732"></p>
+<p>70、点击“upload”，将设备中数据备份到SD卡；<br><img src="https://img.zzzg.top/20250520232108798.png" alt="image-20250520225930647"></p>
+<p>71、点击“start upload”，开始备份数据；<br><img src="https://img.zzzg.top/20250520232116388.png" alt="image-20250520225958505"></p>
+<p>72、备份完成；<br><img src="https://img.zzzg.top/20250520232124675.png" alt="image-20250520225942038"></p>
+<p>73、点击“export”，将power section参数导出；<br><img src="https://img.zzzg.top/20250520232133052.png" alt="image-20250520230018000"></p>
+<p>74、点击“export”，将control and communication unit参数导出；<br><img src="https://img.zzzg.top/20250520232141408.png" alt="image-20250520230027041"></p>
+<p>75、点击“save”，保存项目；<br><img src="https://img.zzzg.top/20250520232149043.png" alt="image-20250520230037252"></p>
+<p>76、点击“export”，可将此项目导出为.exe文件；<br><img src="https://img.zzzg.top/20250520232157540.png" alt="image-20250520230047342"></p>
+<h1 id="初始化"><a href="#初始化" class="headerlink" title="初始化"></a>初始化</h1><p>77、若需初始化控制器，可在“parameter tree”P802中选择“delivery state”，将控制器还原为出厂状态。<br><img src="https://img.zzzg.top/20250520232205573.png" alt="image-20250520230056017"></p>
+<h1 id="补充"><a href="#补充" class="headerlink" title="补充"></a>补充</h1><p>1、变频器安全参照MOVIFIT设置右键点击20 Default<br><img src="https://img.zzzg.top/20250522195109917.jpg" alt="img"></p>
+<p>2、变频器硬件组态输入输出数据为 8 WORD.<br><img src="https://img.zzzg.top/20250522195116416.jpg" alt="img"></p>
+<p>3、选择<br><img src="https://img.zzzg.top/20250522195121633.jpg" alt="img"><br>读取编码器中电机参数 ，电机NEXT<br><img src="https://img.zzzg.top/20250522195127315.jpg" alt="img"></p>
+<p>4、开始设置变频器参数 电机START-UP SET1<br><img src="https://img.zzzg.top/20250522195131943.jpg" alt="img"></p>
+<p>5、选择完成执行参数初始化<br><img src="https://img.zzzg.top/20250522195136752.jpg" alt="img"></p>
+<p>6、选择私服控制<br><img src="https://img.zzzg.top/20250522195141348.jpg" alt="img"></p>
+<p>7、选择电机型号。本项目中是读取编码器中电机数据故无需设置<br><img src="https://img.zzzg.top/20250522195149268.jpg" alt="img"></p>
+<p>8、选择PositionWith IPOS<br><img src="https://img.zzzg.top/20250522195155150.jpg" alt="img"> </p>
+<p>9、选择矢量控制<br><img src="https://img.zzzg.top/20250522195201283.jpg" alt="img"></p>
+<p>10、设置电机转动惯量和抱闸应用<br><img src="https://img.zzzg.top/20250522195208507.jpg" alt="img"></p>
+<p>11、电机参数选择SEW建议值， APPLY PROPOSAL电机NEXT<br><img src="https://img.zzzg.top/20250522195215400.jpg" alt="img"></p>
+<p>12、参数设置完成，电机完成将参数下载到变频器、<br><img src="https://img.zzzg.top/20250522195221191.jpg" alt="img"></p>
+<p>13、设置变频器IPOS应用、选择Extened Positioning Via Bus<br><img src="https://img.zzzg.top/20250522195226479.jpg" alt="img"></p>
+<p>14、电机NEXT<br><img src="https://img.zzzg.top/20250522195231631.jpg" alt="img"></p>
+<p>15、设置滚床机械参数。由于采用脉冲定位方式故直接电机NEXT<br><img src="https://img.zzzg.top/20250522195237098.jpg" alt="img"></p>
+<p>16、设置变频器软限位和校零方式<br><img src="https://img.zzzg.top/20250522195242608.jpg" alt="img"></p>
+<p>17、参数设置完成电机DOWN load下载参数<br><img src="https://img.zzzg.top/20250522195249177.jpg" alt="img"></p>
+<p>18、选择YES可以查看变频器控制字和状态字<br><img src="https://img.zzzg.top/20250522195255788.jpg" alt="img"></p>
+<p>19、MONITOR MODE和 CONTROL模式可以监控变频器状态或者控制变频器定位（由PC控制）<br><img src="https://img.zzzg.top/20250522195303798.jpg" alt="img"></p>
+<p>20、巡参模式控制字<br><img src="https://img.zzzg.top/20250522195310346.jpg" alt="img"></p>
+<p>21、定位模式状态字。定位的前提是变频器必须巡参，需要设置目的值、速度、加减速度<br><img src="https://img.zzzg.top/20250522195316220.jpg" alt="img"></p>
 ]]></content>
       <categories>
         <category>工业自动化</category>
@@ -4040,85 +4274,6 @@
       </tags>
   </entry>
   <entry>
-    <title>Xray最新协议Reality搭建</title>
-    <url>/posts/428849a6/</url>
-    <content><![CDATA[<h1 id="简介"><a href="#简介" class="headerlink" title="简介"></a>简介</h1><p>为了应对 TLS in TLS 和指纹识别等阻断或封禁的风险，Xray-core 团队推出了 Vision 和 Reality 两种新颖的技术方案。它们能够有效地隐藏和保护流量的特征，提高安全性和稳定性。</p>
-<p><a href="https://github.com/XTLS/Xray-core/discussions/1295#discussion-4523044">Vision原理</a></p>
-<p><a href="https://www.v2ray-agent.com/archives/1679292836379">Reality原理</a></p>
-<p>如果你和我一样小白，那我用我的理解方式给大家解释一下，不一定准确，但方便理解。</p>
-<p>1.之前TLS或者XTLS已经被墙识别，所以有了阻断或者封你443端口的情况，也就是所谓的TLS in TLS阻断</p>
-<p>2、后面Vision 的协议，能解决TLS in TLS阻断，但还不够完美。</p>
-<p>3、Xray1.80版本推出了最新的Reality协议，再配合之前的Vision协议，组合成了目前最牛的协议“<strong>VLESS-Vision-uTLS-REALITY”</strong></p>
-<p><strong>VLESS-Vision-uTLS-REALITY优势</strong></p>
-<p>1、新协议不容易被阻断或封锁</p>
-<p>2、可以省去一个域名，也不用配置ssl证书</p>
-<p><strong>VLESS-Vision-uTLS-REALITY劣势</strong></p>
-<p>1、软件端也必须升级到xray1.80版本，VPS也要是xray1.80版本，否则不能正常使用。</p>
-<p>2、部分软件目前（截至2023年4月7日）还不支持此种协议，例如Shadowrocket，passwall等插件，如果没更新，在一键导入的时候也会BUG。</p>
-<p>3、理论上完美，但还未经历过实战，例如开XX大会。</p>
-<p>4、Reality不支持CDN</p>
-<h1 id="搭建开始"><a href="#搭建开始" class="headerlink" title="搭建开始"></a>搭建开始</h1><h2 id="方法一：常规搭建"><a href="#方法一：常规搭建" class="headerlink" title="方法一：常规搭建"></a>方法一：常规搭建</h2><p>老规矩，用<a href="https://www.v2ray-agent.com/">mack-a</a>大佬的八合一的一键脚本，这里只演示无域名的安装方式，因为这个也是<strong>VLESS-Vision-uTLS-REALITY</strong>的核心亮点</p>
-<p>PS:如果你之前用过mack-a大佬八合一脚本，在执行下面这个命令后，<strong>先选择删除脚本，再重新安装</strong></p>
-<figure class="highlight plaintext"><table><tr><td class="code"><pre><span class="line">wget -P /root -N --no-check-certificate &quot;https://raw.githubusercontent.com/mack-a/v2ray-agent/master/install.sh&quot; &amp;&amp; chmod 700 /root/install.sh &amp;&amp; /root/install.sh</span><br></pre></td></tr></table></figure>
-
-<p>开始安装</p>
-<p>vasma-&gt;执行脚本后-&gt;直接选择**[5.REALITY管理]**</p>
-<p>1、端口直接输入<strong>443</strong></p>
-<p>2、生成配置回落的域名，参考以下域名，结尾必须加 :443</p>
-<blockquote>
-<p># 域名推荐<br>gateway.icloud.com<br>itunes.apple.com<br>download-installer.cdn.mozilla.net<br>airbnb【这个不同的区有不同的域名建议自己搜索】<br>addons.mozilla.org<br><a href="http://www.microsoft.com/">www.microsoft.com</a><br><a href="http://www.lovelive-anime.jp/">www.lovelive-anime.jp</a></p>
-<p># CDN<br>Apple:<br>swdist.apple.com<br>swcdn.apple.com<br>updates.cdn-apple.com<br>mensura.cdn-apple.com<br>osxapps.itunes.apple.com<br>aod.itunes.apple.com</p>
-<p>Microsoft:<br>cdn-dynmedia-1.microsoft.com<br>update.microsoft<br>software.download.prss.microsoft.com</p>
-<p>Amazon:<br>s0.awsstatic.com<br>d1.awsstatic.com<br>images-na.ssl-images-amazon.com<br>m.media-amazon.com<br>player.live-video.net</p>
-<p>Google:<br>dl.google.com</p>
-</blockquote>
-<p>3、然后重复一次你刚才输入的那个域名，然后一路回车即可。</p>
-<p>**PS：**本教程来源为<a href="https://www.v2ray-agent.com/">mack-a</a> 的教程，<a href="https://www.v2ray-agent.com/archives/1680104902581">原文链接</a></p>
-<h2 id="方法二：X-UI面板搭建"><a href="#方法二：X-UI面板搭建" class="headerlink" title="方法二：X-UI面板搭建"></a>方法二：X-UI面板搭建</h2><p>作者地址 <a href="https://github.com/FranzKafkaYu/x-ui/">https://github.com/FranzKafkaYu/x-ui/</a></p>
-<p>x-ui原理比较简单，有个面板，可以随意折腾各种协议</p>
-<p>1、安装面板</p>
-<figure class="highlight plaintext"><table><tr><td class="code"><pre><span class="line">bash &lt;(curl -Ls https://raw.githubusercontent.com/FranzKafkaYu/x-ui/master/install.sh)</span><br></pre></td></tr></table></figure>
-
-<p>2、添加入站列表</p>
-<p>参考下图</p>
-<p><img src="https://img.zzzg.top/202304100740286.jpeg" alt="img"></p>
-<p>3、复制链接<br><img src="https://img.zzzg.top/202304100740534.jpeg" alt="img"></p>
-<h1 id="客户端配置"><a href="#客户端配置" class="headerlink" title="客户端配置"></a>客户端配置</h1><h2 id="v2rayN"><a href="#v2rayN" class="headerlink" title="v2rayN"></a>v2rayN</h2><ul>
-<li><p><strong>支持windows</strong></p>
-</li>
-<li><p><a href="https://github.com/2dust/v2rayN/releases"><strong>点击下载</strong></a></p>
-</li>
-</ul>
-<p><img src="https://img.zzzg.top/202304090833804.png" alt="img"></p>
-<p>最后最后需要强调的</p>
-<p><strong>不是用了这个协议就一定不会被封，世界上没有100%的事情</strong></p>
-]]></content>
-      <categories>
-        <category>网络技术</category>
-      </categories>
-      <tags>
-        <tag>网络代理</tag>
-      </tags>
-  </entry>
-  <entry>
-    <title>Hexo建立一个独立的HTML页面</title>
-    <url>/posts/12482e7/</url>
-    <content><![CDATA[<p>Hexo 是一个轻量、快速，简单和强大的博客框架，当我们需要发布博文的时候，只需要将写好的文章（MarkDown 文件）放入本地的 <code>\source\_posts</code> 文件夹，然后再推送上去就行了，原理就是当我们在执行 <code>hexo g</code> 命令时，<code>.md</code> 文件就会被转化成 HTML 文件，但是有时候我们需要新建一个独立的页面，这个页面不使用主题的渲染，具有自己独立的样式，可以放一些自己的作品，相册什么的，以下就介绍这种独立页面的实现方法。</p>
-<h1 id="方法一："><a href="#方法一：" class="headerlink" title="方法一："></a>方法一：</h1><p>使用 Hexo 提供的跳过渲染配置，在博客根目录的配置文件 <code>_config.yml</code> 里找到 <code>skip_render</code> 关键字，在后面添加想要跳过渲染的页面，比如我们创建 <code>\source\about\index.html</code>， 配置文件填写：<code>skip_render: about\**</code>，那么就表示 <code>\source\about</code> 里所有的文件将跳过渲染，里面的文件将会被直接复制到 public 文件夹，此时就会得到一个独立的 about 页面；官方文档：<a href="https://hexo.io/docs/configuration">https://hexo.io/docs/configuration</a></p>
-<h1 id="方法-2"><a href="#方法-2" class="headerlink" title="方法 2"></a>方法 2</h1><p>在文章头部的 Front-matter 里添加配置 <code>layout: false</code> 来跳过渲染配置，比如我们要使 about 页面跳过渲染，创建 <code>\source\about\index.md</code>，将这个页面的相关 HTML 代码写进<code>.md</code>文件并保存，然后在 <code>index.md</code> 的头部写入：</p>
-<figure class="highlight markdown"><table><tr><td class="code"><pre><span class="line">---</span><br><span class="line"><span class="section">layout: false</span></span><br><span class="line"><span class="section">---</span></span><br><span class="line"></span><br><span class="line">&#123;% raw %&#125;</span><br><span class="line">xxxxxxxxxxxxx</span><br><span class="line">xx HTML 代码 xx</span><br><span class="line">xxxxxxxxxxxxx</span><br><span class="line">&#123;% endraw %&#125;</span><br></pre></td></tr></table></figure>
-
-<p>PS：Front-matter 是 <code>.md</code> 文件最上方以 — 分隔的区域，用于指定个别文件的变量，官方文档：<a href="https://hexo.io/docs/front-matter">https://hexo.io/docs/front-matter</a></p>
-<figure class="highlight markdown"><table><tr><td class="code"><pre><span class="line">.md 文件中的 HTML 代码要用 &#123;% raw %&#125; 和 &#123;% endraw %&#125; 包起来，使其能正确编译里面的代码。</span><br></pre></td></tr></table></figure>
-]]></content>
-      <categories>
-        <category>博客运维</category>
-      </categories>
-      <tags>
-        <tag>Hexo</tag>
-      </tags>
-  </entry>
-  <entry>
     <title>git每次操作提示输入密码问题解决</title>
     <url>/posts/21c693ea/</url>
     <content><![CDATA[<p><strong>提示：git每次pull提示需要密码</strong></p>
@@ -4197,6 +4352,67 @@
       </tags>
   </entry>
   <entry>
+    <title>Xray最新协议Reality搭建</title>
+    <url>/posts/428849a6/</url>
+    <content><![CDATA[<h1 id="简介"><a href="#简介" class="headerlink" title="简介"></a>简介</h1><p>为了应对 TLS in TLS 和指纹识别等阻断或封禁的风险，Xray-core 团队推出了 Vision 和 Reality 两种新颖的技术方案。它们能够有效地隐藏和保护流量的特征，提高安全性和稳定性。</p>
+<p><a href="https://github.com/XTLS/Xray-core/discussions/1295#discussion-4523044">Vision原理</a></p>
+<p><a href="https://www.v2ray-agent.com/archives/1679292836379">Reality原理</a></p>
+<p>如果你和我一样小白，那我用我的理解方式给大家解释一下，不一定准确，但方便理解。</p>
+<p>1.之前TLS或者XTLS已经被墙识别，所以有了阻断或者封你443端口的情况，也就是所谓的TLS in TLS阻断</p>
+<p>2、后面Vision 的协议，能解决TLS in TLS阻断，但还不够完美。</p>
+<p>3、Xray1.80版本推出了最新的Reality协议，再配合之前的Vision协议，组合成了目前最牛的协议“<strong>VLESS-Vision-uTLS-REALITY”</strong></p>
+<p><strong>VLESS-Vision-uTLS-REALITY优势</strong></p>
+<p>1、新协议不容易被阻断或封锁</p>
+<p>2、可以省去一个域名，也不用配置ssl证书</p>
+<p><strong>VLESS-Vision-uTLS-REALITY劣势</strong></p>
+<p>1、软件端也必须升级到xray1.80版本，VPS也要是xray1.80版本，否则不能正常使用。</p>
+<p>2、部分软件目前（截至2023年4月7日）还不支持此种协议，例如Shadowrocket，passwall等插件，如果没更新，在一键导入的时候也会BUG。</p>
+<p>3、理论上完美，但还未经历过实战，例如开XX大会。</p>
+<p>4、Reality不支持CDN</p>
+<h1 id="搭建开始"><a href="#搭建开始" class="headerlink" title="搭建开始"></a>搭建开始</h1><h2 id="方法一：常规搭建"><a href="#方法一：常规搭建" class="headerlink" title="方法一：常规搭建"></a>方法一：常规搭建</h2><p>老规矩，用<a href="https://www.v2ray-agent.com/">mack-a</a>大佬的八合一的一键脚本，这里只演示无域名的安装方式，因为这个也是<strong>VLESS-Vision-uTLS-REALITY</strong>的核心亮点</p>
+<p>PS:如果你之前用过mack-a大佬八合一脚本，在执行下面这个命令后，<strong>先选择删除脚本，再重新安装</strong></p>
+<figure class="highlight plaintext"><table><tr><td class="code"><pre><span class="line">wget -P /root -N --no-check-certificate &quot;https://raw.githubusercontent.com/mack-a/v2ray-agent/master/install.sh&quot; &amp;&amp; chmod 700 /root/install.sh &amp;&amp; /root/install.sh</span><br></pre></td></tr></table></figure>
+
+<p>开始安装</p>
+<p>vasma-&gt;执行脚本后-&gt;直接选择**[5.REALITY管理]**</p>
+<p>1、端口直接输入<strong>443</strong></p>
+<p>2、生成配置回落的域名，参考以下域名，结尾必须加 :443</p>
+<blockquote>
+<p># 域名推荐<br>gateway.icloud.com<br>itunes.apple.com<br>download-installer.cdn.mozilla.net<br>airbnb【这个不同的区有不同的域名建议自己搜索】<br>addons.mozilla.org<br><a href="http://www.microsoft.com/">www.microsoft.com</a><br><a href="http://www.lovelive-anime.jp/">www.lovelive-anime.jp</a></p>
+<p># CDN<br>Apple:<br>swdist.apple.com<br>swcdn.apple.com<br>updates.cdn-apple.com<br>mensura.cdn-apple.com<br>osxapps.itunes.apple.com<br>aod.itunes.apple.com</p>
+<p>Microsoft:<br>cdn-dynmedia-1.microsoft.com<br>update.microsoft<br>software.download.prss.microsoft.com</p>
+<p>Amazon:<br>s0.awsstatic.com<br>d1.awsstatic.com<br>images-na.ssl-images-amazon.com<br>m.media-amazon.com<br>player.live-video.net</p>
+<p>Google:<br>dl.google.com</p>
+</blockquote>
+<p>3、然后重复一次你刚才输入的那个域名，然后一路回车即可。</p>
+<p>**PS：**本教程来源为<a href="https://www.v2ray-agent.com/">mack-a</a> 的教程，<a href="https://www.v2ray-agent.com/archives/1680104902581">原文链接</a></p>
+<h2 id="方法二：X-UI面板搭建"><a href="#方法二：X-UI面板搭建" class="headerlink" title="方法二：X-UI面板搭建"></a>方法二：X-UI面板搭建</h2><p>作者地址 <a href="https://github.com/FranzKafkaYu/x-ui/">https://github.com/FranzKafkaYu/x-ui/</a></p>
+<p>x-ui原理比较简单，有个面板，可以随意折腾各种协议</p>
+<p>1、安装面板</p>
+<figure class="highlight plaintext"><table><tr><td class="code"><pre><span class="line">bash &lt;(curl -Ls https://raw.githubusercontent.com/FranzKafkaYu/x-ui/master/install.sh)</span><br></pre></td></tr></table></figure>
+
+<p>2、添加入站列表</p>
+<p>参考下图</p>
+<p><img src="https://img.zzzg.top/202304100740286.jpeg" alt="img"></p>
+<p>3、复制链接<br><img src="https://img.zzzg.top/202304100740534.jpeg" alt="img"></p>
+<h1 id="客户端配置"><a href="#客户端配置" class="headerlink" title="客户端配置"></a>客户端配置</h1><h2 id="v2rayN"><a href="#v2rayN" class="headerlink" title="v2rayN"></a>v2rayN</h2><ul>
+<li><p><strong>支持windows</strong></p>
+</li>
+<li><p><a href="https://github.com/2dust/v2rayN/releases"><strong>点击下载</strong></a></p>
+</li>
+</ul>
+<p><img src="https://img.zzzg.top/202304090833804.png" alt="img"></p>
+<p>最后最后需要强调的</p>
+<p><strong>不是用了这个协议就一定不会被封，世界上没有100%的事情</strong></p>
+]]></content>
+      <categories>
+        <category>网络技术</category>
+      </categories>
+      <tags>
+        <tag>网络代理</tag>
+      </tags>
+  </entry>
+  <entry>
     <title>hysteria2与reality共存安装</title>
     <url>/posts/756577dc/</url>
     <content><![CDATA[<h1 id="前言"><a href="#前言" class="headerlink" title="前言"></a>前言</h1><p>1.目前伪装最好的两种协议，一个代表tcp协议（reality）的目前巅峰，一个新型UDP协议（hysteria2）的宠儿。<br>2.这次用的sing-box搭建 <a href="https://sing-box.sagernet.org/zh">https://sing-box.sagernet.org/zh</a> 因为简单。之前一直用八合一，最大的问题就是各种伪装后，机器就只能拿来科学上网了，因为安装Nginx，搭建个网页啥的都很麻烦。<br>3.教程亮点，无需自备域名。<br>3.passwall发现没有类似的设置教程，所以出一个。</p>
@@ -4249,146 +4465,51 @@
       </tags>
   </entry>
   <entry>
-    <title>PVE安装iStoreOS</title>
-    <url>/posts/d167335e/</url>
-    <content><![CDATA[<h1 id="首先X86机器已经安装好PVE机器，且能正常联网；"><a href="#首先X86机器已经安装好PVE机器，且能正常联网；" class="headerlink" title="首先X86机器已经安装好PVE机器，且能正常联网；"></a>首先X86机器已经安装好PVE机器，且能正常联网；</h1><ul>
-<li>这里不提供X86机器安装pve教程，自行科普。</li>
-</ul>
-<h1 id="下载固件"><a href="#下载固件" class="headerlink" title="下载固件"></a>下载固件</h1><ul>
-<li><a href="https://fw.koolcenter.com/iStoreOS/x86_64/">固件下载(opens new window)</a></li>
-<li><a href="https://fw.koolcenter.com/iStoreOS/x86_64_efi/">固件下载-EFI(opens new window)</a></li>
-</ul>
-<p>越后面的版本越新，下载最新的版本。下载完成之后不需要解压。</p>
-<h1 id="在PVE里新建虚拟机；"><a href="#在PVE里新建虚拟机；" class="headerlink" title="在PVE里新建虚拟机；"></a>在PVE里新建虚拟机；</h1><ul>
-<li>进入PVE系统管理界面，右上角“新建虚拟机”；</li>
-</ul>
-<p><img src="https://img.zzzg.top/202312031646065.jpeg"></p>
-<ul>
-<li>只填写名称，VM ID即为虚拟机ID，自动排序的，也可自定义，其余不管，下一步：</li>
-</ul>
-<p><img src="https://img.zzzg.top/202312031646686.jpeg"></p>
-<ul>
-<li>勾选“不使用任何介质”，其余不管，下一步；</li>
-</ul>
-<p><img src="https://img.zzzg.top/202312031646138.jpeg"></p>
-<ul>
-<li>如果是下载的EFI固件，BIOS选择“OVMF(UEFI)”，EFI存储选择PVE的虚拟盘，其余不管，下一步：</li>
-</ul>
-<p><img src="https://img.zzzg.top/202312031646135.jpeg"></p>
-<p>如果下载的非EFI固件，此页面不用管，直接下一步；</p>
-<p><img src="https://img.zzzg.top/202312031646944.jpeg"></p>
-<ul>
-<li>磁盘，不需要创建，直接删掉，下一步；</li>
-</ul>
-<p><img src="https://img.zzzg.top/202312031646104.jpeg"></p>
-<ul>
-<li>CPU核心，根据你的实机CPU核设置(比如实机是6核12线程，大于等于1且小于等于12都成)，类别建议选host；</li>
-</ul>
-<p><img src="https://img.zzzg.top/202312031646942.jpeg"></p>
-<ul>
-<li>内存根据实际需求设置；</li>
-</ul>
-<p><img src="https://img.zzzg.top/202312031646040.jpg" alt="download"></p>
-<ul>
-<li>网络默认即可，默认已经选了PVE的虚拟LAN；</li>
-</ul>
-<p><img src="https://img.zzzg.top/202312031646342.jpeg"></p>
-<ul>
-<li>完成，等待虚拟机创建好。</li>
-</ul>
-<p><img src="https://img.zzzg.top/202312031647835.jpeg"></p>
-<h1 id="往刚创建的虚拟机里写入固件；"><a href="#往刚创建的虚拟机里写入固件；" class="headerlink" title="往刚创建的虚拟机里写入固件；"></a>往刚创建的虚拟机里写入固件；</h1><ul>
-<li>利用WinSCP等工具，把下载好的固件(教程用的EFI固件)和img2kvm工具放入root目录下；</li>
-<li><a href="https://fw.koolcenter.com/binary/other-tools/">img2kvm工具下载(opens new window)</a></li>
-<li>终端登录PVE系统后台，终端输入命令：<code>chmod 777 ./img2kvm</code></li>
-<li>继续终端输入：<code>./img2kvm 固件完整名 虚拟机ID</code></li>
-</ul>
-<p>比如教程所示的虚拟机ID是104，下载的固件完整名：istoreos-21.02.3-2022092019-x86-64-squashfs-combined-efi.img.gz</p>
-<p>所以输入的命令就是：</p>
-<figure class="highlight plaintext"><table><tr><td class="code"><pre><span class="line">./img2kvm istoreos-21.02.3-2022092019-x86-64-squashfs-combined-efi.img.gz 104</span><br></pre></td></tr></table></figure>
-
-<p><img src="https://img.zzzg.top/202312031647302.jpeg"></p>
-<p>然后看PVE虚拟机104的硬件界面，会出现一个未添加的硬盘，双击添加：</p>
-<p><img src="https://img.zzzg.top/202312031647806.jpeg"></p>
-<p>不用设置直接添加：</p>
-<p><img src="https://img.zzzg.top/202312031647609.jpeg"></p>
-<p>添加完成，会出现一个硬盘：</p>
-<p><img src="https://img.zzzg.top/202312031647016.jpeg"></p>
-<p>选项——引导顺序，双击进入编辑：</p>
-<p><img src="https://img.zzzg.top/202312031647797.jpeg"></p>
-<p>把刚添加的硬盘作为第一启动：</p>
-<p><img src="https://img.zzzg.top/202312031647908.jpeg"></p>
-<p><img src="https://img.zzzg.top/202312031647362.jpeg"></p>
-<ul>
-<li>把EFI磁盘删掉，若BIOS不是UEFI，无此项设置；</li>
-</ul>
-<p><img src="https://img.zzzg.top/202312031647310.jpeg"></p>
-<h1 id="启动iStoreOS："><a href="#启动iStoreOS：" class="headerlink" title="启动iStoreOS："></a>启动iStoreOS：</h1><p><img src="https://img.zzzg.top/202312031648006.jpeg"></p>
-<ul>
-<li>如果前面的步骤没出错，是能正常启动的：</li>
-</ul>
-<p><img src="https://img.zzzg.top/202312031648517.jpeg"></p>
-<ul>
-<li>等系统启动一两分钟，然后点击此虚拟机——控制台(右上角控制台也可)：</li>
-</ul>
-<p><img src="https://img.zzzg.top/202312031648522.jpeg"></p>
-<p>鼠标点在此界面，键盘回车：就会出现终端入口：</p>
-<p><img src="https://img.zzzg.top/202312031648241.jpeg"></p>
-<p><img src="https://img.zzzg.top/202312031648418.jpeg"></p>
-<p>输入：<code>quickstart</code>，利用键盘“上下键”选择2，回车：</p>
-<p>输入要分配给iStoreOS的LAN口的ip(必须是PVE虚拟LAN的IP段，比如PVE的管理IP是192.168.2.88，那么此处的IP就必须是192.168.2.XXX)，回车生效；</p>
-<p><img src="https://img.zzzg.top/202312031648082.jpeg"></p>
-<p>要求输入掩码(mask)，照着填：255.255.255.0，回车生效：</p>
-<p><img src="https://img.zzzg.top/202312031648554.jpeg"></p>
-<p>然后选择QUIT退出此界面：</p>
-<p><img src="https://img.zzzg.top/202312031648466.jpeg"></p>
-<ul>
-<li>输入：<code>reboot</code>重启iStoreOS，这样浏览器输入我们设置的IP，就进入iStoreOS界面了。</li>
-</ul>
-<p><img src="https://img.zzzg.top/202312031648602.jpeg"></p>
-<p>iStoreOS默认登录密码是：password</p>
-<p><img src="https://img.zzzg.top/202312031648519.jpeg"></p>
-<h1 id="配置iStoreOS："><a href="#配置iStoreOS：" class="headerlink" title="配置iStoreOS："></a>配置iStoreOS：</h1><p>此刻我们进入iStoreOS，但是目前iStoreOS是个单臂路由状态，只有一个LAN口。</p>
-<ul>
-<li>如果PVE里已有主路由系统，需要把iStoreOS配置为旁路由，在“网络向导”里配置“旁路由”即可。</li>
-</ul>
-<p><img src="https://img.zzzg.top/202312031649861.jpeg"></p>
-<ul>
-<li>如果需要将iStoreOS作为主路由系统，就需要添加网口：</li>
-</ul>
-<p>首先在PVE里关闭iStoreOS虚拟机，然后硬件——添加一个PVE的网口作为WAN口；</p>
-<p><img src="https://img.zzzg.top/202312031649410.jpeg"></p>
-<ul>
-<li>然后再确认2个IP，首先确认：PVE的虚拟LAN管理IP，比如是192.168.2.88，那么就必须把iStoreOS的IP改成192.168.2.1~192.168.2.77之间，比如把PVE的IP放在iStoreOS主路由LAN口IP之后，不然PVE无法联网。</li>
-<li>然后启动iStoreOS虚拟机，进入iStoreOS后，在“网络向导”里配置联网即可。</li>
-</ul>
-<h1 id="安装离线插件："><a href="#安装离线插件：" class="headerlink" title="安装离线插件："></a>安装离线插件：</h1><p><strong>注意，上述软件包安装，部分依赖依然要通过opkg软件源在线安装。如果安装失败，检查路由器自身的网络情况，特别是旁路由模式下最容易出现网络问题。</strong><br><strong>再三注意需要路由器自身联网正常</strong></p>
-<ul>
-<li><p>下载地址</p>
-<p><a href="https://github.com/bcseputetto/Are-u-ok">https://github.com/bcseputetto/Are-u-ok</a></p>
+    <title>imazingapp文件使用方法</title>
+    <url>/posts/7db93401/</url>
+    <content><![CDATA[<ol>
+<li><p>下载安装 iMazing 软件 官网链接：<a href="https://imazing.com/zh">https://imazing.com/zh</a></p>
 </li>
-<li><p>如何安装<br>下载后，来到iStore应用商店页面，点击手动安装，点击选择上传或者直接拖放文件<br><img src="https://img.zzzg.top/202312031649689.png"></p>
+<li><p>下载你需要恢复的 App 的 iMazing 软件备份文件，例如<strong>香色闺阁.imazingapp</strong>。</p>
 </li>
-</ul>
-<p>对于没有iStore应用商店的OpenWrt也可以使用以下方法。<br>将 .run 文件上传到路由器上，然后在终端环境执行</p>
-<figure class="highlight plaintext"><table><tr><td class="code"><pre><span class="line">sh 包名.run</span><br></pre></td></tr></table></figure>
-
-
-
-<p>例</p>
-<figure class="highlight plaintext"><table><tr><td class="code"><pre><span class="line">sh PassWall4.71-2_x86_all_sdk_22.03.5.run</span><br></pre></td></tr></table></figure>
-
-
-
-<p>如果文件不在当前路径记得填写路径，下例</p>
-<figure class="highlight plaintext"><table><tr><td class="code"><pre><span class="line">sh /tmp/upload/PassWall4.71-2_x86_all_sdk_22.03.5.run</span><br></pre></td></tr></table></figure>
-
+<li><p>开始前请务必先关闭‘‘<strong>查找我的iPhone</strong>’’，不然在操作过程中会出现以下不能安装的情况。关闭过程：1、设置——面容ID与密码——失窃设备保护（关闭）。2、设置——Apple账户、iCloud+等——查找——查找我的iPhone（关闭）</p>
+<p> <img src="https://img.zzzg.top/20250827004827841.png" alt="image-20250826225045030"></p>
+</li>
+<li><p>启用加密备份，不然在操作过程中会出现以下不能安装的情况。启用过程（手机端）：设置——Apple账户、iCloud+等——iCloud——高级数据保护——开启高级数据保护（开启前需要设置账户恢复选项——添加恢复联系人或者生成恢复密钥）</p>
+<p> <img src="https://img.zzzg.top/20250827004835064.png" alt="image-20250827000208694"></p>
+<p> 电脑端也需要启用备份加密</p>
+<p> <img src="https://img.zzzg.top/20250827004841634.png" alt="image-20250827003209376"></p>
+<p> <img src="https://img.zzzg.top/20250827004854293.png" alt="image-20250827003318045"></p>
+</li>
+<li><p>iPhone 连接上电脑并在电脑上打开 iMazing 软件 ，在已连接的设备上点击”<strong>管理应用程序</strong>”</p>
+<p><img src="https://img.zzzg.top/20250827004925405.png" alt="image-20250826223010623"></p>
+<p><img src="https://img.zzzg.top/20250827004933467.png" alt="image-20250826223219524"></p>
+</li>
+<li><p>选择【设备】标签页，【在右下角】点击下拉菜单 ▼ 并点击“恢复应用数据”。在对话框中选择 【香色闺阁.imazingapp】文件，将其中的数据恢复至设备。</p>
+<p> <img src="https://img.zzzg.top/20250827004941094.png" alt="image-20250826224249691"></p>
+<p> <img src="https://img.zzzg.top/20250827004950079.png" alt="image-20250826224319106"></p>
+<p> <img src="https://img.zzzg.top/20250827004956515.png" alt="image-20250826224405419"></p>
+<p> <img src="https://img.zzzg.top/20250827005004434.png" alt="image-20250826224701182"></p>
+<p> <img src="https://img.zzzg.top/20250827005011741.png" alt="image-20250826224722734"></p>
+<p> 这里点击继续会开始备份手机数据，备份完成后开始安装，不想备份点击取消即可</p>
+<p> <img src="https://img.zzzg.top/20250827005023425.png" alt="image-20250826225010437"></p>
+<p>点击了备份的话就在手机上输入密码开始备份。</p>
+<p><img src="https://img.zzzg.top/20250827005030730.png" alt="image-20250827002215886"></p>
+<p>在备份时直接点击停止或者前面点击了取消，就会弹出如下登录页面，登录已购买过香色闺阁软件的苹果 ID，登录完成后即可安装完成。</p>
+<p><img src="https://img.zzzg.top/20250827005042558.png" alt="image-20250827002729828"></p>
+</li>
+</ol>
+<p>最后，根据自身需求将刚刚关闭的失窃设备保护、查找我的iPhone打开，高级数据保护、备份加密关闭</p>
+<p>推荐两个可以下载下架软件的工具，只需原来账号安装过这个软件并且知道ID即可安装（香色闺阁ID：1521205149）</p>
+<p>工具1：<a href="https://www.52pojie.cn/thread-1863801-1-1.html">https://www.52pojie.cn/thread-1863801-1-1.html</a></p>
+<p>工具2：<a href="https://www.52pojie.cn/thread-1931711-1-1.html">https://www.52pojie.cn/thread-1931711-1-1.html</a></p>
+<p>以上两个工具都来自于吾爱，感谢大佬的无私分享。</p>
 ]]></content>
       <categories>
-        <category>网络设备</category>
+        <category>软件教程</category>
       </categories>
       <tags>
-        <tag>iStoreOS</tag>
+        <tag>iMazing</tag>
       </tags>
   </entry>
   <entry>
@@ -4509,124 +4630,56 @@
       </tags>
   </entry>
   <entry>
-    <title>R探长 甲骨文云开机脚本</title>
-    <url>/posts/d604b8c7/</url>
-    <content><![CDATA[<h1 id="原作者地址"><a href="#原作者地址" class="headerlink" title="原作者地址"></a>原作者地址</h1><p><a href="https://github.com/semicons/java_oci_manage/blob/main/md/install.md">https://github.com/semicons/java_oci_manage/blob/main/md/install.md</a></p>
-<h1 id="debian12先要装依赖"><a href="#debian12先要装依赖" class="headerlink" title="debian12先要装依赖"></a>debian12先要装依赖</h1><figure class="highlight shell"><table><tr><td class="code"><pre><span class="line">sudo nano /etc/apt/sources.list</span><br></pre></td></tr></table></figure>
+    <title>x-ui最稳妥的魔术面板</title>
+    <url>/posts/af28068c/</url>
+    <content><![CDATA[<p><strong>最近经常有人被封端口，我自己搭的这个方案没被封过，现在分享出来。</strong></p>
+<h2 id="系统：Debian10-11"><a href="#系统：Debian10-11" class="headerlink" title="系统：Debian10-11"></a>系统：Debian10-11</h2><p>首先要确保自己的vps是纯净的系统，不要商家预装的，在系统启动后操作DD重装脚本进行安装纯净版系统</p>
+<h2 id="第一步：DD重装Debian10系统："><a href="#第一步：DD重装Debian10系统：" class="headerlink" title="第一步：DD重装Debian10系统："></a>第一步：DD重装Debian10系统：</h2><figure class="highlight shell"><table><tr><td class="code"><pre><span class="line">wget -N --no-check-certificate https://raw.githubusercontent.com/qingee/dd/master/InstallNET.sh &amp;&amp; chmod +x InstallNET.sh &amp;&amp; ./InstallNET.sh -d 10 -v 64 -p &quot;notetoday&quot; -port &quot;22&quot;</span><br></pre></td></tr></table></figure>
 
-<figure class="highlight shell"><table><tr><td class="code"><pre><span class="line">deb http://deb.debian.org/debian bullseye main</span><br><span class="line"></span><br><span class="line">deb-src http://deb.debian.org/debian bullseye main</span><br></pre></td></tr></table></figure>
-
-
-
-<figure class="highlight shell"><table><tr><td class="code"><pre><span class="line">apt update</span><br><span class="line"></span><br><span class="line">apt install openjdk-17-jdk</span><br></pre></td></tr></table></figure>
-
-
-
-
-
-<h1 id="更新环境"><a href="#更新环境" class="headerlink" title="更新环境"></a>更新环境</h1><figure class="highlight shell"><table><tr><td class="code"><pre><span class="line">apt update -y &amp;&amp; apt install -y curl wget sudo</span><br></pre></td></tr></table></figure>
-
-
-
-
-
-<h1 id="安装R探长"><a href="#安装R探长" class="headerlink" title="安装R探长"></a>安装R探长</h1><figure class="highlight shell"><table><tr><td class="code"><pre><span class="line">cd /home &amp;&amp; mkdir rbot &amp;&amp; cd rbot</span><br><span class="line"></span><br><span class="line">wget -O gz_client_bot.tar.gz https://github.com/semicons/java_oci_manage/releases/latest/download/gz_client_bot.tar.gz &amp;&amp; tar -zxvf gz_client_bot.tar.gz --exclude=client_config &amp;&amp; tar -zxvf gz_client_bot.tar.gz --skip-old-files client_config &amp;&amp; chmod +x sh_client_bot.sh</span><br></pre></td></tr></table></figure>
-
-
-
-
-
-
-
-<h1 id="下载配置client-config模板"><a href="#下载配置client-config模板" class="headerlink" title="下载配置client_config模板"></a>下载配置client_config模板</h1><p><a href="https://github.com/kejilion/sh/blob/main/client_config">https://github.com/kejilion/sh/blob/main/client_config</a></p>
-<h1 id="到甲骨文云下载API证书并获取API信息"><a href="#到甲骨文云下载API证书并获取API信息" class="headerlink" title="到甲骨文云下载API证书并获取API信息"></a>到甲骨文云下载API证书并获取API信息</h1><p><a href="https://cloud.oracle.com/">https://cloud.oracle.com/</a></p>
-<p><img src="https://img.zzzg.top/202312080925335.png"></p>
-<p><img src="https://img.zzzg.top/202312080925572.png"></p>
-<p><img src="https://img.zzzg.top/202312080925945.png"></p>
-<p><img src="https://img.zzzg.top/202312080925124.png"></p>
-<p><img src="https://img.zzzg.top/202312080925243.png"></p>
-<p><img src="https://img.zzzg.top/202312080925743.png"></p>
-<p><img src="https://img.zzzg.top/202312080926332.png"></p>
-<h1 id="key存放路径"><a href="#key存放路径" class="headerlink" title="key存放路径"></a>key存放路径</h1><p>key_file&#x3D;&#x2F;home&#x2F;rbot&#x2F;key.pem</p>
-<h1 id="关注R探长频道和机器人"><a href="#关注R探长频道和机器人" class="headerlink" title="关注R探长频道和机器人"></a>关注R探长频道和机器人</h1><p>R探长频道：<a href="https://t.me/agentONE_R">https://t.me/agentONE_R</a></p>
-<p>R探长机器人：<a href="https://t.me/radiance_helper_bot">https://t.me/radiance_helper_bot</a></p>
-<h1 id="和机器人对话获取随机用户名和密码"><a href="#和机器人对话获取随机用户名和密码" class="headerlink" title="和机器人对话获取随机用户名和密码"></a>和机器人对话获取随机用户名和密码</h1><p>&#x2F;raninfo</p>
-<h1 id="填写示例"><a href="#填写示例" class="headerlink" title="填写示例"></a>填写示例</h1><p><img src="https://img.zzzg.top/202312080926509.png"></p>
-<p>填写完成后</p>
-<p>把<strong>client_config.txtclient_config.txt</strong>改为<strong>client_config</strong></p>
-<p>把下载的pem文件改为<strong>key.pem</strong></p>
-<p>然后上传到**&#x2F;home&#x2F;rbot&#x2F;**目录</p>
-<h1 id="启动或重启"><a href="#启动或重启" class="headerlink" title="启动或重启"></a>启动或重启</h1><figure class="highlight shell"><table><tr><td class="code"><pre><span class="line">bash sh_client_bot.sh </span><br></pre></td></tr></table></figure>
-
-
-
-<h1 id="查看日志-ctrl-c退出日志"><a href="#查看日志-ctrl-c退出日志" class="headerlink" title="查看日志(ctrl + c退出日志)"></a>查看日志(ctrl + c退出日志)</h1><figure class="highlight shell"><table><tr><td class="code"><pre><span class="line">tail -f log_r_client.log </span><br></pre></td></tr></table></figure>
-
-
-
-<h1 id="终止程序"><a href="#终止程序" class="headerlink" title="终止程序"></a>终止程序</h1><figure class="highlight shell"><table><tr><td class="code"><pre><span class="line">ps -ef | grep r_client.jar | grep -v grep | awk &#x27;&#123;print $2&#125;&#x27; | xargs kill -9 </span><br></pre></td></tr></table></figure>
-
-
-
-<h1 id="卸载程序"><a href="#卸载程序" class="headerlink" title="卸载程序"></a>卸载程序</h1><figure class="highlight shell"><table><tr><td class="code"><pre><span class="line">rm -rf gz_client_bot.tar.gz client_config r_client.jar sh_client_bot.sh log_r_client.log debug-.log </span><br></pre></td></tr></table></figure>
-
-<p>如也不需要JDK也可卸载：</p>
-<figure class="highlight shell"><table><tr><td class="code"><pre><span class="line">apt-get remove openjdk*</span><br></pre></td></tr></table></figure>
-
-]]></content>
-      <categories>
-        <category>运维技术</category>
-      </categories>
-      <tags>
-        <tag>运维工具</tag>
-      </tags>
-  </entry>
-  <entry>
-    <title>imazingapp文件使用方法</title>
-    <url>/posts/7db93401/</url>
-    <content><![CDATA[<ol>
-<li><p>下载安装 iMazing 软件 官网链接：<a href="https://imazing.com/zh">https://imazing.com/zh</a></p>
-</li>
-<li><p>下载你需要恢复的 App 的 iMazing 软件备份文件，例如<strong>香色闺阁.imazingapp</strong>。</p>
-</li>
-<li><p>开始前请务必先关闭‘‘<strong>查找我的iPhone</strong>’’，不然在操作过程中会出现以下不能安装的情况。关闭过程：1、设置——面容ID与密码——失窃设备保护（关闭）。2、设置——Apple账户、iCloud+等——查找——查找我的iPhone（关闭）</p>
-<p> <img src="https://img.zzzg.top/20250827004827841.png" alt="image-20250826225045030"></p>
-</li>
-<li><p>启用加密备份，不然在操作过程中会出现以下不能安装的情况。启用过程（手机端）：设置——Apple账户、iCloud+等——iCloud——高级数据保护——开启高级数据保护（开启前需要设置账户恢复选项——添加恢复联系人或者生成恢复密钥）</p>
-<p> <img src="https://img.zzzg.top/20250827004835064.png" alt="image-20250827000208694"></p>
-<p> 电脑端也需要启用备份加密</p>
-<p> <img src="https://img.zzzg.top/20250827004841634.png" alt="image-20250827003209376"></p>
-<p> <img src="https://img.zzzg.top/20250827004854293.png" alt="image-20250827003318045"></p>
-</li>
-<li><p>iPhone 连接上电脑并在电脑上打开 iMazing 软件 ，在已连接的设备上点击”<strong>管理应用程序</strong>”</p>
-<p><img src="https://img.zzzg.top/20250827004925405.png" alt="image-20250826223010623"></p>
-<p><img src="https://img.zzzg.top/20250827004933467.png" alt="image-20250826223219524"></p>
-</li>
-<li><p>选择【设备】标签页，【在右下角】点击下拉菜单 ▼ 并点击“恢复应用数据”。在对话框中选择 【香色闺阁.imazingapp】文件，将其中的数据恢复至设备。</p>
-<p> <img src="https://img.zzzg.top/20250827004941094.png" alt="image-20250826224249691"></p>
-<p> <img src="https://img.zzzg.top/20250827004950079.png" alt="image-20250826224319106"></p>
-<p> <img src="https://img.zzzg.top/20250827004956515.png" alt="image-20250826224405419"></p>
-<p> <img src="https://img.zzzg.top/20250827005004434.png" alt="image-20250826224701182"></p>
-<p> <img src="https://img.zzzg.top/20250827005011741.png" alt="image-20250826224722734"></p>
-<p> 这里点击继续会开始备份手机数据，备份完成后开始安装，不想备份点击取消即可</p>
-<p> <img src="https://img.zzzg.top/20250827005023425.png" alt="image-20250826225010437"></p>
-<p>点击了备份的话就在手机上输入密码开始备份。</p>
-<p><img src="https://img.zzzg.top/20250827005030730.png" alt="image-20250827002215886"></p>
-<p>在备份时直接点击停止或者前面点击了取消，就会弹出如下登录页面，登录已购买过香色闺阁软件的苹果 ID，登录完成后即可安装完成。</p>
-<p><img src="https://img.zzzg.top/20250827005042558.png" alt="image-20250827002729828"></p>
-</li>
+<p>系统root密码：<code>notetoday</code><br>更改root密码：<code>passwd</code> 或者 <code>passwd root</code>输入你想要设置的密码即可，在ssh命令窗口输入密码<code>不显示是正常的</code></p>
+<h2 id="第二步：安装WARP接管VPS的出站ip（加入香港节点WireGuard异常：可以去Github）"><a href="#第二步：安装WARP接管VPS的出站ip（加入香港节点WireGuard异常：可以去Github）" class="headerlink" title="第二步：安装WARP接管VPS的出站ip（加入香港节点WireGuard异常：可以去Github）"></a>第二步：安装WARP接管VPS的出站ip（加入香港节点WireGuard异常：可以去<a href="https://github.com/fscarmen/warp">Github</a>）</h2><blockquote>
+<p>apt update<br>apt install curl -y<br>apt install gnupg2 -y<br>apt install wget -y<br># 自动配置 WARP WireGuard IPv4 网络<br>bash &lt;(curl -fsSL git.io&#x2F;warp.sh) 4<br>echo “1” &gt; &#x2F;proc&#x2F;sys&#x2F;net&#x2F;ipv6&#x2F;conf&#x2F;all&#x2F;disable_ipv6</p>
+</blockquote>
+<p>这个配置后你vps向外请求的所有ip都不是本机的真实ip，速度可能会有所影响，但是会很安全</p>
+<h2 id="第三步：-安装适用于流媒体的XanMod内核开启BBR2（FQ-PIE）："><a href="#第三步：-安装适用于流媒体的XanMod内核开启BBR2（FQ-PIE）：" class="headerlink" title="第三步： 安装适用于流媒体的XanMod内核开启BBR2（FQ+PIE）："></a>第三步： 安装适用于流媒体的XanMod内核开启BBR2（FQ+PIE）：</h2><blockquote>
+<ol>
+<li>Register the PGP key:</li>
 </ol>
-<p>最后，根据自身需求将刚刚关闭的失窃设备保护、查找我的iPhone打开，高级数据保护、备份加密关闭</p>
-<p>推荐两个可以下载下架软件的工具，只需原来账号安装过这个软件并且知道ID即可安装（香色闺阁ID：1521205149）</p>
-<p>工具1：<a href="https://www.52pojie.cn/thread-1863801-1-1.html">https://www.52pojie.cn/thread-1863801-1-1.html</a></p>
-<p>工具2：<a href="https://www.52pojie.cn/thread-1931711-1-1.html">https://www.52pojie.cn/thread-1931711-1-1.html</a></p>
-<p>以上两个工具都来自于吾爱，感谢大佬的无私分享。</p>
+<figure class="highlight shell"><table><tr><td class="code"><pre><span class="line">wget -qO - https://dl.xanmod.org/archive.key | sudo gpg --dearmor -o /usr/share/keyrings/xanmod-archive-keyring.gpg</span><br></pre></td></tr></table></figure>
+
+<ol start="2">
+<li>Add the repository:</li>
+</ol>
+<figure class="highlight shell"><table><tr><td class="code"><pre><span class="line">echo &#x27;deb [signed-by=/usr/share/keyrings/xanmod-archive-keyring.gpg] http://deb.xanmod.org releases main&#x27; | sudo tee /etc/apt/sources.list.d/xanmod-release.list</span><br></pre></td></tr></table></figure>
+
+<ol start="3">
+<li>Then update and install:  <strong>⇲</strong> Check platform compatibility in <strong>x86-64 psABI level reference</strong> below.</li>
+</ol>
+<figure class="highlight shell"><table><tr><td class="code"><pre><span class="line">sudo apt update &amp;&amp; sudo apt install linux-xanmod-x64v3</span><br></pre></td></tr></table></figure>
+
+<ol start="4">
+<li>Reboot</li>
+</ol>
+</blockquote>
+<p>执行完命令代码后等待系统重启，重启完成后执行以下脚本开启<code>BBR2</code></p>
+<blockquote>
+<p>bash &lt;(curl -Lso- <a href="https://git.io/kernel.sh">https://git.io/kernel.sh</a>)</p>
+</blockquote>
+<p><a href=""><img src="https://img.zzzg.top/202311061449957.png" alt="2022-10-22T05:09:28.png"></a><br><a href=""><img src="https://img.zzzg.top/202311061450569.png" alt="2022-10-22T05:13:42.png"></a><br><a href=""><img src="https://img.zzzg.top/202311061450421.png" alt="2022-10-22T05:15:10.png"></a><br>再次运行上面的代码，查看参数是否和下图一样，如果是一样的就是开启成功了<br><a href=""><img src="https://img.zzzg.top/202311061450627.png" alt="2022-10-22T05:17:17.png"></a> </p>
+<h2 id="第四步：安装x-ui面板"><a href="#第四步：安装x-ui面板" class="headerlink" title="第四步：安装x-ui面板"></a><strong>第四步：安装x-ui面板</strong></h2><blockquote>
+</blockquote>
+<h2 id="PS：安装VPS开源MW控制面板（要装就装，不装也没事）"><a href="#PS：安装VPS开源MW控制面板（要装就装，不装也没事）" class="headerlink" title="PS：安装VPS开源MW控制面板（要装就装，不装也没事）"></a><strong>PS：安装VPS开源MW控制面板（要装就装，不装也没事）</strong></h2><p>使用这套配置操作，所有IP 都是CDNip</p>
+<p><a href="https://www.notetoday.net/note/111.html">Linux主机开源面板：mdserver-web，完全免费，界面仿宝塔面板</a></p>
+<figure class="highlight shell"><table><tr><td class="code"><pre><span class="line">curl -fsSL https://gcore.jsdelivr.net/gh/midoks/mdserver-web@latest/scripts/install.sh | bash</span><br><span class="line">curl -fsSL  https://raw.githubusercontent.com/midoks/mdserver-web/dev/scripts/update_dev.sh | bash</span><br></pre></td></tr></table></figure>
+
+<p><a href=""><img src="https://img.zzzg.top/202311061450166.png" alt="2022-10-22T05:25:00.png"></a><br>记住控制面板的信息登录上去后在安全里<code>关闭防火墙</code></p>
+<p>或者海外宝塔：<a href="https://www.aapanel.com/new/download.html">https://www.aapanel.com/new/download.html</a></p>
 ]]></content>
       <categories>
-        <category>软件教程</category>
+        <category>网络技术</category>
       </categories>
       <tags>
-        <tag>iMazing</tag>
+        <tag>网络代理</tag>
       </tags>
   </entry>
   <entry>
@@ -4676,6 +4729,108 @@
       </categories>
       <tags>
         <tag>运维工具</tag>
+      </tags>
+  </entry>
+  <entry>
+    <title>中星微随身Wifi去后门刷全功能后台</title>
+    <url>/posts/f9dbe722/</url>
+    <content><![CDATA[<h1 id="前言"><a href="#前言" class="headerlink" title="前言"></a>前言</h1><p>买到棒子先不要插自己卡，需要进行屏蔽操作防止被远程操作，这里我买的是狗东某沃中星微。</p>
+<h1 id="刷入全功能后台"><a href="#刷入全功能后台" class="headerlink" title="刷入全功能后台"></a>刷入全功能后台</h1><p>首先开启 ADB<br>插到电脑上电 192.168.0.1 访问成功 密码 admin<br>通电后用工具捅 USB 插头的小孔 灯灭会自动重启，重启完成即可进入 ADB 模式</p>
+<h2 id="下载工具"><a href="#下载工具" class="headerlink" title="下载工具"></a>下载工具</h2><p>链接：<a href="https://pan.baidu.com/s/1lCwsg7kMmHVNbWOP7KRT3Q">https://pan.baidu.com/s/1lCwsg7kMmHVNbWOP7KRT3Q</a><br>提取码：8888</p>
+<h2 id="刷入步骤"><a href="#刷入步骤" class="headerlink" title="刷入步骤"></a>刷入步骤</h2><p>先执行 【1：中兴微通用备份】 对棒子进行备份<br>然后执行 【2：中兴微通用后台刷入】 刷入全功能后台</p>
+<h1 id="去除远程控制"><a href="#去除远程控制" class="headerlink" title="去除远程控制"></a>去除远程控制</h1><p>执行 8：打开 CMD 终端</p>
+<p>进入 shell 进行操作，以下均在 cmd 窗口内进行</p>
+<figure class="highlight shell"><table><tr><td class="code"><pre><span class="line">adb shell</span><br></pre></td></tr></table></figure>
+
+<p>可查看所有参数 再进行修改</p>
+<figure class="highlight shell"><table><tr><td class="code"><pre><span class="line">nv show</span><br></pre></td></tr></table></figure>
+
+<p>下面第一条有的新版本有这个参数，有的没有，可以执行没啥问题，最好去执行上一条命令查看所有参数再修改。</p>
+<figure class="highlight shell"><table><tr><td class="code"><pre><span class="line">nv set mqtt_host=127.0.0.1</span><br></pre></td></tr></table></figure>
+
+<p>禁止固件下载</p>
+<figure class="highlight shell"><table><tr><td class="code"><pre><span class="line">nv set fota_updateMode=0</span><br></pre></td></tr></table></figure>
+
+<p>禁止系统网址</p>
+<figure class="highlight shell"><table><tr><td class="code"><pre><span class="line">nv set os_url=http://127.0.0.1</span><br></pre></td></tr></table></figure>
+
+<p>禁止内置卡服务</p>
+<figure class="highlight shell"><table><tr><td class="code"><pre><span class="line">nv set lpa_trigger_host=127.0.1</span><br></pre></td></tr></table></figure>
+
+<p>禁止定位</p>
+<figure class="highlight shell"><table><tr><td class="code"><pre><span class="line">nv set safecare_hostname=127.0.0.1</span><br></pre></td></tr></table></figure>
+
+<p>禁用云服务</p>
+<figure class="highlight shell"><table><tr><td class="code"><pre><span class="line">nv set safecare_mobsite=http://127.0.0.1</span><br></pre></td></tr></table></figure>
+
+<p>禁用云服务</p>
+<figure class="highlight shell"><table><tr><td class="code"><pre><span class="line">nv set TM_SERVER_NAME=127.0.0.1</span><br></pre></td></tr></table></figure>
+
+<p>修改一些网页目录为根目录,防止未知访问</p>
+<figure class="highlight shell"><table><tr><td class="code"><pre><span class="line">nv set lpa_trigger_updata_url=/</span><br><span class="line">nv set lpa_trigger_event_url=/</span><br><span class="line">nv set URI_FIELD=/</span><br></pre></td></tr></table></figure>
+
+<p>未知服务修改掉再说有影响还原 原参数 hostName&#x3D;dm.wo.com.cn</p>
+<figure class="highlight shell"><table><tr><td class="code"><pre><span class="line">nv set hostName=127.0.0.1</span><br></pre></td></tr></table></figure>
+
+<p>未知服务修改掉再说有影响还原 原参数 HOST_FIELD&#x3D;Host: mt.chenjiariji.top</p>
+<figure class="highlight shell"><table><tr><td class="code"><pre><span class="line">nv set HOST_FIELD=&#x27;Host: 127.0.0.1&#x27;</span><br></pre></td></tr></table></figure>
+
+<p>保存设置以上所有设置</p>
+<figure class="highlight shell"><table><tr><td class="code"><pre><span class="line">nv save</span><br></pre></td></tr></table></figure>
+
+<p>进阶设置</p>
+<p>设置 root 密码 这里默认 vps333 自己设置复杂一点</p>
+<figure class="highlight shell"><table><tr><td class="code"><pre><span class="line">nv set root_Password=vps333</span><br></pre></td></tr></table></figure>
+
+<p>保存设置</p>
+<figure class="highlight shell"><table><tr><td class="code"><pre><span class="line">nv save</span><br></pre></td></tr></table></figure>
+
+<p>到这里可以屏蔽与云服务相关的连接了,输入 reboot 进行重启</p>
+<h1 id="其他设置"><a href="#其他设置" class="headerlink" title="其他设置"></a>其他设置</h1><p>先进入后台去修改掉 imei 为其他的不要为默认的 imei,修改后重启一遍看看是否是修改的 emei<br>然后登录 访问以下网址获取解锁 sim 卡槽密码</p>
+<p><a href="http://192.168.0.1/goform/goform_get_cmd_process?cmd=unlock_network_code">http://192.168.0.1/goform/goform_get_cmd_process?cmd=unlock_network_code</a></p>
+<p>开启 ADB 命令 这里我没有使用</p>
+<p><a href="http://192.168.0.1/goform/goform_set_cmd_process?goformId=SET_DEVICE_MODE&debug_enable=1">http://192.168.0.1/goform/goform_set_cmd_process?goformId=SET_DEVICE_MODE&amp;debug_enable=1</a></p>
+<p>获取到这这个密码输入到解锁 sim 卡服务的地方即可。<br>解锁后再拔掉开机，看到 SIM 已解锁。<br>然后插入 SIM 就可以上网了，如果恢复出厂需要再执行以上操作。</p>
+]]></content>
+      <categories>
+        <category>移动通信</category>
+      </categories>
+      <tags>
+        <tag>随身WiFi</tag>
+      </tags>
+  </entry>
+  <entry>
+    <title>利用CF Workers搭建Github加速服务</title>
+    <url>/posts/ee2e5bab/</url>
+    <content><![CDATA[<h1 id="利用CF-Workers搭建GH-Proxy服务"><a href="#利用CF-Workers搭建GH-Proxy服务" class="headerlink" title="利用CF Workers搭建GH-Proxy服务"></a>利用CF Workers搭建GH-Proxy服务</h1><blockquote>
+<p>项目地址：<a href="https://github.com/hunshcn/gh-proxy">hunshcn&#x2F;gh-proxy: github release、archive以及项目文件的加速项目</a><br>项目简介：github release、archive以及项目文件的加速项目，支持clone，有Cloudflare Workers无服务器版本以及Python版本</p>
+</blockquote>
+<ol>
+<li>注册一个CloudFlare账户</li>
+<li>进入<a href="https://workers.cloudflare.com/">CF Workers</a>页面，点击 <strong>创建应用程序 <img src="https://img.zzzg.top/202312120902203.png" alt="img"></strong></li>
+<li>点击 <strong>创建Worker <img src="https://img.zzzg.top/202312120902204.png" alt="img"></strong></li>
+<li>按需填写 <strong>名称</strong>，点击右下角 <strong>部署</strong><br><img src="https://img.zzzg.top/202312120902205.png" alt="img"></li>
+<li>点击 <strong>编辑代码</strong><img src="https://img.zzzg.top/202312120902206.png" alt="img"></li>
+<li>将代码<strong>复制并替换编辑框里的内容</strong>，点击右边的 <strong>保存并部署</strong>，返回刚才的管理页面</li>
+</ol>
+<blockquote>
+<p>代码地址：<a href="https://cdn.jsdelivr.net/gh/hunshcn/gh-proxy@master/index.js">cdn.jsdelivr.net&#x2F;gh&#x2F;hunshcn&#x2F;gh-proxy@master&#x2F;index.js</a></p>
+</blockquote>
+<p><img src="https://img.zzzg.top/202312120902207.png" alt="img"></p>
+<ol>
+<li>点击<strong>查看链接</strong>，显示如下界面即为成功<img src="https://img.zzzg.top/202312120902208.png" alt="img"></li>
+</ol>
+<p><img src="https://img.zzzg.top/202312120902209.png" alt="img"></p>
+<blockquote>
+<h2 id="Cloudflare-Workers计费"><a href="#Cloudflare-Workers计费" class="headerlink" title="Cloudflare Workers计费"></a>Cloudflare Workers计费</h2><p>到 <code>overview</code> 页面可参看使用情况。免费版每天有 10 万次免费请求，并且有每分钟1000次请求的限制。</p>
+<p>如果不够用，可升级到 $5 的高级版本，每月可用 1000 万次请求（超出部分 $0.5&#x2F;百万次请求）。</p>
+</blockquote>
+]]></content>
+      <categories>
+        <category>网络技术</category>
+      </categories>
+      <tags>
+        <tag>前端部署</tag>
       </tags>
   </entry>
   <entry>
@@ -4792,161 +4947,6 @@
       </categories>
       <tags>
         <tag>运维工具</tag>
-      </tags>
-  </entry>
-  <entry>
-    <title>中星微随身Wifi去后门刷全功能后台</title>
-    <url>/posts/f9dbe722/</url>
-    <content><![CDATA[<h1 id="前言"><a href="#前言" class="headerlink" title="前言"></a>前言</h1><p>买到棒子先不要插自己卡，需要进行屏蔽操作防止被远程操作，这里我买的是狗东某沃中星微。</p>
-<h1 id="刷入全功能后台"><a href="#刷入全功能后台" class="headerlink" title="刷入全功能后台"></a>刷入全功能后台</h1><p>首先开启 ADB<br>插到电脑上电 192.168.0.1 访问成功 密码 admin<br>通电后用工具捅 USB 插头的小孔 灯灭会自动重启，重启完成即可进入 ADB 模式</p>
-<h2 id="下载工具"><a href="#下载工具" class="headerlink" title="下载工具"></a>下载工具</h2><p>链接：<a href="https://pan.baidu.com/s/1lCwsg7kMmHVNbWOP7KRT3Q">https://pan.baidu.com/s/1lCwsg7kMmHVNbWOP7KRT3Q</a><br>提取码：8888</p>
-<h2 id="刷入步骤"><a href="#刷入步骤" class="headerlink" title="刷入步骤"></a>刷入步骤</h2><p>先执行 【1：中兴微通用备份】 对棒子进行备份<br>然后执行 【2：中兴微通用后台刷入】 刷入全功能后台</p>
-<h1 id="去除远程控制"><a href="#去除远程控制" class="headerlink" title="去除远程控制"></a>去除远程控制</h1><p>执行 8：打开 CMD 终端</p>
-<p>进入 shell 进行操作，以下均在 cmd 窗口内进行</p>
-<figure class="highlight shell"><table><tr><td class="code"><pre><span class="line">adb shell</span><br></pre></td></tr></table></figure>
-
-<p>可查看所有参数 再进行修改</p>
-<figure class="highlight shell"><table><tr><td class="code"><pre><span class="line">nv show</span><br></pre></td></tr></table></figure>
-
-<p>下面第一条有的新版本有这个参数，有的没有，可以执行没啥问题，最好去执行上一条命令查看所有参数再修改。</p>
-<figure class="highlight shell"><table><tr><td class="code"><pre><span class="line">nv set mqtt_host=127.0.0.1</span><br></pre></td></tr></table></figure>
-
-<p>禁止固件下载</p>
-<figure class="highlight shell"><table><tr><td class="code"><pre><span class="line">nv set fota_updateMode=0</span><br></pre></td></tr></table></figure>
-
-<p>禁止系统网址</p>
-<figure class="highlight shell"><table><tr><td class="code"><pre><span class="line">nv set os_url=http://127.0.0.1</span><br></pre></td></tr></table></figure>
-
-<p>禁止内置卡服务</p>
-<figure class="highlight shell"><table><tr><td class="code"><pre><span class="line">nv set lpa_trigger_host=127.0.1</span><br></pre></td></tr></table></figure>
-
-<p>禁止定位</p>
-<figure class="highlight shell"><table><tr><td class="code"><pre><span class="line">nv set safecare_hostname=127.0.0.1</span><br></pre></td></tr></table></figure>
-
-<p>禁用云服务</p>
-<figure class="highlight shell"><table><tr><td class="code"><pre><span class="line">nv set safecare_mobsite=http://127.0.0.1</span><br></pre></td></tr></table></figure>
-
-<p>禁用云服务</p>
-<figure class="highlight shell"><table><tr><td class="code"><pre><span class="line">nv set TM_SERVER_NAME=127.0.0.1</span><br></pre></td></tr></table></figure>
-
-<p>修改一些网页目录为根目录,防止未知访问</p>
-<figure class="highlight shell"><table><tr><td class="code"><pre><span class="line">nv set lpa_trigger_updata_url=/</span><br><span class="line">nv set lpa_trigger_event_url=/</span><br><span class="line">nv set URI_FIELD=/</span><br></pre></td></tr></table></figure>
-
-<p>未知服务修改掉再说有影响还原 原参数 hostName&#x3D;dm.wo.com.cn</p>
-<figure class="highlight shell"><table><tr><td class="code"><pre><span class="line">nv set hostName=127.0.0.1</span><br></pre></td></tr></table></figure>
-
-<p>未知服务修改掉再说有影响还原 原参数 HOST_FIELD&#x3D;Host: mt.chenjiariji.top</p>
-<figure class="highlight shell"><table><tr><td class="code"><pre><span class="line">nv set HOST_FIELD=&#x27;Host: 127.0.0.1&#x27;</span><br></pre></td></tr></table></figure>
-
-<p>保存设置以上所有设置</p>
-<figure class="highlight shell"><table><tr><td class="code"><pre><span class="line">nv save</span><br></pre></td></tr></table></figure>
-
-<p>进阶设置</p>
-<p>设置 root 密码 这里默认 vps333 自己设置复杂一点</p>
-<figure class="highlight shell"><table><tr><td class="code"><pre><span class="line">nv set root_Password=vps333</span><br></pre></td></tr></table></figure>
-
-<p>保存设置</p>
-<figure class="highlight shell"><table><tr><td class="code"><pre><span class="line">nv save</span><br></pre></td></tr></table></figure>
-
-<p>到这里可以屏蔽与云服务相关的连接了,输入 reboot 进行重启</p>
-<h1 id="其他设置"><a href="#其他设置" class="headerlink" title="其他设置"></a>其他设置</h1><p>先进入后台去修改掉 imei 为其他的不要为默认的 imei,修改后重启一遍看看是否是修改的 emei<br>然后登录 访问以下网址获取解锁 sim 卡槽密码</p>
-<p><a href="http://192.168.0.1/goform/goform_get_cmd_process?cmd=unlock_network_code">http://192.168.0.1/goform/goform_get_cmd_process?cmd=unlock_network_code</a></p>
-<p>开启 ADB 命令 这里我没有使用</p>
-<p><a href="http://192.168.0.1/goform/goform_set_cmd_process?goformId=SET_DEVICE_MODE&debug_enable=1">http://192.168.0.1/goform/goform_set_cmd_process?goformId=SET_DEVICE_MODE&amp;debug_enable=1</a></p>
-<p>获取到这这个密码输入到解锁 sim 卡服务的地方即可。<br>解锁后再拔掉开机，看到 SIM 已解锁。<br>然后插入 SIM 就可以上网了，如果恢复出厂需要再执行以上操作。</p>
-]]></content>
-      <categories>
-        <category>移动通信</category>
-      </categories>
-      <tags>
-        <tag>随身WiFi</tag>
-      </tags>
-  </entry>
-  <entry>
-    <title>x-ui最稳妥的魔术面板</title>
-    <url>/posts/af28068c/</url>
-    <content><![CDATA[<p><strong>最近经常有人被封端口，我自己搭的这个方案没被封过，现在分享出来。</strong></p>
-<h2 id="系统：Debian10-11"><a href="#系统：Debian10-11" class="headerlink" title="系统：Debian10-11"></a>系统：Debian10-11</h2><p>首先要确保自己的vps是纯净的系统，不要商家预装的，在系统启动后操作DD重装脚本进行安装纯净版系统</p>
-<h2 id="第一步：DD重装Debian10系统："><a href="#第一步：DD重装Debian10系统：" class="headerlink" title="第一步：DD重装Debian10系统："></a>第一步：DD重装Debian10系统：</h2><figure class="highlight shell"><table><tr><td class="code"><pre><span class="line">wget -N --no-check-certificate https://raw.githubusercontent.com/qingee/dd/master/InstallNET.sh &amp;&amp; chmod +x InstallNET.sh &amp;&amp; ./InstallNET.sh -d 10 -v 64 -p &quot;notetoday&quot; -port &quot;22&quot;</span><br></pre></td></tr></table></figure>
-
-<p>系统root密码：<code>notetoday</code><br>更改root密码：<code>passwd</code> 或者 <code>passwd root</code>输入你想要设置的密码即可，在ssh命令窗口输入密码<code>不显示是正常的</code></p>
-<h2 id="第二步：安装WARP接管VPS的出站ip（加入香港节点WireGuard异常：可以去Github）"><a href="#第二步：安装WARP接管VPS的出站ip（加入香港节点WireGuard异常：可以去Github）" class="headerlink" title="第二步：安装WARP接管VPS的出站ip（加入香港节点WireGuard异常：可以去Github）"></a>第二步：安装WARP接管VPS的出站ip（加入香港节点WireGuard异常：可以去<a href="https://github.com/fscarmen/warp">Github</a>）</h2><blockquote>
-<p>apt update<br>apt install curl -y<br>apt install gnupg2 -y<br>apt install wget -y<br># 自动配置 WARP WireGuard IPv4 网络<br>bash &lt;(curl -fsSL git.io&#x2F;warp.sh) 4<br>echo “1” &gt; &#x2F;proc&#x2F;sys&#x2F;net&#x2F;ipv6&#x2F;conf&#x2F;all&#x2F;disable_ipv6</p>
-</blockquote>
-<p>这个配置后你vps向外请求的所有ip都不是本机的真实ip，速度可能会有所影响，但是会很安全</p>
-<h2 id="第三步：-安装适用于流媒体的XanMod内核开启BBR2（FQ-PIE）："><a href="#第三步：-安装适用于流媒体的XanMod内核开启BBR2（FQ-PIE）：" class="headerlink" title="第三步： 安装适用于流媒体的XanMod内核开启BBR2（FQ+PIE）："></a>第三步： 安装适用于流媒体的XanMod内核开启BBR2（FQ+PIE）：</h2><blockquote>
-<ol>
-<li>Register the PGP key:</li>
-</ol>
-<figure class="highlight shell"><table><tr><td class="code"><pre><span class="line">wget -qO - https://dl.xanmod.org/archive.key | sudo gpg --dearmor -o /usr/share/keyrings/xanmod-archive-keyring.gpg</span><br></pre></td></tr></table></figure>
-
-<ol start="2">
-<li>Add the repository:</li>
-</ol>
-<figure class="highlight shell"><table><tr><td class="code"><pre><span class="line">echo &#x27;deb [signed-by=/usr/share/keyrings/xanmod-archive-keyring.gpg] http://deb.xanmod.org releases main&#x27; | sudo tee /etc/apt/sources.list.d/xanmod-release.list</span><br></pre></td></tr></table></figure>
-
-<ol start="3">
-<li>Then update and install:  <strong>⇲</strong> Check platform compatibility in <strong>x86-64 psABI level reference</strong> below.</li>
-</ol>
-<figure class="highlight shell"><table><tr><td class="code"><pre><span class="line">sudo apt update &amp;&amp; sudo apt install linux-xanmod-x64v3</span><br></pre></td></tr></table></figure>
-
-<ol start="4">
-<li>Reboot</li>
-</ol>
-</blockquote>
-<p>执行完命令代码后等待系统重启，重启完成后执行以下脚本开启<code>BBR2</code></p>
-<blockquote>
-<p>bash &lt;(curl -Lso- <a href="https://git.io/kernel.sh">https://git.io/kernel.sh</a>)</p>
-</blockquote>
-<p><a href=""><img src="https://img.zzzg.top/202311061449957.png" alt="2022-10-22T05:09:28.png"></a><br><a href=""><img src="https://img.zzzg.top/202311061450569.png" alt="2022-10-22T05:13:42.png"></a><br><a href=""><img src="https://img.zzzg.top/202311061450421.png" alt="2022-10-22T05:15:10.png"></a><br>再次运行上面的代码，查看参数是否和下图一样，如果是一样的就是开启成功了<br><a href=""><img src="https://img.zzzg.top/202311061450627.png" alt="2022-10-22T05:17:17.png"></a> </p>
-<h2 id="第四步：安装x-ui面板"><a href="#第四步：安装x-ui面板" class="headerlink" title="第四步：安装x-ui面板"></a><strong>第四步：安装x-ui面板</strong></h2><blockquote>
-</blockquote>
-<h2 id="PS：安装VPS开源MW控制面板（要装就装，不装也没事）"><a href="#PS：安装VPS开源MW控制面板（要装就装，不装也没事）" class="headerlink" title="PS：安装VPS开源MW控制面板（要装就装，不装也没事）"></a><strong>PS：安装VPS开源MW控制面板（要装就装，不装也没事）</strong></h2><p>使用这套配置操作，所有IP 都是CDNip</p>
-<p><a href="https://www.notetoday.net/note/111.html">Linux主机开源面板：mdserver-web，完全免费，界面仿宝塔面板</a></p>
-<figure class="highlight shell"><table><tr><td class="code"><pre><span class="line">curl -fsSL https://gcore.jsdelivr.net/gh/midoks/mdserver-web@latest/scripts/install.sh | bash</span><br><span class="line">curl -fsSL  https://raw.githubusercontent.com/midoks/mdserver-web/dev/scripts/update_dev.sh | bash</span><br></pre></td></tr></table></figure>
-
-<p><a href=""><img src="https://img.zzzg.top/202311061450166.png" alt="2022-10-22T05:25:00.png"></a><br>记住控制面板的信息登录上去后在安全里<code>关闭防火墙</code></p>
-<p>或者海外宝塔：<a href="https://www.aapanel.com/new/download.html">https://www.aapanel.com/new/download.html</a></p>
-]]></content>
-      <categories>
-        <category>网络技术</category>
-      </categories>
-      <tags>
-        <tag>网络代理</tag>
-      </tags>
-  </entry>
-  <entry>
-    <title>利用CF Workers搭建Github加速服务</title>
-    <url>/posts/ee2e5bab/</url>
-    <content><![CDATA[<h1 id="利用CF-Workers搭建GH-Proxy服务"><a href="#利用CF-Workers搭建GH-Proxy服务" class="headerlink" title="利用CF Workers搭建GH-Proxy服务"></a>利用CF Workers搭建GH-Proxy服务</h1><blockquote>
-<p>项目地址：<a href="https://github.com/hunshcn/gh-proxy">hunshcn&#x2F;gh-proxy: github release、archive以及项目文件的加速项目</a><br>项目简介：github release、archive以及项目文件的加速项目，支持clone，有Cloudflare Workers无服务器版本以及Python版本</p>
-</blockquote>
-<ol>
-<li>注册一个CloudFlare账户</li>
-<li>进入<a href="https://workers.cloudflare.com/">CF Workers</a>页面，点击 <strong>创建应用程序 <img src="https://img.zzzg.top/202312120902203.png" alt="img"></strong></li>
-<li>点击 <strong>创建Worker <img src="https://img.zzzg.top/202312120902204.png" alt="img"></strong></li>
-<li>按需填写 <strong>名称</strong>，点击右下角 <strong>部署</strong><br><img src="https://img.zzzg.top/202312120902205.png" alt="img"></li>
-<li>点击 <strong>编辑代码</strong><img src="https://img.zzzg.top/202312120902206.png" alt="img"></li>
-<li>将代码<strong>复制并替换编辑框里的内容</strong>，点击右边的 <strong>保存并部署</strong>，返回刚才的管理页面</li>
-</ol>
-<blockquote>
-<p>代码地址：<a href="https://cdn.jsdelivr.net/gh/hunshcn/gh-proxy@master/index.js">cdn.jsdelivr.net&#x2F;gh&#x2F;hunshcn&#x2F;gh-proxy@master&#x2F;index.js</a></p>
-</blockquote>
-<p><img src="https://img.zzzg.top/202312120902207.png" alt="img"></p>
-<ol>
-<li>点击<strong>查看链接</strong>，显示如下界面即为成功<img src="https://img.zzzg.top/202312120902208.png" alt="img"></li>
-</ol>
-<p><img src="https://img.zzzg.top/202312120902209.png" alt="img"></p>
-<blockquote>
-<h2 id="Cloudflare-Workers计费"><a href="#Cloudflare-Workers计费" class="headerlink" title="Cloudflare Workers计费"></a>Cloudflare Workers计费</h2><p>到 <code>overview</code> 页面可参看使用情况。免费版每天有 10 万次免费请求，并且有每分钟1000次请求的限制。</p>
-<p>如果不够用，可升级到 $5 的高级版本，每月可用 1000 万次请求（超出部分 $0.5&#x2F;百万次请求）。</p>
-</blockquote>
-]]></content>
-      <categories>
-        <category>网络技术</category>
-      </categories>
-      <tags>
-        <tag>前端部署</tag>
       </tags>
   </entry>
   <entry>
@@ -5082,6 +5082,70 @@
       </tags>
   </entry>
   <entry>
+    <title>在WSL2中使用Clash Verge代理连接</title>
+    <url>/posts/af89448b/</url>
+    <content><![CDATA[<blockquote>
+<p>本文撰写时基于的系统和版本是 Ubuntu 22.04, 如果你使用其他版本或其他发行版，则下文提到的部分步骤与你的实际情况可能有所出入。</p>
+</blockquote>
+<blockquote>
+<p>在 WSL2 中配置环境时，依赖下载经常因为网络问题极其缓慢甚至失败。在整合了各方资料及个人实践后，我总结了在 WSL2 中通过 Clash Verge 设置代理的方法，供大家参考。</p>
+</blockquote>
+<h1 id="在-Clash-客户端内的操作"><a href="#在-Clash-客户端内的操作" class="headerlink" title="在 Clash 客户端内的操作"></a>在 Clash 客户端内的操作</h1><p>打开客户端的局域网连接开关。<br>记录下客户端内的端口，如这里是 <code>7897</code>. 一般默认端口为 <code>7897</code>。</p>
+<p><img src="https://img.zzzg.top/202312131053554.png"></p>
+<h1 id="修改-bashrc"><a href="#修改-bashrc" class="headerlink" title="修改 .bashrc"></a>修改 <code>.bashrc</code></h1><p>使用文本编辑器编辑 <code>.bashrc</code>，在文件末尾根据第 1 步记录的数据，加入三行内容：</p>
+<figure class="highlight shell"><table><tr><td class="code"><pre><span class="line">nano ~/.bashrc</span><br></pre></td></tr></table></figure>
+
+<figure class="highlight bash"><table><tr><td class="code"><pre><span class="line">host_ip=$(<span class="built_in">cat</span> /etc/resolv.conf |grep <span class="string">&quot;nameserver&quot;</span> |<span class="built_in">cut</span> -f 2 -d <span class="string">&quot; &quot;</span>)</span><br><span class="line"><span class="built_in">export</span> http_proxy=<span class="string">&quot;http://<span class="variable">$host_ip</span>:[端口]&quot;</span></span><br><span class="line"><span class="built_in">export</span> https_proxy=<span class="string">&quot;http://<span class="variable">$host_ip</span>:[端口]&quot;</span></span><br></pre></td></tr></table></figure>
+
+<p>如图所示，修改完后保存即可。<br><img src="https://img.zzzg.top/202312131053167.png"></p>
+<h1 id="使-root-用户保留先前设置的环境变量"><a href="#使-root-用户保留先前设置的环境变量" class="headerlink" title="使 root 用户保留先前设置的环境变量"></a>使 root 用户保留先前设置的环境变量</h1><p>在使用 <code>sudo</code> 执行命令时，之前设置的环境变量并不会生效，需要进一步设置。<br>输入 <code>sudo visudo</code></p>
+<p>取消相应行的注释 (删除行首的 <code>#</code>) 即可.<br><img src="https://img.zzzg.top/202312131053399.png"></p>
+<p>如果你使用 Ubuntu 20.04, 加入以下内容并保存。</p>
+<figure class="highlight bash"><table><tr><td class="code"><pre><span class="line">Defaults env_keep=<span class="string">&quot;http_proxy https_proxy&quot;</span></span><br></pre></td></tr></table></figure>
+
+<p><img src="https://img.zzzg.top/202312131053583.png"></p>
+<h1 id="测试"><a href="#测试" class="headerlink" title="测试"></a>测试</h1><p>输入 <code>source ~/.bashrc</code> 使文件修改生效。</p>
+<p>可以通过输入 <code>echo $http_proxy</code> 验证修改是否成功。<br>输入 <code>wget www.google.com</code>, 可以发现连接成功，至此大功告成，如图所示。<br><img src="https://s2.loli.net/2022/10/05/UIQ8LhuROaXq6S2.png"></p>
+<h1 id="参考资料"><a href="#参考资料" class="headerlink" title="参考资料"></a>参考资料</h1><p><a href="https://zhuanlan.zhihu.com/p/153124468">为 WSL2 一键设置代理 (zhihu.com)</a><br><a href="https://www.chenyudong.com/archives/sudo-keep-env.html">sudo保持前用用户的env环境变量 (chenyudong.com, 已失效)</a></p>
+]]></content>
+      <categories>
+        <category>网络技术</category>
+      </categories>
+      <tags>
+        <tag>网络代理</tag>
+      </tags>
+  </entry>
+  <entry>
+    <title>备份Hexo博客到开源仓库</title>
+    <url>/posts/5836c89e/</url>
+    <content><![CDATA[<p>本教程以 gitee 举例，GitHub 同理。</p>
+<h1 id="创建-gitee-仓库"><a href="#创建-gitee-仓库" class="headerlink" title="创建 gitee 仓库"></a>创建 gitee 仓库</h1><p>直接 gitee 官网右上角创建仓库即可，名字什么的自定义，最好创建私人仓库。</p>
+<h1 id="初始化本地仓库"><a href="#初始化本地仓库" class="headerlink" title="初始化本地仓库"></a>初始化本地仓库</h1><p>在本地 hexo 目录运行命令行</p>
+<p>输入</p>
+<figure class="highlight cmd"><table><tr><td class="code"><pre><span class="line">git init</span><br></pre></td></tr></table></figure>
+
+<p>然后输入</p>
+<figure class="highlight cmd"><table><tr><td class="code"><pre><span class="line">git remote add origin git@gitee.com:yuqi15/blog-backup.git</span><br></pre></td></tr></table></figure>
+
+<p>注意：这里是使用你自己创建仓库的链接，刚创建好会在页面上提示</p>
+<p><img src="https://img.zzzg.top/202303031601529.png"></p>
+<h1 id="上传到-gitee"><a href="#上传到-gitee" class="headerlink" title="上传到 gitee"></a>上传到 gitee</h1><p>依次在命令行里面运行下面命令</p>
+<figure class="highlight cmd"><table><tr><td class="code"><pre><span class="line">git add .</span><br><span class="line">git commit -m &quot;update&quot;</span><br><span class="line">git push origin master --force</span><br></pre></td></tr></table></figure>
+
+<p>运行成功就上传完成了</p>
+<h1 id="新设备恢复-hexo-博客"><a href="#新设备恢复-hexo-博客" class="headerlink" title="新设备恢复 hexo 博客"></a>新设备恢复 hexo 博客</h1><p>1、安装 node</p>
+<p>2、安装 Git</p>
+<p>3、在你需要恢复博客的文件夹里面使用命令行执行</p>
+<figure class="highlight cmd"><table><tr><td class="code"><pre><span class="line">cnpm install hexo-cli -g</span><br><span class="line">git clone 你备份的仓库地址</span><br><span class="line">cnpm install</span><br></pre></td></tr></table></figure>
+]]></content>
+      <categories>
+        <category>博客运维</category>
+      </categories>
+      <tags>
+        <tag>Hexo</tag>
+      </tags>
+  </entry>
+  <entry>
     <title>安卓14 + HttpCanary 抓包设置</title>
     <url>/posts/5fb4c97d/</url>
     <content><![CDATA[<h1 id="前言"><a href="#前言" class="headerlink" title="前言"></a>前言</h1><p>这两天使用 HttpCanary 抓包，无法安装证书，如下图，搜索找到了解决办法。本教程适合安卓14 + 无法安装证书，以及解决“系统证书”和“目标App使用固定证书”的问题。</p>
@@ -5118,40 +5182,6 @@
       </tags>
   </entry>
   <entry>
-    <title>在WSL2中使用Clash Verge代理连接</title>
-    <url>/posts/af89448b/</url>
-    <content><![CDATA[<blockquote>
-<p>本文撰写时基于的系统和版本是 Ubuntu 22.04, 如果你使用其他版本或其他发行版，则下文提到的部分步骤与你的实际情况可能有所出入。</p>
-</blockquote>
-<blockquote>
-<p>在 WSL2 中配置环境时，依赖下载经常因为网络问题极其缓慢甚至失败。在整合了各方资料及个人实践后，我总结了在 WSL2 中通过 Clash Verge 设置代理的方法，供大家参考。</p>
-</blockquote>
-<h1 id="在-Clash-客户端内的操作"><a href="#在-Clash-客户端内的操作" class="headerlink" title="在 Clash 客户端内的操作"></a>在 Clash 客户端内的操作</h1><p>打开客户端的局域网连接开关。<br>记录下客户端内的端口，如这里是 <code>7897</code>. 一般默认端口为 <code>7897</code>。</p>
-<p><img src="https://img.zzzg.top/202312131053554.png"></p>
-<h1 id="修改-bashrc"><a href="#修改-bashrc" class="headerlink" title="修改 .bashrc"></a>修改 <code>.bashrc</code></h1><p>使用文本编辑器编辑 <code>.bashrc</code>，在文件末尾根据第 1 步记录的数据，加入三行内容：</p>
-<figure class="highlight shell"><table><tr><td class="code"><pre><span class="line">nano ~/.bashrc</span><br></pre></td></tr></table></figure>
-
-<figure class="highlight bash"><table><tr><td class="code"><pre><span class="line">host_ip=$(<span class="built_in">cat</span> /etc/resolv.conf |grep <span class="string">&quot;nameserver&quot;</span> |<span class="built_in">cut</span> -f 2 -d <span class="string">&quot; &quot;</span>)</span><br><span class="line"><span class="built_in">export</span> http_proxy=<span class="string">&quot;http://<span class="variable">$host_ip</span>:[端口]&quot;</span></span><br><span class="line"><span class="built_in">export</span> https_proxy=<span class="string">&quot;http://<span class="variable">$host_ip</span>:[端口]&quot;</span></span><br></pre></td></tr></table></figure>
-
-<p>如图所示，修改完后保存即可。<br><img src="https://img.zzzg.top/202312131053167.png"></p>
-<h1 id="使-root-用户保留先前设置的环境变量"><a href="#使-root-用户保留先前设置的环境变量" class="headerlink" title="使 root 用户保留先前设置的环境变量"></a>使 root 用户保留先前设置的环境变量</h1><p>在使用 <code>sudo</code> 执行命令时，之前设置的环境变量并不会生效，需要进一步设置。<br>输入 <code>sudo visudo</code></p>
-<p>取消相应行的注释 (删除行首的 <code>#</code>) 即可.<br><img src="https://img.zzzg.top/202312131053399.png"></p>
-<p>如果你使用 Ubuntu 20.04, 加入以下内容并保存。</p>
-<figure class="highlight bash"><table><tr><td class="code"><pre><span class="line">Defaults env_keep=<span class="string">&quot;http_proxy https_proxy&quot;</span></span><br></pre></td></tr></table></figure>
-
-<p><img src="https://img.zzzg.top/202312131053583.png"></p>
-<h1 id="测试"><a href="#测试" class="headerlink" title="测试"></a>测试</h1><p>输入 <code>source ~/.bashrc</code> 使文件修改生效。</p>
-<p>可以通过输入 <code>echo $http_proxy</code> 验证修改是否成功。<br>输入 <code>wget www.google.com</code>, 可以发现连接成功，至此大功告成，如图所示。<br><img src="https://s2.loli.net/2022/10/05/UIQ8LhuROaXq6S2.png"></p>
-<h1 id="参考资料"><a href="#参考资料" class="headerlink" title="参考资料"></a>参考资料</h1><p><a href="https://zhuanlan.zhihu.com/p/153124468">为 WSL2 一键设置代理 (zhihu.com)</a><br><a href="https://www.chenyudong.com/archives/sudo-keep-env.html">sudo保持前用用户的env环境变量 (chenyudong.com, 已失效)</a></p>
-]]></content>
-      <categories>
-        <category>网络技术</category>
-      </categories>
-      <tags>
-        <tag>网络代理</tag>
-      </tags>
-  </entry>
-  <entry>
     <title>安装了VMware Tools，但无法实现文件的拖拽和复制粘贴---解决方案</title>
     <url>/posts/a580ef34/</url>
     <content><![CDATA[<p>环境：Windows11，VMware17Pro，ubuntu-23.10.1</p>
@@ -5180,76 +5210,6 @@
       </categories>
       <tags>
         <tag>虚拟机</tag>
-      </tags>
-  </entry>
-  <entry>
-    <title>使用itzg/docker-minecraft-server快速搭建Minecraft服务器指南</title>
-    <url>/posts/d28cec10/</url>
-    <content><![CDATA[<h1 id="项目概述"><a href="#项目概述" class="headerlink" title="项目概述"></a>项目概述</h1><p><strong>itzg&#x2F;docker-minecraft-server</strong> 是一个基于Docker的Minecraft服务器镜像项目，它简化了Minecraft服务器的部署和管理流程。通过这个项目，用户可以轻松地在各种环境中运行Minecraft服务器，无需手动下载和配置服务器文件。</p>
-<h1 id="核心特点"><a href="#核心特点" class="headerlink" title="核心特点"></a>核心特点</h1><ol>
-<li><strong>自动下载最新版本</strong>：容器启动时会自动下载最新的稳定版Minecraft服务器</li>
-<li><strong>多版本支持</strong>：支持运行特定版本或最新的快照版</li>
-<li><strong>简化部署</strong>：通过简单的Docker命令即可启动服务器</li>
-<li><strong>持久化存储</strong>：支持将服务器数据挂载到宿主机</li>
-<li><strong>配置灵活</strong>：通过环境变量可自定义服务器参数</li>
-</ol>
-<h1 id="快速开始"><a href="#快速开始" class="headerlink" title="快速开始"></a>快速开始</h1><h2 id="基础部署方式"><a href="#基础部署方式" class="headerlink" title="基础部署方式"></a>基础部署方式</h2><p>要使用最新稳定版启动Minecraft服务器，只需运行以下Docker命令：</p>
-<figure class="highlight bash"><table><tr><td class="code"><pre><span class="line">docker run -d -it -p 25565:25565 -e EULA=TRUE itzg/minecraft-server</span><br></pre></td></tr></table></figure>
-
-<p>这个命令会：</p>
-<ul>
-<li>在后台运行容器(-d)</li>
-<li>分配一个伪终端(-it)</li>
-<li>将容器内的25565端口映射到宿主机的25565端口(-p 25565:25565)</li>
-<li>自动接受Mojang的EULA协议(-e EULA&#x3D;TRUE)</li>
-</ul>
-<h3 id="重要注意事项"><a href="#重要注意事项" class="headerlink" title="重要注意事项"></a>重要注意事项</h3><ol>
-<li><strong>EULA协议</strong>：必须设置<code>EULA=TRUE</code>环境变量，表示接受Mojang&#x2F;Microsoft的用户许可协议</li>
-<li><strong>安全警告</strong>：在没有设置<code>RCON_PASSWORD</code>的情况下，不要将RCON端口(25575)暴露到公网</li>
-<li><strong>持久化建议</strong>：长期运行的服务器建议使用数据卷或绑定挂载来保存数据</li>
-</ol>
-<h2 id="使用Docker-Compose部署"><a href="#使用Docker-Compose部署" class="headerlink" title="使用Docker Compose部署"></a>使用Docker Compose部署</h2><p>对于生产环境，推荐使用Docker Compose来管理服务器，这样可以更方便地进行配置和升级。</p>
-<h3 id="部署步骤"><a href="#部署步骤" class="headerlink" title="部署步骤"></a>部署步骤</h3><ol>
-<li>创建新目录并进入</li>
-<li>创建<code>docker-compose.yml</code>文件，内容如下：</li>
-</ol>
-<figure class="highlight yaml"><table><tr><td class="code"><pre><span class="line"><span class="attr">services:</span></span><br><span class="line">  <span class="attr">mc:</span></span><br><span class="line">    <span class="attr">image:</span> <span class="string">itzg/minecraft-server</span></span><br><span class="line">    <span class="attr">tty:</span> <span class="literal">true</span></span><br><span class="line">    <span class="attr">stdin_open:</span> <span class="literal">true</span></span><br><span class="line">    <span class="attr">ports:</span></span><br><span class="line">      <span class="bullet">-</span> <span class="string">&quot;25565:25565&quot;</span></span><br><span class="line">    <span class="attr">environment:</span></span><br><span class="line">      <span class="attr">EULA:</span> <span class="string">&quot;TRUE&quot;</span></span><br><span class="line">      <span class="attr">ONLINE_MODE:</span> <span class="string">&quot;FALSE&quot;</span></span><br><span class="line">    <span class="attr">volumes:</span></span><br><span class="line">      <span class="bullet">-</span> <span class="string">./data:/data</span></span><br><span class="line"></span><br></pre></td></tr></table></figure>
-
-<ol start="3">
-<li>运行<code>docker compose up -d</code>启动服务</li>
-<li>使用客户端连接服务器的IP和25565端口</li>
-</ol>
-<h3 id="管理命令"><a href="#管理命令" class="headerlink" title="管理命令"></a>管理命令</h3><ul>
-<li>查看日志：<code>docker compose logs -f</code></li>
-<li>检查状态：<code>docker compose ps</code></li>
-<li>停止服务：<code>docker compose stop</code></li>
-<li>更新配置：修改后再次运行<code>docker compose up -d</code></li>
-</ul>
-<h3 id="进阶配置"><a href="#进阶配置" class="headerlink" title="进阶配置"></a>进阶配置</h3><h4 id="版本控制"><a href="#版本控制" class="headerlink" title="版本控制"></a>版本控制</h4><p>默认情况下，容器会下载最新的”原版”Minecraft: Java Edition服务器。可以通过以下环境变量进行定制：</p>
-<p>VERSION：指定服务器版本<br>TYPE：指定服务器类型(如原版、Forge、Paper等)<br>MEMORY：限制容器内存（防卡顿）<br>ONLINE_MODE：关闭正版验证（离线模式）</p>
-<p>例如：</p>
-<figure class="highlight yaml"><table><tr><td class="code"><pre><span class="line"><span class="attr">environment:</span></span><br><span class="line">  <span class="attr">EULA:</span> <span class="string">&quot;TRUE&quot;</span></span><br><span class="line">  <span class="attr">VERSION:</span> <span class="string">&quot;1.20.1&quot;</span></span><br><span class="line">  <span class="attr">TYPE:</span> <span class="string">&quot;PAPER&quot;</span></span><br><span class="line">  <span class="attr">MEMORY:</span> <span class="string">&quot;2G&quot;</span></span><br><span class="line">  <span class="attr">ONLINE_MODE:</span> <span class="string">&quot;FALSE&quot;</span></span><br></pre></td></tr></table></figure>
-
-<h4 id="数据持久化"><a href="#数据持久化" class="headerlink" title="数据持久化"></a>数据持久化</h4><p>示例中的.&#x2F;data:&#x2F;data挂载将服务器数据保存在宿主机的data目录中，确保服务器重启后数据不会丢失。</p>
-<h1 id="最佳实践建议"><a href="#最佳实践建议" class="headerlink" title="最佳实践建议"></a>最佳实践建议</h1><ol>
-<li>资源限制：为容器设置适当的内存限制，避免影响宿主机性能</li>
-<li>定期备份：即使使用了数据卷，也应定期备份重要数据</li>
-<li>安全配置：设置强密码，限制RCON访问</li>
-<li>监控日志：定期检查服务器日志，及时发现并解决问题</li>
-</ol>
-<h1 id="适用场景"><a href="#适用场景" class="headerlink" title="适用场景"></a>适用场景</h1><p>这个Docker镜像非常适合以下场景：</p>
-<ul>
-<li>快速搭建测试服务器</li>
-<li>个人或小团体游戏</li>
-<li>需要频繁切换服务器版本的情况</li>
-<li>自动化部署和CI&#x2F;CD环境<br>通过使用itzg&#x2F;docker-minecraft-server项目，即使是Docker新手也能快速搭建和管理Minecraft服务器，大大降低了技术门槛。</li>
-</ul>
-]]></content>
-      <categories>
-        <category>服务器运维</category>
-      </categories>
-      <tags>
-        <tag>Minecraft</tag>
       </tags>
   </entry>
   <entry>
@@ -6282,36 +6242,6 @@
       </tags>
   </entry>
   <entry>
-    <title>备份Hexo博客到开源仓库</title>
-    <url>/posts/5836c89e/</url>
-    <content><![CDATA[<p>本教程以 gitee 举例，GitHub 同理。</p>
-<h1 id="创建-gitee-仓库"><a href="#创建-gitee-仓库" class="headerlink" title="创建 gitee 仓库"></a>创建 gitee 仓库</h1><p>直接 gitee 官网右上角创建仓库即可，名字什么的自定义，最好创建私人仓库。</p>
-<h1 id="初始化本地仓库"><a href="#初始化本地仓库" class="headerlink" title="初始化本地仓库"></a>初始化本地仓库</h1><p>在本地 hexo 目录运行命令行</p>
-<p>输入</p>
-<figure class="highlight cmd"><table><tr><td class="code"><pre><span class="line">git init</span><br></pre></td></tr></table></figure>
-
-<p>然后输入</p>
-<figure class="highlight cmd"><table><tr><td class="code"><pre><span class="line">git remote add origin git@gitee.com:yuqi15/blog-backup.git</span><br></pre></td></tr></table></figure>
-
-<p>注意：这里是使用你自己创建仓库的链接，刚创建好会在页面上提示</p>
-<p><img src="https://img.zzzg.top/202303031601529.png"></p>
-<h1 id="上传到-gitee"><a href="#上传到-gitee" class="headerlink" title="上传到 gitee"></a>上传到 gitee</h1><p>依次在命令行里面运行下面命令</p>
-<figure class="highlight cmd"><table><tr><td class="code"><pre><span class="line">git add .</span><br><span class="line">git commit -m &quot;update&quot;</span><br><span class="line">git push origin master --force</span><br></pre></td></tr></table></figure>
-
-<p>运行成功就上传完成了</p>
-<h1 id="新设备恢复-hexo-博客"><a href="#新设备恢复-hexo-博客" class="headerlink" title="新设备恢复 hexo 博客"></a>新设备恢复 hexo 博客</h1><p>1、安装 node</p>
-<p>2、安装 Git</p>
-<p>3、在你需要恢复博客的文件夹里面使用命令行执行</p>
-<figure class="highlight cmd"><table><tr><td class="code"><pre><span class="line">cnpm install hexo-cli -g</span><br><span class="line">git clone 你备份的仓库地址</span><br><span class="line">cnpm install</span><br></pre></td></tr></table></figure>
-]]></content>
-      <categories>
-        <category>博客运维</category>
-      </categories>
-      <tags>
-        <tag>Hexo</tag>
-      </tags>
-  </entry>
-  <entry>
     <title>针对Prodiag现场License弹窗的解决方法</title>
     <url>/posts/2622eae5/</url>
     <content><![CDATA[<p>问题：触摸屏报缺少相关的License Key</p>
@@ -6339,6 +6269,76 @@
       </categories>
       <tags>
         <tag>工业软件</tag>
+      </tags>
+  </entry>
+  <entry>
+    <title>使用itzg/docker-minecraft-server快速搭建Minecraft服务器指南</title>
+    <url>/posts/d28cec10/</url>
+    <content><![CDATA[<h1 id="项目概述"><a href="#项目概述" class="headerlink" title="项目概述"></a>项目概述</h1><p><strong>itzg&#x2F;docker-minecraft-server</strong> 是一个基于Docker的Minecraft服务器镜像项目，它简化了Minecraft服务器的部署和管理流程。通过这个项目，用户可以轻松地在各种环境中运行Minecraft服务器，无需手动下载和配置服务器文件。</p>
+<h1 id="核心特点"><a href="#核心特点" class="headerlink" title="核心特点"></a>核心特点</h1><ol>
+<li><strong>自动下载最新版本</strong>：容器启动时会自动下载最新的稳定版Minecraft服务器</li>
+<li><strong>多版本支持</strong>：支持运行特定版本或最新的快照版</li>
+<li><strong>简化部署</strong>：通过简单的Docker命令即可启动服务器</li>
+<li><strong>持久化存储</strong>：支持将服务器数据挂载到宿主机</li>
+<li><strong>配置灵活</strong>：通过环境变量可自定义服务器参数</li>
+</ol>
+<h1 id="快速开始"><a href="#快速开始" class="headerlink" title="快速开始"></a>快速开始</h1><h2 id="基础部署方式"><a href="#基础部署方式" class="headerlink" title="基础部署方式"></a>基础部署方式</h2><p>要使用最新稳定版启动Minecraft服务器，只需运行以下Docker命令：</p>
+<figure class="highlight bash"><table><tr><td class="code"><pre><span class="line">docker run -d -it -p 25565:25565 -e EULA=TRUE itzg/minecraft-server</span><br></pre></td></tr></table></figure>
+
+<p>这个命令会：</p>
+<ul>
+<li>在后台运行容器(-d)</li>
+<li>分配一个伪终端(-it)</li>
+<li>将容器内的25565端口映射到宿主机的25565端口(-p 25565:25565)</li>
+<li>自动接受Mojang的EULA协议(-e EULA&#x3D;TRUE)</li>
+</ul>
+<h3 id="重要注意事项"><a href="#重要注意事项" class="headerlink" title="重要注意事项"></a>重要注意事项</h3><ol>
+<li><strong>EULA协议</strong>：必须设置<code>EULA=TRUE</code>环境变量，表示接受Mojang&#x2F;Microsoft的用户许可协议</li>
+<li><strong>安全警告</strong>：在没有设置<code>RCON_PASSWORD</code>的情况下，不要将RCON端口(25575)暴露到公网</li>
+<li><strong>持久化建议</strong>：长期运行的服务器建议使用数据卷或绑定挂载来保存数据</li>
+</ol>
+<h2 id="使用Docker-Compose部署"><a href="#使用Docker-Compose部署" class="headerlink" title="使用Docker Compose部署"></a>使用Docker Compose部署</h2><p>对于生产环境，推荐使用Docker Compose来管理服务器，这样可以更方便地进行配置和升级。</p>
+<h3 id="部署步骤"><a href="#部署步骤" class="headerlink" title="部署步骤"></a>部署步骤</h3><ol>
+<li>创建新目录并进入</li>
+<li>创建<code>docker-compose.yml</code>文件，内容如下：</li>
+</ol>
+<figure class="highlight yaml"><table><tr><td class="code"><pre><span class="line"><span class="attr">services:</span></span><br><span class="line">  <span class="attr">mc:</span></span><br><span class="line">    <span class="attr">image:</span> <span class="string">itzg/minecraft-server</span></span><br><span class="line">    <span class="attr">tty:</span> <span class="literal">true</span></span><br><span class="line">    <span class="attr">stdin_open:</span> <span class="literal">true</span></span><br><span class="line">    <span class="attr">ports:</span></span><br><span class="line">      <span class="bullet">-</span> <span class="string">&quot;25565:25565&quot;</span></span><br><span class="line">    <span class="attr">environment:</span></span><br><span class="line">      <span class="attr">EULA:</span> <span class="string">&quot;TRUE&quot;</span></span><br><span class="line">      <span class="attr">ONLINE_MODE:</span> <span class="string">&quot;FALSE&quot;</span></span><br><span class="line">    <span class="attr">volumes:</span></span><br><span class="line">      <span class="bullet">-</span> <span class="string">./data:/data</span></span><br><span class="line"></span><br></pre></td></tr></table></figure>
+
+<ol start="3">
+<li>运行<code>docker compose up -d</code>启动服务</li>
+<li>使用客户端连接服务器的IP和25565端口</li>
+</ol>
+<h3 id="管理命令"><a href="#管理命令" class="headerlink" title="管理命令"></a>管理命令</h3><ul>
+<li>查看日志：<code>docker compose logs -f</code></li>
+<li>检查状态：<code>docker compose ps</code></li>
+<li>停止服务：<code>docker compose stop</code></li>
+<li>更新配置：修改后再次运行<code>docker compose up -d</code></li>
+</ul>
+<h3 id="进阶配置"><a href="#进阶配置" class="headerlink" title="进阶配置"></a>进阶配置</h3><h4 id="版本控制"><a href="#版本控制" class="headerlink" title="版本控制"></a>版本控制</h4><p>默认情况下，容器会下载最新的”原版”Minecraft: Java Edition服务器。可以通过以下环境变量进行定制：</p>
+<p>VERSION：指定服务器版本<br>TYPE：指定服务器类型(如原版、Forge、Paper等)<br>MEMORY：限制容器内存（防卡顿）<br>ONLINE_MODE：关闭正版验证（离线模式）</p>
+<p>例如：</p>
+<figure class="highlight yaml"><table><tr><td class="code"><pre><span class="line"><span class="attr">environment:</span></span><br><span class="line">  <span class="attr">EULA:</span> <span class="string">&quot;TRUE&quot;</span></span><br><span class="line">  <span class="attr">VERSION:</span> <span class="string">&quot;1.20.1&quot;</span></span><br><span class="line">  <span class="attr">TYPE:</span> <span class="string">&quot;PAPER&quot;</span></span><br><span class="line">  <span class="attr">MEMORY:</span> <span class="string">&quot;2G&quot;</span></span><br><span class="line">  <span class="attr">ONLINE_MODE:</span> <span class="string">&quot;FALSE&quot;</span></span><br></pre></td></tr></table></figure>
+
+<h4 id="数据持久化"><a href="#数据持久化" class="headerlink" title="数据持久化"></a>数据持久化</h4><p>示例中的.&#x2F;data:&#x2F;data挂载将服务器数据保存在宿主机的data目录中，确保服务器重启后数据不会丢失。</p>
+<h1 id="最佳实践建议"><a href="#最佳实践建议" class="headerlink" title="最佳实践建议"></a>最佳实践建议</h1><ol>
+<li>资源限制：为容器设置适当的内存限制，避免影响宿主机性能</li>
+<li>定期备份：即使使用了数据卷，也应定期备份重要数据</li>
+<li>安全配置：设置强密码，限制RCON访问</li>
+<li>监控日志：定期检查服务器日志，及时发现并解决问题</li>
+</ol>
+<h1 id="适用场景"><a href="#适用场景" class="headerlink" title="适用场景"></a>适用场景</h1><p>这个Docker镜像非常适合以下场景：</p>
+<ul>
+<li>快速搭建测试服务器</li>
+<li>个人或小团体游戏</li>
+<li>需要频繁切换服务器版本的情况</li>
+<li>自动化部署和CI&#x2F;CD环境<br>通过使用itzg&#x2F;docker-minecraft-server项目，即使是Docker新手也能快速搭建和管理Minecraft服务器，大大降低了技术门槛。</li>
+</ul>
+]]></content>
+      <categories>
+        <category>服务器运维</category>
+      </categories>
+      <tags>
+        <tag>Minecraft</tag>
       </tags>
   </entry>
 </search>
