@@ -1,6 +1,77 @@
 <?xml version="1.0" encoding="utf-8"?>
 <search>
   <entry>
+    <title>1panel面板部署哪吒监控v1</title>
+    <url>/posts/aad1ff9e/</url>
+    <content><![CDATA[<h1 id="域名解析">域名解析</h1>
+<p>面板域名以<code>nezha.a.com</code>为例</p>
+<p>Cloudflare中添加A记录<code>nezha.a.com</code>指向Dashboard 服务器 IP，开启小黄云。<code>a.com</code>域名设置页面——网络，选择开启WebSockets 和 gRPC ；SSL/TLS模式选择完全（严格）。</p>
+<h1 id="哪吒搭建">哪吒搭建</h1>
+<figure class="highlight plaintext"><table><tr><td class="code"><pre><span class="line">sudo mkdir -p /opt/nezha &amp;&amp; cd /opt/nezha</span><br><span class="line">nano docker-compose.yml</span><br><span class="line">docker compose up -d</span><br></pre></td></tr></table></figure>
+<p>docker-compose.yml文件：</p>
+<figure class="highlight plaintext"><table><tr><td class="code"><pre><span class="line">services:</span><br><span class="line">  dashboard:</span><br><span class="line">    container_name: nezha-dashboard</span><br><span class="line">    image: ghcr.io/nezhahq/nezha:latest</span><br><span class="line">    restart: unless-stopped</span><br><span class="line">    volumes:</span><br><span class="line">      - ./dashboard/data:/dashboard/data</span><br><span class="line">    ports:</span><br><span class="line">      - 8008:8008</span><br></pre></td></tr></table></figure>
+<h1 id="反代设置">反代设置</h1>
+<p>反代设置代码来源：<a href="https://www.nodeseek.com/jump?to=https%3A%2F%2Fmisaka.es%2Farchives%2F42.html">https://misaka.es/archives/42.html</a></p>
+<p>1panel面板中新建反向代理网站，<code>网站 —— 创建网站 —— 反向代理</code>，主域名填写<code>nezha.a.com</code>，代理地址填写<code>127.0.0.1:8008</code></p>
+<p>证书页面自行设置Acme账户、DNS账户为<code>nezha.a.com</code>申请证书。</p>
+<p>网站页面点击<code>nezha.a.com</code>进入网站设置，开启https。</p>
+<p>点击配置文件，最下方添加以下代码，保存并重载。<br>
+<img src="https://img.zzzg.top/202501031701543.png" alt="image"></p>
+<figure class="highlight plaintext"><table><tr><td class="code"><pre><span class="line"># upstream 配置</span><br><span class="line">upstream dashboard &#123;</span><br><span class="line">    keepalive 512; </span><br><span class="line">    server 127.0.0.1:8008; </span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+<p>打开<code>网站 —— 反向代理 —— 源文</code>，使用以下代码替换原内容，点击确认。至此，反向代理设置完成。<br>
+<img src="https://img.zzzg.top/202501031701795.png" alt="image"></p>
+<figure class="highlight plaintext"><table><tr><td class="code"><pre><span class="line">location ^~ / &#123;</span><br><span class="line">    proxy_pass http://127.0.0.1:8008; </span><br><span class="line">    proxy_set_header Host $host; </span><br><span class="line">    proxy_set_header X-Real-IP $remote_addr; </span><br><span class="line">    proxy_set_header X-Forwarded-For $proxy_add_x_forwarded_for; </span><br><span class="line">    proxy_set_header REMOTE-HOST $remote_addr; </span><br><span class="line">    proxy_set_header Upgrade $http_upgrade; </span><br><span class="line">    proxy_set_header nz-realip $http_cf_connecting_ip;</span><br><span class="line">    proxy_set_header Connection &quot;upgrade&quot;;</span><br><span class="line">    proxy_set_header X-Forwarded-Proto $scheme;</span><br><span class="line">    proxy_http_version 1.1; </span><br><span class="line">    proxy_read_timeout 3600s;</span><br><span class="line">    proxy_send_timeout 3600s;</span><br><span class="line">    proxy_buffer_size 128k;</span><br><span class="line">    proxy_buffers 4 128k; </span><br><span class="line">    proxy_busy_buffers_size 256k;</span><br><span class="line">    proxy_max_temp_file_size 0;</span><br><span class="line">    add_header X-Cache $upstream_cache_status; </span><br><span class="line">    add_header Cache-Control no-cache; </span><br><span class="line">    proxy_ssl_server_name off; </span><br><span class="line">    proxy_ssl_name $proxy_host; </span><br><span class="line">    add_header Strict-Transport-Security &quot;max-age=31536000&quot;; </span><br><span class="line">&#125;</span><br><span class="line"></span><br><span class="line">underscores_in_headers on;</span><br><span class="line">set_real_ip_from 0.0.0.0/0; # CDN 回源 IP 地址段</span><br><span class="line">real_ip_header CF-Connecting-IP; # CDN 私有 header，此处为 CloudFlare 默认</span><br><span class="line"></span><br><span class="line"># gRPC 服务</span><br><span class="line">location ^~ /proto.NezhaService/ &#123;</span><br><span class="line">    grpc_set_header Host $host;</span><br><span class="line">    grpc_set_header nz-realip $http_CF_Connecting_IP; </span><br><span class="line">    grpc_read_timeout 600s;</span><br><span class="line">    grpc_send_timeout 600s;</span><br><span class="line">    grpc_socket_keepalive on;</span><br><span class="line">    client_max_body_size 10m;</span><br><span class="line">    grpc_buffer_size 4m;</span><br><span class="line">    grpc_pass grpc://dashboard;</span><br><span class="line">&#125;</span><br><span class="line"></span><br><span class="line"># WebSocket 服务</span><br><span class="line">location ~* ^/api/v1/ws/(server|terminal|file)(.*)$ &#123;</span><br><span class="line">    proxy_set_header Host $host;</span><br><span class="line">    proxy_set_header nz-realip $http_cf_connecting_ip; </span><br><span class="line">    proxy_set_header Origin https://$host;</span><br><span class="line">    proxy_set_header Upgrade $http_upgrade;</span><br><span class="line">    proxy_set_header Connection &quot;upgrade&quot;;</span><br><span class="line">    proxy_read_timeout 3600s;</span><br><span class="line">    proxy_send_timeout 3600s;</span><br><span class="line">    proxy_pass http://127.0.0.1:8008;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+<h1 id="面板设置">面板设置</h1>
+<p>登录到 Dashboard 配置界面<code>https://nezha.a.com/dashboard</code>，初始用户名、密码均为<code>admin</code>，登录后立即进入管理页面点击<code>头像 —— 个人信息 —— 更新个人资料</code>修改用户名和密码。</p>
+<p>点击<code>头像 —— 系统设置</code>，填写站点名称、设置语言，<code>Agent对接地址【域名/IP:端口】</code>填写<code>nezha.a.com:443</code>，勾选<code>Agent 使用 TLS 连接</code>，点击<code>确认</code>即可。</p>
+<p><strong>添加TCP-Ping延迟测试：</strong></p>
+<p>全国各省份三网 TCP-Ping IPv4 地址：<a href="https://www.nodeseek.com/post-68572-1">https://www.nodeseek.com/post-68572-1</a></p>
+<p>全国各省份三网 TCP-Ping IPv6 地址：<a href="https://www.nodeseek.com/post-129987-1">https://www.nodeseek.com/post-129987-1</a></p>
+<p>以浙江移动为例，<code>服务</code>页面创建服务，名称：浙江移动，目标：<a href="https://www.nodeseek.com/jump?to=http%3A%2F%2Fzj-cm-v4.ip.zstaticcdn.com%3A80">zj-cm-v4.ip.zstaticcdn.com:80</a>，类型：TCPing</p>
+<p><strong>添加telegram通知：</strong></p>
+<p><code>通知</code>页面点击“+”，创建通知，名称自定，URL填写<code>https://api.telegram.org/bot&lt;你的机器人Token&gt;/sendMessage?chat_id=&lt;你的用户ID&gt;&amp;text=#NEZHA#</code>，将 <code>&lt;你的机器人Token&gt;</code> 和 <code>&lt;你的用户ID&gt;</code> 替换为实际值。</p>
+<p>获取 URL 参数<br>
+获取机器人 Token：与 <code>@BotFather </code>对话，发送<code>/newbot</code>创建新机器人，获取 Token。<br>
+获取用户 ID：与 <code>@userinfobot </code>对话，获取你的用户 ID。<br>
+与机器人对话：先与新创建的机器人发送一条消息，确保机器人可以发送消息给你。</p>
+<p><code>分组</code>——<code>通知</code>，页面点击“+”，编辑通知分组，名称自定，<code>通知</code>勾选提前创建的telegram通知，确认即可。</p>
+<p>警报规则参考<a href="https://www.nodeseek.com/jump?to=https%3A%2F%2Fnezha.wiki%2Fguide%2Fnotifications.html">哪吒官方文档</a>，以离线通知为例：</p>
+<p><code>通知</code>——<code>警报规则</code>，点击“+”，创建警报规则，名称：<code>离线通知</code>，规则：<code>[{&quot;Type&quot;: &quot;offline&quot;, &quot;Duration&quot;: 10}]</code>，通知组：勾选</p>
+<p>telegram通知，启用：勾选，点击确认。</p>
+<p>面板设置完成，可至<code>服务器</code>页面，点击<code>安装命令</code>，根据系统选择安装命令前往被控vps运行。</p>
+<p>注：被控端禁用网页SSH</p>
+<figure class="highlight plaintext"><table><tr><td class="code"><pre><span class="line">sed -i &#x27;s/disable_command_execute: false/disable_command_execute: true/&#x27; /opt/nezha/agent/config.yml &amp;&amp; systemctl restart nezha-agent</span><br></pre></td></tr></table></figure>
+<h1 id="接入微软登录">接入微软登录</h1>
+<p>原wiki地址 <a href="https://www.nodeseek.com/jump?to=https%3A%2F%2Fnezha.wiki%2Fguide%2Fq14.html">https://nezha.wiki/guide/q14.html</a></p>
+<p>补充微软登陆</p>
+<figure class="highlight yml"><table><tr><td class="code"><pre><span class="line"><span class="attr">oauth2:</span></span><br><span class="line">    <span class="attr">Microsoft:</span></span><br><span class="line">        <span class="attr">clientid:</span> <span class="string">&quot;XXXXXXXX-XXXX-XXXX-XXXX-XXXXXXXXXXXX&quot;</span></span><br><span class="line">        <span class="attr">clientsecret:</span> <span class="string">&quot;XXXXX&quot;</span></span><br><span class="line">        <span class="attr">endpoint:</span></span><br><span class="line">            <span class="attr">authurl:</span> <span class="string">&quot;https://login.microsoftonline.com/consumers/oauth2/v2.0/authorize&quot;</span></span><br><span class="line">            <span class="attr">tokenurl:</span> <span class="string">&quot;https://login.microsoftonline.com/consumers/oauth2/v2.0/token&quot;</span></span><br><span class="line">        <span class="attr">scopes:</span></span><br><span class="line">            <span class="bullet">-</span> <span class="string">&quot;User.Read&quot;</span></span><br><span class="line">        <span class="attr">userinfourl:</span> <span class="string">&quot;https://graph.microsoft.com/v1.0/me&quot;</span></span><br><span class="line">        <span class="attr">useridpath:</span> <span class="string">&quot;id&quot;</span></span><br></pre></td></tr></table></figure>
+<p>配置格式如上，需要自己注册应用以获得clientid、clientsecret</p>
+<ol>
+<li>注册<br>
+<a href="https://www.nodeseek.com/jump?to=https%3A%2F%2Fentra.microsoft.com%2F%23view%2FMicrosoft_AAD_RegisteredApps%2FCreateApplicationBlade%2FquickStartType~%2Fnull%2FisMSAApp~%2Ffalse">https://entra.microsoft.com/#view/Microsoft_AAD_RegisteredApps/CreateApplicationBlade/quickStartType~/null/isMSAApp~/false</a><br>
+输入项：<br>
+名称 -- 随便写<br>
+受支持的帐户类型 -- 仅 Microsoft 个人帐户<br>
+重定向 URI (可选) -- WEB <a href="https://www.nodeseek.com/jump?to=https%3A%2F%2Fxx.com%2Fapi%2Fv1%2Foauth2%2Fcallback">https://xx.com/api/v1/oauth2/callback</a></li>
+<li>获得clientid<br>
+<a href="https://www.nodeseek.com/jump?to=https%3A%2F%2Fentra.microsoft.com%2F%23view%2FMicrosoft_AAD_RegisteredApps%2FApplicationsListBlade%2FquickStartType~%2Fnull%2FsourceType%2FMicrosoft_AAD_IAM">https://entra.microsoft.com/#view/Microsoft_AAD_RegisteredApps/ApplicationsListBlade/quickStartType~/null/sourceType/Microsoft_AAD_IAM</a><br>
+在最左边 所有应用程序 找到自己刚才注册的 点进去<br>
+概述页面有个 应用程序(客户端) ID，这个就是。</li>
+<li>获得clientsecret<br>
+<img src="https://img.zzzg.top/202501031707326.png" alt="uS3yGRHdgnCIGTAi9IVkpS"><br>
+提交后会出现 一个 值，复制，后续会不可见。</li>
+<li>修改配置文件 并且 重启 面板服务</li>
+<li>在个人信息里面绑定即可</li>
+</ol>
+]]></content>
+      <categories>
+        <category>运维技术</category>
+      </categories>
+      <tags>
+        <tag>运维工具</tag>
+      </tags>
+  </entry>
+  <entry>
     <title>5G21第二批刷机以及不同作者间的固件切换</title>
     <url>/posts/7ae0e921/</url>
     <content><![CDATA[<p>lean 的 q-wrt 可以进行 webui 直接更新 进入 webui 后依次点击系统-服务/备份-刷写新的固件上传固件后升级。切记不要勾选保留配置。<br>
@@ -18,72 +89,11 @@
       </tags>
   </entry>
   <entry>
-    <title>AI绘画-webui使用教程</title>
-    <url>/posts/ef6f9b71/</url>
-    <content><![CDATA[<h1>准备环境</h1>
-<h2 id="pychon-的下载及安装">pychon 的下载及安装</h2>
-<p>直接点击下方按钮下载安装</p>
-<a class="btn-beautify green larger" href="https://www.python.org/ftp/python/3.11.2/python-3.11.2-amd64.exe" title="点击下载"><i class="far fa-hand-point-right"></i><span>点击下载</span></a>
-<p>打开安装即可，注意勾选上安装页面的的选项</p>
-<p><img src="https://img.zzzg.top/202302281848503.png" alt=""></p>
-<p>然后点击下面的选项，就安装完成了。</p>
-<p><img src="https://img.zzzg.top/202302281850492.png" alt=""></p>
-<h2 id="cuda-的下载及安装">cuda 的下载及安装</h2>
-<h3 id="查看适合的-cuda-版本">查看适合的 cuda 版本</h3>
-<p><img src="https://img.zzzg.top/202303030811620.png" alt=""></p>
-<p><img src="https://img.zzzg.top/202303030811238.png" alt=""></p>
-<p><img src="https://img.zzzg.top/202303030812926.png" alt=""></p>
-<p>这里看到我电脑上支持的 cuda 是 11.7 的</p>
-<h3 id="cuda-toolkit-下载">cuda toolkit 下载</h3>
-<p>进入下面网页，找到适合的 cuda</p>
-<a class="btn-beautify green larger" href="https://developer.nvidia.com/cuda-toolkit-archive" title="点击进入"><i class="far fa-hand-point-right"></i><span>点击进入</span></a>
-<p><img src="https://img.zzzg.top/202303030815008.png" alt=""></p>
-<p><img src="https://img.zzzg.top/202303030816433.png" alt=""></p>
-<p>Version 是选系统的，win10 就选 10，win11 就选 11，选好后点击下载</p>
-<h3 id="cuda-toolkit-安装">cuda toolkit 安装</h3>
-<p>双击 exe 文件进行安装即可</p>
-<p>一直下一步，直到安装完成。</p>
-<h2 id="Git-的下载及安装">Git 的下载及安装</h2>
-<p>进入下面网页</p>
-<a class="btn-beautify green larger" href="https://git-scm.com/download/win" title="点击进入"><i class="far fa-hand-point-right"></i><span>点击进入</span></a>
-<p><img src="https://img.zzzg.top/202303030830575.png" alt=""></p>
-<p>点击下载</p>
-<p>下载完成后，双击 exe 文件进行安装即可</p>
-<p>一直下一步，直到安装完成。</p>
-<h1>webui 的下载及启动</h1>
-<a class="btn-beautify green larger" href="https://pan.baidu.com/s/1dj9Dglfh7th9jE-ZDvuMIA?pwd=yuqi" title="点击下载"><i class="far fa-hand-point-right"></i><span>点击下载</span></a>
-<p>下载完成后，将 novelai-webui-aki-v3 解压出来</p>
-<p>然后将 sd-webui 启动器文件夹里面的启动器运行依赖安装一下</p>
-<p><img src="https://img.zzzg.top/202303030835622.png" alt=""></p>
-<p>如果提示这个，则不用再安装</p>
-<p>最后将 sd-webui 启动器压缩包里面的文件全部放进解压好的 novelai-webui-aki-v3 文件夹里面</p>
-<p><img src="https://img.zzzg.top/202303030837999.png" alt=""></p>
-<p>双击启动即可，第一次打开会自动下载依赖。</p>
-<p><img src="https://img.zzzg.top/202303030840462.png" alt=""></p>
-<p>启动器会自动生成启动参数，直接一键启动</p>
-<p>然后按照提示阅读并同意用户协议，再次点击一键启动</p>
-<p><img src="https://img.zzzg.top/202303030843786.png" alt=""></p>
-<p>最后进入到这个自动打开的网页就大功告成了</p>
-<h1>webui 的其他操作</h1>
-<h2 id="添加模型">添加模型</h2>
-<p>一开始我们下载的文件里面就自带了一个模型，可以把它拖放到如图的文件夹里面，如果你还有其他的模型也可以放在这个文件夹里面进行使用</p>
-<p><img src="https://img.zzzg.top/202303030839190.png" alt=""></p>
-<p><a href="https://civitai.com/">https://civitai.com/</a></p>
-<p>上面的网站就有很多模型，可以根据自己喜好进行下载添加</p>
-]]></content>
-      <categories>
-        <category>人工智能</category>
-      </categories>
-      <tags>
-        <tag>AI绘画</tag>
-      </tags>
-  </entry>
-  <entry>
     <title>ABPLC通过Modbus TCP读取设备压力值</title>
     <url>/posts/3529204a/</url>
-    <content><![CDATA[<h1>ABPLC通过Modbus TCP读取设备压力值</h1>
+    <content><![CDATA[<h1 id="ABPLC通过Modbus-TCP读取设备压力值">ABPLC通过Modbus TCP读取设备压力值</h1>
 <p>使用罗克韦尔（AB）-PLC以客户端形式通过Modbus TCP于设备通讯，并读取压力值。</p>
-<h1>Modbus TCP客户端AOI程序导入</h1>
+<h1 id="Modbus-TCP客户端AOI程序导入">Modbus TCP客户端AOI程序导入</h1>
 <p>在<a href="https://www.rockwellautomation.com.cn/">罗克韦尔官网</a>搜索<strong>Modbus TCP Add-On</strong> ，并下载例程，或者点击<a href="https://yunzhongzhuan.com.publicdn.com/download/2764037/VmhKbiki/ModbusTCPAOIver2.04.zip">链接</a>直接下载。</p>
 <p><img src="https://img.zzzg.top/202312111124321.png" alt=""></p>
 <p>在Studio 5000中新建一个梯级例程，选中梯级右键导入例程。</p>
@@ -94,7 +104,7 @@
 <p><img src="https://img.zzzg.top/202312111128074.png" alt="image-20231208161312164"></p>
 <p>单击<strong>确认</strong>按钮，完成导入。</p>
 <p><img src="https://img.zzzg.top/202312111128521.png" alt="image-20231208161626725"></p>
-<h1>配置本地运行参数</h1>
+<h1 id="配置本地运行参数">配置本地运行参数</h1>
 <p>Modbus TCP客户端要求EtherNet/IP模块支持Logix套接字。详见<a href="https://rockwellautomation.custhelp.com/app/answers/detail/a_id/470690">链接</a></p>
 <p>右键单击连接到<strong>Ref_Connection</strong>参数的Tag，然后选择监控。</p>
 <p><img src="https://img.zzzg.top/202312111128582.png" alt="image-20231208162556767"></p>
@@ -129,10 +139,10 @@
 <p>将连接到<strong>Inp_Enable</strong>参数的Tag值设置为1，启动ModbusTCP客户端。</p>
 <p>如果在运行中修改了参数，请务必重置<strong>Inp_Enable</strong>参数。</p>
 <p><img src="https://img.zzzg.top/202312111129829.png" alt="image-20231208164403827"></p>
-<h1>确认数据位置</h1>
+<h1 id="确认数据位置">确认数据位置</h1>
 <p>根据压力测量模块寄存器地址表格，确认压力值读取地址：40001/40002。</p>
 <p><img src="https://img.zzzg.top/202312111129828.png" alt="image-20231211091447848"></p>
-<h1>配置数据交换</h1>
+<h1 id="配置数据交换">配置数据交换</h1>
 <p>监控<strong>Ref_Transactions</strong>参数连接的Tag。</p>
 <ol>
 <li>
@@ -229,14 +239,14 @@
 </li>
 </ol>
 <p><img src="https://img.zzzg.top/202312111129436.png" alt="image-20231208164957692"></p>
-<h1>使用限制</h1>
+<h1 id="使用限制">使用限制</h1>
 <ol>
 <li>必须使用Import Rung函数来实现，以保留Message指令配置。不要使用复制/粘贴，因为它不会带来完整的消息指令配置和标签。一旦rung实现，不要使用Search/Replace标签。所有的替换只能在梯级导入期间进行。</li>
 <li>每个控制器支持多个客户机AOI实例。每个实例必须使用自己的一组backing和Message标记，但是“…_Data”标记结构可以在aoi之间共享。</li>
 <li>Modbus TCP Server和Modbus TCP Client aoi可以驻留在同一个程序中。但是，服务器应用程序可能会由于共享的Logix Sockets对象而导致客户端暂时断开连接。</li>
 <li>当在ControlLogix Redundancy系统中实现时，用户应该期望在Modbus TCP Client AOI导致控制器切换后至少有5秒的Modbus通信丢失。由于正在使用的服务器设备的行为，可能会有额外的Modbus通信延迟。</li>
 </ol>
-<h1>监控Modbus TCP客户端</h1>
+<h1 id="监控Modbus-TCP客户端">监控Modbus TCP客户端</h1>
 <ol>
 <li>
 <p><strong>ModbusTCP</strong>数据标签位于<strong>Ref_ModbusData</strong>参数标签下。</p>
@@ -267,7 +277,7 @@
 </li>
 </ol>
 <p><img src="https://img.zzzg.top/202312111130326.png" alt="image-20231211102759109"></p>
-<h1>中文参考文档下载</h1>
+<h1 id="中文参考文档下载">中文参考文档下载</h1>
 <p><a href="https://yunzhongzhuan.com.publicdn.com/download/2764038/aIx6vZpt/ModbusTCPClient-AOIbasedcodeforControlLogixv2.04.00zh.pdf">Modbus TCP 客户端AOI中文文档</a></p>
 <p><a href="https://yunzhongzhuan.com.publicdn.com/download/2764040/QDbjnDZ5/Modbus+TCP+Server+-+AOI+based+code+for+ControlLogix+v+2.04.00+zh.pdf">Modbus TCP服务端AOI中文文档</a></p>
 ]]></content>
@@ -279,18 +289,79 @@
       </tags>
   </entry>
   <entry>
+    <title>AI绘画-webui使用教程</title>
+    <url>/posts/ef6f9b71/</url>
+    <content><![CDATA[<h1 id="准备环境">准备环境</h1>
+<h2 id="pychon-的下载及安装">pychon 的下载及安装</h2>
+<p>直接点击下方按钮下载安装</p>
+<a class="btn-beautify green larger" href="https://www.python.org/ftp/python/3.11.2/python-3.11.2-amd64.exe" title="点击下载"><i class="far fa-hand-point-right"></i><span>点击下载</span></a>
+<p>打开安装即可，注意勾选上安装页面的的选项</p>
+<p><img src="https://img.zzzg.top/202302281848503.png" alt=""></p>
+<p>然后点击下面的选项，就安装完成了。</p>
+<p><img src="https://img.zzzg.top/202302281850492.png" alt=""></p>
+<h2 id="cuda-的下载及安装">cuda 的下载及安装</h2>
+<h3 id="查看适合的-cuda-版本">查看适合的 cuda 版本</h3>
+<p><img src="https://img.zzzg.top/202303030811620.png" alt=""></p>
+<p><img src="https://img.zzzg.top/202303030811238.png" alt=""></p>
+<p><img src="https://img.zzzg.top/202303030812926.png" alt=""></p>
+<p>这里看到我电脑上支持的 cuda 是 11.7 的</p>
+<h3 id="cuda-toolkit-下载">cuda toolkit 下载</h3>
+<p>进入下面网页，找到适合的 cuda</p>
+<a class="btn-beautify green larger" href="https://developer.nvidia.com/cuda-toolkit-archive" title="点击进入"><i class="far fa-hand-point-right"></i><span>点击进入</span></a>
+<p><img src="https://img.zzzg.top/202303030815008.png" alt=""></p>
+<p><img src="https://img.zzzg.top/202303030816433.png" alt=""></p>
+<p>Version 是选系统的，win10 就选 10，win11 就选 11，选好后点击下载</p>
+<h3 id="cuda-toolkit-安装">cuda toolkit 安装</h3>
+<p>双击 exe 文件进行安装即可</p>
+<p>一直下一步，直到安装完成。</p>
+<h2 id="Git-的下载及安装">Git 的下载及安装</h2>
+<p>进入下面网页</p>
+<a class="btn-beautify green larger" href="https://git-scm.com/download/win" title="点击进入"><i class="far fa-hand-point-right"></i><span>点击进入</span></a>
+<p><img src="https://img.zzzg.top/202303030830575.png" alt=""></p>
+<p>点击下载</p>
+<p>下载完成后，双击 exe 文件进行安装即可</p>
+<p>一直下一步，直到安装完成。</p>
+<h1 id="webui-的下载及启动">webui 的下载及启动</h1>
+<a class="btn-beautify green larger" href="https://pan.baidu.com/s/1dj9Dglfh7th9jE-ZDvuMIA?pwd=yuqi" title="点击下载"><i class="far fa-hand-point-right"></i><span>点击下载</span></a>
+<p>下载完成后，将 novelai-webui-aki-v3 解压出来</p>
+<p>然后将 sd-webui 启动器文件夹里面的启动器运行依赖安装一下</p>
+<p><img src="https://img.zzzg.top/202303030835622.png" alt=""></p>
+<p>如果提示这个，则不用再安装</p>
+<p>最后将 sd-webui 启动器压缩包里面的文件全部放进解压好的 novelai-webui-aki-v3 文件夹里面</p>
+<p><img src="https://img.zzzg.top/202303030837999.png" alt=""></p>
+<p>双击启动即可，第一次打开会自动下载依赖。</p>
+<p><img src="https://img.zzzg.top/202303030840462.png" alt=""></p>
+<p>启动器会自动生成启动参数，直接一键启动</p>
+<p>然后按照提示阅读并同意用户协议，再次点击一键启动</p>
+<p><img src="https://img.zzzg.top/202303030843786.png" alt=""></p>
+<p>最后进入到这个自动打开的网页就大功告成了</p>
+<h1 id="webui-的其他操作">webui 的其他操作</h1>
+<h2 id="添加模型">添加模型</h2>
+<p>一开始我们下载的文件里面就自带了一个模型，可以把它拖放到如图的文件夹里面，如果你还有其他的模型也可以放在这个文件夹里面进行使用</p>
+<p><img src="https://img.zzzg.top/202303030839190.png" alt=""></p>
+<p><a href="https://civitai.com/">https://civitai.com/</a></p>
+<p>上面的网站就有很多模型，可以根据自己喜好进行下载添加</p>
+]]></content>
+      <categories>
+        <category>人工智能</category>
+      </categories>
+      <tags>
+        <tag>AI绘画</tag>
+      </tags>
+  </entry>
+  <entry>
     <title>AList搭建</title>
     <url>/posts/1f49e4a4/</url>
-    <content><![CDATA[<h1>一、项目展示</h1>
+    <content><![CDATA[<h1 id="一、项目展示">一、项目展示</h1>
 <p>GitHub 项目地址：<a href="https://github.com/Xhofe/alist">https://github.com/Xhofe/alist</a></p>
 <p>Demo：<a href="https://alist.nn.ci">https://alist.nn.ci</a></p>
 <p>Alist 文档地址：<a href="https://alist-doc.nn.ci/en/">https://alist-doc.nn.ci/en/</a></p>
 <p><img src="https://img.zzzg.top/202303040811308.png" alt="成品预览"></p>
-<h1>二、搭建环境</h1>
+<h1 id="二、搭建环境">二、搭建环境</h1>
 <p>服务器：阿里云香港轻量应用服务器 24 元/月 VPS 一台（最好是选非大陆的服务器，无需备案）</p>
 <p>系统：Centos7</p>
 <p>域名一枚，并做好解析到服务器上</p>
-<h1>三、搭建方式</h1>
+<h1 id="三、搭建方式">三、搭建方式</h1>
 <h2 id="1、一键脚本安装（本次使用）">1、一键脚本安装（本次使用）</h2>
 <p>仅支持 Linux-x86_64/aarch64 平台。</p>
 <p>》》<strong>安装</strong></p>
@@ -309,7 +380,7 @@
 <p>参考文档：<a href="https://alist-doc.nn.ci/docs/install/manual">https://alist-doc.nn.ci/docs/install/manual</a></p>
 <h2 id="3、Docker">3、Docker</h2>
 <p>参考文档：<a href="https://alist-doc.nn.ci/docs/install/docker">https://alist-doc.nn.ci/docs/install/docker</a></p>
-<h1>四、开始搭建（以一键脚本安装为例子）</h1>
+<h1 id="四、开始搭建（以一键脚本安装为例子）">四、开始搭建（以一键脚本安装为例子）</h1>
 <h2 id="1、运行安装代码">1、运行安装代码</h2>
 <p>》》<strong>输入以下命令等待自动安装</strong></p>
 <figure class="highlight bash"><table><tr><td class="code"><pre><span class="line">curl -fsSL <span class="string">&quot;https://nn.ci/alist.sh&quot;</span> | bash -s install</span><br></pre></td></tr></table></figure>
@@ -323,7 +394,7 @@
 <figure class="highlight c#"><table><tr><td class="code"><pre><span class="line">location / &#123;</span><br><span class="line">    proxy_pass http:<span class="comment">//127.0.0.1:5244/;</span></span><br><span class="line">    rewrite ^/(.*)$ /$<span class="number">1</span> <span class="keyword">break</span>;</span><br><span class="line">    proxy_redirect off;</span><br><span class="line">    proxy_set_header Host $host;</span><br><span class="line">    proxy_set_header X-Forwarded-Proto $scheme;</span><br><span class="line">    proxy_set_header X-Real-IP $remote_addr;</span><br><span class="line">    proxy_set_header X-Forwarded-For $proxy_add_x_forwarded_for;</span><br><span class="line">    proxy_set_header Upgrade-Insecure-Requests <span class="number">1</span>;</span><br><span class="line">    proxy_set_header X-Forwarded-Proto https;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
 <h2 id="4、访问域名配置账号">4、访问域名配置账号</h2>
 <p>此时，输入反向代理的域名就能正常访问网站了，输入刚刚安装完成之后终端输出的密码就能正常登陆后台了。为了方便起见，建议更改一个自己能记住的密码。</p>
-<h1>五、结束</h1>
+<h1 id="五、结束">五、结束</h1>
 <p>祝大家用得开心，有问题可以去 GitHub 提 <a href="https://github.com/Xhofe/alist/issues">Issues</a>，也可以在评论区互相交流探讨。</p>
 ]]></content>
       <categories>
@@ -688,84 +759,13 @@
       </tags>
   </entry>
   <entry>
-    <title>1panel面板部署哪吒监控v1</title>
-    <url>/posts/aad1ff9e/</url>
-    <content><![CDATA[<h1>域名解析</h1>
-<p>面板域名以<code>nezha.a.com</code>为例</p>
-<p>Cloudflare中添加A记录<code>nezha.a.com</code>指向Dashboard 服务器 IP，开启小黄云。<code>a.com</code>域名设置页面——网络，选择开启WebSockets 和 gRPC ；SSL/TLS模式选择完全（严格）。</p>
-<h1>哪吒搭建</h1>
-<figure class="highlight plaintext"><table><tr><td class="code"><pre><span class="line">sudo mkdir -p /opt/nezha &amp;&amp; cd /opt/nezha</span><br><span class="line">nano docker-compose.yml</span><br><span class="line">docker compose up -d</span><br></pre></td></tr></table></figure>
-<p>docker-compose.yml文件：</p>
-<figure class="highlight plaintext"><table><tr><td class="code"><pre><span class="line">services:</span><br><span class="line">  dashboard:</span><br><span class="line">    container_name: nezha-dashboard</span><br><span class="line">    image: ghcr.io/nezhahq/nezha:latest</span><br><span class="line">    restart: unless-stopped</span><br><span class="line">    volumes:</span><br><span class="line">      - ./dashboard/data:/dashboard/data</span><br><span class="line">    ports:</span><br><span class="line">      - 8008:8008</span><br></pre></td></tr></table></figure>
-<h1>反代设置</h1>
-<p>反代设置代码来源：<a href="https://www.nodeseek.com/jump?to=https%3A%2F%2Fmisaka.es%2Farchives%2F42.html">https://misaka.es/archives/42.html</a></p>
-<p>1panel面板中新建反向代理网站，<code>网站 —— 创建网站 —— 反向代理</code>，主域名填写<code>nezha.a.com</code>，代理地址填写<code>127.0.0.1:8008</code></p>
-<p>证书页面自行设置Acme账户、DNS账户为<code>nezha.a.com</code>申请证书。</p>
-<p>网站页面点击<code>nezha.a.com</code>进入网站设置，开启https。</p>
-<p>点击配置文件，最下方添加以下代码，保存并重载。<br>
-<img src="https://img.zzzg.top/202501031701543.png" alt="image"></p>
-<figure class="highlight plaintext"><table><tr><td class="code"><pre><span class="line"># upstream 配置</span><br><span class="line">upstream dashboard &#123;</span><br><span class="line">    keepalive 512; </span><br><span class="line">    server 127.0.0.1:8008; </span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
-<p>打开<code>网站 —— 反向代理 —— 源文</code>，使用以下代码替换原内容，点击确认。至此，反向代理设置完成。<br>
-<img src="https://img.zzzg.top/202501031701795.png" alt="image"></p>
-<figure class="highlight plaintext"><table><tr><td class="code"><pre><span class="line">location ^~ / &#123;</span><br><span class="line">    proxy_pass http://127.0.0.1:8008; </span><br><span class="line">    proxy_set_header Host $host; </span><br><span class="line">    proxy_set_header X-Real-IP $remote_addr; </span><br><span class="line">    proxy_set_header X-Forwarded-For $proxy_add_x_forwarded_for; </span><br><span class="line">    proxy_set_header REMOTE-HOST $remote_addr; </span><br><span class="line">    proxy_set_header Upgrade $http_upgrade; </span><br><span class="line">    proxy_set_header nz-realip $http_cf_connecting_ip;</span><br><span class="line">    proxy_set_header Connection &quot;upgrade&quot;;</span><br><span class="line">    proxy_set_header X-Forwarded-Proto $scheme;</span><br><span class="line">    proxy_http_version 1.1; </span><br><span class="line">    proxy_read_timeout 3600s;</span><br><span class="line">    proxy_send_timeout 3600s;</span><br><span class="line">    proxy_buffer_size 128k;</span><br><span class="line">    proxy_buffers 4 128k; </span><br><span class="line">    proxy_busy_buffers_size 256k;</span><br><span class="line">    proxy_max_temp_file_size 0;</span><br><span class="line">    add_header X-Cache $upstream_cache_status; </span><br><span class="line">    add_header Cache-Control no-cache; </span><br><span class="line">    proxy_ssl_server_name off; </span><br><span class="line">    proxy_ssl_name $proxy_host; </span><br><span class="line">    add_header Strict-Transport-Security &quot;max-age=31536000&quot;; </span><br><span class="line">&#125;</span><br><span class="line"></span><br><span class="line">underscores_in_headers on;</span><br><span class="line">set_real_ip_from 0.0.0.0/0; # CDN 回源 IP 地址段</span><br><span class="line">real_ip_header CF-Connecting-IP; # CDN 私有 header，此处为 CloudFlare 默认</span><br><span class="line"></span><br><span class="line"># gRPC 服务</span><br><span class="line">location ^~ /proto.NezhaService/ &#123;</span><br><span class="line">    grpc_set_header Host $host;</span><br><span class="line">    grpc_set_header nz-realip $http_CF_Connecting_IP; </span><br><span class="line">    grpc_read_timeout 600s;</span><br><span class="line">    grpc_send_timeout 600s;</span><br><span class="line">    grpc_socket_keepalive on;</span><br><span class="line">    client_max_body_size 10m;</span><br><span class="line">    grpc_buffer_size 4m;</span><br><span class="line">    grpc_pass grpc://dashboard;</span><br><span class="line">&#125;</span><br><span class="line"></span><br><span class="line"># WebSocket 服务</span><br><span class="line">location ~* ^/api/v1/ws/(server|terminal|file)(.*)$ &#123;</span><br><span class="line">    proxy_set_header Host $host;</span><br><span class="line">    proxy_set_header nz-realip $http_cf_connecting_ip; </span><br><span class="line">    proxy_set_header Origin https://$host;</span><br><span class="line">    proxy_set_header Upgrade $http_upgrade;</span><br><span class="line">    proxy_set_header Connection &quot;upgrade&quot;;</span><br><span class="line">    proxy_read_timeout 3600s;</span><br><span class="line">    proxy_send_timeout 3600s;</span><br><span class="line">    proxy_pass http://127.0.0.1:8008;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
-<h1>面板设置</h1>
-<p>登录到 Dashboard 配置界面<code>https://nezha.a.com/dashboard</code>，初始用户名、密码均为<code>admin</code>，登录后立即进入管理页面点击<code>头像 —— 个人信息 —— 更新个人资料</code>修改用户名和密码。</p>
-<p>点击<code>头像 —— 系统设置</code>，填写站点名称、设置语言，<code>Agent对接地址【域名/IP:端口】</code>填写<code>nezha.a.com:443</code>，勾选<code>Agent 使用 TLS 连接</code>，点击<code>确认</code>即可。</p>
-<p><strong>添加TCP-Ping延迟测试：</strong></p>
-<p>全国各省份三网 TCP-Ping IPv4 地址：<a href="https://www.nodeseek.com/post-68572-1">https://www.nodeseek.com/post-68572-1</a></p>
-<p>全国各省份三网 TCP-Ping IPv6 地址：<a href="https://www.nodeseek.com/post-129987-1">https://www.nodeseek.com/post-129987-1</a></p>
-<p>以浙江移动为例，<code>服务</code>页面创建服务，名称：浙江移动，目标：<a href="https://www.nodeseek.com/jump?to=http%3A%2F%2Fzj-cm-v4.ip.zstaticcdn.com%3A80">zj-cm-v4.ip.zstaticcdn.com:80</a>，类型：TCPing</p>
-<p><strong>添加telegram通知：</strong></p>
-<p><code>通知</code>页面点击“+”，创建通知，名称自定，URL填写<code>https://api.telegram.org/bot&lt;你的机器人Token&gt;/sendMessage?chat_id=&lt;你的用户ID&gt;&amp;text=#NEZHA#</code>，将 <code>&lt;你的机器人Token&gt;</code> 和 <code>&lt;你的用户ID&gt;</code> 替换为实际值。</p>
-<p>获取 URL 参数<br>
-获取机器人 Token：与 <code>@BotFather </code>对话，发送<code>/newbot</code>创建新机器人，获取 Token。<br>
-获取用户 ID：与 <code>@userinfobot </code>对话，获取你的用户 ID。<br>
-与机器人对话：先与新创建的机器人发送一条消息，确保机器人可以发送消息给你。</p>
-<p><code>分组</code>——<code>通知</code>，页面点击“+”，编辑通知分组，名称自定，<code>通知</code>勾选提前创建的telegram通知，确认即可。</p>
-<p>警报规则参考<a href="https://www.nodeseek.com/jump?to=https%3A%2F%2Fnezha.wiki%2Fguide%2Fnotifications.html">哪吒官方文档</a>，以离线通知为例：</p>
-<p><code>通知</code>——<code>警报规则</code>，点击“+”，创建警报规则，名称：<code>离线通知</code>，规则：<code>[{&quot;Type&quot;: &quot;offline&quot;, &quot;Duration&quot;: 10}]</code>，通知组：勾选</p>
-<p>telegram通知，启用：勾选，点击确认。</p>
-<p>面板设置完成，可至<code>服务器</code>页面，点击<code>安装命令</code>，根据系统选择安装命令前往被控vps运行。</p>
-<p>注：被控端禁用网页SSH</p>
-<figure class="highlight plaintext"><table><tr><td class="code"><pre><span class="line">sed -i &#x27;s/disable_command_execute: false/disable_command_execute: true/&#x27; /opt/nezha/agent/config.yml &amp;&amp; systemctl restart nezha-agent</span><br></pre></td></tr></table></figure>
-<h1>接入微软登录</h1>
-<p>原wiki地址 <a href="https://www.nodeseek.com/jump?to=https%3A%2F%2Fnezha.wiki%2Fguide%2Fq14.html">https://nezha.wiki/guide/q14.html</a></p>
-<p>补充微软登陆</p>
-<figure class="highlight yml"><table><tr><td class="code"><pre><span class="line"><span class="attr">oauth2:</span></span><br><span class="line">    <span class="attr">Microsoft:</span></span><br><span class="line">        <span class="attr">clientid:</span> <span class="string">&quot;XXXXXXXX-XXXX-XXXX-XXXX-XXXXXXXXXXXX&quot;</span></span><br><span class="line">        <span class="attr">clientsecret:</span> <span class="string">&quot;XXXXX&quot;</span></span><br><span class="line">        <span class="attr">endpoint:</span></span><br><span class="line">            <span class="attr">authurl:</span> <span class="string">&quot;https://login.microsoftonline.com/consumers/oauth2/v2.0/authorize&quot;</span></span><br><span class="line">            <span class="attr">tokenurl:</span> <span class="string">&quot;https://login.microsoftonline.com/consumers/oauth2/v2.0/token&quot;</span></span><br><span class="line">        <span class="attr">scopes:</span></span><br><span class="line">            <span class="bullet">-</span> <span class="string">&quot;User.Read&quot;</span></span><br><span class="line">        <span class="attr">userinfourl:</span> <span class="string">&quot;https://graph.microsoft.com/v1.0/me&quot;</span></span><br><span class="line">        <span class="attr">useridpath:</span> <span class="string">&quot;id&quot;</span></span><br></pre></td></tr></table></figure>
-<p>配置格式如上，需要自己注册应用以获得clientid、clientsecret</p>
-<ol>
-<li>注册<br>
-<a href="https://www.nodeseek.com/jump?to=https%3A%2F%2Fentra.microsoft.com%2F%23view%2FMicrosoft_AAD_RegisteredApps%2FCreateApplicationBlade%2FquickStartType~%2Fnull%2FisMSAApp~%2Ffalse">https://entra.microsoft.com/#view/Microsoft_AAD_RegisteredApps/CreateApplicationBlade/quickStartType~/null/isMSAApp~/false</a><br>
-输入项：<br>
-名称 – 随便写<br>
-受支持的帐户类型 – 仅 Microsoft 个人帐户<br>
-重定向 URI (可选) – WEB <a href="https://www.nodeseek.com/jump?to=https%3A%2F%2Fxx.com%2Fapi%2Fv1%2Foauth2%2Fcallback">https://xx.com/api/v1/oauth2/callback</a></li>
-<li>获得clientid<br>
-<a href="https://www.nodeseek.com/jump?to=https%3A%2F%2Fentra.microsoft.com%2F%23view%2FMicrosoft_AAD_RegisteredApps%2FApplicationsListBlade%2FquickStartType~%2Fnull%2FsourceType%2FMicrosoft_AAD_IAM">https://entra.microsoft.com/#view/Microsoft_AAD_RegisteredApps/ApplicationsListBlade/quickStartType~/null/sourceType/Microsoft_AAD_IAM</a><br>
-在最左边 所有应用程序 找到自己刚才注册的 点进去<br>
-概述页面有个 应用程序(客户端) ID，这个就是。</li>
-<li>获得clientsecret<br>
-<img src="https://img.zzzg.top/202501031707326.png" alt="uS3yGRHdgnCIGTAi9IVkpS"><br>
-提交后会出现 一个 值，复制，后续会不可见。</li>
-<li>修改配置文件 并且 重启 面板服务</li>
-<li>在个人信息里面绑定即可</li>
-</ol>
-]]></content>
-      <categories>
-        <category>运维技术</category>
-      </categories>
-      <tags>
-        <tag>运维工具</tag>
-      </tags>
-  </entry>
-  <entry>
     <title>Clash Verge规则配置</title>
     <url>/posts/97aa67fb/</url>
-    <content><![CDATA[<h1>下载Clash.Meta内核客户端</h1>
+    <content><![CDATA[<h1 id="下载Clash-Meta内核客户端">下载Clash.Meta内核客户端</h1>
 <ul>
 <li><a href="https://github.com/zzzgydi/clash-verge">Clash Verge 下载地址</a></li>
 </ul>
-<h1>本地配置（推荐）</h1>
+<h1 id="本地配置（推荐）">本地配置（推荐）</h1>
 <blockquote>
 <p>以处<code>Clash Verge</code>为例</p>
 </blockquote>
@@ -775,14 +775,14 @@
 <ul>
 <li>ClashVerge.yaml</li>
 </ul>
-<ul>
-<li>[x] 地区分流（香港、美国、日本、台湾、新加坡）</li>
-<li>[x] 苹果、谷歌、微软、电报、推特分流</li>
-<li>[x] 流媒体（不支持单独分流）</li>
-<li>[x] 自动选择最低延迟</li>
-<li>[ ] 负载均衡</li>
-<li>[x] 故障转移</li>
-<li>[x] 广告屏蔽</li>
+<ul class="contains-task-list">
+<li class="task-list-item"><input class="task-list-item-checkbox" checked="" disabled="" type="checkbox"> 地区分流（香港、美国、日本、台湾、新加坡）</li>
+<li class="task-list-item"><input class="task-list-item-checkbox" checked="" disabled="" type="checkbox"> 苹果、谷歌、微软、电报、推特分流</li>
+<li class="task-list-item"><input class="task-list-item-checkbox" checked="" disabled="" type="checkbox"> 流媒体（不支持单独分流）</li>
+<li class="task-list-item"><input class="task-list-item-checkbox" checked="" disabled="" type="checkbox"> 自动选择最低延迟</li>
+<li class="task-list-item"><input class="task-list-item-checkbox" disabled="" type="checkbox"> 负载均衡</li>
+<li class="task-list-item"><input class="task-list-item-checkbox" checked="" disabled="" type="checkbox"> 故障转移</li>
+<li class="task-list-item"><input class="task-list-item-checkbox" checked="" disabled="" type="checkbox"> 广告屏蔽</li>
 </ul>
 <figure class="highlight plaintext"><table><tr><td class="code"><pre><span class="line">https://raw.githubusercontent.com/Repcz/Tool/X/Clash/Meta/ClashVerge.yaml</span><br></pre></td></tr></table></figure>
 <h2 id="修改配置-proxy-providers-中的机场订阅地址">修改配置 <code>proxy-providers</code> 中的机场订阅地址</h2>
@@ -812,7 +812,7 @@
 </ul>
 <p>eg:</p>
 <figure class="highlight yaml"><table><tr><td class="code"><pre><span class="line"><span class="string">...</span></span><br><span class="line"></span><br><span class="line">  <span class="bullet">-</span> &#123;<span class="attr">name:</span> <span class="string">🇭🇰</span> <span class="string">香港节点</span>, <span class="string">&lt;&lt;:</span> <span class="string">*auto</span>, <span class="attr">filter:</span> <span class="string">&quot;^(?=.*((?i)🇭🇰|香港|(\b(HK|Hong)\b)))(?!.*((?i)回国|校园|游戏|(\b(GAME)\b))).*$&quot;</span>&#125;</span><br><span class="line"></span><br><span class="line"><span class="string">👇</span></span><br><span class="line"></span><br><span class="line">  <span class="bullet">-</span> &#123;<span class="attr">name:</span> <span class="string">🇭🇰</span> <span class="string">香港节点</span>, <span class="string">&lt;&lt;:</span> <span class="string">*select</span>, <span class="attr">filter:</span> <span class="string">&quot;^(?=.*((?i)🇭🇰|香港|(\b(HK|Hong)\b)))(?!.*((?i)回国|校园|游戏|(\b(GAME)\b))).*$&quot;</span>&#125;</span><br><span class="line"></span><br><span class="line"><span class="string">...</span></span><br><span class="line"></span><br></pre></td></tr></table></figure>
-<h1>订阅转换（懒人方法）</h1>
+<h1 id="订阅转换（懒人方法）">订阅转换（懒人方法）</h1>
 <h2 id="在线订阅转换">在线订阅转换</h2>
 <p>在线订阅转换可能出现订阅泄露</p>
 <h2 id="打开ACL4SSR">打开<a href="https://acl4ssr-sub.github.io/">ACL4SSR</a></h2>
@@ -831,7 +831,7 @@
 <li>打开Clash Verge，点击 <strong>配置</strong>，导入<strong>订阅转换</strong>后的链接</li>
 <li>点击 <strong>代理</strong> ，设置分流</li>
 </ul>
-<h1>项目地址</h1>
+<h1 id="项目地址">项目地址</h1>
 <p><a href="https://github.com/Repcz/Tool">https://github.com/Repcz/Tool</a></p>
 ]]></content>
       <categories>
@@ -842,242 +842,104 @@
       </tags>
   </entry>
   <entry>
-    <title>G120D变频器配置</title>
-    <url>/posts/d5ce6259/</url>
-    <content><![CDATA[<h1>安全注意事项</h1>
-<p><img src="https://img.zzzg.top/20260412152405233.png" alt="image-20260412135200856"></p>
-<h1>调试向导</h1>
-<h2 id="准备工作">准备工作</h2>
-<p><strong>关键注意事项</strong></p>
+    <title>Fuwari搭建</title>
+    <url>/posts/a99e9fee/</url>
+    <content><![CDATA[<h1 id="准备开始">准备开始</h1>
+<ol>
+<li><a href="https://git-scm.com/downloads">安装Git</a>或者<a href="https://github.com/apps/desktop">安装GitHub Desktop</a>来对Github进行操作</li>
+<li><a href="https://nodejs.org/en">安装Node.js</a>来搭建博客</li>
+<li>一个<a href="https://github.com/">Github</a>账号用于存放Fuwari文件</li>
+<li>一个<a href="https://app.netlify.com/">Netlify</a>账号创建一个Pages并且绑定域名支持访问</li>
+<li><a href="https://www.marktext.cc/">安装MarkText</a>或者<a href="https://typoraio.cn/">安装Typora</a>来编辑MarkDown</li>
+</ol>
+<h1 id="本地部署Fuwari">本地部署Fuwari</h1>
+<ol>
+<li>使用此模板<a href="https://github.com/saicaca/fuwari/generate">生成新仓库</a>或 Fork 此仓库</li>
+<li>Clone 仓库到本地，执行 <code>pnpm install</code> 和 <code>pnpm add sharp</code> 以安装依赖
 <ul>
-<li>
-<p><strong>参数状态检查</strong>：如果变频器参数 P10 显示为“就绪”状态，在离线模式下将无法进行快速调试。</p>
-</li>
-<li>
-<p><strong>解决方法</strong>：需要在实际参数列表中手动修改相关参数。</p>
-</li>
-<li>
-<p><strong>例外情况</strong>：如果是直接离线进入调试向导，则无需进行此步骤。</p>
-</li>
-<li>
-<p><strong>参数 P10 就绪状态示例</strong></p>
-</li>
-</ul>
-<p><img src="https://img.zzzg.top/20260412152405235.png" alt="image-20260412143213081"></p>
-<h2 id="进入调试向导">进入调试向导</h2>
-<p>按照屏幕指引，找到并点击左侧菜单栏中的“调试向导”选项，开始进行参数配置。</p>
-<p><img src="https://img.zzzg.top/20260412152405236.png" alt="image-20260412143245410"></p>
-<h2 id="设定值指定">设定值指定</h2>
-<p><img src="https://img.zzzg.top/20260412152405237.png" alt="image-20260412143323675"></p>
-<h2 id="开环-闭环控制方式">开环/闭环控制方式</h2>
-<p><img src="https://img.zzzg.top/20260412152405238.png" alt="image-20260412143404696"></p>
-<h2 id="I-O配置与报文配置">I/O配置与报文配置</h2>
-<ul>
-<li>
-<p><strong>I/O默认配置设置</strong>：选择 I/O 的默认配置为<strong>7</strong>，对应参数<strong>P15</strong>。</p>
-</li>
-<li>
-<p><strong>报文配置设置</strong>：将报文配置设置为<strong>999</strong>，对应参数<strong>P922</strong>。</p>
-</li>
-</ul>
-<p><img src="https://img.zzzg.top/20260412152405239.png" alt="image-20260412143432453"></p>
-<h2 id="标准与电压配置">标准与电压配置</h2>
-<ul>
-<li>
-<p><strong>标准参数配置 (P100)</strong>：</p>
-<ul>
-<li>
-<p>标准选择：0 (IEC标准)</p>
-</li>
-<li>
-<p>电源频率：50Hz</p>
-</li>
+<li>若未安装 <a href="https://pnpm.io">pnpm</a>，执行 <code>npm install -g pnpm</code></li>
 </ul>
 </li>
+</ol>
+<h1 id="修改Fuwari的基本信息">修改Fuwari的基本信息</h1>
+<p>根目录下的 <code>src</code> 文件夹中，你可以找到 <code>config.ts</code> 来修改你的Fuwari基本信息</p>
+<ol>
+<li>站点信息&amp;顶部图</li>
+</ol>
+<figure class="highlight plaintext"><table><tr><td class="code"><pre><span class="line">export const siteConfig: SiteConfig = &#123;</span><br><span class="line">  title: &#x27;你的标题&#x27;,</span><br><span class="line">  subtitle: &#x27;你的副标题&#x27;,</span><br><span class="line">  lang: &#x27;zh_CN&#x27;,  // &#x27;en&#x27;, &#x27;zh_CN&#x27;, &#x27;zh_TW&#x27;, &#x27;ja&#x27;, &#x27;ko&#x27;</span><br><span class="line">  themeColor: &#123;  // 主题色部分，按个人喜好配置</span><br><span class="line">    hue: 250,</span><br><span class="line">    fixed: false,</span><br><span class="line">  &#125;,</span><br><span class="line">  banner: &#123;</span><br><span class="line">    enable: true,  // 是否开启顶部图</span><br><span class="line">    src: &#x27;assets/images/你的图片&#x27;,  // 顶部图存放路径</span><br><span class="line">    position: &#x27;center&#x27;,  //  defaults或者center</span><br><span class="line">    credit: &#123;</span><br><span class="line">      enable: true,  // 是否显示顶部图文本描述</span><br><span class="line">      text: &#x27;想显示的文本&#x27;,  // 输入文本等描述</span><br><span class="line">      url: &#x27;https://xxxxxxxxxxxxx&#x27;  // 顶部图的来源url等</span><br><span class="line">    &#125;</span><br><span class="line">  &#125;,</span><br></pre></td></tr></table></figure>
+<ol start="2">
+<li>顶部导航栏github部分</li>
+</ol>
+<figure class="highlight plaintext"><table><tr><td class="code"><pre><span class="line">export const navBarConfig: NavBarConfig = &#123;</span><br><span class="line">  links: [</span><br><span class="line">    LinkPreset.Home,</span><br><span class="line">    LinkPreset.Archive,</span><br><span class="line">    LinkPreset.About,</span><br><span class="line">    &#123;</span><br><span class="line">      name: &#x27;GitHub&#x27;,</span><br><span class="line">      url: &#x27;https://github.com/saicaca/fuwari&#x27;,  // 想要跳转的url</span><br><span class="line">      external: true,  //是否显示外部链接图标并将在新标签中打开</span><br><span class="line">    &#125;,</span><br><span class="line">  ],</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+<ol start="3">
+<li>左侧信息页配置</li>
+</ol>
+<figure class="highlight plaintext"><table><tr><td class="code"><pre><span class="line">export const profileConfig: ProfileConfig = &#123;</span><br><span class="line">  avatar: &#x27;assets/images/avatar.png&#x27;,  // 头像图片文件路径</span><br><span class="line">  name: &#x27;AULyPc&#x27;,     // 你的昵称</span><br><span class="line">  bio: &#x27;这片大地...&#x27;,  // 你的签名</span><br><span class="line">  links: [           // 社交栏配置</span><br><span class="line">    &#123;</span><br><span class="line">      name: &#x27;Twitter&#x27;,</span><br><span class="line">      icon: &#x27;fa6-brands:twitter&#x27;,  // https://icones.js.org/ icon图标网站</span><br><span class="line">      url: &#x27;https://twitter.com/AULyPc1&#x27;,</span><br><span class="line">    &#125;,</span><br><span class="line">    &#123;</span><br><span class="line">      name: &#x27;Steam&#x27;,</span><br><span class="line">      icon: &#x27;fa6-brands:steam&#x27;,</span><br><span class="line">      url: &#x27;https://steamcommunity.com/profiles/76561198813644850/&#x27;,</span><br><span class="line">    &#125;,</span><br><span class="line">    &#123;</span><br><span class="line">      name: &#x27;GitHub&#x27;,</span><br><span class="line">      icon: &#x27;fa6-brands:github&#x27;,</span><br><span class="line">      url: &#x27;https://github.com/AULyPc&#x27;,</span><br><span class="line">    &#125;,</span><br><span class="line">    &#123;</span><br><span class="line">      name: &#x27;Email&#x27;,</span><br><span class="line">      icon: &#x27;material-symbols:mail&#x27;,</span><br><span class="line">      url: &#x27;mailto:cecilybenson8@gmail.com&#x27;,</span><br><span class="line">    &#125;,</span><br><span class="line">  ],</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+<h1 id="编写文章">编写文章</h1>
+<p>执行 <code>pnpm new-post &lt;filename&gt;</code> 创建新文章页面后<br>
+就可以在 <code>src/content/posts/</code> 目录中编辑你的第一篇文章了</p>
+<p>文章需包含以下内容</p>
+<figure class="highlight plaintext"><table><tr><td class="code"><pre><span class="line">---</span><br><span class="line">title: My First Blog Post  &lt;!-- 你的文章标题 --&gt;</span><br><span class="line">published: 2023-09-09  &lt;!-- 文章发布时间 --&gt;</span><br><span class="line">description: This is the first post of my new Astro blog.  &lt;!-- 简单描述你的文章，可有可无 --&gt;</span><br><span class="line">image: /images/cover.jpg  &lt;!-- 文章主页的封面，可有可无 --&gt;</span><br><span class="line">tags: [Foo, Bar]  &lt;!-- 文章标签 --&gt;</span><br><span class="line">category: Front-end  &lt;!-- 文章分类 --&gt;</span><br><span class="line">draft: false  &lt;!-- 文文章是否为草稿，默认false；设置为true后部署后不可见，但本地开发预览时仍可见 --&gt;</span><br><span class="line">language: &#x27;&#x27;  &lt;!-- 可有可无，按需设置 --&gt;</span><br><span class="line">---</span><br></pre></td></tr></table></figure>
+<h1 id="本地预览，然后发布到Github">本地预览，然后发布到Github</h1>
+<ol>
 <li>
-<p><strong>电压参数配置 (P210)</strong>：</p>
-<ul>
-<li>
-<p>设备输入电压：380V</p>
-</li>
-<li>
-<p>确保与现场实际供电情况一致</p>
-</li>
-</ul>
-</li>
-<li>
-<p><strong>功率单元应用 (P205)</strong>：</p>
-</li>
-<li>
-<p>标准选择：0（含重载）</p>
-</li>
-<li>
-<p>根据现场环境选择对应单元应用</p>
-</li>
-</ul>
-<p><img src="https://img.zzzg.top/20260412152405240.png" alt="image-20260412143455288"></p>
-<h2 id="电机参数配置">电机参数配置</h2>
-<ul>
-<li><strong>关键配置参数列表</strong>：
-<ul>
-<li>P300[0] 选择1：异步电机类型</li>
-<li>P133[0].0：设置电机连接方式</li>
-<li>P304[0] / P305[0]：额定电压与电流</li>
-<li>P307[0] /P308[0] / P310[0]：额定功率额定功率因素与与频率</li>
-<li>P311[0]：电机额定转速</li>
-<li>P335[0]：冷却方式（自冷却）</li>
-<li>P601[0]：温度传感器（无）</li>
-</ul>
-</li>
-</ul>
-<p>电机铭牌参数参考<img src="https://img.zzzg.top/20260412152405241.png" alt="电机铭牌参数参考"></p>
-<p>参数配置界面示例<img src="https://img.zzzg.top/20260412152405242.png" alt="参数配置界面示例"></p>
-<h2 id="电机抱闸制动配置">电机抱闸制动配置</h2>
-<ul>
-<li><strong>关键参数配置项</strong>：
-<ul>
-<li><strong>参数 P1215</strong>：电机抱闸控制方式选择</li>
-<li><strong>参数 P1216</strong>：抱闸打开时间设定 (ms)</li>
-<li><strong>参数 P1217</strong>：抱闸闭合时间设定 (ms)</li>
-</ul>
-</li>
-</ul>
-<p><img src="https://img.zzzg.top/20260412152405243.png" alt="image-20260412143708958"></p>
-<h2 id="参考速度与斜坡配置">参考速度与斜坡配置</h2>
-<ul>
-<li><strong>最大转速配置</strong>：参数号：P322[0]</li>
-<li><strong>斜坡上升时间</strong>：参数号：P1120 (设定值：1.2S)</li>
-<li><strong>斜坡下降时间</strong>：参数号：P1121 (设定值：0.87S)</li>
-<li><strong>急停斜坡时间</strong>：参数号：P1135 (设定值：0S)</li>
-<li><strong>电流极限保护</strong>：参数号：P640 (设定值：电机额定电流P305[0]的1.5倍)</li>
-</ul>
-<p><img src="https://img.zzzg.top/20260412152405244.png" alt="image-20260412144241331"></p>
-<h2 id="工艺应用与电机识别">工艺应用与电机识别</h2>
-<ul>
-<li><strong>工艺应用配置 (P502)</strong>：设置参数 P502 以选择合适的工艺应用宏，确保变频器驱动模式与负载特性匹配。</li>
-<li><strong>电机识别运行 (P1960)</strong>：启动参数 P1960 执行电机识别，使变频器自动检测并优化电机参数，为精确控制奠定基础。</li>
-</ul>
-<p><img src="https://img.zzzg.top/20260412152405245.png" alt="image-20260412144218440"></p>
-<h2 id="编码器配置">编码器配置</h2>
-<p><strong>无编码器</strong></p>
-<p><img src="https://img.zzzg.top/20260412152405246.png" alt="image-20260412144258860"></p>
-<h2 id="完成">完成</h2>
-<p><img src="https://img.zzzg.top/20260412152405247.png" alt="image-20260412144319491"></p>
-<h1>离线参数修改</h1>
-<h2 id="调整增益-积分时间-P1470-P1472">调整增益/积分时间(P1470/P1472)</h2>
-<p><img src="https://img.zzzg.top/20260412152405248.png" alt="image-20260412145236106"></p>
-<h2 id="更改电机相序-P1820">更改电机相序 (P1820)</h2>
-<p><img src="https://img.zzzg.top/20260412152405249.png" alt="image-20260412145142514"></p>
-<h2 id="电机斜坡-P1120-P1121">电机斜坡 (P1120/P1121)</h2>
-<p><img src="https://img.zzzg.top/20260412152405250.png" alt="image-20260412145402230"></p>
-<h2 id="安全通信与方向设置">安全通信与方向设置</h2>
-<ul>
-<li><strong>安全通信配置</strong>：此次为安全变频器走的安全通信，需要设定为通讯给定STO信号。</li>
-</ul>
-<p><img src="https://img.zzzg.top/20260412152405251.png" alt="image-20260412145822916"></p>
-<p><img src="https://img.zzzg.top/20260412152405252.png" alt="image-20260412145901209"></p>
-<ul>
-<li><strong>安全测试停止时间调整</strong>：将安全测试停止时间修改为9000H,否则到时间需要经常断开STO才能不警告</li>
-</ul>
-<p><img src="https://img.zzzg.top/20260412152405253.png" alt="image-20260412145944329"></p>
-<ul>
-<li><strong>F-DI/F-DO/PROFIsafe</strong>：安全地址转16#</li>
-</ul>
-<p><img src="https://img.zzzg.top/20260412152405254.png" alt="image-20260412150137311"></p>
-<h1>参数下载与验收测试</h1>
-<ul>
-<li>
-<p><strong>参数下载与零点校正</strong>：</p>
-<ul>
-<li>
-<p>下载参数至变频器，原点自动校正至P2599数值。</p>
+<p>配置好博客信息并编写好文章之后，在项目根目录执行：<code>pnpm dev</code>，稍等片刻，就可以本地预览你的博客了</p>
 </li>
 <li>
-<p>上传参数到组态并转在线。</p>
+<p>预览之后使用Git将我们所做的更改发布到Github</p>
 </li>
-<li>
-<p>建议断电重启，测试零点位置是否正确。</p>
-</li>
-</ul>
-</li>
-<li>
-<p><strong>安全参数验收测试</strong>：</p>
-<ul>
-<li>
-<p>配置安全参数若出现报错，需进行验收测试。</p>
-</li>
-<li>
-<p>测试结束后必须上传参数，否则下次下载需重新测试。</p>
-</li>
-</ul>
-</li>
-</ul>
-<p><img src="https://img.zzzg.top/20260412152405255.png" alt="image-20260412150443468"></p>
-<h1>电机优化与静态测量</h1>
-<ul>
-<li>
-<p><strong>电机优化与静态测量准备</strong>：参数配置完成后，需进入调试模式进行电机优化，重点进行静态优化设置。</p>
-</li>
-<li>
-<p><strong>静态测量操作流程</strong>：选择“静态测量”方式并激活，切换至控制面板手动向前移动（非JOG模式），设定速度为0，等待测量提示完成，使能将自动断开。</p>
-</li>
-<li>
-<p><strong>惯量计算与参数保存</strong>：测量完成后电机自动旋转计算惯量，参数固定后，务必将参数保存至EEPROM中以确保设置生效。</p>
-</li>
-</ul>
-<p><img src="https://img.zzzg.top/20260412152405256.png" alt="image-20260412150602274"></p>
-<h1>PMC数据反馈配置</h1>
-<ul>
-<li>
-<p><strong>配置步骤说明</strong>：</p>
-<ul>
-<li>
-<p>根据项目需求，需将变频器的实际电流数据反馈至PMC系统。</p>
-</li>
-<li>
-<p>具体操作：在通讯参数设置中，将12号预留字节设定为“实际电流反馈”。</p>
-</li>
-</ul>
-</li>
-</ul>
-<p><img src="https://img.zzzg.top/20260412152405257.png" alt="image-20260412150800811"></p>
-<h1>电机曲线配置</h1>
-<ul>
-<li>
-<p><strong>配置步骤说明</strong>：</p>
-<ul>
-<li>在信号栏选择所需要监控的曲线，点击红色方框进行监控</li>
-</ul>
-</li>
-</ul>
-<p><img src="https://img.zzzg.top/20260412152405258.png" alt="image-20260412151036529"></p>
-<ul>
-<li>
-<p>1：监控曲线</p>
-</li>
-<li>
-<p>2：开始监控</p>
-</li>
-<li>
-<p>3：停止监控</p>
-</li>
-<li>
-<p>4：取消监控，返回上一层</p>
-</li>
-</ul>
-<p><img src="https://img.zzzg.top/20260412152405259.png" alt="image-20260412151244679"></p>
+</ol>
+<h1 id="将博客部署到Netlify">将博客部署到Netlify</h1>
+<ol>
+<li>进入<a href="https://app.netlify.com/">Netlify</a>官网，使用Github账号登陆或者用邮箱进行注册</li>
+<li>点击添加新项目-&gt;导入现有项目</li>
+</ol>
+<p><img src="https://img.zzzg.top/20250802030903812.png" alt="image-20250802025259435"></p>
+<ol start="3">
+<li>连接到Github</li>
+</ol>
+<p><img src="https://img.zzzg.top/20250802030910929.png" alt="image-20250802025502586"></p>
+<ol start="4">
+<li>选择你的博客</li>
+</ol>
+<p><img src="https://img.zzzg.top/20250802030924372.png" alt="image-20250802025549333"></p>
+<ol start="5">
+<li>输入你的项目名称后点击部署</li>
+</ol>
+<p><img src="https://img.zzzg.top/20250802030930935.png" alt="image-20250802025730707"></p>
+<p><img src="https://img.zzzg.top/20250802030936268.png" alt="image-20250802025744743"></p>
+<ol start="6">
+<li>点击域名管理-&gt;添加域-&gt;添加已拥有的域名</li>
+</ol>
+<p><img src="https://img.zzzg.top/20250802030946310.png" alt="image-20250802030006681"></p>
+<ol start="7">
+<li>输入域名后点击核实-&gt;添加子域名</li>
+</ol>
+<p><img src="https://img.zzzg.top/20250802030952107.png" alt="image-20250802030107986"></p>
+<p><img src="https://img.zzzg.top/20250802030956194.png" alt="image-20250802030154171"></p>
+<ol start="8">
+<li>等待添加DNS解析记录，我们去域名管理的地方把DNS解析添加上即可</li>
+</ol>
+<p><img src="https://img.zzzg.top/20250802031001158.png" alt="image-20250802030300114"></p>
+<p><img src="https://img.zzzg.top/20250802031005689.png" alt="image-20250802030319944"></p>
+<p><img src="https://img.zzzg.top/20250802031011750.png" alt="image-20250802030500744"></p>
+<ol start="9">
+<li>等待SSL/TLS证书申请下来后，直接访问设置好的域名就可以进入博客了</li>
+</ol>
+<h1 id="最后">最后</h1>
+<p>你只需要在本地编写文章，然后使用Git将更改推送到远程仓库，Netlify就会自动部署，更新你的博客！</p>
 ]]></content>
       <categories>
-        <category>工业自动化</category>
+        <category>博客运维</category>
       </categories>
       <tags>
-        <tag>G120D</tag>
+        <tag>Fuwari</tag>
       </tags>
   </entry>
   <entry>
     <title>HTML总复习</title>
     <url>/posts/e79fa3f4/</url>
-    <content><![CDATA[<h1>导读</h1>
+    <content><![CDATA[<h1 id="导读">导读</h1>
 <h2 id="网页">网页</h2>
 <p>网站是指在因特网中根据一定的规则，使用<strong>HTML</strong>等制作的用于展示特定内容相关的网页集合</p>
 <p>网页是网站中的一页，通常就是 HTML 格式的文件</p>
@@ -1120,7 +982,7 @@
 </tbody>
 </table>
 <p>以上三类规定分离，即 html 文件写结构、css 文件写表现、JavaScript 文件写行为</p>
-<h1>1.基本标签</h1>
+<h1 id="1-基本标签">1.基本标签</h1>
 <h2 id="1-1-HTML-标签">1.1 HTML 标签</h2>
 <p>称之为根标签，是最大的标签，文件从&lt; html &gt;开始到&lt; /html &gt;结束</p>
 <h2 id="1-2-头部标签-head">1.2 头部标签&lt; head &gt;</h2>
@@ -1138,7 +1000,7 @@
 <p>en 是英文显示、zh-CN 是中文显示</p>
 <p><code>&lt;meta charset= “UTF-8” /&gt;</code> 采用 UTF-8 来保存文字，不写会出现乱码的情况</p>
 <p>charset 是字符集的意思，而 UTF-8 基本包含所有的字符</p>
-<h1>2.常用标签</h1>
+<h1 id="2-常用标签">2.常用标签</h1>
 <h2 id="2-1-标题标签">2.1 标题标签</h2>
 <p>双标签从<code>&lt;h1&gt;到&lt;h6&gt;</code>重要性以此递减<br>
 表达格式：<code>&lt;h1&gt; 一级标签 &lt;/h1&gt;</code><br>
@@ -1296,14 +1158,14 @@ herf： 制定链接的 URL 地址（必须属性）</p>
 <p>H5 新版本推出的语义化标签，主要用于手机端网页的制作</p>
 <p><img src="https://img.zzzg.top/202303040840734.png" alt="9c9f1473d7494d25b250dbc822f473d7"></p>
 <p><img src="https://img.zzzg.top/202303040840001.png" alt="1ff5c6115d68409a9b8966abeee9ee56"></p>
-<h1>3.注释和特殊字符</h1>
+<h1 id="3-注释和特殊字符">3.注释和特殊字符</h1>
 <h2 id="3-1-注释">3.1 注释</h2>
 <p><code>&lt;! -- 注释语句 --&gt;</code>,一些编辑器，可以直接<code>ctrl</code> <code>+</code> <code>/</code></p>
 <h2 id="3-2-特殊字符表">3.2 特殊字符表</h2>
 <p>收藏一下，忘了可以直接在目录点过来查哦 🤗🤗🤗</p>
 <p><img src="https://img.zzzg.top/202303040840096.png" alt="image-20220608125023224"></p>
 <p>常用的主要是空格、大于号和小于号,其他的查个几次就记住了 🤪</p>
-<h1>4.表格</h1>
+<h1 id="4-表格">4.表格</h1>
 <h2 id="4-1-基本语法">4.1 基本语法</h2>
 <figure class="highlight html"><table><tr><td class="code"><pre><span class="line"><span class="tag">&lt;<span class="name">table</span>&gt;</span></span><br><span class="line">  <span class="tag">&lt;<span class="name">tr</span>&gt;</span></span><br><span class="line">    <span class="tag">&lt;<span class="name">td</span>&gt;</span><span class="tag">&lt;/<span class="name">td</span>&gt;</span></span><br><span class="line">    <span class="tag">&lt;<span class="name">td</span>&gt;</span><span class="tag">&lt;/<span class="name">td</span>&gt;</span></span><br><span class="line">    <span class="tag">&lt;<span class="name">td</span>&gt;</span><span class="tag">&lt;/<span class="name">td</span>&gt;</span></span><br><span class="line">  <span class="tag">&lt;/<span class="name">tr</span>&gt;</span></span><br><span class="line">  <span class="tag">&lt;<span class="name">tr</span>&gt;</span></span><br><span class="line">    <span class="tag">&lt;<span class="name">td</span>&gt;</span><span class="tag">&lt;/<span class="name">td</span>&gt;</span></span><br><span class="line">    <span class="tag">&lt;<span class="name">td</span>&gt;</span><span class="tag">&lt;/<span class="name">td</span>&gt;</span></span><br><span class="line">    <span class="tag">&lt;<span class="name">td</span>&gt;</span><span class="tag">&lt;/<span class="name">td</span>&gt;</span></span><br><span class="line">  <span class="tag">&lt;/<span class="name">tr</span>&gt;</span></span><br><span class="line">  …</span><br><span class="line"><span class="tag">&lt;/<span class="name">table</span>&gt;</span></span><br></pre></td></tr></table></figure>
 <p>以下进行解释：</p>
@@ -1362,7 +1224,7 @@ td 标签内放内容<br>
 <p>在最上面单元格的标签中加入——<code>rowspan=&quot;单元格合并个数&quot;</code>，再将下面被合并的单元格<code>&lt;td&gt;</code>标签删去</p>
 <h3 id="4-4-2-跨列合并">4.4.2 跨列合并</h3>
 <p>在最左边的单元格的标签中加入——<code>colspan=&quot;单元格合并个数&quot;</code>，再将右边被合并的单元格<code>&lt;td&gt;</code>标签删去</p>
-<h1>5.列表标签</h1>
+<h1 id="5-列表标签">5.列表标签</h1>
 <h2 id="5-1-无序列表">5.1 无序列表</h2>
 <h3 id="5-1-1-语法">5.1.1 语法</h3>
 <figure class="highlight css"><table><tr><td class="code"><pre><span class="line">&lt;<span class="selector-tag">ul</span>&gt;</span><br><span class="line">   &lt;<span class="selector-tag">li</span>&gt;列表项<span class="number">1</span>&lt;/<span class="selector-tag">li</span>&gt;</span><br><span class="line">   &lt;<span class="selector-tag">li</span>&gt;列表项<span class="number">2</span>&lt;/<span class="selector-tag">li</span>&gt;</span><br><span class="line">   &lt;<span class="selector-tag">li</span>&gt;列表项<span class="number">3</span>&lt;/<span class="selector-tag">li</span>&gt;</span><br><span class="line">&lt;/<span class="selector-tag">ul</span>&gt;</span><br></pre></td></tr></table></figure>
@@ -1432,7 +1294,7 @@ td 标签内放内容<br>
 <figure class="highlight css"><table><tr><td class="code"><pre><span class="line">&lt;<span class="selector-tag">dl</span>&gt;</span><br><span class="line">    &lt;<span class="selector-tag">dt</span>&gt; 定义名词 &lt;/<span class="selector-tag">dt</span>&gt;</span><br><span class="line">    &lt;<span class="selector-tag">dd</span>&gt; 定义描述 &lt;/<span class="selector-tag">dd</span>&gt;</span><br><span class="line">    ...</span><br><span class="line">&lt;/<span class="selector-tag">dl</span>&gt;</span><br></pre></td></tr></table></figure>
 <p>效果呈现如下：</p>
 <p><code>通常是一个&lt;dt&gt;标签对应多个&lt;dd&gt;标签</code></p>
-<h1>6.表单标签</h1>
+<h1 id="6-表单标签">6.表单标签</h1>
 <p>使用表单——收集用户信息</p>
 <h2 id="6-1-组成">6.1 组成</h2>
 <p>表单=<code>表单域</code>+<code>表单控件（元素）</code>+<code>提示信息</code></p>
@@ -1661,16 +1523,16 @@ td 标签内放内容<br>
   <entry>
     <title>Hexo博客部署到云服务器</title>
     <url>/posts/bda2f0d3/</url>
-    <content><![CDATA[<h1>将<code>Hexo</code>部署到云服务器</h1>
+    <content><![CDATA[<h1 id="将Hexo部署到云服务器">将<code>Hexo</code>部署到云服务器</h1>
 <p>为了解决<code>Hexo</code>部署到 <a href="https://github.com">GitHub</a> 访问速度慢的问题，我们可以将<code>Hexo</code>部署到云服务器上。</p>
 <p>这篇博客使用宝塔面板将<code>Hexo</code>部署到阿里云服务器上。</p>
-<h1>前提</h1>
+<h1 id="前提">前提</h1>
 <ol>
 <li>已经搭建好 hexo 的相关环境，并将 hexo 部署到了 GitHub 上</li>
 <li>已经购买好云服务器</li>
 <li>已经购买并备案好域名 （可选项，没有也可以用 ip 地址访问 hexo）</li>
 </ol>
-<h1>安装宝塔面板</h1>
+<h1 id="安装宝塔面板">安装宝塔面板</h1>
 <p>宝塔面板可以可视化地操作远端服务器（这样就不用自己手动装 nginx 了）</p>
 <p>进入宝塔面板的下载页面 <a href="https://www.bt.cn/new/download.html">宝塔面板下载</a> ，找到 Linux 面板，点击安装脚本 <strong>(如果买的服务器是 Windows 的就点 Windows 的)</strong></p>
 <p>根据自己服务器的类型，复制对应的代码</p>
@@ -1678,7 +1540,7 @@ td 标签内放内容<br>
 <p>粘贴刚才复制的代码，回车，一路确认。</p>
 <p>在浏览器中访问外网面板地址，使用宝塔提供的用户名和密码登录。</p>
 <p>进入面板后，点击一键安装 LNMP。就能直接将 Nginx，MySQL 等网站所需内容一键安装好。</p>
-<h1>安装并配置 Git 仓库</h1>
+<h1 id="安装并配置-Git-仓库">安装并配置 Git 仓库</h1>
 <p>在远程服务器上配置好 Git 仓库后，才能将本地的 hexo push 到远端。</p>
 <h2 id="创建博客目录">创建博客目录</h2>
 <figure class="highlight shell"><table><tr><td class="code"><pre><span class="line">cd /home</span><br><span class="line"></span><br><span class="line">mkdir www</span><br><span class="line"></span><br><span class="line">cd www</span><br><span class="line"></span><br><span class="line">mkdir hexo</span><br></pre></td></tr></table></figure>
@@ -1711,19 +1573,19 @@ td 标签内放内容<br>
 <p>修改权限</p>
 <figure class="highlight shell"><table><tr><td class="code"><pre><span class="line">chmod +x ~/blog.git/hooks/post-receive</span><br></pre></td></tr></table></figure>
 <p>至此服务端已经配置完成。</p>
-<h1>部署 hexo</h1>
+<h1 id="部署-hexo">部署 hexo</h1>
 <p>打开 hexo 的配置文件 _config.yml 修改 Deployment 位置的配置</p>
 <figure class="highlight yaml"><table><tr><td class="code"><pre><span class="line"><span class="attr">deploy:</span></span><br><span class="line">  <span class="attr">type:</span> <span class="string">git</span></span><br><span class="line">  <span class="attr">repo:</span> <span class="string">git@你的服务器公网IP:/home/git/blog.git</span></span><br><span class="line">  <span class="attr">branch:</span> <span class="string">master</span></span><br><span class="line">  <span class="attr">message:</span> </span><br></pre></td></tr></table></figure>
 <p>保存配置文件，打开终端进入 hexo 博客所在文件夹</p>
 <figure class="highlight shell"><table><tr><td class="code"><pre><span class="line">cd blog //进入自己博客所在文件夹</span><br><span class="line">hexo clean</span><br><span class="line">hexo g //编译</span><br><span class="line">hexo d //部署</span><br></pre></td></tr></table></figure>
-<h1>宝塔创建网站</h1>
+<h1 id="宝塔创建网站">宝塔创建网站</h1>
 <p>如图</p>
 <p><img src="https://img.zzzg.top/202303040814143.png" alt=""></p>
 <p><code>Test.com</code>为你的网站域名，也可用服务器 IP</p>
 <p>提交创建即可</p>
-<h1>网站设置</h1>
+<h1 id="网站设置">网站设置</h1>
 <p>打开宝塔后台，进入网站的设置界面，点击<code>网站目录</code>，选择目录为<code>/home/hexo</code>这是我们部署到云服务器的博客根目录</p>
-<h1>最后</h1>
+<h1 id="最后">最后</h1>
 <p>最后就是在本地执行两条命令来生成你博客的静态网页文件了。</p>
 <figure class="highlight bash"><table><tr><td class="code"><pre><span class="line">hexo clean <span class="comment"># 清除缓存</span></span><br><span class="line">hexo g <span class="comment"># 生成网页</span></span><br><span class="line">hexo d <span class="comment"># 部署</span></span><br></pre></td></tr></table></figure>
 <p>现在就可以用 你的域名来访问博客了。</p>
@@ -1739,9 +1601,9 @@ td 标签内放内容<br>
     <title>Hexo建立一个独立的HTML页面</title>
     <url>/posts/12482e7/</url>
     <content><![CDATA[<p>Hexo 是一个轻量、快速，简单和强大的博客框架，当我们需要发布博文的时候，只需要将写好的文章（MarkDown 文件）放入本地的 <code>\source\_posts</code> 文件夹，然后再推送上去就行了，原理就是当我们在执行 <code>hexo g</code> 命令时，<code>.md</code> 文件就会被转化成 HTML 文件，但是有时候我们需要新建一个独立的页面，这个页面不使用主题的渲染，具有自己独立的样式，可以放一些自己的作品，相册什么的，以下就介绍这种独立页面的实现方法。</p>
-<h1>方法一：</h1>
+<h1 id="方法一：">方法一：</h1>
 <p>使用 Hexo 提供的跳过渲染配置，在博客根目录的配置文件 <code>_config.yml</code> 里找到 <code>skip_render</code> 关键字，在后面添加想要跳过渲染的页面，比如我们创建 <code>\source\about\index.html</code>， 配置文件填写：<code>skip_render: about\**</code>，那么就表示 <code>\source\about</code> 里所有的文件将跳过渲染，里面的文件将会被直接复制到 public 文件夹，此时就会得到一个独立的 about 页面；官方文档：<a href="https://hexo.io/docs/configuration">https://hexo.io/docs/configuration</a></p>
-<h1>方法 2</h1>
+<h1 id="方法-2">方法 2</h1>
 <p>在文章头部的 Front-matter 里添加配置 <code>layout: false</code> 来跳过渲染配置，比如我们要使 about 页面跳过渲染，创建 <code>\source\about\index.md</code>，将这个页面的相关 HTML 代码写进<code>.md</code>文件并保存，然后在 <code>index.md</code> 的头部写入：</p>
 <figure class="highlight markdown"><table><tr><td class="code"><pre><span class="line">---</span><br><span class="line"><span class="section">layout: false</span></span><br><span class="line"><span class="section">---</span></span><br><span class="line"></span><br><span class="line">&#123;% raw %&#125;</span><br><span class="line">xxxxxxxxxxxxx</span><br><span class="line">xx HTML 代码 xx</span><br><span class="line">xxxxxxxxxxxxx</span><br><span class="line">&#123;% endraw %&#125;</span><br></pre></td></tr></table></figure>
 <p>PS：Front-matter 是 <code>.md</code> 文件最上方以 — 分隔的区域，用于指定个别文件的变量，官方文档：<a href="https://hexo.io/docs/front-matter">https://hexo.io/docs/front-matter</a></p>
@@ -1755,116 +1617,21 @@ td 标签内放内容<br>
       </tags>
   </entry>
   <entry>
-    <title>Fuwari搭建</title>
-    <url>/posts/a99e9fee/</url>
-    <content><![CDATA[<h1>准备开始</h1>
-<ol>
-<li><a href="https://git-scm.com/downloads">安装Git</a>或者<a href="https://github.com/apps/desktop">安装GitHub Desktop</a>来对Github进行操作</li>
-<li><a href="https://nodejs.org/en">安装Node.js</a>来搭建博客</li>
-<li>一个<a href="https://github.com/">Github</a>账号用于存放Fuwari文件</li>
-<li>一个<a href="https://app.netlify.com/">Netlify</a>账号创建一个Pages并且绑定域名支持访问</li>
-<li><a href="https://www.marktext.cc/">安装MarkText</a>或者<a href="https://typoraio.cn/">安装Typora</a>来编辑MarkDown</li>
-</ol>
-<h1>本地部署Fuwari</h1>
-<ol>
-<li>使用此模板<a href="https://github.com/saicaca/fuwari/generate">生成新仓库</a>或 Fork 此仓库</li>
-<li>Clone 仓库到本地，执行 <code>pnpm install</code> 和 <code>pnpm add sharp</code> 以安装依赖
-<ul>
-<li>若未安装 <a href="https://pnpm.io">pnpm</a>，执行 <code>npm install -g pnpm</code></li>
-</ul>
-</li>
-</ol>
-<h1>修改Fuwari的基本信息</h1>
-<p>根目录下的 <code>src</code> 文件夹中，你可以找到 <code>config.ts</code> 来修改你的Fuwari基本信息</p>
-<ol>
-<li>站点信息&amp;顶部图</li>
-</ol>
-<figure class="highlight plaintext"><table><tr><td class="code"><pre><span class="line">export const siteConfig: SiteConfig = &#123;</span><br><span class="line">  title: &#x27;你的标题&#x27;,</span><br><span class="line">  subtitle: &#x27;你的副标题&#x27;,</span><br><span class="line">  lang: &#x27;zh_CN&#x27;,  // &#x27;en&#x27;, &#x27;zh_CN&#x27;, &#x27;zh_TW&#x27;, &#x27;ja&#x27;, &#x27;ko&#x27;</span><br><span class="line">  themeColor: &#123;  // 主题色部分，按个人喜好配置</span><br><span class="line">    hue: 250,</span><br><span class="line">    fixed: false,</span><br><span class="line">  &#125;,</span><br><span class="line">  banner: &#123;</span><br><span class="line">    enable: true,  // 是否开启顶部图</span><br><span class="line">    src: &#x27;assets/images/你的图片&#x27;,  // 顶部图存放路径</span><br><span class="line">    position: &#x27;center&#x27;,  //  defaults或者center</span><br><span class="line">    credit: &#123;</span><br><span class="line">      enable: true,  // 是否显示顶部图文本描述</span><br><span class="line">      text: &#x27;想显示的文本&#x27;,  // 输入文本等描述</span><br><span class="line">      url: &#x27;https://xxxxxxxxxxxxx&#x27;  // 顶部图的来源url等</span><br><span class="line">    &#125;</span><br><span class="line">  &#125;,</span><br></pre></td></tr></table></figure>
-<ol start="2">
-<li>顶部导航栏github部分</li>
-</ol>
-<figure class="highlight plaintext"><table><tr><td class="code"><pre><span class="line">export const navBarConfig: NavBarConfig = &#123;</span><br><span class="line">  links: [</span><br><span class="line">    LinkPreset.Home,</span><br><span class="line">    LinkPreset.Archive,</span><br><span class="line">    LinkPreset.About,</span><br><span class="line">    &#123;</span><br><span class="line">      name: &#x27;GitHub&#x27;,</span><br><span class="line">      url: &#x27;https://github.com/saicaca/fuwari&#x27;,  // 想要跳转的url</span><br><span class="line">      external: true,  //是否显示外部链接图标并将在新标签中打开</span><br><span class="line">    &#125;,</span><br><span class="line">  ],</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
-<ol start="3">
-<li>左侧信息页配置</li>
-</ol>
-<figure class="highlight plaintext"><table><tr><td class="code"><pre><span class="line">export const profileConfig: ProfileConfig = &#123;</span><br><span class="line">  avatar: &#x27;assets/images/avatar.png&#x27;,  // 头像图片文件路径</span><br><span class="line">  name: &#x27;AULyPc&#x27;,     // 你的昵称</span><br><span class="line">  bio: &#x27;这片大地...&#x27;,  // 你的签名</span><br><span class="line">  links: [           // 社交栏配置</span><br><span class="line">    &#123;</span><br><span class="line">      name: &#x27;Twitter&#x27;,</span><br><span class="line">      icon: &#x27;fa6-brands:twitter&#x27;,  // https://icones.js.org/ icon图标网站</span><br><span class="line">      url: &#x27;https://twitter.com/AULyPc1&#x27;,</span><br><span class="line">    &#125;,</span><br><span class="line">    &#123;</span><br><span class="line">      name: &#x27;Steam&#x27;,</span><br><span class="line">      icon: &#x27;fa6-brands:steam&#x27;,</span><br><span class="line">      url: &#x27;https://steamcommunity.com/profiles/76561198813644850/&#x27;,</span><br><span class="line">    &#125;,</span><br><span class="line">    &#123;</span><br><span class="line">      name: &#x27;GitHub&#x27;,</span><br><span class="line">      icon: &#x27;fa6-brands:github&#x27;,</span><br><span class="line">      url: &#x27;https://github.com/AULyPc&#x27;,</span><br><span class="line">    &#125;,</span><br><span class="line">    &#123;</span><br><span class="line">      name: &#x27;Email&#x27;,</span><br><span class="line">      icon: &#x27;material-symbols:mail&#x27;,</span><br><span class="line">      url: &#x27;mailto:cecilybenson8@gmail.com&#x27;,</span><br><span class="line">    &#125;,</span><br><span class="line">  ],</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
-<h1>编写文章</h1>
-<p>执行 <code>pnpm new-post &lt;filename&gt;</code> 创建新文章页面后<br>
-就可以在 <code>src/content/posts/</code> 目录中编辑你的第一篇文章了</p>
-<p>文章需包含以下内容</p>
-<figure class="highlight plaintext"><table><tr><td class="code"><pre><span class="line">---</span><br><span class="line">title: My First Blog Post  &lt;!-- 你的文章标题 --&gt;</span><br><span class="line">published: 2023-09-09  &lt;!-- 文章发布时间 --&gt;</span><br><span class="line">description: This is the first post of my new Astro blog.  &lt;!-- 简单描述你的文章，可有可无 --&gt;</span><br><span class="line">image: /images/cover.jpg  &lt;!-- 文章主页的封面，可有可无 --&gt;</span><br><span class="line">tags: [Foo, Bar]  &lt;!-- 文章标签 --&gt;</span><br><span class="line">category: Front-end  &lt;!-- 文章分类 --&gt;</span><br><span class="line">draft: false  &lt;!-- 文文章是否为草稿，默认false；设置为true后部署后不可见，但本地开发预览时仍可见 --&gt;</span><br><span class="line">language: &#x27;&#x27;  &lt;!-- 可有可无，按需设置 --&gt;</span><br><span class="line">---</span><br></pre></td></tr></table></figure>
-<h1>本地预览，然后发布到Github</h1>
-<ol>
-<li>
-<p>配置好博客信息并编写好文章之后，在项目根目录执行：<code>pnpm dev</code>，稍等片刻，就可以本地预览你的博客了</p>
-</li>
-<li>
-<p>预览之后使用Git将我们所做的更改发布到Github</p>
-</li>
-</ol>
-<h1>将博客部署到Netlify</h1>
-<ol>
-<li>进入<a href="https://app.netlify.com/">Netlify</a>官网，使用Github账号登陆或者用邮箱进行注册</li>
-<li>点击添加新项目-&gt;导入现有项目</li>
-</ol>
-<p><img src="https://img.zzzg.top/20250802030903812.png" alt="image-20250802025259435"></p>
-<ol start="3">
-<li>连接到Github</li>
-</ol>
-<p><img src="https://img.zzzg.top/20250802030910929.png" alt="image-20250802025502586"></p>
-<ol start="4">
-<li>选择你的博客</li>
-</ol>
-<p><img src="https://img.zzzg.top/20250802030924372.png" alt="image-20250802025549333"></p>
-<ol start="5">
-<li>输入你的项目名称后点击部署</li>
-</ol>
-<p><img src="https://img.zzzg.top/20250802030930935.png" alt="image-20250802025730707"></p>
-<p><img src="https://img.zzzg.top/20250802030936268.png" alt="image-20250802025744743"></p>
-<ol start="6">
-<li>点击域名管理-&gt;添加域-&gt;添加已拥有的域名</li>
-</ol>
-<p><img src="https://img.zzzg.top/20250802030946310.png" alt="image-20250802030006681"></p>
-<ol start="7">
-<li>输入域名后点击核实-&gt;添加子域名</li>
-</ol>
-<p><img src="https://img.zzzg.top/20250802030952107.png" alt="image-20250802030107986"></p>
-<p><img src="https://img.zzzg.top/20250802030956194.png" alt="image-20250802030154171"></p>
-<ol start="8">
-<li>等待添加DNS解析记录，我们去域名管理的地方把DNS解析添加上即可</li>
-</ol>
-<p><img src="https://img.zzzg.top/20250802031001158.png" alt="image-20250802030300114"></p>
-<p><img src="https://img.zzzg.top/20250802031005689.png" alt="image-20250802030319944"></p>
-<p><img src="https://img.zzzg.top/20250802031011750.png" alt="image-20250802030500744"></p>
-<ol start="9">
-<li>等待SSL/TLS证书申请下来后，直接访问设置好的域名就可以进入博客了</li>
-</ol>
-<h1>最后</h1>
-<p>你只需要在本地编写文章，然后使用Git将更改推送到远程仓库，Netlify就会自动部署，更新你的博客！</p>
-]]></content>
-      <categories>
-        <category>博客运维</category>
-      </categories>
-      <tags>
-        <tag>Fuwari</tag>
-      </tags>
-  </entry>
-  <entry>
     <title>Hexo搭建</title>
     <url>/posts/57ee7c1d/</url>
-    <content><![CDATA[<h1>一、前言</h1>
+    <content><![CDATA[<h1 id="一、前言">一、前言</h1>
 <p>作为基础教程，本文以本地搭建 Hexo 环境生成静态文件推送到 GitHub 仓库并使用 GitHub Pages 托管为例，了解了基本流程后，后续您可以更换自己喜欢的主题、使用其他平台托管网站等等</p>
-<h1>二、简介</h1>
+<h1 id="二、简介">二、简介</h1>
 <p>Hexo 是一款基于 Node.js 快速、简洁且高效的博客框架，通过 Node.js 将本地的每一篇 Markdown 文章渲染成 html 网页文件，这样我们的博客就是纯静态的网页，如果我们需要修改文章直接修改对应的 Markdown 文件再重新生成静态网页就好了。Node.js 默认的包管理器是 npm ，<a href="https://www.dejavu.moe/">笔者</a> 建议使用 yarn 做为 Hexo 的包管理器，当然根据自己喜好即可。如果使用 Git 管理文章的话，就不用担心文章丢失了，也可以随意回滚版本，这属于 Git 的范畴，本文不做深入讨论。</p>
 <p><a href="https://hexo.io/zh-cn/index.html">Hexo 官方页面</a></p>
-<h1>三、准备工作</h1>
+<h1 id="三、准备工作">三、准备工作</h1>
 <ul>
 <li>一个域名（最好有 最好备案）</li>
 <li>一台电脑并且联网</li>
 <li>一个 github 账号</li>
 <li>一个腾讯云账号</li>
 </ul>
-<h1>四、本地安装</h1>
+<h1 id="四、本地安装">四、本地安装</h1>
 <h2 id="1、安装-node-js、git">1、安装 node.js、git</h2>
 <ul>
 <li>
@@ -1890,7 +1657,7 @@ td 标签内放内容<br>
 <p>Hexo 的模板是指在新建的文章文件中默认填充的内容。例如，如果您修改 scaffold/post.md 中的 Front-matter 内容，那么每次新建一篇文章时都会包含这个修改。</p>
 <p>至此 你就可以用 <code>hexo n yourfilename</code>去创建一篇新的文章了,<code>yourfilename</code>是你文章的名字。</p>
 <p>hexo 使用<code>markdown</code>语法进行编写。</p>
-<h1>五、使用 github page 搭建博客（可能对国内用户直接访问不太友好）</h1>
+<h1 id="五、使用-github-page-搭建博客（可能对国内用户直接访问不太友好）">五、使用 github page 搭建博客（可能对国内用户直接访问不太友好）</h1>
 <p>设置 git 参数 <code>your name</code>为 github 用户名 <code>email</code>为登录邮箱</p>
 <figure class="highlight bash"><table><tr><td class="code"><pre><span class="line">git config --global user.name <span class="string">&quot;Your Name&quot;</span></span><br><span class="line">git config --global user.email <span class="string">&quot;email@example.com&quot;</span></span><br></pre></td></tr></table></figure>
 <p>新建一个 repository</p>
@@ -1915,7 +1682,7 @@ td 标签内放内容<br>
 </li>
 <li>
 <p>下载 github 中的<code>CNAME</code>文件到本地的<code>source</code></p>
-<h1>六、使用自己的云服务器托管</h1>
+<h1 id="六、使用自己的云服务器托管">六、使用自己的云服务器托管</h1>
 </li>
 </ul>
 <h2 id="1、安装宝塔以及微力同步">1、安装宝塔以及微力同步</h2>
@@ -2411,7 +2178,7 @@ Switch able为可切换的电机<br>
   <entry>
     <title>MT7981B安博通ABT_ASR3000刷机指南</title>
     <url>/posts/2c4b11e5/</url>
-    <content><![CDATA[<h1>刷机方法</h1>
+    <content><![CDATA[<h1 id="刷机方法">刷机方法</h1>
 <h2 id="一：">一：</h2>
 <p>下载附件e-202306161250-cfg.tar.gz，原厂系统：系统工具=&gt;配置管理=&gt;导入配置，重启；</p>
 <h2 id="二：">二：</h2>
@@ -2432,10 +2199,10 @@ Switch able为可切换的电机<br>
 <figure class="highlight shell"><table><tr><td class="code"><pre><span class="line">cd /tmp</span><br><span class="line">mtd write mt7981_abt-asr3000-fip-fixed-parts.bin FIP</span><br></pre></td></tr></table></figure>
 <h2 id="七：">七：</h2>
 <p><strong>按住路由器MESH键插电</strong>，电脑网卡设置IP：192.168.1.100，网线插路由器LAN口，登录192.168.1.1进入uboot webui，刷入asr3000-squashfs-factory.bin，重启；wifi密码：无；后台192.168.1.1，密码：password</p>
-<h1>附件</h1>
+<h1 id="附件">附件</h1>
 <h2 id="固件及原厂dts如下：">固件及原厂dts如下：</h2>
 <p><a href="https://cloud.189.cn/t/U7rqaqmINJ3e">https://cloud.189.cn/t/U7rqaqmINJ3e</a> （访问码：4snw）</p>
-<h1>转载于恩山无线论坛</h1>
+<h1 id="转载于恩山无线论坛">转载于恩山无线论坛</h1>
 <p><a href="https://www.right.com.cn/forum/thread-8302537-1-1.html">https://www.right.com.cn/forum/thread-8302537-1-1.html</a></p>
 ]]></content>
       <categories>
@@ -2463,13 +2230,13 @@ Switch able为可切换的电机<br>
   <entry>
     <title>Openwrt编译</title>
     <url>/posts/72c5b323/</url>
-    <content><![CDATA[<h1>注意</h1>
+    <content><![CDATA[<h1 id="注意">注意</h1>
 <ol>
 <li><strong>不要用 root 用户进行编译</strong></li>
 <li>国内用户编译前最好准备好梯子</li>
 <li>默认登陆 IP 192.168.1.1 密码 password</li>
 </ol>
-<h1>编译命令</h1>
+<h1 id="编译命令">编译命令</h1>
 <ol>
 <li>
 <p>首先装好 Linux 系统，推荐 Debian 11 或 Ubuntu LTS</p>
@@ -2534,7 +2301,7 @@ lede源：<a href="https://github.com/coolsnowwolf/lede">https://github.com/cool
   <entry>
     <title>Oracle数据库和PDPS安装及配置</title>
     <url>/posts/93246652/</url>
-    <content><![CDATA[<h1>安装及配置Oracle</h1>
+    <content><![CDATA[<h1 id="安装及配置Oracle">安装及配置Oracle</h1>
 <h2 id="一、安装java-perl">一、安装java perl</h2>
 <p><img src="https://img.zzzg.top/20260411105832774.png" alt="image-20260410122404020"></p>
 <p><img src="https://img.zzzg.top/20260411105848314.png" alt="image-20260410122423263"></p>
@@ -2616,7 +2383,7 @@ lede源：<a href="https://github.com/coolsnowwolf/lede">https://github.com/cool
 <p>按win+r打开运行窗口，输入<strong>services.msc</strong>进入服务</p>
 <p>双击<strong>OracleServiceMYEMS</strong>这个服务，然后将启动类型改为自动</p>
 <p><img src="https://img.zzzg.top/20260411110047062.png" alt="image-20260410181249379"></p>
-<h1>安装及配置PDPS</h1>
+<h1 id="安装及配置PDPS">安装及配置PDPS</h1>
 <h2 id="一、安装PDPS">一、安装PDPS</h2>
 <h3 id="1、进入软件安装包目录">1、进入软件安装包目录</h3>
 <p><img src="https://img.zzzg.top/20260411110047063.png" alt="image-20260410183423634"></p>
@@ -2627,7 +2394,7 @@ lede源：<a href="https://github.com/coolsnowwolf/lede">https://github.com/cool
 <p><img src="https://img.zzzg.top/20260411110047066.png" alt="image-20260410193014409"></p>
 <h3 id="4、选择需要安装的软件组件">4、选择需要安装的软件组件</h3>
 <ul>
-<li>在组件列表中，勾选 <strong>“Process Simulate Standalone”</strong> ，点选向下的小箭头进行选择。建议使用默认安装路径<code>(C:\Program Files)</code>，或选择空间充足的自定义路径。重要！ 安装路径不能包含中文或特殊字符（空格也尽量避免），使用纯英文路径！</li>
+<li>在组件列表中，勾选 <strong>&quot;Process Simulate Standalone&quot;</strong> ，点选向下的小箭头进行选择。建议使用默认安装路径<code>(C:\Program Files)</code>，或选择空间充足的自定义路径。重要！ 安装路径不能包含中文或特殊字符（空格也尽量避免），使用纯英文路径！</li>
 </ul>
 <p><img src="https://img.zzzg.top/20260411110047067.png" alt="image-20260410193126098"></p>
 <h3 id="5、选择需要安装的机器人控制器组件">5、选择需要安装的机器人控制器组件</h3>
@@ -2649,12 +2416,12 @@ lede源：<a href="https://github.com/coolsnowwolf/lede">https://github.com/cool
 <p><img src="https://img.zzzg.top/20260411110047073.png" alt="image-20260410182649298"></p>
 <h3 id="7、开始安装">7、开始安装</h3>
 <ul>
-<li>确认配置无误后，点击 <strong>“Install”</strong> 开始安装。此过程耗时较长（30分钟至数小时），请耐心等待，<strong>不要中断</strong>。</li>
+<li>确认配置无误后，点击 <strong>&quot;Install&quot;</strong> 开始安装。此过程耗时较长（30分钟至数小时），请耐心等待，<strong>不要中断</strong>。</li>
 </ul>
 <p><img src="https://img.zzzg.top/20260411110047074.png" alt="image-20260410182710234"></p>
 <h3 id="8、安装完成">8、安装完成</h3>
 <ul>
-<li>提示安装成功后，点击 <strong>“Finish”</strong> 退出向导。<strong>暂时不要运行软件！</strong></li>
+<li>提示安装成功后，点击 <strong>&quot;Finish&quot;</strong> 退出向导。<strong>暂时不要运行软件！</strong></li>
 </ul>
 <p><img src="https://img.zzzg.top/20260411110047075.png" alt="image-20260410184143344"></p>
 <h3 id="9、安装语言包">9、安装语言包</h3>
@@ -2730,17 +2497,17 @@ lede源：<a href="https://github.com/coolsnowwolf/lede">https://github.com/cool
   <entry>
     <title>PVE安装iStoreOS</title>
     <url>/posts/d167335e/</url>
-    <content><![CDATA[<h1>首先X86机器已经安装好PVE机器，且能正常联网；</h1>
+    <content><![CDATA[<h1 id="首先X86机器已经安装好PVE机器，且能正常联网；">首先X86机器已经安装好PVE机器，且能正常联网；</h1>
 <ul>
 <li>这里不提供X86机器安装pve教程，自行科普。</li>
 </ul>
-<h1>下载固件</h1>
+<h1 id="下载固件">下载固件</h1>
 <ul>
 <li><a href="https://fw.koolcenter.com/iStoreOS/x86_64/">固件下载(opens new window)</a></li>
 <li><a href="https://fw.koolcenter.com/iStoreOS/x86_64_efi/">固件下载-EFI(opens new window)</a></li>
 </ul>
 <p>越后面的版本越新，下载最新的版本。下载完成之后不需要解压。</p>
-<h1>在PVE里新建虚拟机；</h1>
+<h1 id="在PVE里新建虚拟机；">在PVE里新建虚拟机；</h1>
 <ul>
 <li>进入PVE系统管理界面，右上角“新建虚拟机”；</li>
 </ul>
@@ -2779,7 +2546,7 @@ lede源：<a href="https://github.com/coolsnowwolf/lede">https://github.com/cool
 <li>完成，等待虚拟机创建好。</li>
 </ul>
 <p><img src="https://img.zzzg.top/202312031647835.jpeg" alt=""></p>
-<h1>往刚创建的虚拟机里写入固件；</h1>
+<h1 id="往刚创建的虚拟机里写入固件；">往刚创建的虚拟机里写入固件；</h1>
 <ul>
 <li>利用WinSCP等工具，把下载好的固件(教程用的EFI固件)和img2kvm工具放入root目录下；</li>
 <li><a href="https://fw.koolcenter.com/binary/other-tools/">img2kvm工具下载(opens new window)</a></li>
@@ -2805,7 +2572,7 @@ lede源：<a href="https://github.com/coolsnowwolf/lede">https://github.com/cool
 <li>把EFI磁盘删掉，若BIOS不是UEFI，无此项设置；</li>
 </ul>
 <p><img src="https://img.zzzg.top/202312031647310.jpeg" alt=""></p>
-<h1>启动iStoreOS：</h1>
+<h1 id="启动iStoreOS：">启动iStoreOS：</h1>
 <p><img src="https://img.zzzg.top/202312031648006.jpeg" alt=""></p>
 <ul>
 <li>如果前面的步骤没出错，是能正常启动的：</li>
@@ -2831,7 +2598,7 @@ lede源：<a href="https://github.com/coolsnowwolf/lede">https://github.com/cool
 <p><img src="https://img.zzzg.top/202312031648602.jpeg" alt=""></p>
 <p>iStoreOS默认登录密码是：password</p>
 <p><img src="https://img.zzzg.top/202312031648519.jpeg" alt=""></p>
-<h1>配置iStoreOS：</h1>
+<h1 id="配置iStoreOS：">配置iStoreOS：</h1>
 <p>此刻我们进入iStoreOS，但是目前iStoreOS是个单臂路由状态，只有一个LAN口。</p>
 <ul>
 <li>如果PVE里已有主路由系统，需要把iStoreOS配置为旁路由，在“网络向导”里配置“旁路由”即可。</li>
@@ -2846,7 +2613,7 @@ lede源：<a href="https://github.com/coolsnowwolf/lede">https://github.com/cool
 <li>然后再确认2个IP，首先确认：PVE的虚拟LAN管理IP，比如是192.168.2.88，那么就必须把iStoreOS的IP改成192.168.2.1~192.168.2.77之间，比如把PVE的IP放在iStoreOS主路由LAN口IP之后，不然PVE无法联网。</li>
 <li>然后启动iStoreOS虚拟机，进入iStoreOS后，在“网络向导”里配置联网即可。</li>
 </ul>
-<h1>安装离线插件：</h1>
+<h1 id="安装离线插件：">安装离线插件：</h1>
 <p><strong>注意，上述软件包安装，部分依赖依然要通过opkg软件源在线安装。如果安装失败，检查路由器自身的网络情况，特别是旁路由模式下最容易出现网络问题。</strong><br>
 <strong>再三注意需要路由器自身联网正常</strong></p>
 <ul>
@@ -2878,12 +2645,12 @@ lede源：<a href="https://github.com/coolsnowwolf/lede">https://github.com/cool
   <entry>
     <title>Qexo 一个美观、强大的在线 静态博客 管理器</title>
     <url>/posts/8277e0e6/</url>
-    <content><![CDATA[<h1>前言</h1>
+    <content><![CDATA[<h1 id="前言">前言</h1>
 <p><strong>Hexo</strong> 是一款快速、高效的静态博客框架。通过 <a href="http://daringfireball.net/projects/markdown/">Markdown</a> 语法，只需几秒便可生成高质量的静态网页。</p>
 <p>最近，我成功实现了在多设备间灵活管理博客并发布内容。一位网友提到 <strong>Qexo</strong>，一个为 Hexo 增加后台功能的工具，它让发布博客变得像发微博一样简单。深入了解后，我发现它非常强大，不仅可以用手机随时随地发表文章，还极大提升了操作便捷性。</p>
 <p>尽管安装过程中遇到了一些问题，但最终都顺利解决。我将整理经验分享，希望能帮助更多人。</p>
 <hr>
-<h1>Qexo 简介</h1>
+<h1 id="Qexo-简介">Qexo 简介</h1>
 <p><strong>Qexo</strong> 是一个快速、美观且功能丰富的在线 Hexo 管理器，支持通过 Vercel 免费部署，仅需配置一个数据库即可使用。</p>
 <h2 id="主要功能">主要功能</h2>
 <ul>
@@ -2897,7 +2664,7 @@ lede源：<a href="https://github.com/coolsnowwolf/lede">https://github.com/cool
 </ul>
 <p><strong>项目地址</strong>：<a href="https://www.oplog.cn/qexo/start.html">Qexo 官方文档</a></p>
 <hr>
-<h1>一、配置 GitHub 自动化部署</h1>
+<h1 id="一、配置-GitHub-自动化部署">一、配置 GitHub 自动化部署</h1>
 <h2 id="1-获取-GitHub-Token">1. 获取 GitHub Token</h2>
 <ol>
 <li>打开 <strong>Personal settings</strong> -&gt; <strong>Developer settings</strong> -&gt; <strong>Personal access tokens</strong></li>
@@ -2925,7 +2692,7 @@ lede源：<a href="https://github.com/coolsnowwolf/lede">https://github.com/cool
 <li><a href="https://hackergavin.com/2024/01/11/hexo-automate-deploy/">利用 GitHub Actions 实现自动化部署 Hexo 到 Github Pages</a></li>
 </ul>
 <hr>
-<h1>二、通过 Vercel 部署 Qexo</h1>
+<h1 id="二、通过-Vercel-部署-Qexo">二、通过 Vercel 部署 Qexo</h1>
 <h2 id="1-一键部署">1. 一键部署</h2>
 <p>点击以下按钮完成一键部署：<a href="https://vercel.com/new/clone?repository-url=https://github.com/am-abudu/Qexo">Vercel 一键部署</a></p>
 <blockquote>
@@ -2944,7 +2711,7 @@ lede源：<a href="https://github.com/coolsnowwolf/lede">https://github.com/cool
 <h2 id="5-部署-Qexo">5. 部署 Qexo</h2>
 <p>回到项目页面，点击<strong>Redeploy</strong> 开始部署。部署完成后，无报错即可访问域名进入初始化页面。</p>
 <hr>
-<h1>初始化配置</h1>
+<h1 id="初始化配置">初始化配置</h1>
 <p><a href="https://13fe9ff.webp.li/2024/11/d14a6a28fa42dc905ad1f9572d280abb.png"><img src="https://13fe9ff.webp.li/2024/11/d14a6a28fa42dc905ad1f9572d280abb.png" alt="img"></a></p>
 <p><a href="https://13fe9ff.webp.li/2024/11/8781b5e062a34509ccf39ed0000e8033.png"><img src="https://img.zzzg.top/202412291104276.png" alt="img"></a></p>
 <h2 id="GitHub-配置">GitHub 配置</h2>
@@ -2969,7 +2736,7 @@ lede源：<a href="https://github.com/coolsnowwolf/lede">https://github.com/cool
 <p><a href="https://13fe9ff.webp.li/2024/11/df6b8e762d048854683e5e31f6e262f2.png"><img src="https://img.zzzg.top/202412291104412.png" alt="img"></a></p>
 <p><a href="https://13fe9ff.webp.li/2024/11/2fa7cd4b16b469345b8e628d88affae2.png"><img src="https://img.zzzg.top/202412291104441.png" alt="img"></a></p>
 <p><a href="https://13fe9ff.webp.li/2024/11/6a16b8185a435cf9b807dbcc894d92e1.png"><img src="https://img.zzzg.top/202412291104466.png" alt="img"></a></p>
-<h1></h1>
+<h1 id=""></h1>
 ]]></content>
       <categories>
         <category>博客运维</category>
@@ -2981,19 +2748,19 @@ lede源：<a href="https://github.com/coolsnowwolf/lede">https://github.com/cool
   <entry>
     <title>R探长 甲骨文云开机脚本</title>
     <url>/posts/d604b8c7/</url>
-    <content><![CDATA[<h1>原作者地址</h1>
+    <content><![CDATA[<h1 id="原作者地址">原作者地址</h1>
 <p><a href="https://github.com/semicons/java_oci_manage/blob/main/md/install.md">https://github.com/semicons/java_oci_manage/blob/main/md/install.md</a></p>
-<h1>debian12先要装依赖</h1>
+<h1 id="debian12先要装依赖">debian12先要装依赖</h1>
 <figure class="highlight shell"><table><tr><td class="code"><pre><span class="line">sudo nano /etc/apt/sources.list</span><br></pre></td></tr></table></figure>
 <figure class="highlight shell"><table><tr><td class="code"><pre><span class="line">deb http://deb.debian.org/debian bullseye main</span><br><span class="line"></span><br><span class="line">deb-src http://deb.debian.org/debian bullseye main</span><br></pre></td></tr></table></figure>
 <figure class="highlight shell"><table><tr><td class="code"><pre><span class="line">apt update</span><br><span class="line"></span><br><span class="line">apt install openjdk-17-jdk</span><br></pre></td></tr></table></figure>
-<h1>更新环境</h1>
+<h1 id="更新环境">更新环境</h1>
 <figure class="highlight shell"><table><tr><td class="code"><pre><span class="line">apt update -y &amp;&amp; apt install -y curl wget sudo</span><br></pre></td></tr></table></figure>
-<h1>安装R探长</h1>
+<h1 id="安装R探长">安装R探长</h1>
 <figure class="highlight shell"><table><tr><td class="code"><pre><span class="line">cd /home &amp;&amp; mkdir rbot &amp;&amp; cd rbot</span><br><span class="line"></span><br><span class="line">wget -O gz_client_bot.tar.gz https://github.com/semicons/java_oci_manage/releases/latest/download/gz_client_bot.tar.gz &amp;&amp; tar -zxvf gz_client_bot.tar.gz --exclude=client_config &amp;&amp; tar -zxvf gz_client_bot.tar.gz --skip-old-files client_config &amp;&amp; chmod +x sh_client_bot.sh</span><br></pre></td></tr></table></figure>
-<h1>下载配置client_config模板</h1>
+<h1 id="下载配置client-config模板">下载配置client_config模板</h1>
 <p><a href="https://github.com/kejilion/sh/blob/main/client_config">https://github.com/kejilion/sh/blob/main/client_config</a></p>
-<h1>到甲骨文云下载API证书并获取API信息</h1>
+<h1 id="到甲骨文云下载API证书并获取API信息">到甲骨文云下载API证书并获取API信息</h1>
 <p><a href="https://cloud.oracle.com/">https://cloud.oracle.com/</a></p>
 <p><img src="https://img.zzzg.top/202312080925335.png" alt=""></p>
 <p><img src="https://img.zzzg.top/202312080925572.png" alt=""></p>
@@ -3002,26 +2769,26 @@ lede源：<a href="https://github.com/coolsnowwolf/lede">https://github.com/cool
 <p><img src="https://img.zzzg.top/202312080925243.png" alt=""></p>
 <p><img src="https://img.zzzg.top/202312080925743.png" alt=""></p>
 <p><img src="https://img.zzzg.top/202312080926332.png" alt=""></p>
-<h1>key存放路径</h1>
+<h1 id="key存放路径">key存放路径</h1>
 <p>key_file=/home/rbot/key.pem</p>
-<h1>关注R探长频道和机器人</h1>
+<h1 id="关注R探长频道和机器人">关注R探长频道和机器人</h1>
 <p>R探长频道：<a href="https://t.me/agentONE_R">https://t.me/agentONE_R</a></p>
 <p>R探长机器人：<a href="https://t.me/radiance_helper_bot">https://t.me/radiance_helper_bot</a></p>
-<h1>和机器人对话获取随机用户名和密码</h1>
+<h1 id="和机器人对话获取随机用户名和密码">和机器人对话获取随机用户名和密码</h1>
 <p>/raninfo</p>
-<h1>填写示例</h1>
+<h1 id="填写示例">填写示例</h1>
 <p><img src="https://img.zzzg.top/202312080926509.png" alt=""></p>
 <p>填写完成后</p>
 <p>把<strong>client_config.txtclient_config.txt</strong>改为<strong>client_config</strong></p>
 <p>把下载的pem文件改为<strong>key.pem</strong></p>
 <p>然后上传到**/home/rbot/**目录</p>
-<h1>启动或重启</h1>
+<h1 id="启动或重启">启动或重启</h1>
 <figure class="highlight shell"><table><tr><td class="code"><pre><span class="line">bash sh_client_bot.sh </span><br></pre></td></tr></table></figure>
-<h1>查看日志(ctrl + c退出日志)</h1>
+<h1 id="查看日志-ctrl-c退出日志">查看日志(ctrl + c退出日志)</h1>
 <figure class="highlight shell"><table><tr><td class="code"><pre><span class="line">tail -f log_r_client.log </span><br></pre></td></tr></table></figure>
-<h1>终止程序</h1>
+<h1 id="终止程序">终止程序</h1>
 <figure class="highlight shell"><table><tr><td class="code"><pre><span class="line">ps -ef | grep r_client.jar | grep -v grep | awk &#x27;&#123;print $2&#125;&#x27; | xargs kill -9 </span><br></pre></td></tr></table></figure>
-<h1>卸载程序</h1>
+<h1 id="卸载程序">卸载程序</h1>
 <figure class="highlight shell"><table><tr><td class="code"><pre><span class="line">rm -rf gz_client_bot.tar.gz client_config r_client.jar sh_client_bot.sh log_r_client.log debug-.log </span><br></pre></td></tr></table></figure>
 <p>如也不需要JDK也可卸载：</p>
 <figure class="highlight shell"><table><tr><td class="code"><pre><span class="line">apt-get remove openjdk*</span><br></pre></td></tr></table></figure>
@@ -3036,10 +2803,10 @@ lede源：<a href="https://github.com/coolsnowwolf/lede">https://github.com/cool
   <entry>
     <title>S120伺服断开STO会掉位置的解决方法</title>
     <url>/posts/db238e4c/</url>
-    <content><![CDATA[<h1><strong>原因分析</strong></h1>
+    <content><![CDATA[<h1 id="原因分析"><strong>原因分析</strong></h1>
 <p>西门子S120伺服断开STO在作为上下移动的移动应用时，可能会因为负载较重，当断开STO安全信号，或者断开电源，伺服抱闸启用时仍然会往下掉位置。</p>
 <p>当遇到这种情况，通常是因为伺服电机断电时，电机抱闸还没有动作到位；我们可以适当调整抱闸释放时间和STO关断时伺服断电时间。</p>
-<h1><strong>调整参数</strong></h1>
+<h1 id="调整参数"><strong>调整参数</strong></h1>
 <p>我们可以通过STARTER软件调整抱闸释放时间和STO关断时伺服断电时间。</p>
 <blockquote>
 <p>注意伺服抱闸释放时间不宜延时过久，不然伺服断电后可能停止过慢。</p>
@@ -3093,7 +2860,7 @@ lede源：<a href="https://github.com/coolsnowwolf/lede">https://github.com/cool
     <content><![CDATA[<blockquote>
 <p>本文整理自 SEW-EURODRIVE 培训手册《MOVI-C Modular / System 多轴模块/系统模块 — MOVIKIT Position / Velocity 定位/速度控制模块配置向导（Version 2.0）》，适用于使用 MOVISUITE 软件对 MOVI-C 系统进行完整调试与上位 PLC 通讯组态的工程场景。</p>
 </blockquote>
-<h1>概述</h1>
+<h1 id="概述">概述</h1>
 <h2 id="编写目的">编写目的</h2>
 <ul>
 <li>熟悉并掌握 <strong>MOVISUITE</strong> 调试软件的基本操作；</li>
@@ -3124,7 +2891,7 @@ lede源：<a href="https://github.com/coolsnowwolf/lede">https://github.com/cool
 <li>在西门子 PLC 内完成通讯组态与程序控制。</li>
 </ol>
 <hr>
-<h1>1 了解现场设备，确认硬件安装和接线</h1>
+<h1 id="1-了解现场设备，确认硬件安装和接线">1 了解现场设备，确认硬件安装和接线</h1>
 <p><strong>本章目标</strong>：了解变频器系统硬件组成，确认现场供电与接线状态。</p>
 <p><img src="https://img.zzzg.top/20261128005836714.png" alt="硬件系统组成示意"></p>
 <h2 id="1-1-了解设备">1.1 了解设备</h2>
@@ -3238,7 +3005,7 @@ lede源：<a href="https://github.com/coolsnowwolf/lede">https://github.com/cool
 <li>轴模块指示灯亮起，数码管显示非 <code>Exx.xx</code> 故障代码（例如 <code>C4</code>、<code>01</code> 等）。</li>
 </ul>
 <hr>
-<h1>2 工程师电脑与现场 MOVI-C 设备建立通讯连接</h1>
+<h1 id="2-工程师电脑与现场-MOVI-C-设备建立通讯连接">2 工程师电脑与现场 MOVI-C 设备建立通讯连接</h1>
 <p><strong>本章目标</strong>：将工程师电脑接入 UHX85A，通过 MOVISUITE 建立通讯连接并扫描创建项目。</p>
 <p><img src="https://img.zzzg.top/20261128005850889.png" alt="工程师电脑连接通讯示意"></p>
 <h2 id="2-1-连接工程师电脑与-UHX85A-网络接口">2.1 连接工程师电脑与 UHX85A 网络接口</h2>
@@ -3326,7 +3093,7 @@ lede源：<a href="https://github.com/coolsnowwolf/lede">https://github.com/cool
 </ol>
 <p><img src="https://img.zzzg.top/20261128005942937.png" alt="重新扫描并保存项目"></p>
 <hr>
-<h1>3 简单介绍 MOVI-C 调试软件</h1>
+<h1 id="3-简单介绍-MOVI-C-调试软件">3 简单介绍 MOVI-C 调试软件</h1>
 <p><strong>本章目标</strong>：熟悉 MOVISUITE 软件的视图模式、工具栏及参数菜单结构，能够快速定位参数与设备功能。</p>
 <p><img src="https://img.zzzg.top/20261128005945083.png" alt="MOVISUITE 调试软件概览"></p>
 <h2 id="3-1-切换不同的项目视图">3.1 切换不同的项目视图</h2>
@@ -3550,7 +3317,7 @@ lede源：<a href="https://github.com/coolsnowwolf/lede">https://github.com/cool
 <p>ℹ️ <strong>说明</strong>：当插入一个 MOVIKIT 软件功能模块时，参数菜单会自动扩展增加该 MOVIKIT 的专用参数组，详见第 4.6 节。</p>
 </blockquote>
 <hr>
-<h1>4 开始第一个轴的电机参数配置</h1>
+<h1 id="4-开始第一个轴的电机参数配置">4 开始第一个轴的电机参数配置</h1>
 <p><strong>本章目标</strong>：</p>
 <ul>
 <li>将第一个轴恢复出厂状态（清空参数），完成首次 Startup 电机启动参数配置；</li>
@@ -4054,7 +3821,7 @@ lede源：<a href="https://github.com/coolsnowwolf/lede">https://github.com/cool
 <p>此外，在轴模块上右键单击可选择 <strong>导出数据</strong> 生成参数文件。现场存在多台相同电机、驱动器与机械结构时，配置下一台驱动器只需右键 <strong>导入数据</strong> 并修改 <strong>现场总线接口</strong> 中的 <strong>启动地址</strong> 即可大幅提效：</p>
 <p><img src="https://img.zzzg.top/20261128010214575.png" alt="右键导出与导入驱动器参数文件"></p>
 <hr>
-<h1>5 通过手动操作验证电机参数配置和优化</h1>
+<h1 id="5-通过手动操作验证电机参数配置和优化">5 通过手动操作验证电机参数配置和优化</h1>
 <p><strong>本章目标</strong>：使用 MOVISUITE 的手动操作功能，以速度控制、位置控制、往复定位与增量定位等模式启停和移动电机，验证参数配置效果。</p>
 <p><img src="https://img.zzzg.top/20261128010216620.png" alt="手动操作验证概览"></p>
 <blockquote>
@@ -4167,7 +3934,7 @@ lede源：<a href="https://github.com/coolsnowwolf/lede">https://github.com/cool
 <p>⚠️ <strong>安全警告</strong>：退出手动操作后，驱动器将立即恢复接受外部端子或现场总线控制指令，电机可能自动启动，请务必注意机械安全！</p>
 </blockquote>
 <hr>
-<h1>6 开始第二个轴、第三个轴的电机参数配置和优化</h1>
+<h1 id="6-开始第二个轴、第三个轴的电机参数配置和优化">6 开始第二个轴、第三个轴的电机参数配置和优化</h1>
 <p>按照第 4、5 章的方法依次完成第二个轴与第三个轴的 Startup 配置、惯量优化、MOVIKIT Positioning 添加及手动验证。</p>
 <p>两台轴的示例机械配置与电机参数如下（减速机均为 <code>R57</code>，减速比 <code>24.99</code>，驱动轮周长 <code>314 mm</code>）：</p>
 <ul>
@@ -4188,7 +3955,7 @@ lede源：<a href="https://github.com/coolsnowwolf/lede">https://github.com/cool
 </ul>
 <p><img src="https://img.zzzg.top/20261128010248752.png" alt="第 3 轴现场总线启动地址设为 21"></p>
 <hr>
-<h1>7 创建 UHX85A 内的 IEC 程序，自动生成程序代码</h1>
+<h1 id="7-创建-UHX85A-内的-IEC-程序，自动生成程序代码">7 创建 UHX85A 内的 IEC 程序，自动生成程序代码</h1>
 <p>在三个轴全部完成组态与优化后，配置 MOVI-C Controller（UHX85A）参数并自动生成 IEC 代码。</p>
 <ol>
 <li>打开 UHX85A 参数菜单 → <strong>现场总线</strong>：</li>
@@ -4274,7 +4041,7 @@ lede源：<a href="https://github.com/coolsnowwolf/lede">https://github.com/cool
 <p>ℹ️ <strong>说明</strong>：本例使用标准 MOVIKIT Position / Velocity 模块，控制逻辑均已自动生成，客户在 UHX85A 侧无需手动编写 IEC 代码。</p>
 </blockquote>
 <hr>
-<h1>8 添加 Fieldbus Monitor，监控和模拟 PLC 过程数据</h1>
+<h1 id="8-添加-Fieldbus-Monitor，监控和模拟-PLC-过程数据">8 添加 Fieldbus Monitor，监控和模拟 PLC 过程数据</h1>
 <h2 id="8-1-添加脚本并下载运行">8.1 添加脚本并下载运行</h2>
 <ol>
 <li>在 IEC 编辑器顶部菜单点击 <strong>工具</strong> → <strong>脚本</strong> → <strong>Scripts</strong> → <strong>F</strong> → <strong><code>Fieldbusmonitor.py</code></strong>：</li>
@@ -4727,7 +4494,7 @@ lede源：<a href="https://github.com/coolsnowwolf/lede">https://github.com/cool
 <td style="text-align:center"></td>
 <td style="text-align:center"><strong>7</strong></td>
 <td style="text-align:center">V / P</td>
-<td style="text-align:left">“In position” signal active（到位信号激活）</td>
+<td style="text-align:left">&quot;In position&quot; signal active（到位信号激活）</td>
 <td style="text-align:left">Not in position（未到位）</td>
 </tr>
 <tr>
@@ -4845,7 +4612,7 @@ lede源：<a href="https://github.com/coolsnowwolf/lede">https://github.com/cool
 </tbody>
 </table>
 <hr>
-<h1>9 在西门子 PLC 内完成通讯组态与程序控制</h1>
+<h1 id="9-在西门子-PLC-内完成通讯组态与程序控制">9 在西门子 PLC 内完成通讯组态与程序控制</h1>
 <p>本节以 <strong>西门子 TIA Portal（博途）</strong> 为例，演示上位 PLC 与 SEW UHX85A 的 PROFINET 硬件组态与通讯测试流程。</p>
 <ol>
 <li>启动 TIA Portal 软件，确认运行环境及物理网络连接正常；</li>
@@ -4940,7 +4707,7 @@ lede源：<a href="https://github.com/coolsnowwolf/lede">https://github.com/cool
   <entry>
     <title>SEW MOVIDRIVE MDX61B调试步骤</title>
     <url>/posts/175f8f8b/</url>
-    <content><![CDATA[<h1>通用配置</h1>
+    <content><![CDATA[<h1 id="通用配置">通用配置</h1>
 <p>1、打开MOVITOOLS MotionStudio软件，创建项目；</p>
 <p><img src="https://img.zzzg.top/20250524222200677.png" alt="image-20250524222158605"></p>
 <p>2、用USB11A连接电脑和MDX61B控制器的XT插槽，扫描网络上的设备；</p>
@@ -5003,7 +4770,7 @@ lede源：<a href="https://github.com/coolsnowwolf/lede">https://github.com/cool
 <p><img src="https://img.zzzg.top/20250524222633542.png" alt="image-20250524212344985"></p>
 <p>31、选择“是”，退出手动模式；</p>
 <p><img src="https://img.zzzg.top/20250524222641778.png" alt="image-20250524212354086"></p>
-<h1>variable setpoint-0801</h1>
+<h1 id="variable-setpoint-0801">variable setpoint-0801</h1>
 <p>32、创建AMA0801模块；</p>
 <p><img src="https://img.zzzg.top/20250524222649124.png" alt="image-20250524212632424"></p>
 <p>33、去除控制器X13/DIΦΦ“控制器禁止”端子的二进制输入，点击“next”，开始初始化AMA0801模块；</p>
@@ -5034,7 +4801,7 @@ lede源：<a href="https://github.com/coolsnowwolf/lede">https://github.com/cool
 <p><img src="https://img.zzzg.top/20250524222830169.png" alt="image-20250524212846979"></p>
 <p>46、若后期设备应用有更改，需初始化控制器，可在“parameter tree”P802中选择“delivery state”，将控制器还原为出厂状态。</p>
 <p><img src="https://img.zzzg.top/20250524222838525.png" alt="image-20250524212857194"></p>
-<h1>binary setpoint-0801</h1>
+<h1 id="binary-setpoint-0801">binary setpoint-0801</h1>
 <p>32、创建AMA0801模块；</p>
 <p><img src="https://img.zzzg.top/20250524222649124.png" alt="image-20250524212632424"></p>
 <p>33、去除控制器X13/DIΦΦ“控制器禁止”端子的二进制输入，点击“next”，开始初始化AMA0801模块；</p>
@@ -5071,7 +4838,7 @@ lede源：<a href="https://github.com/coolsnowwolf/lede">https://github.com/cool
 <p><img src="https://img.zzzg.top/20250524223117373.png" alt="image-20250524213640973"></p>
 <p>49、若后期设备应用有更改，需初始化控制器，可在“parameter tree”P802中选择“delivery state”，将控制器还原为出厂状态。</p>
 <p><img src="https://img.zzzg.top/20250524223125031.png" alt="image-20250524213649646"></p>
-<h1>modulo positioning-0801</h1>
+<h1 id="modulo-positioning-0801">modulo positioning-0801</h1>
 <p>32、去除控制器X13/DIΦΦ“控制器禁止”端子的二进制输入，开始创建modulo positioning定位模块；</p>
 <p><img src="https://img.zzzg.top/20250524223131691.png" alt="image-20250524213728571"></p>
 <p>33、上位机若为总线控制，选择“bus”；若为I/O端子控制，选择“terminals”;</p>
@@ -5117,7 +4884,7 @@ lede源：<a href="https://github.com/coolsnowwolf/lede">https://github.com/cool
   <entry>
     <title>SEW MOVIPRO调试步骤</title>
     <url>/posts/f5fecf87/</url>
-    <content><![CDATA[<h1>创建项目-添加设备并配置</h1>
+    <content><![CDATA[<h1 id="创建项目-添加设备并配置">创建项目-添加设备并配置</h1>
 <p>1、打开MOVITOOLS MotionStudio软件，创建项目；<br>
 <img src="https://img.zzzg.top/20250520230954862.png" alt="image-20250520230940811"></p>
 <p>2、用Ethernet线缆连接电脑和MoviPro控制器的service unit。点击“communication”，创建通讯方式；<br>
@@ -5144,7 +4911,7 @@ lede源：<a href="https://github.com/coolsnowwolf/lede">https://github.com/cool
 <img src="https://img.zzzg.top/20250520231221238.png" alt="image-20250520224613368"></p>
 <p>13、硬件配置完成；<br>
 <img src="https://img.zzzg.top/20250520231228687.png" alt="image-20250520224629428"></p>
-<h1>配置电机参数</h1>
+<h1 id="配置电机参数">配置电机参数</h1>
 <p>14、进行power section初始化；<br>
 <img src="https://img.zzzg.top/20250520231239923.png" alt="image-20250520224645469"></p>
 <p>15、点击“perform startup”，开始初始化；<br>
@@ -5187,21 +4954,21 @@ lede源：<a href="https://github.com/coolsnowwolf/lede">https://github.com/cool
 <img src="https://img.zzzg.top/20250520231552525.png" alt="image-20250520225121142"></p>
 <p>34、初始化完全完成后，会跳出提示框，点击“确定”；<br>
 <img src="https://img.zzzg.top/20250520231600145.png" alt="image-20250520225138383"></p>
-<h1>设置其他参数</h1>
+<h1 id="设置其他参数">设置其他参数</h1>
 <p>35、点击“parameter tree”，进行WEISS所提供参数表中其它相关参数的设置；<br>
 <img src="https://img.zzzg.top/20250520231606894.png" alt="image-20250520225149596"></p>
 <p>36、例如，P911定位斜坡1，P913/P914运转转速CW/CCW，P916斜坡形式需设为“Jerk-Limited”；<br>
 <img src="https://img.zzzg.top/20250520231616480.png" alt="image-20250520225202404"></p>
 <p>37、例如，P933突变时间；<br>
 <img src="https://img.zzzg.top/20250520231626629.png" alt="image-20250520225213331"></p>
-<h1>手动控制</h1>
+<h1 id="手动控制">手动控制</h1>
 <p>38、参数配置为在线实时进行，完成后，点击“manual mode”手动模式；<br>
 <img src="https://img.zzzg.top/20250520231642297.png" alt="image-20250520225223204"></p>
 <p>39、点击“Activate manual mode”，激活手动模式。此时插上jumper plug，设置速度，方向，即可进行转台正反停控制；<br>
 <img src="https://img.zzzg.top/20250520231656405.png" alt="image-20250520225234230"></p>
 <p>40、手动模式下，转台运行正常后，将转台旋转至机械零点位置，点击“Deactivate manual mode”，退出手动模式，拔下jumper plug;	<br>
 <img src="https://img.zzzg.top/20250520231705779.png" alt="image-20250520225246305"></p>
-<h1>模块应用配置</h1>
+<h1 id="模块应用配置">模块应用配置</h1>
 <p>41、点击“Application Configurator”，进行模块应用配置；<br>
 <img src="https://img.zzzg.top/20250520231712618.png" alt="image-20250520225301025"></p>
 <p>42、点击“Create new configuration”,创建新的模块应用配置；<br>
@@ -5220,7 +4987,7 @@ lede源：<a href="https://github.com/coolsnowwolf/lede">https://github.com/cool
 <img src="https://img.zzzg.top/20250520231804084.png" alt="image-20250520225445136"></p>
 <p>49、应用配置完成；<br>
 <img src="https://img.zzzg.top/20250520231811471.png" alt="image-20250520225459428"></p>
-<h1>配置AMA0801</h1>
+<h1 id="配置AMA0801">配置AMA0801</h1>
 <p>50、创建AMA0801模块；<br>
 <img src="https://img.zzzg.top/20250520231822010.png" alt="image-20250520225524162"></p>
 <p>51、点击“Load a configuration”，下载已保存的应用模块，或者点击“next”，开始初始化AMA0801模块；<br>
@@ -5245,7 +5012,7 @@ lede源：<a href="https://github.com/coolsnowwolf/lede">https://github.com/cool
 <img src="https://img.zzzg.top/20250520231936652.png" alt="image-20250520225738609"></p>
 <p>61、点击“download”，将AMA应用模块配置下载至设备；<br>
 <img src="https://img.zzzg.top/20250520231948547.png" alt="image-20250520225759312"></p>
-<h1>总线控制</h1>
+<h1 id="总线控制">总线控制</h1>
 <p>62、下载完成后，软件自动跳至总线控制监视器；<br>
 <img src="https://img.zzzg.top/20250520232005174.png" alt="image-20250520225808792"></p>
 <p>63、点击“control”，确定弹出对话框；<br>
@@ -5260,7 +5027,7 @@ lede源：<a href="https://github.com/coolsnowwolf/lede">https://github.com/cool
 <img src="https://img.zzzg.top/20250520232045036.png" alt="image-20250520225859987"></p>
 <p>68、模拟总线控制转台运转正常之后，取消控制字，拔下jumper plug，点击“monitor”，退出控制模式；<br>
 <img src="https://img.zzzg.top/20250520232051720.png" alt="image-20250520225909761"></p>
-<h1>数据管理</h1>
+<h1 id="数据管理">数据管理</h1>
 <p>69、点击“Datamanagement”；<br>
 <img src="https://img.zzzg.top/20250520232100983.png" alt="image-20250520225920732"></p>
 <p>70、点击“upload”，将设备中数据备份到SD卡；<br>
@@ -5277,10 +5044,10 @@ lede源：<a href="https://github.com/coolsnowwolf/lede">https://github.com/cool
 <img src="https://img.zzzg.top/20250520232149043.png" alt="image-20250520230037252"></p>
 <p>76、点击“export”，可将此项目导出为.exe文件；<br>
 <img src="https://img.zzzg.top/20250520232157540.png" alt="image-20250520230047342"></p>
-<h1>初始化</h1>
+<h1 id="初始化">初始化</h1>
 <p>77、若需初始化控制器，可在“parameter tree”P802中选择“delivery state”，将控制器还原为出厂状态。<br>
 <img src="https://img.zzzg.top/20250520232205573.png" alt="image-20250520230056017"></p>
-<h1>补充</h1>
+<h1 id="补充">补充</h1>
 <p>1、变频器安全参照MOVIFIT设置右键点击20 Default<br>
 <img src="https://img.zzzg.top/20250522195109917.jpg" alt="img"></p>
 <p>2、变频器硬件组态输入输出数据为 8 WORD.<br>
@@ -5435,7 +5202,7 @@ lede源：<a href="https://github.com/coolsnowwolf/lede">https://github.com/cool
   <entry>
     <title>SEW-MDX61B-同步伺服调试方法</title>
     <url>/posts/ee46e52f/</url>
-    <content><![CDATA[<h1>一、使用 MOTION STUDIO 软件配置电机</h1>
+    <content><![CDATA[<h1 id="一、使用-MOTION-STUDIO-软件配置电机">一、使用 MOTION STUDIO 软件配置电机</h1>
 <p>1、打开MOVITOOLS MotionStudio软件，创建项目</p>
 <p><img src="https://img.zzzg.top/20250725155738367.png" alt=""></p>
 <p><img src="https://img.zzzg.top/20250725155738368.png" alt=""></p>
@@ -5484,7 +5251,7 @@ lede源：<a href="https://github.com/coolsnowwolf/lede">https://github.com/cool
 <p><img src="https://img.zzzg.top/20250725155738391.png" alt=""></p>
 <p>21、初始化完全完成后，会跳出提示框，点击确定</p>
 <p><img src="https://img.zzzg.top/20250725155738392.png" alt=""></p>
-<h1>二、使用 MOTION STUDIOS 软件-手动操作模拟器直接驱动电机运行，以检测电机接线，编码器接线，电机特性配置是否良好</h1>
+<h1 id="二、使用-MOTION-STUDIOS-软件-手动操作模拟器直接驱动电机运行，以检测电机接线，编码器接线，电机特性配置是否良好">二、使用 MOTION STUDIOS 软件-手动操作模拟器直接驱动电机运行，以检测电机接线，编码器接线，电机特性配置是否良好</h1>
 <p>1、进入手动操作页面</p>
 <p><img src="https://img.zzzg.top/20250725155738393.png" alt=""></p>
 <p>2、点击Activate manual mode，激活手动模式</p>
@@ -5493,7 +5260,7 @@ lede源：<a href="https://github.com/coolsnowwolf/lede">https://github.com/cool
 <p><img src="https://img.zzzg.top/20250725155738395.png" alt=""></p>
 <p>4、手动模式下，转台运行正常后，点击Deactivate manual mode，选择是，退出手动模式</p>
 <p><img src="https://img.zzzg.top/20250725155738396.png" alt=""></p>
-<h1>三、使用 MOTION STUDIO 软件设定参数</h1>
+<h1 id="三、使用-MOTION-STUDIO-软件设定参数">三、使用 MOTION STUDIO 软件设定参数</h1>
 <h2 id="总线位置控制-6PD-Profinet-IO-双驱力矩分配升降-带增量型编码器">总线位置控制-6PD-Profinet IO-双驱力矩分配升降-带增量型编码器</h2>
 <h3 id="1、主机参数">1、主机参数</h3>
 <table>
@@ -6254,7 +6021,7 @@ lede源：<a href="https://github.com/coolsnowwolf/lede">https://github.com/cool
 </tr>
 </tbody>
 </table>
-<h1>四、接线</h1>
+<h1 id="四、接线">四、接线</h1>
 <p><strong>主机与从机的X12端口需对接</strong></p>
 <table>
 <thead>
@@ -6278,10 +6045,10 @@ lede源：<a href="https://github.com/coolsnowwolf/lede">https://github.com/cool
 </tr>
 </tbody>
 </table>
-<h1>五、拨码</h1>
+<h1 id="五、拨码">五、拨码</h1>
 <p><strong>从机 S12 需置于 ON 处</strong></p>
 <p><img src="https://img.zzzg.top/20250725155738397.png" alt=""></p>
-<h1>六、总线使用说明</h1>
+<h1 id="六、总线使用说明">六、总线使用说明</h1>
 <h2 id="总线位置控制-6PD-Profinet-IO-双驱力矩分配升降-带增量型编码器-2">总线位置控制-6PD-Profinet IO-双驱力矩分配升降-带增量型编码器</h2>
 <h3 id="PLC-设定至变频器值">PLC 设定至变频器值</h3>
 <p><strong>PO1 :</strong> IPOS PO-DATA</p>
@@ -6325,7 +6092,7 @@ lede源：<a href="https://github.com/coolsnowwolf/lede">https://github.com/cool
 <h2 id="总线速度控制-6PD-Profinet-IO-双驱板链-带增量型编码器-2">总线速度控制-6PD-Profinet IO-双驱板链-带增量型编码器</h2>
 <h3 id="PLC-设定至变频器值-2">PLC 设定至变频器值</h3>
 <h3 id="变频器反馈至-PLC-值-2">变频器反馈至 PLC 值</h3>
-<h1>七、使用 MOTION STUDIO 软件，输入驱动器内位控程序</h1>
+<h1 id="七、使用-MOTION-STUDIO-软件，输入驱动器内位控程序">七、使用 MOTION STUDIO 软件，输入驱动器内位控程序</h1>
 <h2 id="总线位置控制-6PD-Profinet-IO-双驱力矩分配升降-带增量型编码器-3">总线位置控制-6PD-Profinet IO-双驱力矩分配升降-带增量型编码器</h2>
 <p>总线位控模式运行时，伺服控制器内接口程序</p>
 <figure class="highlight plaintext"><table><tr><td class="code"><pre><span class="line">SET H200 = 3 //设定接口格式：外部总线数据传输</span><br><span class="line">SET H201 = 6 //设定接口格式：6 个PO</span><br><span class="line">SET H211 = 6 //设定接口格式：6 个PI</span><br><span class="line">M2: GETSYS H200 = PO-DATA //接收 PO 数据值</span><br><span class="line">SET H222 = H202</span><br><span class="line">SET H223 = H202</span><br><span class="line">SETSYS POP.SPEED C(CW) = H222 //对运行速度赋值</span><br><span class="line">SETSYS IMAX = H205 //对最大输出力矩赋值</span><br><span class="line">SET H226 = H206</span><br><span class="line">SET H227 = H207</span><br><span class="line">SETSYS POP.RAMP = H226 //对加减速时间赋值</span><br><span class="line">SET H492 = H499 //对运行的目标位置赋值</span><br><span class="line">SETSYS PI-DATA = H211 //读取 PI 数据值</span><br><span class="line">GETSYS H215 = ACT . SPEED //读取实际运行速度值</span><br><span class="line">GETSYS H216 = ACTUAL . CURRENT //读取实际输出力矩值</span><br><span class="line">SET H217 = H521 //读取输出点的状态值</span><br><span class="line">JMP H202 == 1, M1 //置零点坐标条件；</span><br><span class="line">RET</span><br><span class="line">M1: SET H511 = 0 //如果总线传送的第一个字值为 1，将当前的位置坐标置为 0（建立坐标系）；</span><br><span class="line">WAIT 100ms</span><br><span class="line">JMP UNCONDITIONED , M2</span><br><span class="line">RET</span><br><span class="line">END</span><br></pre></td></tr></table></figure>
@@ -6337,7 +6104,7 @@ lede源：<a href="https://github.com/coolsnowwolf/lede">https://github.com/cool
 <p>如果仅将第一个传送字发送 0，第二和第三个传送字发送的坐标值与当前的坐标值不同，在将 ENABLE/RAP.STOP 端子置为 1 后，伺服系统会以极低的速度朝第二和第三个传送字发送的坐标值运行，而不会以 0 速停在原地。</p>
 <p>当 ENABLE/RAP.STOP 端子为 1 时，不能发送回零指令，不恰当的操作会导致系统报警停机。</p>
 <p>当①系统断电又重新上电，②系统报警停机复位，以及③对伺服系统作初始化配置后，系统内部的坐标系都会被更改，应重新做回零运行，建立正确的系统坐标系。</p>
-<h1>电磁干扰屏蔽安装要求</h1>
+<h1 id="电磁干扰屏蔽安装要求">电磁干扰屏蔽安装要求</h1>
 <p>伺服控制器至伺服电机的动力电缆需采用带屏蔽层，屏蔽层从头至尾不应有断层，并用金属夹可靠紧固，大面积接地</p>
 <p><img src="https://img.zzzg.top/20250725155738400.png" alt=""></p>
 <p>编码器线需采用专用带屏蔽层双绞线，并用金属夹将屏蔽层可靠紧固接地，屏蔽层从头至尾不应有断层。</p>
@@ -6345,7 +6112,7 @@ lede源：<a href="https://github.com/coolsnowwolf/lede">https://github.com/cool
 <p><img src="https://img.zzzg.top/20250725155738402.png" alt=""></p>
 <p><img src="https://img.zzzg.top/20250725155738403.png" alt=""></p>
 <p>电磁干扰屏蔽处理不当：<strong>会出现总线易受干扰掉线；编码器脉冲信号接受错误，定位精度差；对电机进行零速控制时，电机会自行转动等故障现象。</strong></p>
-<h1>资料下载</h1>
+<h1 id="资料下载">资料下载</h1>
 <p>MOVIDRIVE® MDX60B / 61B 操作手册：<a href="https://download.sew-eurodrive.com/download/pdf/11300558.pdf">https://download.sew-eurodrive.com/download/pdf/11300558.pdf</a><br>
 MOVITOOLS MotionStudio：<a href="https://www.sew-eurodrive.cn/os/dud/?tab=software&amp;country=CN&amp;language=zh_cn&amp;search=MotionStudio">https://www.sew-eurodrive.cn/os/dud/?tab=software&amp;country=CN&amp;language=zh_cn&amp;search=MotionStudio</a><br>
 参考程序以及变频器备份：<a href="https://cloud.189.cn/t/EnQRr23QvQ7v%EF%BC%88%E8%AE%BF%E9%97%AE%E7%A0%81%EF%BC%9A2g6b%EF%BC%89">https://cloud.189.cn/t/EnQRr23QvQ7v（访问码：2g6b）</a></p>
@@ -6360,7 +6127,7 @@ MOVITOOLS MotionStudio：<a href="https://www.sew-eurodrive.cn/os/dud/?tab=softw
   <entry>
     <title>SEW-MDX61B变频器定位控制调试流程</title>
     <url>/posts/e4c152dc/</url>
-    <content><![CDATA[<h1>一、 调试准备</h1>
+    <content><![CDATA[<h1 id="一、-调试准备">一、 调试准备</h1>
 <h2 id="操作系统及调试软件">操作系统及调试软件</h2>
 <p>操作系统：Windows 7 64 位操作系统</p>
 <p>调试软件：MotionStudio 6.10 SP1(6.1.0.1)</p>
@@ -6372,7 +6139,7 @@ MOVITOOLS MotionStudio：<a href="https://www.sew-eurodrive.cn/os/dud/?tab=softw
 <p>变频器接线图</p>
 <p><img src="https://img.zzzg.top/202303040927995.png" alt="image-20230304092703871"></p>
 <p>电机接线图</p>
-<h1>二、 变频器调试</h1>
+<h1 id="二、-变频器调试">二、 变频器调试</h1>
 <h2 id="连接变频器">连接变频器</h2>
 <p>双击桌面图标</p>
 <p><img src="https://img.zzzg.top/202303040952856.png" alt="image-20230304095222325"></p>
@@ -6488,7 +6255,7 @@ MOVITOOLS MotionStudio：<a href="https://www.sew-eurodrive.cn/os/dud/?tab=softw
 <p><img src="https://img.zzzg.top/202303041052868.png" alt="image-20230304105213054"></p>
 <p>除了型式 8，参考运行必须在变频器“Ready”和“Enable”状态才可进行；</p>
 <p><img src="https://img.zzzg.top/202303041052111.png" alt="image-20230304105231116"></p>
-<h1>AMA0801配置</h1>
+<h1 id="AMA0801配置">AMA0801配置</h1>
 <h2 id="一字库位">一字库位</h2>
 <p><img src="https://img.zzzg.top/202305191047.png" alt="202305191047"></p>
 <p><img src="https://img.zzzg.top/202305191048.png" alt="202305191048"></p>
@@ -6496,17 +6263,17 @@ MOVITOOLS MotionStudio：<a href="https://www.sew-eurodrive.cn/os/dud/?tab=softw
 <p><img src="https://img.zzzg.top/202305191050.png" alt="202305191050"></p>
 <h2 id="校零">校零</h2>
 <p><img src="https://img.zzzg.top/20230519105000.jpg" alt="20230519105000"></p>
-<h1>附录 1：转台提速使用参数</h1>
+<h1 id="附录-1：转台提速使用参数">附录 1：转台提速使用参数</h1>
 <p><img src="https://img.zzzg.top/202303041055137.png" alt="image-20230304105509097"></p>
 <p><img src="https://img.zzzg.top/202303041055825.png" alt="image-20230304105516864"></p>
 <p>扩展总线定位模式中的设置：</p>
 <p><img src="https://img.zzzg.top/202303041055879.png" alt="image-20230304105536031"></p>
-<h1>附录 2：举升设备相关参数</h1>
+<h1 id="附录-2：举升设备相关参数">附录 2：举升设备相关参数</h1>
 <p>升降设备需设置抱闸相关参数</p>
 <p><img src="https://img.zzzg.top/202303041055375.png" alt="image-20230304105555636"></p>
 <p>731：电机启动抱闸打开参数，变频器启动 0.15 秒输出正常扭矩，此时变频器认为抱闸已经打开，参数默认值 0.1，在升降设备中，若启动时设备有向下掉的动作，<strong>此参数可适当减小</strong>;</p>
 <p>732：电机停止抱闸失电参数，在抱闸断电 0.35 秒后，变频器才停止工作，参数默认值 0.2，若升降设备停止时设备有向下掉的动作，<strong>此参数可适当增大</strong>;</p>
-<h1>附录 3：常见故障解决方案</h1>
+<h1 id="附录-3：常见故障解决方案">附录 3：常见故障解决方案</h1>
 <h2 id="1、-变频器-F08-故障，转速监视；">1、 变频器 F08 故障，转速监视；</h2>
 <p>故障现象：电机运行一段时间（时间很短，&lt;1s）,变频器即报 F08 故障；</p>
 <p>故障原因：编码器连接或电机旋转方向不正确；</p>
@@ -6517,7 +6284,7 @@ MOVITOOLS MotionStudio：<a href="https://www.sew-eurodrive.cn/os/dud/?tab=softw
 <p>故障原因：编码器电缆屏蔽未正确连接；</p>
 <p>临时措施：断开变频器供电电源，等待一段时间再上电（如无效则需立即检查编码屏蔽）；</p>
 <p>后期解决：检查编码器屏蔽层连接；编码器电缆是否存在强电干扰；</p>
-<h1>附录4：相关文档</h1>
+<h1 id="附录4：相关文档">附录4：相关文档</h1>
 <p>MDX61B应用手册：<a href="https://www.sew-eurodrive.cn/os/dud/?tab=documents&amp;country=CN&amp;language=zh_cn&amp;doc_lang=zh-CN,en-US&amp;doc_type=G,D,F,CD,DD&amp;search=FA362820">https://www.sew-eurodrive.cn/os/dud/?tab=documents&amp;country=CN&amp;language=zh_cn&amp;doc_lang=zh-CN,en-US&amp;doc_type=G,D,F,CD,DD&amp;search=FA362820</a></p>
 ]]></content>
       <categories>
@@ -6605,7 +6372,7 @@ MOVITOOLS MotionStudio：<a href="https://www.sew-eurodrive.cn/os/dud/?tab=softw
 <p>6、参数设置。<br>
 6.1、使用配置向导配置变频器系统基本参数。<br>
 (1).点击“Configuration” 。<br>
-(2).点击工作区内的“Wizard …”，弹出向导对话框，点击“Next”逐步进行配置。<br>
+(2).点击工作区内的“Wizard ...”，弹出向导对话框，点击“Next”逐步进行配置。<br>
 <img src="https://img.zzzg.top/20250523230237648.png" alt="image-20250523223430045"></p>
 <p>(3).设置控制结构。<br>
 <img src="https://img.zzzg.top/20250523230248176.png" alt="image-20250523223440470"></p>
@@ -6626,7 +6393,7 @@ MOVITOOLS MotionStudio：<a href="https://www.sew-eurodrive.cn/os/dud/?tab=softw
 <p>6.2、若使用总线接口，应将默认外部I/O配置清除（X07\X08\X09）。<br>
 (1).点击“Inputs/Outputs”。<br>
 (2).点击工作区内X07\X08\X09对应引脚参数的按钮，弹出向导I/O分配对话框。<br>
-(3).将该引脚对应参数前面的勾选去掉，并点击“OK”按钮，该引脚分配显示“—”。<br>
+(3).将该引脚对应参数前面的勾选去掉，并点击“OK”按钮，该引脚分配显示“---”。<br>
 <img src="https://img.zzzg.top/20250523230345952.png" alt="image-20250523223552253"></p>
 <p>6.3、其它基本参数设置。<br>
 (1).设置“Ramp-function generator”。<br>
@@ -6707,12 +6474,12 @@ MOVITOOLS MotionStudio：<a href="https://www.sew-eurodrive.cn/os/dud/?tab=softw
   <entry>
     <title>V2RayA——新一代Linux客户端安装配置教程</title>
     <url>/posts/a53fea94/</url>
-    <content><![CDATA[<h1>前言</h1>
+    <content><![CDATA[<h1 id="前言">前言</h1>
 <p>上一次我们介绍的Qv2ray还是有一些同学不会安装，而且Qv2ray也不再更新了，所以我就另外去找了，刚好找到一个安装配置都非常简单的软件，也就是本章的主角——v2rayA</p>
-<h1>特性</h1>
+<h1 id="特性">特性</h1>
 <p><img src="https://img.zzzg.top/202304100749200.png" alt="img"></p>
 <p>在官网的介绍中我们可以发现，v2rayA是一款非常强大的软件，它甚至能提供透明代理（几乎完全全局代理，目标服务器检测不到代理服务器）。好我就精简一下官方的教程教给大家怎么去安装配置Qv2ray，官网我会放到文章末尾。</p>
-<h1>安装</h1>
+<h1 id="安装">安装</h1>
 <p>首页：<a href="https://v2raya.org/">https://v2raya.org/</a></p>
 <h2 id="安装v2rayA">安装v2rayA</h2>
 <p>方法一：通过软件源安装<br>
@@ -6727,7 +6494,7 @@ MOVITOOLS MotionStudio：<a href="https://www.sew-eurodrive.cn/os/dud/?tab=softw
 <p><a href="https://github.com/v2rayA/v2rayA/releases">点我下载</a></p>
 <p>然后可以使用 Gdebi、QApt 等图形化工具来安装，也可以使用命令行：</p>
 <figure class="highlight plaintext"><table><tr><td class="code"><pre><span class="line">sudo apt install /path/download/installer_debian_xxx_vxxx.deb ### 自行替换 deb 包所在的实际路径</span><br></pre></td></tr></table></figure>
-<h1>启动&amp;配置</h1>
+<h1 id="启动-配置">启动&amp;配置</h1>
 <h2 id="开机自启">开机自启</h2>
 <p>启动 v2rayA</p>
 <figure class="highlight plaintext"><table><tr><td class="code"><pre><span class="line">sudo systemctl start v2raya.service</span><br></pre></td></tr></table></figure>
@@ -6780,7 +6547,7 @@ MOVITOOLS MotionStudio：<a href="https://www.sew-eurodrive.cn/os/dud/?tab=softw
   <entry>
     <title>Xray最新协议Reality搭建</title>
     <url>/posts/428849a6/</url>
-    <content><![CDATA[<h1>简介</h1>
+    <content><![CDATA[<h1 id="简介">简介</h1>
 <p>为了应对 TLS in TLS 和指纹识别等阻断或封禁的风险，Xray-core 团队推出了 Vision 和 Reality 两种新颖的技术方案。它们能够有效地隐藏和保护流量的特征，提高安全性和稳定性。</p>
 <p><a href="https://github.com/XTLS/Xray-core/discussions/1295#discussion-4523044">Vision原理</a></p>
 <p><a href="https://www.v2ray-agent.com/archives/1679292836379">Reality原理</a></p>
@@ -6796,7 +6563,7 @@ MOVITOOLS MotionStudio：<a href="https://www.sew-eurodrive.cn/os/dud/?tab=softw
 <p>2、部分软件目前（截至2023年4月7日）还不支持此种协议，例如Shadowrocket，passwall等插件，如果没更新，在一键导入的时候也会BUG。</p>
 <p>3、理论上完美，但还未经历过实战，例如开XX大会。</p>
 <p>4、Reality不支持CDN</p>
-<h1>搭建开始</h1>
+<h1 id="搭建开始">搭建开始</h1>
 <h2 id="方法一：常规搭建">方法一：常规搭建</h2>
 <p>老规矩，用<a href="https://www.v2ray-agent.com/">mack-a</a>大佬的八合一的一键脚本，这里只演示无域名的安装方式，因为这个也是<strong>VLESS-Vision-uTLS-REALITY</strong>的核心亮点</p>
 <p>PS:如果你之前用过mack-a大佬八合一脚本，在执行下面这个命令后，<strong>先选择删除脚本，再重新安装</strong></p>
@@ -6847,7 +6614,7 @@ update.microsoft<br>
 <p><img src="https://img.zzzg.top/202304100740286.jpeg" alt="img"></p>
 <p>3、复制链接<br>
 <img src="https://img.zzzg.top/202304100740534.jpeg" alt="img"></p>
-<h1>客户端配置</h1>
+<h1 id="客户端配置">客户端配置</h1>
 <h2 id="v2rayN">v2rayN</h2>
 <ul>
 <li>
@@ -6873,17 +6640,17 @@ update.microsoft<br>
     <url>/posts/21c693ea/</url>
     <content><![CDATA[<p><strong>提示：git每次pull提示需要密码</strong></p>
 <hr>
-<h1>错误提示</h1>
+<h1 id="错误提示">错误提示</h1>
 <figure class="highlight plaintext"><table><tr><td class="code"><pre><span class="line">Administrator@DEEP MINGW64 /f/code/xxx-service (master)</span><br><span class="line">$ git pull</span><br><span class="line">git@gitlab.xxx.com&#x27;s password:</span><br></pre></td></tr></table></figure>
-<h1>原因</h1>
+<h1 id="原因">原因</h1>
 <p>只提示输入密码的情况，一般是秘钥验证失败。二种情况</p>
 <hr>
-<h1>1、公钥验证错误</h1>
+<h1 id="1、公钥验证错误">1、公钥验证错误</h1>
 <p>解决方法如下，以github为例</p>
 <p>在<a href="https://github.com/settings/keys">https://github.com/settings/keys</a> 界面，将生成的<a href="https://so.csdn.net/so/search?q=%E5%85%AC%E9%92%A5&amp;spm=1001.2101.3001.7020">公钥</a>添加到SSH keys项中</p>
 <p>如没有则使用<a href="https://so.csdn.net/so/search?q=ssh-keygen&amp;spm=1001.2101.3001.7020">ssh-keygen</a>命令生成</p>
 <figure class="highlight plaintext"><table><tr><td class="code"><pre><span class="line">ssh-keygen -t rsa -C &quot;Your Email Address&quot; -f &quot;~/.ssh/gitlab_id_rsa&quot;</span><br></pre></td></tr></table></figure>
-<h1>2、私钥验证错误</h1>
+<h1 id="2、私钥验证错误">2、私钥验证错误</h1>
 <p>git拉取代码时没有配置私钥认证</p>
 <p>使用以下命令添加认证到ssh</p>
 <figure class="highlight plaintext"><table><tr><td class="code"><pre><span class="line">ssh-add ~/.ssh/gitlab_id_rsa</span><br></pre></td></tr></table></figure>
@@ -6891,7 +6658,7 @@ update.microsoft<br>
 <p>永久解决：在<code>~/.ssh/config</code>文件中（没有则新建），指定对应git服务使用的认证秘钥文件即可</p>
 <figure class="highlight plaintext"><table><tr><td class="code"><pre><span class="line"># GitLab.com 密钥</span><br><span class="line">Host github.com</span><br><span class="line">  Preferredauthentications publickey</span><br><span class="line">  IdentityFile ~/.ssh/github_id_rsa</span><br><span class="line"># GitLab.com 密钥</span><br><span class="line">Host gitlab.xxx.com</span><br><span class="line">  Preferredauthentications publickey</span><br><span class="line">  IdentityFile ~/.ssh/gitlab_id_rsa</span><br></pre></td></tr></table></figure>
 <hr>
-<h1>总结</h1>
+<h1 id="总结">总结</h1>
 <ol>
 <li>直接提示输入密码的，为秘钥认证失败，使用以上方法即可解决</li>
 <li>提示输入账号和密码的，为账号认证失败，使用<code>git config --global credential.helper store</code>命令，可输入一次密码后永久存储</li>
@@ -6907,7 +6674,7 @@ update.microsoft<br>
   <entry>
     <title>GSEE-TECH GSD</title>
     <url>/posts/3b8d36fd/</url>
-    <content><![CDATA[<h1>GSEE-TECH GX Series CONFIGURATION FILES PROFIBUS/PROFINET</h1>
+    <content><![CDATA[<h1 id="GSEE-TECH-GX-Series-CONFIGURATION-FILES-PROFIBUS-PROFINET">GSEE-TECH GX Series CONFIGURATION FILES PROFIBUS/PROFINET</h1>
 <p><img src="https://img.zzzg.top/20250920162840098.jpg" alt=""></p>
 <p><a href="https://cloud.189.cn/t/vmmqyeIryUNv">GX-11481422262.zip（访问码：nu1h）</a></p>
 <p><strong>PROFIBUS</strong></p>
@@ -6922,7 +6689,7 @@ update.microsoft<br>
 <p>GXPI-DIO16-20160410.zip - GSDML-V2.32-GSEE-GXPI-DIO16-20160410.xml</p>
 <p>GXPI-DO8-20160324.zip - GSDML-V2.31-GSEE-GXPI-DO8-20160324.xml</p>
 <p>GXPI-DO16-20160324.zip - GSDML-V2.31-GSEE-GXPI-DO16-20160324.xml</p>
-<h1>GSEE-TECH GBS20 series fieldbus system CONFIGURATION FILES</h1>
+<h1 id="GSEE-TECH-GBS20-series-fieldbus-system-CONFIGURATION-FILES">GSEE-TECH GBS20 series fieldbus system CONFIGURATION FILES</h1>
 <p><img src="https://img.zzzg.top/20250920162847032.jpg" alt=""></p>
 <p>GBS20 bus coupler for PROFINET, PROFIBUS-DP, CANOpen, Modbus/TCP, EtherNet/IP and EtherCAT</p>
 <p><a href="https://cloud.189.cn/t/nmU32eMFRbq2">GBS20-11481498801.zip（访问码：3y5f）</a></p>
@@ -6930,19 +6697,19 @@ update.microsoft<br>
 <p>GBS20-DP.zip - PROFIBUS - GBS20D5C.gsd</p>
 <p>GBS20-EI.zip - EtherNet/IP - GBS20-EI.eds</p>
 <p>GBS20-PI.zip - PROFINET - GSDML-V2.31-Geneuo-GBS20-PN-20151024.xml</p>
-<h1>GSEE-TECH GX series compact modules system Catalogue</h1>
+<h1 id="GSEE-TECH-GX-series-compact-modules-system-Catalogue">GSEE-TECH GX series compact modules system Catalogue</h1>
 <p><img src="https://img.zzzg.top/20250920162853961.jpg" alt=""></p>
 <p><a href="https://cloud.189.cn/t/M3eAvu77Fvma">GX_Series_Fieldbus_module_2016-15201926176.pdf（访问码：9w1l）</a></p>
-<h1>GSEE-TECH Catalogue Industrial Communication</h1>
+<h1 id="GSEE-TECH-Catalogue-Industrial-Communication">GSEE-TECH Catalogue Industrial Communication</h1>
 <p><img src="https://img.zzzg.top/20250920162859912.jpg" alt=""></p>
 <p><a href="https://cloud.189.cn/t/AnqQ7jUNVjuu">GSEE-TECH-Industrial-Communication.pdf（访问码：hem5）</a></p>
-<h1>GSEE-TECH GXPI PROFINET I/O Module gsdml-v2.35-gsee-gxpi-di8do8-e-20210928.xml</h1>
+<h1 id="GSEE-TECH-GXPI-PROFINET-I-O-Module-gsdml-v2-35-gsee-gxpi-di8do8-e-20210928-xml">GSEE-TECH GXPI PROFINET I/O Module gsdml-v2.35-gsee-gxpi-di8do8-e-20210928.xml</h1>
 <p><img src="https://img.zzzg.top/20250920162904789.jpg" alt=""></p>
 <p><a href="https://cloud.189.cn/t/iMv2eiyeQBny">gsdml-v2.35-gsee-gxpi-di8do8-e-20210928.xml（访问码：6xzc）</a></p>
-<h1>GSEE-TECH GXPI PROFINET I/O Module gsdml-v2.31-gsee-gxpi-di16-20160325.xml</h1>
+<h1 id="GSEE-TECH-GXPI-PROFINET-I-O-Module-gsdml-v2-31-gsee-gxpi-di16-20160325-xml">GSEE-TECH GXPI PROFINET I/O Module gsdml-v2.31-gsee-gxpi-di16-20160325.xml</h1>
 <p><img src="https://img.zzzg.top/20250920162904789.jpg" alt=""></p>
 <p><a href="https://cloud.189.cn/t/rU7VRzFvMjmq">gsdml-v2.31-gsee-gxpi-di16-20160325.xml（访问码：uw6e）</a></p>
-<h1>资料来源</h1>
+<h1 id="资料来源">资料来源</h1>
 <p><a href="https://asutp.org/">https://asutp.org/</a></p>
 ]]></content>
       <categories>
@@ -6955,12 +6722,12 @@ update.microsoft<br>
   <entry>
     <title>hysteria2与reality共存安装</title>
     <url>/posts/756577dc/</url>
-    <content><![CDATA[<h1>前言</h1>
+    <content><![CDATA[<h1 id="前言">前言</h1>
 <p>1.目前伪装最好的两种协议，一个代表tcp协议（reality）的目前巅峰，一个新型UDP协议（hysteria2）的宠儿。<br>
 2.这次用的sing-box搭建 <a href="https://sing-box.sagernet.org/zh">https://sing-box.sagernet.org/zh</a> 因为简单。之前一直用八合一，最大的问题就是各种伪装后，机器就只能拿来科学上网了，因为安装Nginx，搭建个网页啥的都很麻烦。<br>
 3.教程亮点，无需自备域名。<br>
 3.passwall发现没有类似的设置教程，所以出一个。</p>
-<h1>安装sing-box</h1>
+<h1 id="安装sing-box">安装sing-box</h1>
 <p>直接安装预发布版（支持hysteria2）</p>
 <figure class="highlight plaintext"><table><tr><td class="code"><pre><span class="line">bash -c &quot;$(curl -L https://sing-box.vercel.app)&quot; @ install --beta</span><br></pre></td></tr></table></figure>
 <p>如何需要卸载</p>
@@ -6972,7 +6739,7 @@ update.microsoft<br>
 <figure class="highlight plaintext"><table><tr><td class="code"><pre><span class="line">systemctl status sing-box</span><br></pre></td></tr></table></figure>
 <p>实时日志</p>
 <figure class="highlight plaintext"><table><tr><td class="code"><pre><span class="line">journalctl -u sing-box -o cat -f</span><br></pre></td></tr></table></figure>
-<h1>服务端vps搭建</h1>
+<h1 id="服务端vps搭建">服务端vps搭建</h1>
 <p><strong>自签证书申请，<a href="http://xn--bing-zi0ix28eo9bc52etkhu4e.com">这里申请的是bing.com</a>，申请了10年，可以用到你vps商家跑路了</strong></p>
 <figure class="highlight plaintext"><table><tr><td class="code"><pre><span class="line">mkdir -p /etc/hysteria &amp;&amp; openssl ecparam -genkey -name prime256v1 -out /etc/hysteria/private.key &amp;&amp; openssl req -new -x509 -days 3650 -key /etc/hysteria/private.key -out /etc/hysteria/cert.pem -subj &quot;/CN=bing.com&quot;</span><br></pre></td></tr></table></figure>
 <p><strong>搭建组合选择</strong><br>
@@ -6990,12 +6757,12 @@ update.microsoft<br>
 <p>再查看日志</p>
 <figure class="highlight plaintext"><table><tr><td class="code"><pre><span class="line">journalctl -u sing-box -o cat -f</span><br></pre></td></tr></table></figure>
 <p>没问题就OK拉，开始导入passwall了因为申请的是自签证书，所有设置，都是<strong>开启允许不安全连接</strong></p>
-<h1>hysteria2客户端配置文件</h1>
+<h1 id="hysteria2客户端配置文件">hysteria2客户端配置文件</h1>
 <h2 id="客户端配置文件">客户端配置文件</h2>
 <figure class="highlight yaml"><table><tr><td class="code"><pre><span class="line"><span class="attr">server:</span> <span class="string">ip:443</span></span><br><span class="line"><span class="attr">auth:</span> <span class="number">123456</span></span><br><span class="line"></span><br><span class="line"><span class="attr">bandwidth:</span></span><br><span class="line">  <span class="attr">up:</span> <span class="number">20</span> <span class="string">mbps</span></span><br><span class="line">  <span class="attr">down:</span> <span class="number">100</span> <span class="string">mbps</span></span><br><span class="line">  </span><br><span class="line"><span class="attr">tls:</span></span><br><span class="line">  <span class="attr">sni:</span> <span class="string">a.com</span></span><br><span class="line">  <span class="attr">insecure:</span> <span class="literal">false</span> <span class="comment">#使用自签域名时需要改成true</span></span><br><span class="line"></span><br><span class="line"><span class="attr">socks5:</span></span><br><span class="line">  <span class="attr">listen:</span> <span class="number">127.0</span><span class="number">.0</span><span class="number">.1</span><span class="string">:1080</span></span><br><span class="line"><span class="attr">http:</span></span><br><span class="line">  <span class="attr">listen:</span> <span class="number">127.0</span><span class="number">.0</span><span class="number">.1</span><span class="string">:8080</span></span><br></pre></td></tr></table></figure>
 <h2 id="sing-box配置文件-Android-IOS">sing-box配置文件(Android/IOS)</h2>
 <figure class="highlight json"><table><tr><td class="code"><pre><span class="line"><span class="punctuation">&#123;</span></span><br><span class="line">  <span class="attr">&quot;dns&quot;</span><span class="punctuation">:</span> <span class="punctuation">&#123;</span></span><br><span class="line">    <span class="attr">&quot;servers&quot;</span><span class="punctuation">:</span> <span class="punctuation">[</span></span><br><span class="line">      <span class="punctuation">&#123;</span></span><br><span class="line">        <span class="attr">&quot;tag&quot;</span><span class="punctuation">:</span> <span class="string">&quot;cf&quot;</span><span class="punctuation">,</span></span><br><span class="line">        <span class="attr">&quot;address&quot;</span><span class="punctuation">:</span> <span class="string">&quot;https://1.1.1.1/dns-query&quot;</span></span><br><span class="line">      <span class="punctuation">&#125;</span><span class="punctuation">,</span></span><br><span class="line">      <span class="punctuation">&#123;</span></span><br><span class="line">        <span class="attr">&quot;tag&quot;</span><span class="punctuation">:</span> <span class="string">&quot;local&quot;</span><span class="punctuation">,</span></span><br><span class="line">        <span class="attr">&quot;address&quot;</span><span class="punctuation">:</span> <span class="string">&quot;223.5.5.5&quot;</span><span class="punctuation">,</span></span><br><span class="line">        <span class="attr">&quot;detour&quot;</span><span class="punctuation">:</span> <span class="string">&quot;direct&quot;</span></span><br><span class="line">      <span class="punctuation">&#125;</span><span class="punctuation">,</span></span><br><span class="line">      <span class="punctuation">&#123;</span></span><br><span class="line">        <span class="attr">&quot;tag&quot;</span><span class="punctuation">:</span> <span class="string">&quot;block&quot;</span><span class="punctuation">,</span></span><br><span class="line">        <span class="attr">&quot;address&quot;</span><span class="punctuation">:</span> <span class="string">&quot;rcode://success&quot;</span></span><br><span class="line">      <span class="punctuation">&#125;</span></span><br><span class="line">    <span class="punctuation">]</span><span class="punctuation">,</span></span><br><span class="line">    <span class="attr">&quot;rules&quot;</span><span class="punctuation">:</span> <span class="punctuation">[</span></span><br><span class="line">      <span class="punctuation">&#123;</span></span><br><span class="line">        <span class="attr">&quot;geosite&quot;</span><span class="punctuation">:</span> <span class="string">&quot;category-ads-all&quot;</span><span class="punctuation">,</span></span><br><span class="line">        <span class="attr">&quot;server&quot;</span><span class="punctuation">:</span> <span class="string">&quot;block&quot;</span><span class="punctuation">,</span></span><br><span class="line">        <span class="attr">&quot;disable_cache&quot;</span><span class="punctuation">:</span> <span class="literal"><span class="keyword">true</span></span></span><br><span class="line">      <span class="punctuation">&#125;</span><span class="punctuation">,</span></span><br><span class="line">      <span class="punctuation">&#123;</span></span><br><span class="line">        <span class="attr">&quot;outbound&quot;</span><span class="punctuation">:</span> <span class="string">&quot;any&quot;</span><span class="punctuation">,</span></span><br><span class="line">        <span class="attr">&quot;server&quot;</span><span class="punctuation">:</span> <span class="string">&quot;local&quot;</span></span><br><span class="line">      <span class="punctuation">&#125;</span><span class="punctuation">,</span></span><br><span class="line">      <span class="punctuation">&#123;</span></span><br><span class="line">        <span class="attr">&quot;geosite&quot;</span><span class="punctuation">:</span> <span class="string">&quot;cn&quot;</span><span class="punctuation">,</span></span><br><span class="line">        <span class="attr">&quot;server&quot;</span><span class="punctuation">:</span> <span class="string">&quot;local&quot;</span></span><br><span class="line">      <span class="punctuation">&#125;</span></span><br><span class="line">    <span class="punctuation">]</span><span class="punctuation">,</span></span><br><span class="line">    <span class="attr">&quot;strategy&quot;</span><span class="punctuation">:</span> <span class="string">&quot;ipv4_only&quot;</span></span><br><span class="line">  <span class="punctuation">&#125;</span><span class="punctuation">,</span></span><br><span class="line">  <span class="attr">&quot;inbounds&quot;</span><span class="punctuation">:</span> <span class="punctuation">[</span></span><br><span class="line">    <span class="punctuation">&#123;</span></span><br><span class="line">      <span class="attr">&quot;type&quot;</span><span class="punctuation">:</span> <span class="string">&quot;tun&quot;</span><span class="punctuation">,</span></span><br><span class="line">      <span class="attr">&quot;inet4_address&quot;</span><span class="punctuation">:</span> <span class="string">&quot;172.19.0.1/30&quot;</span><span class="punctuation">,</span></span><br><span class="line">      <span class="attr">&quot;auto_route&quot;</span><span class="punctuation">:</span> <span class="literal"><span class="keyword">true</span></span><span class="punctuation">,</span></span><br><span class="line">      <span class="attr">&quot;strict_route&quot;</span><span class="punctuation">:</span> <span class="literal"><span class="keyword">false</span></span><span class="punctuation">,</span></span><br><span class="line">      <span class="attr">&quot;sniff&quot;</span><span class="punctuation">:</span> <span class="literal"><span class="keyword">true</span></span></span><br><span class="line">    <span class="punctuation">&#125;</span></span><br><span class="line">  <span class="punctuation">]</span><span class="punctuation">,</span></span><br><span class="line">  <span class="attr">&quot;outbounds&quot;</span><span class="punctuation">:</span> <span class="punctuation">[</span></span><br><span class="line">    <span class="punctuation">&#123;</span></span><br><span class="line">      <span class="attr">&quot;type&quot;</span><span class="punctuation">:</span> <span class="string">&quot;hysteria2&quot;</span><span class="punctuation">,</span></span><br><span class="line">      <span class="attr">&quot;tag&quot;</span><span class="punctuation">:</span> <span class="string">&quot;proxy&quot;</span><span class="punctuation">,</span></span><br><span class="line">      <span class="attr">&quot;server&quot;</span><span class="punctuation">:</span> <span class="string">&quot;这里填ip&quot;</span><span class="punctuation">,</span></span><br><span class="line">      <span class="attr">&quot;server_port&quot;</span><span class="punctuation">:</span> <span class="number">443</span><span class="punctuation">,</span></span><br><span class="line">      <span class="attr">&quot;up_mbps&quot;</span><span class="punctuation">:</span> <span class="number">20</span><span class="punctuation">,</span></span><br><span class="line">      <span class="attr">&quot;down_mbps&quot;</span><span class="punctuation">:</span> <span class="number">100</span><span class="punctuation">,</span></span><br><span class="line">      <span class="attr">&quot;password&quot;</span><span class="punctuation">:</span> <span class="string">&quot;这里填密码&quot;</span><span class="punctuation">,</span></span><br><span class="line">      <span class="attr">&quot;tls&quot;</span><span class="punctuation">:</span> <span class="punctuation">&#123;</span></span><br><span class="line">        <span class="attr">&quot;enabled&quot;</span><span class="punctuation">:</span> <span class="literal"><span class="keyword">true</span></span><span class="punctuation">,</span></span><br><span class="line">        <span class="attr">&quot;server_name&quot;</span><span class="punctuation">:</span> <span class="string">&quot;a.com&quot;</span><span class="punctuation">,</span></span><br><span class="line">        <span class="attr">&quot;insecure&quot;</span><span class="punctuation">:</span> <span class="literal"><span class="keyword">false</span></span></span><br><span class="line">      <span class="punctuation">&#125;</span></span><br><span class="line">    <span class="punctuation">&#125;</span><span class="punctuation">,</span></span><br><span class="line">    <span class="punctuation">&#123;</span></span><br><span class="line">      <span class="attr">&quot;type&quot;</span><span class="punctuation">:</span> <span class="string">&quot;direct&quot;</span><span class="punctuation">,</span></span><br><span class="line">      <span class="attr">&quot;tag&quot;</span><span class="punctuation">:</span> <span class="string">&quot;direct&quot;</span></span><br><span class="line">    <span class="punctuation">&#125;</span><span class="punctuation">,</span></span><br><span class="line">    <span class="punctuation">&#123;</span></span><br><span class="line">      <span class="attr">&quot;type&quot;</span><span class="punctuation">:</span> <span class="string">&quot;block&quot;</span><span class="punctuation">,</span></span><br><span class="line">      <span class="attr">&quot;tag&quot;</span><span class="punctuation">:</span> <span class="string">&quot;block&quot;</span></span><br><span class="line">    <span class="punctuation">&#125;</span><span class="punctuation">,</span></span><br><span class="line">    <span class="punctuation">&#123;</span></span><br><span class="line">      <span class="attr">&quot;type&quot;</span><span class="punctuation">:</span> <span class="string">&quot;dns&quot;</span><span class="punctuation">,</span></span><br><span class="line">      <span class="attr">&quot;tag&quot;</span><span class="punctuation">:</span> <span class="string">&quot;dns-out&quot;</span></span><br><span class="line">    <span class="punctuation">&#125;</span></span><br><span class="line">  <span class="punctuation">]</span><span class="punctuation">,</span></span><br><span class="line">  <span class="attr">&quot;route&quot;</span><span class="punctuation">:</span> <span class="punctuation">&#123;</span></span><br><span class="line">    <span class="attr">&quot;rules&quot;</span><span class="punctuation">:</span> <span class="punctuation">[</span></span><br><span class="line">      <span class="punctuation">&#123;</span></span><br><span class="line">        <span class="attr">&quot;protocol&quot;</span><span class="punctuation">:</span> <span class="string">&quot;dns&quot;</span><span class="punctuation">,</span></span><br><span class="line">        <span class="attr">&quot;outbound&quot;</span><span class="punctuation">:</span> <span class="string">&quot;dns-out&quot;</span></span><br><span class="line">      <span class="punctuation">&#125;</span><span class="punctuation">,</span></span><br><span class="line">      <span class="punctuation">&#123;</span></span><br><span class="line">        <span class="attr">&quot;geosite&quot;</span><span class="punctuation">:</span> <span class="string">&quot;cn&quot;</span><span class="punctuation">,</span></span><br><span class="line">        <span class="attr">&quot;geoip&quot;</span><span class="punctuation">:</span> <span class="punctuation">[</span></span><br><span class="line">          <span class="string">&quot;private&quot;</span><span class="punctuation">,</span></span><br><span class="line">          <span class="string">&quot;cn&quot;</span></span><br><span class="line">        <span class="punctuation">]</span><span class="punctuation">,</span></span><br><span class="line">        <span class="attr">&quot;outbound&quot;</span><span class="punctuation">:</span> <span class="string">&quot;direct&quot;</span></span><br><span class="line">      <span class="punctuation">&#125;</span><span class="punctuation">,</span></span><br><span class="line">      <span class="punctuation">&#123;</span></span><br><span class="line">        <span class="attr">&quot;geosite&quot;</span><span class="punctuation">:</span> <span class="string">&quot;category-ads-all&quot;</span><span class="punctuation">,</span></span><br><span class="line">        <span class="attr">&quot;outbound&quot;</span><span class="punctuation">:</span> <span class="string">&quot;block&quot;</span></span><br><span class="line">      <span class="punctuation">&#125;</span></span><br><span class="line">    <span class="punctuation">]</span><span class="punctuation">,</span></span><br><span class="line">    <span class="attr">&quot;auto_detect_interface&quot;</span><span class="punctuation">:</span> <span class="literal"><span class="keyword">true</span></span></span><br><span class="line">  <span class="punctuation">&#125;</span></span><br><span class="line"><span class="punctuation">&#125;</span></span><br></pre></td></tr></table></figure>
-<h1>相关链接</h1>
+<h1 id="相关链接">相关链接</h1>
 <h2 id="客户端下载">客户端下载</h2>
 <p>v2rayN 下载：<a href="https://bulianglin.com/g/aHR0cHM6Ly9naXRodWIuY29tLzJkdXN0L3YycmF5Ti9yZWxlYXNlcy9sYXRlc3Q">https://github.com/2dust/v2rayN/releases/latest</a><br>
 Hysteria 2下载：<a href="https://bulianglin.com/g/aHR0cHM6Ly9naXRodWIuY29tL2FwZXJuZXQvaHlzdGVyaWEvcmVsZWFzZXM">https://github.com/apernet/hysteria/releases</a><br>
@@ -7205,7 +6972,7 @@ apt install gnupg2 -y<br>
 apt install wget -y<br>
 # 自动配置 WARP WireGuard IPv4 网络<br>
 bash &lt;(curl -fsSL <a href="http://git.io/warp.sh">git.io/warp.sh</a>) 4<br>
-echo “1” &gt; /proc/sys/net/ipv6/conf/all/disable_ipv6</p>
+echo &quot;1&quot; &gt; /proc/sys/net/ipv6/conf/all/disable_ipv6</p>
 </blockquote>
 <p>这个配置后你vps向外请求的所有ip都不是本机的真实ip，速度可能会有所影响，但是会很安全</p>
 <h2 id="第三步：-安装适用于流媒体的XanMod内核开启BBR2（FQ-PIE）：">第三步： 安装适用于流媒体的XanMod内核开启BBR2（FQ+PIE）：</h2>
@@ -7317,9 +7084,9 @@ echo “1” &gt; /proc/sys/net/ipv6/conf/all/disable_ipv6</p>
   <entry>
     <title>中星微随身Wifi去后门刷全功能后台</title>
     <url>/posts/f9dbe722/</url>
-    <content><![CDATA[<h1>前言</h1>
+    <content><![CDATA[<h1 id="前言">前言</h1>
 <p>买到棒子先不要插自己卡，需要进行屏蔽操作防止被远程操作，这里我买的是狗东某沃中星微。</p>
-<h1>刷入全功能后台</h1>
+<h1 id="刷入全功能后台">刷入全功能后台</h1>
 <p>首先开启 ADB<br>
 插到电脑上电 192.168.0.1 访问成功 密码 admin<br>
 通电后用工具捅 USB 插头的小孔 灯灭会自动重启，重启完成即可进入 ADB 模式</p>
@@ -7329,7 +7096,7 @@ echo “1” &gt; /proc/sys/net/ipv6/conf/all/disable_ipv6</p>
 <h2 id="刷入步骤">刷入步骤</h2>
 <p>先执行 【1：中兴微通用备份】 对棒子进行备份<br>
 然后执行 【2：中兴微通用后台刷入】 刷入全功能后台</p>
-<h1>去除远程控制</h1>
+<h1 id="去除远程控制">去除远程控制</h1>
 <p>执行 8：打开 CMD 终端</p>
 <p>进入 shell 进行操作，以下均在 cmd 窗口内进行</p>
 <figure class="highlight shell"><table><tr><td class="code"><pre><span class="line">adb shell</span><br></pre></td></tr></table></figure>
@@ -7363,7 +7130,7 @@ echo “1” &gt; /proc/sys/net/ipv6/conf/all/disable_ipv6</p>
 <p>保存设置</p>
 <figure class="highlight shell"><table><tr><td class="code"><pre><span class="line">nv save</span><br></pre></td></tr></table></figure>
 <p>到这里可以屏蔽与云服务相关的连接了,输入 reboot 进行重启</p>
-<h1>其他设置</h1>
+<h1 id="其他设置">其他设置</h1>
 <p>先进入后台去修改掉 imei 为其他的不要为默认的 imei,修改后重启一遍看看是否是修改的 emei<br>
 然后登录 访问以下网址获取解锁 sim 卡槽密码</p>
 <p><a href="http://192.168.0.1/goform/goform_get_cmd_process?cmd=unlock_network_code">http://192.168.0.1/goform/goform_get_cmd_process?cmd=unlock_network_code</a></p>
@@ -7501,7 +7268,7 @@ echo “1” &gt; /proc/sys/net/ipv6/conf/all/disable_ipv6</p>
   <entry>
     <title>利用CF Workers搭建Github加速服务</title>
     <url>/posts/ee2e5bab/</url>
-    <content><![CDATA[<h1>利用CF Workers搭建GH-Proxy服务</h1>
+    <content><![CDATA[<h1 id="利用CF-Workers搭建GH-Proxy服务">利用CF Workers搭建GH-Proxy服务</h1>
 <blockquote>
 <p>项目地址：<a href="https://github.com/hunshcn/gh-proxy">hunshcn/gh-proxy: github release、archive以及项目文件的加速项目</a><br>
 项目简介：github release、archive以及项目文件的加速项目，支持clone，有Cloudflare Workers无服务器版本以及Python版本</p>
@@ -7692,17 +7459,17 @@ echo “1” &gt; /proc/sys/net/ipv6/conf/all/disable_ipv6</p>
 <blockquote>
 <p>在 WSL2 中配置环境时，依赖下载经常因为网络问题极其缓慢甚至失败。在整合了各方资料及个人实践后，我总结了在 WSL2 中通过 Clash Verge 设置代理的方法，供大家参考。</p>
 </blockquote>
-<h1>在 Clash 客户端内的操作</h1>
+<h1 id="在-Clash-客户端内的操作">在 Clash 客户端内的操作</h1>
 <p>打开客户端的局域网连接开关。<br>
 记录下客户端内的端口，如这里是 <code>7897</code>. 一般默认端口为 <code>7897</code>。</p>
 <p><img src="https://img.zzzg.top/202312131053554.png" alt=""></p>
-<h1>修改 <code>.bashrc</code></h1>
+<h1 id="修改-bashrc">修改 <code>.bashrc</code></h1>
 <p>使用文本编辑器编辑 <code>.bashrc</code>，在文件末尾根据第 1 步记录的数据，加入三行内容：</p>
 <figure class="highlight shell"><table><tr><td class="code"><pre><span class="line">nano ~/.bashrc</span><br></pre></td></tr></table></figure>
 <figure class="highlight bash"><table><tr><td class="code"><pre><span class="line">host_ip=$(<span class="built_in">cat</span> /etc/resolv.conf |grep <span class="string">&quot;nameserver&quot;</span> |<span class="built_in">cut</span> -f 2 -d <span class="string">&quot; &quot;</span>)</span><br><span class="line"><span class="built_in">export</span> http_proxy=<span class="string">&quot;http://<span class="variable">$host_ip</span>:[端口]&quot;</span></span><br><span class="line"><span class="built_in">export</span> https_proxy=<span class="string">&quot;http://<span class="variable">$host_ip</span>:[端口]&quot;</span></span><br></pre></td></tr></table></figure>
 <p>如图所示，修改完后保存即可。<br>
 <img src="https://img.zzzg.top/202312131053167.png" alt=""></p>
-<h1>使 root 用户保留先前设置的环境变量</h1>
+<h1 id="使-root-用户保留先前设置的环境变量">使 root 用户保留先前设置的环境变量</h1>
 <p>在使用 <code>sudo</code> 执行命令时，之前设置的环境变量并不会生效，需要进一步设置。<br>
 输入 <code>sudo visudo</code></p>
 <p>取消相应行的注释 (删除行首的 <code>#</code>) 即可.<br>
@@ -7710,12 +7477,12 @@ echo “1” &gt; /proc/sys/net/ipv6/conf/all/disable_ipv6</p>
 <p>如果你使用 Ubuntu 20.04, 加入以下内容并保存。</p>
 <figure class="highlight bash"><table><tr><td class="code"><pre><span class="line">Defaults env_keep=<span class="string">&quot;http_proxy https_proxy&quot;</span></span><br></pre></td></tr></table></figure>
 <p><img src="https://img.zzzg.top/202312131053583.png" alt=""></p>
-<h1>测试</h1>
+<h1 id="测试">测试</h1>
 <p>输入 <code>source ~/.bashrc</code> 使文件修改生效。</p>
 <p>可以通过输入 <code>echo $http_proxy</code> 验证修改是否成功。<br>
 输入 <code>wget www.google.com</code>, 可以发现连接成功，至此大功告成，如图所示。<br>
 <img src="https://s2.loli.net/2022/10/05/UIQ8LhuROaXq6S2.png" alt=""></p>
-<h1>参考资料</h1>
+<h1 id="参考资料">参考资料</h1>
 <p><a href="https://zhuanlan.zhihu.com/p/153124468">为 WSL2 一键设置代理 (zhihu.com)</a><br>
 <a href="https://www.chenyudong.com/archives/sudo-keep-env.html">sudo保持前用用户的env环境变量 (chenyudong.com, 已失效)</a></p>
 ]]></content>
@@ -7730,9 +7497,9 @@ echo “1” &gt; /proc/sys/net/ipv6/conf/all/disable_ipv6</p>
     <title>备份Hexo博客到开源仓库</title>
     <url>/posts/5836c89e/</url>
     <content><![CDATA[<p>本教程以 gitee 举例，GitHub 同理。</p>
-<h1>创建 gitee 仓库</h1>
+<h1 id="创建-gitee-仓库">创建 gitee 仓库</h1>
 <p>直接 gitee 官网右上角创建仓库即可，名字什么的自定义，最好创建私人仓库。</p>
-<h1>初始化本地仓库</h1>
+<h1 id="初始化本地仓库">初始化本地仓库</h1>
 <p>在本地 hexo 目录运行命令行</p>
 <p>输入</p>
 <figure class="highlight cmd"><table><tr><td class="code"><pre><span class="line">git init</span><br></pre></td></tr></table></figure>
@@ -7740,11 +7507,11 @@ echo “1” &gt; /proc/sys/net/ipv6/conf/all/disable_ipv6</p>
 <figure class="highlight cmd"><table><tr><td class="code"><pre><span class="line">git remote add origin git@gitee.com:yuqi15/blog-backup.git</span><br></pre></td></tr></table></figure>
 <p>注意：这里是使用你自己创建仓库的链接，刚创建好会在页面上提示</p>
 <p><img src="https://img.zzzg.top/202303031601529.png" alt=""></p>
-<h1>上传到 gitee</h1>
+<h1 id="上传到-gitee">上传到 gitee</h1>
 <p>依次在命令行里面运行下面命令</p>
 <figure class="highlight cmd"><table><tr><td class="code"><pre><span class="line">git add .</span><br><span class="line">git commit -m &quot;update&quot;</span><br><span class="line">git push origin master --force</span><br></pre></td></tr></table></figure>
 <p>运行成功就上传完成了</p>
-<h1>新设备恢复 hexo 博客</h1>
+<h1 id="新设备恢复-hexo-博客">新设备恢复 hexo 博客</h1>
 <p>1、安装 node</p>
 <p>2、安装 Git</p>
 <p>3、在你需要恢复博客的文件夹里面使用命令行执行</p>
@@ -7760,10 +7527,10 @@ echo “1” &gt; /proc/sys/net/ipv6/conf/all/disable_ipv6</p>
   <entry>
     <title>安卓14 + HttpCanary 抓包设置</title>
     <url>/posts/5fb4c97d/</url>
-    <content><![CDATA[<h1>前言</h1>
+    <content><![CDATA[<h1 id="前言">前言</h1>
 <p>这两天使用 HttpCanary 抓包，无法安装证书，如下图，搜索找到了解决办法。本教程适合安卓14 + 无法安装证书，以及解决“系统证书”和“目标App使用固定证书”的问题。</p>
 <p><img src="https://img.zzzg.top/202311130929372.jpg" alt=""></p>
-<h1>准备工作</h1>
+<h1 id="准备工作">准备工作</h1>
 <ol>
 <li>
 <p>手机需要root，安装好 Magisk 和 Xposed 框架（比如 LSPosed）；</p>
@@ -7773,7 +7540,7 @@ echo “1” &gt; /proc/sys/net/ipv6/conf/all/disable_ipv6</p>
 </li>
 </ol>
 <p>说明：HttpCanary_3.3.5.apk：HttpCanary 安装包，原版无修改；HttpCanary根证书.zip：Magisk 模块，将HttpCanary根证书添加至系统CA目录，证书文件需自己添加；TrustMeAlready_1.11.apk：Xposed模块，解决“目标app使用固定证书，无法抓包”。</p>
-<h1>安装证书</h1>
+<h1 id="安装证书">安装证书</h1>
 <p>1.安装 HttpCanary 后，打开软件，若“安装根证书”无法安装点“跳过”即可，进入软件后，即可退出软件；<br>
 2.MT管理器打开 /data/user/0/com.guoshi.httpcanary/cache，新建名为 HttpCanary.jks 的空文件；然后把 HttpCanary.p12 和 HttpCanary.pem 两个文件复制到其他文件夹里（比如 Download 文件夹），后面要用到，如下图。</p>
 <p><img src="https://img.zzzg.top/202311130932355.gif" alt=""></p>
@@ -7785,7 +7552,7 @@ echo “1” &gt; /proc/sys/net/ipv6/conf/all/disable_ipv6</p>
 </ol>
 <p>至此，用户证书安装完毕，点开用户凭据会看到有三个证书，如下图。<br>
 <img src="https://img.zzzg.top/202311130934065.jpg" alt=""></p>
-<h1>添加根证书至系统</h1>
+<h1 id="添加根证书至系统">添加根证书至系统</h1>
 <p>由于从Android 7.0版本开始，系统不再信任安装的用户证书，可能会导致无法抓取SSL/TLS加密数据包或者无网络等问题，如下图。因此需要将HttpCanary根证书添加至系统CA目录，此操作需要在Root设备上进行。<br>
 <img src="https://img.zzzg.top/202311130935681.jpg" alt=""><br>
 1.直接移动根证书<br>
@@ -7798,20 +7565,20 @@ echo “1” &gt; /proc/sys/net/ipv6/conf/all/disable_ipv6</p>
 (2) 打开 Magisk→模块→从本地安装→选择“HttpCanary根证书.zip”→确定安装，安装完成后重启手机。<br>
 如下图，若打开 /system/etc/security/cacerts/ 路径，可以找到和 /data/misc/user/0/cacerts-added/ 路径下相同的 .0文件，说明已成功把 HttpCanary根证书添加至系统CA目录。<br>
 <img src="https://img.zzzg.top/202311130936693.jpg" alt=""></p>
-<h1>解决“目标App使用固定证书”问题</h1>
+<h1 id="解决“目标App使用固定证书”问题">解决“目标App使用固定证书”问题</h1>
 <p>如下图，在将HttpCanary根证书添加至系统CA目录后，对部分APP抓包仍会报错：目标App使用固定证书。<br>
 <img src="https://img.zzzg.top/202311130937716.jpg" alt=""><br>
 解决办法是：安装前面下载好的“TrustMeAlready_1.11.apk”，安装完成在 LSPosed 中启用模块，勾选系统框架和需要抓包的APP，如下图。重启手机，一定要重启手机，否则不会生效。<br>
 <img src="https://img.zzzg.top/202311130937034.jpg" alt=""><br>
 在完成上面设置后就可以愉快地抓包了。</p>
-<h1>参考文章</h1>
+<h1 id="参考文章">参考文章</h1>
 <p><a href="https://www.coolapk.com/feed/45789599?shareKey=Yjc1OGRiZDAwOWYwNjU1MTc5ZTk~&amp;shareUid=922742&amp;shareFrom=com.coolapk.market_13.3.6">https://www.coolapk.com/feed/45789599?shareKey=Yjc1OGRiZDAwOWYwNjU1MTc5ZTk~&amp;shareUid=922742&amp;shareFrom=com.coolapk.market_13.3.6</a></p>
 <p><a href="https://www.coolapk.com/feed/43608693">https://www.coolapk.com/feed/43608693</a></p>
-<h1>非系统SLL库抓包</h1>
+<h1 id="非系统SLL库抓包">非系统SLL库抓包</h1>
 <p>某些应用用的是非系统SLL库，比如某音，此教程无效。可以参考下面教程：<br>
 <a href="https://bbs.kanxue.com/thread-271968.htm">https://bbs.kanxue.com/thread-271968.htm</a></p>
 <p><a href="https://bbs.kanxue.com/thread-276015.htm">https://bbs.kanxue.com/thread-276015.htm</a></p>
-<h1>tips</h1>
+<h1 id="tips">tips</h1>
 <p>HttpCanary 太久没有更新了，问题很多。大家可以关注一下同作者的新作 Reqable，未来会出安卓版，官网 <a href="https://reqable.com/zh-CN/">https://reqable.com/zh-CN/</a> 。</p>
 ]]></content>
       <categories>
@@ -7962,7 +7729,7 @@ echo “1” &gt; /proc/sys/net/ipv6/conf/all/disable_ipv6</p>
     <url>/posts/9b626a72/</url>
     <content><![CDATA[<p>手搓xray很简单</p>
 <p>1.安装xray</p>
-<p>bash -c “$(curl -L <a href="https://github.com/XTLS/Xray-install/raw/main/install-release.sh">https://github.com/XTLS/Xray-install/raw/main/install-release.sh</a>)” @ install</p>
+<p>bash -c &quot;$(curl -L <a href="https://github.com/XTLS/Xray-install/raw/main/install-release.sh">https://github.com/XTLS/Xray-install/raw/main/install-release.sh</a>)&quot; @ install</p>
 <p>2.配置文件</p>
 <p>nano /usr/local/etc/xray/config.json</p>
 <p>3.配置示例</p>
@@ -7973,7 +7740,7 @@ echo “1” &gt; /proc/sys/net/ipv6/conf/all/disable_ipv6</p>
 <p>systemctl status xray</p>
 <p>6.设置开机启动</p>
 <p>systemctl enable xray</p>
-<h1>不会被偷跑流量的 REALITY</h1>
+<h1 id="不会被偷跑流量的-REALITY">不会被偷跑流量的 REALITY</h1>
 <p><a href="https://github.com/XTLS/Xray-examples/tree/main/VLESS-TCP-REALITY%20(without%20being%20stolen)">https://github.com/XTLS/Xray-examples/tree/main/VLESS-TCP-REALITY (without being stolen)</a></p>
 <p>自用配置示例</p>
 <p>config_server.jsonc</p>
@@ -7981,7 +7748,7 @@ echo “1” &gt; /proc/sys/net/ipv6/conf/all/disable_ipv6</p>
 <p>分享链接</p>
 <figure class="highlight yaml"><table><tr><td class="code"><pre><span class="line"><span class="string">vless://658a9fd3-3740-4df1-9f2c-846b199c9461@你的IP地址或域名:16666?encryption=none&amp;flow=xtls-rprx-vision&amp;security=reality&amp;sni=yahoo.com&amp;fp=chrome&amp;pbk=dGOEx_o20MJDAedTN6K3Ri7v2j6KH2KvlxhK3UluWEc&amp;sid=8bc9dcb3a49c4270&amp;spx=%2F&amp;type=tcp&amp;headerType=none#dokodemo-in</span></span><br></pre></td></tr></table></figure>
 <p>自己修改了服务端的哪些东西，对应的分享链接也需要对应修改</p>
-<h1>一键脚本</h1>
+<h1 id="一键脚本">一键脚本</h1>
 <figure class="highlight plaintext"><table><tr><td class="code"><pre><span class="line">wget -N --no-check-certificate -q -O install.sh &quot;https://raw.githubusercontent.com/2253845067/Xray_install/main/install.sh&quot; &amp;&amp; chmod +x install.sh &amp;&amp; bash install.sh</span><br></pre></td></tr></table></figure>
 <p>github地址：<a href="https://www.github.com/2253845067/Xray_install">https://www.github.com/2253845067/Xray_install</a></p>
 ]]></content>
@@ -7995,9 +7762,9 @@ echo “1” &gt; /proc/sys/net/ipv6/conf/all/disable_ipv6</p>
   <entry>
     <title>使用itzg/docker-minecraft-server快速搭建Minecraft服务器指南</title>
     <url>/posts/d28cec10/</url>
-    <content><![CDATA[<h1>项目概述</h1>
+    <content><![CDATA[<h1 id="项目概述">项目概述</h1>
 <p><strong>itzg/docker-minecraft-server</strong> 是一个基于Docker的Minecraft服务器镜像项目，它简化了Minecraft服务器的部署和管理流程。通过这个项目，用户可以轻松地在各种环境中运行Minecraft服务器，无需手动下载和配置服务器文件。</p>
-<h1>核心特点</h1>
+<h1 id="核心特点">核心特点</h1>
 <ol>
 <li><strong>自动下载最新版本</strong>：容器启动时会自动下载最新的稳定版Minecraft服务器</li>
 <li><strong>多版本支持</strong>：支持运行特定版本或最新的快照版</li>
@@ -8005,7 +7772,7 @@ echo “1” &gt; /proc/sys/net/ipv6/conf/all/disable_ipv6</p>
 <li><strong>持久化存储</strong>：支持将服务器数据挂载到宿主机</li>
 <li><strong>配置灵活</strong>：通过环境变量可自定义服务器参数</li>
 </ol>
-<h1>快速开始</h1>
+<h1 id="快速开始">快速开始</h1>
 <h2 id="基础部署方式">基础部署方式</h2>
 <p>要使用最新稳定版启动Minecraft服务器，只需运行以下Docker命令：</p>
 <figure class="highlight bash"><table><tr><td class="code"><pre><span class="line">docker run -d -it -p 25565:25565 -e EULA=TRUE itzg/minecraft-server</span><br></pre></td></tr></table></figure>
@@ -8052,14 +7819,14 @@ ONLINE_MODE：关闭正版验证（离线模式）</p>
 <figure class="highlight yaml"><table><tr><td class="code"><pre><span class="line"><span class="attr">environment:</span></span><br><span class="line">  <span class="attr">EULA:</span> <span class="string">&quot;TRUE&quot;</span></span><br><span class="line">  <span class="attr">VERSION:</span> <span class="string">&quot;1.20.1&quot;</span></span><br><span class="line">  <span class="attr">TYPE:</span> <span class="string">&quot;PAPER&quot;</span></span><br><span class="line">  <span class="attr">MEMORY:</span> <span class="string">&quot;2G&quot;</span></span><br><span class="line">  <span class="attr">ONLINE_MODE:</span> <span class="string">&quot;FALSE&quot;</span></span><br></pre></td></tr></table></figure>
 <h4 id="数据持久化">数据持久化</h4>
 <p>示例中的./data:/data挂载将服务器数据保存在宿主机的data目录中，确保服务器重启后数据不会丢失。</p>
-<h1>最佳实践建议</h1>
+<h1 id="最佳实践建议">最佳实践建议</h1>
 <ol>
 <li>资源限制：为容器设置适当的内存限制，避免影响宿主机性能</li>
 <li>定期备份：即使使用了数据卷，也应定期备份重要数据</li>
 <li>安全配置：设置强密码，限制RCON访问</li>
 <li>监控日志：定期检查服务器日志，及时发现并解决问题</li>
 </ol>
-<h1>适用场景</h1>
+<h1 id="适用场景">适用场景</h1>
 <p>这个Docker镜像非常适合以下场景：</p>
 <ul>
 <li>快速搭建测试服务器</li>
@@ -8202,7 +7969,7 @@ ipv6.txt 为 IPv6 数据文件</p>
     <title>李跳跳2.2正式版</title>
     <url>/posts/f5caf0fa/</url>
     <content><![CDATA[<p><strong>无论你是哪个版本的李跳跳，都建议更新啊喂。</strong></p>
-<h1>更新日志</h1>
+<h1 id="更新日志">更新日志</h1>
 <p>1.省电优化。</p>
 <p>2.响应速度优化。</p>
 <p>3.内置算法优化。</p>
@@ -8229,7 +7996,7 @@ ipv6.txt 为 IPv6 数据文件</p>
 <p>24.优化部分文案。</p>
 <p>25.更换新图标。</p>
 <p>26.更换包名(无奈之举)。</p>
-<h1>下载地址</h1>
+<h1 id="下载地址">下载地址</h1>
 <p>免登陆下载：<a href="https://www.123pan.com/s/bAORVv-QGQl.html">https://www.123pan.com/s/bAORVv-QGQl.html</a></p>
 <p><img src="https://img.zzzg.top/202304091214921.png" alt="image-20230409121412470"></p>
 ]]></content>
@@ -8264,11 +8031,11 @@ ipv6.txt 为 IPv6 数据文件</p>
     <title>短信转发神器,合宙 Air780E,700E 开发板刷机教程</title>
     <url>/posts/15b05887/</url>
     <content><![CDATA[<p>此教程只针对拿板子做短信转发器用，其他高阶操作（定位、联网、语音）需要自由拓展发挥。</p>
-<h1>官网资料</h1>
+<h1 id="官网资料">官网资料</h1>
 <p>Air780E : <a href="https://doc.openluat.com/wiki/37?wiki_page_id=4454">https://doc.openluat.com/wiki/37?wiki_page_id=4454</a></p>
 <p>Air700E : <a href="https://doc.openluat.com/wiki/44?wiki_page_id=4730">https://doc.openluat.com/wiki/44?wiki_page_id=4730</a></p>
 <p><img src="https://img.zzzg.top/202303300802872.webp" alt="img"></p>
-<h1>刷机前的准备</h1>
+<h1 id="刷机前的准备">刷机前的准备</h1>
 <h2 id="下载Lua固件烧录工具Luatools-v2-7z">下载Lua固件烧录工具Luatools_v2.7z</h2>
 <p>下载地址：<a href="https://luatos.com/luatools/download/last">https://luatos.com/luatools/download/last</a></p>
 <p>大概看一下这个工具的安装使用教程<a href="https://doc.openluat.com/wiki/37?wiki_page_id=4489">https://doc.openluat.com/wiki/37?wiki_page_id=4489</a></p>
@@ -8290,7 +8057,7 @@ ipv6.txt 为 IPv6 数据文件</p>
 <p>脚本在烧录之前需要手动改一下config.lua 文件的代码，填写你自己的token或者webhook地址</p>
 <p><img src="https://img.zzzg.top/202303300803773.webp" alt="img"></p>
 <p>如上图，需要先填写「NOTIFY_TYPE」字段，这里支持多选，支持上面注释的例子里面的渠道。</p>
-<p>比如你想同时推送到bark和钉钉,第四行代码就是NOTIFY_TYPE={“bark”,“dingtalk”}，以此类推，只有一个推送渠道的时候，大括号可以省略。</p>
+<p>比如你想同时推送到bark和钉钉,第四行代码就是NOTIFY_TYPE={&quot;bark&quot;,&quot;dingtalk&quot;}，以此类推，只有一个推送渠道的时候，大括号可以省略。</p>
 <p>改写完「NOTIFY_TYPE」字段，还需要改下面的webhook地址，需要你去对应的软件获取，具体方法自己解决，代码里已经给了相关的文档地址。</p>
 <p>这里举个bark的例子，如果你的iOS设备上安装了bark，</p>
 <p>打开首页会有很多网址</p>
@@ -8298,7 +8065,7 @@ ipv6.txt 为 IPv6 数据文件</p>
 <p>xxxxxxx所代表的就是bark的key，只需要把这个key复制到config.lua 中 BARK_KEY中即可，API字段不用变（如果你没有自己部署Bark的话）。</p>
 <p><img src="https://img.zzzg.top/202303300803629.webp" alt="img"></p>
 <p>在config.lua 代码中填写完你自己的配置，保存之后，其他的就不要动了。</p>
-<h1>烧录固件和脚本</h1>
+<h1 id="烧录固件和脚本">烧录固件和脚本</h1>
 <p>这里的烧录固件就相当于刷机，刷ROM，脚本就相当于安装App。</p>
 <p>由于开发板自身没有用户界面，所以所有的安装操作都是通过烧录完成的。需要用USB-C数据线将电脑和开发板连接，剩下的所有操作都在LuaTool里面。</p>
 <p>首先将开发板连接电脑，先不要开机。</p>
@@ -8315,7 +8082,7 @@ ipv6.txt 为 IPv6 数据文件</p>
 <p>提示：700E和780E的按键一样，可以参考文章开头的大图，从左往右依次是「电源键」「重置键」「BOOT键」</p>
 <p>这时，烧录操作全部完成，可以开机使用了。</p>
 <p>这里多说一句，如果以后你想刷别的脚本，就直接新建项目选择背的脚本就行了，然后刷的时候点击「下载脚本」就行了，固件不用选，因为你只是更换脚本。</p>
-<h1>使用</h1>
+<h1 id="使用">使用</h1>
 <p>日常使用插卡，接上电源即可（普通的USB-C接5V USB即可）。需要看日志可以连接电脑，使用Luatools查看。记得打开上面说的「4G模块USB打印」。</p>
 <p>现在Air700E官网仅售9.9，780E仅售39。</p>
 <p>700仅支持移动卡，780E支持移动＋联通。</p>
@@ -8328,12 +8095,245 @@ ipv6.txt 为 IPv6 数据文件</p>
       </tags>
   </entry>
   <entry>
+    <title>G120D变频器配置</title>
+    <url>/posts/d5ce6259/</url>
+    <content><![CDATA[<h1 id="安全注意事项">安全注意事项</h1>
+<p><img src="https://img.zzzg.top/20260412152405233.png" alt="image-20260412135200856"></p>
+<h1 id="调试向导">调试向导</h1>
+<h2 id="准备工作">准备工作</h2>
+<p><strong>关键注意事项</strong></p>
+<ul>
+<li>
+<p><strong>参数状态检查</strong>：如果变频器参数 P10 显示为“就绪”状态，在离线模式下将无法进行快速调试。</p>
+</li>
+<li>
+<p><strong>解决方法</strong>：需要在实际参数列表中手动修改相关参数。</p>
+</li>
+<li>
+<p><strong>例外情况</strong>：如果是直接离线进入调试向导，则无需进行此步骤。</p>
+</li>
+<li>
+<p><strong>参数 P10 就绪状态示例</strong></p>
+</li>
+</ul>
+<p><img src="https://img.zzzg.top/20260412152405235.png" alt="image-20260412143213081"></p>
+<h2 id="进入调试向导">进入调试向导</h2>
+<p>按照屏幕指引，找到并点击左侧菜单栏中的“调试向导”选项，开始进行参数配置。</p>
+<p><img src="https://img.zzzg.top/20260412152405236.png" alt="image-20260412143245410"></p>
+<h2 id="设定值指定">设定值指定</h2>
+<p><img src="https://img.zzzg.top/20260412152405237.png" alt="image-20260412143323675"></p>
+<h2 id="开环-闭环控制方式">开环/闭环控制方式</h2>
+<p><img src="https://img.zzzg.top/20260412152405238.png" alt="image-20260412143404696"></p>
+<h2 id="I-O配置与报文配置">I/O配置与报文配置</h2>
+<ul>
+<li>
+<p><strong>I/O默认配置设置</strong>：选择 I/O 的默认配置为<strong>7</strong>，对应参数<strong>P15</strong>。</p>
+</li>
+<li>
+<p><strong>报文配置设置</strong>：将报文配置设置为<strong>999</strong>，对应参数<strong>P922</strong>。</p>
+</li>
+</ul>
+<p><img src="https://img.zzzg.top/20260412152405239.png" alt="image-20260412143432453"></p>
+<h2 id="标准与电压配置">标准与电压配置</h2>
+<ul>
+<li>
+<p><strong>标准参数配置 (P100)</strong>：</p>
+<ul>
+<li>
+<p>标准选择：0 (IEC标准)</p>
+</li>
+<li>
+<p>电源频率：50Hz</p>
+</li>
+</ul>
+</li>
+<li>
+<p><strong>电压参数配置 (P210)</strong>：</p>
+<ul>
+<li>
+<p>设备输入电压：380V</p>
+</li>
+<li>
+<p>确保与现场实际供电情况一致</p>
+</li>
+</ul>
+</li>
+<li>
+<p><strong>功率单元应用 (P205)</strong>：</p>
+</li>
+<li>
+<p>标准选择：0（含重载）</p>
+</li>
+<li>
+<p>根据现场环境选择对应单元应用</p>
+</li>
+</ul>
+<p><img src="https://img.zzzg.top/20260412152405240.png" alt="image-20260412143455288"></p>
+<h2 id="电机参数配置">电机参数配置</h2>
+<ul>
+<li><strong>关键配置参数列表</strong>：
+<ul>
+<li>P300[0] 选择1：异步电机类型</li>
+<li>P133[0].0：设置电机连接方式</li>
+<li>P304[0] / P305[0]：额定电压与电流</li>
+<li>P307[0] /P308[0] / P310[0]：额定功率额定功率因素与与频率</li>
+<li>P311[0]：电机额定转速</li>
+<li>P335[0]：冷却方式（自冷却）</li>
+<li>P601[0]：温度传感器（无）</li>
+</ul>
+</li>
+</ul>
+<p>电机铭牌参数参考<img src="https://img.zzzg.top/20260412152405241.png" alt="电机铭牌参数参考"></p>
+<p>参数配置界面示例<img src="https://img.zzzg.top/20260412152405242.png" alt="参数配置界面示例"></p>
+<h2 id="电机抱闸制动配置">电机抱闸制动配置</h2>
+<ul>
+<li><strong>关键参数配置项</strong>：
+<ul>
+<li><strong>参数 P1215</strong>：电机抱闸控制方式选择</li>
+<li><strong>参数 P1216</strong>：抱闸打开时间设定 (ms)</li>
+<li><strong>参数 P1217</strong>：抱闸闭合时间设定 (ms)</li>
+</ul>
+</li>
+</ul>
+<p><img src="https://img.zzzg.top/20260412152405243.png" alt="image-20260412143708958"></p>
+<h2 id="参考速度与斜坡配置">参考速度与斜坡配置</h2>
+<ul>
+<li><strong>最大转速配置</strong>：参数号：P322[0]</li>
+<li><strong>斜坡上升时间</strong>：参数号：P1120 (设定值：1.2S)</li>
+<li><strong>斜坡下降时间</strong>：参数号：P1121 (设定值：0.87S)</li>
+<li><strong>急停斜坡时间</strong>：参数号：P1135 (设定值：0S)</li>
+<li><strong>电流极限保护</strong>：参数号：P640 (设定值：电机额定电流P305[0]的1.5倍)</li>
+</ul>
+<p><img src="https://img.zzzg.top/20260412152405244.png" alt="image-20260412144241331"></p>
+<h2 id="工艺应用与电机识别">工艺应用与电机识别</h2>
+<ul>
+<li><strong>工艺应用配置 (P502)</strong>：设置参数 P502 以选择合适的工艺应用宏，确保变频器驱动模式与负载特性匹配。</li>
+<li><strong>电机识别运行 (P1960)</strong>：启动参数 P1960 执行电机识别，使变频器自动检测并优化电机参数，为精确控制奠定基础。</li>
+</ul>
+<p><img src="https://img.zzzg.top/20260412152405245.png" alt="image-20260412144218440"></p>
+<h2 id="编码器配置">编码器配置</h2>
+<p><strong>无编码器</strong></p>
+<p><img src="https://img.zzzg.top/20260412152405246.png" alt="image-20260412144258860"></p>
+<h2 id="完成">完成</h2>
+<p><img src="https://img.zzzg.top/20260412152405247.png" alt="image-20260412144319491"></p>
+<h1 id="离线参数修改">离线参数修改</h1>
+<h2 id="调整增益-积分时间-P1470-P1472">调整增益/积分时间(P1470/P1472)</h2>
+<p><img src="https://img.zzzg.top/20260412152405248.png" alt="image-20260412145236106"></p>
+<h2 id="更改电机相序-P1820">更改电机相序 (P1820)</h2>
+<p><img src="https://img.zzzg.top/20260412152405249.png" alt="image-20260412145142514"></p>
+<h2 id="电机斜坡-P1120-P1121">电机斜坡 (P1120/P1121)</h2>
+<p><img src="https://img.zzzg.top/20260412152405250.png" alt="image-20260412145402230"></p>
+<h2 id="安全通信与方向设置">安全通信与方向设置</h2>
+<ul>
+<li><strong>安全通信配置</strong>：此次为安全变频器走的安全通信，需要设定为通讯给定STO信号。</li>
+</ul>
+<p><img src="https://img.zzzg.top/20260412152405251.png" alt="image-20260412145822916"></p>
+<p><img src="https://img.zzzg.top/20260412152405252.png" alt="image-20260412145901209"></p>
+<ul>
+<li><strong>安全测试停止时间调整</strong>：将安全测试停止时间修改为9000H,否则到时间需要经常断开STO才能不警告</li>
+</ul>
+<p><img src="https://img.zzzg.top/20260412152405253.png" alt="image-20260412145944329"></p>
+<ul>
+<li><strong>F-DI/F-DO/PROFIsafe</strong>：安全地址转16#</li>
+</ul>
+<p><img src="https://img.zzzg.top/20260412152405254.png" alt="image-20260412150137311"></p>
+<h1 id="参数下载与验收测试">参数下载与验收测试</h1>
+<ul>
+<li>
+<p><strong>参数下载与零点校正</strong>：</p>
+<ul>
+<li>
+<p>下载参数至变频器，原点自动校正至P2599数值。</p>
+</li>
+<li>
+<p>上传参数到组态并转在线。</p>
+</li>
+<li>
+<p>建议断电重启，测试零点位置是否正确。</p>
+</li>
+</ul>
+</li>
+<li>
+<p><strong>安全参数验收测试</strong>：</p>
+<ul>
+<li>
+<p>配置安全参数若出现报错，需进行验收测试。</p>
+</li>
+<li>
+<p>测试结束后必须上传参数，否则下次下载需重新测试。</p>
+</li>
+</ul>
+</li>
+</ul>
+<p><img src="https://img.zzzg.top/20260412152405255.png" alt="image-20260412150443468"></p>
+<h1 id="电机优化与静态测量">电机优化与静态测量</h1>
+<ul>
+<li>
+<p><strong>电机优化与静态测量准备</strong>：参数配置完成后，需进入调试模式进行电机优化，重点进行静态优化设置。</p>
+</li>
+<li>
+<p><strong>静态测量操作流程</strong>：选择“静态测量”方式并激活，切换至控制面板手动向前移动（非JOG模式），设定速度为0，等待测量提示完成，使能将自动断开。</p>
+</li>
+<li>
+<p><strong>惯量计算与参数保存</strong>：测量完成后电机自动旋转计算惯量，参数固定后，务必将参数保存至EEPROM中以确保设置生效。</p>
+</li>
+</ul>
+<p><img src="https://img.zzzg.top/20260412152405256.png" alt="image-20260412150602274"></p>
+<h1 id="PMC数据反馈配置">PMC数据反馈配置</h1>
+<ul>
+<li>
+<p><strong>配置步骤说明</strong>：</p>
+<ul>
+<li>
+<p>根据项目需求，需将变频器的实际电流数据反馈至PMC系统。</p>
+</li>
+<li>
+<p>具体操作：在通讯参数设置中，将12号预留字节设定为“实际电流反馈”。</p>
+</li>
+</ul>
+</li>
+</ul>
+<p><img src="https://img.zzzg.top/20260412152405257.png" alt="image-20260412150800811"></p>
+<h1 id="电机曲线配置">电机曲线配置</h1>
+<ul>
+<li>
+<p><strong>配置步骤说明</strong>：</p>
+<ul>
+<li>在信号栏选择所需要监控的曲线，点击红色方框进行监控</li>
+</ul>
+</li>
+</ul>
+<p><img src="https://img.zzzg.top/20260412152405258.png" alt="image-20260412151036529"></p>
+<ul>
+<li>
+<p>1：监控曲线</p>
+</li>
+<li>
+<p>2：开始监控</p>
+</li>
+<li>
+<p>3：停止监控</p>
+</li>
+<li>
+<p>4：取消监控，返回上一层</p>
+</li>
+</ul>
+<p><img src="https://img.zzzg.top/20260412152405259.png" alt="image-20260412151244679"></p>
+]]></content>
+      <categories>
+        <category>工业自动化</category>
+      </categories>
+      <tags>
+        <tag>G120D</tag>
+      </tags>
+  </entry>
+  <entry>
     <title>神秘模块入门教程（Android端）</title>
     <url>/posts/d7b14abe/</url>
     <content><![CDATA[<p><strong>使用前提</strong><br>
 1.已经安装Magisk或KernelSU的安卓设备</p>
 <p>2.安卓6.0以上</p>
-<h1>一 安装node</h1>
+<h1 id="一-安装node">一 安装node</h1>
 <h2 id="下载Tetmux">下载Tetmux</h2>
 <p><a href="https://github.com/termux/termux-app/releases">https://github.com/termux/termux-app/releases</a></p>
 <p><img src="https://img.zzzg.top/202304220807195.jpeg" alt="img"></p>
@@ -8359,7 +8359,7 @@ ipv6.txt 为 IPv6 数据文件</p>
 <p>node -v</p>
 <p><img src="https://img.zzzg.top/202304220923747.jpg" alt=""></p>
 <p>返回版本号就安装成功了</p>
-<h1>第二步 模块刷入</h1>
+<h1 id="第二步-模块刷入">第二步 模块刷入</h1>
 <p>在发布页下载最新的神秘模块 一般其名称应为 神秘_android_发布时间.zip</p>
 <p><img src="https://img.zzzg.top/202304220923727.jpg" alt=""></p>
 <p>TG群组链接：<a href="https://t.me/blowh2o">https://t.me/blowh2o</a></p>
@@ -8369,7 +8369,7 @@ ipv6.txt 为 IPv6 数据文件</p>
 <h2 id="进入面板">进入面板</h2>
 <p>打开<a href="http://127.0.0.1:23333/">127.0.0.1:23333</a></p>
 <p><img src="https://img.zzzg.top/202304220924533.jpg" alt=""></p>
-<h1>配置神秘</h1>
+<h1 id="配置神秘">配置神秘</h1>
 <h2 id="第一步-选择-涂涂改改">第一步 选择 <strong>涂涂改改</strong></h2>
 <p><img src="https://img.zzzg.top/202304220924025.jpg" alt=""></p>
 <h2 id="第二步-选择星盘">第二步 选择<strong>星盘</strong></h2>
@@ -8412,7 +8412,7 @@ ipv6.txt 为 IPv6 数据文件</p>
 <p><img src="https://img.zzzg.top/202304220927139.jpg" alt=""></p>
 <p>找到<strong>传送阵套娃名称</strong>选<strong>传送阵</strong>最好自动测<strong>速</strong></p>
 <p><img src="https://img.zzzg.top/202304220927912.jpg" alt=""></p>
-<h1>第三步 <strong>国内外分流&amp;基础正则使用</strong></h1>
+<h1 id="第三步-国内外分流-基础正则使用">第三步 <strong>国内外分流&amp;基础正则使用</strong></h1>
 <p>注:一般一个机场都是国内国外节点混合，我们要用正则进行过滤</p>
 <h2 id="1-新建传送阵">1.新建<strong>传送阵</strong></h2>
 <p><img src="https://img.zzzg.top/202304220928845.jpg" alt=""></p>
@@ -8435,12 +8435,12 @@ ipv6.txt 为 IPv6 数据文件</p>
 <p><img src="https://img.zzzg.top/202304220929488.jpg" alt=""></p>
 <p>选择合适的<strong>传送阵</strong></p>
 <p><img src="https://img.zzzg.top/202304220929174.jpg" alt=""></p>
-<h1>第四步 <strong>热点模式</strong></h1>
+<h1 id="第四步-热点模式">第四步 <strong>热点模式</strong></h1>
 <p><strong>热点模式</strong>和<strong>兼容模式</strong>打开</p>
 <p><img src="https://img.zzzg.top/202304220929159.jpg" alt=""></p>
-<h1>第五步 <strong>常见问题（非必选）</strong></h1>
+<h1 id="第五步-常见问题（非必选）">第五步 <strong>常见问题（非必选）</strong></h1>
 <p>正在施工中</p>
-<h1>第六步 神秘文字解释（非必选）</h1>
+<h1 id="第六步-神秘文字解释（非必选）">第六步 神秘文字解释（非必选）</h1>
 <p><strong>1.神秘面板主页</strong></p>
 <p><strong>不唱了</strong>→<strong>停止</strong></p>
 <p><strong>歇一会</strong>→<strong>重启</strong></p>
@@ -8460,7 +8460,7 @@ ipv6.txt 为 IPv6 数据文件</p>
 <p><strong>我不是什么星盘都用的</strong>→<strong>引用订阅类型</strong></p>
 <p><strong>对类型挑食</strong>→<strong>保留匹配的协议</strong></p>
 <p><strong>对端口挑食</strong>→<strong>保留匹配的端口</strong></p>
-<h1>其他</h1>
+<h1 id="其他">其他</h1>
 <p><strong>三.子星图（未知）</strong></p>
 <p><strong>四.星图（未知）</strong></p>
 <p><strong>五.书之灵（未知）</strong></p>
@@ -8477,7 +8477,7 @@ ipv6.txt 为 IPv6 数据文件</p>
 <p><strong>八.辅助灵（未知）</strong></p>
 <p><strong>九.日记（日志）</strong></p>
 <p><strong>十.时之锚（Ntp时间校准）</strong></p>
-<h1>订阅转换&amp;机场推荐</h1>
+<h1 id="订阅转换-机场推荐">订阅转换&amp;机场推荐</h1>
 <p>免流骚订阅转换<a href="http://zhuan.mlsao.ml/">http://zhuan.mlsao.ml/</a></p>
 <p>记得订阅转换为第二个选项clash的</p>
 <p>魔法学院转换<a href="https://sub.v2.lu/">https://sub.v2.lu/</a></p>
@@ -8493,7 +8493,7 @@ ipv6.txt 为 IPv6 数据文件</p>
   <entry>
     <title>移载机SEW MOVIDRIVE 变频器配置手册（双编码器）</title>
     <url>/posts/4f7419e2/</url>
-    <content><![CDATA[<h1>一、SEW变频器Startup</h1>
+    <content><![CDATA[<h1 id="一、SEW变频器Startup">一、SEW变频器Startup</h1>
 <p>安装好MOVITOOL软件</p>
 <p><img src="https://img.zzzg.top/20250522211420768.png" alt="image-20250522204456926"></p>
 <p>打开创建好的项目开始配置通信连接</p>
@@ -8551,7 +8551,7 @@ ipv6.txt 为 IPv6 数据文件</p>
 <p><img src="https://img.zzzg.top/20250522211836809.png" alt="image-20250522205459889"></p>
 <p>点击“下载”，然后单击“设置变频器，“完成”</p>
 <p><img src="https://img.zzzg.top/20250522211843403.png" alt="image-20250522205518921"></p>
-<h1>二、SEW变频器总线扩展定位设置</h1>
+<h1 id="二、SEW变频器总线扩展定位设置">二、SEW变频器总线扩展定位设置</h1>
 <p>点击2.SEW总线扩展定位，定位块设置。</p>
 <p><img src="https://img.zzzg.top/20250522211849177.png" alt="image-20250522205619412"></p>
 <p><img src="https://img.zzzg.top/20250522205630853.png" alt="image-20250522205630853"></p>
@@ -8581,7 +8581,7 @@ ipv6.txt 为 IPv6 数据文件</p>
 <p><img src="https://img.zzzg.top/20250522212026198.png" alt="image-20250522205951899"></p>
 <p>单击“完成”。</p>
 <p><img src="https://img.zzzg.top/20250522212032184.png" alt="image-20250522210003836"></p>
-<h1>三、 IPOS配置</h1>
+<h1 id="三、-IPOS配置">三、 IPOS配置</h1>
 <p><img src="https://img.zzzg.top/20250522212039234.png" alt="image-20250522210033621"></p>
 <p>设置通信总线类型为Profinet，单击下一步</p>
 <p><img src="https://img.zzzg.top/20250522212044956.png" alt="image-20250522210130165"></p>
@@ -8617,7 +8617,7 @@ ipv6.txt 为 IPv6 数据文件</p>
     <title>给 3x-ui 套上 CF 的方案 让面板不关联到小鸡 IP</title>
     <url>/posts/fe13a1b5/</url>
     <content><![CDATA[<p>3x-ui 的面板因其特征明显，经常会被扫描探测，特别是使用免费证书时，面板域名会直接与 VPS IP 关联，存在较大的暴露风险。本方案利用 CF 小黄云、回源证书、回源规则的特性，让 3x-ui 面板与订阅都套上 CF，从而实现面板与 VPS IP 无关联。</p>
-<h1>优势</h1>
+<h1 id="优势">优势</h1>
 <ul>
 <li>回源证书有效期 15 年，无需续签</li>
 <li>隐藏 VPS IP，面板域名不关联 VPS</li>
@@ -8631,11 +8631,11 @@ ipv6.txt 为 IPv6 数据文件</p>
 <li><strong>端口层</strong>：面板端口即使被扫描到，因无 CF 回源证书而无法建立 HTTPS，访问失败</li>
 <li><strong>路径层</strong>：即使知道面板域名，没有正确的访问路径，同样无法进入面板</li>
 </ol>
-<h1>原理</h1>
+<h1 id="原理">原理</h1>
 <p><strong>回源规则（Origin Rules）</strong>：当访问面板域名时，回源到指定的端口，而不是默认端口。这样对外只需访问标准地址 <code>https://dmit.deepseaside.com/路径</code>，CF 会自动将请求转发到源站实际监听的端口。</p>
 <p><img src="https://img.zzzg.top/20260512161138864.png" alt=""></p>
 <hr>
-<h1>方案</h1>
+<h1 id="方案">方案</h1>
 <blockquote>
 <p>注：免费版 CF 域名计划，每个域名只支持 10 条回源规则，此方案占用 2 条——订阅一条，面板一条。</p>
 </blockquote>
@@ -8756,7 +8756,7 @@ ipv6.txt 为 IPv6 数据文件</p>
 </blockquote>
 <p>External Proxy</p>
 <p><img src="https://img.zzzg.top/20260512174607068.png" alt=""></p>
-<h1>使用fail2ban manager</h1>
+<h1 id="使用fail2ban-manager">使用fail2ban manager</h1>
 <p>更简单一点装个fail2ban manager，给面板端口设置白名单，除了你自己白名单ip谁也访问不了</p>
 <p><img src="https://img.zzzg.top/20260512174746934.png" alt=""><br>
 <img src="https://img.zzzg.top/20260512174800687.png" alt=""></p>
@@ -8771,7 +8771,7 @@ ipv6.txt 为 IPv6 数据文件</p>
   <entry>
     <title>菲尼克斯无线模块配置</title>
     <url>/posts/195e4300/</url>
-    <content><![CDATA[<h1>发射端及客户端IP设置</h1>
+    <content><![CDATA[<h1 id="发射端及客户端IP设置">发射端及客户端IP设置</h1>
 <ul>
 <li>启动<strong>IPAssign_v1.1.3</strong>软件，点击下一页，扫描存在的无线模块</li>
 </ul>
@@ -8800,7 +8800,7 @@ ipv6.txt 为 IPv6 数据文件</p>
 <li>进入管理页面，找到<strong>Configuration</strong>-&gt;<strong>Quick Setup</strong>，进入快速设置页面，点击Next进行模块配置</li>
 </ul>
 <p><img src="https://img.zzzg.top/20260412152305673.png" alt="image-20260412134352547"></p>
-<h1>发射端设置</h1>
+<h1 id="发射端设置">发射端设置</h1>
 <ul>
 <li>修改IP设置配置，点击Next</li>
 </ul>
@@ -8825,7 +8825,7 @@ ipv6.txt 为 IPv6 数据文件</p>
 <li>查看AP接入状态</li>
 </ul>
 <p><img src="https://img.zzzg.top/20260412152305679.png" alt="image-20260412134457178"></p>
-<h1>客户端设置</h1>
+<h1 id="客户端设置">客户端设置</h1>
 <ul>
 <li>选择<strong>Client</strong>，点击Next</li>
 </ul>
@@ -8857,15 +8857,15 @@ ipv6.txt 为 IPv6 数据文件</p>
   <entry>
     <title>记中兴MF932改串</title>
     <url>/posts/27cbce44/</url>
-    <content><![CDATA[<h1>注意！</h1>
+    <content><![CDATA[<h1 id="注意！">注意！</h1>
 <p><strong>改串需要自己将串号写入NV文件中，我也不知道怎么写入，本教程只做参考，不会生成改串的NV文件就不用再往下看了。</strong>**</p>
-<h1>下载资料包</h1>
+<h1 id="下载资料包">下载资料包</h1>
 <a class="btn-beautify green larger" href="https://www.123pan.com/s/bAORVv-LSEl.html" title="点击下载"><i class="far fa-hand-point-right"></i><span>点击下载</span></a>
-<h1>安装驱动以及AT工具</h1>
+<h1 id="安装驱动以及AT工具">安装驱动以及AT工具</h1>
 <p><img src="https://img.zzzg.top/202303232019930.png" alt=""></p>
 <p>安装驱动和AT工具都是一直默认下一步，驱动的话安装完成会有弹窗，再次点击Update Driver就行，安装完成关闭即可。</p>
 <p><img src="https://img.zzzg.top/202303232027379.png" alt="image-20230323202701458"></p>
-<h1>改串步骤</h1>
+<h1 id="改串步骤">改串步骤</h1>
 <p>随身WiFi开机连接电脑，双击开端口.exe</p>
 <p><img src="https://img.zzzg.top/202303232025428.png" alt=""></p>
 <p>然后打开AT工具</p>
@@ -8908,7 +8908,7 @@ ipv6.txt 为 IPv6 数据文件</p>
 <figure class="highlight html"><table><tr><td class="code"><pre><span class="line">chrome://version/</span><br></pre></td></tr></table></figure>
 <p>2 、复制<strong>个人资料路径</strong>，关闭 Chrome 浏览器并到资源管理器中打开刚才复制的“个人资料路径”</p>
 <p><img src="https://img.zzzg.top/202303062045271.png" alt="image-20230306204551884"></p>
-<p>3 、找到History文件并删除，然后新建一个History文件，对History文件，右键—属性，勾选只读。</p>
+<p>3 、找到History文件并删除，然后新建一个History文件，对History文件，右键---属性，勾选只读。</p>
 <p><img src="https://img.zzzg.top/202303062048179.png" alt="image-20230306204804357"></p>
 ]]></content>
       <categories>
@@ -8919,39 +8919,9 @@ ipv6.txt 为 IPv6 数据文件</p>
       </tags>
   </entry>
   <entry>
-    <title>针对Prodiag现场License弹窗的解决方法</title>
-    <url>/posts/2622eae5/</url>
-    <content><![CDATA[<p>问题：触摸屏报缺少相关的License Key</p>
-<p><img src="https://img.zzzg.top/20250510170721371.png" alt="image-20250510165712437"></p>
-<p>打开2018版EKB秘钥（无法找到秘钥，请更换此2018秘钥）</p>
-<p><img src="https://img.zzzg.top/20250510170736105.png" alt="image-20250510165723510"></p>
-<p>选择此秘钥，安装长秘钥，</p>
-<p><img src="https://img.zzzg.top/20250510170745318.png" alt="image-20250510165728998"></p>
-<p>方法一：</p>
-<p>打开软件</p>
-<p><img src="https://img.zzzg.top/20250510170755265.png" alt="image-20250510165801227"></p>
-<p>选择下图秘钥—</p>
-<p><img src="https://img.zzzg.top/20250510170801052.png" alt="image-20250510165808104"></p>
-<p>找到下图秘钥–右键点击Transfer</p>
-<p>打开Tansfer 窗口，电脑与HMI屏幕连接后，可以找到需要下载的HMI设备（有具体IP地址），OK确认</p>
-<p><img src="https://img.zzzg.top/20250510170807531.png" alt="image-20250510165818850"></p>
-<p>方法二：也可以右键相关HMI的此属性，打开授权许可</p>
-<p><img src="https://img.zzzg.top/20250510170813884.png" alt="image-20250510165826870"></p>
-<p>找到相关HMI设备。</p>
-<p><img src="https://img.zzzg.top/20250510170821004.png" alt="image-20250510165833281"></p>
-<p>注意：授权传送之后会提示成功，传送成功后授权若消失重新使用EKb安装一遍即可出现。</p>
-]]></content>
-      <categories>
-        <category>工业自动化</category>
-      </categories>
-      <tags>
-        <tag>工业软件</tag>
-      </tags>
-  </entry>
-  <entry>
     <title>贵阳吉利程序解析</title>
     <url>/posts/57946227/</url>
-    <content><![CDATA[<h1>程序框架</h1>
+    <content><![CDATA[<h1 id="程序框架">程序框架</h1>
 <p><strong>_00_Organization_Blocks</strong>：系统组织块</p>
 <p><strong>_01_Initialization</strong>：初始化</p>
 <p><strong>_02_HMI_OperationModes</strong>：HMI操作模式</p>
@@ -8969,7 +8939,7 @@ ipv6.txt 为 IPv6 数据文件</p>
 <p><strong>SICAR</strong>：功能块</p>
 <p><strong>Types_yixin</strong>：功能块</p>
 <p>全局DB</p>
-<h1>安全</h1>
+<h1 id="安全">安全</h1>
 <h2 id="框架">框架</h2>
 <p><img src="https://img.zzzg.top/202411222031727.png" alt="image-20241122203142738"></p>
 <h2 id="注意项">注意项</h2>
@@ -8987,7 +8957,7 @@ ipv6.txt 为 IPv6 数据文件</p>
 <p>关好门按复位即可</p>
 <h3 id="光栅区扫">光栅区扫</h3>
 <p>直接光栅区扫复位按钮复位，用光栅对应的MLT信号做屏蔽</p>
-<h1>模式</h1>
+<h1 id="模式">模式</h1>
 <h2 id="User-Interface-IN">User_Interface_IN</h2>
 <p><strong>H_OpMode</strong>：区域急停信号（区域报警MSG里面产生）</p>
 <p><strong>M_OpMode</strong>：区域安全门信号（区域报警MSG里面产生）</p>
@@ -8997,7 +8967,7 @@ ipv6.txt 为 IPv6 数据文件</p>
 <p><strong>Pos_InitialPos</strong>：原位</p>
 <p><strong>Pos_OpenDoor</strong>：开门条件</p>
 <p><strong>Alarm</strong>：报警</p>
-<h1>工装</h1>
+<h1 id="工装">工装</h1>
 <h2 id="头文件">头文件</h2>
 <p><strong>Station_No</strong>：工位号（不可重复）</p>
 <p><strong>Name</strong>：工位名</p>
@@ -9021,7 +8991,7 @@ ipv6.txt 为 IPv6 数据文件</p>
 <p><strong>自动命令都是直接给到相应的背景DB里面的</strong></p>
 <p><img src="https://img.zzzg.top/202412060942646.jpg" alt="mmexport1733381636905"></p>
 <p><img src="https://img.zzzg.top/202412060942339.jpg" alt="mmexport1733381638785"></p>
-<h1>机器人</h1>
+<h1 id="机器人">机器人</h1>
 <h2 id="干涉区配置">干涉区配置</h2>
 <p>预留16个干涉区可以配置</p>
 <p><strong>Zone_No</strong>：干涉区编号,1-64</p>
@@ -9042,7 +9012,7 @@ ipv6.txt 为 IPv6 数据文件</p>
 <h2 id="轨迹段进入编号">轨迹段进入编号</h2>
 <p><strong>YX09_RBT_SEG</strong>：10个轨迹段 进入工位编号（全局编号1-50），&lt; 0为与工位无关或不比对车型</p>
 <p><img src="https://img.zzzg.top/202411241519872.png" alt="img"></p>
-<h1>订单消耗方式</h1>
+<h1 id="订单消耗方式">订单消耗方式</h1>
 <p>FC1061    55段</p>
 <p><strong>CanDO</strong></p>
 <p><strong>WorkDone</strong>=<strong>CycleFinish</strong></p>
@@ -9050,7 +9020,7 @@ ipv6.txt 为 IPv6 数据文件</p>
 <p><img src="https://img.zzzg.top/202411232118949.png" alt="lQLPJyCXjWlXwW3NA8DNB16wjeqcDDPadp4HJoX6ffQgAA_1886_960"></p>
 <p><strong>机器人完成的两种方式</strong></p>
 <p><img src="https://img.zzzg.top/202411232118013.png" alt="58b13f519e1f2c0683f8023456b0c6f7"></p>
-<h1>注意项</h1>
+<h1 id="注意项-2">注意项</h1>
 <h2 id="复制HMI时注意更改变量">复制HMI时注意更改变量</h2>
 <p><img src="https://img.zzzg.top/202411232118744.png" alt="img"></p>
 <p><img src="https://img.zzzg.top/202411241538795.png" alt="image-20241124153800238"></p>
@@ -9064,7 +9034,37 @@ ipv6.txt 为 IPv6 数据文件</p>
 <p><img src="https://img.zzzg.top/202411241535985.png" alt="image-20241124153050321"></p>
 <p><img src="https://img.zzzg.top/202411241536675.png" alt="image-20241124153306459"></p>
 <p><img src="https://img.zzzg.top/202411241536972.png" alt="image-20241124153505708"></p>
-<h1>画面</h1>
+<h1 id="画面">画面</h1>
+]]></content>
+      <categories>
+        <category>工业自动化</category>
+      </categories>
+      <tags>
+        <tag>工业软件</tag>
+      </tags>
+  </entry>
+  <entry>
+    <title>针对Prodiag现场License弹窗的解决方法</title>
+    <url>/posts/2622eae5/</url>
+    <content><![CDATA[<p>问题：触摸屏报缺少相关的License Key</p>
+<p><img src="https://img.zzzg.top/20250510170721371.png" alt="image-20250510165712437"></p>
+<p>打开2018版EKB秘钥（无法找到秘钥，请更换此2018秘钥）</p>
+<p><img src="https://img.zzzg.top/20250510170736105.png" alt="image-20250510165723510"></p>
+<p>选择此秘钥，安装长秘钥，</p>
+<p><img src="https://img.zzzg.top/20250510170745318.png" alt="image-20250510165728998"></p>
+<p>方法一：</p>
+<p>打开软件</p>
+<p><img src="https://img.zzzg.top/20250510170755265.png" alt="image-20250510165801227"></p>
+<p>选择下图秘钥—</p>
+<p><img src="https://img.zzzg.top/20250510170801052.png" alt="image-20250510165808104"></p>
+<p>找到下图秘钥--右键点击Transfer</p>
+<p>打开Tansfer 窗口，电脑与HMI屏幕连接后，可以找到需要下载的HMI设备（有具体IP地址），OK确认</p>
+<p><img src="https://img.zzzg.top/20250510170807531.png" alt="image-20250510165818850"></p>
+<p>方法二：也可以右键相关HMI的此属性，打开授权许可</p>
+<p><img src="https://img.zzzg.top/20250510170813884.png" alt="image-20250510165826870"></p>
+<p>找到相关HMI设备。</p>
+<p><img src="https://img.zzzg.top/20250510170821004.png" alt="image-20250510165833281"></p>
+<p>注意：授权传送之后会提示成功，传送成功后授权若消失重新使用EKb安装一遍即可出现。</p>
 ]]></content>
       <categories>
         <category>工业自动化</category>
