@@ -1,0 +1,2126 @@
+<!DOCTYPE html><html lang="zh-CN" data-theme="light"><head><meta charset="UTF-8"><meta http-equiv="X-UA-Compatible" content="IE=edge"><meta name="viewport" content="width=device-width, initial-scale=1.0,viewport-fit=cover"><title>SEW MOVI-C MOVIKIT Position Velocity配置向导 | 与亓のBlog</title><meta name="author" content="与亓"><meta name="copyright" content="与亓"><meta name="format-detection" content="telephone=no"><meta name="theme-color" content="#ffffff"><meta name="description" content="SEW MOVI-C Modular&#x2F;System多轴与系统模块使用MOVIKIT Position&#x2F;Velocity定位及速度控制模块的完整配置向导，涵盖硬件接线、MOVISUITE通讯建立、电机Startup与惯量测试、MOVIKIT参数配置、手动调试、IEC程序生成、Fieldbus Monitor仿真及西门子TIA Portal PROFINET组态。">
+<meta property="og:type" content="article">
+<meta property="og:title" content="SEW MOVI-C MOVIKIT Position Velocity配置向导">
+<meta property="og:url" content="https://yuqi.im/posts/2c372529/index.html">
+<meta property="og:site_name" content="与亓のBlog">
+<meta property="og:description" content="SEW MOVI-C Modular&#x2F;System多轴与系统模块使用MOVIKIT Position&#x2F;Velocity定位及速度控制模块的完整配置向导，涵盖硬件接线、MOVISUITE通讯建立、电机Startup与惯量测试、MOVIKIT参数配置、手动调试、IEC程序生成、Fieldbus Monitor仿真及西门子TIA Portal PROFINET组态。">
+<meta property="og:locale" content="zh_CN">
+<meta property="og:image" content="https://img.zzzg.top/20261128005829415.png">
+<meta property="article:published_time" content="2026-11-27T16:32:00.000Z">
+<meta property="article:modified_time" content="2026-11-27T16:32:00.000Z">
+<meta property="article:author" content="与亓">
+<meta property="article:tag" content="MOVI-C">
+<meta property="article:tag" content="MOVIKIT">
+<meta property="article:tag" content="SEW">
+<meta name="twitter:card" content="summary">
+<meta name="twitter:image" content="https://img.zzzg.top/20261128005829415.png"><script type="application/ld+json">{
+  "@context": "https://schema.org",
+  "@type": "BlogPosting",
+  "headline": "SEW MOVI-C MOVIKIT Position Velocity配置向导",
+  "url": "https://yuqi.im/posts/2c372529/",
+  "image": "https://img.zzzg.top/20261128005829415.png",
+  "datePublished": "2026-11-27T16:32:00.000Z",
+  "dateModified": "2026-11-27T16:32:00.000Z",
+  "author": [
+    {
+      "@type": "Person",
+      "name": "与亓",
+      "url": "https://yuqi.im"
+    }
+  ]
+}</script><link rel="shortcut icon" href="https://img.zzzg.top/202302272018985.jpg"><link rel="canonical" href="https://yuqi.im/posts/2c372529/index.html"><link rel="preconnect" href="//cdn.jsdelivr.net"/><link rel="stylesheet" href="/css/index.css?v=5.7.2"><link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/@fortawesome/fontawesome-free@7.3.1/css/all.min.css"><script>
+    (() => {
+      
+    const saveToLocal = {
+      set: (key, value, ttl) => {
+        try {
+          const data = { value }
+
+          if (ttl != null) {
+            data.expiry = Date.now() + ttl * 86400000
+          }
+
+          localStorage.setItem(key, JSON.stringify(data))
+        } catch (e) {
+          console.error(e)
+        }
+      },
+      get: key => {
+        const itemStr = localStorage.getItem(key)
+        if (!itemStr) return
+
+        try {
+          const data = JSON.parse(itemStr)
+
+          if (data.expiry && Date.now() > data.expiry) {
+            localStorage.removeItem(key)
+            return
+          }
+
+          return data.value
+        } catch {
+          localStorage.removeItem(key)
+        }
+      }
+    }
+
+    const scriptCache = new Map()
+    const cssCache = new Map()
+    window.btf = {
+      saveToLocal,
+      getScript: (url, attr = {}) => {
+        if (scriptCache.has(url)) {
+          return scriptCache.get(url)
+        }
+
+        const promise = new Promise((resolve, reject) => {
+          const script = document.createElement('script')
+
+          script.src = url
+          script.async = true
+
+          for (const key in attr) {
+            script.setAttribute(key, attr[key])
+          }
+
+          script.onload = resolve
+          script.onerror = reject
+
+          document.head.appendChild(script)
+        })
+
+        scriptCache.set(url, promise)
+
+        return promise
+      },
+      getCSS: (url, id) => {
+        if (cssCache.has(url)) {
+          return cssCache.get(url)
+        }
+
+        const promise = new Promise((resolve, reject) => {
+          const link = document.createElement('link')
+
+          link.rel = 'stylesheet'
+          link.href = url
+
+          if (id) {
+            link.id = id
+          }
+
+          link.onload = resolve
+          link.onerror = reject
+
+          document.head.appendChild(link)
+        })
+
+        cssCache.set(url, promise)
+
+        return promise
+      },
+      addGlobalFn: (key, fn, name = false, parent = window) => {
+        if (!false && key.startsWith('pjax')) return
+        const globalFn = parent.globalFn || {}
+        globalFn[key] = globalFn[key] || {}
+        globalFn[key][name || Object.keys(globalFn[key]).length] = fn
+        parent.globalFn = globalFn
+      }
+    }
+  
+      
+      const metaThemeColor = document.querySelector('meta[name="theme-color"]')
+      const activateDarkMode = () => {
+        document.documentElement.dataset.theme = 'dark'
+        if (metaThemeColor !== null) {
+          metaThemeColor.setAttribute('content', '#0d0d0d')
+        }
+      }
+      const activateLightMode = () => {
+        document.documentElement.dataset.theme = 'light'
+        if (metaThemeColor !== null) {
+          metaThemeColor.setAttribute('content', '#ffffff')
+        }
+      }
+
+      btf.activateDarkMode = activateDarkMode
+      btf.activateLightMode = activateLightMode
+
+      const theme = saveToLocal.get('theme')
+    
+          theme === 'dark' ? activateDarkMode() : theme === 'light' ? activateLightMode() : null
+        
+      
+      const asideStatus = saveToLocal.get('aside-status')
+      if (asideStatus !== undefined) {
+        document.documentElement.classList.toggle('hide-aside', asideStatus === 'hide')
+      }
+    
+      
+    const detectApple = () => {
+      if (/iPad|iPhone|iPod|Macintosh/.test(navigator.userAgent)) {
+        document.documentElement.classList.add('apple')
+      }
+    }
+    detectApple()
+  
+    })()
+  </script><script>const GLOBAL_CONFIG = {
+  root: '/',
+  algolia: undefined,
+  localSearch: {"path":"/search.xml","preload":false,"top_n_per_article":1,"unescape":false,"pagination":{"enable":false,"hitsPerPage":8},"languages":{"hits_empty":"未找到符合您查询的内容：${query}","hits_stats":"共找到 ${hits} 篇文章"}},
+  translate: undefined,
+  highlight: {"plugin":"highlight.js","highlightCopy":true,"highlightLang":true,"highlightHeightLimit":false,"highlightFullpage":false,"highlightMacStyle":false},
+  copy: {
+    success: '复制成功',
+    error: '复制失败',
+    noSupport: '浏览器不支持'
+  },
+  relativeDate: {
+    homepage: false,
+    post: false
+  },
+  runtime: '',
+  dateSuffix: {
+    just: '刚刚',
+    min: '分钟前',
+    hour: '小时前',
+    day: '天前',
+    month: '个月前'
+  },
+  copyright: undefined,
+  lightbox: 'null',
+  Snackbar: undefined,
+  infinitegrid: {
+    js: 'https://cdn.jsdelivr.net/npm/@egjs/infinitegrid@4.13.1/dist/infinitegrid.min.js',
+    buttonText: '加载更多'
+  },
+  isPhotoFigcaption: false,
+  islazyloadPlugin: false,
+  isAnchor: false,
+  percent: {
+    toc: true,
+    rightside: false,
+  },
+  autoDarkmode: false
+}</script><script id="config-diff">var GLOBAL_CONFIG_SITE = {
+  title: 'SEW MOVI-C MOVIKIT Position Velocity配置向导',
+  isHighlightShrink: false,
+  isToc: true,
+  pageType: 'post'
+}</script><script defer src="https://cloud.umami.is/script.js" data-website-id="7c06aeea-722b-4ad7-9255-4cc2b50044be"></script><meta name="generator" content="Hexo 8.1.2"><link rel="alternate" href="/atom.xml" title="与亓のBlog" type="application/atom+xml">
+</head><body><div id="sidebar"><div id="menu-mask"></div><div id="sidebar-menus"><div class="avatar-img text-center"><img src="https://img.zzzg.top/202302272017976.jpg" onerror="this.onerror=null;this.src='/img/friend_404.gif'" alt="avatar"/></div><div class="site-data text-center"><a href="/archives/"><div class="headline">文章</div><div class="length-num">70</div></a><a href="/tags/"><div class="headline">标签</div><div class="length-num">36</div></a><a href="/categories/"><div class="headline">分类</div><div class="length-num">19</div></a></div><div class="menus_items"><div class="menus_item"><a class="site-page" href="/"><i class="fa-fw fa fa-home"></i><span> 主页</span></a></div><div class="menus_item"><span class="site-page group"><i class="fa-fw fa fa-graduation-cap"></i><span> 博文</span><i class="fas fa-chevron-down"></i></span><ul class="menus_item_child"><li><a class="site-page child" href="/archives/"><i class="fa-fw fa fa-folder-open"></i><span> 归档</span></a></li><li><a class="site-page child" href="/categories/"><i class="fa-fw fa fa-archive"></i><span> 分类</span></a></li><li><a class="site-page child" href="/tags/"><i class="fa-fw fa fa-tags"></i><span> 标签</span></a></li></ul></div><div class="menus_item"><span class="site-page group"><i class="fa-fw fa fa-external-link"></i><span> 外链</span><i class="fas fa-chevron-down"></i></span><ul class="menus_item_child"><li><a class="site-page child" target="_blank" rel="noopener" href="https://zzzg.top"><i class="fa-fw fa fa-compass"></i><span> 与亓导航</span></a></li><li><a class="site-page child" target="_blank" rel="noopener" href="https://cloud.umami.is/share/2ewyVCnIAXHh4rRQ/yuqi.im"><i class="fa-fw fa fa-bar-chart"></i><span> 访问量统计</span></a></li></ul></div><div class="menus_item"><a class="site-page" href="/link/"><i class="fa-fw fa fa-link"></i><span> 友链</span></a></div><div class="menus_item"><a class="site-page" href="/comment/"><i class="fa-fw fa fa-paper-plane"></i><span> 留言板</span></a></div><div class="menus_item"><a class="site-page" href="/about/"><i class="fa-fw fa fa-heart"></i><span> 关于</span></a></div></div></div></div><div class="post" id="body-wrap"><header class="post-bg" id="page-header" style="background-image: url(https://img.zzzg.top/20261128005829415.png);"><nav id="nav"><span id="blog-info"><a class="nav-site-title" href="/"><span class="site-name">与亓のBlog</span></a><a class="nav-page-title" href="/"><span class="site-name">SEW MOVI-C MOVIKIT Position Velocity配置向导</span><span class="site-name"><i class="fa-solid fa-circle-arrow-left"></i><span>  返回首页</span></span></a></span><div id="menus"><div id="search-button"><span class="site-page social-icon search"><i class="fas fa-search fa-fw"></i><span> 搜索</span></span></div><div class="menus_items"><div class="menus_item"><a class="site-page" href="/"><i class="fa-fw fa fa-home"></i><span> 主页</span></a></div><div class="menus_item"><span class="site-page group"><i class="fa-fw fa fa-graduation-cap"></i><span> 博文</span><i class="fas fa-chevron-down"></i></span><ul class="menus_item_child"><li><a class="site-page child" href="/archives/"><i class="fa-fw fa fa-folder-open"></i><span> 归档</span></a></li><li><a class="site-page child" href="/categories/"><i class="fa-fw fa fa-archive"></i><span> 分类</span></a></li><li><a class="site-page child" href="/tags/"><i class="fa-fw fa fa-tags"></i><span> 标签</span></a></li></ul></div><div class="menus_item"><span class="site-page group"><i class="fa-fw fa fa-external-link"></i><span> 外链</span><i class="fas fa-chevron-down"></i></span><ul class="menus_item_child"><li><a class="site-page child" target="_blank" rel="noopener" href="https://zzzg.top"><i class="fa-fw fa fa-compass"></i><span> 与亓导航</span></a></li><li><a class="site-page child" target="_blank" rel="noopener" href="https://cloud.umami.is/share/2ewyVCnIAXHh4rRQ/yuqi.im"><i class="fa-fw fa fa-bar-chart"></i><span> 访问量统计</span></a></li></ul></div><div class="menus_item"><a class="site-page" href="/link/"><i class="fa-fw fa fa-link"></i><span> 友链</span></a></div><div class="menus_item"><a class="site-page" href="/comment/"><i class="fa-fw fa fa-paper-plane"></i><span> 留言板</span></a></div><div class="menus_item"><a class="site-page" href="/about/"><i class="fa-fw fa fa-heart"></i><span> 关于</span></a></div></div><div id="toggle-menu"><span class="site-page"><i class="fas fa-bars fa-fw"></i></span></div></div></nav><div id="post-info"><h1 class="post-title">SEW MOVI-C MOVIKIT Position Velocity配置向导</h1><div id="post-meta"><div class="meta-firstline"><span class="post-meta-date"><i class="far fa-calendar-alt fa-fw post-meta-icon"></i><span class="post-meta-label">发表于</span><time class="post-meta-date-created" datetime="2026-11-27T16:32:00.000Z" title="发表于 2026-11-28 00:32:00">2026-11-28</time><span class="post-meta-separator">|</span><i class="fas fa-history fa-fw post-meta-icon"></i><span class="post-meta-label">更新于</span><time class="post-meta-date-updated" datetime="2026-11-27T16:32:00.000Z" title="更新于 2026-11-28 00:32:00">2026-11-28</time></span><span class="post-meta-categories"><span class="post-meta-separator">|</span><i class="fas fa-inbox fa-fw post-meta-icon"></i><a class="post-meta-categories" href="/categories/%E5%B7%A5%E4%B8%9A%E8%87%AA%E5%8A%A8%E5%8C%96/">工业自动化</a></span></div><div class="meta-secondline"></div></div></div></header><main class="layout" id="content-inner"><div id="post"><article class="container post-content" id="article-container"><div id="post-outdate-notice" data="{&quot;limitDay&quot;:180,&quot;messagePrev&quot;:&quot;It has been&quot;,&quot;messageNext&quot;:&quot;days since the last update, the content of the article may be outdated.&quot;,&quot;postUpdate&quot;:&quot;2026-11-28 00:32:00&quot;}" hidden></div><blockquote>
+<p>本文整理自 SEW-EURODRIVE 培训手册《MOVI-C Modular / System 多轴模块/系统模块 — MOVIKIT Position / Velocity 定位/速度控制模块配置向导（Version 2.0）》，适用于使用 MOVISUITE 软件对 MOVI-C 系统进行完整调试与上位 PLC 通讯组态的工程场景。</p>
+</blockquote>
+<h1>概述</h1>
+<h2 id="编写目的">编写目的</h2>
+<ul>
+<li>熟悉并掌握 <strong>MOVISUITE</strong> 调试软件的基本操作；</li>
+<li>熟悉并掌握 <strong>MOVI-C Modular / System</strong> 模块使用 <strong>Position / Velocity MOVIKIT</strong> 软件模块的配置与调试方法。</li>
+</ul>
+<h2 id="补充参考文档">补充参考文档</h2>
+<ul>
+<li><a target="_blank" rel="noopener" href="https://download.sew-eurodrive.com/download/pdf/25953303.pdf">MOVI-C Modular 操作手册 (25953303.pdf)</a></li>
+<li><a target="_blank" rel="noopener" href="https://download.sew-eurodrive.com/download/pdf/25951300.pdf">MOVIKIT Position / Velocity 手册 (25951300.pdf)</a></li>
+<li><a target="_blank" rel="noopener" href="https://download.sew-eurodrive.com/download/pdf/22781455.pdf">MOVI-C UHX85A 手册 (22781455.pdf)</a></li>
+<li><a target="_blank" rel="noopener" href="https://download.sew-eurodrive.com/download/pdf/22774254.pdf">UHX85A PROFINET 手册 (22774254.pdf)</a></li>
+</ul>
+<blockquote>
+<p>⚠️ <strong>安全与免责提示</strong>：本教程仅作为培训及工程配置参考，不能替代官方操作手册。操作现场设备前，务必遵循对应硬件的操作手册与安全规范。</p>
+</blockquote>
+<h2 id="整体调试步骤总览">整体调试步骤总览</h2>
+<p><img src="https://img.zzzg.top/20261128005832190.png" alt="调试步骤总览"></p>
+<p>MOVIKIT Position / Velocity 的完整配置流程分为以下 9 个步骤：</p>
+<ol>
+<li>了解现场设备，确认硬件安装和接线；</li>
+<li>工程师电脑与现场 MOVI-C 设备建立通讯连接；</li>
+<li>简单介绍 MOVI-C 调试软件（MOVISUITE）；</li>
+<li>开始第一个轴的电机参数配置；</li>
+<li>通过手动操作验证电机参数配置和优化；</li>
+<li>开始第二个轴、第三个轴的电机参数配置和优化；</li>
+<li>创建 UHX85A 内的 IEC 程序，自动生成程序代码；</li>
+<li>添加 Fieldbus Monitor，监控和模拟 PLC 过程数据；</li>
+<li>在西门子 PLC 内完成通讯组态与程序控制。</li>
+</ol>
+<hr>
+<h1>1 了解现场设备，确认硬件安装和接线</h1>
+<p><strong>本章目标</strong>：了解变频器系统硬件组成，确认现场供电与接线状态。</p>
+<p><img src="https://img.zzzg.top/20261128005836714.png" alt="硬件系统组成示意"></p>
+<h2 id="1-1-了解设备">1.1 了解设备</h2>
+<table>
+<thead>
+<tr>
+<th style="text-align:center">编号</th>
+<th style="text-align:left">设备名称及规格说明</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td style="text-align:center"><strong>A</strong></td>
+<td style="text-align:left">主电源开关，带有温度保护、瞬间大电流跳闸及失压保护功能，保护阈值预设为 10A</td>
+</tr>
+<tr>
+<td style="text-align:center"><strong>B</strong></td>
+<td style="text-align:left">24V 直流稳压电源</td>
+</tr>
+<tr>
+<td style="text-align:center"><strong>C</strong></td>
+<td style="text-align:left">电机连接，采用 Harting 插头实现电机动力电缆连接</td>
+</tr>
+<tr>
+<td style="text-align:center"><strong>D</strong></td>
+<td style="text-align:left"><strong>电机 1</strong>：<code>CMP50S/BK/KY/AK0H/SB1</code>，4500 rpm，带电子铭牌</td>
+</tr>
+<tr>
+<td style="text-align:center"><strong>E</strong></td>
+<td style="text-align:left"><strong>电机 2</strong>：<code>CMP50S/BK/KY/RH1M/SB1</code>，4500 rpm，不带电子铭牌</td>
+</tr>
+<tr>
+<td style="text-align:center"><strong>F</strong></td>
+<td style="text-align:left"><strong>电机 3</strong>：<code>DRS71S4BE05HR/FI/IS/TF/AS7W</code>，230V △，带电子铭牌</td>
+</tr>
+<tr>
+<td style="text-align:center"><strong>G</strong></td>
+<td style="text-align:left">飞轮，带保护罩</td>
+</tr>
+<tr>
+<td style="text-align:center"><strong>H</strong></td>
+<td style="text-align:left">制动器通过 BMK 整流块进行供电，BMK 整流块由 MOVI-C Modular 多轴模块进行控制</td>
+</tr>
+<tr>
+<td style="text-align:center"><strong>I</strong></td>
+<td style="text-align:left">MOVIDRIVE modular 双轴模块，型号 <code>MDD90A-0040-503-X-S00/X</code></td>
+</tr>
+<tr>
+<td style="text-align:center"><strong>J</strong></td>
+<td style="text-align:left">MOVIDRIVE modular 单轴模块，型号 <code>MDA90A-0040-503-X-S00</code></td>
+</tr>
+<tr>
+<td style="text-align:center"><strong>K</strong></td>
+<td style="text-align:left">MOVIDRIVE modular 功率模块，型号 <code>MDP90A-0100-503-4-000</code></td>
+</tr>
+<tr>
+<td style="text-align:center"><strong>L</strong></td>
+<td style="text-align:left">MOVI-C CONTROLLER power，型号 <code>UHX85A-R</code></td>
+</tr>
+<tr>
+<td style="text-align:center"><strong>M</strong></td>
+<td style="text-align:left">系统总线 EtherCAT / SBusPLUS，控制器通过 EtherCAT 与轴模块进行通讯</td>
+</tr>
+<tr>
+<td style="text-align:center"><strong>N</strong></td>
+<td style="text-align:left">端子盒，通过开关模拟现场的 DI 和 DO 输入输出</td>
+</tr>
+<tr>
+<td style="text-align:center"><strong>制动电阻</strong></td>
+<td style="text-align:left">安装在培训器材的背面</td>
+</tr>
+</tbody>
+</table>
+<h2 id="1-2-检查供电与接线">1.2 检查供电与接线</h2>
+<h3 id="1-2-1-UHX85A-接线">1.2.1 UHX85A 接线</h3>
+<p><img src="https://img.zzzg.top/20261128005838903.png" alt="UHX85A 系统连接架构"></p>
+<ul>
+<li><strong>【1】</strong>：与 MOVISUITE 软件 / 工程师调试电脑接口 <code>LAN3</code>；</li>
+<li><strong>【2】</strong>：现场总线接口 / PROFINET 总线接口 <code>X21</code> / <code>X22</code>；</li>
+<li><strong>【3】</strong>：EtherCAT / SBusPLUS 系统总线接口 <code>LAN2</code>。</li>
+</ul>
+<p><img src="https://img.zzzg.top/20261128005841089.png" alt="UHX85A 接口详情与接线标注"></p>
+<blockquote>
+<p>⚠️ <strong>注意</strong>：</p>
+<ul>
+<li><code>UHX85A-R</code> 的储存卡需插在 <strong>Slot1</strong> 中；</li>
+<li><strong>LAN2</strong>：SBusPLUS 系统总线，接 MDP 功率模块的 <code>X30 IN</code>；</li>
+<li><strong>LAN3</strong>：EtherNet 接口，接工程师电脑；</li>
+<li><strong>X21 / X22</strong>：PROFINET 网口，接上位西门子 PLC。</li>
+</ul>
+</blockquote>
+<p><strong>24V 供电接口（X1）</strong>：接线图如下，请注意 24V 供电的正负极性：</p>
+<p><img src="https://img.zzzg.top/20261128005844144.png" alt="UHX85A X1 24V 供电接线图"></p>
+<h3 id="1-2-2-MDP-功率模块与-MDD、MDA-轴模块接线">1.2.2 MDP 功率模块与 MDD、MDA 轴模块接线</h3>
+<blockquote>
+<p>💡 <strong>提示</strong>：直流母排接线请参照官方手册进行，注意 24V 母排载流量以及轴模块排序——<strong>功率大的轴模块应排在靠近功率模块端，功率小的轴模块放在远离功率模块端</strong>。</p>
+</blockquote>
+<p>现场需重点检查 <strong>STO 接线</strong> 和 <strong>网络接线（X30）</strong>：</p>
+<ul>
+<li><strong>网络接线</strong>：<code>X30 IN</code> 为<strong>黑色</strong>，<code>X30 OUT</code> 为<strong>红色</strong>。</li>
+</ul>
+<p><img src="https://img.zzzg.top/20261128005846075.png" alt="MDP 与轴模块 X30 网络接线"></p>
+<ul>
+<li><strong>STO 端子接线</strong>：如现场使用 STO 安全功能，请拆除短接线，将 STO 回路连接到安全 PLC 或者安全继电器输出。</li>
+</ul>
+<p><img src="https://img.zzzg.top/20261128005848429.png" alt="STO 端子接线定义"></p>
+<p>接线检查无误后，可将维修开关拨到 <strong>ON</strong> 位置，系统上电。此时应确认：</p>
+<ul>
+<li>PLC 电源指示灯亮起；</li>
+<li>MDP 功率模块强电指示灯亮起；</li>
+<li>轴模块指示灯亮起，数码管显示非 <code>Exx.xx</code> 故障代码（例如 <code>C4</code>、<code>01</code> 等）。</li>
+</ul>
+<hr>
+<h1>2 工程师电脑与现场 MOVI-C 设备建立通讯连接</h1>
+<p><strong>本章目标</strong>：将工程师电脑接入 UHX85A，通过 MOVISUITE 建立通讯连接并扫描创建项目。</p>
+<p><img src="https://img.zzzg.top/20261128005850889.png" alt="工程师电脑连接通讯示意"></p>
+<h2 id="2-1-连接工程师电脑与-UHX85A-网络接口">2.1 连接工程师电脑与 UHX85A 网络接口</h2>
+<p><img src="https://img.zzzg.top/20261128005853301.png" alt="以太网连接 UHX85A LAN3"></p>
+<ul>
+<li><strong>1</strong>：使用常规以太网网线连接工程师电脑与 UHX85A 的 <strong>LAN3</strong> 接口。</li>
+</ul>
+<h2 id="2-2-配置通讯参数">2.2 配置通讯参数</h2>
+<h3 id="2-2-1-通过网络扫描（Network-Scan）自动创建项目">2.2.1 通过网络扫描（Network Scan）自动创建项目</h3>
+<blockquote>
+<p>ℹ️ <strong>说明</strong>：请提前安装最新版本的 MOVISUITE 软件。可访问 SEW 官网 <a target="_blank" rel="noopener" href="https://www.sew-eurodrive.cn">www.sew-eurodrive.cn</a>，依次进入 <strong>Online Support</strong> → <strong>Software</strong>，搜索 <strong>MOVISUITE</strong> 下载安装。</p>
+</blockquote>
+<h4 id="1-启动-MOVISUITE-软件">1. 启动 MOVISUITE 软件</h4>
+<p>在 Windows 开始菜单中搜索 <code>MOVISUITE standard</code> 并点击启动：</p>
+<p><img src="https://img.zzzg.top/20261128005856517.png" alt="Windows 开始菜单搜索 MOVISUITE"></p>
+<p>或者直接双击桌面上的 MOVISUITE 图标：</p>
+<p><img src="https://img.zzzg.top/20261128005858637.png" alt="MOVISUITE 桌面图标"></p>
+<p>软件启动加载画面会显示当前版本信息：</p>
+<blockquote>
+<p>⚠️ <strong>版本匹配提示</strong>：请务必使用与硬件相匹配的软件版本。如果版本不一致，需要考虑更新/降级 MOVISUITE 软件，或者更新/降级驱动器与 UHX85A 的系统软件。SEW 推荐调试时使用最新软件，硬件固件升级建议在 SEW 指导下完成。</p>
+</blockquote>
+<p><img src="https://img.zzzg.top/20261128005901859.png" alt="MOVISUITE 启动加载画面与版本信息"></p>
+<h4 id="2-从网络扫描自动创建项目">2. 从网络扫描自动创建项目</h4>
+<p>如果不是第一次打开软件，可能会直接进入项目视图。在项目视图中点击左上角 <strong>MOVISUITE</strong> 进入软件菜单；如需切换界面语言，可点击右上角的 <strong>ZH</strong> 或 <strong>EN</strong> 图标进行切换（本教程切换为中文演示）：</p>
+<p><img src="https://img.zzzg.top/20261128005903756.png" alt="软件菜单与语言切换按钮"></p>
+<p>打开 MOVISUITE 软件菜单后，依次点击 <strong>项目</strong>（1）→ <strong>新建</strong>（2）→ <strong>来自网络扫描</strong>（3）：</p>
+<p><img src="https://img.zzzg.top/20261128005908650.png" alt="新建项目-来自网络扫描"></p>
+<p>在打开的新画面中配置通讯方式，依次选择 <strong>通讯</strong>（4）→ <strong>以太网</strong>（5）→ 打开 <strong>扫描</strong>（6）→ 开启 <strong>以太网</strong> 适配器（7）→ 点击 <strong>Windows 网络连接</strong>（8）：</p>
+<blockquote>
+<p>🔧 <strong>故障排查</strong>：如果此处无法显示电脑上的所有网络连接，或者所有连接都显示离线图标，请重新插拔网线，并点击 <strong>更新适配器</strong> 按钮，直到出现所使用的网络适配器。若仍无法识别，请检查软件安装或联系 SEW 技术支持。</p>
+</blockquote>
+<p><img src="https://img.zzzg.top/20261128005910883.png" alt="配置以太网通讯方式"></p>
+<p>在弹出的 Windows 网络连接菜单中，找到并选择当前连接设备的以太网网卡（1），右键打开 <strong>属性</strong>，选择 <strong>Internet 协议版本 4 (TCP/IPv4)</strong>（2）配置静态 IP：</p>
+<blockquote>
+<p>💡 <strong>提示</strong>：UHX85A 的 <code>LAN3</code> 接口默认 IP 地址为 <code>192.168.10.4</code>，工程师电脑的 IP 地址需设定在同一网段且避开 <code>192.168.10.4</code>。</p>
+</blockquote>
+<p><img src="https://img.zzzg.top/20261128005913378.png" alt="选择以太网适配器"></p>
+<p>本例中输入 IP 地址 <code>192.168.10.55</code>，子网掩码 <code>255.255.255.0</code>，默认网关可留空（3），依次点击 <strong>OK</strong>（4、5）确认并关闭网卡配置窗口：</p>
+<p><img src="https://img.zzzg.top/20261128005915408.png" alt="配置静态 IPv4 地址"></p>
+<p>返回 MOVISUITE 通讯配置界面后，点击 <strong>应用并启动扫描</strong>（6），等待软件扫描整个网络：</p>
+<p><img src="https://img.zzzg.top/20261128005917623.png" alt="应用并启动扫描"></p>
+<h4 id="3-应用扫描结果并载入设备数据">3. 应用扫描结果并载入设备数据</h4>
+<p>扫描完成后，弹窗显示扫描到的硬件设备：</p>
+<p><img src="https://img.zzzg.top/20261128005920224.png" alt="网络扫描结果"></p>
+<ul>
+<li><strong>A</strong>：MOVI-C 的 UHX85A 以及扫描到的其他硬件设备均显示在此处；</li>
+<li><strong>1</strong>：点击 <strong>应用</strong> 按钮，接受当前扫描结果并创建项目。</li>
+</ul>
+<p>等待应用完成，点击 <strong>关闭</strong>（2）关闭当前对话框：</p>
+<p><img src="https://img.zzzg.top/20261128005922496.png" alt="应用扫描结果完成"></p>
+<p>随后会提示是否将所有设备数据应用到项目中，点击 <strong>是，加载设备数据</strong>（3），将设备已有信息上传至工程师电脑：</p>
+<p><img src="https://img.zzzg.top/20261128005925112.png" alt="载入设备数据提示"></p>
+<p>待全部设备上传完成后，点击 <strong>关闭</strong>（1）关闭对话框：</p>
+<p><img src="https://img.zzzg.top/20261128005926965.png" alt="设备上传至 PC 完成"></p>
+<h4 id="4-查看总览视图并更新-IEC-项目">4. 查看总览视图并更新 IEC 项目</h4>
+<p>正常关闭对话框后，进入 MOVISUITE 项目总览视图，UHX85A 与各硬件设备已建立通讯连接（支持球状视图或树形视图）：</p>
+<p><img src="https://img.zzzg.top/20261128005930183.png" alt="MOVISUITE 项目总览视图"></p>
+<ul>
+<li><strong>A</strong>：显示当前项目中的硬件信息，黄色三角叹号表示警告（Warning）信息：
+<ul>
+<li><strong>黄色感叹号图标</strong>：表示当前控制器处于调试/参数配置模式，IEC 程序处于停止（STOP）状态，建议启动 IEC 编辑器运行 UHX85A 程序并重新扫描；</li>
+<li><strong>黄色不等号图标（≠）</strong>：表示项目中的信息与 UHX85A 实际数据不符，建议更新当前 UHX85A 中的配置数据。</li>
+</ul>
+</li>
+</ul>
+<p><strong>更新并启动 IEC 项目步骤</strong>：</p>
+<ol>
+<li>点击 UHX85A 图标上的提示按钮（1），展开后点击 <strong>更新 IEC 项目</strong>（2），IEC 编辑器将自动打开（首次启动耗时稍长，请耐心等待）：</li>
+</ol>
+<p><img src="https://img.zzzg.top/20261128005932287.png" alt="打开并更新 IEC 项目"></p>
+<ol start="2">
+<li>启动 IEC 编辑器后，依次点击顶部菜单 <strong>在线</strong> → <strong>登录到</strong>（快捷键 <code>Alt + F8</code>）：</li>
+</ol>
+<p><img src="https://img.zzzg.top/20261128005934375.png" alt="IEC 编辑器登录到控制器"></p>
+<ol start="3">
+<li>点击 <strong>启动</strong> 运行 IEC 程序：</li>
+</ol>
+<p><img src="https://img.zzzg.top/20261128005937165.png" alt="启动 IEC 程序"></p>
+<ol start="4">
+<li>点击 <strong>创建启动应用</strong>，将 IEC 程序固化到 PLC 中（确保下次断电重启后 PLC 能自动运行程序）：</li>
+</ol>
+<p><img src="https://img.zzzg.top/20261128005940867.png" alt="创建启动应用"></p>
+<ol start="5">
+<li>返回 MOVISUITE 软件主界面，再次点击 <strong>扫描</strong>（1）更新设备信息，此时所有设备应无提示或报警信息；随后点击左上角 <strong>保存</strong> 按钮（2），将当前阶段性项目保存至本地磁盘：</li>
+</ol>
+<p><img src="https://img.zzzg.top/20261128005942937.png" alt="重新扫描并保存项目"></p>
+<hr>
+<h1>3 简单介绍 MOVI-C 调试软件</h1>
+<p><strong>本章目标</strong>：熟悉 MOVISUITE 软件的视图模式、工具栏及参数菜单结构，能够快速定位参数与设备功能。</p>
+<p><img src="https://img.zzzg.top/20261128005945083.png" alt="MOVISUITE 调试软件概览"></p>
+<h2 id="3-1-切换不同的项目视图">3.1 切换不同的项目视图</h2>
+<p>MOVISUITE 项目可根据需要切换 <strong>功能视图</strong> 和 <strong>网络视图</strong>。每个设备以“圆”的形式表示：<strong>上半圆</strong>为硬件设定参数，<strong>下半圆</strong>为应用设定参数。</p>
+<p><img src="https://img.zzzg.top/20261128005947383.png" alt="设备圆图标上下半球示意"></p>
+<table>
+<thead>
+<tr>
+<th style="text-align:center">区域</th>
+<th style="text-align:left">功能说明</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td style="text-align:center"><strong>硬件设定（上半圆）</strong></td>
+<td style="text-align:left">设定所有硬件相关参数，例如接口、选件和驱动示教（Drive Train）数据</td>
+</tr>
+<tr>
+<td style="text-align:center"><strong>应用设定（下半圆）</strong></td>
+<td style="text-align:left">查看/修改硬件相关的部分参数，设定软件模块相关数据，例如输入/输出点定义、设定值和实际值、过程通讯数据及接口参数</td>
+</tr>
+</tbody>
+</table>
+<h3 id="1-功能视图">1. 功能视图</h3>
+<p>功能视图允许编辑项目结构以优化视觉布局，可在 <strong>圆形视图</strong> 和 <strong>树形视图</strong> 间自由切换：</p>
+<p><img src="https://img.zzzg.top/20261128005949097.png" alt="功能视图切换工具栏"></p>
+<table>
+<thead>
+<tr>
+<th style="text-align:center">视图类型</th>
+<th style="text-align:left">显示特点</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td style="text-align:center"><strong>圆形视图</strong></td>
+<td style="text-align:left">采用大圆和小圆的辐射状结构显示设备及其项目信息</td>
+</tr>
+<tr>
+<td style="text-align:center"><strong>树形视图</strong></td>
+<td style="text-align:left">采用树形分支结构显示设备及其项目信息</td>
+</tr>
+</tbody>
+</table>
+<p><img src="https://img.zzzg.top/20261128005951870.png" alt="圆形视图与树形视图对比"></p>
+<h3 id="2-网络视图">2. 网络视图</h3>
+<p>显示扫描网络时所有通过物理接口连接到当前系统的设备拓扑：</p>
+<p><img src="https://img.zzzg.top/20261128005953855.png" alt="网络视图界面"></p>
+<h2 id="3-2-功能视图">3.2 功能视图</h2>
+<h3 id="3-2-1-圆形视图">3.2.1 圆形视图</h3>
+<h4 id="1-选择圆形视图">1. 选择圆形视图</h4>
+<p><img src="https://img.zzzg.top/20261128005956067.png" alt="圆形视图界面"></p>
+<ul>
+<li><strong>1</strong>：点击 <strong>圆形视图</strong> 按钮；</li>
+<li><strong>A</strong>：MOVI-C Controller Power UHX85A 在圆形视图下的状态；</li>
+<li><strong>B</strong>：连接到 UHX85A 的轴模块，点击可打开轴模块视图查看每个轴的状态。</li>
+</ul>
+<h4 id="2-了解变频器的圆形视图并打开配置信息">2. 了解变频器的圆形视图并打开配置信息</h4>
+<p><img src="https://img.zzzg.top/20261128005958332.png" alt="轴模块圆形视图区域说明"></p>
+<p>点击对应区域即可打开相应配置功能（例如 <strong>1</strong>：点击 <strong>诊断</strong> 可打开诊断参数）：</p>
+<table>
+<thead>
+<tr>
+<th style="text-align:center">区域标识</th>
+<th style="text-align:center">名称</th>
+<th style="text-align:left">功能说明</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td style="text-align:center"><strong>A</strong></td>
+<td style="text-align:center">接口</td>
+<td style="text-align:left">标准接口（设备自带接口）与可选接口（可选配硬件对应的全部接口）</td>
+</tr>
+<tr>
+<td style="text-align:center"><strong>B</strong></td>
+<td style="text-align:center">驱动示教</td>
+<td style="text-align:left">最多显示 2 组驱动示教（Drive Train），点击可打开对应驱动示教数据（除驱动示教 1 外，其余区域多用于开发或诊断）</td>
+</tr>
+<tr>
+<td style="text-align:center"><strong>C</strong></td>
+<td style="text-align:center">功能</td>
+<td style="text-align:left">包含所有应用设定信息</td>
+</tr>
+<tr>
+<td style="text-align:center"><strong>D</strong></td>
+<td style="text-align:center">诊断</td>
+<td style="text-align:left">提供用于监控驱动器或所连接电机的参数</td>
+</tr>
+<tr>
+<td style="text-align:center"><strong>E</strong></td>
+<td style="text-align:center">工具</td>
+<td style="text-align:left">提供辅助功能，例如软件手动操作或 SCOPE 曲线功能</td>
+</tr>
+<tr>
+<td style="text-align:center"><strong>F</strong></td>
+<td style="text-align:center">设备名称</td>
+<td style="text-align:left">在此区域可更改设备名称</td>
+</tr>
+<tr>
+<td style="text-align:center"><strong>G</strong></td>
+<td style="text-align:center">设备特性</td>
+<td style="text-align:left">提供设备数据、故障响应及恢复出厂设置等功能</td>
+</tr>
+<tr>
+<td style="text-align:center"><strong>H</strong></td>
+<td style="text-align:center">添加软件模块</td>
+<td style="text-align:left">点击可从目录中添加软件模块，如定位与速度控制（MOVIKIT）</td>
+</tr>
+</tbody>
+</table>
+<h4 id="3-打开参数组（以状态参数为例）">3. 打开参数组（以状态参数为例）</h4>
+<p><img src="https://img.zzzg.top/20261128010000480.png" alt="打开状态参数组"></p>
+<ul>
+<li><strong>1</strong>：点击参数组（例如 <strong>状态</strong> → <strong>设备状态</strong>）查看或编辑状态设定；</li>
+<li><strong>2</strong>：点击 <strong>返回</strong> 按钮，返回轴 1 的圆形视图主界面。</li>
+</ul>
+<h3 id="3-2-2-树形视图">3.2.2 树形视图</h3>
+<h4 id="1-选择树形视图">1. 选择树形视图</h4>
+<p><img src="https://img.zzzg.top/20261128010002896.png" alt="树形视图界面"></p>
+<ul>
+<li><strong>1</strong>：点击 <strong>树形视图</strong> 按钮；</li>
+<li><strong>2</strong>：点击 <code>Axis1</code> 打开参数视图；</li>
+<li><strong>A</strong>：在设备的上半圆上右键单击，可打开额外功能菜单。</li>
+</ul>
+<h4 id="2-选择参数组">2. 选择参数组</h4>
+<p><img src="https://img.zzzg.top/20261128010005084.png" alt="树形视图参数组选择"></p>
+<ul>
+<li><strong>3</strong>：在双层树形结构中选择参数组（例如 <strong>设备数据</strong> → <strong>设备识别号</strong>）；</li>
+<li><strong>4</strong>：点击 <strong>返回</strong> 按钮返回树形视图主界面。</li>
+</ul>
+<blockquote>
+<p>💡 <strong>提示</strong>：在树形视图中查看与配置选中驱动器的参数效率更高，本教程后续步骤均采用 <strong>树形视图</strong> 进行演示。</p>
+</blockquote>
+<h2 id="3-3-网络视图">3.3 网络视图</h2>
+<p><img src="https://img.zzzg.top/20261128010007465.png" alt="网络视图与物理拓扑"></p>
+<ul>
+<li><strong>1</strong>：点击右下角 <strong>网络</strong> 按钮查看当前扫描到的系统配置关系；</li>
+<li><strong>A</strong>：网络视图展示了扫描到的所有物理连接设备。</li>
+</ul>
+<h2 id="3-4-工具栏中的菜单和按钮">3.4 工具栏中的菜单和按钮</h2>
+<h3 id="顶部主任务栏">顶部主任务栏</h3>
+<p><img src="https://img.zzzg.top/20261128010010191.png" alt="MOVISUITE 顶部主任务栏"></p>
+<table>
+<thead>
+<tr>
+<th style="text-align:center">标识</th>
+<th style="text-align:center">区域名称</th>
+<th style="text-align:left">功能说明</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td style="text-align:center"><strong>A</strong></td>
+<td style="text-align:center">主菜单</td>
+<td style="text-align:left">包含 <strong>开始</strong>、<strong>项目</strong>、<strong>联系方式</strong>、<strong>语言</strong>、<strong>设置</strong>、<strong>程序信息</strong></td>
+</tr>
+<tr>
+<td style="text-align:center"><strong>B</strong></td>
+<td style="text-align:center">项目名称与保存</td>
+<td style="text-align:left">显示当前项目名称；左侧图标为 <strong>保存项目</strong> 按钮——带黄色点表示有未保存更改，无点表示无需保存或已保存</td>
+</tr>
+<tr>
+<td style="text-align:center"><strong>C</strong></td>
+<td style="text-align:center">工作区模式</td>
+<td style="text-align:left"><strong>规划</strong>：离线模式，数据仅保存在 MOVISUITE 项目中；<br><strong>调试</strong>：在线模式，数据同时保存在项目与物理设备中</td>
+</tr>
+<tr>
+<td style="text-align:center"><strong>D</strong></td>
+<td style="text-align:center">全局功能</td>
+<td style="text-align:left">直接调用 <strong>反馈</strong>、<strong>搜索</strong>（全局搜索）、<strong>语言</strong>（切换界面语言）</td>
+</tr>
+<tr>
+<td style="text-align:center"><strong>E</strong></td>
+<td style="text-align:center">Windows 窗口控制</td>
+<td style="text-align:left">最小化、最大化与关闭程序</td>
+</tr>
+</tbody>
+</table>
+<h3 id="二级工具栏（Toolbar）">二级工具栏（Toolbar）</h3>
+<p><img src="https://img.zzzg.top/20261128010012133.png" alt="MOVISUITE 二级工具栏"></p>
+<table>
+<thead>
+<tr>
+<th style="text-align:center">标识</th>
+<th style="text-align:center">区域名称</th>
+<th style="text-align:left">功能说明</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td style="text-align:center"><strong>A</strong></td>
+<td style="text-align:center">设备名称和路径名称</td>
+<td style="text-align:left">导航栏显示当前选中设备的路径、名称及运行状态（离线、报警、警告、正常等）</td>
+</tr>
+<tr>
+<td style="text-align:center"><strong>B</strong></td>
+<td style="text-align:center">与选中设备/内容相关的工具栏</td>
+<td style="text-align:left">1. 新建结构节点；2. 新建分区/分段；3. 扫描设备；4. 配置通讯参数；5. 折叠所有分区/分段；6. 展开所有分区/分段；7. 只展开选中的分区/分段</td>
+</tr>
+<tr>
+<td style="text-align:center"><strong>C</strong></td>
+<td style="text-align:center">编辑工具栏</td>
+<td style="text-align:left">1. 显示模式（标准模式/专家模式）；2. 剪切；3. 复制；4. 粘贴；5. 删除；6. 鼠标模式切换（选择模式/导航模式）</td>
+</tr>
+<tr>
+<td style="text-align:center"><strong>D</strong></td>
+<td style="text-align:center">更多（More）功能</td>
+<td style="text-align:left">汇总所有工具栏功能（按选中对象高亮或置灰），并提供手动操作、Multimotion 监控画面等扩展入口</td>
+</tr>
+</tbody>
+</table>
+<h2 id="3-5-参数菜单">3.5 参数菜单</h2>
+<p>在参数菜单中，所有 MOVI-C 的特性参数与驱动器设定均按功能分组排列：</p>
+<p><img src="https://img.zzzg.top/20261128010013975.png" alt="MOVISUITE 参数菜单界面"></p>
+<p><strong>设备属性、驱动机构与功能参数组总览</strong>：</p>
+<p><img src="https://img.zzzg.top/20261128010016025.png" alt="参数菜单功能总览-设备属性/驱动机构/功能"></p>
+<p><strong>诊断参数组总览</strong>：</p>
+<p><img src="https://img.zzzg.top/20261128010021035.png" alt="参数菜单功能总览-诊断"></p>
+<blockquote>
+<p>ℹ️ <strong>说明</strong>：当插入一个 MOVIKIT 软件功能模块时，参数菜单会自动扩展增加该 MOVIKIT 的专用参数组，详见第 4.6 节。</p>
+</blockquote>
+<hr>
+<h1>4 开始第一个轴的电机参数配置</h1>
+<p><strong>本章目标</strong>：</p>
+<ul>
+<li>将第一个轴恢复出厂状态（清空参数），完成首次 Startup 电机启动参数配置；</li>
+<li>设定应用/设备限制值，测量负载转动惯量并设定动态特性参数；</li>
+<li>配置 MOVIKIT Positioning 参数并保存/导出参数文件。</li>
+</ul>
+<p><img src="https://img.zzzg.top/20261128010023157.png" alt="第一轴参数配置概览"></p>
+<h2 id="4-1-清空参数">4.1 清空参数</h2>
+<ol>
+<li>在树形视图中点击第一个轴的 <strong>上半球</strong>（1）打开设备数据：</li>
+</ol>
+<p><img src="https://img.zzzg.top/20261128010025916.png" alt="选择轴上半球打开设备属性"></p>
+<ol start="2">
+<li>依次点击 <strong>基本设置</strong> → <strong>复位设备参数</strong> → <strong>出厂状态</strong>（2）清空原有参数：</li>
+</ol>
+<p><img src="https://img.zzzg.top/20261128010029141.png" alt="复位设备参数至出厂状态"></p>
+<h2 id="4-2-配置-Startup-电机启动参数">4.2 配置 Startup 电机启动参数</h2>
+<h3 id="1-读取-输入驱动机构-AS1-电机参数">1. 读取/输入驱动机构 AS1 电机参数</h3>
+<blockquote>
+<p>ℹ️ <strong>说明</strong>：电子铭牌是 SEW 预先存储在绝对值编码器芯片中的电机数据，出厂前已写入。支持电子铭牌的电机可直接读取；不带电子铭牌的电机则需手动输入型号。</p>
+</blockquote>
+<ul>
+<li><strong>方式 A：使用电子铭牌读取</strong></li>
+</ul>
+<p><img src="https://img.zzzg.top/20261128010031469.png" alt="通过电子铭牌读取电机数据"></p>
+<ul>
+<li>
+<p><strong>1</strong>：点击 <strong>驱动机构 AS1</strong>；</p>
+</li>
+<li>
+<p><strong>2</strong>：点击 <strong>使用电子铭牌</strong>。</p>
+</li>
+<li>
+<p><strong>方式 B：手动输入电机铭牌数据（不使用电子铭牌）</strong></p>
+</li>
+</ul>
+<p><img src="https://img.zzzg.top/20261128010034232.png" alt="手动输入电机铭牌型号"></p>
+<ul>
+<li><strong>1</strong>：点击 <strong>驱动机构 AS1</strong>；</li>
+<li><strong>2</strong>：根据现场电机铭牌手动输入型号（例如 <code>CMP50S/BK/KY/RH1M/SB1</code>）；</li>
+<li><strong>A</strong>：输入正确型号后，该区域将自动列出对应的电机与编码器信息；</li>
+<li><strong>3</strong>：点击 <strong>应用驱动结构</strong>，将设备添加到驱动机构 AS1 中。</li>
+</ul>
+<h3 id="2-核对电机型号与铭牌数据">2. 核对电机型号与铭牌数据</h3>
+<p><img src="https://img.zzzg.top/20261128010038621.png" alt="核对电机速度等级并继续"></p>
+<ul>
+<li><strong>A</strong>：驱动机构中显示的电机型号信息；</li>
+<li><strong>1</strong>：对比显示信息与实物铭牌，若发现速度等级不一致需手动修正：</li>
+</ul>
+<table>
+<thead>
+<tr>
+<th style="text-align:left">参数项</th>
+<th style="text-align:center">初始型号显示</th>
+<th style="text-align:center">实际铭牌型号</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td style="text-align:left">速度等级 <code>[rpm]</code></td>
+<td style="text-align:center"><code>6000</code></td>
+<td style="text-align:center"><code>4500</code></td>
+</tr>
+</tbody>
+</table>
+<ul>
+<li><strong>2</strong>：确认其他参数无误后，点击 <strong>继续至 2 →</strong>。</li>
+</ul>
+<h3 id="3-选择编码器型号">3. 选择编码器型号</h3>
+<p><img src="https://img.zzzg.top/20261128010040697.png" alt="确认编码器型号参数"></p>
+<ul>
+<li><strong>A</strong>：编码器在驱动示教中显示的型号和参数；</li>
+<li><strong>1</strong>：核对无误后点击 <strong>继续至 3 →</strong>。</li>
+</ul>
+<h3 id="4-确认控制器（Controller）参数">4. 确认控制器（Controller）参数</h3>
+<p><img src="https://img.zzzg.top/20261128010043049.png" alt="确认控制器参数及转向设置"></p>
+<ul>
+<li><strong>2</strong>：默认电机顺时针转动为正方向；如需反转默认正方向，可将 <strong>转向改变</strong> 切换为 <code>ON</code>。</li>
+</ul>
+<h3 id="5-添加驱动机构组件（减速机、驱动轮、用户单位等）">5. 添加驱动机构组件（减速机、驱动轮、用户单位等）</h3>
+<p>点击 <strong>添加组件</strong>（1）：</p>
+<p><img src="https://img.zzzg.top/20261128010045864.png" alt="点击添加组件按钮"></p>
+<p>弹出可选组件列表：</p>
+<p><img src="https://img.zzzg.top/20261128010048056.png" alt="驱动机构可选组件列表"></p>
+<table>
+<thead>
+<tr>
+<th style="text-align:center">组件名称</th>
+<th style="text-align:left">用途及配置说明</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td style="text-align:center"><strong>减速器</strong></td>
+<td style="text-align:left">SEW R 系列、K 系列、F 系列等减速机，可在减速机铭牌查看减速比</td>
+</tr>
+<tr>
+<td style="text-align:center"><strong>中间轴</strong></td>
+<td style="text-align:left">第三方减速机或客户自设计的大小齿轮、大小皮带轮等减速机构</td>
+</tr>
+<tr>
+<td style="text-align:center"><strong>齿形带</strong></td>
+<td style="text-align:left">齿形带、链条等传动机构</td>
+</tr>
+<tr>
+<td style="text-align:center"><strong>驱动轮</strong></td>
+<td style="text-align:left">驱动轮、同步带齿轮、齿轮齿条、链轮、辊道等机构</td>
+</tr>
+<tr>
+<td style="text-align:center"><strong>主轴</strong></td>
+<td style="text-align:left">丝杠、凸轮杆等机构</td>
+</tr>
+<tr>
+<td style="text-align:center"><strong>距离编码器</strong></td>
+<td style="text-align:left">安装在非电机尾部的外部编码器（光栅尺、条码、二维码、激光测距仪等），直接测量机械位移以补偿形变与打滑。<br><strong>注意</strong>：使用距离编码器需安装外部编码器卡（如 <code>CES11A</code>）</td>
+</tr>
+<tr>
+<td style="text-align:center"><strong>用户单位</strong></td>
+<td style="text-align:left">转换系统工程单位：常见 <code>mm</code>、<code>degree</code>、<code>Revolution</code>，也支持自定义如丝（<code>0.01mm</code>）、微米（<code>μm</code>）、<code>bottle</code>、<code>workpiece</code>、<code>piece</code> 等，<strong>推荐使用英文符号</strong></td>
+</tr>
+</tbody>
+</table>
+<blockquote>
+<p>💡 <strong>提示</strong>：如果添加外部编码器，请根据实际安装位置选择 <strong>旋转型编码器</strong>（安装在减速机后、驱动轮/丝杠前）或 <strong>直线型编码器</strong>（安装在驱动轮/丝杠后）：</p>
+</blockquote>
+<p><img src="https://img.zzzg.top/20261128010050020.png" alt="旋转型与直线型外部编码器安装位置"></p>
+<p>本示例采用如下机械结构参数：</p>
+<ul>
+<li><strong>减速机</strong>：<code>R57</code>，减速比 <code>i = 24.99</code>；</li>
+<li><strong>驱动轮（辊道）</strong>：周长 <code>314 mm</code>（对应直径 <code>100 mm</code>）；</li>
+<li><strong>用户单位</strong>：<code>mm</code>。</li>
+</ul>
+<p><strong>编辑减速机参数</strong>：</p>
+<p><img src="https://img.zzzg.top/20261128010052365.png" alt="添加减速器步骤"></p>
+<p><img src="https://img.zzzg.top/20261128010054691.png" alt="减速器 R57 减速比设定"></p>
+<p><strong>编辑驱动轮（辊道）参数</strong>：</p>
+<p><img src="https://img.zzzg.top/20261128010056501.png" alt="驱动轮参数编辑"></p>
+<p><strong>编辑用户单位参数</strong>：</p>
+<p><img src="https://img.zzzg.top/20261128010058931.png" alt="用户单位参数编辑"></p>
+<p><strong>确认控制参数并下载</strong>：</p>
+<p><img src="https://img.zzzg.top/20261128010101491.png" alt="确认控制参数并应用"></p>
+<p>在弹出的 <strong>自动调整参数</strong> 提示框中，通常选择 <strong>是</strong>（自动调整为新用户单位对应的参数），等待参数下载完成：</p>
+<p><img src="https://img.zzzg.top/20261128010103599.png" alt="自动调整参数确认框"></p>
+<h2 id="4-3-设定应用-设备限制值">4.3 设定应用/设备限制值</h2>
+<blockquote>
+<p>⚠️ <strong>注意</strong>：应用/设备限制值用于保护机械设备、减速机和电机免受错误指令或超速/过载损坏。但限制值过小会导致频繁报警或无法达到设定速度，设定前请务必核实机械、减速机与电机特性。</p>
+</blockquote>
+<p>以本示例参数为例（电机额定转速 <code>4500 rpm</code>，减速比 <code>i = 24.99</code>，驱动轮周长 <code>314.159 mm</code>）：</p>
+<ol>
+<li><strong>电机转一圈的驱动轮位移</strong>：<span class="katex"><span class="katex-mathml"><math xmlns="http://www.w3.org/1998/Math/MathML"><semantics><mrow><mfrac><mn>314.159</mn><mn>24.99</mn></mfrac><mo>≈</mo><mn>12.57</mn><mtext> mm</mtext></mrow><annotation encoding="application/x-tex">\frac{314.159}{24.99} \approx 12.57\ \text{mm}</annotation></semantics></math></span><span class="katex-html" aria-hidden="true"><span class="katex-base"><span class="katex-strut" style="height:1.1901em;vertical-align:-0.345em;"></span><span class="mord"><span class="mopen nulldelimiter"></span><span class="mfrac"><span class="vlist-t vlist-t2"><span class="vlist-r"><span class="vlist" style="height:0.8451em;"><span style="top:-2.655em;"><span class="pstrut" style="height:3em;"></span><span class="katex-sizing reset-size6 size3 mtight"><span class="mord mtight"><span class="mord mtight">24.99</span></span></span></span><span style="top:-3.23em;"><span class="pstrut" style="height:3em;"></span><span class="frac-line" style="border-bottom-width:0.04em;"></span></span><span style="top:-3.394em;"><span class="pstrut" style="height:3em;"></span><span class="katex-sizing reset-size6 size3 mtight"><span class="mord mtight"><span class="mord mtight">314.159</span></span></span></span></span><span class="vlist-s">​</span></span><span class="vlist-r"><span class="vlist" style="height:0.345em;"><span></span></span></span></span></span><span class="mclose nulldelimiter"></span></span><span class="mspace" style="margin-right:0.2778em;"></span><span class="mrel">≈</span><span class="mspace" style="margin-right:0.2778em;"></span></span><span class="katex-base"><span class="katex-strut" style="height:0.6444em;"></span><span class="mord">12.57</span><span class="mspace"> </span><span class="mord text"><span class="mord">mm</span></span></span></span></span>；</li>
+<li><strong>最大正/负线速度</strong>：<span class="katex"><span class="katex-mathml"><math xmlns="http://www.w3.org/1998/Math/MathML"><semantics><mrow><mfrac><mrow><mn>12.57</mn><mo>×</mo><mn>4500</mn></mrow><mn>60</mn></mfrac><mo>=</mo><mn>942.85</mn><mtext> mm/s</mtext></mrow><annotation encoding="application/x-tex">\frac{12.57 \times 4500}{60} = 942.85\ \text{mm/s}</annotation></semantics></math></span><span class="katex-html" aria-hidden="true"><span class="katex-base"><span class="katex-strut" style="height:1.1901em;vertical-align:-0.345em;"></span><span class="mord"><span class="mopen nulldelimiter"></span><span class="mfrac"><span class="vlist-t vlist-t2"><span class="vlist-r"><span class="vlist" style="height:0.8451em;"><span style="top:-2.655em;"><span class="pstrut" style="height:3em;"></span><span class="katex-sizing reset-size6 size3 mtight"><span class="mord mtight"><span class="mord mtight">60</span></span></span></span><span style="top:-3.23em;"><span class="pstrut" style="height:3em;"></span><span class="frac-line" style="border-bottom-width:0.04em;"></span></span><span style="top:-3.394em;"><span class="pstrut" style="height:3em;"></span><span class="katex-sizing reset-size6 size3 mtight"><span class="mord mtight"><span class="mord mtight">12.57</span><span class="mbin mtight">×</span><span class="mord mtight">4500</span></span></span></span></span><span class="vlist-s">​</span></span><span class="vlist-r"><span class="vlist" style="height:0.345em;"><span></span></span></span></span></span><span class="mclose nulldelimiter"></span></span><span class="mspace" style="margin-right:0.2778em;"></span><span class="mrel">=</span><span class="mspace" style="margin-right:0.2778em;"></span></span><span class="katex-base"><span class="katex-strut" style="height:1em;vertical-align:-0.25em;"></span><span class="mord">942.85</span><span class="mspace"> </span><span class="mord text"><span class="mord">mm/s</span></span></span></span></span>，取整设为 <strong><code>943 mm/s</code></strong>；</li>
+<li><strong>最大加速度</strong>（最短加速时间 <code>1 s</code>）：<span class="katex"><span class="katex-mathml"><math xmlns="http://www.w3.org/1998/Math/MathML"><semantics><mrow><mfrac><mn>943</mn><mn>1</mn></mfrac><mo>=</mo><mn>943</mn><mtext> </mtext><msup><mtext>mm/s</mtext><mn>2</mn></msup></mrow><annotation encoding="application/x-tex">\frac{943}{1} = 943\ \text{mm/s}^2</annotation></semantics></math></span><span class="katex-html" aria-hidden="true"><span class="katex-base"><span class="katex-strut" style="height:1.1901em;vertical-align:-0.345em;"></span><span class="mord"><span class="mopen nulldelimiter"></span><span class="mfrac"><span class="vlist-t vlist-t2"><span class="vlist-r"><span class="vlist" style="height:0.8451em;"><span style="top:-2.655em;"><span class="pstrut" style="height:3em;"></span><span class="katex-sizing reset-size6 size3 mtight"><span class="mord mtight"><span class="mord mtight">1</span></span></span></span><span style="top:-3.23em;"><span class="pstrut" style="height:3em;"></span><span class="frac-line" style="border-bottom-width:0.04em;"></span></span><span style="top:-3.394em;"><span class="pstrut" style="height:3em;"></span><span class="katex-sizing reset-size6 size3 mtight"><span class="mord mtight"><span class="mord mtight">943</span></span></span></span></span><span class="vlist-s">​</span></span><span class="vlist-r"><span class="vlist" style="height:0.345em;"><span></span></span></span></span></span><span class="mclose nulldelimiter"></span></span><span class="mspace" style="margin-right:0.2778em;"></span><span class="mrel">=</span><span class="mspace" style="margin-right:0.2778em;"></span></span><span class="katex-base"><span class="katex-strut" style="height:1.204em;vertical-align:-0.25em;"></span><span class="mord">943</span><span class="mspace"> </span><span class="mord"><span class="mord text"><span class="mord">mm/s</span></span><span class="msupsub"><span class="vlist-t"><span class="vlist-r"><span class="vlist" style="height:0.954em;"><span style="top:-3.2029em;margin-right:0.05em;"><span class="pstrut" style="height:2.7em;"></span><span class="katex-sizing reset-size6 size3 mtight"><span class="mord mtight">2</span></span></span></span></span></span></span></span></span></span></span>；</li>
+<li><strong>最大减速度</strong>（最短减速时间 <code>1 s</code>）：<span class="katex"><span class="katex-mathml"><math xmlns="http://www.w3.org/1998/Math/MathML"><semantics><mrow><mfrac><mn>943</mn><mn>1</mn></mfrac><mo>=</mo><mn>943</mn><mtext> </mtext><msup><mtext>mm/s</mtext><mn>2</mn></msup></mrow><annotation encoding="application/x-tex">\frac{943}{1} = 943\ \text{mm/s}^2</annotation></semantics></math></span><span class="katex-html" aria-hidden="true"><span class="katex-base"><span class="katex-strut" style="height:1.1901em;vertical-align:-0.345em;"></span><span class="mord"><span class="mopen nulldelimiter"></span><span class="mfrac"><span class="vlist-t vlist-t2"><span class="vlist-r"><span class="vlist" style="height:0.8451em;"><span style="top:-2.655em;"><span class="pstrut" style="height:3em;"></span><span class="katex-sizing reset-size6 size3 mtight"><span class="mord mtight"><span class="mord mtight">1</span></span></span></span><span style="top:-3.23em;"><span class="pstrut" style="height:3em;"></span><span class="frac-line" style="border-bottom-width:0.04em;"></span></span><span style="top:-3.394em;"><span class="pstrut" style="height:3em;"></span><span class="katex-sizing reset-size6 size3 mtight"><span class="mord mtight"><span class="mord mtight">943</span></span></span></span></span><span class="vlist-s">​</span></span><span class="vlist-r"><span class="vlist" style="height:0.345em;"><span></span></span></span></span></span><span class="mclose nulldelimiter"></span></span><span class="mspace" style="margin-right:0.2778em;"></span><span class="mrel">=</span><span class="mspace" style="margin-right:0.2778em;"></span></span><span class="katex-base"><span class="katex-strut" style="height:1.204em;vertical-align:-0.25em;"></span><span class="mord">943</span><span class="mspace"> </span><span class="mord"><span class="mord text"><span class="mord">mm/s</span></span><span class="msupsub"><span class="vlist-t"><span class="vlist-r"><span class="vlist" style="height:0.954em;"><span style="top:-3.2029em;margin-right:0.05em;"><span class="pstrut" style="height:2.7em;"></span><span class="katex-sizing reset-size6 size3 mtight"><span class="mord mtight">2</span></span></span></span></span></span></span></span></span></span></span>；</li>
+<li><strong>最大紧急停止减速度</strong>（最短急停时间 <code>0.2 s</code>）：<span class="katex"><span class="katex-mathml"><math xmlns="http://www.w3.org/1998/Math/MathML"><semantics><mrow><mfrac><mn>943</mn><mn>0.2</mn></mfrac><mo>=</mo><mn>4715</mn><mtext> </mtext><msup><mtext>mm/s</mtext><mn>2</mn></msup></mrow><annotation encoding="application/x-tex">\frac{943}{0.2} = 4715\ \text{mm/s}^2</annotation></semantics></math></span><span class="katex-html" aria-hidden="true"><span class="katex-base"><span class="katex-strut" style="height:1.1901em;vertical-align:-0.345em;"></span><span class="mord"><span class="mopen nulldelimiter"></span><span class="mfrac"><span class="vlist-t vlist-t2"><span class="vlist-r"><span class="vlist" style="height:0.8451em;"><span style="top:-2.655em;"><span class="pstrut" style="height:3em;"></span><span class="katex-sizing reset-size6 size3 mtight"><span class="mord mtight"><span class="mord mtight">0.2</span></span></span></span><span style="top:-3.23em;"><span class="pstrut" style="height:3em;"></span><span class="frac-line" style="border-bottom-width:0.04em;"></span></span><span style="top:-3.394em;"><span class="pstrut" style="height:3em;"></span><span class="katex-sizing reset-size6 size3 mtight"><span class="mord mtight"><span class="mord mtight">943</span></span></span></span></span><span class="vlist-s">​</span></span><span class="vlist-r"><span class="vlist" style="height:0.345em;"><span></span></span></span></span></span><span class="mclose nulldelimiter"></span></span><span class="mspace" style="margin-right:0.2778em;"></span><span class="mrel">=</span><span class="mspace" style="margin-right:0.2778em;"></span></span><span class="katex-base"><span class="katex-strut" style="height:1.204em;vertical-align:-0.25em;"></span><span class="mord">4715</span><span class="mspace"> </span><span class="mord"><span class="mord text"><span class="mord">mm/s</span></span><span class="msupsub"><span class="vlist-t"><span class="vlist-r"><span class="vlist" style="height:0.954em;"><span style="top:-3.2029em;margin-right:0.05em;"><span class="pstrut" style="height:2.7em;"></span><span class="katex-sizing reset-size6 size3 mtight"><span class="mord mtight">2</span></span></span></span></span></span></span></span></span></span></span>；</li>
+<li><strong>最大扭矩</strong>（机械最大过载能力为 1.5 倍电机额定扭矩）：设为 <strong><code>150%</code></strong> 电机额定扭矩；</li>
+<li><strong>加加速时间（Jerk）</strong>：无特殊要求，设为 <code>0 ms</code>（不限制）；</li>
+<li><strong>模数（Modulo）限制</strong>：不采用圆周定位，最大/最小模数均保持 <code>0 mm</code>。</li>
+</ol>
+<p>将上述极限值填入对应参数项，<strong>按回车键即实时写入驱动器内，无需额外下载</strong>：</p>
+<p><img src="https://img.zzzg.top/20261128010105807.png" alt="应用与设备限制值参数设定"></p>
+<h2 id="4-4-测试折算到电机轴的负载转动惯量">4.4 测试折算到电机轴的负载转动惯量</h2>
+<h3 id="1-预设负载惯性矩">1. 预设负载惯性矩</h3>
+<p>进入 <strong>优化驱动机构 1</strong> → <strong>设置负载质量惯性矩</strong>，可在 <strong>负载质量</strong> 处手动输入或通过下拉菜单选择预设值。</p>
+<blockquote>
+<p>ℹ️ <strong>原理解析</strong>：<br>
+动态输出扭矩公式：<span class="katex"><span class="katex-mathml"><math xmlns="http://www.w3.org/1998/Math/MathML"><semantics><mrow><msub><mi>M</mi><mrow><mi>d</mi><mi>y</mi><mi>n</mi></mrow></msub><mo>=</mo><mi>J</mi><mo>×</mo><mi>α</mi></mrow><annotation encoding="application/x-tex">M_{dyn} = J \times \alpha</annotation></semantics></math></span><span class="katex-html" aria-hidden="true"><span class="katex-base"><span class="katex-strut" style="height:0.9694em;vertical-align:-0.2861em;"></span><span class="mord"><span class="mord mathnormal" style="margin-right:0.109em;">M</span><span class="msupsub"><span class="vlist-t vlist-t2"><span class="vlist-r"><span class="vlist" style="height:0.3361em;"><span style="top:-2.55em;margin-left:-0.109em;margin-right:0.05em;"><span class="pstrut" style="height:2.7em;"></span><span class="katex-sizing reset-size6 size3 mtight"><span class="mord mtight"><span class="mord mathnormal mtight">d</span><span class="mord mathnormal mtight" style="margin-right:0.0359em;">y</span><span class="mord mathnormal mtight">n</span></span></span></span></span><span class="vlist-s">​</span></span><span class="vlist-r"><span class="vlist" style="height:0.2861em;"><span></span></span></span></span></span></span><span class="mspace" style="margin-right:0.2778em;"></span><span class="mrel">=</span><span class="mspace" style="margin-right:0.2778em;"></span></span><span class="katex-base"><span class="katex-strut" style="height:0.7667em;vertical-align:-0.0833em;"></span><span class="mord mathnormal" style="margin-right:0.0962em;">J</span><span class="mspace" style="margin-right:0.2222em;"></span><span class="mbin">×</span><span class="mspace" style="margin-right:0.2222em;"></span></span><span class="katex-base"><span class="katex-strut" style="height:0.4306em;"></span><span class="mord mathnormal" style="margin-right:0.0037em;">α</span></span></span></span>（其中 <span class="katex"><span class="katex-mathml"><math xmlns="http://www.w3.org/1998/Math/MathML"><semantics><mrow><msub><mi>M</mi><mrow><mi>d</mi><mi>y</mi><mi>n</mi></mrow></msub></mrow><annotation encoding="application/x-tex">M_{dyn}</annotation></semantics></math></span><span class="katex-html" aria-hidden="true"><span class="katex-base"><span class="katex-strut" style="height:0.9694em;vertical-align:-0.2861em;"></span><span class="mord"><span class="mord mathnormal" style="margin-right:0.109em;">M</span><span class="msupsub"><span class="vlist-t vlist-t2"><span class="vlist-r"><span class="vlist" style="height:0.3361em;"><span style="top:-2.55em;margin-left:-0.109em;margin-right:0.05em;"><span class="pstrut" style="height:2.7em;"></span><span class="katex-sizing reset-size6 size3 mtight"><span class="mord mtight"><span class="mord mathnormal mtight">d</span><span class="mord mathnormal mtight" style="margin-right:0.0359em;">y</span><span class="mord mathnormal mtight">n</span></span></span></span></span><span class="vlist-s">​</span></span><span class="vlist-r"><span class="vlist" style="height:0.2861em;"><span></span></span></span></span></span></span></span></span></span> 单位为 <span class="katex"><span class="katex-mathml"><math xmlns="http://www.w3.org/1998/Math/MathML"><semantics><mrow><mtext>N</mtext><mo>⋅</mo><mtext>m</mtext></mrow><annotation encoding="application/x-tex">\text{N}\cdot\text{m}</annotation></semantics></math></span><span class="katex-html" aria-hidden="true"><span class="katex-base"><span class="katex-strut" style="height:0.6833em;"></span><span class="mord text"><span class="mord">N</span></span><span class="mspace" style="margin-right:0.2222em;"></span><span class="mbin">⋅</span><span class="mspace" style="margin-right:0.2222em;"></span></span><span class="katex-base"><span class="katex-strut" style="height:0.4306em;"></span><span class="mord text"><span class="mord">m</span></span></span></span></span>，<span class="katex"><span class="katex-mathml"><math xmlns="http://www.w3.org/1998/Math/MathML"><semantics><mrow><mi>J</mi></mrow><annotation encoding="application/x-tex">J</annotation></semantics></math></span><span class="katex-html" aria-hidden="true"><span class="katex-base"><span class="katex-strut" style="height:0.6833em;"></span><span class="mord mathnormal" style="margin-right:0.0962em;">J</span></span></span></span> 为转动惯量，单位为 <span class="katex"><span class="katex-mathml"><math xmlns="http://www.w3.org/1998/Math/MathML"><semantics><mrow><mtext>kg</mtext><mo>⋅</mo><msup><mtext>m</mtext><mn>2</mn></msup></mrow><annotation encoding="application/x-tex">\text{kg}\cdot\text{m}^2</annotation></semantics></math></span><span class="katex-html" aria-hidden="true"><span class="katex-base"><span class="katex-strut" style="height:0.8889em;vertical-align:-0.1944em;"></span><span class="mord text"><span class="mord">kg</span></span><span class="mspace" style="margin-right:0.2222em;"></span><span class="mbin">⋅</span><span class="mspace" style="margin-right:0.2222em;"></span></span><span class="katex-base"><span class="katex-strut" style="height:0.8141em;"></span><span class="mord"><span class="mord text"><span class="mord">m</span></span><span class="msupsub"><span class="vlist-t"><span class="vlist-r"><span class="vlist" style="height:0.8141em;"><span style="top:-3.063em;margin-right:0.05em;"><span class="pstrut" style="height:2.7em;"></span><span class="katex-sizing reset-size6 size3 mtight"><span class="mord mtight">2</span></span></span></span></span></span></span></span></span></span></span>，<span class="katex"><span class="katex-mathml"><math xmlns="http://www.w3.org/1998/Math/MathML"><semantics><mrow><mi>α</mi></mrow><annotation encoding="application/x-tex">\alpha</annotation></semantics></math></span><span class="katex-html" aria-hidden="true"><span class="katex-base"><span class="katex-strut" style="height:0.4306em;"></span><span class="mord mathnormal" style="margin-right:0.0037em;">α</span></span></span></span> 为角加速度，单位为 <span class="katex"><span class="katex-mathml"><math xmlns="http://www.w3.org/1998/Math/MathML"><semantics><mrow><msup><mtext>rad/s</mtext><mn>2</mn></msup></mrow><annotation encoding="application/x-tex">\text{rad/s}^2</annotation></semantics></math></span><span class="katex-html" aria-hidden="true"><span class="katex-base"><span class="katex-strut" style="height:1.204em;vertical-align:-0.25em;"></span><span class="mord"><span class="mord text"><span class="mord">rad/s</span></span><span class="msupsub"><span class="vlist-t"><span class="vlist-r"><span class="vlist" style="height:0.954em;"><span style="top:-3.2029em;margin-right:0.05em;"><span class="pstrut" style="height:2.7em;"></span><span class="katex-sizing reset-size6 size3 mtight"><span class="mord mtight">2</span></span></span></span></span></span></span></span></span></span></span>）。</p>
+<ul>
+<li>负载惯性矩设置较大时，伺服输出力较柔和，抗扰动响应偏温和；</li>
+<li>负载惯性矩设置较小时，伺服输出力较强硬，抗扰动响应更迅速。</li>
+</ul>
+</blockquote>
+<p><img src="https://img.zzzg.top/20261128010107974.png" alt="设置负载质量惯性矩界面"></p>
+<ul>
+<li><strong>1</strong>：电机 + 制动器（如有）的整体惯性矩；</li>
+<li><strong>2</strong>：用户填入的负载惯性矩；</li>
+<li><strong>3</strong>：通过电机运动自动测量负载惯性矩。</li>
+</ul>
+<p><strong>获取预设负载惯性矩的三种方法</strong>：</p>
+<ul>
+<li><strong>方法 1：由 SEW Workbench 计算文件或机械工程师提供</strong><br>
+如下图所示，若 Workbench 显示负载为电机惯性矩的 <code>0.45</code> 倍，电机自身惯性矩为 <code>6.43 kg·cm²</code>，则负载惯性矩为 <code>6.43 × 0.45 = 2.89 kg·cm²</code>：</li>
+</ul>
+<p><img src="https://img.zzzg.top/20261128010110052.png" alt="SEW Workbench 惯量计算示例"></p>
+<ul>
+<li><strong>方法 2：通过 3D 仿真或公式估算</strong><br>
+若仿真结果为减速机输出轴侧惯量，需除以减速比的平方 <span class="katex"><span class="katex-mathml"><math xmlns="http://www.w3.org/1998/Math/MathML"><semantics><mrow><msup><mi>i</mi><mn>2</mn></msup></mrow><annotation encoding="application/x-tex">i^2</annotation></semantics></math></span><span class="katex-html" aria-hidden="true"><span class="katex-base"><span class="katex-strut" style="height:0.8141em;"></span><span class="mord"><span class="mord mathnormal">i</span><span class="msupsub"><span class="vlist-t"><span class="vlist-r"><span class="vlist" style="height:0.8141em;"><span style="top:-3.063em;margin-right:0.05em;"><span class="pstrut" style="height:2.7em;"></span><span class="katex-sizing reset-size6 size3 mtight"><span class="mord mtight">2</span></span></span></span></span></span></span></span></span></span></span> 折算至电机轴（单位 <span class="katex"><span class="katex-mathml"><math xmlns="http://www.w3.org/1998/Math/MathML"><semantics><mrow><mtext>kg</mtext><mo>⋅</mo><msup><mtext>cm</mtext><mn>2</mn></msup></mrow><annotation encoding="application/x-tex">\text{kg}\cdot\text{cm}^2</annotation></semantics></math></span><span class="katex-html" aria-hidden="true"><span class="katex-base"><span class="katex-strut" style="height:0.8889em;vertical-align:-0.1944em;"></span><span class="mord text"><span class="mord">kg</span></span><span class="mspace" style="margin-right:0.2222em;"></span><span class="mbin">⋅</span><span class="mspace" style="margin-right:0.2222em;"></span></span><span class="katex-base"><span class="katex-strut" style="height:0.8141em;"></span><span class="mord"><span class="mord text"><span class="mord">cm</span></span><span class="msupsub"><span class="vlist-t"><span class="vlist-r"><span class="vlist" style="height:0.8141em;"><span style="top:-3.063em;margin-right:0.05em;"><span class="pstrut" style="height:2.7em;"></span><span class="katex-sizing reset-size6 size3 mtight"><span class="mord mtight">2</span></span></span></span></span></span></span></span></span></span></span>）。例如输出轴侧为 <span class="katex"><span class="katex-mathml"><math xmlns="http://www.w3.org/1998/Math/MathML"><semantics><mrow><mn>100</mn><mtext> kg</mtext><mo>⋅</mo><msup><mtext>cm</mtext><mn>2</mn></msup></mrow><annotation encoding="application/x-tex">100\ \text{kg}\cdot\text{cm}^2</annotation></semantics></math></span><span class="katex-html" aria-hidden="true"><span class="katex-base"><span class="katex-strut" style="height:0.8889em;vertical-align:-0.1944em;"></span><span class="mord">100</span><span class="mspace"> </span><span class="mord text"><span class="mord">kg</span></span><span class="mspace" style="margin-right:0.2222em;"></span><span class="mbin">⋅</span><span class="mspace" style="margin-right:0.2222em;"></span></span><span class="katex-base"><span class="katex-strut" style="height:0.8141em;"></span><span class="mord"><span class="mord text"><span class="mord">cm</span></span><span class="msupsub"><span class="vlist-t"><span class="vlist-r"><span class="vlist" style="height:0.8141em;"><span style="top:-3.063em;margin-right:0.05em;"><span class="pstrut" style="height:2.7em;"></span><span class="katex-sizing reset-size6 size3 mtight"><span class="mord mtight">2</span></span></span></span></span></span></span></span></span></span></span>，减速比 <span class="katex"><span class="katex-mathml"><math xmlns="http://www.w3.org/1998/Math/MathML"><semantics><mrow><mi>i</mi><mo>=</mo><mn>24.99</mn></mrow><annotation encoding="application/x-tex">i = 24.99</annotation></semantics></math></span><span class="katex-html" aria-hidden="true"><span class="katex-base"><span class="katex-strut" style="height:0.6595em;"></span><span class="mord mathnormal">i</span><span class="mspace" style="margin-right:0.2778em;"></span><span class="mrel">=</span><span class="mspace" style="margin-right:0.2778em;"></span></span><span class="katex-base"><span class="katex-strut" style="height:0.6444em;"></span><span class="mord">24.99</span></span></span></span>，则折算至电机轴为 <span class="katex"><span class="katex-mathml"><math xmlns="http://www.w3.org/1998/Math/MathML"><semantics><mrow><mfrac><mn>100</mn><msup><mn>24.99</mn><mn>2</mn></msup></mfrac><mo>=</mo><mn>0.16</mn><mtext> kg</mtext><mo>⋅</mo><msup><mtext>cm</mtext><mn>2</mn></msup></mrow><annotation encoding="application/x-tex">\frac{100}{24.99^2} = 0.16\ \text{kg}\cdot\text{cm}^2</annotation></semantics></math></span><span class="katex-html" aria-hidden="true"><span class="katex-base"><span class="katex-strut" style="height:1.1901em;vertical-align:-0.345em;"></span><span class="mord"><span class="mopen nulldelimiter"></span><span class="mfrac"><span class="vlist-t vlist-t2"><span class="vlist-r"><span class="vlist" style="height:0.8451em;"><span style="top:-2.655em;"><span class="pstrut" style="height:3em;"></span><span class="katex-sizing reset-size6 size3 mtight"><span class="mord mtight"><span class="mord mtight">24.9</span><span class="mord mtight"><span class="mord mtight">9</span><span class="msupsub"><span class="vlist-t"><span class="vlist-r"><span class="vlist" style="height:0.7463em;"><span style="top:-2.786em;margin-right:0.0714em;"><span class="pstrut" style="height:2.5em;"></span><span class="katex-sizing reset-size3 size1 mtight"><span class="mord mtight">2</span></span></span></span></span></span></span></span></span></span></span><span style="top:-3.23em;"><span class="pstrut" style="height:3em;"></span><span class="frac-line" style="border-bottom-width:0.04em;"></span></span><span style="top:-3.394em;"><span class="pstrut" style="height:3em;"></span><span class="katex-sizing reset-size6 size3 mtight"><span class="mord mtight"><span class="mord mtight">100</span></span></span></span></span><span class="vlist-s">​</span></span><span class="vlist-r"><span class="vlist" style="height:0.345em;"><span></span></span></span></span></span><span class="mclose nulldelimiter"></span></span><span class="mspace" style="margin-right:0.2778em;"></span><span class="mrel">=</span><span class="mspace" style="margin-right:0.2778em;"></span></span><span class="katex-base"><span class="katex-strut" style="height:0.8889em;vertical-align:-0.1944em;"></span><span class="mord">0.16</span><span class="mspace"> </span><span class="mord text"><span class="mord">kg</span></span><span class="mspace" style="margin-right:0.2222em;"></span><span class="mbin">⋅</span><span class="mspace" style="margin-right:0.2222em;"></span></span><span class="katex-base"><span class="katex-strut" style="height:0.8141em;"></span><span class="mord"><span class="mord text"><span class="mord">cm</span></span><span class="msupsub"><span class="vlist-t"><span class="vlist-r"><span class="vlist" style="height:0.8141em;"><span style="top:-3.063em;margin-right:0.05em;"><span class="pstrut" style="height:2.7em;"></span><span class="katex-sizing reset-size6 size3 mtight"><span class="mord mtight">2</span></span></span></span></span></span></span></span></span></span></span>。<br>
+也可按简化公式估算：</li>
+</ul>
+<p><span class="katex-display"><span class="katex"><span class="katex-mathml"><math xmlns="http://www.w3.org/1998/Math/MathML" display="block"><semantics><mrow><msub><mi>J</mi><mrow><mi>e</mi><mi>x</mi><mi>t</mi></mrow></msub><mo>=</mo><mfrac><mrow><mi>m</mi><mo>⋅</mo><msup><mi>r</mi><mn>2</mn></msup></mrow><msup><mi>i</mi><mn>2</mn></msup></mfrac></mrow><annotation encoding="application/x-tex">J_{ext} = \frac{m \cdot r^2}{i^2}
+</annotation></semantics></math></span><span class="katex-html" aria-hidden="true"><span class="katex-base"><span class="katex-strut" style="height:0.8333em;vertical-align:-0.15em;"></span><span class="mord"><span class="mord mathnormal" style="margin-right:0.0962em;">J</span><span class="msupsub"><span class="vlist-t vlist-t2"><span class="vlist-r"><span class="vlist" style="height:0.2806em;"><span style="top:-2.55em;margin-left:-0.0962em;margin-right:0.05em;"><span class="pstrut" style="height:2.7em;"></span><span class="katex-sizing reset-size6 size3 mtight"><span class="mord mtight"><span class="mord mathnormal mtight">e</span><span class="mord mathnormal mtight">x</span><span class="mord mathnormal mtight">t</span></span></span></span></span><span class="vlist-s">​</span></span><span class="vlist-r"><span class="vlist" style="height:0.15em;"><span></span></span></span></span></span></span><span class="mspace" style="margin-right:0.2778em;"></span><span class="mrel">=</span><span class="mspace" style="margin-right:0.2778em;"></span></span><span class="katex-base"><span class="katex-strut" style="height:2.1771em;vertical-align:-0.686em;"></span><span class="mord"><span class="mopen nulldelimiter"></span><span class="mfrac"><span class="vlist-t vlist-t2"><span class="vlist-r"><span class="vlist" style="height:1.4911em;"><span style="top:-2.314em;"><span class="pstrut" style="height:3em;"></span><span class="mord"><span class="mord"><span class="mord mathnormal">i</span><span class="msupsub"><span class="vlist-t"><span class="vlist-r"><span class="vlist" style="height:0.7401em;"><span style="top:-2.989em;margin-right:0.05em;"><span class="pstrut" style="height:2.7em;"></span><span class="katex-sizing reset-size6 size3 mtight"><span class="mord mtight">2</span></span></span></span></span></span></span></span></span></span><span style="top:-3.23em;"><span class="pstrut" style="height:3em;"></span><span class="frac-line" style="border-bottom-width:0.04em;"></span></span><span style="top:-3.677em;"><span class="pstrut" style="height:3em;"></span><span class="mord"><span class="mord mathnormal">m</span><span class="mspace" style="margin-right:0.2222em;"></span><span class="mbin">⋅</span><span class="mspace" style="margin-right:0.2222em;"></span><span class="mord"><span class="mord mathnormal" style="margin-right:0.0278em;">r</span><span class="msupsub"><span class="vlist-t"><span class="vlist-r"><span class="vlist" style="height:0.8141em;"><span style="top:-3.063em;margin-right:0.05em;"><span class="pstrut" style="height:2.7em;"></span><span class="katex-sizing reset-size6 size3 mtight"><span class="mord mtight">2</span></span></span></span></span></span></span></span></span></span></span><span class="vlist-s">​</span></span><span class="vlist-r"><span class="vlist" style="height:0.686em;"><span></span></span></span></span></span><span class="mclose nulldelimiter"></span></span></span></span></span></span></p>
+<ul>
+<li>其中 <span class="katex"><span class="katex-mathml"><math xmlns="http://www.w3.org/1998/Math/MathML"><semantics><mrow><msub><mi>J</mi><mrow><mi>e</mi><mi>x</mi><mi>t</mi></mrow></msub></mrow><annotation encoding="application/x-tex">J_{ext}</annotation></semantics></math></span><span class="katex-html" aria-hidden="true"><span class="katex-base"><span class="katex-strut" style="height:0.8333em;vertical-align:-0.15em;"></span><span class="mord"><span class="mord mathnormal" style="margin-right:0.0962em;">J</span><span class="msupsub"><span class="vlist-t vlist-t2"><span class="vlist-r"><span class="vlist" style="height:0.2806em;"><span style="top:-2.55em;margin-left:-0.0962em;margin-right:0.05em;"><span class="pstrut" style="height:2.7em;"></span><span class="katex-sizing reset-size6 size3 mtight"><span class="mord mtight"><span class="mord mathnormal mtight">e</span><span class="mord mathnormal mtight">x</span><span class="mord mathnormal mtight">t</span></span></span></span></span><span class="vlist-s">​</span></span><span class="vlist-r"><span class="vlist" style="height:0.15em;"><span></span></span></span></span></span></span></span></span></span> 为折算到电机轴上的负载惯性矩，<span class="katex"><span class="katex-mathml"><math xmlns="http://www.w3.org/1998/Math/MathML"><semantics><mrow><mi>m</mi></mrow><annotation encoding="application/x-tex">m</annotation></semantics></math></span><span class="katex-html" aria-hidden="true"><span class="katex-base"><span class="katex-strut" style="height:0.4306em;"></span><span class="mord mathnormal">m</span></span></span></span> 为负载质量（<span class="katex"><span class="katex-mathml"><math xmlns="http://www.w3.org/1998/Math/MathML"><semantics><mrow><mtext>kg</mtext></mrow><annotation encoding="application/x-tex">\text{kg}</annotation></semantics></math></span><span class="katex-html" aria-hidden="true"><span class="katex-base"><span class="katex-strut" style="height:0.8889em;vertical-align:-0.1944em;"></span><span class="mord text"><span class="mord">kg</span></span></span></span></span>），<span class="katex"><span class="katex-mathml"><math xmlns="http://www.w3.org/1998/Math/MathML"><semantics><mrow><mi>r</mi></mrow><annotation encoding="application/x-tex">r</annotation></semantics></math></span><span class="katex-html" aria-hidden="true"><span class="katex-base"><span class="katex-strut" style="height:0.4306em;"></span><span class="mord mathnormal" style="margin-right:0.0278em;">r</span></span></span></span> 为旋转半径（<span class="katex"><span class="katex-mathml"><math xmlns="http://www.w3.org/1998/Math/MathML"><semantics><mrow><mtext>cm</mtext></mrow><annotation encoding="application/x-tex">\text{cm}</annotation></semantics></math></span><span class="katex-html" aria-hidden="true"><span class="katex-base"><span class="katex-strut" style="height:0.4306em;"></span><span class="mord text"><span class="mord">cm</span></span></span></span></span>），<span class="katex"><span class="katex-mathml"><math xmlns="http://www.w3.org/1998/Math/MathML"><semantics><mrow><mi>i</mi></mrow><annotation encoding="application/x-tex">i</annotation></semantics></math></span><span class="katex-html" aria-hidden="true"><span class="katex-base"><span class="katex-strut" style="height:0.6595em;"></span><span class="mord mathnormal">i</span></span></span></span> 为系统总减速比；</li>
+<li>示例：辊道质量 <span class="katex"><span class="katex-mathml"><math xmlns="http://www.w3.org/1998/Math/MathML"><semantics><mrow><mi>m</mi><mo>=</mo><mn>200</mn><mtext> kg</mtext></mrow><annotation encoding="application/x-tex">m = 200\ \text{kg}</annotation></semantics></math></span><span class="katex-html" aria-hidden="true"><span class="katex-base"><span class="katex-strut" style="height:0.4306em;"></span><span class="mord mathnormal">m</span><span class="mspace" style="margin-right:0.2778em;"></span><span class="mrel">=</span><span class="mspace" style="margin-right:0.2778em;"></span></span><span class="katex-base"><span class="katex-strut" style="height:0.8889em;vertical-align:-0.1944em;"></span><span class="mord">200</span><span class="mspace"> </span><span class="mord text"><span class="mord">kg</span></span></span></span></span>，半径 <span class="katex"><span class="katex-mathml"><math xmlns="http://www.w3.org/1998/Math/MathML"><semantics><mrow><mi>r</mi><mo>=</mo><mn>10</mn><mtext> cm</mtext></mrow><annotation encoding="application/x-tex">r = 10\ \text{cm}</annotation></semantics></math></span><span class="katex-html" aria-hidden="true"><span class="katex-base"><span class="katex-strut" style="height:0.4306em;"></span><span class="mord mathnormal" style="margin-right:0.0278em;">r</span><span class="mspace" style="margin-right:0.2778em;"></span><span class="mrel">=</span><span class="mspace" style="margin-right:0.2778em;"></span></span><span class="katex-base"><span class="katex-strut" style="height:0.6444em;"></span><span class="mord">10</span><span class="mspace"> </span><span class="mord text"><span class="mord">cm</span></span></span></span></span>（<span class="katex"><span class="katex-mathml"><math xmlns="http://www.w3.org/1998/Math/MathML"><semantics><mrow><mn>100</mn><mtext> mm</mtext></mrow><annotation encoding="application/x-tex">100\ \text{mm}</annotation></semantics></math></span><span class="katex-html" aria-hidden="true"><span class="katex-base"><span class="katex-strut" style="height:0.6444em;"></span><span class="mord">100</span><span class="mspace"> </span><span class="mord text"><span class="mord">mm</span></span></span></span></span>），减速比 <span class="katex"><span class="katex-mathml"><math xmlns="http://www.w3.org/1998/Math/MathML"><semantics><mrow><mi>i</mi><mo>=</mo><mn>24.99</mn></mrow><annotation encoding="application/x-tex">i = 24.99</annotation></semantics></math></span><span class="katex-html" aria-hidden="true"><span class="katex-base"><span class="katex-strut" style="height:0.6595em;"></span><span class="mord mathnormal">i</span><span class="mspace" style="margin-right:0.2778em;"></span><span class="mrel">=</span><span class="mspace" style="margin-right:0.2778em;"></span></span><span class="katex-base"><span class="katex-strut" style="height:0.6444em;"></span><span class="mord">24.99</span></span></span></span>，则：</li>
+</ul>
+<p><span class="katex-display"><span class="katex"><span class="katex-mathml"><math xmlns="http://www.w3.org/1998/Math/MathML" display="block"><semantics><mrow><msub><mi>J</mi><mrow><mi>e</mi><mi>x</mi><mi>t</mi></mrow></msub><mo>=</mo><mfrac><mrow><mn>200</mn><mo>×</mo><msup><mn>10</mn><mn>2</mn></msup></mrow><msup><mn>24.99</mn><mn>2</mn></msup></mfrac><mo>≈</mo><mn>32</mn><mtext> kg</mtext><mo>⋅</mo><msup><mtext>cm</mtext><mn>2</mn></msup></mrow><annotation encoding="application/x-tex">J_{ext} = \frac{200 \times 10^2}{24.99^2} \approx 32\ \text{kg}\cdot\text{cm}^2
+</annotation></semantics></math></span><span class="katex-html" aria-hidden="true"><span class="katex-base"><span class="katex-strut" style="height:0.8333em;vertical-align:-0.15em;"></span><span class="mord"><span class="mord mathnormal" style="margin-right:0.0962em;">J</span><span class="msupsub"><span class="vlist-t vlist-t2"><span class="vlist-r"><span class="vlist" style="height:0.2806em;"><span style="top:-2.55em;margin-left:-0.0962em;margin-right:0.05em;"><span class="pstrut" style="height:2.7em;"></span><span class="katex-sizing reset-size6 size3 mtight"><span class="mord mtight"><span class="mord mathnormal mtight">e</span><span class="mord mathnormal mtight">x</span><span class="mord mathnormal mtight">t</span></span></span></span></span><span class="vlist-s">​</span></span><span class="vlist-r"><span class="vlist" style="height:0.15em;"><span></span></span></span></span></span></span><span class="mspace" style="margin-right:0.2778em;"></span><span class="mrel">=</span><span class="mspace" style="margin-right:0.2778em;"></span></span><span class="katex-base"><span class="katex-strut" style="height:2.1771em;vertical-align:-0.686em;"></span><span class="mord"><span class="mopen nulldelimiter"></span><span class="mfrac"><span class="vlist-t vlist-t2"><span class="vlist-r"><span class="vlist" style="height:1.4911em;"><span style="top:-2.314em;"><span class="pstrut" style="height:3em;"></span><span class="mord"><span class="mord">24.9</span><span class="mord"><span class="mord">9</span><span class="msupsub"><span class="vlist-t"><span class="vlist-r"><span class="vlist" style="height:0.7401em;"><span style="top:-2.989em;margin-right:0.05em;"><span class="pstrut" style="height:2.7em;"></span><span class="katex-sizing reset-size6 size3 mtight"><span class="mord mtight">2</span></span></span></span></span></span></span></span></span></span><span style="top:-3.23em;"><span class="pstrut" style="height:3em;"></span><span class="frac-line" style="border-bottom-width:0.04em;"></span></span><span style="top:-3.677em;"><span class="pstrut" style="height:3em;"></span><span class="mord"><span class="mord">200</span><span class="mspace" style="margin-right:0.2222em;"></span><span class="mbin">×</span><span class="mspace" style="margin-right:0.2222em;"></span><span class="mord">1</span><span class="mord"><span class="mord">0</span><span class="msupsub"><span class="vlist-t"><span class="vlist-r"><span class="vlist" style="height:0.8141em;"><span style="top:-3.063em;margin-right:0.05em;"><span class="pstrut" style="height:2.7em;"></span><span class="katex-sizing reset-size6 size3 mtight"><span class="mord mtight">2</span></span></span></span></span></span></span></span></span></span></span><span class="vlist-s">​</span></span><span class="vlist-r"><span class="vlist" style="height:0.686em;"><span></span></span></span></span></span><span class="mclose nulldelimiter"></span></span><span class="mspace" style="margin-right:0.2778em;"></span><span class="mrel">≈</span><span class="mspace" style="margin-right:0.2778em;"></span></span><span class="katex-base"><span class="katex-strut" style="height:0.8889em;vertical-align:-0.1944em;"></span><span class="mord">32</span><span class="mspace"> </span><span class="mord text"><span class="mord">kg</span></span><span class="mspace" style="margin-right:0.2222em;"></span><span class="mbin">⋅</span><span class="mspace" style="margin-right:0.2222em;"></span></span><span class="katex-base"><span class="katex-strut" style="height:0.8641em;"></span><span class="mord"><span class="mord text"><span class="mord">cm</span></span><span class="msupsub"><span class="vlist-t"><span class="vlist-r"><span class="vlist" style="height:0.8641em;"><span style="top:-3.113em;margin-right:0.05em;"><span class="pstrut" style="height:2.7em;"></span><span class="katex-sizing reset-size6 size3 mtight"><span class="mord mtight">2</span></span></span></span></span></span></span></span></span></span></span></span></p>
+<ul>
+<li><strong>方法 3：使用软件内置推荐值</strong><br>
+单击 <strong>负载质量</strong> 右侧下拉菜单选择：</li>
+</ul>
+<p><img src="https://img.zzzg.top/20261128010112882.png" alt="负载质量默认推荐值下拉菜单"></p>
+<table>
+<thead>
+<tr>
+<th style="text-align:center">推荐等级</th>
+<th style="text-align:center">预设惯性矩</th>
+<th style="text-align:left">适用典型负载</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td style="text-align:center"><strong>负载惯性矩较低</strong></td>
+<td style="text-align:center">电机的 <code>1</code> 倍</td>
+<td style="text-align:left">提升运动、轻载水平运动</td>
+</tr>
+<tr>
+<td style="text-align:center"><strong>负载惯性矩中等</strong></td>
+<td style="text-align:center">电机的 <code>3</code> 倍</td>
+<td style="text-align:left">旋转运动</td>
+</tr>
+<tr>
+<td style="text-align:center"><strong>负载惯性矩较大</strong></td>
+<td style="text-align:center">电机的 <code>10</code> 倍</td>
+<td style="text-align:left">重载水平运动</td>
+</tr>
+</tbody>
+</table>
+<h3 id="2-打开并激活手动操作模式">2. 打开并激活手动操作模式</h3>
+<p><img src="https://img.zzzg.top/20261128010114683.png" alt="打开并激活手动操作模式"></p>
+<ul>
+<li><strong>1</strong>：点击 <strong>打开手动操作模式</strong>；</li>
+<li><strong>2</strong>：点击 <strong>激活手动模式</strong>（也可通过右上角 <strong>更多</strong> → <strong>工具</strong> → <strong>手动操作</strong> 打开）。</li>
+</ul>
+<h3 id="3-选择负载循环模式并启动测量">3. 选择负载循环模式并启动测量</h3>
+<p>负载循环模式通过驱动电机带动负载做周期性加减速，依据 <span class="katex"><span class="katex-mathml"><math xmlns="http://www.w3.org/1998/Math/MathML"><semantics><mrow><mi>J</mi><mo>=</mo><mfrac><msub><mi>M</mi><mrow><mi>d</mi><mi>y</mi><mi>n</mi></mrow></msub><mi>α</mi></mfrac></mrow><annotation encoding="application/x-tex">J = \frac{M_{dyn}}{\alpha}</annotation></semantics></math></span><span class="katex-html" aria-hidden="true"><span class="katex-base"><span class="katex-strut" style="height:0.6833em;"></span><span class="mord mathnormal" style="margin-right:0.0962em;">J</span><span class="mspace" style="margin-right:0.2778em;"></span><span class="mrel">=</span><span class="mspace" style="margin-right:0.2778em;"></span></span><span class="katex-base"><span class="katex-strut" style="height:1.3364em;vertical-align:-0.345em;"></span><span class="mord"><span class="mopen nulldelimiter"></span><span class="mfrac"><span class="vlist-t vlist-t2"><span class="vlist-r"><span class="vlist" style="height:0.9914em;"><span style="top:-2.655em;"><span class="pstrut" style="height:3em;"></span><span class="katex-sizing reset-size6 size3 mtight"><span class="mord mtight"><span class="mord mathnormal mtight" style="margin-right:0.0037em;">α</span></span></span></span><span style="top:-3.23em;"><span class="pstrut" style="height:3em;"></span><span class="frac-line" style="border-bottom-width:0.04em;"></span></span><span style="top:-3.5131em;"><span class="pstrut" style="height:3em;"></span><span class="katex-sizing reset-size6 size3 mtight"><span class="mord mtight"><span class="mord mtight"><span class="mord mathnormal mtight" style="margin-right:0.109em;">M</span><span class="msupsub"><span class="vlist-t vlist-t2"><span class="vlist-r"><span class="vlist" style="height:0.3448em;"><span style="top:-2.3488em;margin-left:-0.109em;margin-right:0.0714em;"><span class="pstrut" style="height:2.5em;"></span><span class="katex-sizing reset-size3 size1 mtight"><span class="mord mtight"><span class="mord mathnormal mtight">d</span><span class="mord mathnormal mtight" style="margin-right:0.0359em;">y</span><span class="mord mathnormal mtight">n</span></span></span></span></span><span class="vlist-s">​</span></span><span class="vlist-r"><span class="vlist" style="height:0.2901em;"><span></span></span></span></span></span></span></span></span></span></span><span class="vlist-s">​</span></span><span class="vlist-r"><span class="vlist" style="height:0.345em;"><span></span></span></span></span></span><span class="mclose nulldelimiter"></span></span></span></span></span> 自动计算折算到电机轴的负载惯性矩。当测量进度稳定大于 95% 时，软件认为数据可信，可点击保存写入驱动器。</p>
+<p>MOVI-C 提供以下四种用于测量负载惯性矩的控制模式：</p>
+<table>
+<thead>
+<tr>
+<th style="text-align:center">控制模式</th>
+<th style="text-align:left">功能说明</th>
+<th style="text-align:left">使用要求</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td style="text-align:center"><strong>速度模式</strong></td>
+<td style="text-align:left">手动设定速度、手动切换运行方向</td>
+<td style="text-align:left">带/不带编码器，不需寻参</td>
+</tr>
+<tr>
+<td style="text-align:center"><strong>单次定位</strong></td>
+<td style="text-align:left">绝对值定位，到达目标位置后停机待命</td>
+<td style="text-align:left">带编码器，需提前寻参</td>
+</tr>
+<tr>
+<td style="text-align:center"><strong>往复定位</strong></td>
+<td style="text-align:left">设定起点和终点位置，循环往复定位直至手动停止</td>
+<td style="text-align:left">带编码器，需提前寻参</td>
+</tr>
+<tr>
+<td style="text-align:center"><strong>增量定位</strong></td>
+<td style="text-align:left">设定增量距离，单方向连续增量定位直至手动停止</td>
+<td style="text-align:left">带编码器，不需寻参</td>
+</tr>
+</tbody>
+</table>
+<p><img src="https://img.zzzg.top/20261128010117802.png" alt="负载循环绝对值定位测量惯性矩"></p>
+<blockquote>
+<p>⚠️ <strong>安全注意</strong>：激活手动操作后，需给端子 <code>DI00</code> 施加 24V 信号（<code>DI00 = 1</code>）使能驱动器。执行任何运动前，请务必确认机械设备处于安全状态！</p>
+</blockquote>
+<p>操作步骤如下：</p>
+<ul>
+<li><strong>1</strong>：选择 <strong>绝对钟摆式运行（负载循环绝对值定位）</strong>；</li>
+<li><strong>2</strong>：设定 <strong>位置 1 = 0 mm</strong>，<strong>位置 2 = 314 mm</strong>（其他值亦可，但必须满足 <strong>位置 2 &gt; 位置 1</strong>）；</li>
+<li><strong>3</strong>：输入合适的定位速度限制；</li>
+<li><strong>4</strong>：点击设置按钮查看手动操作最大限制值；</li>
+<li><strong>5</strong>：点击 <strong>启动参考运行（开始寻参运转）</strong> 标定机械零点；</li>
+<li><strong>6</strong>：点击运行按钮（或按快捷键 <code>F5</code>）启动负载循环定位。</li>
+</ul>
+<p>如弹出“起始位置位于钟摆式运行范围之外”提示框，点击 <strong>是，启动钟摆式运行</strong>，等待测量稳定后点击 <strong>停止测量并将值保存进设备中</strong>（9）：</p>
+<p><img src="https://img.zzzg.top/20261128010120880.png" alt="钟摆式运行范围确认框"></p>
+<p><img src="https://img.zzzg.top/20261128010123603.png" alt="停止测量并将值保存进设备中"></p>
+<ul>
+<li><strong>7</strong>：点击停止按钮（或按 <code>F4</code>）停止运行；</li>
+<li><strong>8</strong>：断开 <code>DI00</code> 使能信号（<code>DI00 = 0</code>），并点击 <strong>关闭手动操作</strong> 退出手动模式。</li>
+</ul>
+<blockquote>
+<p>🔧 <strong>测量异常处理</strong>：若无法测出负载惯性矩，通常是因为加速度太小或速度太慢，可逐步提高加减速度和运行速度。若已达到手动操作上限，可前往 <strong>监控功能</strong> → <strong>极限值</strong> 放宽限制后再行测量。</p>
+</blockquote>
+<h2 id="4-5-初次设定驱动器的动态特性参数">4.5 初次设定驱动器的动态特性参数</h2>
+<p>控制器动态特性主要包含 <strong>刚性</strong> 和 <strong>齿隙</strong> 两项参数：</p>
+<h3 id="1-刚性（Stiffness）">1. 刚性（Stiffness）</h3>
+<p>衡量系统整体机械设计与连接刚度（常见范围 <code>0.7 ~ 1.4</code>）：</p>
+<ul>
+<li><strong>刚性 &gt; 1</strong>：机械连接紧固，可承受高加减速；</li>
+<li><strong>刚性 &lt; 1</strong>：机械连接较柔，需柔和加减速以防止末端晃动或震荡。</li>
+</ul>
+<table>
+<thead>
+<tr>
+<th style="text-align:center">刚性建议值</th>
+<th style="text-align:left">常见系统描述</th>
+<th style="text-align:center">分类</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td style="text-align:center"><strong>1 ~ 1.5</strong></td>
+<td style="text-align:left">电机直驱丝杠，或通过精密硬齿面行星减速机直驱齿轮齿条，负载刚性强、不易变形</td>
+<td style="text-align:center">刚性系统</td>
+</tr>
+<tr>
+<td style="text-align:center"><strong>0.9 ~ 1.1</strong></td>
+<td style="text-align:left">普通硬齿面减速机或刚性联轴器驱动负载，刚性一般，不易晃动震荡</td>
+<td style="text-align:center">常规驱动系统</td>
+</tr>
+<tr>
+<td style="text-align:center"><strong>0.7 ~ 1</strong></td>
+<td style="text-align:left">弹性较大的皮带/同步带、软联轴器驱动，或高重心易晃动负载</td>
+<td style="text-align:center">柔性系统</td>
+</tr>
+</tbody>
+</table>
+<h3 id="2-齿隙（Backlash）">2. 齿隙（Backlash）</h3>
+<p>衡量系统整体机械传动间隙：</p>
+<ul>
+<li><strong>100%</strong>：间隙极小，到位保持力矩干脆强硬，定位精度高且不易抖动；</li>
+<li><strong>0%</strong>：间隙较大，到位保持力矩柔和缓和，可避免到位抖动但到位时间略长。</li>
+</ul>
+<table>
+<thead>
+<tr>
+<th style="text-align:center">齿隙建议值</th>
+<th style="text-align:left">常见系统描述</th>
+<th style="text-align:center">分类</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td style="text-align:center"><strong>75% ~ 100%</strong></td>
+<td style="text-align:left">电机直驱，或精密低齿隙行星减速机（Pxx）、谐波、RV（ZNxx）、摆线减速机</td>
+<td style="text-align:center">较低传动间隙系统</td>
+</tr>
+<tr>
+<td style="text-align:center"><strong>25% ~ 75%</strong></td>
+<td style="text-align:left">常规 RFK 系列减速机、低齿隙 RFK 或齿形带传动结构</td>
+<td style="text-align:center">一般传动间隙系统</td>
+</tr>
+<tr>
+<td style="text-align:center"><strong>0% ~ 25%</strong></td>
+<td style="text-align:left">常规 S 系列减速机、弹性联轴器或较大间隙机械结构</td>
+<td style="text-align:center">较大传动间隙系统</td>
+</tr>
+</tbody>
+</table>
+<h2 id="4-6-配置-Position-Velocity-的-MOVIKIT-参数">4.6 配置 Position / Velocity 的 MOVIKIT 参数</h2>
+<h3 id="1-添加-MOVIKIT-Positioning-模块">1. 添加 MOVIKIT Positioning 模块</h3>
+<p>在轴图标的 <strong>下半球空白区域</strong> 双击鼠标：</p>
+<p><img src="https://img.zzzg.top/20261128010126128.png" alt="双击轴下半球添加软件模块"></p>
+<p>在弹出的模块目录中选择 <strong>SingleAxis</strong> → <strong>Positioning</strong>：</p>
+<p><img src="https://img.zzzg.top/20261128010128257.png" alt="选择 SingleAxis Positioning 模块"></p>
+<p>选择最新软件版本并点击 <strong>应用</strong>：</p>
+<p><img src="https://img.zzzg.top/20261128010131119.png" alt="选择 MOVIKIT 版本并应用"></p>
+<p>在弹出的确认对话框中选择 <strong>是，更改参数设定</strong>：</p>
+<p><img src="https://img.zzzg.top/20261128010133061.png" alt="确认更改参数设定对话框"></p>
+<p>此时轴的下半球显示定位图标，表示 <strong>MOVIKIT Positioning</strong> 已添加完成，双击该图标即可进入参数配置：</p>
+<p><img src="https://img.zzzg.top/20261128010135191.png" alt="轴下半球显示 MOVIKIT 图标"></p>
+<p>进入参数菜单后可见新增的 <strong>MOVIKIT Positioning</strong> 节点：</p>
+<p><img src="https://img.zzzg.top/20261128010136832.png" alt="MOVIKIT Positioning 参数菜单"></p>
+<h3 id="2-基本设置">2. 基本设置</h3>
+<p>点击 <strong>基本设置</strong>。本例无需可变加加速时间（Jerk）、扭矩限制及 Touchprobe 1（探针）功能，保持默认关闭即可：</p>
+<p><img src="https://img.zzzg.top/20261128010138628.png" alt="MOVIKIT 基本设置"></p>
+<h3 id="3-监控功能">3. 监控功能</h3>
+<ul>
+<li><strong>参考信息</strong>：用于设定速度到达、位置到达和扭矩到达反馈信号。为获得稳定到位信号，在 <strong>就位</strong> 中填入 <strong>窗口宽度 = 0.01 mm</strong>、<strong>滞后 = 0.01 mm</strong>，其余保持默认：</li>
+</ul>
+<p><img src="https://img.zzzg.top/20261128010140432.png" alt="监控功能-参考信息"></p>
+<ul>
+<li><strong>软件限位开关</strong>：程序软限位保护。<strong>建议调试阶段先均设为 <code>0 mm</code>（不启用）</strong>，待工艺定型后再按实际行程填入并配置右侧响应方式：
+<ol>
+<li>软件限位负必须 <code>≤</code> 软件限位正；</li>
+<li>软件限位位置值建议在硬件限位范围之内。</li>
+</ol>
+</li>
+</ul>
+<p><img src="https://img.zzzg.top/20261128010143361.png" alt="监控功能-软件限位开关"></p>
+<ul>
+<li><strong>硬件限位开关</strong>：设定触发硬件限位后的驱动器响应方式（限位输入点在后续 I/O 参数中定义）：</li>
+</ul>
+<p><img src="https://img.zzzg.top/20261128010145215.png" alt="监控功能-硬件限位开关"></p>
+<ul>
+<li><strong>极限值</strong>：按第 4.3 节计算结果核对并填入（最大正/负速度 <code>943 mm/s</code>，最大加/减速度 <code>943 mm/s²</code>，最大紧急停止减速度 <code>4714 mm/s²</code>，扭矩 <code>150%</code>）：</li>
+</ul>
+<p><img src="https://img.zzzg.top/20261128010147812.png" alt="监控功能-极限值"></p>
+<ul>
+<li><strong>控制功能</strong>：对驱动器/电机的速度和扭矩进行监控。此处选择激活 <strong>电机模式 / 发电模式</strong>（耗电与发电减速过程均监控）；<strong>延迟时间</strong>指达到扭矩监控值后延迟报警的时间，重载易抖动设备可适当加大：</li>
+</ul>
+<p><img src="https://img.zzzg.top/20261128010150577.png" alt="监控功能-控制功能"></p>
+<h3 id="4-驱动功能（FCB-12-参考运行-FCB-09-位置控制）">4. 驱动功能（FCB 12 参考运行 &amp; FCB 09 位置控制）</h3>
+<p><strong>驱动功能</strong>包含 <code>FCB 05</code>（转速控制）、<code>FCB 09</code>（位置控制）、<code>FCB 12</code>（参考运行）和 <code>FCB 20</code>（点动控制）。</p>
+<p><img src="https://img.zzzg.top/20261128010152708.png" alt="驱动功能菜单"></p>
+<p>在 <strong>FCB 12 参考运行</strong> 中选择回零方式（本例选用 <strong>无参考运行的参考</strong>，即执行寻参时直接将当前位置标定为零点）：</p>
+<p><img src="https://img.zzzg.top/20261128010154967.png" alt="FCB 12 参考运行参数"></p>
+<p>12 种参考运行方式说明如下：</p>
+<table>
+<thead>
+<tr>
+<th style="text-align:left">参考运行方式</th>
+<th style="text-align:left">说明</th>
+<th style="text-align:left">注意事项</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td style="text-align:left"><strong>已禁用</strong></td>
+<td style="text-align:left">不允许寻找参考零点</td>
+<td style="text-align:left">一般很少使用</td>
+</tr>
+<tr>
+<td style="text-align:left"><strong>零脉冲 - 负方向</strong></td>
+<td style="text-align:left">向负方向旋转寻找编码器零脉冲</td>
+<td style="text-align:left">需接入编码器 C 通道（Z 相）</td>
+</tr>
+<tr>
+<td style="text-align:left"><strong>参考凸轮 - 负端</strong></td>
+<td style="text-align:left">向负方向移动寻找参考凸轮传感器上升沿</td>
+<td style="text-align:left">需在 I/O 定义参考凸轮且确保稳定触发</td>
+</tr>
+<tr>
+<td style="text-align:left"><strong>参考凸轮 - 正端</strong></td>
+<td style="text-align:left">向正方向移动寻找参考凸轮传感器上升沿</td>
+<td style="text-align:left">需在 I/O 定义参考凸轮且确保稳定触发</td>
+</tr>
+<tr>
+<td style="text-align:left"><strong>限位开关正</strong></td>
+<td style="text-align:left">寻找正向限位开关下降沿脉冲</td>
+<td style="text-align:left">需在 I/O 定义正向限位开关</td>
+</tr>
+<tr>
+<td style="text-align:left"><strong>限位开关负</strong></td>
+<td style="text-align:left">寻找负向限位开关下降沿脉冲</td>
+<td style="text-align:left">需在 I/O 定义负向限位开关</td>
+</tr>
+<tr>
+<td style="text-align:left"><strong>参考凸轮不重叠 - 限位开关正</strong></td>
+<td style="text-align:left">配合正向限位开关换向/保护，寻找凸轮上升沿</td>
+<td style="text-align:left">需同时定义正向限位与参考凸轮</td>
+</tr>
+<tr>
+<td style="text-align:left"><strong>参考凸轮不重叠 - 限位开关负</strong></td>
+<td style="text-align:left">配合负向限位开关换向/保护，寻找凸轮上升沿</td>
+<td style="text-align:left">需同时定义负向限位与参考凸轮</td>
+</tr>
+<tr>
+<td style="text-align:left"><strong>无参考运行的参考</strong></td>
+<td style="text-align:left">当前点直接标定为原点</td>
+<td style="text-align:left">需人工确认位置后执行寻参</td>
+</tr>
+<tr>
+<td style="text-align:left"><strong>固定止挡正</strong></td>
+<td style="text-align:left">向正方向撞击机械固定挡块寻参</td>
+<td style="text-align:left">挡块需足够坚固，需设定撞击扭矩与保持时间</td>
+</tr>
+<tr>
+<td style="text-align:left"><strong>固定止挡负</strong></td>
+<td style="text-align:left">向负方向撞击机械固定挡块寻参</td>
+<td style="text-align:left">挡块需足够坚固，需设定撞击扭矩与保持时间</td>
+</tr>
+<tr>
+<td style="text-align:left"><strong>编码器绝对位置</strong></td>
+<td style="text-align:left">直接读取绝对值编码器位置寻参</td>
+<td style="text-align:left">需配备完好的绝对值编码器</td>
+</tr>
+</tbody>
+</table>
+<p>如需在定位运行中实时监控跟随误差，可在 <strong>FCB 09 位置控制</strong> 中设定 <strong>位置偏差窗口</strong>（例如 <code>100 mm</code>，当实时目标位置与实际位置偏差超过 <code>100 mm</code> 时触发位置偏差报警）：</p>
+<p><img src="https://img.zzzg.top/20261128010157238.png" alt="FCB 09 位置偏差窗口设置"></p>
+<h3 id="5-I-O-配置">5. I/O 配置</h3>
+<p>在 <strong>I/O</strong> 参数中配置数字量输入/输出定义：</p>
+<p><img src="https://img.zzzg.top/20261128010159595.png" alt="I/O 参数配置界面"></p>
+<p>本例中将 <code>DI01</code> 配置为急停功能（<code>FCB 14 紧急停止</code>），其余保持无功能：</p>
+<p><img src="https://img.zzzg.top/20261128010203246.png" alt="自定义 I/O 输入点配置"></p>
+<p>也可在输入点下拉菜单中直接使用 SEW 预设宏方案（例如 <strong>是，带硬件限位开关</strong>）：</p>
+<p><img src="https://img.zzzg.top/20261128010205423.png" alt="I/O 硬件限位开关宏配置"></p>
+<h3 id="6-现场总线接口">6. 现场总线接口</h3>
+<p>在 <strong>现场总线接口</strong> 中配置过程数据（PD）映射：</p>
+<p><img src="https://img.zzzg.top/20261128010207466.png" alt="现场总线接口配置"></p>
+<ul>
+<li><strong>1</strong>：<strong>激活现场总线连接</strong> 选择 <strong>是</strong>；</li>
+<li><strong>2</strong>：<strong>启动地址</strong> 选择 <strong><code>1</code></strong>（位置控制单轴占用 <code>8</code> 个 WORD，本例按每轴预留 <code>10</code> 个 WORD 规划：第 1 轴起始地址 <code>1</code>，第 2 轴起始地址 <code>11</code>，第 3 轴起始地址 <code>21</code>，依此类推）。</li>
+</ul>
+<p>本例中 <strong>高级设置</strong> 与 <strong>模块识别</strong> 无需修改：</p>
+<p><img src="https://img.zzzg.top/20261128010209768.png" alt="高级设置与模块识别"></p>
+<h2 id="4-7-保存参数和生成参数文件">4.7 保存参数和生成参数文件</h2>
+<p>返回主界面，点击顶部工具栏 <strong>保存项目</strong> 按钮（1）：</p>
+<p><img src="https://img.zzzg.top/20261128010211812.png" alt="工具栏保存项目按钮"></p>
+<blockquote>
+<p>💡 <strong>提示</strong>：在线配置的参数虽然已实时写入驱动器，但尚未写入本地项目文件，务必点击 <strong>保存项目</strong> 以便后续维护与分享。</p>
+</blockquote>
+<p>此外，在轴模块上右键单击可选择 <strong>导出数据</strong> 生成参数文件。现场存在多台相同电机、驱动器与机械结构时，配置下一台驱动器只需右键 <strong>导入数据</strong> 并修改 <strong>现场总线接口</strong> 中的 <strong>启动地址</strong> 即可大幅提效：</p>
+<p><img src="https://img.zzzg.top/20261128010214575.png" alt="右键导出与导入驱动器参数文件"></p>
+<hr>
+<h1>5 通过手动操作验证电机参数配置和优化</h1>
+<p><strong>本章目标</strong>：使用 MOVISUITE 的手动操作功能，以速度控制、位置控制、往复定位与增量定位等模式启停和移动电机，验证参数配置效果。</p>
+<p><img src="https://img.zzzg.top/20261128010216620.png" alt="手动操作验证概览"></p>
+<blockquote>
+<p>⚠️ <strong>手动操作安全须知</strong>：</p>
+<ol>
+<li>同一时间内，只能通过手动操作模式激活<strong>一台</strong>驱动器；</li>
+<li>手动操作完成后，<strong>必须退出手动操作</strong>，否则驱动器无法接受上位现场总线控制；</li>
+<li>退出手动操作前，建议先将端子使能 <code>DI00</code> 切换为 <code>OFF</code>，确认现场安全后再恢复；</li>
+<li>退出手动操作后，若端子使能具备且总线存在有效指令，设备会立即按总线指令动作，请注意人身安全！</li>
+</ol>
+</blockquote>
+<h2 id="5-1-打开和关闭手动操作">5.1 打开和关闭手动操作</h2>
+<ul>
+<li><strong>球形视图</strong>：</li>
+</ul>
+<p><img src="https://img.zzzg.top/20261128010219219.png" alt="球形视图打开手动操作"></p>
+<ul>
+<li><strong>树形视图</strong>：</li>
+</ul>
+<p><img src="https://img.zzzg.top/20261128010222415.png" alt="树形视图打开手动操作"></p>
+<ul>
+<li><strong>1</strong>：右键或菜单点击 <strong>工具</strong> → <strong>手动操作</strong>；</li>
+<li><strong>2</strong>：点击右上角 <strong>关闭</strong> 按钮关闭手动操作面板；</li>
+<li><strong>A</strong>：手动操作以右侧小窗口形式显示，顶部导航条会明确标示当前处于手动操作模式的驱动器。</li>
+</ul>
+<h2 id="5-2-激活手动操作模式">5.2 激活手动操作模式</h2>
+<p><img src="https://img.zzzg.top/20261128010224948.png" alt="激活手动操作模式"></p>
+<ul>
+<li><strong>1</strong>：点击 <strong>接通手动操作（激活手动模式）</strong>；</li>
+<li><strong>A</strong>：点击下拉框可切换手动操作支持的不同控制模式：</li>
+</ul>
+<p><img src="https://img.zzzg.top/20261128010227018.png" alt="手动操作可选控制模式列表"></p>
+<p>激活后，给端子输入 <code>DI00 = 1</code> 使能驱动器。此时驱动器 7 段数码管状态对应关系如下：</p>
+<table>
+<thead>
+<tr>
+<th style="text-align:center">7 段数码管显示</th>
+<th style="text-align:left">状态说明</th>
+<th style="text-align:center">DI00 状态</th>
+<th style="text-align:center">手动操作模式</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td style="text-align:center"><strong><code>01</code></strong></td>
+<td style="text-align:left">输出级禁止输出</td>
+<td style="text-align:center"><code>DI00 = 0</code></td>
+<td style="text-align:center">取消手动操作</td>
+</tr>
+<tr>
+<td style="text-align:center"><strong><code>04</code></strong></td>
+<td style="text-align:left">手动操作模式运行中</td>
+<td style="text-align:center"><code>DI00 = 1</code></td>
+<td style="text-align:center">激活手动操作</td>
+</tr>
+</tbody>
+</table>
+<h2 id="5-3-手动操作-—-速度控制方式">5.3 手动操作 — 速度控制方式</h2>
+<p><img src="https://img.zzzg.top/20261128010230084.png" alt="手动操作-速度控制模式"></p>
+<ul>
+<li><strong>1</strong>：选择 <strong>受转速控制的手动操作</strong>；</li>
+<li><strong>2</strong>：拖动仪表盘指针或在输入框中填写设定速度；</li>
+<li><strong>3</strong>：点击运行图标（或按快捷键 <code>F5</code>）启动电机；</li>
+<li><strong>4</strong>：点击 <strong>+/- 倒转</strong> 切换旋转方向；</li>
+<li><strong>5</strong>：点击停止图标（或按快捷键 <code>F4</code>）停止电机；</li>
+<li><strong>A</strong>：实际速度显示；</li>
+<li><strong>B</strong>：制动器当前状态。</li>
+</ul>
+<h2 id="5-4-手动操作-—-位置控制方式">5.4 手动操作 — 位置控制方式</h2>
+<p><img src="https://img.zzzg.top/20261128010232679.png" alt="手动操作-位置控制模式"></p>
+<ul>
+<li><strong>1</strong>：选择 <strong>受定位控制的手动操作</strong>；</li>
+<li><strong>2</strong>：输入 <strong>设定位置</strong>；</li>
+<li><strong>3</strong>：输入 <strong>定位速度</strong>；</li>
+<li><strong>4</strong>：点击运行按钮（<code>F5</code>）启动定位运转；</li>
+<li><strong>5</strong>：点击停止按钮（<code>F4</code>）可在定位过程中随时停止；</li>
+<li><strong>A</strong>：实际位置；<strong>B</strong>：制动器状态；<strong>C</strong>：驱动已完成寻参指示；</li>
+<li><strong>驱动寻参步骤</strong>：先点击 <strong>a</strong> 展开手动操作设定选项，再点击 <strong>b</strong>（<strong>启动参考运行</strong>）完成寻参。</li>
+</ul>
+<h2 id="5-5-手动操作-—-往复定位方式">5.5 手动操作 — 往复定位方式</h2>
+<p><img src="https://img.zzzg.top/20261128010234880.png" alt="手动操作-往复定位模式"></p>
+<ul>
+<li><strong>1</strong>：选择 <strong>绝对钟摆式运行</strong>；</li>
+<li><strong>2</strong>：输入 <strong>位置 1</strong> 与 <strong>位置 2</strong>（注意：<strong>位置 2 必须大于位置 1</strong>）；</li>
+<li><strong>3</strong>：输入 <strong>定位速度</strong>；</li>
+<li><strong>4</strong>：点击运行按钮（<code>F5</code>）启动往复定位；</li>
+<li><strong>5</strong>：点击停止按钮（<code>F4</code>）停止运行；</li>
+<li><strong>A</strong>：实际位置；<strong>B</strong>：制动器状态；<strong>C</strong>：驱动已寻参指示；</li>
+<li><strong>驱动寻参步骤</strong>：点击 <strong>a</strong> 打开设定选项，再点击 <strong>b</strong>（<strong>启动参考运行</strong>）完成寻参。</li>
+</ul>
+<h2 id="5-6-手动操作-—-增量定位方式">5.6 手动操作 — 增量定位方式</h2>
+<p><img src="https://img.zzzg.top/20261128010236794.png" alt="手动操作-增量定位模式"></p>
+<ul>
+<li><strong>1</strong>：选择 <strong>循环模式</strong>；</li>
+<li><strong>2</strong>：输入 <strong>时钟脉冲长度</strong>（单次增量位移）；</li>
+<li><strong>3</strong>：输入 <strong>增量停止时间</strong>（每次增量间隔停顿时间）；</li>
+<li><strong>4</strong>：输入 <strong>定位速度</strong>；</li>
+<li><strong>5</strong>：点击运行按钮（<code>F5</code>）启动增量定位；</li>
+<li><strong>6</strong>：点击停止按钮（<code>F4</code>）停止运行；</li>
+<li><strong>A</strong>：实际位置；<strong>B</strong>：制动器状态；<strong>C</strong>：驱动已寻参指示；</li>
+<li><strong>驱动寻参步骤</strong>：点击 <strong>a</strong> 打开设定选项，再点击 <strong>b</strong>（<strong>启动参考运行</strong>）完成寻参。</li>
+</ul>
+<h2 id="5-7-取消手动操作">5.7 取消手动操作</h2>
+<p><img src="https://img.zzzg.top/20261128010238694.png" alt="取消手动操作及警告确认"></p>
+<ul>
+<li><strong>1</strong>：点击 <strong>关闭手动操作</strong>，系统将弹出安全警告提示；</li>
+<li><strong>2</strong>：确认现场安全后，点击 <strong>是，关闭手动操作</strong> 退出。</li>
+</ul>
+<blockquote>
+<p>⚠️ <strong>安全警告</strong>：退出手动操作后，驱动器将立即恢复接受外部端子或现场总线控制指令，电机可能自动启动，请务必注意机械安全！</p>
+</blockquote>
+<hr>
+<h1>6 开始第二个轴、第三个轴的电机参数配置和优化</h1>
+<p>按照第 4、5 章的方法依次完成第二个轴与第三个轴的 Startup 配置、惯量优化、MOVIKIT Positioning 添加及手动验证。</p>
+<p>两台轴的示例机械配置与电机参数如下（减速机均为 <code>R57</code>，减速比 <code>24.99</code>，驱动轮周长 <code>314 mm</code>）：</p>
+<ul>
+<li><strong>第 2 轴电机</strong>：<code>CMP50S/BK/KY/RH1M/SB1</code>，<code>4500 rpm</code>，<strong>不带电子铭牌</strong>（需手动输入型号）：</li>
+</ul>
+<p><img src="https://img.zzzg.top/20261128010242303.png" alt="第 2 轴驱动机构 AS1 配置"></p>
+<ul>
+<li><strong>第 3 轴电机</strong>：<code>DRS71S4BE05HR/FI/IS/TF/AS7W</code>，<code>230V △</code>，带电子铭牌：</li>
+</ul>
+<p><img src="https://img.zzzg.top/20261128010244376.png" alt="第 3 轴驱动机构 AS1 配置"></p>
+<p><strong>现场总线过程数据起始地址规划</strong>（本例规划每轴预留 <code>10</code> 个过程数据字 PD）：</p>
+<ul>
+<li><strong>第 2 轴</strong>：<strong>启动地址</strong> 设为 <strong><code>11</code></strong>（占用第 11 ~ 18 个 WORD）：</li>
+</ul>
+<p><img src="https://img.zzzg.top/20261128010246540.png" alt="第 2 轴现场总线启动地址设为 11"></p>
+<ul>
+<li><strong>第 3 轴</strong>：<strong>启动地址</strong> 设为 <strong><code>21</code></strong>（占用第 21 ~ 28 个 WORD）：</li>
+</ul>
+<p><img src="https://img.zzzg.top/20261128010248752.png" alt="第 3 轴现场总线启动地址设为 21"></p>
+<hr>
+<h1>7 创建 UHX85A 内的 IEC 程序，自动生成程序代码</h1>
+<p>在三个轴全部完成组态与优化后，配置 MOVI-C Controller（UHX85A）参数并自动生成 IEC 代码。</p>
+<ol>
+<li>打开 UHX85A 参数菜单 → <strong>现场总线</strong>：</li>
+</ol>
+<p><img src="https://img.zzzg.top/20261128010250762.png" alt="UHX85A 现场总线参数设置"></p>
+<ul>
+<li><strong>1</strong>：<strong>现场总线协议</strong> 选择 <strong><code>PROFINET-IO 设备</code></strong>（若使用其他现场总线请按需选择）；</li>
+<li><strong>2</strong>：<strong>激活现场总线连接</strong> 选择 <strong><code>是</code></strong>。</li>
+</ul>
+<ol start="2">
+<li>切换到 <strong>IEC 项目</strong>：</li>
+</ol>
+<p><img src="https://img.zzzg.top/20261128010253225.png" alt="生成新的 IEC 项目"></p>
+<ul>
+<li><strong>3</strong>：点击 <strong>生成新的 IEC 项目</strong>，系统将自动启动 IEC 编辑器并生成代码（耗时取决于电脑性能，请耐心等待）。</li>
+</ul>
+<blockquote>
+<p>💡 <strong>二次打开 IEC 项目的选择规则</strong>：</p>
+<ul>
+<li>若轴模块<strong>未变更</strong>电机型号、编码器、减速比、用户单位等底层结构参数：选择 <strong>打开 IEC 编辑器</strong>；</li>
+<li>若轴模块<strong>变更了</strong>电机型号、编码器、减速比、用户单位等参数：选择 <strong>更新 IEC 项目</strong>。</li>
+</ul>
+</blockquote>
+<p><img src="https://img.zzzg.top/20261128010256322.png" alt="等待生成并打开 IEC 编辑器"></p>
+<ol start="3">
+<li>等待 IEC 编辑器完全加载后，点击菜单 <strong>编译</strong> → <strong>编译</strong>（或按快捷键 <code>F11</code>）：</li>
+</ol>
+<p><img src="https://img.zzzg.top/20261128010258277.png" alt="编译 IEC 项目"></p>
+<ol start="4">
+<li>编译完成后，消息窗口显示 <strong><code>0 个错误，0 个警告</code></strong> 即表示自动生成成功：</li>
+</ol>
+<p><img src="https://img.zzzg.top/20261128010300833.png" alt="IEC 编译完成-0 错误 0 警告"></p>
+<h3 id="IEC-编辑器项目结构说明">IEC 编辑器项目结构说明</h3>
+<p>IEC 编辑器左侧为程序树导航区，顶部为菜单工具栏，右侧为主显示与编辑区：</p>
+<p><img src="https://img.zzzg.top/20261128010303290.png" alt="IEC 编辑器左侧项目树说明"></p>
+<table>
+<thead>
+<tr>
+<th style="text-align:center">编号</th>
+<th style="text-align:center">区域名称</th>
+<th style="text-align:left">说明</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td style="text-align:center"><strong>1</strong></td>
+<td style="text-align:center">SEW 程序区域</td>
+<td style="text-align:left"><code>SEW_Generated</code>，由 MOVISUITE 自动生成的核心代码</td>
+</tr>
+<tr>
+<td style="text-align:center"><strong>2</strong></td>
+<td style="text-align:center">用户程序区域</td>
+<td style="text-align:left"><code>USER_Application</code>，供用户编写自定义逻辑</td>
+</tr>
+<tr>
+<td style="text-align:center"><strong>3</strong></td>
+<td style="text-align:center">库文件管理区</td>
+<td style="text-align:left">库管理器与符号配置</td>
+</tr>
+<tr>
+<td style="text-align:center"><strong>4</strong></td>
+<td style="text-align:center">PLC 任务配置区</td>
+<td style="text-align:left"><code>TaskHighPrio</code> / <code>TaskHmi</code> / <code>TaskLowestPrio</code> / <code>TaskMain</code> 等周期任务</td>
+</tr>
+<tr>
+<td style="text-align:center"><strong>5</strong></td>
+<td style="text-align:center">逻辑轴区域</td>
+<td style="text-align:left"><code>SEWLogicalDevicePool</code>，包含各逻辑轴与过程数据映射</td>
+</tr>
+<tr>
+<td style="text-align:center"><strong>6</strong></td>
+<td style="text-align:center">EtherCAT 通讯区域</td>
+<td style="text-align:left"><code>EtherCAT (LAN2)</code> 下挂的各物理轴模块</td>
+</tr>
+<tr>
+<td style="text-align:center"><strong>7</strong></td>
+<td style="text-align:center">Fieldbus 通讯区域</td>
+<td style="text-align:left"><code>Fieldbus (X2)</code> 现场总线（本例为 PROFINET IO Device）</td>
+</tr>
+</tbody>
+</table>
+<blockquote>
+<p>ℹ️ <strong>说明</strong>：本例使用标准 MOVIKIT Position / Velocity 模块，控制逻辑均已自动生成，客户在 UHX85A 侧无需手动编写 IEC 代码。</p>
+</blockquote>
+<hr>
+<h1>8 添加 Fieldbus Monitor，监控和模拟 PLC 过程数据</h1>
+<h2 id="8-1-添加脚本并下载运行">8.1 添加脚本并下载运行</h2>
+<ol>
+<li>在 IEC 编辑器顶部菜单点击 <strong>工具</strong> → <strong>脚本</strong> → <strong>Scripts</strong> → <strong>F</strong> → <strong><code>Fieldbusmonitor.py</code></strong>：</li>
+</ol>
+<p><img src="https://img.zzzg.top/20261128010305330.png" alt="通过工具菜单添加 Fieldbusmonitor 脚本"></p>
+<ol start="2">
+<li>添加完成后，左侧项目树 <code>Application</code> 下会出现 <code>FieldbusMonitor</code> 与 <code>MOVIKIT_FieldbusMonitor</code>：</li>
+</ol>
+<p><img src="https://img.zzzg.top/20261128010308378.png" alt="项目树中显示 FieldbusMonitor"></p>
+<ol start="3">
+<li>点击 <strong>编译</strong> → <strong>编译</strong>（或按 <code>F11</code>）确认无误：</li>
+</ol>
+<p><img src="https://img.zzzg.top/20261128010310344.png" alt="重新编译包含 FieldbusMonitor 的项目"></p>
+<ol start="4">
+<li>双击左侧 <code>MPLC (MOVI-C CONTROLLER power)</code> 图标，在右侧 <strong>通讯设置</strong> 中点击 <strong>扫描网络</strong>：</li>
+</ol>
+<p><img src="https://img.zzzg.top/20261128010312466.png" alt="打开 MPLC 通讯设置"></p>
+<ol start="5">
+<li>在弹出的网络扫描列表中选中目标控制器并点击 <strong>确定</strong>：</li>
+</ol>
+<p><img src="https://img.zzzg.top/20261128010314843.png" alt="扫描并选择连接的控制器"></p>
+<ul>
+<li><strong>1</strong>：点击 <strong>扫描网络</strong>；</li>
+<li><strong>2</strong>：选择目标 PLC；</li>
+<li><strong>3</strong>：点击 <strong>确定</strong> 建立连接。</li>
+</ul>
+<ol start="6">
+<li>通讯建立成功后，设备图标显示为绿色：</li>
+</ol>
+<p><img src="https://img.zzzg.top/20261128010316901.png" alt="MPLC 通讯连接成功显示绿色"></p>
+<ol start="7">
+<li>下载、固化并运行程序：</li>
+</ol>
+<p><img src="https://img.zzzg.top/20261128010319229.png" alt="登录到控制器并创建启动应用"></p>
+<ul>
+<li><strong>1</strong>：点击 <strong>在线</strong> → <strong>登录到</strong>（或按 <code>Alt + F8</code>）将程序下载至控制器；</li>
+<li><strong>2</strong>：点击 <strong>在线</strong> → <strong>创建启动应用</strong>，将程序固化至断电保持存储区；</li>
+</ul>
+<p><img src="https://img.zzzg.top/20261128010321686.png" alt="启动运行 IEC 程序"></p>
+<ul>
+<li><strong>3</strong>：点击 <strong>调试</strong> → <strong>启动</strong>（或按 <code>F5</code>）运行程序。</li>
+</ul>
+<h2 id="8-2-使用-Fieldbus-Monitor-进行监控与仿真控制">8.2 使用 Fieldbus Monitor 进行监控与仿真控制</h2>
+<p>保持在线运行状态，双击左侧项目树中的 <strong><code>MOVIKIT_FieldbusMonitor</code></strong>（1）：</p>
+<p><img src="https://img.zzzg.top/20261128010324301.png" alt="在线打开 MOVIKIT_FieldbusMonitor"></p>
+<p>主界面区域划分如下：</p>
+<p><img src="https://img.zzzg.top/20261128010327319.png" alt="Fieldbus Monitor 界面区域说明"></p>
+<ul>
+<li><strong>2</strong>：选择轴模块序号（切换要监控/控制的轴）；</li>
+<li><strong>3</strong>：顶部模式切换区（<code>control</code> / <code>monitor</code>）；</li>
+<li><strong>4</strong>：显示当前轴的 PD 起始地址（<code>PD start address</code>）和字长（<code>PD length</code>）；</li>
+<li><strong>5</strong>：过程数据具体内容显示与设定区（<code>PD In</code> 为写入驱动器的控制字，<code>PD Out</code> 为驱动器反馈的状态字）。</li>
+</ul>
+<h3 id="Monitor-模式（监视模式）">Monitor 模式（监视模式）</h3>
+<p>显示上位 PLC 发送给驱动器的控制数据以及驱动器反馈给上位 PLC 的实时状态数据：</p>
+<p><img src="https://img.zzzg.top/20261128010330554.png" alt="Fieldbus Monitor 监视模式"></p>
+<h3 id="Control-模式（仿真控制模式）">Control 模式（仿真控制模式）</h3>
+<p>允许由 SEW MOVIPLC 模拟上位 PLC（如西门子 PLC）直接向驱动器发送控制指令进行联调测试。<strong>在此模式下，外部上位 PLC 发送的指令将不起作用，驱动器仅响应 MOVIPLC 仿真界面发出的指令</strong>：</p>
+<p><img src="https://img.zzzg.top/20261128010335572.png" alt="Fieldbus Monitor 仿真控制模式"></p>
+<h2 id="8-3-过程数据字（PO-PI）详细说明">8.3 过程数据字（PO / PI）详细说明</h2>
+<p>假设上位 PLC 分配的输入/输出起始地址从 <strong><code>256</code></strong> 开始：</p>
+<ul>
+<li><strong>PO（Process Output）</strong>：PLC 发送给驱动器的控制字，可用 <code>QWxxx</code>（如 <code>QW256</code>）或 <code>DPWR_DAT</code> 批量写入；</li>
+<li><strong>PI（Process Input）</strong>：驱动器反馈给 PLC 的状态字，可用 <code>IWxxx</code>（如 <code>IW256</code>）或 <code>DPRD_DAT</code> 批量读取。</li>
+</ul>
+<h3 id="过程字地址总览">过程字地址总览</h3>
+<table>
+<thead>
+<tr>
+<th style="text-align:center">PLC 地址</th>
+<th style="text-align:center">输出控制字 (PO)</th>
+<th style="text-align:left">说明</th>
+<th style="text-align:center">输入状态字 (PI)</th>
+<th style="text-align:left">说明</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td style="text-align:center"><strong>256</strong></td>
+<td style="text-align:center"><code>PO1</code></td>
+<td style="text-align:left">Control word（控制字）</td>
+<td style="text-align:center"><code>PI1</code></td>
+<td style="text-align:left">Status Word（状态字）</td>
+</tr>
+<tr>
+<td style="text-align:center"><strong>258</strong></td>
+<td style="text-align:center"><code>PO2</code></td>
+<td style="text-align:left">Setpoint Speed（设定速度）</td>
+<td style="text-align:center"><code>PI2</code></td>
+<td style="text-align:left">Actual Speed（实际速度）</td>
+</tr>
+<tr>
+<td style="text-align:center"><strong>260</strong></td>
+<td style="text-align:center"><code>PO3</code></td>
+<td style="text-align:left">Setpoint Acceleration（设定加速度）</td>
+<td style="text-align:center"><code>PI3</code></td>
+<td style="text-align:left">Status / Fault / Subfault（状态代码 / 故障与子故障代码）</td>
+</tr>
+<tr>
+<td style="text-align:center"><strong>262</strong></td>
+<td style="text-align:center"><code>PO4</code></td>
+<td style="text-align:left">Setpoint Deceleration（设定减速度）</td>
+<td style="text-align:center"><code>PI4</code></td>
+<td style="text-align:left">Actual Torque（实际输出扭矩）</td>
+</tr>
+<tr>
+<td style="text-align:center"><strong>264</strong></td>
+<td style="text-align:center"><code>PO5</code></td>
+<td style="text-align:left">Digital Outputs（数字量输出）</td>
+<td style="text-align:center"><code>PI5</code></td>
+<td style="text-align:left">Digital Inputs（数字量输入）</td>
+</tr>
+<tr>
+<td style="text-align:center"><strong>266</strong></td>
+<td style="text-align:center"><code>PO6</code></td>
+<td style="text-align:left">Target Application Mode（目标操作模式）</td>
+<td style="text-align:center"><code>PI6</code></td>
+<td style="text-align:left">Actual Application Mode（实际操作模式）</td>
+</tr>
+<tr>
+<td style="text-align:center"><strong>268</strong></td>
+<td style="text-align:center"><code>PO7</code></td>
+<td style="text-align:left">Target Position High Word（目标位置高字）</td>
+<td style="text-align:center"><code>PI7</code></td>
+<td style="text-align:left">Actual Position High Word（实际位置高字）</td>
+</tr>
+<tr>
+<td style="text-align:center"><strong>270</strong></td>
+<td style="text-align:center"><code>PO8</code></td>
+<td style="text-align:left">Target Position Low Word（目标位置低字）</td>
+<td style="text-align:center"><code>PI8</code></td>
+<td style="text-align:left">Actual Position Low Word（实际位置低字）</td>
+</tr>
+</tbody>
+</table>
+<h3 id="PO-控制字详细位定义">PO 控制字详细位定义</h3>
+<blockquote>
+<p>ℹ️ <strong>模式标识说明</strong>：<code>V</code> 表示在 Velocity（速度）模式下有效，<code>P</code> 表示在 Position（定位）模式下有效。</p>
+</blockquote>
+<table>
+<thead>
+<tr>
+<th style="text-align:center">字 / 地址</th>
+<th style="text-align:center">Bit 位</th>
+<th style="text-align:center">适用模式</th>
+<th style="text-align:left">True (1) 功能描述</th>
+<th style="text-align:left">False (0) 功能描述</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td style="text-align:center"><strong><code>PO1</code></strong> (<code>QW256</code>)<br>控制字</td>
+<td style="text-align:center"><strong>0</strong></td>
+<td style="text-align:center">V / P</td>
+<td style="text-align:left">Enable（轴使能）</td>
+<td style="text-align:left">Rapid Stop（按急停斜坡停止）</td>
+</tr>
+<tr>
+<td style="text-align:center"></td>
+<td style="text-align:center"><strong>1</strong></td>
+<td style="text-align:center">V / P</td>
+<td style="text-align:left">Enable（轴使能）</td>
+<td style="text-align:left">Application Stop（按应用斜坡停止）</td>
+</tr>
+<tr>
+<td style="text-align:center"></td>
+<td style="text-align:center"><strong>2</strong></td>
+<td style="text-align:center">V / P</td>
+<td style="text-align:left">Reserved（预留）</td>
+<td style="text-align:left">Reserved（预留）</td>
+</tr>
+<tr>
+<td style="text-align:center"></td>
+<td style="text-align:center"><strong>3</strong></td>
+<td style="text-align:center">V / P</td>
+<td style="text-align:left">Brake Release without enable（无使能释放制动器）</td>
+<td style="text-align:left">无功能</td>
+</tr>
+<tr>
+<td style="text-align:center"></td>
+<td style="text-align:center"><strong>4</strong></td>
+<td style="text-align:center">P</td>
+<td style="text-align:left">Jog Positive（正方向点动）</td>
+<td style="text-align:left">按 <code>PO4</code> 减速斜坡停止</td>
+</tr>
+<tr>
+<td style="text-align:center"></td>
+<td style="text-align:center"><strong>5</strong></td>
+<td style="text-align:center">P</td>
+<td style="text-align:left">Jog Negative（负方向点动）</td>
+<td style="text-align:left">按 <code>PO4</code> 减速斜坡停止</td>
+</tr>
+<tr>
+<td style="text-align:center"></td>
+<td style="text-align:center"><strong>6</strong></td>
+<td style="text-align:center">P</td>
+<td style="text-align:left">Accept Relative Position（相对定位接收新相对位置）</td>
+<td style="text-align:left">无功能</td>
+</tr>
+<tr>
+<td style="text-align:center"></td>
+<td style="text-align:center"><strong>7</strong></td>
+<td style="text-align:center">V / P</td>
+<td style="text-align:left">Start With Fieldbus Ramp（按总线斜坡 <code>PO3</code> 启动）</td>
+<td style="text-align:left">Stop With Fieldbus Ramp（按总线斜坡 <code>PO4</code> 停止）</td>
+</tr>
+<tr>
+<td style="text-align:center"></td>
+<td style="text-align:center"><strong>8</strong></td>
+<td style="text-align:center">V / P</td>
+<td style="text-align:left">Fault Reset（上升沿触发故障复位）</td>
+<td style="text-align:left">无功能</td>
+</tr>
+<tr>
+<td style="text-align:center"></td>
+<td style="text-align:center"><strong>9</strong></td>
+<td style="text-align:center">V / P</td>
+<td style="text-align:left">Reserved（预留）</td>
+<td style="text-align:left">Reserved（预留）</td>
+</tr>
+<tr>
+<td style="text-align:center"></td>
+<td style="text-align:center"><strong>10</strong></td>
+<td style="text-align:center">V / P</td>
+<td style="text-align:left">Activate Drive Train 2（激活电机参数组 2）</td>
+<td style="text-align:left">Activate Drive Train 1（默认激活电机参数组 1）</td>
+</tr>
+<tr>
+<td style="text-align:center"></td>
+<td style="text-align:center"><strong>11</strong></td>
+<td style="text-align:center">V / P</td>
+<td style="text-align:left">Reserved（预留）</td>
+<td style="text-align:left">Reserved（预留）</td>
+</tr>
+<tr>
+<td style="text-align:center"></td>
+<td style="text-align:center"><strong>12</strong></td>
+<td style="text-align:center">P</td>
+<td style="text-align:left">Disable Software Limit Switches（取消软限位功能）</td>
+<td style="text-align:left">Enable Software Limit Switches（默认激活软限位）</td>
+</tr>
+<tr>
+<td style="text-align:center"></td>
+<td style="text-align:center"><strong>13</strong></td>
+<td style="text-align:center">V / P</td>
+<td style="text-align:left">Output Stage Disable（输出级禁止）</td>
+<td style="text-align:left">Output Stage Enable（输出级使能）</td>
+</tr>
+<tr>
+<td style="text-align:center"></td>
+<td style="text-align:center"><strong>14</strong></td>
+<td style="text-align:center">V / P</td>
+<td style="text-align:left">Active Standby Mode（激活零速扭矩保持模式）</td>
+<td style="text-align:left">无功能</td>
+</tr>
+<tr>
+<td style="text-align:center"></td>
+<td style="text-align:center"><strong>15</strong></td>
+<td style="text-align:center">V / P</td>
+<td style="text-align:left">MOVIKIT Handshake In（握手信号输入）</td>
+<td style="text-align:left">MOVIKIT Handshake In（握手信号输入）</td>
+</tr>
+<tr>
+<td style="text-align:center"><strong><code>PO2</code></strong> (<code>QW258</code>)</td>
+<td style="text-align:center">0 - 15</td>
+<td style="text-align:center">V / P</td>
+<td style="text-align:left"><strong>Setpoint Speed</strong>：速度设定值（单位及小数位由用户单位决定）</td>
+<td style="text-align:left">—</td>
+</tr>
+<tr>
+<td style="text-align:center"><strong><code>PO3</code></strong> (<code>QW260</code>)</td>
+<td style="text-align:center">0 - 15</td>
+<td style="text-align:center">V / P</td>
+<td style="text-align:left"><strong>Setpoint Acceleration</strong>：加速度设定值（按用户单位）</td>
+<td style="text-align:left">—</td>
+</tr>
+<tr>
+<td style="text-align:center"><strong><code>PO4</code></strong> (<code>QW262</code>)</td>
+<td style="text-align:center">0 - 15</td>
+<td style="text-align:center">V / P</td>
+<td style="text-align:left"><strong>Setpoint Deceleration</strong>：减速度设定值（按用户单位）</td>
+<td style="text-align:left">—</td>
+</tr>
+<tr>
+<td style="text-align:center"><strong><code>PO5</code></strong> (<code>QW264</code>)<br>数字量输出</td>
+<td style="text-align:center">0</td>
+<td style="text-align:center">V / P</td>
+<td style="text-align:left"><code>DO00 / DIO01</code> 输出 24V</td>
+<td style="text-align:left"><code>DO00 / DIO01</code> 输出 0V</td>
+</tr>
+<tr>
+<td style="text-align:center"></td>
+<td style="text-align:center">1</td>
+<td style="text-align:center">V / P</td>
+<td style="text-align:left"><code>DO01 / DIO02</code> 输出 24V</td>
+<td style="text-align:left"><code>DO01 / DIO02</code> 输出 0V</td>
+</tr>
+<tr>
+<td style="text-align:center"></td>
+<td style="text-align:center">3</td>
+<td style="text-align:center">V / P</td>
+<td style="text-align:left"><code>DO03</code> 输出 24V</td>
+<td style="text-align:left"><code>DO03</code> 输出 0V</td>
+</tr>
+<tr>
+<td style="text-align:center"><strong><code>PO6</code></strong> (<code>QW266</code>)</td>
+<td style="text-align:center">0 - 15</td>
+<td style="text-align:center">P</td>
+<td style="text-align:left"><strong>Target Application Mode</strong>：目标操作模式（详见下表）</td>
+<td style="text-align:left">—</td>
+</tr>
+<tr>
+<td style="text-align:center"><strong><code>PO7~PO8</code></strong> (<code>QD268</code>)</td>
+<td style="text-align:center">0 - 31</td>
+<td style="text-align:center">P</td>
+<td style="text-align:left"><strong>Setpoint Position (DWORD)</strong>：双字目标位置设定值（高字 <code>PO7</code> + 低字 <code>PO8</code>，按用户单位）</td>
+<td style="text-align:left">—</td>
+</tr>
+</tbody>
+</table>
+<h3 id="PO6-PI6-操作模式（Operating-Mode）代码详解">PO6 / PI6 操作模式（Operating Mode）代码详解</h3>
+<table>
+<thead>
+<tr>
+<th style="text-align:center">模式大类</th>
+<th style="text-align:center">十进制值</th>
+<th style="text-align:left">模式名称及功能描述</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td style="text-align:center"><strong>点动模式 (Jog Mode)</strong></td>
+<td style="text-align:center"><strong><code>100</code></strong></td>
+<td style="text-align:left">Position-controlled Jogging（<code>FCB 20</code>），需要编码器反馈</td>
+</tr>
+<tr>
+<td style="text-align:center"></td>
+<td style="text-align:center"><strong><code>101</code></strong></td>
+<td style="text-align:left">Speed-controlled Jogging（<code>FCB 05</code>），不需要编码器反馈</td>
+</tr>
+<tr>
+<td style="text-align:center"><strong>速度控制 (Speed Control)</strong></td>
+<td style="text-align:center"><strong><code>200</code></strong></td>
+<td style="text-align:left">Speed Control（<code>FCB 05</code>），不需要编码器反馈</td>
+</tr>
+<tr>
+<td style="text-align:center"><strong>寻参模式 (Referencing Mode)</strong></td>
+<td style="text-align:center"><strong><code>300</code></strong></td>
+<td style="text-align:left">Reference Travel - Offset Via Parameter（<code>FCB 12</code>），原点偏移量通过参数给定</td>
+</tr>
+<tr>
+<td style="text-align:center"></td>
+<td style="text-align:center"><strong><code>301</code></strong></td>
+<td style="text-align:left">Reference Travel - Offset Via Fieldbus（<code>FCB 12</code>），原点偏移量通过总线给定</td>
+</tr>
+<tr>
+<td style="text-align:center"><strong>定位模式 (Positioning Mode)</strong></td>
+<td style="text-align:center"><strong><code>400</code></strong></td>
+<td style="text-align:left">Absolute Position Control（<code>FCB 09</code>），绝对值定位控制</td>
+</tr>
+<tr>
+<td style="text-align:center"></td>
+<td style="text-align:center"><strong><code>401</code></strong></td>
+<td style="text-align:left">Relative Position Control（<code>FCB 09</code>），相对式/增量定位控制</td>
+</tr>
+<tr>
+<td style="text-align:center"></td>
+<td style="text-align:center"><strong><code>402</code></strong></td>
+<td style="text-align:left">Modulo Position Control - Positive（<code>FCB 09</code>），模数/圆周定位 - 正方向</td>
+</tr>
+<tr>
+<td style="text-align:center"></td>
+<td style="text-align:center"><strong><code>403</code></strong></td>
+<td style="text-align:left">Modulo Position Control - Negative（<code>FCB 09</code>），模数/圆周定位 - 负方向</td>
+</tr>
+<tr>
+<td style="text-align:center"></td>
+<td style="text-align:center"><strong><code>404</code></strong></td>
+<td style="text-align:left">Modulo Position Control - Shortest Distance（<code>FCB 09</code>），模数/圆周定位 - 最短路径</td>
+</tr>
+<tr>
+<td style="text-align:center"></td>
+<td style="text-align:center"><strong><code>420</code></strong></td>
+<td style="text-align:left">Absolute Position Touchprobe（<code>FCB 09</code>），绝对值探针定位模式</td>
+</tr>
+</tbody>
+</table>
+<h3 id="PI-状态字详细位定义">PI 状态字详细位定义</h3>
+<table>
+<thead>
+<tr>
+<th style="text-align:center">字 / 地址</th>
+<th style="text-align:center">Bit 位</th>
+<th style="text-align:center">适用模式</th>
+<th style="text-align:left">True (1) 状态描述</th>
+<th style="text-align:left">False (0) 状态描述</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td style="text-align:center"><strong><code>PI1</code></strong> (<code>IW256</code>)<br>状态字</td>
+<td style="text-align:center"><strong>0</strong></td>
+<td style="text-align:center">V / P</td>
+<td style="text-align:left">Ready for operation（准备就绪）</td>
+<td style="text-align:left">Not Ready（未就绪）</td>
+</tr>
+<tr>
+<td style="text-align:center"></td>
+<td style="text-align:center"><strong>1</strong></td>
+<td style="text-align:center">V / P</td>
+<td style="text-align:left">STO inactive（STO 未激活，允许运行）</td>
+<td style="text-align:left">STO active（STO 安全转矩关断已激活）</td>
+</tr>
+<tr>
+<td style="text-align:center"></td>
+<td style="text-align:center"><strong>2</strong></td>
+<td style="text-align:center">V / P</td>
+<td style="text-align:left">Output stage enable（输出级已使能）</td>
+<td style="text-align:left">Output stage disable（输出级禁止）</td>
+</tr>
+<tr>
+<td style="text-align:center"></td>
+<td style="text-align:center"><strong>3</strong></td>
+<td style="text-align:center">V / P</td>
+<td style="text-align:left">Brake released（制动器已打开）</td>
+<td style="text-align:left">Brake applied（制动器闭合）</td>
+</tr>
+<tr>
+<td style="text-align:center"></td>
+<td style="text-align:center"><strong>4</strong></td>
+<td style="text-align:center">V / P</td>
+<td style="text-align:left">Motor running（电机运转或保持模式激活）</td>
+<td style="text-align:left">Motor not running（电机静止）</td>
+</tr>
+<tr>
+<td style="text-align:center"></td>
+<td style="text-align:center"><strong>5</strong></td>
+<td style="text-align:center">V / P</td>
+<td style="text-align:left">Active drive referenced（参考点已确定）</td>
+<td style="text-align:left">Active drive not referenced（参考点未确定）</td>
+</tr>
+<tr>
+<td style="text-align:center"></td>
+<td style="text-align:center"><strong>6</strong></td>
+<td style="text-align:center">V / P</td>
+<td style="text-align:left">New relative position applied（新相对位置值已写入）</td>
+<td style="text-align:left">New relative position not applied（未写入）</td>
+</tr>
+<tr>
+<td style="text-align:center"></td>
+<td style="text-align:center"><strong>7</strong></td>
+<td style="text-align:center">V / P</td>
+<td style="text-align:left">“In position” signal active（到位信号激活）</td>
+<td style="text-align:left">Not in position（未到位）</td>
+</tr>
+<tr>
+<td style="text-align:center"></td>
+<td style="text-align:center"><strong>8</strong></td>
+<td style="text-align:center">V / P</td>
+<td style="text-align:left">Fault（故障）</td>
+<td style="text-align:left">Normal（正常）</td>
+</tr>
+<tr>
+<td style="text-align:center"></td>
+<td style="text-align:center"><strong>9</strong></td>
+<td style="text-align:center">V / P</td>
+<td style="text-align:left">Warning（警告）</td>
+<td style="text-align:left">Normal（正常）</td>
+</tr>
+<tr>
+<td style="text-align:center"></td>
+<td style="text-align:center"><strong>10</strong></td>
+<td style="text-align:center">V / P</td>
+<td style="text-align:left">Drive train 2 active（参数组 2 激活）</td>
+<td style="text-align:left">Drive train 1 active（参数组 1 激活）</td>
+</tr>
+<tr>
+<td style="text-align:center"></td>
+<td style="text-align:center"><strong>11</strong></td>
+<td style="text-align:center">V / P</td>
+<td style="text-align:left">Setpoint/actual speed comparison active（设定速度已达到）</td>
+<td style="text-align:left">Inactive（未达到）</td>
+</tr>
+<tr>
+<td style="text-align:center"></td>
+<td style="text-align:center"><strong>12</strong></td>
+<td style="text-align:center">V / P</td>
+<td style="text-align:left">Software limit switches inactive（软限位已取消）</td>
+<td style="text-align:left">Active（软限位已启用）</td>
+</tr>
+<tr>
+<td style="text-align:center"></td>
+<td style="text-align:center"><strong>13</strong></td>
+<td style="text-align:center">V / P</td>
+<td style="text-align:left">Reserved（预留）</td>
+<td style="text-align:left">Reserved（预留）</td>
+</tr>
+<tr>
+<td style="text-align:center"></td>
+<td style="text-align:center"><strong>14</strong></td>
+<td style="text-align:center">V / P</td>
+<td style="text-align:left">Standby mode active（零速扭矩保持模式激活）</td>
+<td style="text-align:left">Inactive（未激活）</td>
+</tr>
+<tr>
+<td style="text-align:center"></td>
+<td style="text-align:center"><strong>15</strong></td>
+<td style="text-align:center">V / P</td>
+<td style="text-align:left">MOVIKIT Handshake Out（握手信号输出）</td>
+<td style="text-align:left">MOVIKIT Handshake Out（握手信号输出）</td>
+</tr>
+<tr>
+<td style="text-align:center"><strong><code>PI2</code></strong> (<code>IW258</code>)</td>
+<td style="text-align:center">0 - 15</td>
+<td style="text-align:center">V / P</td>
+<td style="text-align:left"><strong>Actual Speed</strong>：速度实际值（单位及小数位由用户单位决定）</td>
+<td style="text-align:left">—</td>
+</tr>
+<tr>
+<td style="text-align:center"><strong><code>PI3</code></strong> (<code>IW260</code>)</td>
+<td style="text-align:center">0 - 15</td>
+<td style="text-align:center">V / P</td>
+<td style="text-align:left"><strong>Status / Fault / Subfault</strong>：<br>• 无故障时：低字节显示当前 FCB 编号；<br>• 设备/选件故障时：高字节为故障代码，低字节为子故障代码</td>
+<td style="text-align:left">—</td>
+</tr>
+<tr>
+<td style="text-align:center"><strong><code>PI4</code></strong> (<code>IW262</code>)</td>
+<td style="text-align:center">0 - 15</td>
+<td style="text-align:center">V / P</td>
+<td style="text-align:left"><strong>Actual Torque</strong>：实际输出扭矩（单位：<code>0.1%</code> 电机额定扭矩）</td>
+<td style="text-align:left">—</td>
+</tr>
+<tr>
+<td style="text-align:center"><strong><code>PI5</code></strong> (<code>IW264</code>)<br>数字量输入</td>
+<td style="text-align:center">0 ~ 7</td>
+<td style="text-align:center">V / P</td>
+<td style="text-align:left"><code>DI00 ~ DI07</code> 输入 24V</td>
+<td style="text-align:left"><code>DI00 ~ DI07</code> 输入 0V</td>
+</tr>
+<tr>
+<td style="text-align:center"></td>
+<td style="text-align:center">9 ~ 10</td>
+<td style="text-align:center">V / P</td>
+<td style="text-align:left"><code>DI09/DIO01</code>、<code>DI10/DIO02</code> 输入 24V</td>
+<td style="text-align:left">输入 0V</td>
+</tr>
+<tr>
+<td style="text-align:center"></td>
+<td style="text-align:center">13</td>
+<td style="text-align:center">V / P</td>
+<td style="text-align:left"><code>DI13</code> 输入 24V</td>
+<td style="text-align:left"><code>DI13</code> 输入 0V</td>
+</tr>
+<tr>
+<td style="text-align:center"><strong><code>PI6</code></strong> (<code>IW266</code>)</td>
+<td style="text-align:center">0 - 15</td>
+<td style="text-align:center">P</td>
+<td style="text-align:left"><strong>Actual Application Mode</strong>：当前实际操作模式（代码与 <code>PO6</code> 完全一致）</td>
+<td style="text-align:left">—</td>
+</tr>
+<tr>
+<td style="text-align:center"><strong><code>PI7~PI8</code></strong> (<code>ID268</code>)</td>
+<td style="text-align:center">0 - 31</td>
+<td style="text-align:center">P</td>
+<td style="text-align:left"><strong>Actual Position (DWORD)</strong>：双字实际位置反馈值（高字 <code>PI7</code> + 低字 <code>PI8</code>，按用户单位）</td>
+<td style="text-align:left">—</td>
+</tr>
+</tbody>
+</table>
+<hr>
+<h1>9 在西门子 PLC 内完成通讯组态与程序控制</h1>
+<p>本节以 <strong>西门子 TIA Portal（博途）</strong> 为例，演示上位 PLC 与 SEW UHX85A 的 PROFINET 硬件组态与通讯测试流程。</p>
+<ol>
+<li>启动 TIA Portal 软件，确认运行环境及物理网络连接正常；</li>
+<li>新建一个 TIA 项目并命名（例如 <code>Configuration Fieldbus System</code>）：</li>
+</ol>
+<p><img src="https://img.zzzg.top/20261128010338054.png" alt="TIA Portal 新建项目"></p>
+<ol start="3">
+<li>点击 <strong>Add new device</strong> 添加现场对应型号的西门子 PLC：</li>
+</ol>
+<p><img src="https://img.zzzg.top/20261128010340359.png" alt="TIA Portal 添加 PLC"></p>
+<ol start="4">
+<li>在硬件组态中编辑 PLC 的 PROFINET 网络参数（本例 IP 设为 <code>192.168.10.39</code>，子网掩码 <code>255.255.255.0</code>）：</li>
+</ol>
+<p><img src="https://img.zzzg.top/20261128010343870.png" alt="配置西门子 PLC 网络参数"></p>
+<ol start="5">
+<li>新建一条 PROFINET 总线（右键网口选择 <strong>Add IO system</strong>）：</li>
+</ol>
+<p><img src="https://img.zzzg.top/20261128010346490.png" alt="新建 PROFINET IO 子网"></p>
+<ol start="6">
+<li>安装 SEW 的 <strong>GSDML</strong> 组态文件（点击菜单 <strong>Options</strong> → <strong>Manage general station description files (GSD)</strong>；GSDML 文件可从 SEW 官网 <a target="_blank" rel="noopener" href="https://www.sew-eurodrive.cn">www.sew-eurodrive.cn</a> 下载或联系 SEW 获取）：</li>
+</ol>
+<p><img src="https://img.zzzg.top/20261128010348448.png" alt="安装 SEW GSDML 文件"></p>
+<ol start="7">
+<li>在右侧硬件目录中按以下路径找到对应型号的 MOVIPLC（本例为 <code>UHX85A-R V1.0</code>）并拖入网络视图，连接至 PLC 的 PROFINET IO 系统：</li>
+</ol>
+<figure class="highlight text"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">Catalog &gt; Other field devices &gt; PROFINET IO &gt; PLCs &amp; CPs &gt; SEW-EURODRIVE &gt; MOVI-C CONTROLLER POWER &gt; UHX85A &gt; UHX85A-R V1.0</span><br></pre></td></tr></table></figure>
+<p><img src="https://img.zzzg.top/20261128010352057.png" alt="从硬件目录添加 UHX85A-R V1.0"></p>
+<ol start="8">
+<li>双击 MOVIPLC 图标进入设备视图，设定设备名称：</li>
+</ol>
+<p><img src="https://img.zzzg.top/20261128010354186.png" alt="设定 MOVIPLC 设备常规名称"></p>
+<ol start="9">
+<li>在 <strong>Ethernet addresses</strong> 中设定 MOVIPLC 的 PROFINET IP 地址：</li>
+</ol>
+<p><img src="https://img.zzzg.top/20261128010356033.png" alt="设定 MOVIPLC PROFINET IP 地址"></p>
+<ol start="10">
+<li>设定 MOVIPLC 的 PROFINET 设备名称（Device name）：</li>
+</ol>
+<p><img src="https://img.zzzg.top/20261128010358071.png" alt="设定 MOVIPLC PROFINET 设备名称"></p>
+<ol start="11">
+<li>打开右侧 <strong>Device overview（设备总览）</strong> 与 <strong>Hardware catalog（硬件目录）</strong>，为各轴添加对应长度的过程数据模块（如 <code>Module 08 (8 words)</code>）：</li>
+</ol>
+<blockquote>
+<p>⚠️ <strong>卡槽（Slot）注意</strong>：按照 <code>UHX85A-R V1.0</code> 硬件规范，<strong>前 8 个卡槽（Slot 1 ~ 8）为安全通讯协议预留</strong>，常规过程数据必须从 <strong>第 9 个卡槽（Slot 9）及以后</strong> 开始添加！</p>
+</blockquote>
+<p><img src="https://img.zzzg.top/20261128010400125.png" alt="从第 9 卡槽开始添加过程数据模块"></p>
+<ol start="12">
+<li>编译硬件组态并准备下载至西门子 PLC：</li>
+</ol>
+<p><img src="https://img.zzzg.top/20261128010402467.png" alt="编译并下载硬件组态"></p>
+<ol start="13">
+<li>选择正确的本地通讯网卡，搜索并连接到目标 PLC 完成下载：</li>
+</ol>
+<p><img src="https://img.zzzg.top/20261128010405064.png" alt="选择网卡并下载至 PLC"></p>
+<ol start="14">
+<li>确认硬件组态下载完成后，在网络视图中右键 MOVIPLC 选择 <strong>Assign device name</strong>，为 MOVIPLC 分配 PROFINET 设备名称以建立通讯：</li>
+</ol>
+<p><img src="https://img.zzzg.top/20261128010407243.png" alt="打开分配设备名称菜单"></p>
+<ol start="15">
+<li>在弹出的设备列表中选中目标设备并点击 <strong>Assign name</strong>（若同一网段存在多台同型号设备，可通过核对 <strong>MAC 地址</strong> 确认目标设备）：</li>
+</ol>
+<p><img src="https://img.zzzg.top/20261128010409834.png" alt="核对 MAC 地址并分配 PROFINET 设备名称"></p>
+<ol start="16">
+<li>
+<p>分配完成后若组态无误，通讯即自动建立。此时观察 MOVIPLC 的 <code>X21</code> / <code>X22</code> 接口旁指示灯：<strong><code>L23.3</code> 熄灭且 <code>L23</code> 显示绿色</strong>，表明 PROFINET 通讯正常。</p>
+</li>
+<li>
+<p><strong>测试通讯收发</strong>：</p>
+</li>
+</ol>
+<ul>
+<li><strong>西门子 PLC 侧</strong>：新建监控表（Watch table），向对应 <code>QW</code> 地址写入测试数值（例如 <code>16#1111</code>、<code>16#2222</code> 等）进行强制/修改测试：</li>
+</ul>
+<p><img src="https://img.zzzg.top/20261128010413352.png" alt="西门子 TIA Watch Table 写入测试值"></p>
+<p><img src="https://img.zzzg.top/20261128010415767.png" alt="西门子 TIA Watch Table 监控反馈数据"></p>
+<ul>
+<li><strong>SEW MOVIPLC 侧</strong>：在 IEC 编辑器中打开 PROFINET 下属的 <strong><code>Process_Data</code></strong> 查看收发映射，或打开 <strong><code>MOVIKIT_FieldbusMonitor</code></strong> 实时监视数据是否一致：</li>
+</ul>
+<p><img src="https://img.zzzg.top/20261128010418229.png" alt="MOVIPLC Process_Data 在线监视"></p>
+<p><img src="https://img.zzzg.top/20261128010420867.png" alt="MOVIKIT Process Data Monitor 联调验证"></p>
+<p>至此，SEW MOVI-C（MOVIKIT Position / Velocity）与上位西门子 PLC 的硬件配置、轴调试及 PROFINET 通讯联调已全部完成。后续只需在上位 PLC 中按第 8.3 节的 PO / PI 过程字定义编写工艺控制逻辑即可（示例项目及 PLC 标准功能块可前往 SEW 官网 <a target="_blank" rel="noopener" href="https://www.sew-eurodrive.cn">www.sew-eurodrive.cn</a> 下载）。</p>
+</article><div class="post-copyright"><div class="post-copyright__author"><span class="post-copyright-meta"><i class="fas fa-circle-user fa-fw"></i>文章作者: </span><span class="post-copyright-info"><a href="https://yuqi.im">与亓</a></span></div><div class="post-copyright__type"><span class="post-copyright-meta"><i class="fas fa-square-arrow-up-right fa-fw"></i>文章链接: </span><span class="post-copyright-info"><a href="https://yuqi.im/posts/2c372529/">https://yuqi.im/posts/2c372529/</a></span></div><div class="post-copyright__notice"><span class="post-copyright-meta"><i class="fas fa-circle-exclamation fa-fw"></i>版权声明: </span><span class="post-copyright-info">本博客所有文章除特别声明外，均采用 <a href="https://creativecommons.org/licenses/by-nc-sa/4.0/" target="_blank">CC BY-NC-SA 4.0</a> 许可协议。转载请注明来源 <a href="https://yuqi.im" target="_blank">与亓のBlog</a>！</span></div></div><div class="tag_share"><div class="post-meta__tag-list"><a class="post-meta__tags" href="/tags/SEW/">SEW</a><a class="post-meta__tags" href="/tags/MOVI-C/">MOVI-C</a><a class="post-meta__tags" href="/tags/MOVIKIT/">MOVIKIT</a></div><div class="post-share"><div class="social-share" data-image="https://img.zzzg.top/20261128005829415.png" data-sites="facebook,x,wechat,weibo,qq"></div><link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/butterfly-extsrc@1.1.6/sharejs/dist/css/share.min.css" media="print" onload="this.media='all'"><script src="https://cdn.jsdelivr.net/npm/butterfly-extsrc@1.1.6/sharejs/dist/js/social-share.min.js" defer></script></div></div><nav class="pagination-post" id="pagination"><a class="pagination-related full-width" href="/posts/fe13a1b5/" title="给 3x-ui 套上 CF 的方案 让面板不关联到小鸡 IP"><img class="cover" src="https://img.zzzg.top/20260512161109696.jpg" onerror="onerror=null;src='/img/404.jpg'" alt="cover of next post"><div class="info text-right"><div class="info-1"><div class="info-item-1">下一篇</div><div class="info-item-2">给 3x-ui 套上 CF 的方案 让面板不关联到小鸡 IP</div></div><div class="info-2"><div class="info-item-1">给 3x-ui 套上 CF 的方案 让面板不关联到小鸡 IP。</div></div></div></a></nav><hr class="custom-hr"/><div id="post-comment"><div class="comment-head"><div class="comment-headline"><i class="fas fa-comments fa-fw"></i><span> 评论</span></div></div><div class="comment-wrap"><div><div id="twikoo-wrap"></div></div></div></div></div><div class="aside-content" id="aside-content"><div class="card-widget card-info text-center"><div class="avatar-img"><img src="https://img.zzzg.top/202302272017976.jpg" onerror="this.onerror=null;this.src='/img/friend_404.gif'" alt="avatar"/></div><div class="author-info-name">与亓</div><div class="author-info-description">与亓的个人技术博客，分享编程开发、系统架构与生活思考</div><div class="site-data"><a href="/archives/"><div class="headline">文章</div><div class="length-num">70</div></a><a href="/tags/"><div class="headline">标签</div><div class="length-num">36</div></a><a href="/categories/"><div class="headline">分类</div><div class="length-num">19</div></a></div><a id="card-info-btn" target="_blank" rel="noopener" href="https://github.com/2253845067"><i class="fab fa-github"></i><span>Follow Me</span></a><div class="card-info-social-icons"><a class="social-icon" href="https://github.com/2253845067" target="_blank" title="Github"><i class="fab fa-github"></i></a><a class="social-icon" href="mailto:2253845067@qq.com" target="_blank" title="Email"><i class="fas fa-envelope"></i></a></div></div><div class="card-widget card-announcement"><div class="item-headline"><i class="fas fa-bullhorn fa-shake"></i><span>公告</span></div><div class="announcement_content">This is my Blog</div></div><div class="sticky_layout"><div class="card-widget" id="card-toc"><div class="item-headline"><i class="fas fa-stream"></i><span>目录</span><span class="toc-percentage"></span></div><div class="toc-content"><ol class="toc"><li class="toc-item toc-level-1"><a class="toc-link"><span class="toc-text">概述</span></a><ol class="toc-child"><li class="toc-item toc-level-2"><a class="toc-link" href="#%E7%BC%96%E5%86%99%E7%9B%AE%E7%9A%84"><span class="toc-text">编写目的</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#%E8%A1%A5%E5%85%85%E5%8F%82%E8%80%83%E6%96%87%E6%A1%A3"><span class="toc-text">补充参考文档</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#%E6%95%B4%E4%BD%93%E8%B0%83%E8%AF%95%E6%AD%A5%E9%AA%A4%E6%80%BB%E8%A7%88"><span class="toc-text">整体调试步骤总览</span></a></li></ol></li><li class="toc-item toc-level-1"><a class="toc-link"><span class="toc-text">1 了解现场设备，确认硬件安装和接线</span></a><ol class="toc-child"><li class="toc-item toc-level-2"><a class="toc-link" href="#1-1-%E4%BA%86%E8%A7%A3%E8%AE%BE%E5%A4%87"><span class="toc-text">1.1 了解设备</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#1-2-%E6%A3%80%E6%9F%A5%E4%BE%9B%E7%94%B5%E4%B8%8E%E6%8E%A5%E7%BA%BF"><span class="toc-text">1.2 检查供电与接线</span></a><ol class="toc-child"><li class="toc-item toc-level-3"><a class="toc-link" href="#1-2-1-UHX85A-%E6%8E%A5%E7%BA%BF"><span class="toc-text">1.2.1 UHX85A 接线</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#1-2-2-MDP-%E5%8A%9F%E7%8E%87%E6%A8%A1%E5%9D%97%E4%B8%8E-MDD%E3%80%81MDA-%E8%BD%B4%E6%A8%A1%E5%9D%97%E6%8E%A5%E7%BA%BF"><span class="toc-text">1.2.2 MDP 功率模块与 MDD、MDA 轴模块接线</span></a></li></ol></li></ol></li><li class="toc-item toc-level-1"><a class="toc-link"><span class="toc-text">2 工程师电脑与现场 MOVI-C 设备建立通讯连接</span></a><ol class="toc-child"><li class="toc-item toc-level-2"><a class="toc-link" href="#2-1-%E8%BF%9E%E6%8E%A5%E5%B7%A5%E7%A8%8B%E5%B8%88%E7%94%B5%E8%84%91%E4%B8%8E-UHX85A-%E7%BD%91%E7%BB%9C%E6%8E%A5%E5%8F%A3"><span class="toc-text">2.1 连接工程师电脑与 UHX85A 网络接口</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#2-2-%E9%85%8D%E7%BD%AE%E9%80%9A%E8%AE%AF%E5%8F%82%E6%95%B0"><span class="toc-text">2.2 配置通讯参数</span></a><ol class="toc-child"><li class="toc-item toc-level-3"><a class="toc-link" href="#2-2-1-%E9%80%9A%E8%BF%87%E7%BD%91%E7%BB%9C%E6%89%AB%E6%8F%8F%EF%BC%88Network-Scan%EF%BC%89%E8%87%AA%E5%8A%A8%E5%88%9B%E5%BB%BA%E9%A1%B9%E7%9B%AE"><span class="toc-text">2.2.1 通过网络扫描（Network Scan）自动创建项目</span></a><ol class="toc-child"><li class="toc-item toc-level-4"><a class="toc-link" href="#1-%E5%90%AF%E5%8A%A8-MOVISUITE-%E8%BD%AF%E4%BB%B6"><span class="toc-text">1. 启动 MOVISUITE 软件</span></a></li><li class="toc-item toc-level-4"><a class="toc-link" href="#2-%E4%BB%8E%E7%BD%91%E7%BB%9C%E6%89%AB%E6%8F%8F%E8%87%AA%E5%8A%A8%E5%88%9B%E5%BB%BA%E9%A1%B9%E7%9B%AE"><span class="toc-text">2. 从网络扫描自动创建项目</span></a></li><li class="toc-item toc-level-4"><a class="toc-link" href="#3-%E5%BA%94%E7%94%A8%E6%89%AB%E6%8F%8F%E7%BB%93%E6%9E%9C%E5%B9%B6%E8%BD%BD%E5%85%A5%E8%AE%BE%E5%A4%87%E6%95%B0%E6%8D%AE"><span class="toc-text">3. 应用扫描结果并载入设备数据</span></a></li><li class="toc-item toc-level-4"><a class="toc-link" href="#4-%E6%9F%A5%E7%9C%8B%E6%80%BB%E8%A7%88%E8%A7%86%E5%9B%BE%E5%B9%B6%E6%9B%B4%E6%96%B0-IEC-%E9%A1%B9%E7%9B%AE"><span class="toc-text">4. 查看总览视图并更新 IEC 项目</span></a></li></ol></li></ol></li></ol></li><li class="toc-item toc-level-1"><a class="toc-link"><span class="toc-text">3 简单介绍 MOVI-C 调试软件</span></a><ol class="toc-child"><li class="toc-item toc-level-2"><a class="toc-link" href="#3-1-%E5%88%87%E6%8D%A2%E4%B8%8D%E5%90%8C%E7%9A%84%E9%A1%B9%E7%9B%AE%E8%A7%86%E5%9B%BE"><span class="toc-text">3.1 切换不同的项目视图</span></a><ol class="toc-child"><li class="toc-item toc-level-3"><a class="toc-link" href="#1-%E5%8A%9F%E8%83%BD%E8%A7%86%E5%9B%BE"><span class="toc-text">1. 功能视图</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#2-%E7%BD%91%E7%BB%9C%E8%A7%86%E5%9B%BE"><span class="toc-text">2. 网络视图</span></a></li></ol></li><li class="toc-item toc-level-2"><a class="toc-link" href="#3-2-%E5%8A%9F%E8%83%BD%E8%A7%86%E5%9B%BE"><span class="toc-text">3.2 功能视图</span></a><ol class="toc-child"><li class="toc-item toc-level-3"><a class="toc-link" href="#3-2-1-%E5%9C%86%E5%BD%A2%E8%A7%86%E5%9B%BE"><span class="toc-text">3.2.1 圆形视图</span></a><ol class="toc-child"><li class="toc-item toc-level-4"><a class="toc-link" href="#1-%E9%80%89%E6%8B%A9%E5%9C%86%E5%BD%A2%E8%A7%86%E5%9B%BE"><span class="toc-text">1. 选择圆形视图</span></a></li><li class="toc-item toc-level-4"><a class="toc-link" href="#2-%E4%BA%86%E8%A7%A3%E5%8F%98%E9%A2%91%E5%99%A8%E7%9A%84%E5%9C%86%E5%BD%A2%E8%A7%86%E5%9B%BE%E5%B9%B6%E6%89%93%E5%BC%80%E9%85%8D%E7%BD%AE%E4%BF%A1%E6%81%AF"><span class="toc-text">2. 了解变频器的圆形视图并打开配置信息</span></a></li><li class="toc-item toc-level-4"><a class="toc-link" href="#3-%E6%89%93%E5%BC%80%E5%8F%82%E6%95%B0%E7%BB%84%EF%BC%88%E4%BB%A5%E7%8A%B6%E6%80%81%E5%8F%82%E6%95%B0%E4%B8%BA%E4%BE%8B%EF%BC%89"><span class="toc-text">3. 打开参数组（以状态参数为例）</span></a></li></ol></li><li class="toc-item toc-level-3"><a class="toc-link" href="#3-2-2-%E6%A0%91%E5%BD%A2%E8%A7%86%E5%9B%BE"><span class="toc-text">3.2.2 树形视图</span></a><ol class="toc-child"><li class="toc-item toc-level-4"><a class="toc-link" href="#1-%E9%80%89%E6%8B%A9%E6%A0%91%E5%BD%A2%E8%A7%86%E5%9B%BE"><span class="toc-text">1. 选择树形视图</span></a></li><li class="toc-item toc-level-4"><a class="toc-link" href="#2-%E9%80%89%E6%8B%A9%E5%8F%82%E6%95%B0%E7%BB%84"><span class="toc-text">2. 选择参数组</span></a></li></ol></li></ol></li><li class="toc-item toc-level-2"><a class="toc-link" href="#3-3-%E7%BD%91%E7%BB%9C%E8%A7%86%E5%9B%BE"><span class="toc-text">3.3 网络视图</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#3-4-%E5%B7%A5%E5%85%B7%E6%A0%8F%E4%B8%AD%E7%9A%84%E8%8F%9C%E5%8D%95%E5%92%8C%E6%8C%89%E9%92%AE"><span class="toc-text">3.4 工具栏中的菜单和按钮</span></a><ol class="toc-child"><li class="toc-item toc-level-3"><a class="toc-link" href="#%E9%A1%B6%E9%83%A8%E4%B8%BB%E4%BB%BB%E5%8A%A1%E6%A0%8F"><span class="toc-text">顶部主任务栏</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#%E4%BA%8C%E7%BA%A7%E5%B7%A5%E5%85%B7%E6%A0%8F%EF%BC%88Toolbar%EF%BC%89"><span class="toc-text">二级工具栏（Toolbar）</span></a></li></ol></li><li class="toc-item toc-level-2"><a class="toc-link" href="#3-5-%E5%8F%82%E6%95%B0%E8%8F%9C%E5%8D%95"><span class="toc-text">3.5 参数菜单</span></a></li></ol></li><li class="toc-item toc-level-1"><a class="toc-link"><span class="toc-text">4 开始第一个轴的电机参数配置</span></a><ol class="toc-child"><li class="toc-item toc-level-2"><a class="toc-link" href="#4-1-%E6%B8%85%E7%A9%BA%E5%8F%82%E6%95%B0"><span class="toc-text">4.1 清空参数</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#4-2-%E9%85%8D%E7%BD%AE-Startup-%E7%94%B5%E6%9C%BA%E5%90%AF%E5%8A%A8%E5%8F%82%E6%95%B0"><span class="toc-text">4.2 配置 Startup 电机启动参数</span></a><ol class="toc-child"><li class="toc-item toc-level-3"><a class="toc-link" href="#1-%E8%AF%BB%E5%8F%96-%E8%BE%93%E5%85%A5%E9%A9%B1%E5%8A%A8%E6%9C%BA%E6%9E%84-AS1-%E7%94%B5%E6%9C%BA%E5%8F%82%E6%95%B0"><span class="toc-text">1. 读取&#x2F;输入驱动机构 AS1 电机参数</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#2-%E6%A0%B8%E5%AF%B9%E7%94%B5%E6%9C%BA%E5%9E%8B%E5%8F%B7%E4%B8%8E%E9%93%AD%E7%89%8C%E6%95%B0%E6%8D%AE"><span class="toc-text">2. 核对电机型号与铭牌数据</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#3-%E9%80%89%E6%8B%A9%E7%BC%96%E7%A0%81%E5%99%A8%E5%9E%8B%E5%8F%B7"><span class="toc-text">3. 选择编码器型号</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#4-%E7%A1%AE%E8%AE%A4%E6%8E%A7%E5%88%B6%E5%99%A8%EF%BC%88Controller%EF%BC%89%E5%8F%82%E6%95%B0"><span class="toc-text">4. 确认控制器（Controller）参数</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#5-%E6%B7%BB%E5%8A%A0%E9%A9%B1%E5%8A%A8%E6%9C%BA%E6%9E%84%E7%BB%84%E4%BB%B6%EF%BC%88%E5%87%8F%E9%80%9F%E6%9C%BA%E3%80%81%E9%A9%B1%E5%8A%A8%E8%BD%AE%E3%80%81%E7%94%A8%E6%88%B7%E5%8D%95%E4%BD%8D%E7%AD%89%EF%BC%89"><span class="toc-text">5. 添加驱动机构组件（减速机、驱动轮、用户单位等）</span></a></li></ol></li><li class="toc-item toc-level-2"><a class="toc-link" href="#4-3-%E8%AE%BE%E5%AE%9A%E5%BA%94%E7%94%A8-%E8%AE%BE%E5%A4%87%E9%99%90%E5%88%B6%E5%80%BC"><span class="toc-text">4.3 设定应用&#x2F;设备限制值</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#4-4-%E6%B5%8B%E8%AF%95%E6%8A%98%E7%AE%97%E5%88%B0%E7%94%B5%E6%9C%BA%E8%BD%B4%E7%9A%84%E8%B4%9F%E8%BD%BD%E8%BD%AC%E5%8A%A8%E6%83%AF%E9%87%8F"><span class="toc-text">4.4 测试折算到电机轴的负载转动惯量</span></a><ol class="toc-child"><li class="toc-item toc-level-3"><a class="toc-link" href="#1-%E9%A2%84%E8%AE%BE%E8%B4%9F%E8%BD%BD%E6%83%AF%E6%80%A7%E7%9F%A9"><span class="toc-text">1. 预设负载惯性矩</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#2-%E6%89%93%E5%BC%80%E5%B9%B6%E6%BF%80%E6%B4%BB%E6%89%8B%E5%8A%A8%E6%93%8D%E4%BD%9C%E6%A8%A1%E5%BC%8F"><span class="toc-text">2. 打开并激活手动操作模式</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#3-%E9%80%89%E6%8B%A9%E8%B4%9F%E8%BD%BD%E5%BE%AA%E7%8E%AF%E6%A8%A1%E5%BC%8F%E5%B9%B6%E5%90%AF%E5%8A%A8%E6%B5%8B%E9%87%8F"><span class="toc-text">3. 选择负载循环模式并启动测量</span></a></li></ol></li><li class="toc-item toc-level-2"><a class="toc-link" href="#4-5-%E5%88%9D%E6%AC%A1%E8%AE%BE%E5%AE%9A%E9%A9%B1%E5%8A%A8%E5%99%A8%E7%9A%84%E5%8A%A8%E6%80%81%E7%89%B9%E6%80%A7%E5%8F%82%E6%95%B0"><span class="toc-text">4.5 初次设定驱动器的动态特性参数</span></a><ol class="toc-child"><li class="toc-item toc-level-3"><a class="toc-link" href="#1-%E5%88%9A%E6%80%A7%EF%BC%88Stiffness%EF%BC%89"><span class="toc-text">1. 刚性（Stiffness）</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#2-%E9%BD%BF%E9%9A%99%EF%BC%88Backlash%EF%BC%89"><span class="toc-text">2. 齿隙（Backlash）</span></a></li></ol></li><li class="toc-item toc-level-2"><a class="toc-link" href="#4-6-%E9%85%8D%E7%BD%AE-Position-Velocity-%E7%9A%84-MOVIKIT-%E5%8F%82%E6%95%B0"><span class="toc-text">4.6 配置 Position &#x2F; Velocity 的 MOVIKIT 参数</span></a><ol class="toc-child"><li class="toc-item toc-level-3"><a class="toc-link" href="#1-%E6%B7%BB%E5%8A%A0-MOVIKIT-Positioning-%E6%A8%A1%E5%9D%97"><span class="toc-text">1. 添加 MOVIKIT Positioning 模块</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#2-%E5%9F%BA%E6%9C%AC%E8%AE%BE%E7%BD%AE"><span class="toc-text">2. 基本设置</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#3-%E7%9B%91%E6%8E%A7%E5%8A%9F%E8%83%BD"><span class="toc-text">3. 监控功能</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#4-%E9%A9%B1%E5%8A%A8%E5%8A%9F%E8%83%BD%EF%BC%88FCB-12-%E5%8F%82%E8%80%83%E8%BF%90%E8%A1%8C-FCB-09-%E4%BD%8D%E7%BD%AE%E6%8E%A7%E5%88%B6%EF%BC%89"><span class="toc-text">4. 驱动功能（FCB 12 参考运行 &amp; FCB 09 位置控制）</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#5-I-O-%E9%85%8D%E7%BD%AE"><span class="toc-text">5. I&#x2F;O 配置</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#6-%E7%8E%B0%E5%9C%BA%E6%80%BB%E7%BA%BF%E6%8E%A5%E5%8F%A3"><span class="toc-text">6. 现场总线接口</span></a></li></ol></li><li class="toc-item toc-level-2"><a class="toc-link" href="#4-7-%E4%BF%9D%E5%AD%98%E5%8F%82%E6%95%B0%E5%92%8C%E7%94%9F%E6%88%90%E5%8F%82%E6%95%B0%E6%96%87%E4%BB%B6"><span class="toc-text">4.7 保存参数和生成参数文件</span></a></li></ol></li><li class="toc-item toc-level-1"><a class="toc-link"><span class="toc-text">5 通过手动操作验证电机参数配置和优化</span></a><ol class="toc-child"><li class="toc-item toc-level-2"><a class="toc-link" href="#5-1-%E6%89%93%E5%BC%80%E5%92%8C%E5%85%B3%E9%97%AD%E6%89%8B%E5%8A%A8%E6%93%8D%E4%BD%9C"><span class="toc-text">5.1 打开和关闭手动操作</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#5-2-%E6%BF%80%E6%B4%BB%E6%89%8B%E5%8A%A8%E6%93%8D%E4%BD%9C%E6%A8%A1%E5%BC%8F"><span class="toc-text">5.2 激活手动操作模式</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#5-3-%E6%89%8B%E5%8A%A8%E6%93%8D%E4%BD%9C-%E2%80%94-%E9%80%9F%E5%BA%A6%E6%8E%A7%E5%88%B6%E6%96%B9%E5%BC%8F"><span class="toc-text">5.3 手动操作 — 速度控制方式</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#5-4-%E6%89%8B%E5%8A%A8%E6%93%8D%E4%BD%9C-%E2%80%94-%E4%BD%8D%E7%BD%AE%E6%8E%A7%E5%88%B6%E6%96%B9%E5%BC%8F"><span class="toc-text">5.4 手动操作 — 位置控制方式</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#5-5-%E6%89%8B%E5%8A%A8%E6%93%8D%E4%BD%9C-%E2%80%94-%E5%BE%80%E5%A4%8D%E5%AE%9A%E4%BD%8D%E6%96%B9%E5%BC%8F"><span class="toc-text">5.5 手动操作 — 往复定位方式</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#5-6-%E6%89%8B%E5%8A%A8%E6%93%8D%E4%BD%9C-%E2%80%94-%E5%A2%9E%E9%87%8F%E5%AE%9A%E4%BD%8D%E6%96%B9%E5%BC%8F"><span class="toc-text">5.6 手动操作 — 增量定位方式</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#5-7-%E5%8F%96%E6%B6%88%E6%89%8B%E5%8A%A8%E6%93%8D%E4%BD%9C"><span class="toc-text">5.7 取消手动操作</span></a></li></ol></li><li class="toc-item toc-level-1"><a class="toc-link"><span class="toc-text">6 开始第二个轴、第三个轴的电机参数配置和优化</span></a></li><li class="toc-item toc-level-1"><a class="toc-link"><span class="toc-text">7 创建 UHX85A 内的 IEC 程序，自动生成程序代码</span></a><ol class="toc-child"><li class="toc-item toc-level-3"><a class="toc-link" href="#IEC-%E7%BC%96%E8%BE%91%E5%99%A8%E9%A1%B9%E7%9B%AE%E7%BB%93%E6%9E%84%E8%AF%B4%E6%98%8E"><span class="toc-text">IEC 编辑器项目结构说明</span></a></li></ol></li><li class="toc-item toc-level-1"><a class="toc-link"><span class="toc-text">8 添加 Fieldbus Monitor，监控和模拟 PLC 过程数据</span></a><ol class="toc-child"><li class="toc-item toc-level-2"><a class="toc-link" href="#8-1-%E6%B7%BB%E5%8A%A0%E8%84%9A%E6%9C%AC%E5%B9%B6%E4%B8%8B%E8%BD%BD%E8%BF%90%E8%A1%8C"><span class="toc-text">8.1 添加脚本并下载运行</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#8-2-%E4%BD%BF%E7%94%A8-Fieldbus-Monitor-%E8%BF%9B%E8%A1%8C%E7%9B%91%E6%8E%A7%E4%B8%8E%E4%BB%BF%E7%9C%9F%E6%8E%A7%E5%88%B6"><span class="toc-text">8.2 使用 Fieldbus Monitor 进行监控与仿真控制</span></a><ol class="toc-child"><li class="toc-item toc-level-3"><a class="toc-link" href="#Monitor-%E6%A8%A1%E5%BC%8F%EF%BC%88%E7%9B%91%E8%A7%86%E6%A8%A1%E5%BC%8F%EF%BC%89"><span class="toc-text">Monitor 模式（监视模式）</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#Control-%E6%A8%A1%E5%BC%8F%EF%BC%88%E4%BB%BF%E7%9C%9F%E6%8E%A7%E5%88%B6%E6%A8%A1%E5%BC%8F%EF%BC%89"><span class="toc-text">Control 模式（仿真控制模式）</span></a></li></ol></li><li class="toc-item toc-level-2"><a class="toc-link" href="#8-3-%E8%BF%87%E7%A8%8B%E6%95%B0%E6%8D%AE%E5%AD%97%EF%BC%88PO-PI%EF%BC%89%E8%AF%A6%E7%BB%86%E8%AF%B4%E6%98%8E"><span class="toc-text">8.3 过程数据字（PO &#x2F; PI）详细说明</span></a><ol class="toc-child"><li class="toc-item toc-level-3"><a class="toc-link" href="#%E8%BF%87%E7%A8%8B%E5%AD%97%E5%9C%B0%E5%9D%80%E6%80%BB%E8%A7%88"><span class="toc-text">过程字地址总览</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#PO-%E6%8E%A7%E5%88%B6%E5%AD%97%E8%AF%A6%E7%BB%86%E4%BD%8D%E5%AE%9A%E4%B9%89"><span class="toc-text">PO 控制字详细位定义</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#PO6-PI6-%E6%93%8D%E4%BD%9C%E6%A8%A1%E5%BC%8F%EF%BC%88Operating-Mode%EF%BC%89%E4%BB%A3%E7%A0%81%E8%AF%A6%E8%A7%A3"><span class="toc-text">PO6 &#x2F; PI6 操作模式（Operating Mode）代码详解</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#PI-%E7%8A%B6%E6%80%81%E5%AD%97%E8%AF%A6%E7%BB%86%E4%BD%8D%E5%AE%9A%E4%B9%89"><span class="toc-text">PI 状态字详细位定义</span></a></li></ol></li></ol></li><li class="toc-item toc-level-1"><a class="toc-link"><span class="toc-text">9 在西门子 PLC 内完成通讯组态与程序控制</span></a></li></ol></div></div><div class="card-widget card-recent-post"><div class="item-headline"><i class="fas fa-history"></i><span>最新文章</span></div><div class="aside-list"><div class="aside-list-item"><a class="thumbnail" href="/posts/2c372529/" title="SEW MOVI-C MOVIKIT Position Velocity配置向导"><img src="https://img.zzzg.top/20261128005829415.png" onerror="this.onerror=null;this.src='/img/404.jpg'" alt="SEW MOVI-C MOVIKIT Position Velocity配置向导"/></a><div class="content"><a class="title" href="/posts/2c372529/" title="SEW MOVI-C MOVIKIT Position Velocity配置向导">SEW MOVI-C MOVIKIT Position Velocity配置向导</a><time datetime="2026-11-27T16:32:00.000Z" title="发表于 2026-11-28 00:32:00">2026-11-28</time></div></div><div class="aside-list-item"><a class="thumbnail" href="/posts/fe13a1b5/" title="给 3x-ui 套上 CF 的方案 让面板不关联到小鸡 IP"><img src="https://img.zzzg.top/20260512161109696.jpg" onerror="this.onerror=null;this.src='/img/404.jpg'" alt="给 3x-ui 套上 CF 的方案 让面板不关联到小鸡 IP"/></a><div class="content"><a class="title" href="/posts/fe13a1b5/" title="给 3x-ui 套上 CF 的方案 让面板不关联到小鸡 IP">给 3x-ui 套上 CF 的方案 让面板不关联到小鸡 IP</a><time datetime="2026-05-11T16:00:00.000Z" title="发表于 2026-05-12 00:00:00">2026-05-12</time></div></div><div class="aside-list-item"><a class="thumbnail" href="/posts/d5ce6259/" title="G120D变频器配置"><img src="https://img.zzzg.top/20260412151924231.jpg" onerror="this.onerror=null;this.src='/img/404.jpg'" alt="G120D变频器配置"/></a><div class="content"><a class="title" href="/posts/d5ce6259/" title="G120D变频器配置">G120D变频器配置</a><time datetime="2026-04-11T16:00:00.000Z" title="发表于 2026-04-12 00:00:00">2026-04-12</time></div></div><div class="aside-list-item"><a class="thumbnail" href="/posts/195e4300/" title="菲尼克斯无线模块配置"><img src="https://img.zzzg.top/20260412152013842.jpg" onerror="this.onerror=null;this.src='/img/404.jpg'" alt="菲尼克斯无线模块配置"/></a><div class="content"><a class="title" href="/posts/195e4300/" title="菲尼克斯无线模块配置">菲尼克斯无线模块配置</a><time datetime="2026-04-11T16:00:00.000Z" title="发表于 2026-04-12 00:00:00">2026-04-12</time></div></div><div class="aside-list-item"><a class="thumbnail" href="/posts/93246652/" title="Oracle数据库和PDPS安装及配置"><img src="https://img.zzzg.top/20260411110607417.jpg" onerror="this.onerror=null;this.src='/img/404.jpg'" alt="Oracle数据库和PDPS安装及配置"/></a><div class="content"><a class="title" href="/posts/93246652/" title="Oracle数据库和PDPS安装及配置">Oracle数据库和PDPS安装及配置</a><time datetime="2026-04-10T16:00:00.000Z" title="发表于 2026-04-11 00:00:00">2026-04-11</time></div></div></div></div></div></div></main><footer id="footer"><div class="footer-other"><div class="footer-copyright"><span class="copyright">&copy;&nbsp;2025 - 2026 By 与亓</span><span class="framework-info"><span>框架 </span><a target="_blank" rel="noopener" href="https://hexo.io">Hexo 8.1.2</a><span class="footer-separator">|</span><span>主题 </span><a target="_blank" rel="noopener" href="https://github.com/jerryc127/hexo-theme-butterfly">Butterfly 5.7.2</a></span></div></div></footer></div><div id="rightside"><div id="rightside-config-hide"><button id="readmode" type="button" title="阅读模式"><i class="fas fa-book-open"></i></button><button id="darkmode" type="button" title="日间和夜间模式切换"><i class="fas fa-adjust"></i></button><button id="hide-aside-btn" type="button" title="单栏和双栏切换"><i class="fas fa-arrows-alt-h"></i></button></div><div id="rightside-config-show"><button id="rightside-config" type="button" title="设置"><i class="fas fa-cog fa-spin"></i></button><button class="close" id="mobile-toc-button" type="button" title="目录"><i class="fas fa-list-ul"></i></button><a id="to_comment" href="#post-comment" title="前往评论"><i class="fas fa-comments"></i></a><button id="go-up" type="button" title="回到顶部"><span class="scroll-percent"></span><i class="fas fa-arrow-up"></i></button></div></div><div><script src="/js/utils.js?v=5.7.2"></script><script src="/js/main.js?v=5.7.2"></script><div class="js-pjax"><script>(async () => {
+  const showKatex = () => {
+    document.querySelectorAll('#article-container .katex').forEach(el => el.classList.add('katex-show'))
+  }
+
+  if (!window.katex_js_css) {
+    window.katex_js_css = true
+    try {
+      await btf.getCSS('https://cdn.jsdelivr.net/npm/katex@0.19.1/dist/katex.min.css')
+      if (true) {
+        await btf.getScript('https://cdn.jsdelivr.net/npm/katex@0.19.1/dist/contrib/copy-tex.min.js')
+      }
+    } catch (e) {
+      console.error('[katex] failed to load assets, showing formulas anyway:', e)
+    }
+  }
+
+  showKatex()
+  btf.addGlobalFn('encrypt', showKatex, 'katex')
+})()</script><script>(() => {
+  const isShuoshuo = GLOBAL_CONFIG_SITE.pageType === 'shuoshuo'
+  const option = null
+
+  const getCount = () => {
+    const countELement = document.getElementById('twikoo-count')
+    if(!countELement) return
+    twikoo.getCommentsCount({
+      envId: 'https://tw.yuqi.im/.netlify/functions/twikoo',
+      region: '',
+      urls: [window.location.pathname],
+      includeReply: false
+    }).then(res => {
+      countELement.textContent = res[0].count
+    }).catch(err => {
+      console.error(err)
+    })
+  }
+
+  const init = (el = document, path = location.pathname) => {
+    twikoo.init({
+      el: el.querySelector('#twikoo-wrap'),
+      envId: 'https://tw.yuqi.im/.netlify/functions/twikoo',
+      region: '',
+      onCommentLoaded: () => {
+        btf.loadLightbox(document.querySelectorAll('#twikoo .tk-content img:not(.tk-owo-emotion)'))
+      },
+      ...option,
+      path: isShuoshuo ? path : (option && option.path) || path
+    })
+
+    GLOBAL_CONFIG_SITE.pageType === 'post' && getCount()
+
+    isShuoshuo && (window.shuoshuoComment.destroyTwikoo = () => {
+      if (el.children.length) {
+        el.innerHTML = ''
+        el.classList.add('no-comment')
+      }
+    })
+  }
+
+  const loadTwikoo = (el, path) => {
+    if (typeof twikoo === 'object') setTimeout(() => init(el, path), 0)
+    else btf.getScript('https://cdn.jsdelivr.net/npm/twikoo@2.0.17/dist/twikoo.all.min.js').then(() => init(el, path))
+  }
+
+  if (isShuoshuo) {
+    'Twikoo' === 'Twikoo'
+      ? window.shuoshuoComment = { loadComment: loadTwikoo }
+      : window.loadOtherComment = loadTwikoo
+    return
+  }
+
+  if ('Twikoo' === 'Twikoo' || !true) {
+    if (true) btf.loadComment(document.getElementById('twikoo-wrap'), loadTwikoo)
+    else loadTwikoo()
+  } else {
+    window.loadOtherComment = loadTwikoo
+  }
+})()</script></div><div id="local-search"><div class="search-dialog"><nav class="search-nav"><span class="search-dialog-title">搜索</span><i class="fas fa-spinner fa-pulse" id="loading-status" hidden="hidden"></i><button class="search-close-button"><i class="fas fa-times"></i></button></nav><div class="text-center" id="loading-database"><i class="fas fa-spinner fa-pulse"></i><span>  数据加载中</span></div><div class="local-search-input"><input placeholder="搜索文章" type="text"/></div><hr/><div id="local-search-results"></div><div class="ais-Pagination" id="local-search-pagination" style="display:none;"><ul class="ais-Pagination-list"></ul></div><div id="local-search-stats"></div></div><div id="search-mask"></div><script src="/js/search/local-search.js?v=5.7.2"></script></div></div></body></html>
