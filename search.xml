@@ -937,6 +937,239 @@
       </tags>
   </entry>
   <entry>
+    <title>G120D变频器配置</title>
+    <url>/posts/d5ce6259/</url>
+    <content><![CDATA[<h1 id="安全注意事项">安全注意事项</h1>
+<p><img src="https://img.zzzg.top/20260412152405233.png" alt="image-20260412135200856"></p>
+<h1 id="调试向导">调试向导</h1>
+<h2 id="准备工作">准备工作</h2>
+<p><strong>关键注意事项</strong></p>
+<ul>
+<li>
+<p><strong>参数状态检查</strong>：如果变频器参数 P10 显示为“就绪”状态，在离线模式下将无法进行快速调试。</p>
+</li>
+<li>
+<p><strong>解决方法</strong>：需要在实际参数列表中手动修改相关参数。</p>
+</li>
+<li>
+<p><strong>例外情况</strong>：如果是直接离线进入调试向导，则无需进行此步骤。</p>
+</li>
+<li>
+<p><strong>参数 P10 就绪状态示例</strong></p>
+</li>
+</ul>
+<p><img src="https://img.zzzg.top/20260412152405235.png" alt="image-20260412143213081"></p>
+<h2 id="进入调试向导">进入调试向导</h2>
+<p>按照屏幕指引，找到并点击左侧菜单栏中的“调试向导”选项，开始进行参数配置。</p>
+<p><img src="https://img.zzzg.top/20260412152405236.png" alt="image-20260412143245410"></p>
+<h2 id="设定值指定">设定值指定</h2>
+<p><img src="https://img.zzzg.top/20260412152405237.png" alt="image-20260412143323675"></p>
+<h2 id="开环-闭环控制方式">开环/闭环控制方式</h2>
+<p><img src="https://img.zzzg.top/20260412152405238.png" alt="image-20260412143404696"></p>
+<h2 id="I-O配置与报文配置">I/O配置与报文配置</h2>
+<ul>
+<li>
+<p><strong>I/O默认配置设置</strong>：选择 I/O 的默认配置为<strong>7</strong>，对应参数<strong>P15</strong>。</p>
+</li>
+<li>
+<p><strong>报文配置设置</strong>：将报文配置设置为<strong>999</strong>，对应参数<strong>P922</strong>。</p>
+</li>
+</ul>
+<p><img src="https://img.zzzg.top/20260412152405239.png" alt="image-20260412143432453"></p>
+<h2 id="标准与电压配置">标准与电压配置</h2>
+<ul>
+<li>
+<p><strong>标准参数配置 (P100)</strong>：</p>
+<ul>
+<li>
+<p>标准选择：0 (IEC标准)</p>
+</li>
+<li>
+<p>电源频率：50Hz</p>
+</li>
+</ul>
+</li>
+<li>
+<p><strong>电压参数配置 (P210)</strong>：</p>
+<ul>
+<li>
+<p>设备输入电压：380V</p>
+</li>
+<li>
+<p>确保与现场实际供电情况一致</p>
+</li>
+</ul>
+</li>
+<li>
+<p><strong>功率单元应用 (P205)</strong>：</p>
+</li>
+<li>
+<p>标准选择：0（含重载）</p>
+</li>
+<li>
+<p>根据现场环境选择对应单元应用</p>
+</li>
+</ul>
+<p><img src="https://img.zzzg.top/20260412152405240.png" alt="image-20260412143455288"></p>
+<h2 id="电机参数配置">电机参数配置</h2>
+<ul>
+<li><strong>关键配置参数列表</strong>：
+<ul>
+<li>P300[0] 选择1：异步电机类型</li>
+<li>P133[0].0：设置电机连接方式</li>
+<li>P304[0] / P305[0]：额定电压与电流</li>
+<li>P307[0] /P308[0] / P310[0]：额定功率额定功率因素与与频率</li>
+<li>P311[0]：电机额定转速</li>
+<li>P335[0]：冷却方式（自冷却）</li>
+<li>P601[0]：温度传感器（无）</li>
+</ul>
+</li>
+</ul>
+<p>电机铭牌参数参考<img src="https://img.zzzg.top/20260412152405241.png" alt="电机铭牌参数参考"></p>
+<p>参数配置界面示例<img src="https://img.zzzg.top/20260412152405242.png" alt="参数配置界面示例"></p>
+<h2 id="电机抱闸制动配置">电机抱闸制动配置</h2>
+<ul>
+<li><strong>关键参数配置项</strong>：
+<ul>
+<li><strong>参数 P1215</strong>：电机抱闸控制方式选择</li>
+<li><strong>参数 P1216</strong>：抱闸打开时间设定 (ms)</li>
+<li><strong>参数 P1217</strong>：抱闸闭合时间设定 (ms)</li>
+</ul>
+</li>
+</ul>
+<p><img src="https://img.zzzg.top/20260412152405243.png" alt="image-20260412143708958"></p>
+<h2 id="参考速度与斜坡配置">参考速度与斜坡配置</h2>
+<ul>
+<li><strong>最大转速配置</strong>：参数号：P322[0]</li>
+<li><strong>斜坡上升时间</strong>：参数号：P1120 (设定值：1.2S)</li>
+<li><strong>斜坡下降时间</strong>：参数号：P1121 (设定值：0.87S)</li>
+<li><strong>急停斜坡时间</strong>：参数号：P1135 (设定值：0S)</li>
+<li><strong>电流极限保护</strong>：参数号：P640 (设定值：电机额定电流P305[0]的1.5倍)</li>
+</ul>
+<p><img src="https://img.zzzg.top/20260412152405244.png" alt="image-20260412144241331"></p>
+<h2 id="工艺应用与电机识别">工艺应用与电机识别</h2>
+<ul>
+<li><strong>工艺应用配置 (P502)</strong>：设置参数 P502 以选择合适的工艺应用宏，确保变频器驱动模式与负载特性匹配。</li>
+<li><strong>电机识别运行 (P1960)</strong>：启动参数 P1960 执行电机识别，使变频器自动检测并优化电机参数，为精确控制奠定基础。</li>
+</ul>
+<p><img src="https://img.zzzg.top/20260412152405245.png" alt="image-20260412144218440"></p>
+<h2 id="编码器配置">编码器配置</h2>
+<p><strong>无编码器</strong></p>
+<p><img src="https://img.zzzg.top/20260412152405246.png" alt="image-20260412144258860"></p>
+<h2 id="完成">完成</h2>
+<p><img src="https://img.zzzg.top/20260412152405247.png" alt="image-20260412144319491"></p>
+<h1 id="离线参数修改">离线参数修改</h1>
+<h2 id="调整增益-积分时间-P1470-P1472">调整增益/积分时间(P1470/P1472)</h2>
+<p><img src="https://img.zzzg.top/20260412152405248.png" alt="image-20260412145236106"></p>
+<h2 id="更改电机相序-P1820">更改电机相序 (P1820)</h2>
+<p><img src="https://img.zzzg.top/20260412152405249.png" alt="image-20260412145142514"></p>
+<h2 id="电机斜坡-P1120-P1121">电机斜坡 (P1120/P1121)</h2>
+<p><img src="https://img.zzzg.top/20260412152405250.png" alt="image-20260412145402230"></p>
+<h2 id="安全通信与方向设置">安全通信与方向设置</h2>
+<ul>
+<li><strong>安全通信配置</strong>：此次为安全变频器走的安全通信，需要设定为通讯给定STO信号。</li>
+</ul>
+<p><img src="https://img.zzzg.top/20260412152405251.png" alt="image-20260412145822916"></p>
+<p><img src="https://img.zzzg.top/20260412152405252.png" alt="image-20260412145901209"></p>
+<ul>
+<li><strong>安全测试停止时间调整</strong>：将安全测试停止时间修改为9000H,否则到时间需要经常断开STO才能不警告</li>
+</ul>
+<p><img src="https://img.zzzg.top/20260412152405253.png" alt="image-20260412145944329"></p>
+<ul>
+<li><strong>F-DI/F-DO/PROFIsafe</strong>：安全地址转16#</li>
+</ul>
+<p><img src="https://img.zzzg.top/20260412152405254.png" alt="image-20260412150137311"></p>
+<h1 id="参数下载与验收测试">参数下载与验收测试</h1>
+<ul>
+<li>
+<p><strong>参数下载与零点校正</strong>：</p>
+<ul>
+<li>
+<p>下载参数至变频器，原点自动校正至P2599数值。</p>
+</li>
+<li>
+<p>上传参数到组态并转在线。</p>
+</li>
+<li>
+<p>建议断电重启，测试零点位置是否正确。</p>
+</li>
+</ul>
+</li>
+<li>
+<p><strong>安全参数验收测试</strong>：</p>
+<ul>
+<li>
+<p>配置安全参数若出现报错，需进行验收测试。</p>
+</li>
+<li>
+<p>测试结束后必须上传参数，否则下次下载需重新测试。</p>
+</li>
+</ul>
+</li>
+</ul>
+<p><img src="https://img.zzzg.top/20260412152405255.png" alt="image-20260412150443468"></p>
+<h1 id="电机优化与静态测量">电机优化与静态测量</h1>
+<ul>
+<li>
+<p><strong>电机优化与静态测量准备</strong>：参数配置完成后，需进入调试模式进行电机优化，重点进行静态优化设置。</p>
+</li>
+<li>
+<p><strong>静态测量操作流程</strong>：选择“静态测量”方式并激活，切换至控制面板手动向前移动（非JOG模式），设定速度为0，等待测量提示完成，使能将自动断开。</p>
+</li>
+<li>
+<p><strong>惯量计算与参数保存</strong>：测量完成后电机自动旋转计算惯量，参数固定后，务必将参数保存至EEPROM中以确保设置生效。</p>
+</li>
+</ul>
+<p><img src="https://img.zzzg.top/20260412152405256.png" alt="image-20260412150602274"></p>
+<h1 id="PMC数据反馈配置">PMC数据反馈配置</h1>
+<ul>
+<li>
+<p><strong>配置步骤说明</strong>：</p>
+<ul>
+<li>
+<p>根据项目需求，需将变频器的实际电流数据反馈至PMC系统。</p>
+</li>
+<li>
+<p>具体操作：在通讯参数设置中，将12号预留字节设定为“实际电流反馈”。</p>
+</li>
+</ul>
+</li>
+</ul>
+<p><img src="https://img.zzzg.top/20260412152405257.png" alt="image-20260412150800811"></p>
+<h1 id="电机曲线配置">电机曲线配置</h1>
+<ul>
+<li>
+<p><strong>配置步骤说明</strong>：</p>
+<ul>
+<li>在信号栏选择所需要监控的曲线，点击红色方框进行监控</li>
+</ul>
+</li>
+</ul>
+<p><img src="https://img.zzzg.top/20260412152405258.png" alt="image-20260412151036529"></p>
+<ul>
+<li>
+<p>1：监控曲线</p>
+</li>
+<li>
+<p>2：开始监控</p>
+</li>
+<li>
+<p>3：停止监控</p>
+</li>
+<li>
+<p>4：取消监控，返回上一层</p>
+</li>
+</ul>
+<p><img src="https://img.zzzg.top/20260412152405259.png" alt="image-20260412151244679"></p>
+]]></content>
+      <categories>
+        <category>工业自动化</category>
+      </categories>
+      <tags>
+        <tag>G120D</tag>
+      </tags>
+  </entry>
+  <entry>
     <title>HTML总复习</title>
     <url>/posts/e79fa3f4/</url>
     <content><![CDATA[<h1 id="导读">导读</h1>
@@ -7725,6 +7958,964 @@ echo &quot;1&quot; &gt; /proc/sys/net/ipv6/conf/all/disable_ipv6</p>
       </tags>
   </entry>
   <entry>
+    <title>康耐视In-Sight 2800 3800相机NTP时间同步配置指南</title>
+    <url>/posts/1e7a47d2/</url>
+    <content><![CDATA[<blockquote>
+<p>在工业视觉现场应用（特别是需要按时间命名 FTP 存图或追溯检测记录）中，经常需要将视觉相机时间与工控机同步。本文介绍在 Windows 工控机上使用 <strong>Meinberg NTP</strong> 搭建本地时间服务器，并在 <strong>In-Sight Vision Suite</strong> 中为康耐视相机配置 NTP 时间同步的完整操作流程。</p>
+</blockquote>
+<p><strong>适用相机系列</strong>：</p>
+<ul>
+<li>In-Sight D900 系列</li>
+<li>In-Sight 3D-L4000 系列</li>
+<li>In-Sight 2800（IS2800）&amp; In-Sight 3800（IS3800）系列</li>
+</ul>
+<hr>
+<h1 id="一、在工控机安装并配置-Meinberg-NTP-服务器">一、在工控机安装并配置 Meinberg NTP 服务器</h1>
+<h2 id="1-下载并安装-NTP-Server">1. 下载并安装 NTP Server</h2>
+<ol>
+<li>前往 Meinberg 官网 <a href="https://www.meinbergglobal.com/english/sw/ntp.htm">https://www.meinbergglobal.com/english/sw/ntp.htm</a> 下载最新版 Windows 安装包（如 <code>ntp-4.2.8p15-v2-win32-setup.exe</code>）：</li>
+</ol>
+<p><img src="https://img.zzzg.top/20261129000849600.png" alt="Meinberg NTP 下载页面"></p>
+<ol start="2">
+<li>运行安装程序，按默认一路点击 <strong>Next</strong>；
+<ul>
+<li>在配置 NTP 服务器地址步骤可指定目标服务器 IP（或保留默认后续在配置文件中修改）；</li>
+<li>服务账户选择 <strong><code>Use SYSTEM account</code></strong> 完成安装：</li>
+</ul>
+</li>
+</ol>
+<p><img src="https://img.zzzg.top/20261129000851580.png" alt="安装 Meinberg NTP 向导配置"></p>
+<h2 id="2-修改-NTP-配置文件（ntp-conf）">2. 修改 NTP 配置文件（ntp.conf）</h2>
+<ol>
+<li>打开开始菜单快捷目录 <code>%APPDATA%\Microsoft\Windows\Start Menu\Programs\Meinberg\Network Time Protocol</code>，<strong>以管理员身份运行</strong> <strong><code>Edit NTP Configuration</code></strong>：</li>
+</ol>
+<p><img src="https://img.zzzg.top/20261129000854484.png" alt="以管理员模式打开 Edit NTP Configuration"></p>
+<ol start="2">
+<li>将配置文件中的默认内容全部替换为以下配置并保存：</li>
+</ol>
+<figure class="highlight text"><table><tr><td class="code"><pre><span class="line">restrict 127.0.0.1</span><br><span class="line">restrict -6 ::1</span><br><span class="line">driftfile &quot;C:\Program Files (x86)\NTP\etc\ntp.drift&quot;</span><br><span class="line">server 127.127.1.0</span><br><span class="line">fudge 127.127.1.0 stratum 12</span><br><span class="line">server 0.pool.ntp.org iburst minpoll 6 maxpoll 7</span><br><span class="line">server 1.pool.ntp.org iburst minpoll 6 maxpoll 7</span><br><span class="line">server 2.pool.ntp.org iburst minpoll 6 maxpoll 7</span><br><span class="line">server 3.pool.ntp.org iburst minpoll 6 maxpoll 7</span><br><span class="line">server pool.ntp.org iburst minpoll 6 maxpoll 7</span><br></pre></td></tr></table></figure>
+<blockquote>
+<p>💡 <strong>说明</strong>：<code>server 127.127.1.0</code> 与 <code>fudge 127.127.1.0 stratum 12</code> 的作用是让工控机在离线内网环境下以本机系统时钟作为本地时间源向相机授时。</p>
+</blockquote>
+<p><img src="https://img.zzzg.top/20261129000856685.png" alt="ntp.conf 替换前后对比"></p>
+<h2 id="3-重启-NTP-服务并确认运行状态">3. 重启 NTP 服务并确认运行状态</h2>
+<ol>
+<li>进入目录 <code>%APPDATA%\Microsoft\Windows\Start Menu\Programs\Meinberg\Network Time Protocol\Service Control</code>，<strong>以管理员身份运行</strong> <strong><code>Restart NTP Service</code></strong>，待命令行提示 <code>Network Time Protocol Daemon 服务已经启动成功</code>：</li>
+</ol>
+<p><img src="https://img.zzzg.top/20261129000859940.png" alt="以管理员模式重启 NTP 服务"></p>
+<ol start="2">
+<li>返回上一级目录打开 <strong><code>Quick NTP Status</code></strong>，确认本地时钟源 <code>LOCAL(0)</code> 处于正常同步状态：</li>
+</ol>
+<p><img src="https://img.zzzg.top/20261129000903440.png" alt="打开 Quick NTP Status 确认状态"></p>
+<h2 id="4-获取本地网卡-IP-并关闭防火墙拦截">4. 获取本地网卡 IP 并关闭防火墙拦截</h2>
+<ol>
+<li>通过以太网将相机连接至工控机，打开 <code>CMD</code> 命令行输入 <code>ipconfig</code>，记录连接相机的本地以太网网卡 IP 地址（示例为 <code>192.168.10.199</code>）：</li>
+</ol>
+<p><img src="https://img.zzzg.top/20261129000906266.png" alt="通过 ipconfig 获取连接相机的本地网卡 IP"></p>
+<ol start="2">
+<li><strong>关闭 Windows 防火墙及杀毒软件</strong>（或在防火墙放行 <strong>UDP 123</strong> 端口），避免 NTP 授时报文被拦截。</li>
+</ol>
+<hr>
+<h1 id="二、在-In-Sight-Vision-Suite-中配置相机时间同步">二、在 In-Sight Vision Suite 中配置相机时间同步</h1>
+<h2 id="1-打开相机时间设置">1. 打开相机时间设置</h2>
+<p>打开 <strong>In-Sight Vision Suite</strong>，待相机出现在设备列表后选中目标相机，点击下方工具栏中的 <strong>时间设置</strong>：</p>
+<p><img src="https://img.zzzg.top/20261129000909612.png" alt="在 Vision Suite 中打开时间设置"></p>
+<h2 id="2-更改时区并添加本地-NTP-服务器地址">2. 更改时区并添加本地 NTP 服务器地址</h2>
+<ol>
+<li>将 <strong>时区</strong> 调整为本地所在时区（如 <code>Asia/Shanghai</code>）；</li>
+<li>将默认 URL 列表中的地址 <strong>全部删除</strong>；</li>
+<li>点击 <strong>添加</strong>，输入上一步 <code>ipconfig</code> 查到的工控机本地网卡 IP 地址（如 <code>192.168.10.199</code>），点击 <strong>确定</strong>：</li>
+</ol>
+<p><img src="https://img.zzzg.top/20261129000912055.png" alt="删除默认 NTP 地址并添加本地网卡 IP"></p>
+<h2 id="3-重启相机并验证同步结果">3. 重启相机并验证同步结果</h2>
+<ol>
+<li>点击工具栏中的 <strong>重启设备</strong>，在弹窗中点击 <strong>确定</strong> 重启相机：</li>
+</ol>
+<p><img src="https://img.zzzg.top/20261129000914163.png" alt="重启相机使时间配置生效"></p>
+<ol start="2">
+<li>相机重启上线后，再次打开 <strong>时间设置</strong>，核对设备的 <strong>当前时间</strong> 与工控机 Windows 系统时间一致，即表示 NTP 时间同步配置成功：</li>
+</ol>
+<p><img src="https://img.zzzg.top/20261129000916301.png" alt="核对相机当前时间与系统时间一致"></p>
+]]></content>
+      <categories>
+        <category>工业自动化</category>
+      </categories>
+      <tags>
+        <tag>Cognex</tag>
+        <tag>康耐视</tag>
+        <tag>NTP</tag>
+      </tags>
+  </entry>
+  <entry>
+    <title>康耐视In-Sight 3800相机与西门子PLC PROFINET通讯组态指南</title>
+    <url>/posts/e3c5665a/</url>
+    <content><![CDATA[<h1 id="1-前言">1 前言</h1>
+<p>In-Sight 3800 系列智能相机是康耐视（Cognex）推出的新一代高速、高分辨率、高灵活性智能相机，内嵌基于规则的传统视觉工具和创新的边缘学习工具，适用于缺陷检测、装配验证及字符读取等各类制造场景。</p>
+<p>基于全新 <strong>In-Sight Vision Suite</strong> 平台的 In-Sight 3800 系列支持 EtherNet/IP、PROFINET、SLMP 等工业以太网通信协议。本文详细介绍 <strong>In-Sight 3800 相机与西门子 S7-1200 PLC</strong> 之间搭建 <strong>PROFINET IO</strong> 通讯连接的完整步骤，将视觉系统的输入/输出映射到西门子 PLC 的过程映像存储区中实现周期同步。</p>
+<hr>
+<h1 id="2-测试软件和硬件">2 测试软件和硬件</h1>
+<ul>
+<li><strong>相机型号</strong>：<code>IS3805MP-Demo</code></li>
+<li><strong>相机固件</strong>：<code>23.1.0 (1392)</code></li>
+<li><strong>视觉软件</strong>：<code>In-Sight Vision Suite 23.1.0 (757)</code></li>
+<li><strong>PLC 型号</strong>：<code>Siemens S7-1200 1214C DC/DC/RLY</code></li>
+<li><strong>编程软件</strong>：<code>TIA Portal V17</code></li>
+</ul>
+<p><strong>硬件连接示意图</strong>：</p>
+<p><img src="https://img.zzzg.top/20261129000527290.png" alt="硬件连接示意图"></p>
+<hr>
+<h1 id="3-IS3800-Vision-Suite-设置">3 IS3800 Vision Suite 设置</h1>
+<h2 id="3-1-基本设置">3.1 基本设置</h2>
+<ol>
+<li>设置相机 IP 地址，使其与 PLC、调试电脑处于同一网段（子网掩码 <code>255</code> 对应位相同，<code>0</code> 对应位不同且不能为 <code>0</code> 或 <code>255</code>）：</li>
+</ol>
+<p><img src="https://img.zzzg.top/20261129000529592.png" alt="设置 IS3800 相机 IP 地址"></p>
+<ol start="2">
+<li>确认相机处于正常连接状态（蓝色图标），单击 <strong>实用程序</strong> 下的 <strong>工业以太网</strong>，在弹出的配置页面中选择 <strong>PROFINET</strong> 协议并设定站名；设置完成后等待相机重启使配置生效。</li>
+</ol>
+<blockquote>
+<p>⚠️ <strong>注意</strong>：</p>
+<ul>
+<li><strong>启用绕过用户数据（Enable Bypass User Data）</strong>：勾选后修改 <code>User Data</code> 中的数据无需置位 <code>Set User Data</code>，触发相机即可直接接收；不勾选时则必须先将 <code>Set User Data</code> 置 <code>1</code> 再触发；</li>
+<li><strong>网口限制</strong>：PROFINET 协议<strong>只能使用 <code>ENET0</code> 接口</strong>，<code>ENET1</code> 网口不支持 PROFINET。</li>
+</ul>
+</blockquote>
+<p><img src="https://img.zzzg.top/20261129000532302.png" alt="启用 PROFINET 协议与配置站名"></p>
+<h2 id="3-2-读取-PLC-UserData-数据设置">3.2 读取 PLC UserData 数据设置</h2>
+<ol>
+<li>打开电子表格（Spreadsheet）添加检测程序，插入 <strong><code>FormatInputBuffer</code></strong> 函数，点击 <strong>添加</strong> 配置要从 PLC 读取的 <code>UserData</code> 数据类型与字节大小：</li>
+</ol>
+<p><img src="https://img.zzzg.top/20261129000535310.png" alt="添加 FormatInputBuffer 函数"></p>
+<ol start="2">
+<li>插入 <strong><code>Event</code></strong> 函数，事件源设置为 <strong><code>外部 0</code></strong>（用于外部软事件触发刷新 <code>UserData</code> 数据显示）：</li>
+</ol>
+<p><img src="https://img.zzzg.top/20261129000538182.png" alt="添加 Event 函数设置外部 0"></p>
+<ol start="3">
+<li>插入 <strong><code>ReadUserDataBuffer</code></strong> 函数读取 <code>User Data</code> 中的数据：<strong>事件</strong>关联上一步添加的 <code>Event</code>，<strong>缓冲区</strong>关联 <code>FormatInputBuffer</code>，<strong>协议</strong>选择 <strong><code>PROFINET</code></strong>：</li>
+</ol>
+<p><img src="https://img.zzzg.top/20261129000543244.png" alt="添加 ReadUserDataBuffer 函数"></p>
+<ol start="4">
+<li>插入 <strong><code>GetBufferData</code></strong> 函数提取缓冲区中的具体字段值：</li>
+</ol>
+<p><img src="https://img.zzzg.top/20261129000546005.png" alt="添加 GetBufferData 函数获取具体数据"></p>
+<h2 id="3-3-发送-Inspection-Result-数据到-PLC-设置">3.3 发送 Inspection Result 数据到 PLC 设置</h2>
+<ol>
+<li>插入 <strong><code>FormatOutputBuffer</code></strong> 函数，添加需要发送给 PLC 的视觉检测结果数据并设置对应数据类型与大小：</li>
+</ol>
+<p><img src="https://img.zzzg.top/20261129000548665.png" alt="添加 FormatOutputBuffer 函数"></p>
+<ol start="2">
+<li>插入 <strong><code>WriteResultsBuffer</code></strong> 函数，<strong>缓冲区</strong>关联上一步添加的 <code>FormatOutputBuffer</code>，<strong>协议</strong>选择 <strong><code>PROFINET</code></strong>：</li>
+</ol>
+<p><img src="https://img.zzzg.top/20261129000550553.png" alt="添加 WriteResultsBuffer 函数"></p>
+<hr>
+<h1 id="4-西门子-S7-1200-系列-PLC-设置">4 西门子 S7-1200 系列 PLC 设置</h1>
+<ol>
+<li>打开 <strong>TIA Portal V17</strong>，点击 <strong>创建新项目</strong>，输入项目名称后单击 <strong>创建</strong>：</li>
+</ol>
+<p><img src="https://img.zzzg.top/20261129000554928.png" alt="TIA Portal V17 图标"></p>
+<p><img src="https://img.zzzg.top/20261129000557968.png" alt="创建新 TIA 项目"></p>
+<ol start="2">
+<li>在左下角导航菜单中选择 <strong>打开项目视图</strong>：</li>
+</ol>
+<p><img src="https://img.zzzg.top/20261129000600195.png" alt="打开项目视图"></p>
+<ol start="3">
+<li>点击顶部菜单 <strong>选项</strong> → <strong>管理通用站描述文件（GSD）</strong>，将源路径指向 IS3800 的 GSD 文件目录，勾选对应 GSD 文件并点击 <strong>安装</strong>：</li>
+</ol>
+<blockquote>
+<p>💡 <strong>GSD 文件默认安装目录</strong>（In-Sight 23.1.0）：<br>
+<code>C:\Program Files\Cognex\In-Sight\In-Sight Vision Suite Editors\In-Sight\In-Sight 23.1.0\FFP\GSD</code></p>
+</blockquote>
+<p><img src="https://img.zzzg.top/20261129000603455.png" alt="打开管理通用站描述文件（GSD）"></p>
+<p><img src="https://img.zzzg.top/20261129000605437.png" alt="选择 IS3800 GSD 文件并安装"></p>
+<p><img src="https://img.zzzg.top/20261129000607773.png" alt="GSD 安装成功完成"></p>
+<ol start="4">
+<li>双击左侧项目树中的 <strong>添加新设备</strong>，选择现场对应的 S7-1200 PLC 型号及固件版本，点击 <strong>确定</strong> 添加 PLC：</li>
+</ol>
+<p><img src="https://img.zzzg.top/20261129000611067.png" alt="添加西门子 S7-1200 PLC"></p>
+<ol start="5">
+<li>双击 <strong>设备和网络</strong> 进入网络视图，在右侧硬件目录中找到 <strong><code>In-Sight IS38xx</code></strong> 设备并拖入画布，拖拽连接 PLC 绿色网口与 IS3800 相机网口建立 PROFINET IO 连接：</li>
+</ol>
+<p><img src="https://img.zzzg.top/20261129000614894.png" alt="网络视图添加 IS3800 并连接 PROFINET IO"></p>
+<ol start="6">
+<li>右键单击 PLC 网口图标选择 <strong>属性</strong>，在 <strong>常规 → 以太网地址</strong> 中选择 <strong>在项目中设置 IP 地址</strong> 并填写 PLC 的 IP 地址与子网掩码：</li>
+</ol>
+<p><img src="https://img.zzzg.top/20261129000617228.png" alt="打开 PLC 网口属性"></p>
+<p><img src="https://img.zzzg.top/20261129000621571.png" alt="设置 PLC 以太网 IP 地址"></p>
+<ol start="7">
+<li>打开 IS3800 设备的属性页 <strong>常规 → 以太网地址</strong>，进行以下关键设置：
+<ul>
+<li>IP 地址模式选择 <strong>在设备中直接设定 IP 地址</strong>；</li>
+<li>取消勾选「自动生成 PROFINET 设备名称」，手动填写与 In-Sight Vision Suite 中完全一致的 <strong>PROFINET 站名</strong>。</li>
+</ul>
+</li>
+</ol>
+<blockquote>
+<p>⚠️ <strong>重要避坑提示</strong>：</p>
+<ul>
+<li>如果在 TIA 中选择「在项目中设置 IP 地址」，<strong>可能导致相机断电重启后 IP 变为 <code>0.0.0.0</code></strong>，强烈建议使用「在设备中直接设定 IP 地址」；</li>
+<li>勾选「自动生成 PROFINET 设备名称」时，后续在项目中增删其他设备可能导致相机设备名自动变动从而断链，建议手动固定名称。</li>
+</ul>
+</blockquote>
+<p><img src="https://img.zzzg.top/20261129000624442.png" alt="设置 IS3800 设备 IP 模式与 PROFINET 设备名称"></p>
+<ol start="8">
+<li>若同一网络下挂设备较多，为防止通讯掉线，可在 IS3800 属性页适当调大 <strong>更新时间</strong> 和 <strong>看门狗时间</strong>：</li>
+</ol>
+<p><img src="https://img.zzzg.top/20261129000626668.png" alt="调整 IS3800 更新时间与看门狗时间"></p>
+<ol start="9">
+<li>点击工具栏 <strong>下载到设备</strong> 按钮：</li>
+</ol>
+<p><img src="https://img.zzzg.top/20261129000630305.png" alt="点击工具栏下载按钮"></p>
+<ol start="10">
+<li>在扩展下载对话框中设置 <strong>PG/PC 接口</strong> 为连接 PLC 的电脑网卡，<strong>接口/子网的连接</strong> 选择 <code>PN/IE_1</code>，点击 <strong>开始搜索</strong>，选中目标 PLC 后点击 <strong>下载</strong>：</li>
+</ol>
+<p><img src="https://img.zzzg.top/20261129000632430.png" alt="搜索并下载至目标 PLC"></p>
+<ol start="11">
+<li>在 <strong>下载预览</strong> 中设置「停止模块」为 <strong>全部停止</strong>（若固件/版本不一致可勾选「升级目标设备」），点击 <strong>装载</strong>，下载完成后启动模块：</li>
+</ol>
+<p><img src="https://img.zzzg.top/20261129000634391.png" alt="下载预览与装载配置"></p>
+<p><img src="https://img.zzzg.top/20261129000637605.png" alt="下载完成启动模块"></p>
+<ol start="12">
+<li>下载完成后点击工具栏 <strong>转至在线</strong>，确认左侧设备树状态指示灯全部变为绿色，表示 PROFINET 通讯建立成功：</li>
+</ol>
+<p><img src="https://img.zzzg.top/20261129000639510.png" alt="转至在线确认 PROFINET 状态全绿"></p>
+<ol start="13">
+<li>双击网络视图中的 IS3800 切换到 <strong>设备视图</strong>，在 <strong>设备概览</strong> 中查看各控制/状态模块的 I/O 起始地址（<code>UserData</code> 和 <code>Inspection Results</code> 提供多种字节长度模块，可按需在硬件目录中替换）：</li>
+</ol>
+<p><img src="https://img.zzzg.top/20261129000641799.png" alt="切换到 IS3800 设备视图"></p>
+<p><img src="https://img.zzzg.top/20261129000643768.png" alt="IS3800 设备概览与各模块 I/O 地址分配"></p>
+<ol start="14">
+<li>在项目树中双击 <strong>添加新监控表</strong>，对照上图的 I/O 地址将控制字、状态字、UserData 和 Results 地址添加到监控表，点击 <strong>全部监视</strong> 即可在线联调：</li>
+</ol>
+<p><img src="https://img.zzzg.top/20261129000647723.png" alt="添加 TIA 监控表监视与修改数据"></p>
+<hr>
+<h1 id="5-数据交互测试">5 数据交互测试</h1>
+<h2 id="5-1-触发拍照">5.1 触发拍照</h2>
+<p>确保相机处于联机（Online）状态，先将 <strong><code>Trigger Enable</code></strong> 置 <code>1</code>，再将 <strong><code>Trigger</code></strong> 置 <code>1</code>，相机即触发拍照：</p>
+<ul>
+<li><strong>触发前</strong>：</li>
+</ul>
+<p><img src="https://img.zzzg.top/20261129000649965.png" alt="触发拍照前状态"></p>
+<ul>
+<li><strong>触发后</strong>：</li>
+</ul>
+<p><img src="https://img.zzzg.top/20261129000654504.png" alt="触发拍照后状态"></p>
+<h2 id="5-2-发送检测结果到-PLC">5.2 发送检测结果到 PLC</h2>
+<p>触发相机拍照检测完成后，<code>FormatOutputBuffer</code> 中打包的数据会自动通过 <code>WriteResultsBuffer</code> 发送至 PLC 的 <strong><code>Inspection Results</code></strong> 对应地址（可在监控表中切换显示格式方便核对）：</p>
+<p><img src="https://img.zzzg.top/20261129000657588.png" alt="视觉电子表格输出数据"></p>
+<p><img src="https://img.zzzg.top/20261129000659394.png" alt="PLC 监控表收到 Inspection Results 数据"></p>
+<h2 id="5-3-相机接收-PLC-UserData-数据">5.3 相机接收 PLC UserData 数据</h2>
+<ol>
+<li>在 PLC 监控表的 <strong><code>User Data</code></strong> 区域写入需要发送的数据；</li>
+<li>将 <strong><code>Set User Data</code></strong> 置 <code>1</code>，待相机反馈 <strong><code>Set User Data Acknowledge = 1</code></strong> 后，再将 <strong><code>External Event 0</code></strong> 置 <code>1</code>，触发相机读取并刷新电子表格数据显示。</li>
+</ol>
+<blockquote>
+<p>💡 <strong>提示</strong>：如果在第 3.1 节已勾选「启用绕过用户数据」，可省略置位 <code>Set User Data</code> 的握手步骤。</p>
+</blockquote>
+<p><img src="https://img.zzzg.top/20261129000701997.png" alt="PLC 写入 User Data 并触发读取"></p>
+<p><img src="https://img.zzzg.top/20261129000704538.png" alt="相机电子表格收到并刷新 User Data"></p>
+<hr>
+<h1 id="6-PLC-切换相机-Job（作业）">6 PLC 切换相机 Job（作业）</h1>
+<h2 id="6-1-通过-Job-ID-切换">6.1 通过 Job ID 切换</h2>
+<p>适用作业 ID 取值范围：<strong><code>0 ~ 999</code></strong>。切换步骤如下：</p>
+<ol>
+<li>将目标作业 ID 写入 <strong><code>Command ID</code></strong>；</li>
+<li>将 <strong><code>Set Offline</code></strong> 置 <code>1</code>，使相机进入强制脱机状态；</li>
+<li>将 <strong><code>Execute Command</code></strong> 置 <code>1</code> 执行切换作业命令；</li>
+<li>等待 <strong><code>Command Completed = 1</code></strong> 且 <strong><code>Command Failed = 0</code></strong>，表明切换成功，此时 <strong><code>Current Job ID</code></strong> 更新为目标作业 ID；</li>
+<li>最后复位 <strong><code>Execute Command = 0</code></strong> 并将 <strong><code>Set Offline</code></strong> 置 <code>0</code>，恢复相机联机状态。</li>
+</ol>
+<p><img src="https://img.zzzg.top/20261129000706995.png" alt="查看当前作业与目标作业 ID"></p>
+<p><img src="https://img.zzzg.top/20261129000710334.png" alt="写入目标 Command ID"></p>
+<p><img src="https://img.zzzg.top/20261129000712570.png" alt="置位 Set Offline 使相机脱机"></p>
+<p><img src="https://img.zzzg.top/20261129000715991.png" alt="置位 Execute Command 执行切换"></p>
+<p><img src="https://img.zzzg.top/20261129000718384.png" alt="切换完成并恢复联机"></p>
+<h2 id="6-2-通过-Job-名称切换">6.2 通过 Job 名称切换</h2>
+<ol>
+<li>将目标作业名称（ASCII 字符）写入 <strong><code>User Data</code></strong> 起始地址，且<strong>紧随名称末尾的下一个字节必须写入 <code>0</code></strong>（字符串结束符 <code>NULL</code>）；</li>
+<li>将 <strong><code>Command ID</code></strong> 设为 <strong><code>0x4000</code></strong>；</li>
+<li>将 <strong><code>Set Offline</code></strong> 置 <code>1</code> 使相机进入通讯脱机状态；</li>
+<li>将 <strong><code>Execute Command</code></strong> 置 <code>1</code> 执行切换命令，等待 <strong><code>Command Completed = 1</code></strong> 且 <strong><code>Command Failed = 0</code></strong>；
+<ul>
+<li>若作业名称以数字开头，<code>Current Job ID</code> 显示开头数字；</li>
+<li>若作业名称以字母开头，<code>Current Job ID</code> 显示 <code>0xFFFF</code>；</li>
+</ul>
+</li>
+<li>切换成功后，将 <strong><code>Set Offline</code></strong> 置 <code>0</code> 恢复相机联机。</li>
+</ol>
+<p><img src="https://img.zzzg.top/20261129000720769.png" alt="准备按名称切换的作业列表"></p>
+<p><img src="https://img.zzzg.top/20261129000723722.png" alt="User Data 写入作业名并以 0 结尾"></p>
+<p><img src="https://img.zzzg.top/20261129000726716.png" alt="Command ID 设为 0x4000 并置位 Set Offline"></p>
+<p><img src="https://img.zzzg.top/20261129000729432.png" alt="置位 Execute Command 执行按名称切换"></p>
+<p><img src="https://img.zzzg.top/20261129000731896.png" alt="按名称切换成功并恢复联机"></p>
+<hr>
+<h1 id="7-参考资料">7 参考资料</h1>
+<h2 id="7-1-PROFINET-IO-模块交互表与信号位详解">7.1 PROFINET IO 模块交互表与信号位详解</h2>
+<h3 id="PROFINET-IO-模块总览">PROFINET IO 模块总览</h3>
+<table>
+<thead>
+<tr>
+<th style="text-align:left">Module（模块）</th>
+<th style="text-align:center">Byte</th>
+<th style="text-align:center">Bit 7</th>
+<th style="text-align:center">Bit 6</th>
+<th style="text-align:center">Bit 5</th>
+<th style="text-align:center">Bit 4</th>
+<th style="text-align:center">Bit 3</th>
+<th style="text-align:center">Bit 2</th>
+<th style="text-align:center">Bit 1</th>
+<th style="text-align:center">Bit 0</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td style="text-align:left"><strong>Acquisition Control</strong></td>
+<td style="text-align:center"><code>0</code></td>
+<td style="text-align:center">Set Offline</td>
+<td style="text-align:center">Reserved</td>
+<td style="text-align:center">Reserved</td>
+<td style="text-align:center">Reserved</td>
+<td style="text-align:center">Reserved</td>
+<td style="text-align:center">Clear Exposure Complete</td>
+<td style="text-align:center">Trigger</td>
+<td style="text-align:center">Trigger Enable</td>
+</tr>
+<tr>
+<td style="text-align:left"><strong>Acquisition Status</strong></td>
+<td style="text-align:center"><code>0</code></td>
+<td style="text-align:center">Online</td>
+<td style="text-align:center">Offline Reason [2]</td>
+<td style="text-align:center">Offline Reason [1]</td>
+<td style="text-align:center">Offline Reason [0]</td>
+<td style="text-align:center">Acquisition Error</td>
+<td style="text-align:center">Exposure Complete</td>
+<td style="text-align:center">Trigger Acknowledge</td>
+<td style="text-align:center">Trigger Ready</td>
+</tr>
+<tr>
+<td style="text-align:left"></td>
+<td style="text-align:center"><code>1</code></td>
+<td style="text-align:center">Reserved</td>
+<td style="text-align:center">—</td>
+<td style="text-align:center">—</td>
+<td style="text-align:center">—</td>
+<td style="text-align:center">—</td>
+<td style="text-align:center">—</td>
+<td style="text-align:center">—</td>
+<td style="text-align:center">—</td>
+</tr>
+<tr>
+<td style="text-align:left"></td>
+<td style="text-align:center"><code>2..3</code></td>
+<td style="text-align:center">Acquisition ID (16-bit)</td>
+<td style="text-align:center"></td>
+<td style="text-align:center"></td>
+<td style="text-align:center"></td>
+<td style="text-align:center"></td>
+<td style="text-align:center"></td>
+<td style="text-align:center"></td>
+<td style="text-align:center"></td>
+</tr>
+<tr>
+<td style="text-align:left"><strong>Inspection Control</strong></td>
+<td style="text-align:center"><code>0</code></td>
+<td style="text-align:center">Clear Error</td>
+<td style="text-align:center">Reserved</td>
+<td style="text-align:center">Reserved</td>
+<td style="text-align:center">Reserved</td>
+<td style="text-align:center">Execute Command</td>
+<td style="text-align:center">Set User Data</td>
+<td style="text-align:center">Inspection Results Acknowledge</td>
+<td style="text-align:center">Buffer Results Enable</td>
+</tr>
+<tr>
+<td style="text-align:left"><strong>Inspection Status</strong></td>
+<td style="text-align:center"><code>0</code></td>
+<td style="text-align:center">Set User Data Acknowledge</td>
+<td style="text-align:center">Command Failed</td>
+<td style="text-align:center">Command Completed</td>
+<td style="text-align:center">Command Executing</td>
+<td style="text-align:center">Results Valid</td>
+<td style="text-align:center">Results Buffer Overrun</td>
+<td style="text-align:center">Inspection Completed</td>
+<td style="text-align:center">Reserved</td>
+</tr>
+<tr>
+<td style="text-align:left"></td>
+<td style="text-align:center"><code>1</code></td>
+<td style="text-align:center">Error</td>
+<td style="text-align:center">Reserved</td>
+<td style="text-align:center">—</td>
+<td style="text-align:center">—</td>
+<td style="text-align:center">—</td>
+<td style="text-align:center">—</td>
+<td style="text-align:center">—</td>
+<td style="text-align:center">Job Passed</td>
+</tr>
+<tr>
+<td style="text-align:left"></td>
+<td style="text-align:center"><code>2..3</code></td>
+<td style="text-align:center">Error ID (16-bit)</td>
+<td style="text-align:center"></td>
+<td style="text-align:center"></td>
+<td style="text-align:center"></td>
+<td style="text-align:center"></td>
+<td style="text-align:center"></td>
+<td style="text-align:center"></td>
+<td style="text-align:center"></td>
+</tr>
+<tr>
+<td style="text-align:left"><strong>Command Control Input</strong></td>
+<td style="text-align:center"><code>0..1</code></td>
+<td style="text-align:center">Command ID (16-bit)</td>
+<td style="text-align:center"></td>
+<td style="text-align:center"></td>
+<td style="text-align:center"></td>
+<td style="text-align:center"></td>
+<td style="text-align:center"></td>
+<td style="text-align:center"></td>
+<td style="text-align:center"></td>
+</tr>
+<tr>
+<td style="text-align:left"><strong>Command Control Output</strong></td>
+<td style="text-align:center"><code>0..1</code></td>
+<td style="text-align:center">Current Job ID (16-bit)</td>
+<td style="text-align:center"></td>
+<td style="text-align:center"></td>
+<td style="text-align:center"></td>
+<td style="text-align:center"></td>
+<td style="text-align:center"></td>
+<td style="text-align:center"></td>
+<td style="text-align:center"></td>
+</tr>
+<tr>
+<td style="text-align:left"></td>
+<td style="text-align:center"><code>2..3</code></td>
+<td style="text-align:center">Command Result Code (16-bit)</td>
+<td style="text-align:center"></td>
+<td style="text-align:center"></td>
+<td style="text-align:center"></td>
+<td style="text-align:center"></td>
+<td style="text-align:center"></td>
+<td style="text-align:center"></td>
+<td style="text-align:center"></td>
+</tr>
+<tr>
+<td style="text-align:left"><strong>Soft Event Control Input</strong></td>
+<td style="text-align:center"><code>0</code></td>
+<td style="text-align:center">External Event 7</td>
+<td style="text-align:center">External Event 6</td>
+<td style="text-align:center">External Event 5</td>
+<td style="text-align:center">External Event 4</td>
+<td style="text-align:center">External Event 3</td>
+<td style="text-align:center">External Event 2</td>
+<td style="text-align:center">External Event 1</td>
+<td style="text-align:center">External Event 0</td>
+</tr>
+<tr>
+<td style="text-align:left"><strong>Soft Event Control Output</strong></td>
+<td style="text-align:center"><code>0</code></td>
+<td style="text-align:center">External Event Ack 7</td>
+<td style="text-align:center">External Event Ack 6</td>
+<td style="text-align:center">External Event Ack 5</td>
+<td style="text-align:center">External Event Ack 4</td>
+<td style="text-align:center">External Event Ack 3</td>
+<td style="text-align:center">External Event Ack 2</td>
+<td style="text-align:center">External Event Ack 1</td>
+<td style="text-align:center">External Event Ack 0</td>
+</tr>
+<tr>
+<td style="text-align:left"><strong>User Data</strong>（最多 4 模块 / 1016 Bytes）</td>
+<td style="text-align:center"><code>0..1015</code></td>
+<td style="text-align:center">User Data</td>
+<td style="text-align:center"></td>
+<td style="text-align:center"></td>
+<td style="text-align:center"></td>
+<td style="text-align:center"></td>
+<td style="text-align:center"></td>
+<td style="text-align:center"></td>
+<td style="text-align:center"></td>
+</tr>
+<tr>
+<td style="text-align:left"><strong>Inspection Results</strong>（最多 4 模块 / 1000 Bytes）</td>
+<td style="text-align:center"><code>0..1</code></td>
+<td style="text-align:center">Inspection ID</td>
+<td style="text-align:center"></td>
+<td style="text-align:center"></td>
+<td style="text-align:center"></td>
+<td style="text-align:center"></td>
+<td style="text-align:center"></td>
+<td style="text-align:center"></td>
+<td style="text-align:center"></td>
+</tr>
+<tr>
+<td style="text-align:left"></td>
+<td style="text-align:center"><code>2..3</code></td>
+<td style="text-align:center">Inspection Results Code</td>
+<td style="text-align:center"></td>
+<td style="text-align:center"></td>
+<td style="text-align:center"></td>
+<td style="text-align:center"></td>
+<td style="text-align:center"></td>
+<td style="text-align:center"></td>
+<td style="text-align:center"></td>
+</tr>
+<tr>
+<td style="text-align:left"></td>
+<td style="text-align:center"><code>4..1003</code></td>
+<td style="text-align:center">Inspection Results</td>
+<td style="text-align:center"></td>
+<td style="text-align:center"></td>
+<td style="text-align:center"></td>
+<td style="text-align:center"></td>
+<td style="text-align:center"></td>
+<td style="text-align:center"></td>
+<td style="text-align:center"></td>
+</tr>
+</tbody>
+</table>
+<h3 id="1-Acquisition-Control（采集控制，PLC-→-相机）">1. Acquisition Control（采集控制，PLC → 相机）</h3>
+<table>
+<thead>
+<tr>
+<th style="text-align:center">字节</th>
+<th style="text-align:center">位</th>
+<th style="text-align:left">名称</th>
+<th style="text-align:left">功能描述</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td style="text-align:center"><code>0</code></td>
+<td style="text-align:center"><code>0</code></td>
+<td style="text-align:left"><code>Trigger Enable</code></td>
+<td style="text-align:left">启用通过 <code>Trigger</code> 位网络触发拍照；清零则禁用网络触发</td>
+</tr>
+<tr>
+<td style="text-align:center"><code>0</code></td>
+<td style="text-align:center"><code>1</code></td>
+<td style="text-align:left"><code>Trigger</code></td>
+<td style="text-align:left">触发相机获取图像（前提：<code>Trigger Enable</code> 必须置 <code>1</code>）</td>
+</tr>
+<tr>
+<td style="text-align:center"><code>0</code></td>
+<td style="text-align:center"><code>2</code></td>
+<td style="text-align:left"><code>Clear Exposure Complete</code></td>
+<td style="text-align:left">清空 <code>Exposure Complete</code> 状态位</td>
+</tr>
+<tr>
+<td style="text-align:center"><code>0</code></td>
+<td style="text-align:center"><code>7</code></td>
+<td style="text-align:left"><code>Set Offline</code></td>
+<td style="text-align:left">置 <code>1</code> 时强制相机进入脱机状态，直到清零恢复</td>
+</tr>
+</tbody>
+</table>
+<h3 id="2-Acquisition-Status（采集状态，相机-→-PLC）">2. Acquisition Status（采集状态，相机 → PLC）</h3>
+<table>
+<thead>
+<tr>
+<th style="text-align:center">字节</th>
+<th style="text-align:center">位</th>
+<th style="text-align:left">名称</th>
+<th style="text-align:left">功能描述</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td style="text-align:center"><code>0</code></td>
+<td style="text-align:center"><code>0</code></td>
+<td style="text-align:left"><code>Trigger Ready</code></td>
+<td style="text-align:left">为 <code>1</code> 表示允许接收新的 <code>Trigger</code> 信号（系统在线、<code>Trigger Enable = 1</code> 且未在采图）</td>
+</tr>
+<tr>
+<td style="text-align:center"><code>0</code></td>
+<td style="text-align:center"><code>1</code></td>
+<td style="text-align:left"><code>Trigger Ack</code></td>
+<td style="text-align:left">表示已接收 <code>Trigger</code> 触发（保持到 <code>Trigger</code> 清空），上升沿递增 <code>Acquisition ID</code>；若离线时触发，该位与 <code>Acq Error</code> 同置 <code>1</code></td>
+</tr>
+<tr>
+<td style="text-align:center"><code>0</code></td>
+<td style="text-align:center"><code>2</code></td>
+<td style="text-align:left"><code>Exposure Complete</code></td>
+<td style="text-align:left">曝光完成标志</td>
+</tr>
+<tr>
+<td style="text-align:center"><code>0</code></td>
+<td style="text-align:center"><code>3</code></td>
+<td style="text-align:left"><code>Acq Error</code></td>
+<td style="text-align:left">采图失败标志（常见原因：触发未设为工业以太网、系统未在线、<code>$System.OnlineEnabled</code> 为 <code>False</code>、正在采图或图像缓存溢出）</td>
+</tr>
+<tr>
+<td style="text-align:center"><code>0</code></td>
+<td style="text-align:center"><code>4..6</code></td>
+<td style="text-align:left"><code>Offline Reason</code></td>
+<td style="text-align:left">离线原因代码：<code>0</code> = 在线；<code>1</code> = 作业编辑完全脱机；<code>2</code> = 离散 I/O 脱机；<code>3</code> = 通讯脱机</td>
+</tr>
+<tr>
+<td style="text-align:center"><code>0</code></td>
+<td style="text-align:center"><code>7</code></td>
+<td style="text-align:left"><code>Online</code></td>
+<td style="text-align:left">为 <code>1</code> 表示视觉系统处于在线状态</td>
+</tr>
+<tr>
+<td style="text-align:center"><code>2..3</code></td>
+<td style="text-align:center">—</td>
+<td style="text-align:left"><code>Acquisition ID</code></td>
+<td style="text-align:left">每次 <code>Trigger Ack</code> 置 <code>1</code> 时递增 <code>1</code></td>
+</tr>
+</tbody>
+</table>
+<h3 id="3-Inspection-Control（检测控制，PLC-→-相机）">3. Inspection Control（检测控制，PLC → 相机）</h3>
+<table>
+<thead>
+<tr>
+<th style="text-align:center">字节</th>
+<th style="text-align:center">位</th>
+<th style="text-align:left">名称</th>
+<th style="text-align:left">功能描述</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td style="text-align:center"><code>0</code></td>
+<td style="text-align:center"><code>0</code></td>
+<td style="text-align:left"><code>Buffer Results Enable</code></td>
+<td style="text-align:left">置 <code>1</code> 启用结果缓冲（最多缓存 16 组），每组结果保持至 <code>Inspection Results Ack</code> 确认后切换下一组</td>
+</tr>
+<tr>
+<td style="text-align:center"><code>0</code></td>
+<td style="text-align:center"><code>1</code></td>
+<td style="text-align:left"><code>Inspection Results Ack</code></td>
+<td style="text-align:left">启用缓冲时，通知相机 PLC 已收到当前 <code>Inspection ID</code> / <code>Result Code</code> / <code>Results</code> 数据</td>
+</tr>
+<tr>
+<td style="text-align:center"><code>0</code></td>
+<td style="text-align:center"><code>2</code></td>
+<td style="text-align:left"><code>Set User Data</code></td>
+<td style="text-align:left">通知相机新 <code>User Data</code> 已就绪，相机转存至缓冲区后会置位 <code>Set User Data Ack</code></td>
+</tr>
+<tr>
+<td style="text-align:center"><code>0</code></td>
+<td style="text-align:center"><code>3</code></td>
+<td style="text-align:left"><code>Execute Command</code></td>
+<td style="text-align:left">高电平触发执行 <code>Command ID</code> 命令，保持至 <code>Command Completed = 1</code> 后清零（同时清除 <code>Command Completed</code>）</td>
+</tr>
+<tr>
+<td style="text-align:center"><code>0</code></td>
+<td style="text-align:center"><code>7</code></td>
+<td style="text-align:left"><code>Clear Error</code></td>
+<td style="text-align:left">置 <code>1</code> 清空 <code>Error</code> 与 <code>Error ID</code>，保持至 <code>Error</code> 清零</td>
+</tr>
+</tbody>
+</table>
+<h3 id="4-Inspection-Status（检测状态，相机-→-PLC）">4. Inspection Status（检测状态，相机 → PLC）</h3>
+<table>
+<thead>
+<tr>
+<th style="text-align:center">字节</th>
+<th style="text-align:center">位</th>
+<th style="text-align:left">名称</th>
+<th style="text-align:left">功能描述</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td style="text-align:center"><code>0</code></td>
+<td style="text-align:center"><code>1</code></td>
+<td style="text-align:left"><code>Inspection Completed</code></td>
+<td style="text-align:left">每次视觉检测完成时翻转跳变</td>
+</tr>
+<tr>
+<td style="text-align:center"><code>0</code></td>
+<td style="text-align:center"><code>2</code></td>
+<td style="text-align:left"><code>Results Buffer Overrun</code></td>
+<td style="text-align:left"><code>Buffer Results Enable = 1</code> 时因未及时确认 <code>Inspection Results Ack</code> 导致丢弃检测结果</td>
+</tr>
+<tr>
+<td style="text-align:center"><code>0</code></td>
+<td style="text-align:center"><code>3</code></td>
+<td style="text-align:left"><code>Results Valid</code></td>
+<td style="text-align:left"><code>Inspection ID</code>、<code>Result Code</code>、<code>Results</code> 与 <code>Job Pass</code> 已有效；置位 <code>Inspection Results Ack</code> 后清零</td>
+</tr>
+<tr>
+<td style="text-align:center"><code>0</code></td>
+<td style="text-align:center"><code>4</code></td>
+<td style="text-align:left"><code>Command Executing</code></td>
+<td style="text-align:left">正在执行命令（如加载作业）时为 <code>1</code>，完成后清零</td>
+</tr>
+<tr>
+<td style="text-align:center"><code>0</code></td>
+<td style="text-align:center"><code>5</code></td>
+<td style="text-align:left"><code>Command Completed</code></td>
+<td style="text-align:left">命令执行完成且 <code>Execute Command</code> 仍为高电平时置 <code>1</code>，<code>Execute Command</code> 拉低后清零</td>
+</tr>
+<tr>
+<td style="text-align:center"><code>0</code></td>
+<td style="text-align:center"><code>6</code></td>
+<td style="text-align:left"><code>Command Failed</code></td>
+<td style="text-align:left">命令（如加载作业）失败时置 <code>1</code>，下次成功加载作业后清零（早于 <code>Command Completed</code> 置位）</td>
+</tr>
+<tr>
+<td style="text-align:center"><code>0</code></td>
+<td style="text-align:center"><code>7</code></td>
+<td style="text-align:left"><code>Set User Data Ack</code></td>
+<td style="text-align:left">告知 PLC <code>Set User Data</code> 已接收完成</td>
+</tr>
+<tr>
+<td style="text-align:center"><code>1</code></td>
+<td style="text-align:center"><code>0</code></td>
+<td style="text-align:left"><code>Job Passed</code></td>
+<td style="text-align:left">最近一次检测结果为 <code>Passed</code> 时置 <code>1</code></td>
+</tr>
+<tr>
+<td style="text-align:center"><code>1</code></td>
+<td style="text-align:center"><code>7</code></td>
+<td style="text-align:left"><code>Error</code></td>
+<td style="text-align:left">发生错误时置 <code>1</code>，详见 <code>Error ID</code></td>
+</tr>
+<tr>
+<td style="text-align:center"><code>2..3</code></td>
+<td style="text-align:center">—</td>
+<td style="text-align:left"><code>Error ID</code></td>
+<td style="text-align:left">错误代码：<code>0x0000</code> = 无错误；<code>0x0101</code> = 离线状态下触发相机</td>
+</tr>
+</tbody>
+</table>
+<h3 id="5-Command-SoftEvent-UserData-Inspection-Results">5. Command / SoftEvent / UserData / Inspection Results</h3>
+<table>
+<thead>
+<tr>
+<th style="text-align:left">模块</th>
+<th style="text-align:center">字节</th>
+<th style="text-align:center">位</th>
+<th style="text-align:left">名称</th>
+<th style="text-align:left">功能描述</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td style="text-align:left"><strong>Command Control Input</strong></td>
+<td style="text-align:center"><code>0..1</code></td>
+<td style="text-align:center">—</td>
+<td style="text-align:left"><code>Command ID</code></td>
+<td style="text-align:left">16 位命令码（<code>Execute Command</code> 上升沿执行）：<code>0x0000 ~ 0x03E7</code> 按 ID 加载作业；<code>0x4000</code> 按名称加载作业</td>
+</tr>
+<tr>
+<td style="text-align:left"><strong>Command Control Output</strong></td>
+<td style="text-align:center"><code>0..1</code></td>
+<td style="text-align:center">—</td>
+<td style="text-align:left"><code>Current Job ID</code></td>
+<td style="text-align:left">当前作业 ID（若作业名以字母开头则显示 <code>0xFFFF</code>）</td>
+</tr>
+<tr>
+<td style="text-align:left"></td>
+<td style="text-align:center"><code>2..3</code></td>
+<td style="text-align:center">—</td>
+<td style="text-align:left"><code>Command Result Code</code></td>
+<td style="text-align:left"><code>0x0000</code> = 成功/未知失败；<code>0x0002</code> = Bad Command；<code>0x208D</code> = 请求与当前系统状态不匹配</td>
+</tr>
+<tr>
+<td style="text-align:left"><strong>SoftEvent Control Input</strong></td>
+<td style="text-align:center"><code>0</code></td>
+<td style="text-align:center"><code>0..7</code></td>
+<td style="text-align:left"><code>External Event 0..7</code></td>
+<td style="text-align:left">PLC 触发对应编号的软事件</td>
+</tr>
+<tr>
+<td style="text-align:left"><strong>SoftEvent Control Output</strong></td>
+<td style="text-align:center"><code>0</code></td>
+<td style="text-align:center"><code>0..7</code></td>
+<td style="text-align:left"><code>External Event Ack 0..7</code></td>
+<td style="text-align:left">相机确认已收到对应软触发事件</td>
+</tr>
+<tr>
+<td style="text-align:left"><strong>User Data</strong></td>
+<td style="text-align:center"><code>0..1015</code></td>
+<td style="text-align:center">—</td>
+<td style="text-align:left"><code>User Data</code></td>
+<td style="text-align:left">PLC 发送给相机，由 <code>ReadUserDataBuffer</code> 读取</td>
+</tr>
+<tr>
+<td style="text-align:left"><strong>Inspection Results</strong></td>
+<td style="text-align:center"><code>0..1</code></td>
+<td style="text-align:center">—</td>
+<td style="text-align:left"><code>Inspection ID</code></td>
+<td style="text-align:left">当前结果集对应的 <code>Acquisition ID</code></td>
+</tr>
+<tr>
+<td style="text-align:left"></td>
+<td style="text-align:center"><code>2..3</code></td>
+<td style="text-align:center">—</td>
+<td style="text-align:left"><code>Inspection Results Code</code></td>
+<td style="text-align:left"><code>WriteResultsBuffer</code> 中定义的 Result Code</td>
+</tr>
+<tr>
+<td style="text-align:left"></td>
+<td style="text-align:center"><code>4..1003</code></td>
+<td style="text-align:center">—</td>
+<td style="text-align:left"><code>Inspection Results</code></td>
+<td style="text-align:left"><code>WriteResultsBuffer</code> 写入的检测结果数据</td>
+</tr>
+</tbody>
+</table>
+<blockquote>
+<p>各模块在 PLC 中的起始地址可在 TIA Portal 的 IS3800 <strong>设备视图 → 设备概览</strong> 中直接查询：</p>
+<p><img src="https://img.zzzg.top/20261129000643768.png" alt="设备视图查询各模块起始地址"></p>
+</blockquote>
+<h2 id="7-2-交互时序图">7.2 交互时序图</h2>
+<ol>
+<li><strong>PLC 写入 UserData 后多次触发拍照检测时序图</strong>：</li>
+</ol>
+<p><img src="https://img.zzzg.top/20261129000734265.png" alt="PLC 设置用户数据与触发检测交互时序图"></p>
+<ol start="2">
+<li><strong>PLC 切换相机作业（Job）时序图</strong>：</li>
+</ol>
+<p><img src="https://img.zzzg.top/20261129000737227.png" alt="PLC 切换相机作业时序图"></p>
+<h2 id="7-3-参考-PLC-程序">7.3 参考 PLC 程序</h2>
+<p>以下为西门子 TIA Portal 参考梯形图控制逻辑：</p>
+<p><img src="https://img.zzzg.top/20261129000739419.png" alt="参考 PLC 程序 1"></p>
+<p><img src="https://img.zzzg.top/20261129000741590.png" alt="参考 PLC 程序 2"></p>
+<p><img src="https://img.zzzg.top/20261129000743813.png" alt="参考 PLC 程序 3"></p>
+<p><img src="https://img.zzzg.top/20261129000746327.png" alt="参考 PLC 程序 4"></p>
+<p><img src="https://img.zzzg.top/20261129000748531.png" alt="参考 PLC 程序 5"></p>
+<h2 id="7-4-官方参考文档">7.4 官方参考文档</h2>
+<ol>
+<li><strong>In-Sight 23.1.0 Spreadsheet 帮助文档</strong>：默认目录 <code>C:\Program Files\Cognex\In-Sight\In-Sight Vision Suite Editors\In-Sight\In-Sight 23.1.0\Docs\Help_InSight</code></li>
+<li><strong>Siemens TIA Portal V17 帮助文档</strong></li>
+</ol>
+]]></content>
+      <categories>
+        <category>工业自动化</category>
+      </categories>
+      <tags>
+        <tag>Cognex</tag>
+        <tag>康耐视</tag>
+        <tag>PROFINET</tag>
+        <tag>TIA Portal</tag>
+      </tags>
+  </entry>
+  <entry>
+    <title>康耐视视觉相机FTP存图完整方案（FileZilla Server+IS2800存图命名+定时清理）</title>
+    <url>/posts/d6f2cb72/</url>
+    <content><![CDATA[<blockquote>
+<p>在产线视觉检测项目中，通常需要将相机每次检测的 OK / NG 图像自动上传到工控机归档追溯，同时防止长期运行写满硬盘。本文整理了一套完整的现场闭环方案：<strong>FileZilla Server 搭建与排障 → 康耐视 IS2800 FTP 动态命名存图 → Windows 定时自动清理脚本</strong>。</p>
+</blockquote>
+<hr>
+<h1 id="一、搭建-FileZilla-Server-FTP-服务器">一、搭建 FileZilla Server FTP 服务器</h1>
+<h2 id="1-启动服务与管理界面">1. 启动服务与管理界面</h2>
+<ol>
+<li>运行 <code>FileZilla Server.exe</code> 启动后台服务，服务器地址（<code>127.0.0.1</code>）和默认管理端口保持默认：</li>
+</ol>
+<p><img src="https://img.zzzg.top/20261129000754129.jpg" alt="启动 FileZilla Server"></p>
+<ol start="2">
+<li>运行 <code>FileZilla Server Interface.exe</code> 连接管理界面，日志区域显示 <strong><code>Logged on</code></strong> 即表示登录成功：</li>
+</ol>
+<p><img src="https://img.zzzg.top/20261129000757368.png" alt="FileZilla Server Interface 登录成功"></p>
+<h2 id="2-常见启动失败排查">2. 常见启动失败排查</h2>
+<ul>
+<li><strong>现象 1</strong>：界面提示 <code>Error, could not connect to server</code>，说明后台 Server 服务尚未开启：</li>
+</ul>
+<p><img src="https://img.zzzg.top/20261129000759142.png" alt="无法连接到 FileZilla Server"></p>
+<ul>
+<li><strong>排查方法</strong>：务必先运行 <code>FileZilla Server.exe</code>。正常情况下再次运行会弹窗提示 <code>Stop Server?</code>；如果一直提示 <code>Start server?</code> 而无法启动，请打开任务管理器检查 <code>FileZilla Server</code> 进程与服务状态：</li>
+</ul>
+<p><img src="https://img.zzzg.top/20261129000801008.png" alt="Start server 提示框"></p>
+<p><img src="https://img.zzzg.top/20261129000802740.png" alt="Stop Server 提示框"></p>
+<ul>
+<li><strong>现象 2</strong>：端口冲突导致服务启动失败（需检查 21 / 管理端口是否被其他程序占用）：</li>
+</ul>
+<p><img src="https://img.zzzg.top/20261129000804408.png" alt="端口占用导致服务无法启动"></p>
+<ul>
+<li><strong>设为开机自动启动</strong>：在系统服务列表中找到 <code>FileZilla Server FTP server</code>，右键打开 <strong>属性</strong>，将 <strong>启动类型</strong> 改为 <strong><code>自动</code></strong>：</li>
+</ul>
+<p><img src="https://img.zzzg.top/20261129000806756.png" alt="将 FileZilla Server 服务启动类型改为自动"></p>
+<h2 id="3-添加-FTP-用户与共享目录权限">3. 添加 FTP 用户与共享目录权限</h2>
+<ol>
+<li>点击菜单栏上的 <strong>用户（Users）</strong> 图标，点击 <strong>Add</strong> 新建用户名，并在 <strong>General</strong> 中勾选密码设置登录密码：</li>
+</ol>
+<p><img src="https://img.zzzg.top/20261129000809815.jpg" alt="添加 FTP 用户并设置密码"></p>
+<ol start="2">
+<li>切换到左侧 <strong>Shared folders</strong>，点击 <strong>Add</strong> 指定本地存图目录，勾选右侧文件及目录的 <strong>读取 / 写入 / 删除 / 追加 / 创建 / 列出</strong> 等所需权限，点击 <strong>确定</strong> 保存：</li>
+</ol>
+<p><img src="https://img.zzzg.top/20261129000812527.png" alt="设置 FTP 共享文件夹与读写权限"></p>
+<h2 id="4-设置-FTP-端口、绑定-IP-与界面自启">4. 设置 FTP 端口、绑定 IP 与界面自启</h2>
+<ol>
+<li>点击菜单栏 <strong>设置</strong> 图标，在 <strong>常规设置（General settings）</strong> 中确认或修改 FTP 监听端口（默认 <code>21</code>）：</li>
+</ol>
+<p><img src="https://img.zzzg.top/20261129000814573.png" alt="设置 FTP 服务器监听端口"></p>
+<ol start="2">
+<li>切换到 <strong>IP 绑定（IP Bindings）</strong>，绑定与视觉相机处于同一网段的本机 IP 地址并点击确定：</li>
+</ol>
+<p><img src="https://img.zzzg.top/20261129000816968.png" alt="绑定 FTP 服务器本机 IP 地址"></p>
+<ol start="3">
+<li>如需开机自动显示管理界面，可将 <code>FileZilla Server Interface.exe</code> 创建快捷方式并放入 Windows 开始菜单的 <strong>启动（Startup）</strong> 目录中：</li>
+</ol>
+<p><img src="https://img.zzzg.top/20261129000819425.png" alt="添加 FileZilla Server Interface 到开机启动项"></p>
+<blockquote>
+<p>💡 <strong>附：康耐视 DataMan 读码器 FTP 存图参考设置页面</strong><br>
+若现场同时使用 DataMan 系列读码器，在 DataMan Setup Tool 的 <strong>Image Transfer / Result FTP Transfer</strong> 页面填入上述服务器 IP、端口、用户名、密码及文件名规则即可：</p>
+<p><img src="https://img.zzzg.top/20261129000821815.png" alt="DataMan FTP 存图设置参考"></p>
+</blockquote>
+<hr>
+<h1 id="二、康耐视-IS2800-相机-FTP-存图与动态命名配置">二、康耐视 IS2800 相机 FTP 存图与动态命名配置</h1>
+<p>下面以 <strong>IS2800</strong> 相机配合 <strong>PROFINET</strong> 接收 PLC 下发的文件名并按 OK / NG 分类存图为例，介绍详细配置步骤。</p>
+<h2 id="1-配置-PROFINET-通讯网络及站名">1. 配置 PROFINET 通讯网络及站名</h2>
+<p>打开 In-Sight Vision Suite，先完成相机 IP、PROFINET 协议启用及站名配置：</p>
+<p><img src="https://img.zzzg.top/20261129000825050.png" alt="IS2800 配置 PROFINET 通讯网络及站名"></p>
+<h2 id="2-配置-Math-表格引入检测结果与存图路径变量">2. 配置 Math 表格引入检测结果与存图路径变量</h2>
+<p>在 <strong>Math</strong> 表格中引入检测结果（如 OK / NG 判断），并拼接对应的目标文件夹名称或路径变量：</p>
+<p><img src="https://img.zzzg.top/20261129000827050.png" alt="设置 Math 表格引入检测结果与存图路径"></p>
+<h2 id="3-配置通信选项卡参数">3. 配置通信选项卡参数</h2>
+<p>切换到 <strong>通信</strong> 选项卡，在右侧参数栏分别配置 <strong>工业通信协议</strong>、<strong>FTP 服务器地址及账号密码</strong>、<strong>存图路径</strong>：</p>
+<p><img src="https://img.zzzg.top/20261129000830059.png" alt="IS2800 通信选项卡总览"></p>
+<h3 id="3-1-通信协议数据映射（Format-Data）">3.1 通信协议数据映射（Format Data）</h3>
+<p>点击 <strong>Format Data</strong> 配置输入/输出数据：</p>
+<ul>
+<li><strong>输入（PLC → 相机）</strong>：选定 <code>写入图像 FTP → 文件名</code>，数据类型设置为 <strong>字符串（String）</strong>（可用于接收 PLC 下发的条码 / 工件号作为图片名）；</li>
+<li><strong>输出（相机 → PLC）</strong>：选择需要回传给 PLC 的视觉检测结果。</li>
+</ul>
+<p><img src="https://img.zzzg.top/20261129000832789.png" alt="Format Data 输入数据配置（FTP 文件名）"></p>
+<p><img src="https://img.zzzg.top/20261129000834915.png" alt="Format Data 输出数据配置"></p>
+<h3 id="3-2-FTP-存图路径与动态文件夹设置">3.2 FTP 存图路径与动态文件夹设置</h3>
+<ol>
+<li>确认 FileZilla Server 中已创建对应账户并配置好本地共享根目录（如 <code>C:\Users\...\Desktop\ftp</code>）：</li>
+</ol>
+<p><img src="https://img.zzzg.top/20261129000838846.png" alt="FileZilla Server 对应共享路径确认"></p>
+<ol start="2">
+<li>在相机的 <strong>FTP 文件路径</strong> 参数中引入第 2 步 Math 表格生成的目标文件夹名称变量（实现自动按 <code>OK</code> / <code>NG</code> 分目录存放），最后设定是否保存 <strong>重叠图形（SVG）</strong> 及文件名尾缀：</li>
+</ol>
+<p><img src="https://img.zzzg.top/20261129000840627.png" alt="在 FTP 文件路径中引入文件夹变量并设置重叠图形"></p>
+<h2 id="4-图像存储效果验证">4. 图像存储效果验证</h2>
+<p>触发相机检测后，FTP 根目录下会自动生成分类文件夹（<code>OK</code> / <code>NG</code>），文件夹内同步保存原图（<code>.bmp</code>）及带检测框的叠加图（<code>.svg</code>）：</p>
+<p><img src="https://img.zzzg.top/20261129000843227.png" alt="FTP 根目录自动分类文件夹"></p>
+<p><img src="https://img.zzzg.top/20261129000845454.png" alt="文件夹内保存的原图与叠加图形文件"></p>
+<hr>
+<h1 id="三、工控机存图定时自动清理脚本">三、工控机存图定时自动清理脚本</h1>
+<p>产线相机长期高频拍照极易撑爆工控机磁盘，可将以下批处理脚本直接放在存图目录下，配合 <strong>Windows 任务计划程序</strong> 每日定时执行，仅保留最新的指定数量文件/文件夹。</p>
+<h2 id="版本-1：仅清理目录内的旧文件（不含子文件夹）">版本 1：仅清理目录内的旧文件（不含子文件夹）</h2>
+<p>保存为 <code>定时清理文件.bat</code>（UTF-8 编码），按需修改 <code>KEEP_FILE_COUNT</code>（默认保留最新 <code>5000</code> 个文件）：</p>
+<figure class="highlight bat"><table><tr><td class="code"><pre><span class="line">@<span class="built_in">echo</span> off</span><br><span class="line"><span class="built_in">chcp</span> <span class="number">65001</span> &gt;<span class="built_in">nul</span></span><br><span class="line"><span class="built_in">title</span> 每日文件定时清理程序</span><br><span class="line"></span><br><span class="line">::::::::::::::::::::::::::::::::::::::::::::::::::::::</span><br><span class="line">:: 配置项：保留最新文件数量（请根据需求修改）</span><br><span class="line">::::::::::::::::::::::::::::::::::::::::::::::::::::::</span><br><span class="line"><span class="built_in">set</span> &quot;KEEP_FILE_COUNT=<span class="number">5000</span>&quot;</span><br><span class="line">::::::::::::::::::::::::::::::::::::::::::::::::::::::</span><br><span class="line"><span class="built_in">set</span> /a SKIP_COUNT=KEEP_FILE_COUNT + <span class="number">1</span></span><br><span class="line"><span class="comment"></span></span><br><span class="line"><span class="comment">@REM ===================== 初始化环境 =====================</span></span><br><span class="line"><span class="built_in">set</span> &quot;SCRIPT_PATH=%~dp0&quot;</span><br><span class="line"><span class="built_in">cd</span> /d &quot;<span class="variable">%SCRIPT_PATH%</span>&quot;</span><br><span class="line"></span><br><span class="line"><span class="built_in">echo</span>.</span><br><span class="line"><span class="built_in">echo</span> ======================================================</span><br><span class="line"><span class="built_in">echo</span>  文件清理任务开始执行</span><br><span class="line"><span class="built_in">setlocal</span> enabledelayedexpansion</span><br><span class="line"><span class="keyword">for</span> /f &quot;delims=&quot; <span class="variable">%%a</span> <span class="keyword">in</span> (&#x27;<span class="built_in">echo</span> <span class="variable">%date%</span> <span class="variable">%time%</span>&#x27;) <span class="keyword">do</span> <span class="built_in">set</span> &quot;DATETIME=<span class="variable">%%a</span>&quot;</span><br><span class="line"><span class="built_in">echo</span>  执行时间：<span class="variable">!DATETIME!</span></span><br><span class="line"><span class="built_in">endlocal</span></span><br><span class="line"><span class="built_in">echo</span>  工作目录：<span class="variable">%SCRIPT_PATH%</span></span><br><span class="line"><span class="built_in">echo</span>  保留最新文件数：<span class="variable">%KEEP_FILE_COUNT%</span> 个</span><br><span class="line"><span class="built_in">echo</span> ======================================================</span><br><span class="line"><span class="built_in">echo</span>.</span><br><span class="line"><span class="comment"></span></span><br><span class="line"><span class="comment">@REM ===================== 统计文件数量 =====================</span></span><br><span class="line"><span class="keyword">for</span> /f <span class="variable">%%a</span> <span class="keyword">in</span> (&#x27;<span class="built_in">dir</span> /a:-d /b <span class="number">2</span>^&gt;<span class="built_in">nul</span> ^| <span class="built_in">find</span> /c /v &quot;&quot;&#x27;) <span class="keyword">do</span> <span class="built_in">set</span> &quot;TOTAL_COUNT=<span class="variable">%%a</span>&quot;</span><br><span class="line"><span class="built_in">set</span> /a VALID_COUNT=TOTAL_COUNT - <span class="number">1</span></span><br><span class="line"></span><br><span class="line"><span class="built_in">echo</span>  当前目录有效文件数量：<span class="variable">%VALID_COUNT%</span> 个</span><br><span class="line"></span><br><span class="line"><span class="keyword">if</span> <span class="variable">%VALID_COUNT%</span> <span class="keyword">leq</span> <span class="variable">%KEEP_FILE_COUNT%</span> (</span><br><span class="line">    <span class="built_in">echo</span>.</span><br><span class="line">    <span class="built_in">echo</span>  文件数量未超出阈值，无需清理</span><br><span class="line">    <span class="keyword">goto</span> :TASK_END</span><br><span class="line">)</span><br><span class="line"></span><br><span class="line"><span class="built_in">set</span> /a DELETE_COUNT=VALID_COUNT - KEEP_FILE_COUNT</span><br><span class="line"><span class="built_in">echo</span>.</span><br><span class="line"><span class="built_in">echo</span>  文件数量超出限制，将删除最旧的 <span class="variable">%DELETE_COUNT%</span> 个文件</span><br><span class="line"><span class="built_in">echo</span>.</span><br><span class="line"><span class="comment"></span></span><br><span class="line"><span class="comment">@REM ===================== 执行清理 =====================</span></span><br><span class="line"><span class="keyword">for</span> /f &quot;skip=<span class="variable">%SKIP_COUNT%</span> delims=&quot; <span class="variable">%%f</span> <span class="keyword">in</span> (&#x27;<span class="built_in">dir</span> /a:-d /o:-d /b <span class="number">2</span>^&gt;<span class="built_in">nul</span>&#x27;) <span class="keyword">do</span> (</span><br><span class="line">    <span class="keyword">if</span> <span class="keyword">not</span> &quot;<span class="variable">%%~</span>nxf&quot;==&quot;%~nx0&quot; (</span><br><span class="line">        <span class="built_in">echo</span>  已删除旧文件：<span class="variable">%%f</span></span><br><span class="line">        <span class="built_in">del</span> /f /q &quot;<span class="variable">%%f</span>&quot; &gt;<span class="built_in">nul</span> <span class="number">2</span>&gt;&amp;<span class="number">1</span></span><br><span class="line">    )</span><br><span class="line">)</span><br><span class="line"></span><br><span class="line">:TASK_END</span><br><span class="line"><span class="built_in">echo</span>.</span><br><span class="line"><span class="built_in">echo</span> ======================================================</span><br><span class="line"><span class="built_in">echo</span>  文件清理任务执行完成</span><br><span class="line"><span class="built_in">echo</span> ======================================================</span><br><span class="line"><span class="built_in">echo</span>.</span><br><span class="line"><span class="keyword">exit</span></span><br></pre></td></tr></table></figure>
+<h2 id="版本-2：同时清理旧文件及旧子文件夹（适合按日期分目录存图）">版本 2：同时清理旧文件及旧子文件夹（适合按日期分目录存图）</h2>
+<p>保存为 <code>定时清理文件-含文件夹.bat</code>，按需修改 <code>KEEP_FILE_COUNT</code>（例如按天分目录时可设为 <code>30</code>，保留最近 30 天目录）：</p>
+<figure class="highlight bat"><table><tr><td class="code"><pre><span class="line">@<span class="built_in">echo</span> off</span><br><span class="line"><span class="built_in">chcp</span> <span class="number">65001</span> &gt;<span class="built_in">nul</span></span><br><span class="line"><span class="built_in">title</span> 每日文件及文件夹定时清理程序</span><br><span class="line"></span><br><span class="line">::::::::::::::::::::::::::::::::::::::::::::::::::::::</span><br><span class="line">:: 配置项：保留最新文件/文件夹总数（请根据需求修改）</span><br><span class="line">::::::::::::::::::::::::::::::::::::::::::::::::::::::</span><br><span class="line"><span class="built_in">set</span> &quot;KEEP_FILE_COUNT=<span class="number">30</span>&quot;</span><br><span class="line">::::::::::::::::::::::::::::::::::::::::::::::::::::::</span><br><span class="line"><span class="built_in">set</span> /a SKIP_COUNT=KEEP_FILE_COUNT + <span class="number">1</span></span><br><span class="line"></span><br><span class="line"><span class="built_in">set</span> &quot;SCRIPT_PATH=%~dp0&quot;</span><br><span class="line"><span class="built_in">cd</span> /d &quot;<span class="variable">%SCRIPT_PATH%</span>&quot;</span><br><span class="line"></span><br><span class="line"><span class="built_in">echo</span>.</span><br><span class="line"><span class="built_in">echo</span> ======================================================</span><br><span class="line"><span class="built_in">echo</span>  文件清理任务开始执行</span><br><span class="line"><span class="built_in">setlocal</span> enabledelayedexpansion</span><br><span class="line"><span class="keyword">for</span> /f &quot;delims=&quot; <span class="variable">%%a</span> <span class="keyword">in</span> (&#x27;<span class="built_in">echo</span> <span class="variable">%date%</span> <span class="variable">%time%</span>&#x27;) <span class="keyword">do</span> <span class="built_in">set</span> &quot;DATETIME=<span class="variable">%%a</span>&quot;</span><br><span class="line"><span class="built_in">echo</span>  执行时间：<span class="variable">!DATETIME!</span></span><br><span class="line"><span class="built_in">endlocal</span></span><br><span class="line"><span class="built_in">echo</span>  工作目录：<span class="variable">%SCRIPT_PATH%</span></span><br><span class="line"><span class="built_in">echo</span>  保留最新数量：<span class="variable">%KEEP_FILE_COUNT%</span> 个</span><br><span class="line"><span class="built_in">echo</span> ======================================================</span><br><span class="line"><span class="built_in">echo</span>.</span><br><span class="line"></span><br><span class="line"><span class="keyword">for</span> /f <span class="variable">%%a</span> <span class="keyword">in</span> (&#x27;<span class="built_in">dir</span> /b <span class="number">2</span>^&gt;<span class="built_in">nul</span> ^| <span class="built_in">find</span> /c /v &quot;&quot;&#x27;) <span class="keyword">do</span> <span class="built_in">set</span> &quot;TOTAL_COUNT=<span class="variable">%%a</span>&quot;</span><br><span class="line"><span class="built_in">set</span> /a VALID_COUNT=TOTAL_COUNT - <span class="number">1</span></span><br><span class="line"></span><br><span class="line"><span class="built_in">echo</span>  当前目录有效条目数量：<span class="variable">%VALID_COUNT%</span> 个</span><br><span class="line"></span><br><span class="line"><span class="keyword">if</span> <span class="variable">%VALID_COUNT%</span> <span class="keyword">leq</span> <span class="variable">%KEEP_FILE_COUNT%</span> (</span><br><span class="line">    <span class="built_in">echo</span>.</span><br><span class="line">    <span class="built_in">echo</span>  数量未超出阈值，无需清理</span><br><span class="line">    <span class="keyword">goto</span> :TASK_END</span><br><span class="line">)</span><br><span class="line"></span><br><span class="line"><span class="built_in">set</span> /a DELETE_COUNT=VALID_COUNT - KEEP_FILE_COUNT</span><br><span class="line"><span class="built_in">echo</span>.</span><br><span class="line"><span class="built_in">echo</span>  超出限制，将删除最旧的 <span class="variable">%DELETE_COUNT%</span> 个条目</span><br><span class="line"><span class="built_in">echo</span>.</span><br><span class="line"></span><br><span class="line"><span class="keyword">for</span> /f &quot;skip=<span class="variable">%SKIP_COUNT%</span> delims=&quot; <span class="variable">%%f</span> <span class="keyword">in</span> (&#x27;<span class="built_in">dir</span> /o:-d /b <span class="number">2</span>^&gt;<span class="built_in">nul</span>&#x27;) <span class="keyword">do</span> (</span><br><span class="line">    <span class="keyword">if</span> <span class="keyword">not</span> &quot;<span class="variable">%%~</span>nxf&quot;==&quot;%~nx0&quot; (</span><br><span class="line">        <span class="keyword">if</span> <span class="keyword">exist</span> &quot;<span class="variable">%%f</span>\&quot; (</span><br><span class="line">            <span class="built_in">echo</span>  已删除旧文件夹：<span class="variable">%%f</span></span><br><span class="line">            <span class="built_in">rd</span> /s /q &quot;<span class="variable">%%f</span>&quot; &gt;<span class="built_in">nul</span> <span class="number">2</span>&gt;&amp;<span class="number">1</span></span><br><span class="line">        ) <span class="keyword">else</span> (</span><br><span class="line">            <span class="built_in">echo</span>  已删除旧文件：<span class="variable">%%f</span></span><br><span class="line">            <span class="built_in">del</span> /f /q &quot;<span class="variable">%%f</span>&quot; &gt;<span class="built_in">nul</span> <span class="number">2</span>&gt;&amp;<span class="number">1</span></span><br><span class="line">        )</span><br><span class="line">    )</span><br><span class="line">)</span><br><span class="line"></span><br><span class="line">:TASK_END</span><br><span class="line"><span class="built_in">echo</span>.</span><br><span class="line"><span class="built_in">echo</span> ======================================================</span><br><span class="line"><span class="built_in">echo</span>  文件清理任务执行完成</span><br><span class="line"><span class="built_in">echo</span> ======================================================</span><br><span class="line"><span class="built_in">echo</span>.</span><br><span class="line"><span class="keyword">exit</span></span><br></pre></td></tr></table></figure>
+<blockquote>
+<p>⚠️ <strong>使用提醒</strong>：</p>
+<ol>
+<li>脚本会对<strong>自身所在目录</strong>执行删除操作，请务必将其放入专门的 FTP 存图子目录中，<strong>切勿放在桌面或系统盘根目录直接运行</strong>！</li>
+<li>建议通过 Windows <strong>任务计划程序（Task Scheduler）</strong> 创建每日定时任务，指定「起始于」为脚本所在目录，实现无人值守自动清理。</li>
+</ol>
+</blockquote>
+]]></content>
+      <categories>
+        <category>工业自动化</category>
+      </categories>
+      <tags>
+        <tag>Cognex</tag>
+        <tag>康耐视</tag>
+        <tag>FTP</tag>
+      </tags>
+  </entry>
+  <entry>
     <title>手搓xray配置文件</title>
     <url>/posts/9b626a72/</url>
     <content><![CDATA[<p>手搓xray很简单</p>
@@ -8092,239 +9283,6 @@ ipv6.txt 为 IPv6 数据文件</p>
       </categories>
       <tags>
         <tag>短信转发</tag>
-      </tags>
-  </entry>
-  <entry>
-    <title>G120D变频器配置</title>
-    <url>/posts/d5ce6259/</url>
-    <content><![CDATA[<h1 id="安全注意事项">安全注意事项</h1>
-<p><img src="https://img.zzzg.top/20260412152405233.png" alt="image-20260412135200856"></p>
-<h1 id="调试向导">调试向导</h1>
-<h2 id="准备工作">准备工作</h2>
-<p><strong>关键注意事项</strong></p>
-<ul>
-<li>
-<p><strong>参数状态检查</strong>：如果变频器参数 P10 显示为“就绪”状态，在离线模式下将无法进行快速调试。</p>
-</li>
-<li>
-<p><strong>解决方法</strong>：需要在实际参数列表中手动修改相关参数。</p>
-</li>
-<li>
-<p><strong>例外情况</strong>：如果是直接离线进入调试向导，则无需进行此步骤。</p>
-</li>
-<li>
-<p><strong>参数 P10 就绪状态示例</strong></p>
-</li>
-</ul>
-<p><img src="https://img.zzzg.top/20260412152405235.png" alt="image-20260412143213081"></p>
-<h2 id="进入调试向导">进入调试向导</h2>
-<p>按照屏幕指引，找到并点击左侧菜单栏中的“调试向导”选项，开始进行参数配置。</p>
-<p><img src="https://img.zzzg.top/20260412152405236.png" alt="image-20260412143245410"></p>
-<h2 id="设定值指定">设定值指定</h2>
-<p><img src="https://img.zzzg.top/20260412152405237.png" alt="image-20260412143323675"></p>
-<h2 id="开环-闭环控制方式">开环/闭环控制方式</h2>
-<p><img src="https://img.zzzg.top/20260412152405238.png" alt="image-20260412143404696"></p>
-<h2 id="I-O配置与报文配置">I/O配置与报文配置</h2>
-<ul>
-<li>
-<p><strong>I/O默认配置设置</strong>：选择 I/O 的默认配置为<strong>7</strong>，对应参数<strong>P15</strong>。</p>
-</li>
-<li>
-<p><strong>报文配置设置</strong>：将报文配置设置为<strong>999</strong>，对应参数<strong>P922</strong>。</p>
-</li>
-</ul>
-<p><img src="https://img.zzzg.top/20260412152405239.png" alt="image-20260412143432453"></p>
-<h2 id="标准与电压配置">标准与电压配置</h2>
-<ul>
-<li>
-<p><strong>标准参数配置 (P100)</strong>：</p>
-<ul>
-<li>
-<p>标准选择：0 (IEC标准)</p>
-</li>
-<li>
-<p>电源频率：50Hz</p>
-</li>
-</ul>
-</li>
-<li>
-<p><strong>电压参数配置 (P210)</strong>：</p>
-<ul>
-<li>
-<p>设备输入电压：380V</p>
-</li>
-<li>
-<p>确保与现场实际供电情况一致</p>
-</li>
-</ul>
-</li>
-<li>
-<p><strong>功率单元应用 (P205)</strong>：</p>
-</li>
-<li>
-<p>标准选择：0（含重载）</p>
-</li>
-<li>
-<p>根据现场环境选择对应单元应用</p>
-</li>
-</ul>
-<p><img src="https://img.zzzg.top/20260412152405240.png" alt="image-20260412143455288"></p>
-<h2 id="电机参数配置">电机参数配置</h2>
-<ul>
-<li><strong>关键配置参数列表</strong>：
-<ul>
-<li>P300[0] 选择1：异步电机类型</li>
-<li>P133[0].0：设置电机连接方式</li>
-<li>P304[0] / P305[0]：额定电压与电流</li>
-<li>P307[0] /P308[0] / P310[0]：额定功率额定功率因素与与频率</li>
-<li>P311[0]：电机额定转速</li>
-<li>P335[0]：冷却方式（自冷却）</li>
-<li>P601[0]：温度传感器（无）</li>
-</ul>
-</li>
-</ul>
-<p>电机铭牌参数参考<img src="https://img.zzzg.top/20260412152405241.png" alt="电机铭牌参数参考"></p>
-<p>参数配置界面示例<img src="https://img.zzzg.top/20260412152405242.png" alt="参数配置界面示例"></p>
-<h2 id="电机抱闸制动配置">电机抱闸制动配置</h2>
-<ul>
-<li><strong>关键参数配置项</strong>：
-<ul>
-<li><strong>参数 P1215</strong>：电机抱闸控制方式选择</li>
-<li><strong>参数 P1216</strong>：抱闸打开时间设定 (ms)</li>
-<li><strong>参数 P1217</strong>：抱闸闭合时间设定 (ms)</li>
-</ul>
-</li>
-</ul>
-<p><img src="https://img.zzzg.top/20260412152405243.png" alt="image-20260412143708958"></p>
-<h2 id="参考速度与斜坡配置">参考速度与斜坡配置</h2>
-<ul>
-<li><strong>最大转速配置</strong>：参数号：P322[0]</li>
-<li><strong>斜坡上升时间</strong>：参数号：P1120 (设定值：1.2S)</li>
-<li><strong>斜坡下降时间</strong>：参数号：P1121 (设定值：0.87S)</li>
-<li><strong>急停斜坡时间</strong>：参数号：P1135 (设定值：0S)</li>
-<li><strong>电流极限保护</strong>：参数号：P640 (设定值：电机额定电流P305[0]的1.5倍)</li>
-</ul>
-<p><img src="https://img.zzzg.top/20260412152405244.png" alt="image-20260412144241331"></p>
-<h2 id="工艺应用与电机识别">工艺应用与电机识别</h2>
-<ul>
-<li><strong>工艺应用配置 (P502)</strong>：设置参数 P502 以选择合适的工艺应用宏，确保变频器驱动模式与负载特性匹配。</li>
-<li><strong>电机识别运行 (P1960)</strong>：启动参数 P1960 执行电机识别，使变频器自动检测并优化电机参数，为精确控制奠定基础。</li>
-</ul>
-<p><img src="https://img.zzzg.top/20260412152405245.png" alt="image-20260412144218440"></p>
-<h2 id="编码器配置">编码器配置</h2>
-<p><strong>无编码器</strong></p>
-<p><img src="https://img.zzzg.top/20260412152405246.png" alt="image-20260412144258860"></p>
-<h2 id="完成">完成</h2>
-<p><img src="https://img.zzzg.top/20260412152405247.png" alt="image-20260412144319491"></p>
-<h1 id="离线参数修改">离线参数修改</h1>
-<h2 id="调整增益-积分时间-P1470-P1472">调整增益/积分时间(P1470/P1472)</h2>
-<p><img src="https://img.zzzg.top/20260412152405248.png" alt="image-20260412145236106"></p>
-<h2 id="更改电机相序-P1820">更改电机相序 (P1820)</h2>
-<p><img src="https://img.zzzg.top/20260412152405249.png" alt="image-20260412145142514"></p>
-<h2 id="电机斜坡-P1120-P1121">电机斜坡 (P1120/P1121)</h2>
-<p><img src="https://img.zzzg.top/20260412152405250.png" alt="image-20260412145402230"></p>
-<h2 id="安全通信与方向设置">安全通信与方向设置</h2>
-<ul>
-<li><strong>安全通信配置</strong>：此次为安全变频器走的安全通信，需要设定为通讯给定STO信号。</li>
-</ul>
-<p><img src="https://img.zzzg.top/20260412152405251.png" alt="image-20260412145822916"></p>
-<p><img src="https://img.zzzg.top/20260412152405252.png" alt="image-20260412145901209"></p>
-<ul>
-<li><strong>安全测试停止时间调整</strong>：将安全测试停止时间修改为9000H,否则到时间需要经常断开STO才能不警告</li>
-</ul>
-<p><img src="https://img.zzzg.top/20260412152405253.png" alt="image-20260412145944329"></p>
-<ul>
-<li><strong>F-DI/F-DO/PROFIsafe</strong>：安全地址转16#</li>
-</ul>
-<p><img src="https://img.zzzg.top/20260412152405254.png" alt="image-20260412150137311"></p>
-<h1 id="参数下载与验收测试">参数下载与验收测试</h1>
-<ul>
-<li>
-<p><strong>参数下载与零点校正</strong>：</p>
-<ul>
-<li>
-<p>下载参数至变频器，原点自动校正至P2599数值。</p>
-</li>
-<li>
-<p>上传参数到组态并转在线。</p>
-</li>
-<li>
-<p>建议断电重启，测试零点位置是否正确。</p>
-</li>
-</ul>
-</li>
-<li>
-<p><strong>安全参数验收测试</strong>：</p>
-<ul>
-<li>
-<p>配置安全参数若出现报错，需进行验收测试。</p>
-</li>
-<li>
-<p>测试结束后必须上传参数，否则下次下载需重新测试。</p>
-</li>
-</ul>
-</li>
-</ul>
-<p><img src="https://img.zzzg.top/20260412152405255.png" alt="image-20260412150443468"></p>
-<h1 id="电机优化与静态测量">电机优化与静态测量</h1>
-<ul>
-<li>
-<p><strong>电机优化与静态测量准备</strong>：参数配置完成后，需进入调试模式进行电机优化，重点进行静态优化设置。</p>
-</li>
-<li>
-<p><strong>静态测量操作流程</strong>：选择“静态测量”方式并激活，切换至控制面板手动向前移动（非JOG模式），设定速度为0，等待测量提示完成，使能将自动断开。</p>
-</li>
-<li>
-<p><strong>惯量计算与参数保存</strong>：测量完成后电机自动旋转计算惯量，参数固定后，务必将参数保存至EEPROM中以确保设置生效。</p>
-</li>
-</ul>
-<p><img src="https://img.zzzg.top/20260412152405256.png" alt="image-20260412150602274"></p>
-<h1 id="PMC数据反馈配置">PMC数据反馈配置</h1>
-<ul>
-<li>
-<p><strong>配置步骤说明</strong>：</p>
-<ul>
-<li>
-<p>根据项目需求，需将变频器的实际电流数据反馈至PMC系统。</p>
-</li>
-<li>
-<p>具体操作：在通讯参数设置中，将12号预留字节设定为“实际电流反馈”。</p>
-</li>
-</ul>
-</li>
-</ul>
-<p><img src="https://img.zzzg.top/20260412152405257.png" alt="image-20260412150800811"></p>
-<h1 id="电机曲线配置">电机曲线配置</h1>
-<ul>
-<li>
-<p><strong>配置步骤说明</strong>：</p>
-<ul>
-<li>在信号栏选择所需要监控的曲线，点击红色方框进行监控</li>
-</ul>
-</li>
-</ul>
-<p><img src="https://img.zzzg.top/20260412152405258.png" alt="image-20260412151036529"></p>
-<ul>
-<li>
-<p>1：监控曲线</p>
-</li>
-<li>
-<p>2：开始监控</p>
-</li>
-<li>
-<p>3：停止监控</p>
-</li>
-<li>
-<p>4：取消监控，返回上一层</p>
-</li>
-</ul>
-<p><img src="https://img.zzzg.top/20260412152405259.png" alt="image-20260412151244679"></p>
-]]></content>
-      <categories>
-        <category>工业自动化</category>
-      </categories>
-      <tags>
-        <tag>G120D</tag>
       </tags>
   </entry>
   <entry>
